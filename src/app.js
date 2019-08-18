@@ -426,64 +426,73 @@ function checkStages() {
     if (atkStages1.value != "--" && parseInt(atkStages1.value) > 0) {
         atk1 = Math.floor(atk1 * (1 + 0.5 * parseInt(atkStages1.value)));
     }
-    else if (atkStages1.value != "--" && parseInt(atkStages1.value < 0)) {
+    else if (atkStages1.value != "--" && parseInt(atkStages1.value) < 0) {
         atk1 = Math.floor(atk1 * (2 / (2 - parseInt(atkStages1.value))));
     }
+
     if (defStages1.value != "--" && parseInt(defStages1.value) > 0) {
         def1 = Math.floor(def1 * (1 + 0.5 * parseInt(defStages1.value)));
     }
-    else if (defStages1.value != "--" && parseInt(defStages1.value < 0)) {
+    else if (defStages1.value != "--" && parseInt(defStages1.value) < 0) {
         def1 = Math.floor(def1 * (2 / (2 - parseInt(defStages1.value))));
     }
+
     if (atkRStages1.value != "--" && parseInt(atkRStages1.value) > 0) {
         atkR1 = Math.floor(atkR1 * (1 + 0.5 * parseInt(atkRStages1.value)));
     }
-    else if (atkRStages1.value != "--" && parseInt(atkRStages1.value < 0)) {
+    else if (atkRStages1.value != "--" && parseInt(atkRStages1.value) < 0) {
         atkR1 = Math.floor(atkR1 * (2 / (2 - parseInt(atkRStages1.value))));
     }
+
     if (defRStages1.value != "--" && parseInt(defRStages1.value) > 0) {
         defR1 = Math.floor(defR1 * (1 + 0.5 * parseInt(defRStages1.value)));
     }
-    else if (defRStages1.value != "--" && parseInt(defRStages1.value < 0)) {
+    else if (defRStages1.value != "--" && parseInt(defRStages1.value) < 0) {
         defR1 = Math.floor(defR1 * (2 / (2 - parseInt(defRStages1.value))));
     }
+
     if (spdStages1.value != "--" && parseInt(spdStages1.value) > 0) {
         spd1 = Math.floor(spd1 * (1 + 0.5 * parseInt(spdStages1.value)));
     }
-    else if (spdStages1.value != "--" && parseInt(spdStages1.value < 0)) {
+    else if (spdStages1.value != "--" && parseInt(spdStages1.value) < 0) {
         spd1 = Math.floor(spd1 * (2 / (2 - parseInt(spdStages1.value))));
     }    
 
     if (atkStages2.value != "--" && parseInt(atkStages2.value) > 0) {
         atk2 = Math.floor(atk2 * (1 + 0.5 * parseInt(atkStages2.value)));
     }
-    else if (atkStages2.value != "--" && parseInt(atkStages2.value < 0)) {
+    else if (atkStages2.value != "--" && parseInt(atkStages2.value) < 0) {
         atk2 = Math.floor(atk2 * (2 / (2 - parseInt(atkStages2.value))));
     }
+
     if (defStages2.value != "--" && parseInt(defStages2.value) > 0) {
         def2 = Math.floor(def2 * (1 + 0.5 * parseInt(defStages2.value)));
     }
-    else if (defStages2.value != "--" && parseInt(defStages2.value < 0)) {
+    else if (defStages2.value != "--" && parseInt(defStages2.value) < 0) {
         def2 = Math.floor(def2 * (2 / (2 - parseInt(defStages2.value))));
     }
+
     if (atkRStages2.value != "--" && parseInt(atkRStages2.value) > 0) {
         atkR2 = Math.floor(atkR2 * (1 + 0.5 * parseInt(atkRStages2.value)));
     }
-    else if (atkRStages2.value != "--" && parseInt(atkRStages2.value < 0)) {
+    else if (atkRStages2.value != "--" && parseInt(atkRStages2.value) < 0) {
         atkR2 = Math.floor(atkR2 * (2 / (2 - parseInt(atkRStages2.value))));
     }
+
     if (defRStages2.value != "--" && parseInt(defRStages2.value) > 0) {
         defR2 = Math.floor(defR2 * (1 + 0.5 * parseInt(defRStages2.value)));
     }
-    else if (defRStages2.value != "--" && parseInt(defRStages2.value < 0)) {
+    else if (defRStages2.value != "--" && parseInt(defRStages2.value) < 0) {
         defR2 = Math.floor(defR2 * (2 / (2 - parseInt(defRStages2.value))));
     }
+
     if (spdStages2.value != "--" && parseInt(spdStages2.value) > 0) {
         spd2 = Math.floor(spd2 * (1 + 0.5 * parseInt(spdStages2.value)));
     }
-    else if (spdStages2.value != "--" && parseInt(spdStages2.value < 0)) {
+    else if (spdStages2.value != "--" && parseInt(spdStages2.value) < 0) {
         spd2 = Math.floor(spd2 * (2 / (2 - parseInt(spdStages2.value))));
-    }        
+    }
+    
 }
 
 
