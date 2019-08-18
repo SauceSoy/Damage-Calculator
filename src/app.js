@@ -519,46 +519,53 @@ function calculateDamage(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, mo
 
     moveOneDmg1.innerHTML = dmgMoveOnePercent1 + checkIceTrap(secondLoom, ice2, dmgMoveOneL1, dmgMoveOneU1, hp2, moveOne1);
 
-    let dmgMoveTwoU1 = Math.floor((Math.floor((Math.floor(2 * level1.value/5) + 2) * moveTwo1.power * (moveTwo1.mr == "Ranged" ? atkR1/defR2 : atk1/def2)/50) + 2) * getMultiplier(firstLoom, secondLoom, moveTwo1, critTwo1, stat1, stat2, ability1, ability2, btl2));
-    let dmgMoveTwoL1 = Math.floor((Math.floor((Math.floor(2 * level1.value/5) + 2) * moveTwo1.power * (moveTwo1.mr == "Ranged" ? atkR1/defR2 : atk1/def2)/50) + 2) * getMultiplier(firstLoom, secondLoom, moveTwo1, critTwo1, stat1, stat2, ability1, ability2, btl2) * 0.85);    
+    let dmgMoveOneU1 = getMultiplier(firstLoom, secondLoom, moveOne1, critOne1, stat1, stat2, ability1, ability2, btl2, Math.floor((Math.floor(2 * level1.value/5) + 2) * moveOne1.power * (moveOne1.mr == "Ranged" ? atkR1/defR2 : atk1/def2)/50) + 2);
+    let dmgMoveOneL1 = getMultiplier(firstLoom, secondLoom, moveOne1, critOne1, stat1, stat2, ability1, ability2, btl2, Math.floor((Math.floor(2 * level1.value/5) + 2) * moveOne1.power * (moveOne1.mr == "Ranged" ? atkR1/defR2 : atk1/def2)/50) + 2, true);    
+    let dmgMoveOnePercent1 = (dmgMoveOneL1/hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveOneU1/hp2 * 100).toFixed(1).toString() + "%";
+
+    moveOneDmg1.innerHTML = dmgMoveOnePercent1 + checkIceTrap(secondLoom, ice2, dmgMoveOneL1, dmgMoveOneU1, hp2, moveOne1);
+
+    let dmgMoveTwoU1 = getMultiplier(firstLoom, secondLoom, moveTwo1, critTwo1, stat1, stat2, ability1, ability2, btl2, Math.floor((Math.floor(2 * level1.value/5) + 2) * moveTwo1.power * (moveTwo1.mr == "Ranged" ? atkR1/defR2 : atk1/def2)/50) + 2);
+    let dmgMoveTwoL1 = getMultiplier(firstLoom, secondLoom, moveTwo1, critTwo1, stat1, stat2, ability1, ability2, btl2, Math.floor((Math.floor(2 * level1.value/5) + 2) * moveTwo1.power * (moveTwo1.mr == "Ranged" ? atkR1/defR2 : atk1/def2)/50) + 2, true);      
     let dmgMoveTwoPercent1 = (dmgMoveTwoL1/hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveTwoU1/hp2 * 100).toFixed(1).toString() + "%";
 
     moveTwoDmg1.innerHTML = dmgMoveTwoPercent1 + checkIceTrap(secondLoom, ice2, dmgMoveTwoL1, dmgMoveTwoU1, hp2, moveTwo1);
 
-    let dmgMoveThreeU1 = Math.floor((Math.floor((Math.floor(2 * level1.value/5) + 2) * moveThree1.power * (moveThree1.mr == "Ranged" ? atkR1/defR2 : atk1/def2)/50) + 2) * getMultiplier(firstLoom, secondLoom, moveThree1, critThree1, stat1, stat2, ability1, ability2, btl2));
-    let dmgMoveThreeL1 = Math.floor((Math.floor((Math.floor(2 * level1.value/5) + 2) * moveThree1.power * (moveThree1.mr == "Ranged" ? atkR1/defR2 : atk1/def2)/50) + 2) * getMultiplier(firstLoom, secondLoom, moveThree1, critThree1, stat1, stat2, ability1, ability2, btl2) * 0.85);    
+    let dmgMoveThreeU1 = getMultiplier(firstLoom, secondLoom, moveThree1, critThree1, stat1, stat2, ability1, ability2, btl2, Math.floor((Math.floor(2 * level1.value/5) + 2) * moveThree1.power * (moveThree1.mr == "Ranged" ? atkR1/defR2 : atk1/def2)/50) + 2);
+    let dmgMoveThreeL1 = getMultiplier(firstLoom, secondLoom, moveThree1, critThree1, stat1, stat2, ability1, ability2, btl2, Math.floor((Math.floor(2 * level1.value/5) + 2) * moveThree1.power * (moveThree1.mr == "Ranged" ? atkR1/defR2 : atk1/def2)/50) + 2, true);      
     let dmgMoveThreePercent1 = (dmgMoveThreeL1/hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveThreeU1/hp2 * 100).toFixed(1).toString() + "%";
 
     moveThreeDmg1.innerHTML = dmgMoveThreePercent1 + checkIceTrap(secondLoom, ice2, dmgMoveThreeL1, dmgMoveThreeU1, hp2, moveThree1);
 
-    let dmgMoveFourU1 = Math.floor((Math.floor((Math.floor(2 * level1.value/5) + 2) * moveFour1.power * (moveFour1.mr == "Ranged" ? atkR1/defR2 : atk1/def2)/50) + 2) * getMultiplier(firstLoom, secondLoom, moveFour1, critFour1, stat1, stat2, ability1, ability2, btl2));
-    let dmgMoveFourL1 = Math.floor((Math.floor((Math.floor(2 * level1.value/5) + 2) * moveFour1.power * (moveFour1.mr == "Ranged" ? atkR1/defR2 : atk1/def2)/50) + 2) * getMultiplier(firstLoom, secondLoom, moveFour1, critFour1, stat1, stat2, ability1, ability2, btl2) * 0.85);    
+    let dmgMoveFourU1 = getMultiplier(firstLoom, secondLoom, moveFour1, critFour1, stat1, stat2, ability1, ability2, btl2, Math.floor((Math.floor(2 * level1.value/5) + 2) * moveFour1.power * (moveFour1.mr == "Ranged" ? atkR1/defR2 : atk1/def2)/50) + 2);
+    let dmgMoveFourL1 = getMultiplier(firstLoom, secondLoom, moveFour1, critFour1, stat1, stat2, ability1, ability2, btl2, Math.floor((Math.floor(2 * level1.value/5) + 2) * moveFour1.power * (moveFour1.mr == "Ranged" ? atkR1/defR2 : atk1/def2)/50) + 2, true);       
     let dmgMoveFourPercent1 = (dmgMoveFourL1/hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveFourU1/hp2 * 100).toFixed(1).toString() + "%";
 
     moveFourDmg1.innerHTML = dmgMoveFourPercent1 + checkIceTrap(secondLoom, ice2, dmgMoveFourL1, dmgMoveFourU1, hp2, moveFour1);
 
     //----------------------------------------------------------
 
-    let dmgMoveOneU2 = Math.floor((Math.floor((Math.floor(2 * level2.value/5) + 2) * moveOne2.power * (moveOne2.mr == "Ranged" ? atkR2/defR1 : atk2/def1)/50) + 2) * getMultiplier(secondLoom, firstLoom, moveOne2, critOne2, stat2, stat1, ability2, ability1, btl1));
-    let dmgMoveOneL2 = Math.floor((Math.floor((Math.floor(2 * level2.value/5) + 2) * moveOne2.power * (moveOne2.mr == "Ranged" ? atkR2/defR1 : atk2/def1)/50) + 2) * getMultiplier(secondLoom, firstLoom, moveOne2, critOne2, stat2, stat1, ability2, ability1, btl1) * 0.85);    
+    let dmgMoveOneU2 = getMultiplier(secondLoom, firstLoom, moveOne2, critOne2, stat2, stat1, ability2, ability1, btl1, Math.floor((Math.floor(2 * level2.value/5) + 2) * moveOne2.power * (moveOne2.mr == "Ranged" ? atkR2/defR1 : atk2/def1)/50) + 2);
+    let dmgMoveOneL2 = getMultiplier(secondLoom, firstLoom, moveOne2, critOne2, stat2, stat1, ability2, ability1, btl1, Math.floor((Math.floor(2 * level2.value/5) + 2) * moveOne2.power * (moveOne2.mr == "Ranged" ? atkR2/defR1 : atk2/def1)/50) + 2, true);    
     let dmgMoveOnePercent2 = (dmgMoveOneL2/hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveOneU2/hp1 * 100).toFixed(1).toString() + "%";
 
     moveOneDmg2.innerHTML = dmgMoveOnePercent2 + checkIceTrap(firstLoom, ice1, dmgMoveOneL2, dmgMoveOneU2, hp1, moveOne2);
 
-    let dmgMoveTwoU2 = Math.floor((Math.floor((Math.floor(2 * level2.value/5) + 2) * moveTwo2.power * (moveTwo2.mr == "Ranged" ? atkR2/defR1 : atk2/def1)/50) + 2) * getMultiplier(secondLoom, firstLoom, moveTwo2, critTwo2, stat2, stat1, ability2, ability1, btl1));
-    let dmgMoveTwoL2 = Math.floor((Math.floor((Math.floor(2 * level2.value/5) + 2) * moveTwo2.power * (moveTwo2.mr == "Ranged" ? atkR2/defR1 : atk2/def1)/50) + 2) * getMultiplier(secondLoom, firstLoom, moveTwo2, critTwo2, stat2, stat1, ability2, ability1, btl1) * 0.85);    
+    let dmgMoveTwoU2 = getMultiplier(secondLoom, firstLoom, moveTwo2, critTwo2, stat2, stat1, ability2, ability1, btl1, Math.floor((Math.floor(2 * level2.value/5) + 2) * moveTwo2.power * (moveTwo2.mr == "Ranged" ? atkR2/defR1 : atk2/def1)/50) + 2);
+    let dmgMoveTwoL2 = getMultiplier(secondLoom, firstLoom, moveTwo2, critTwo2, stat2, stat1, ability2, ability1, btl1, Math.floor((Math.floor(2 * level2.value/5) + 2) * moveTwo2.power * (moveTwo2.mr == "Ranged" ? atkR2/defR1 : atk2/def1)/50) + 2, true);   
     let dmgMoveTwoPercent2 = (dmgMoveTwoL2/hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveTwoU2/hp1 * 100).toFixed(1).toString() + "%";
 
     moveTwoDmg2.innerHTML = dmgMoveTwoPercent2 + checkIceTrap(firstLoom, ice1, dmgMoveTwoL2, dmgMoveTwoU2, hp1, moveTwo2);
 
-    let dmgMoveThreeU2 = Math.floor((Math.floor((Math.floor(2 * level2.value/5) + 2) * moveThree2.power * (moveThree2.mr == "Ranged" ? atkR2/defR1 : atk2/def1)/50) + 2) * getMultiplier(secondLoom, firstLoom, moveThree2, critThree2, stat2, stat1, ability2, ability1, btl1));
-    let dmgMoveThreeL2 = Math.floor((Math.floor((Math.floor(2 * level2.value/5) + 2) * moveThree2.power * (moveThree2.mr == "Ranged" ? atkR2/defR1 : atk2/def1)/50) + 2) * getMultiplier(secondLoom, firstLoom, moveThree2, critThree2, stat2, stat1, ability2, ability1, btl1) * 0.85);    
+    let dmgMoveThreeU2 = getMultiplier(secondLoom, firstLoom, moveThree2, critThree2, stat2, stat1, ability2, ability1, btl1, Math.floor((Math.floor(2 * level2.value/5) + 2) * moveThree2.power * (moveThree2.mr == "Ranged" ? atkR2/defR1 : atk2/def1)/50) + 2);
+    let dmgMoveThreeL2 = getMultiplier(secondLoom, firstLoom, moveThree2, critThree2, stat2, stat1, ability2, ability1, btl1, Math.floor((Math.floor(2 * level2.value/5) + 2) * moveThree2.power * (moveThree2.mr == "Ranged" ? atkR2/defR1 : atk2/def1)/50) + 2, true);      
     let dmgMoveThreePercent2 = (dmgMoveThreeL2/hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveThreeU2/hp1 * 100).toFixed(1).toString() + "%";
 
     moveThreeDmg2.innerHTML = dmgMoveThreePercent2 + checkIceTrap(firstLoom, ice1, dmgMoveThreeL2, dmgMoveThreeU2, hp1, moveThree2);
 
-    let dmgMoveFourU2 = Math.floor((Math.floor((Math.floor(2 * level2.value/5) + 2) * moveFour2.power * (moveFour2.mr == "Ranged" ? atkR2/defR1 : atk2/def1)/50) + 2) * getMultiplier(secondLoom, firstLoom, moveFour2, critFour2, stat2, stat1, ability2, ability1, btl1));
-    let dmgMoveFourL2 = Math.floor((Math.floor((Math.floor(2 * level2.value/5) + 2) * moveFour2.power * (moveFour2.mr == "Ranged" ? atkR2/defR1 : atk2/def1)/50) + 2) * getMultiplier(secondLoom, firstLoom, moveFour2, critFour2, stat2, stat1, ability2, ability1, btl1) * 0.85);    
+    let dmgMoveFourU2 = getMultiplier(secondLoom, firstLoom, moveFour2, critFour2, stat2, stat1, ability2, ability1, btl1, Math.floor((Math.floor(2 * level2.value/5) + 2) * moveFour2.power * (moveFour2.mr == "Ranged" ? atkR2/defR1 : atk2/def1)/50) + 2);
+    let dmgMoveFourL2 = getMultiplier(secondLoom, firstLoom, moveFour2, critFour2, stat2, stat1, ability2, ability1, btl1, Math.floor((Math.floor(2 * level2.value/5) + 2) * moveFour2.power * (moveFour2.mr == "Ranged" ? atkR2/defR1 : atk2/def1)/50) + 2, true);   
+
     let dmgMoveFourPercent2 = (dmgMoveFourL2/hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveFourU2/hp1 * 100).toFixed(1).toString() + "%";
 
     moveFourDmg2.innerHTML = dmgMoveFourPercent2 + checkIceTrap(firstLoom, ice1, dmgMoveFourL2, dmgMoveFourU2, hp1, moveFour2);      
@@ -571,11 +578,26 @@ function isStab(loom, move) {
     return false;
 }
 
-function getMultiplier(loom1, loom2, move, crit, status1, status2, ability1, ability2, btl) {
+function getMultiplier(loom1, loom2, move, crit, status1, status2, ability1, ability2, btl, dmg, ul = false) {
     let multi = 1;
     let tempType = move.type;
     let gen1 = gender1.value;
     let gen2 = gender2.value;
+    
+    //Crit and Random -----------------------------
+
+    if (crit) {
+        multi *= 1.5;
+    }
+
+    if (ul) {
+        multi *= 0.85;;
+    }
+
+    dmg = Math.floor(dmg * multi);
+    multi = 1;
+
+    //STAB ---------------------------------
 
     if (isStab(loom1, move) && ability1 == "Awakening") {
         multi *= 1.5;
@@ -600,37 +622,15 @@ function getMultiplier(loom1, loom2, move, crit, status1, status2, ability1, abi
         multi *= 1.25;
     }
 
-    if (ability1 == "Ambush" && btl) {
-        multi *= 2;
-    }
-    
+    dmg = Math.floor(dmg * multi);
+    multi = 1;
+
+    //Type -------------------------------
+
     if ((ability2 == "Coursing Venom" && tempType == "Toxic") || (ability2 == "Lightning Rod" && tempType == "Electric") || (ability2 == "Prismatic" && tempType == "Light") || (ability2 == "Woodsman" && tempType == "Plant")) {
         multi *= 0;
     }
     
-    if (ability1 == "Hasty" && move.mr == "Melee") {
-        multi *= 1.5;
-    }
-
-    if (status1 == "burned" && move.mr == "Melee") {
-        multi *= 0.5;
-    }
-
-    if (status2 == "asleep" && ability1 == "Mean Spirited") {
-        multi *= 1.5;
-    }
-
-    if (crit) {
-        multi *= 1.5;
-    }
-
-    if (gen1 == gen2 && ability1 == "Territorial") {
-        multi *= 1.25;
-    }
-    else if (gen1 != gen2 && ability1 == "Territorial"){
-        multi *= 0.75;
-    }
-
     if (types[loom2.types[0].toLowerCase()].weaknesses.includes(tempType.toLowerCase())) {
         multi *= 2;
     }
@@ -650,7 +650,42 @@ function getMultiplier(loom1, loom2, move, crit, status1, status2, ability1, abi
         multi *= 0;
     }
 
-    return multi;
+    dmg = Math.floor(dmg * multi);
+    multi = 1;
+
+    //Status ------------------------
+
+    if (status1 == "burned" && move.mr == "Melee") {
+        multi *= 0.5;
+    }
+
+    if (status2 == "asleep" && ability1 == "Mean Spirited") {
+        multi *= 1.5;
+    }
+
+    dmg = Math.floor(dmg * multi);
+    multi = 1;
+
+    //Other --------------------------------
+
+    if (ability1 == "Ambush" && btl) {
+        multi *= 2;
+    }
+
+    if (gen1 == gen2 && ability1 == "Territorial") {
+        multi *= 1.25;
+    }
+    else if (gen1 != gen2 && ability1 == "Territorial"){
+        multi *= 0.75;
+    }
+
+    if (ability1 == "Hasty" && move.mr == "Melee") {
+        multi *= 1.5;
+    }
+
+    dmg = Math.floor(dmg * multi);
+
+    return dmg;
 }
 
 function checkIceTrap(loom, ice, lower, upper, hp, move) {
