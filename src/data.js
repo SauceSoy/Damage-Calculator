@@ -1060,6 +1060,13 @@ var moves = {
         power: 30,
         type: "Ice",
         mr: "Melee"
+    },
+    
+    searingSteel: {
+        name: "Searing Steel",
+        power: 85,
+        type: "Metal",
+        mr: "Melee"
     }                      
 };
 
