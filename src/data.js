@@ -1067,7 +1067,22 @@ var moves = {
         power: 85,
         type: "Metal",
         mr: "Melee"
-    }                      
+    },
+
+    wintersFury: {
+        name: "Winter's Fury",
+        power: 30,
+        type: "Ice",
+        mr: "Melee",
+        hits: 3
+    },
+
+    thunderstrike: {
+        name: "Thunderstrike",
+        power: 90,
+        type: "Electric",
+        mr: "Ranged"
+    }                   
 };
 
 var types = {
