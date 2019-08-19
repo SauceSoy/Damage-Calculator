@@ -1110,7 +1110,14 @@ var moves = {
         power: 90,
         type: "Typeless",
         mr: "Melee"
-    }                   
+    },
+    
+    slash: {
+        name: "Slash",
+        power: 75,
+        type: "Typeless",
+        mr: "Melee"
+    }
 };
 
 var types = {
