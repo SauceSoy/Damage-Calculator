@@ -1138,7 +1138,14 @@ var moves = {
         power: 120,
         type: "Earth",
         mr: "Melee"
-    }
+    },
+    
+    junglejutsu: {
+        name: "Junglejutsu",
+        power: 90,
+        type: "Brawler",
+        mr: "Melee"
+    },
 };
 
 var types = {
