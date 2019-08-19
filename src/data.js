@@ -1124,6 +1124,20 @@ var moves = {
         power: 95,
         type: "Air",
         mr: "Melee"
+    },
+    
+    flamingKick: {
+        name: "Flaming Kick",
+        power: 85,
+        type: "Fire",
+        mr: "Melee"
+    },
+
+    yetisWrath: {
+        name: "Yeti's Wrath",
+        power: 120,
+        type: "Earth",
+        mr: "Melee"
     }
 };
 
