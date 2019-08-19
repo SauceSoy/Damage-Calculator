@@ -1117,6 +1117,13 @@ var moves = {
         power: 75,
         type: "Typeless",
         mr: "Melee"
+    },
+
+    nosedive: {
+        name: "Nosedive",
+        power: 95,
+        type: "Air",
+        mr: "Melee"
     }
 };
 
