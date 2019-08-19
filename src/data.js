@@ -240,7 +240,7 @@ var loomians = {
     himbrr: {
         name: "Himbrr",
         number: 18,
-        types: ["Ice", "Ground"],
+        types: ["Ice", "Earth"],
         baseStats: {
             hp: 132,
             attack: 98,
