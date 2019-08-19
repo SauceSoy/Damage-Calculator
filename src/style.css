@@ -31,7 +31,9 @@ display: inline-block;
 .pokeselect {
 width: 24em;
 }
-
+.moveSelect {
+  width: 10em;
+}
 .infogroup {
 margin: 1em 0;
 }
