@@ -1082,6 +1082,34 @@ var moves = {
         power: 90,
         type: "Electric",
         mr: "Ranged"
+    },
+
+    maroon: {
+        name: "Maroon",
+        power: 70,
+        type: "Water",
+        mr: "Ranged"
+    },
+
+    flashPulse: {
+        name: "Flash Pulse",
+        power: 75,
+        type: "Light",
+        mr: "Ranged"
+    },
+
+    sleetShot: {
+        name: "Sleet Shot",
+        power: 55,
+        type: "Ice",
+        mr: "Ranged"
+    },
+
+    bodySlam: {
+        name: "Body Slam",
+        power: 90,
+        type: "Typeless",
+        mr: "Melee"
     }                   
 };
 
