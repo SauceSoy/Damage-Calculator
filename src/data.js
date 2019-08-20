@@ -317,7 +317,7 @@ var loomians = {
             defense: 68,
             attackR: 51,
             defenseR: 78,
-            speed: 91
+            speed: 71
         }
     },
     
