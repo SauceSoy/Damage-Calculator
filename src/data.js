@@ -1253,3 +1253,8 @@ var types = {
 };
 
 var abilities = ["Awakening", "Ambush", "Coursing Venom", "Lightning Rod", "Mean Spirited", "Neutralize", "Overshadow", "Prismatic", "Territorial", "Woodsman"];
+var items = ["Heavy Shield", "Heavy Armor"];
+
+for (let ty in types) {
+    items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Essence");
+}
