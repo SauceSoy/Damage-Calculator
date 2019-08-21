@@ -676,7 +676,8 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     if (dawn && isDouble && move.mr == "Ranged") {
         multi *= 1.5;
     }
-    tempAtk *= multi;
+	
+    tempAtk = pokeRound(tempAtk * multi);
     multi = 1;
     
     //Defense ----------------------------------------------------
@@ -688,7 +689,7 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
         multi *= 1.2;
     }
 
-    tempDef *= multi;
+    tempDef = pokeRound(tempDef * multi);
     multi = 1;
 
     dmg = Math.floor(dmg * tempAtk/tempDef * tempPower/50) + 2;
@@ -864,4 +865,11 @@ function get2HKO(dmg, hp) {
     console.log(possibleDmg);
 
     return (THKOs.length/257 * 100).toFixed(1).toString();
+}
+
+function pokeRound(val) {
+    if (val - Math.floor(val) > 0.5) {
+        return Math.ceil(val);
+    }
+    return Math.floor(val);
 }
