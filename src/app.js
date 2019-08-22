@@ -652,19 +652,6 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     tempPower = Math.floor(tempPower * multi);
     multi = 1;
 
-    //MR --------------------------------------------------
-
-    if (second) {
-        if (move.mr == "Ranged") {
-            tempAtk = atkR2;
-            tempDef = defR2;
-        }
-        else {
-            tempAtk = atk2;
-            tempDef = def2;
-        }
-    }
-
     //Attack -------------------------------------------
 
     if (ability1 == "Hasty" && move.mr == "Melee") {
@@ -692,7 +679,7 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     tempDef = pokeRound(tempDef * multi);
     multi = 1;
 
-    dmg = Math.floor(dmg * tempAtk/tempDef * tempPower/50) + 2;
+    dmg = Math.floor(Math.floor(dmg * tempAtk/tempDef * tempPower)/50) + 2;
 
     if (isDouble && move.aoe == true) {
         multi *= 0.75;
