@@ -314,7 +314,7 @@ var loomians = {
         baseStats: {
             hp: 75,
             attack: 96,
-            defense: 68,
+            defense: 79,
             attackR: 51,
             defenseR: 78,
             speed: 71
