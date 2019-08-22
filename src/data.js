@@ -1267,7 +1267,7 @@ var types = {
     },    
 };
 
-var abilities = ["Awakening", "Ambush", "Coursing Venom", "Lightning Rod", "Mean Spirited", "Neutralize", "Overshadow", "Prismatic", "Territorial", "Woodsman"];
+var abilities = ["Awakening", "Ambush", "Coursing Venom", "Lightning Rod", "Mean Spirited", "Neutralize", "Overshadow", "Prismatic", "Territorial", "Woodsman", "Dusk", "Dawn"];
 
 var items = ["Heavy Shield", "Heavy Armor"];
 
