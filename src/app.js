@@ -589,6 +589,8 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     let tempPower = move.power;
     let tempAtk;
     let tempDef;
+    let tempAtkStage;
+    let tempDefStage;
     let gen1 = gender1.value;
     let gen2 = gender2.value;
     let ability1 = (second == false ? abilities.find((x) => x == abilityDropdown1.value) : abilities.find((x) => x == abilityDropdown2.value));
@@ -605,20 +607,28 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     if (second && move.mr == "Ranged") {
         tempAtk = atkR2;
         tempDef = defR1;
+        tempAtkStage = atkRStages2;
+        tempDefStage = defRStages1;
     }
     else if (second && move.mr == "Melee") {
         tempAtk = atk2;
         tempDef = def1;
+        tempAtkStage = atkStages2;
+        tempDefStage = defStages1;
     }
     else if (move.mr == "Melee") {
         tempAtk = atk1;
         tempDef = def2;
+        tempAtkStage = atkStages1;
+        tempDefStage = defStages2;
     }
     else {
         tempAtk = atkR1;
         tempDef = defR2;
+        tempAtkStage = atkRStages1;
+        tempDefStage = defRStages2;
     }
-    
+
     //Base ------------------------------------
 
     dmg = Math.floor(2 * level/5) + 2;
@@ -649,26 +659,31 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
         multi *= 1.2;
     }
 
-    tempPower = Math.floor(tempPower * multi);
+    tempPower = pokeRound(tempPower * multi);
     multi = 1;
 
     //Attack -------------------------------------------
-
+    if (crit && parseInt(tempAtkStage.value) < 0) {
+        tempAtk = Math.ceil(tempAtk / (2 / (2 - parseInt(tempAtkStage.value))));
+    }
     if (ability1 == "Hasty" && move.mr == "Melee") {
         multi *= 1.5;
     }
-    if (dusk && isDouble && move.mr == "Melee") {
+    if (dusk && isDouble && move.mr == "Melee" && ability1 == "Dusk") {
         multi *= 1.5;
     }
-    if (dawn && isDouble && move.mr == "Ranged") {
+    if (dawn && isDouble && move.mr == "Ranged" && ability1 == "Dawn") {
         multi *= 1.5;
     }
-	
+    
+
     tempAtk = pokeRound(tempAtk * multi);
     multi = 1;
     
     //Defense ----------------------------------------------------
-
+    if (crit && parseInt(tempDefStage.value) > 0) {
+        tempDef = Math.ceil(tempDef / (1 + 0.5 * parseInt(tempDefStage)));
+    }
     if (itemB == "Heavy Shield" && move.mr == "Ranged") {
         multi *= 1.2;
     }
@@ -757,6 +772,7 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
 
     return dmg;
 }
+
 
 function checkIceTrap(loom, ice, lower, upper, hp, move, sap) {
     if (!ice && move.hits == undefined && sap == false) {
