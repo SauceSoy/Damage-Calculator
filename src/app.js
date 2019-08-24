@@ -181,7 +181,10 @@ function load() {
     if (document.cookie != "") {
         let cook = document.cookie;
         let data = JSON.parse(cook);
+        let newSets = [];
+
         for (let set in data) {
+            newSets.push(data[set]);
             addSet(newSets[newSets.length - 1]);
         }
     }
