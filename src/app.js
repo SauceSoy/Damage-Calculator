@@ -178,10 +178,25 @@ let defR2;
 let spd2;
 
 function load() {
+    if (document.cookie != "") {
+        let cook = document.cookie;
+        let data = JSON.parse(cook);
+        for (let set in data) {
+            newSets.push(importedSets[set]);
+            addSet(newSets[newSets.length - 1]);
+        }
+    }
+    console.log(document.cookie);
+
     loadDropdowns();
     loadSets();
     update();
 
+}
+
+function saveCookie() {
+    let json = JSON.stringify(sets);
+    document.cookie = json;
 }
 
 
