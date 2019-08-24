@@ -1166,6 +1166,13 @@ var moves = {
         power: 80,
         type: "Dark",
         mr: "Melee",
+    },
+    
+    luminousRoar: {
+        name: "Luminous Roar",
+        power: 75,
+        type: "Light",
+        mr: "Ranged",
     }
 };
 
