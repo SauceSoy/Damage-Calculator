@@ -178,6 +178,7 @@ let defR2;
 let spd2;
 
 function load() {
+    loadDropdowns();	
     if (document.cookie != "") {
         let cook = document.cookie;
         let data = JSON.parse(cook);
@@ -190,7 +191,6 @@ function load() {
     }
     console.log(document.cookie);
 
-    loadDropdowns();
     loadSets();
     update();
 
