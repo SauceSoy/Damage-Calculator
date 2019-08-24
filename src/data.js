@@ -1159,6 +1159,13 @@ var moves = {
         type: "Typeless",
         mr: "Melee",
         aoe: true
+    },
+    
+    megaChomp: {
+        name: "Mega Chomp",
+        power: 80,
+        type: "Dark",
+        mr: "Melee",
     }
 };
 
