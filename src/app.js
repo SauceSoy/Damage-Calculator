@@ -182,7 +182,6 @@ function load() {
         let cook = document.cookie;
         let data = JSON.parse(cook);
         for (let set in data) {
-            newSets.push(importedSets[set]);
             addSet(newSets[newSets.length - 1]);
         }
     }
