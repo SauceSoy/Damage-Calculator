@@ -824,6 +824,10 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
         tempType = "Dark";
         multi *= 1.2;
     }
+    else if (ability1 == "Illuminate" && tempType == "Typeless") {
+        tempType = "Light";
+        multi *= 1.2;
+    }
 
     if (ability1 == "Ambush" && btl) {
         multi *= 2;
@@ -837,6 +841,10 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     }
 
     if (itemA.includes(tempType)) {
+        multi *= 1.2;
+    }
+
+    if (itemA == "Power Cuffs") {
         multi *= 1.2;
     }
 
