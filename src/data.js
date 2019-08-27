@@ -1,7 +1,7 @@
 var loomians = {
     embit: {
         name: "Embit",
-        number:001,
+        number: 01,
         types: ["Fire"],
         baseStats: {
             hp: 57,
