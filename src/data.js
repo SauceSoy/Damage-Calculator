@@ -1173,7 +1173,21 @@ var moves = {
         power: 75,
         type: "Light",
         mr: "Ranged",
-    }
+    },
+    
+    fireSlam: {
+        name: "Fire Slam",
+        power: 60,
+        type: "Fire",
+        mr: "Melee"
+    },
+
+    shadowSprint: {
+        name: "Shadow Sprint",
+        power: 40,
+        type: "Spirit",
+        mr: "Melee"
+    } 
 };
 
 
@@ -1281,9 +1295,9 @@ var types = {
     },    
 };
 
-var abilities = ["Awakening", "Ambush", "Coursing Venom", "Lightning Rod", "Mean Spirited", "Neutralize", "Overshadow", "Prismatic", "Territorial", "Woodsman", "Dusk", "Dawn"];
+var abilities = ["Awakening", "Ambush", "Coursing Venom", "Lightning Rod", "Mean Spirited", "Neutralize", "Overshadow", "Illuminate", "Prismatic", "Territorial", "Woodsman", "Dusk", "Dawn"];
 
-var items = ["Heavy Shield", "Heavy Armor"];
+var items = ["Heavy Shield", "Heavy Armor", "Power Cuffs"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Essence");
