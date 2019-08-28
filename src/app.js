@@ -764,6 +764,8 @@ function isStab(loom, move) {
 }
 
 function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = false) {
+    if (move.power == 0) return 0;
+	
     let multi = 1;
     let dmg;
     let tempType = move.type;
