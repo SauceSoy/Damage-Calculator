@@ -898,8 +898,8 @@ var moves = {
         aoe: true
     },      
 
-    gloomFang: {
-        name: "Gloom Fang",
+    gloomFangs: {
+        name: "Gloom Fangs",
         power: 75,
         type: "Dark",
         mr: "Melee"
@@ -976,8 +976,8 @@ var moves = {
         mr: "Ranged"
     },      
 
-    bushWack: {
-        name: "Bush Wack",
+    bushWhack: {
+        name: "Bush Whack",
         power: 65,
         type: "Plant",
         mr: "Melee"
@@ -1174,7 +1174,7 @@ var moves = {
         type: "Light",
         mr: "Ranged",
     },
-    
+
     fireSlam: {
         name: "Fire Slam",
         power: 60,
@@ -1187,7 +1187,355 @@ var moves = {
         power: 40,
         type: "Spirit",
         mr: "Melee"
-    } 
+    },
+
+    airBlade: {
+        name: "Air Blade",
+        power: 70,
+        type: "Air",
+        mr: "Ranged"
+    },
+
+    boulderBlast: {
+        name: "Boulder Blast",
+        power: 25,
+        type: "Earth",
+        mr: "Ranged",
+        hits: 5
+    },
+
+    darkSurge: {
+        name: "Dark Surge",
+        power: 80,
+        type: "Dark",
+        mr: "Ranged"
+    },
+
+    earSlap: {
+        name: "Ear Slap",
+        power: 15,
+        type: "Typeless",
+        mr: "Melee",
+        hits: 5
+    },
+
+    muckBlast: {
+        name: "Muck Blast",
+        power: 90,
+        type: "Toxic",
+        mr: "Ranged"
+    },
+
+    pheroblast: {
+        name: "Pheroblast",
+        pwoer: 90,
+        type: "Bug",
+        mr: "Ranged",
+    },
+
+    pineShot: {
+        name: "Pine Shot",
+        power: 25,
+        type: "Plant",
+        mr: "Ranged",
+        hits: 5
+    },
+
+    quickPunch: {
+        name: "Quick Punch",
+        power: 40,
+        type: "Brawler",
+        mr: "Melee"
+    },
+
+    ragingHowl: {
+        name: "Raging Howl",
+        power: 120,
+        type: "Typeless",
+        mr: "Ranged"
+    },
+
+    thunderChomp: {
+        name: "Thunder Chomp",
+        power: 65,
+        type: "Electric",
+        mr: "Melee"
+    },
+
+    thunderSlam: {
+        name: "Thunder Slam",
+        power: 65,
+        type: "Electric",
+        mr: "Melee"
+    },
+
+    toxicTail: {
+        name: "Toxic Tail",
+        power: 50,
+        type: "Toxic",
+        mr: "Melee"
+    },
+    
+    returnToSender: {
+        name: "Return to Sender",
+        power: 0,
+        type: "Mind",
+        mr: "Ranged"
+    },
+    
+    //Support Moves -----------------------------------------------------------------------------------------------------------------------------------------
+    
+    accelerate: {
+        name: "Accelerate",
+        power: 0,
+        type: "Typeless",
+        mr: "Support"
+    },
+
+    aim: {
+        name: "Aim",
+        power: 0,
+        type: "Typeless",
+        mr: "Support"
+    },
+
+    ancientRoar: {
+        name: "Ancient Roar",
+        power: 0,
+        type: "Ancient",
+        mr: "Support"
+    },
+
+    brace: {
+        name: "Brace",
+        power: 0,
+        type: "Typeless",
+        mr: "Support"
+    },
+
+    burrow: {
+        name: "Burrow",
+        power: 0,
+        type: "Earth",
+        mr: "Support"
+    },
+
+    charade: {
+        name: "Charade",
+        power: 0,
+        type: "Dark",
+        mr: "Support"
+    },
+
+    dawdle: {
+        name: "Dawdle",
+        power: 0,
+        type: "Typeless",
+        mr: "Support"
+    },
+
+    disperse: {
+        name: "Disperse",
+        power: 0,
+        type: "Light",
+        mr: "Support"
+    },
+
+    dodge: {
+        name: "Dodge",
+        power: 0,
+        type: "Typeless",
+        mr: "Support"
+    },
+
+    eerieStare: {
+        name: "Eerie Stare",
+        power: 0,
+        type: "Typeless",
+        mr: "Support"
+    },
+
+    energize: {
+        name: "Energize",
+        power: 0,
+        type: "Electric",
+        mr: "Support"
+    },
+
+    examine: {
+        name: "Examine",
+        power: 0,
+        type: "Typeless",
+        mr: "Support"
+    },
+
+    finalRuse: {
+        name: "Final Ruse",
+        power: 0,
+        type: "Spirit",
+        mr: "Support"
+    },
+
+    growl: {
+        name: "Growl",
+        power: 0,
+        type: "Typeless",
+        mr: "Support"
+    },
+
+    icicleTrap: {
+        name: "Icicle Trap",
+        power: 0,
+        type: "Ice",
+        mr: "Support"
+    },
+
+    mindsEye: {
+        name: "Mind's Eye",
+        power: 0,
+        type: "Mind",
+        mr: "Support"
+    },
+
+    peaceOfMind: {
+        name: "Peace Of Mind",
+        power: 0,
+        type: "Mind",
+        mr: "Support"
+    },
+
+    perch: {
+        name: "Perch",
+        power: 0,
+        type: "Air",
+        mr: "Support"
+    },
+
+    poison: {
+        name: "Poison",
+        power: 0,
+        type: "Toxic",
+        mr: "Support"
+    },
+
+    poisonBarbs: {
+        name: "Poison Barbs",
+        power: 0,
+        type: "Toxic",
+        mr: "Support"
+    },
+
+    powerFocus: {
+        name: "Power Focus",
+        power: 0,
+        type: "Typeless",
+        mr: "Support"
+    },
+
+    provoke: {
+        name: "Provoke",
+        power: 0,
+        type: "Dark",
+        mr: "Support"
+    },
+
+    revival: {
+        name: "Revival",
+        power: 0,
+        type: "Spirit",
+        mr: "Support"
+    },
+
+    sapPlant: {
+        name: "Sap Plant",
+        power: 0,
+        type: "Plant",
+        mr: "Support"
+    },
+
+    scapeGoat: {
+        name: "Scapegoat",
+        power: 0,
+        type: "Typeless",
+        mr: "Support"
+    },
+
+    sharpen: {
+        name: "Sharpen",
+        power: 0,
+        type: "Dark",
+        mr: "Support"
+    },
+
+    snoreSpores: {
+        name: "Snore Spores",
+        power: 0,
+        type: "Plant",
+        mr: "Support"
+    },
+
+    softWater: {
+        name: "Soft Water",
+        power: 0,
+        type: "Water",
+        mr: "Support"
+    },
+
+    squawk: {
+        name: "Squawk",
+        power: 0,
+        type: "Typeless",
+        mr: "Support"
+    },
+
+    stare: {
+        name: "Stare",
+        power: 0,
+        type: "Typeless",
+        mr: "Support"
+    },
+
+    staticSpores: {
+        name: "Static Spores",
+        power: 0,
+        type: "Plant",
+        mr: "Support"
+    },
+
+    stretch: {
+        name: "Stretch",
+        power: 0,
+        type: "Typeless",
+        mr: "Support"
+    },
+
+    takeRoot: {
+        name: "Take Root",
+        power: 0,
+        type: "Plant",
+        mr: "Support"
+    },
+
+    tease: {
+        name: "Tease",
+        power: 0,
+        type: "Dark",
+        mr: "Support"
+    },
+
+    toxicSpores: {
+        name: "Toxic Spores",
+        power: 0,
+        type: "Toxic",
+        mr: "Support"
+    },
+
+    webShot: {
+        name: "Web Shot",
+        power: 0,
+        type: "Bug",
+        mr: "Support"
+    }
 };
 
 
@@ -1304,3 +1652,4 @@ for (let ty in types) {
 }
 
 var sets = [];
+
