@@ -1,5 +1,5 @@
 .resultlbl {
-  font-weight: 700;
+  font-weight: 0;
   color: #111;
   text-align: center;
   padding: 5px;
@@ -13,41 +13,48 @@
   border-radius: 8px;
   margin-right: 0.5em;
 }
+
 div {
-display: block;
+  display: block;
 }
+
 .wrap {
-margin-right: 5%;
-margin-left: 20%;
+  margin-right: 5%;
+  margin-left: 20%;
 }
+
 .results {
-width: 44%;
-float: left;
+  width: 44%;
+  float: left;
 }
+
 .panel {
-float: left;
-display: inline-block;
+  float: left;
+  display: inline-block;
 }
 .pokeselect {
-width: 24em;
+  width: 100%;
 }
 
 .infogroup {
-margin: 1em 0;
+  margin: 1em 0;
 }
 
 th {
-font-size: 1em;
-padding: 0;
-display: table-cell;
-font-weight: bold;
+  font-size: 1em;
+  padding: 0;
+  display: table-cell;
+  font-weight: bold;
 }
+
 td {
-padding: 0;
+  padding: 0;
 }
+
 .moveSelect {
   width: 10em;
 }
+
 input {
   text-rendering: auto;
   color: initial;
@@ -71,16 +78,16 @@ input {
 }
 
 .moveslbl {
-border: 1px solid rgba(0, 0, 0, 0.3);
-text-align: left;
-padding-right: 1em;
-padding-bottom: 0.1em;
-width: 5.5em;
-
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  text-align: left;
+  padding-right: 1em;
+  padding-bottom: 0.1em;
+  width: 5.5em;
 }
+
 .checkbox {
-width: auto;
--webkit-appearance: checkbox;
+  width: auto;
+  -webkit-appearance: checkbox;
 }
 
 hr {
@@ -92,24 +99,28 @@ hr {
 }
 
 .left {
-float: left;
-width: 10em;
+  float: left;
+  width: 10em;
 }
+
 .right {
-float: right;
+  float: right;
 }
 
 .field {
-height: 532px;
+  height: 532px;
 }
+
 .bott {
-text-align: center;
-float: bottom;
-display: block;
+  text-align: center;
+  float: bottom;
+  display: block;
 }
+
 .fieldTraps {
   height: 20%;
 }
+
 #title {
   background-color: rgb(129, 134, 143);
   border: solid black;
@@ -118,4 +129,43 @@ display: block;
   border-radius: 5px 5px 5px 5px;
   color: #000000;
   font-family: "Times New Roman";
+}
+
+.hiddenToUser {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  top: auto;
+  white-space: nowrap;
+}
+
+.hiddenToUser:checked + .resultlbl {
+  font-weight: bold;
+  color: #111111;
+  background: #f5f5f5;
+}
+
+.big {
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.small {
+  font-size: 0.8em;
+}
+
+.detailedReport {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  width: 100%;
+  display: block;
+  float: left;
+}
+
+.infoBar {
+  font-weight: 700;
+  font-size: 0.8em;
+  margin-bottom: 2em;
 }
