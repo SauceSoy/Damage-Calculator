@@ -1548,7 +1548,7 @@ var types = {
 
     fire: {
         weaknesses: ["water", "earth", "air"],
-        resistances: ["fire", "plant", "ice"],
+        resistances: ["fire", "plant", "ice", "metal", "bug"],
         immunities: []
     },
     
