@@ -195,7 +195,7 @@ function load() {
     update();
 
     for (let i = 0; i < builtInSets.length; i++) {
-        addSet(builtInSets[i]);
+        addSet(builtInSets[i], true);
     }
 }
 
@@ -369,7 +369,7 @@ function loadSets() {
     update();
 }
 
-function addSet(set) {
+function addSet(set, builtIn = false) {
     let optG1 = findOptgroup(pokeDropdown1, set.name);
     let optG2 = findOptgroup(pokeDropdown2, set.name);
     let opt1 = new Option(set.name + " (" + set.setName + ")", set.name);
@@ -380,7 +380,7 @@ function addSet(set) {
         tempSet.level = 100;
     }
 
-    sets.push(tempSet);
+    if (!builtIn) sets.push(tempSet);
     opt1.set = tempSet;
     opt2.set = tempSet;
     optG1.appendChild(opt1);
