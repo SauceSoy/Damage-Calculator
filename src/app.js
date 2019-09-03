@@ -811,6 +811,7 @@ function detailedReport() {
         sap = { attacker: sapPlant2.checked, defender: sapPlant1.checked };
     }
 
+    let item = (second ? item1.value : item2.value);
     move = findMove(moveName);
 
     if (second && move.mr == "Ranged") {
@@ -890,7 +891,7 @@ function detailedReport() {
         return;
     }
 
-    hp = checkSapPlant(firstLoom, secondLoom, hp, sap);
+    hp = checkSapPlant(firstLoom, secondLoom, hp, sap, item);
     hazardStr = getHazardString(ice, sap);
 
     for (let i = 0; i < possibleDmg.length; i++) {
@@ -912,7 +913,7 @@ function detailedReport() {
         return;
     }
 
-    hp = checkSapPlant(firstLoom, secondLoom, hp, sap);
+    hp = checkSapPlant(firstLoom, secondLoom, hp, sap, item);
 
     for (let i = 0; i < possibleDmg.length; i++) {
         for (let j = 0; j < possibleDmg.length; j++) {
@@ -935,7 +936,7 @@ function detailedReport() {
         return;
     }
 
-    hp = checkSapPlant(firstLoom, secondLoom, hp, sap);
+    hp = checkSapPlant(firstLoom, secondLoom, hp, sap, item);
 
     if (possibleDmg[15] * 4 >= hp) {
         let FHKO = "possible 4HKO";
@@ -945,7 +946,7 @@ function detailedReport() {
         return;
     }
 
-    hp = checkSapPlant(firstLoom, secondLoom, hp, sap);
+    hp = checkSapPlant(firstLoom, secondLoom, hp, sap, item);
 
     if (possibleDmg[15] * 5 >= hp) {
         let FIHKO = "possible 5HKO";
@@ -1204,7 +1205,7 @@ function getTempAtkDef(second, mr) {
 
     return { attack: tempAtk, defense: tempDef };
 }
-function checkSapPlant(loom1, loom2, hp, sap) {
+function checkSapPlant(loom1, loom2, hp, sap, item) {
     let newHP = hp;
 
     if (!loom1.types.includes("Plant") && sap.attacker == true) {
@@ -1212,6 +1213,9 @@ function checkSapPlant(loom1, loom2, hp, sap) {
     }
     if (!loom2.types.includes("Plant") && sap.defender == true) {
         newHP = Math.floor(newHP * 7 / 8);
+    }
+    if (item == "Health Amulet") {
+        newHP = Math.floor(newHP * 17/16);
     }
 
     return newHP;

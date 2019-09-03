@@ -1645,7 +1645,7 @@ var types = {
 
 var abilities = ["Awakening", "Ambush", "Coursing Venom", "Lightning Rod", "Mean Spirited", "Neutralize", "Overshadow", "Illuminate", "Prismatic", "Territorial", "Woodsman", "Dusk", "Dawn"];
 
-var items = ["Heavy Shield", "Heavy Armor", "Power Cuffs"];
+var items = ["Heavy Shield", "Heavy Armor", "Power Cuffs", "Health Amulet"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Essence");
@@ -1714,7 +1714,7 @@ var builtInSets = [
         posNature: "robust",
         negNature: "none",
         ability: "Awakening",
-        item: "None",
+        item: "Health Amulet",
         level: 100        
     },
 
@@ -1810,7 +1810,7 @@ var builtInSets = [
         posNature: "clever",
         negNature: "none",
         ability: "Awakening",
-        item: "None",
+        item: "Health Amulet",
         level: 100        
     },
     
@@ -1842,7 +1842,7 @@ var builtInSets = [
         posNature: "clever",
         negNature: "none",
         ability: "Awakening",
-        item: "None",
+        item: "Health Amulet",
         level: 100        
     },
     
