@@ -1722,7 +1722,7 @@ var builtInSets = [
         name: "Tahtab",
         setName: "Wallbreaker",
         evs: {
-            hp: 200,
+            hp: 0,
             attack: 200,
             defense: 0,
             attackR: 196,
