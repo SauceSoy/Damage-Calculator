@@ -834,7 +834,7 @@ var moves = {
     },      
 
     chillyChomp: {
-        name: "Chilly Comp",
+        name: "Chilly Chomp",
         power: 65,
         type: "Ice",
         mr: "Melee"

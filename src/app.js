@@ -298,74 +298,83 @@ function importSets() {
 
 }
 
-function loadSets() {
-    let set1 = pokeDropdown1.options[pokeDropdown1.selectedIndex].set;
-    let set2 = pokeDropdown2.options[pokeDropdown2.selectedIndex].set
+function loadSets(onlyFirst = false, onlySecond = false) {
+    if (onlyFirst || (!onlyFirst && !onlySecond)) {
+        let set1 = pokeDropdown1.options[pokeDropdown1.selectedIndex].set;
+        let posNat1 = document.getElementById("posNat1");
+        let negNat1 = document.getElementById("negNat1");
 
-    let posNat1 = document.getElementById("posNat1");
-    let negNat1 = document.getElementById("negNat1");
+        hpEV1.value = set1.evs.hp;
+        atkEV1.value = set1.evs.attack;
+        defEV1.value = set1.evs.defense;
+        atkREV1.value = set1.evs.attackR;
+        defREV1.value = set1.evs.defenseR;
+        spdEV1.value = set1.evs.speed;
 
-    let posNat2 = document.getElementById("posNat2");
-    let negNat2 = document.getElementById("negNat2");
+        hpIV1.value = set1.ivs.hp;
+        atkIV1.value = set1.ivs.attack;
+        defIV1.value = set1.ivs.defense;
+        atkRIV1.value = set1.ivs.attackR;
+        defRIV1.value = set1.ivs.defenseR;
+        spdIV1.value = set1.ivs.speed;
 
-    hpEV1.value = set1.evs.hp;
-    atkEV1.value = set1.evs.attack;
-    defEV1.value = set1.evs.defense;
-    atkREV1.value = set1.evs.attackR;
-    defREV1.value = set1.evs.defenseR;
-    spdEV1.value = set1.evs.speed;
+        level1.value = set1.level;
 
-    hpIV1.value = set1.ivs.hp;
-    atkIV1.value = set1.ivs.attack;
-    defIV1.value = set1.ivs.defense;
-    atkRIV1.value = set1.ivs.attackR;
-    defRIV1.value = set1.ivs.defenseR;
-    spdIV1.value = set1.ivs.speed;
+        $("#moveOne1").val(set1.moves.move1);
+        $("#moveOne1").select2().trigger('change');
+        $("#moveTwo1").val(set1.moves.move2);
+        $("#moveTwo1").select2().trigger('change');
+        $("#moveThree1").val(set1.moves.move3);
+        $("#moveThree1").select2().trigger('change');
+        $("#moveFour1").val(set1.moves.move4);
+        $("#moveFour1").select2().trigger('change');
 
-    hpEV2.value = set2.evs.hp;
-    atkEV2.value = set2.evs.attack;
-    defEV2.value = set2.evs.defense;
-    atkREV2.value = set2.evs.attackR;
-    defREV2.value = set2.evs.defenseR;
-    spdEV2.value = set2.evs.speed;
+        posNat1.value = (set1.posNature == undefined ? "none" : set1.posNature);
+        negNat1.value = (set1.negNature == undefined ? "none" : set1.negNature);
+        abilityDropdown1.value = (set1.ability == undefined ? "none" : set1.ability);
+        item1.value = (set1.item == undefined ? "none" : set1.item);
+    }
 
-    hpIV2.value = set2.ivs.hp;
-    atkIV2.value = set2.ivs.attack;
-    defIV2.value = set2.ivs.defense;
-    atkRIV2.value = set2.ivs.attackR;
-    defRIV2.value = set2.ivs.defenseR;
-    spdIV2.value = set2.ivs.speed;
+    if (onlySecond || (!onlyFirst && !onlySecond)) {
+        let set2 = pokeDropdown2.options[pokeDropdown2.selectedIndex].set;
 
-    level1.value = set1.level;
-    level2.value = set2.level;
+        let posNat2 = document.getElementById("posNat2");
+        let negNat2 = document.getElementById("negNat2");
 
-    $("#moveOne1").val(set1.moves.move1);
-    $("#moveOne1").select2().trigger('change');
-    $("#moveTwo1").val(set1.moves.move2);
-    $("#moveTwo1").select2().trigger('change');
-    $("#moveThree1").val(set1.moves.move3);
-    $("#moveThree1").select2().trigger('change');
-    $("#moveFour1").val(set1.moves.move4);
-    $("#moveFour1").select2().trigger('change');
 
-    $("#moveOne2").val(set2.moves.move1);
-    $("#moveOne2").select2().trigger('change');
-    $("#moveTwo2").val(set2.moves.move2);
-    $("#moveTwo2").select2().trigger('change');
-    $("#moveThree2").val(set2.moves.move3);
-    $("#moveThree2").select2().trigger('change');
-    $("#moveFour2").val(set2.moves.move4);
-    $("#moveFour2").select2().trigger('change');
+        hpEV2.value = set2.evs.hp;
+        atkEV2.value = set2.evs.attack;
+        defEV2.value = set2.evs.defense;
+        atkREV2.value = set2.evs.attackR;
+        defREV2.value = set2.evs.defenseR;
+        spdEV2.value = set2.evs.speed;
 
-    posNat1.value = (set1.posNature == undefined ? "none" : set1.posNature);
-    negNat1.value = (set1.negNature == undefined ? "none" : set1.negNature);
-    abilityDropdown1.value = (set1.ability == undefined ? "none" : set1.ability);
-    item1.value = (set1.item == undefined ? "none" : set1.item);
+        hpIV2.value = set2.ivs.hp;
+        atkIV2.value = set2.ivs.attack;
+        defIV2.value = set2.ivs.defense;
+        atkRIV2.value = set2.ivs.attackR;
+        defRIV2.value = set2.ivs.defenseR;
+        spdIV2.value = set2.ivs.speed;
 
-    posNat2.value = (set2.posNature == undefined ? "none" : set2.posNature);
-    negNat2.value = (set2.negNature == undefined ? "none" : set2.negNature);
-    abilityDropdown2.value = (set2.ability == undefined ? "none" : set2.ability);
-    item2.value = (set2.item == undefined ? "none" : set2.item);
+        level2.value = set2.level;
+
+        $("#moveOne2").val(set2.moves.move1);
+        $("#moveOne2").select2().trigger('change');
+        $("#moveTwo2").val(set2.moves.move2);
+        $("#moveTwo2").select2().trigger('change');
+        $("#moveThree2").val(set2.moves.move3);
+        $("#moveThree2").select2().trigger('change');
+        $("#moveFour2").val(set2.moves.move4);
+        $("#moveFour2").select2().trigger('change');
+
+
+        posNat2.value = (set2.posNature == undefined ? "none" : set2.posNature);
+        negNat2.value = (set2.negNature == undefined ? "none" : set2.negNature);
+        abilityDropdown2.value = (set2.ability == undefined ? "none" : set2.ability);
+        item2.value = (set2.item == undefined ? "none" : set2.item);
+    }
+
+
     update();
 }
 
@@ -379,7 +388,6 @@ function addSet(set, builtIn = false) {
     if (tempSet.level == undefined) {
         tempSet.level = 100;
     }
-
     if (!builtIn) sets.push(tempSet);
     opt1.set = tempSet;
     opt2.set = tempSet;
@@ -509,7 +517,7 @@ function loadStats() {
     defR2 = calculateStat(baseDefR2.value, defRIV2.value, defREV2.value, level2.value, undefined, posNat2, negNat2, "DefenseR");
     spd2 = calculateStat(baseSpd2.value, spdIV2.value, spdEV2.value, level2.value, undefined, posNat2, negNat2, "Speed");
 
-    
+
     checkStages();
 
     statHP1.innerHTML = hp1;
@@ -527,7 +535,7 @@ function loadStats() {
     statSpd2.innerHTML = spd2;
 
 }
-function calculateStat(base, IV, EV, level, isHP = false, posNat, negNat, name) {
+function calculateStat(base, IV, EV, level, isHP = false, posNat, negNat, name, rest = false) {
     let stat;
 
     IV = parseInt(IV);
@@ -569,6 +577,10 @@ function calculateStat(base, IV, EV, level, isHP = false, posNat, negNat, name) 
         stat = Math.floor(stat * 0.9);
     }
 
+    if (rest) {
+        stat = Math.floor(stat * 2 / 3);
+    }
+
     return stat;
 }
 
@@ -579,9 +591,9 @@ function checkStages() {
 
     let tempDefStage1 = (defStages1.value != "--" ? parseInt(defStages1.value) - rest1 : 0 - rest1);
     let tempDefStage2 = (defStages2.value != "--" ? parseInt(defStages2.value) - rest2 : 0 - rest2);
-   
+
     let tempDefRStage1 = (defRStages1.value != "--" ? parseInt(defRStages1.value) - rest1 : 0 - rest1);
-    let tempDefRStage2 = (defRStages2.value != "--" ? parseInt(defRStages2.value) - rest2 : 0 - rest2);    
+    let tempDefRStage2 = (defRStages2.value != "--" ? parseInt(defRStages2.value) - rest2 : 0 - rest2);
 
     if (atkStages1.value != "--" && parseInt(atkStages1.value) > 0) {
         atk1 = Math.floor(atk1 * (1 + 0.5 * parseInt(atkStages1.value)));
@@ -816,15 +828,15 @@ function detailedReport() {
 
     if (move.power == 0) {
         let str = tempAtk + " " + firstLoom.name + " " + move.name + " vs. " + hp + " HP / " + tempDef + " " + secondLoom.name + ": 0-0 (0 - 0%) -- nice move there, bud";
-        
+
         document.getElementById("detailedResult").innerHTML = str;
         document.getElementById("possibleDmg").innerHTML = "Possible Damage Amounts: (0)";
         return;
     }
 
     let possibleDmg = getMultiplier(firstLoom, secondLoom, move, crit, level, undefined, second, true);
-    let lowerPercent = (possibleDmg[0]/hp * 100).toFixed(1);
-    let upperPercent = (possibleDmg[15]/hp * 100).toFixed(1);
+    let lowerPercent = (possibleDmg[0] / hp * 100).toFixed(1);
+    let upperPercent = (possibleDmg[15] / hp * 100).toFixed(1);
     let possibleDmgStr = "Possible Damage Amounts: (";
     let str = tempAtk + " " + firstLoom.name + " " + move.name + " vs. " + hp + " HP / " + tempDef + " " + secondLoom.name + ": " + possibleDmg[0] + "-" + possibleDmg[15] + " (" + lowerPercent + " - " + upperPercent + "%) -- ";
     let hazardStr = (ice ? " after ice trap" : "");
@@ -854,8 +866,8 @@ function detailedReport() {
         }
     }
 
-    hp = hp - Math.floor(hp * addedDmg/100);
-    
+    hp = hp - Math.floor(hp * addedDmg / 100);
+
     let OHKOs = [];
     let THKOs = [];
     let TRHKOs = [];
@@ -867,13 +879,13 @@ function detailedReport() {
     }
 
     if (OHKOs.length != 0) {
-        let chance = (OHKOs.length/16 * 100).toFixed(1);
+        let chance = (OHKOs.length / 16 * 100).toFixed(1);
         let chanceStr = chance + "% chance to OHKO";
-        
+
         if (chance >= 100) chanceStr = "guaranteed OHKO";
 
         str += chanceStr + hazardStr;
-        
+
         document.getElementById("detailedResult").innerHTML = str;
         return;
     }
@@ -890,12 +902,12 @@ function detailedReport() {
     }
 
     if (THKOs.length != 0) {
-        let chance = (THKOs.length/256 * 100).toFixed(1);
+        let chance = (THKOs.length / 256 * 100).toFixed(1);
         let chanceStr = chance + "% chance to 2HKO";
         if (chance >= 100) chanceStr = "guaranteed 2HKO";
 
         str += chanceStr + hazardStr;
-        
+
         document.getElementById("detailedResult").innerHTML = str;
         return;
     }
@@ -907,20 +919,20 @@ function detailedReport() {
             for (let k = 0; k < possibleDmg.length; k++) {
                 if (possibleDmg[i] + possibleDmg[j] + possibleDmg[k] >= hp) {
                     TRHKOs.push(possibleDmg[i] + possibleDmg[j] + possibleDmg[k]);
-                }    
+                }
             }
         }
     }
 
     if (TRHKOs.length != 0) {
-        let chance = (TRHKOs.length/4096 * 100).toFixed(1);
+        let chance = (TRHKOs.length / 4096 * 100).toFixed(1);
         let chanceStr = chance + "% chance to 3HKO";
         if (chance >= 100) chanceStr = "guaranteed 3HKO";
 
         str += chanceStr + hazardStr;
-        
+
         document.getElementById("detailedResult").innerHTML = str;
-        return;       
+        return;
     }
 
     hp = checkSapPlant(firstLoom, secondLoom, hp, sap);
@@ -1045,7 +1057,7 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     //Defense ----------------------------------------------------
 
     if (crit && tempDef.stage > 0) {
-        tempDef.def = calculateStat(tempDef.base, tempDef.iv.value, tempDef.ev.value, tempDef.level, undefined, tempDef.posNat, tempDef.negNat, tempDef.name);
+        tempDef.def = calculateStat(tempDef.base, tempDef.iv.value, tempDef.ev.value, tempDef.level, undefined, tempDef.posNat, tempDef.negNat, tempDef.name, tempDef.rest);
     }
     if (itemB == "Heavy Shield" && move.mr == "Ranged") {
         multi *= 1.2;
@@ -1130,7 +1142,7 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     if (detailed) {
         for (let i = 0; i < possibleDmg.length; i++) {
             possibleDmg[i] = Math.floor(possibleDmg[i] * multi);
-        }        
+        }
     }
 
     dmg = Math.floor(dmg * multi);
@@ -1166,38 +1178,40 @@ function getTempAtkDef(second, mr) {
     let negNat1 = document.getElementById("negNat1").value;
     let posNat2 = document.getElementById("posNat2").value;
     let negNat2 = document.getElementById("negNat2").value;
+    let rest1 = document.getElementById("rest1").checked;
+    let rest2 = document.getElementById("rest2").checked;
 
     let tempAtk;
     let tempDef;
 
 
     if (second && mr == "Ranged") {
-        tempAtk = {atk: atkR2, iv: atkRIV2, ev: atkREV2, base: baseAtkR2.value, name: "AttackR", posNat: posNat2, negNat: negNat2, stage: parseInt(atkRStages2.value), level: level2.value};
-        tempDef = {def: defR1, iv: defRIV1, ev: defREV1, base: baseDefR1.value, name: "DefenseR", posNat: posNat1, negNat: negNat1, stage: parseInt(defRStages1.value), level: level1.value};
+        tempAtk = { atk: atkR2, iv: atkRIV2, ev: atkREV2, base: baseAtkR2.value, name: "AttackR", posNat: posNat2, negNat: negNat2, stage: parseInt(atkRStages2.value), level: level2.value };
+        tempDef = { def: defR1, iv: defRIV1, ev: defREV1, base: baseDefR1.value, name: "DefenseR", posNat: posNat1, negNat: negNat1, stage: parseInt(defRStages1.value), level: level1.value, rest: rest1 };
     }
     else if (second && mr == "Melee") {
-        tempAtk = {atk: atk2, iv: atkIV2, ev: atkEV2, base: baseAtk2.value, name: "AttackM", posNat: posNat2, negNat: negNat2, stage: parseInt(atkStages2.value), level: level2.value};
-        tempDef = {def: def1, iv: defIV1, ev: defEV1, base: baseDef1.value, name: "DefenseM", posNat: posNat1, negNat: negNat1, stage: parseInt(defStages1.value), level: level1.value};
+        tempAtk = { atk: atk2, iv: atkIV2, ev: atkEV2, base: baseAtk2.value, name: "AttackM", posNat: posNat2, negNat: negNat2, stage: parseInt(atkStages2.value), level: level2.value };
+        tempDef = { def: def1, iv: defIV1, ev: defEV1, base: baseDef1.value, name: "DefenseM", posNat: posNat1, negNat: negNat1, stage: parseInt(defStages1.value), level: level1.value, rest: rest1 };
     }
     else if (mr == "Melee") {
-        tempAtk = {atk: atk1, iv: atkIV1, ev: atkEV1, base: baseAtk1.value, name: "AttackM", posNat: posNat1, negNat: negNat1, stage: parseInt(atkStages1.value), level: level1.value};
-        tempDef = {def: def2, iv: defIV2, ev: defEV2, base: baseDef2.value, name: "DefenseM", posNat: posNat2, negNat: negNat2, stage: parseInt(defStages2.value), level: level2.value};
+        tempAtk = { atk: atk1, iv: atkIV1, ev: atkEV1, base: baseAtk1.value, name: "AttackM", posNat: posNat1, negNat: negNat1, stage: parseInt(atkStages1.value), level: level1.value };
+        tempDef = { def: def2, iv: defIV2, ev: defEV2, base: baseDef2.value, name: "DefenseM", posNat: posNat2, negNat: negNat2, stage: parseInt(defStages2.value), level: level2.value, rest: rest2 };
     }
     else {
-        tempAtk = {atk: atkR1, iv: atkRIV1, ev: atkREV1, base: baseAtkR1.value, name: "AttackR", posNat: posNat1, negNat: negNat1, stage: parseInt(atkRStages1.value), level: level1.value};
-        tempDef = {def: defR2, iv: defRIV2, ev: defREV2, base: baseDefR2.value, name: "DefenseR", posNat: posNat2, negNat: negNat2, stage: parseInt(defRStages2.value), level: level2.value};
+        tempAtk = { atk: atkR1, iv: atkRIV1, ev: atkREV1, base: baseAtkR1.value, name: "AttackR", posNat: posNat1, negNat: negNat1, stage: parseInt(atkRStages1.value), level: level1.value };
+        tempDef = { def: defR2, iv: defRIV2, ev: defREV2, base: baseDefR2.value, name: "DefenseR", posNat: posNat2, negNat: negNat2, stage: parseInt(defRStages2.value), level: level2.value, rest: rest2 };
     }
 
-    return {attack: tempAtk, defense: tempDef};
+    return { attack: tempAtk, defense: tempDef };
 }
 function checkSapPlant(loom1, loom2, hp, sap) {
     let newHP = hp;
 
     if (!loom1.types.includes("Plant") && sap.attacker == true) {
-        newHP = Math.floor(newHP * 9/8);
+        newHP = Math.floor(newHP * 9 / 8);
     }
     if (!loom2.types.includes("Plant") && sap.defender == true) {
-        newHP = Math.floor(newHP * 7/8);
+        newHP = Math.floor(newHP * 7 / 8);
     }
 
     return newHP;
