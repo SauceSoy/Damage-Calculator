@@ -1228,7 +1228,7 @@ var moves = {
 
     pheroblast: {
         name: "Pheroblast",
-        pwoer: 90,
+        power: 90,
         type: "Bug",
         mr: "Ranged",
     },
