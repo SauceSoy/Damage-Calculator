@@ -1643,9 +1643,9 @@ var types = {
     },    
 };
 
-var abilities = ["Awakening", "Ambush", "Coursing Venom", "Lightning Rod", "Mean Spirited", "Neutralize", "Overshadow", "Illuminate", "Prismatic", "Territorial", "Woodsman", "Dusk", "Dawn"];
+var abilities = ["Awakening", "Ambush", "Coursing Venom", "Drainage", "Lightning Rod", "Mean Spirited", "Neutralize", "Overshadow", "Illuminate", "Prismatic", "Territorial", "Woodsman", "Dusk", "Dawn"];
 
-var items = ["Heavy Shield", "Heavy Armor", "Power Cuffs", "Health Amulet"];
+var items = ["Heavy Shield", "Heavy Armor", "Power Cuffs", "Health Amulet", "Drain Orb"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Essence");

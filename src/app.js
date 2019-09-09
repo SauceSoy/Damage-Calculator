@@ -812,7 +812,9 @@ function detailedReport() {
     }
 
     let item = (second ? item1.value : item2.value);
+    let ability = (second ? abilities.find((x) => x == abilityDropdown1.value) : abilities.find((x) => x == abilityDropdown2.value));
     move = findMove(moveName);
+    let selfHP = (second ? hp2 : hp1);
 
     if (second && move.mr == "Ranged") {
         tempAtk = atkR2 + " AtkR"
@@ -891,7 +893,7 @@ function detailedReport() {
         return;
     }
 
-    hp = checkSapPlant(firstLoom, secondLoom, hp, sap, item);
+    hp = checkSapPlant(firstLoom, secondLoom, hp, selfHP, sap, item, ability);
     hazardStr = getHazardString(ice, sap);
 
     for (let i = 0; i < possibleDmg.length; i++) {
@@ -913,7 +915,7 @@ function detailedReport() {
         return;
     }
 
-    hp = checkSapPlant(firstLoom, secondLoom, hp, sap, item);
+    hp = checkSapPlant(firstLoom, secondLoom, hp, selfHP, sap, item, ability);
 
     for (let i = 0; i < possibleDmg.length; i++) {
         for (let j = 0; j < possibleDmg.length; j++) {
@@ -936,7 +938,7 @@ function detailedReport() {
         return;
     }
 
-    hp = checkSapPlant(firstLoom, secondLoom, hp, sap, item);
+    hp = checkSapPlant(firstLoom, secondLoom, hp, selfHP, sap, item, ability);
 
     if (possibleDmg[15] * 4 >= hp) {
         let FHKO = "possible 4HKO";
@@ -946,7 +948,7 @@ function detailedReport() {
         return;
     }
 
-    hp = checkSapPlant(firstLoom, secondLoom, hp, sap, item);
+    hp = checkSapPlant(firstLoom, secondLoom, hp, selfHP, sap, item, ability);
 
     if (possibleDmg[15] * 5 >= hp) {
         let FIHKO = "possible 5HKO";
@@ -1205,11 +1207,18 @@ function getTempAtkDef(second, mr) {
 
     return { attack: tempAtk, defense: tempDef };
 }
-function checkSapPlant(loom1, loom2, hp, sap, item) {
-    let newHP = hp;
+function checkSapPlant(loom1, loom2, hp1, hp2, sap, item, ability) {
+    let newHP = hp1;
+    let multi = 1;
 
+    if (ability == "Drainage") {
+        multi *= 1.5;
+    }
+    if (item == "Drain Orb") {
+        multi *= 1.2;
+    }
     if (!loom1.types.includes("Plant") && sap.attacker == true) {
-        newHP = Math.floor(newHP * 9 / 8);
+        newHP += Math.floor(hp2 * 1 / 8 * multi)
     }
     if (!loom2.types.includes("Plant") && sap.defender == true) {
         newHP = Math.floor(newHP * 7 / 8);
