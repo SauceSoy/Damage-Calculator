@@ -469,34 +469,34 @@
                     <div>
                         <div class="left">
                             <input type="checkbox" class="hiddenToUser" id="iceTrap1" onchange="update()">
-                            <label class="radiolbl fieldlbl icetrap" for="iceTrap1">Icicle Trap</label>
+                            <label class="radiolbl fieldlbl icetrap" for="iceTrap1" title="Is this side affected by Icicle Trap">Icicle Trap</label>
                         </div>
 
                         <div class="right">
                             <input type="checkbox" class="hiddenToUser" id="iceTrap2" onchange="update()">
-                            <label class="radiolbl fieldlbl icetrap" for="iceTrap2">Icicle Trap</label>
+                            <label class="radiolbl fieldlbl icetrap" for="iceTrap2" title="Is this side affected by Icicle Trap">Icicle Trap</label>
                         </div>
                     </div>
                     <div>
                         <div class="left">
                             <input type="checkbox" class="hiddenToUser" id="enteredBtl1" onchange="update()">
-                            <label class="radiolbl fieldlbl entered" for="enteredBtl1">Just Entered Battle</label>
+                            <label class="radiolbl fieldlbl entered" for="enteredBtl1" title="Has this side just entered battle?">Just Entered Battle</label>
                         </div>
 
                         <div class="right">
                             <input type="checkbox" class="hiddenToUser" id="enteredBtl2" onchange="update()">
-                            <label class="radiolbl fieldlbl entered" for="enteredBtl2">Just Entered Battle</label>
+                            <label class="radiolbl fieldlbl entered" for="enteredBtl2" title="Has this side just entered battle?">Just Entered Battle</label>
                         </div>
                     </div>
                     <div>
                         <div class="left">
                             <input type="checkbox" class="hiddenToUser" id="sapPlant1" onchange="update()">
-                            <label class="radiolbl fieldlbl icetrap" for="sapPlant1">Sap Plant</label>
+                            <label class="radiolbl fieldlbl icetrap" for="sapPlant1" title="Is this side affected by Sap Plant">Sap Plant</label>
                         </div>
 
                         <div class="right">
                             <input type="checkbox" class="hiddenToUser" id="sapPlant2" onchange="update()">
-                            <label class="radiolbl fieldlbl icetrap" for="sapPlant2">Sap Plant</label>
+                            <label class="radiolbl fieldlbl icetrap" for="sapPlant2" title="Is this side affected by Sap Plant">Sap Plant</label>
                         </div>
                     </div>
                     <div>
@@ -896,6 +896,9 @@
         }
         else if (parseInt(value) > max) {
             return max;
+        }
+        else if (value == "") {
+            return min;
         }
 
         return value;
