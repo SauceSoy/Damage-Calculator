@@ -740,8 +740,8 @@ function detailedReport() {
     let move;
     let crit;
     let second = false;
-    let tempAtk = atkR1 + " AtkR";
-    let tempDef = defR2 + " DefR";
+    let tempAtk = atkREV1.value + " AtkR";
+    let tempDef = defREV2.value + " DefR";
 
     let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
     let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
@@ -817,20 +817,20 @@ function detailedReport() {
     let selfHP = (second ? hp2 : hp1);
 
     if (second && move.mr == "Ranged") {
-        tempAtk = atkR2 + " AtkR"
-        tempDef = defR1 + " DefR"
+        tempAtk = atkREV2.value + " AtkR"
+        tempDef = defREV1.value + " DefR"
     }
     else if (second && move.mr == "Melee") {
-        tempAtk = atk2 + " AtkM";
-        tempDef = def1 + " DefM";
+        tempAtk = atkEV2.value + " AtkM";
+        tempDef = defEV1.value + " DefM";
     }
     else if (move.mr == "Melee") {
-        tempAtk = atk1 + " AtkM";
-        tempDef = def2 + " DefM";
+        tempAtk = atkEV1.value + " AtkM";
+        tempDef = defEV2.value + " DefM";
     }
 
     if (move.power == 0) {
-        let str = tempAtk + " " + firstLoom.name + " " + move.name + " vs. " + hp + " HP / " + tempDef + " " + secondLoom.name + ": 0-0 (0 - 0%) -- nice move there, bud";
+        let str = tempAtk + " " + firstLoom.name + " " + move.name + " vs. " + (second ? hpEV2.value : hpEV1.value) + " HP / " + tempDef + " " + secondLoom.name + ": 0-0 (0 - 0%) -- nice move there, bud";
 
         document.getElementById("detailedResult").innerHTML = str;
         document.getElementById("possibleDmg").innerHTML = "Possible Damage Amounts: (0)";
@@ -841,7 +841,7 @@ function detailedReport() {
     let lowerPercent = (possibleDmg[0] / hp * 100).toFixed(1);
     let upperPercent = (possibleDmg[15] / hp * 100).toFixed(1);
     let possibleDmgStr = "Possible Damage Amounts: (";
-    let str = tempAtk + " " + firstLoom.name + " " + move.name + " vs. " + hp + " HP / " + tempDef + " " + secondLoom.name + ": " + possibleDmg[0] + "-" + possibleDmg[15] + " (" + lowerPercent + " - " + upperPercent + "%) -- ";
+    let str = tempAtk + " " + firstLoom.name + " " + move.name + " vs. " + (second ? hpEV2.value : hpEV1.value) + " HP / " + tempDef + " " + secondLoom.name + ": " + possibleDmg[0] + "-" + possibleDmg[15] + " (" + lowerPercent + " - " + upperPercent + "%) -- ";
     let hazardStr = (ice ? " after ice trap" : "");
 
     for (let i = 0; i < possibleDmg.length; i++) {
@@ -891,6 +891,10 @@ function detailedReport() {
 
         document.getElementById("detailedResult").innerHTML = str;
         return;
+    }
+
+    if (move.knockOff) {
+        possibleDmg = getMultiplier(firstLoom, secondLoom, move, crit, level, undefined, second, true, true);
     }
 
     hp = checkSapPlant(firstLoom, secondLoom, hp, selfHP, sap, item, ability);
@@ -970,7 +974,7 @@ function isStab(loom, move) {
     return false;
 }
 
-function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = false, detailed = false) {
+function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = false, detailed = false, withoutSlapDown = false) {
     if (move.power == 0 && detailed) return [0];
     if (move.power == 0) return 0;
 
@@ -1033,6 +1037,10 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
 
     if (itemA == "Power Cuffs") {
         multi *= 1.2;
+    }
+
+    if (itemB != "None" && move.knockOff == true && withoutSlapDown) {
+        multi *= 1.5;
     }
 
     tempPower = pokeRound(tempPower * multi);
@@ -1140,6 +1148,9 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     }
     if (loom2.types[1] != undefined && types[loom2.types[1].toLowerCase()].immunities.includes(tempType.toLowerCase())) {
         multi *= 0;
+    }
+    if (move.typeModifier != undefined && (loom2.types[0] == move.typeModifier.type || loom2.types[1] == move.typeModifier.type)) {
+        multi *= move.typeModifier.modifier;
     }
 
     if (detailed) {

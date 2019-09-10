@@ -909,7 +909,8 @@ var moves = {
         name: "Holy Slash",
         power: 75,
         type: "Metal",
-        mr: "Melee"
+        mr: "Melee",
+        typeModifier: {type: "Dark", modifier: 2}
     },      
 
     muckBuck: {
@@ -952,7 +953,8 @@ var moves = {
         name: "Slap Down",
         power: 65,
         type: "Dark",
-        mr: "Melee"
+        mr: "Melee",
+        knockOff: true
     },      
 
     startle: {
@@ -1071,7 +1073,8 @@ var moves = {
         name: "Searing Steel",
         power: 85,
         type: "Metal",
-        mr: "Melee"
+        mr: "Melee",
+        typeModifier: {type: "Water", modifier: 2}
     },
 
     wintersFury: {
