@@ -1874,7 +1874,7 @@ var builtInSets = [
             move3: "Elemental Burst",
             move4: "Thunder Slam"
         },
-        posNature: "clever",
+        posNature: "nimble",
         negNature: "none",
         ability: "Awakening",
         item: "None",
