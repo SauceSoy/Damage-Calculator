@@ -830,7 +830,7 @@ function detailedReport() {
     }
 
     if (move.power == 0) {
-        let str = tempAtk + " " + firstLoom.name + " " + move.name + " vs. " + (second ? hpEV2.value : hpEV1.value) + " HP / " + tempDef + " " + secondLoom.name + ": 0-0 (0 - 0%) -- nice move there, bud";
+        let str = tempAtk + " " + firstLoom.name + " " + move.name + " vs. " + (!second ? hpEV2.value : hpEV1.value) + " HP / " + tempDef + " " + secondLoom.name + ": 0-0 (0 - 0%) -- nice move there, bud";
 
         document.getElementById("detailedResult").innerHTML = str;
         document.getElementById("possibleDmg").innerHTML = "Possible Damage Amounts: (0)";
@@ -841,7 +841,7 @@ function detailedReport() {
     let lowerPercent = (possibleDmg[0] / hp * 100).toFixed(1);
     let upperPercent = (possibleDmg[15] / hp * 100).toFixed(1);
     let possibleDmgStr = "Possible Damage Amounts: (";
-    let str = tempAtk + " " + firstLoom.name + " " + move.name + " vs. " + (second ? hpEV2.value : hpEV1.value) + " HP / " + tempDef + " " + secondLoom.name + ": " + possibleDmg[0] + "-" + possibleDmg[15] + " (" + lowerPercent + " - " + upperPercent + "%) -- ";
+    let str = tempAtk + " " + firstLoom.name + " " + move.name + " vs. " + (!second ? hpEV2.value : hpEV1.value) + " HP / " + tempDef + " " + secondLoom.name + ": " + possibleDmg[0] + "-" + possibleDmg[15] + " (" + lowerPercent + " - " + upperPercent + "%) -- ";
     let hazardStr = (ice ? " after ice trap" : "");
 
     for (let i = 0; i < possibleDmg.length; i++) {
