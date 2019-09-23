@@ -179,14 +179,18 @@ let spd2;
 
 function load() {
     loadDropdowns();
-    if (document.cookie != "" && document.cookie != "[]" && document.cookie != "[];") {
+    if (document.cookie != "") {
         let cook = document.cookie;
-        let data = JSON.parse(cook);
-        let newSets = [];
+        try {
+            let data = JSON.parse(cook);
+            let newSets = [];
 
-        for (let set in data) {
-            newSets.push(data[set]);
-            addSet(newSets[newSets.length - 1]);
+            for (let set in data) {
+                newSets.push(data[set]);
+                addSet(newSets[newSets.length - 1]);
+            }
+        } catch(err) {
+            console.log(err);
         }
     }
     console.log(document.cookie);
