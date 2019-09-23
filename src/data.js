@@ -1686,7 +1686,7 @@ var builtInSets = [
         negNature: "none",
         ability: "Awakening",
         item: "Power Cuffs",
-        level: 100        
+        level: 50        
     },
 
     {
@@ -1718,7 +1718,7 @@ var builtInSets = [
         negNature: "none",
         ability: "Awakening",
         item: "Health Amulet",
-        level: 100        
+        level: 50        
     },
 
     {
@@ -1750,7 +1750,7 @@ var builtInSets = [
         negNature: "none",
         ability: "Awakening",
         item: "Power Cuffs",
-        level: 100        
+        level: 50        
     },
     
     {
@@ -1782,7 +1782,7 @@ var builtInSets = [
         negNature: "none",
         ability: "Awakening",
         item: "Heavy Shield",
-        level: 100        
+        level: 50        
     },
     
     {
@@ -1814,7 +1814,7 @@ var builtInSets = [
         negNature: "none",
         ability: "Awakening",
         item: "Health Amulet",
-        level: 100        
+        level: 50        
     },
     
     {
@@ -1846,7 +1846,7 @@ var builtInSets = [
         negNature: "none",
         ability: "Awakening",
         item: "Health Amulet",
-        level: 100        
+        level: 50        
     },
     
     {
@@ -1878,7 +1878,7 @@ var builtInSets = [
         negNature: "none",
         ability: "Awakening",
         item: "None",
-        level: 100        
+        level: 50        
     },
     
     {
@@ -1910,6 +1910,6 @@ var builtInSets = [
         negNature: "none",
         ability: "Awakening",
         item: "Power Cuffs",
-        level: 100        
+        level: 50        
     }      
 ];
