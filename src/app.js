@@ -179,7 +179,7 @@ let spd2;
 
 function load() {
     loadDropdowns();
-    if (document.cookie != "") {
+    if (document.cookie != "" && document.cookie != "[]" && document.cookie != "[];") {
         let cook = document.cookie;
         let data = JSON.parse(cook);
         let newSets = [];
