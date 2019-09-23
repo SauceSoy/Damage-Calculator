@@ -429,7 +429,7 @@ function makeBlankSet(loomian) {
         negNature: "none",
         ability: "None",
         item: "None",
-        level: 100
+        level: 50
     }
     return set;
 }
