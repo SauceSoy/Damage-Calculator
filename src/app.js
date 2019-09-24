@@ -898,7 +898,7 @@ function detailedReport() {
     }
 
     if (move.knockOff) {
-        possibleDmg = getMultiplier(firstLoom, secondLoom, move, crit, level, undefined, second, true, true);
+        possibleDmg = getMultiplier(firstLoom, secondLoom, move, crit, level, undefined, second, true, false);
     }
 
     hp = checkSapPlant(firstLoom, secondLoom, hp, selfHP, sap, item, ability);
@@ -978,7 +978,7 @@ function isStab(loom, move) {
     return false;
 }
 
-function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = false, detailed = false, withoutSlapDown = false) {
+function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = false, detailed = false, withoutSlapDown = true) {
     if (move.power == 0 && detailed) return [0];
     if (move.power == 0) return 0;
 
