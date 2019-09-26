@@ -161,6 +161,15 @@ let dusk2 = document.getElementById("dusk2");
 let dawn1 = document.getElementById("dawn1");
 let dawn2 = document.getElementById("dawn2");
 
+let currentHP1 = document.getElementById("currentHP1");
+let currentHP2 = document.getElementById("currentHP2");
+
+let totalHP1 = document.getElementById("totalHP1");
+let totalHP2 = document.getElementById("totalHP2");
+
+let percentHP1 = document.getElementById("percentHP1");
+let percentHP2 = document.getElementById("percentHP2");
+
 let singleDouble = document.getElementById("singleDouble");
 
 let hp1;
@@ -201,6 +210,23 @@ function load() {
     for (let i = 0; i < builtInSets.length; i++) {
         addSet(builtInSets[i], true);
     }
+
+    currentHP1.addEventListener("keyup", updatePercent);
+    currentHP2.addEventListener("keyup", updatePercent);
+
+    percentHP1.addEventListener("keyup", updateNumber);
+    percentHP2.addEventListener("keyup", updateNumber);
+
+    currentHP1.addEventListener("change", update);
+    currentHP2.addEventListener("change", update);
+
+    percentHP1.addEventListener("change", update);
+    percentHP2.addEventListener("change", update);
+
+    currentHP1.value = hp1;
+    currentHP2.value = hp2;
+    updatePercent();
+    update();
 }
 
 function saveCookie() {
@@ -277,6 +303,17 @@ function update() {
     loadStats();
     loadMoves();
     detailedReport();
+
+    totalHP1.innerHTML = hp1;
+    totalHP2.innerHTML = hp2;
+
+    currentHP1.max = hp1;
+    currentHP2.max = hp2;
+
+    (currentHP1.value > hp1 ? currentHP1.value = hp1 : null);
+    (currentHP2.value > hp2 ? currentHP2.value = hp2 : null);
+    
+    updatePercent();
 }
 
 function importSets() {
@@ -432,6 +469,60 @@ function makeBlankSet(loomian) {
         level: 50
     }
     return set;
+}
+
+function updateHealthBar() {
+    let hpBar1 = document.getElementById("hpBar1");
+    let hpBar2 = document.getElementById("hpBar2");
+
+    let percent1 = parseInt(percentHP1.value);
+    let percent2 = parseInt(percentHP2.value);
+
+    if (percent1 > 50) {
+        hpBar1.style = "background: linear-gradient(to right, green " + percent1 + "%, white 0%);";
+        hpBar1.classList.remove(hpBar1.classList[hpBar1.classList.length - 1]);
+        hpBar1.classList.add("greenHPBar");
+    }
+    else if (percent1 > 20) {
+        hpBar1.style = "background: linear-gradient(to right, yellow " + percent1 + "%, white 0%);";
+        hpBar1.classList.remove(hpBar1.classList[hpBar1.classList.length - 1]);
+        hpBar1.classList.add("yellowHPBar");
+    }
+    else {
+        hpBar1.style = "background: linear-gradient(to right, red " + percent1 + "%, white 0%);";
+        hpBar1.classList.remove(hpBar1.classList[hpBar1.classList.length - 1]);
+        hpBar1.classList.add("redHPBar");
+    }
+
+    if (percent2 > 50) {
+        hpBar2.style = "background: linear-gradient(to right, green " + percent2 + "%, white 0%);";
+        hpBar2.classList.remove(hpBar2.classList[hpBar2.classList.length - 1]);
+        hpBar2.classList.add("greenHPBar");
+    }
+    else if (percent2 > 20) {
+        hpBar2.style = "background: linear-gradient(to right, yellow " + percent2 + "%, white 0%);";
+        hpBar2.classList.remove(hpBar2.classList[hpBar2.classList.length - 1]);
+        hpBar2.classList.add("yellowHPBar");
+    }
+    else {
+        hpBar2.style = "background: linear-gradient(to right, red " + percent2 + "%, white 0%);";
+        hpBar2.classList.remove(hpBar2.classList[hpBar2.classList.length - 1]);
+        hpBar2.classList.add("redHPBar");
+    }
+}
+
+function updatePercent() {
+    percentHP1.value = Math.floor(currentHP1.value / totalHP1.innerHTML * 100);
+    percentHP2.value = Math.floor(currentHP2.value / totalHP2.innerHTML * 100);    
+
+    updateHealthBar();
+}
+
+function updateNumber() {
+    currentHP1.value = Math.ceil(totalHP1.innerHTML * percentHP1.value / 100);
+    currentHP2.value = Math.ceil(totalHP2.innerHTML * percentHP2.value / 100);
+
+    updateHealthBar();
 }
 
 function loadBaseStats() {
@@ -750,7 +841,7 @@ function detailedReport() {
     let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
     let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
     let level = level1.value;
-    let hp = hp2;
+    let hp = (second ? currentHP1.value : currentHP2.value);
     let ice = iceTrap2.checked;
     let sap = { attacker: sapPlant1.checked, defender: sapPlant2.checked };
 
@@ -777,7 +868,6 @@ function detailedReport() {
         firstLoom = loomians[pokeDropdown2.value.toLowerCase()];
         secondLoom = loomians[pokeDropdown1.value.toLowerCase()];
         level = level2.value;
-        hp = hp1;
         ice = iceTrap1.checked;
         sap = { attacker: sapPlant2.checked, defender: sapPlant1.checked };
     }
@@ -788,7 +878,6 @@ function detailedReport() {
         firstLoom = loomians[pokeDropdown2.value.toLowerCase()];
         secondLoom = loomians[pokeDropdown1.value.toLowerCase()];
         level = level2.value;
-        hp = hp1;
         ice = iceTrap1.checked;
         sap = { attacker: sapPlant2.checked, defender: sapPlant1.checked };
     }
@@ -799,7 +888,6 @@ function detailedReport() {
         firstLoom = loomians[pokeDropdown2.value.toLowerCase()];
         secondLoom = loomians[pokeDropdown1.value.toLowerCase()];
         level = level2.value;
-        hp = hp1;
         ice = iceTrap1.checked;
         sap = { attacker: sapPlant2.checked, defender: sapPlant1.checked };
     }
@@ -810,7 +898,6 @@ function detailedReport() {
         firstLoom = loomians[pokeDropdown2.value.toLowerCase()];
         secondLoom = loomians[pokeDropdown1.value.toLowerCase()];
         level = level2.value;
-        hp = hp1;
         ice = iceTrap1.checked;
         sap = { attacker: sapPlant2.checked, defender: sapPlant1.checked };
     }
@@ -818,7 +905,7 @@ function detailedReport() {
     let item = (second ? item1.value : item2.value);
     let ability = (second ? abilities.find((x) => x == abilityDropdown1.value) : abilities.find((x) => x == abilityDropdown2.value));
     move = findMove(moveName);
-    let selfHP = (second ? hp2 : hp1);
+    let selfHP = (second ? currentHP2.value : currentHP1.value);
 
     if (second && move.mr == "Ranged") {
         tempAtk = atkREV2.value + " AtkR"
@@ -884,7 +971,7 @@ function detailedReport() {
             OHKOs.push(possibleDmg[i]);
         }
     }
-
+    
     if (OHKOs.length != 0) {
         let chance = (OHKOs.length / 16 * 100).toFixed(1);
         let chanceStr = chance + "% chance to OHKO";

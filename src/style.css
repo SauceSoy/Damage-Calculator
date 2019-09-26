@@ -213,3 +213,42 @@ hr {
   font-size: 0.8em;
   margin-bottom: 2em;
 }
+
+.divAlign {
+  display: inline-block;
+  width: 5em;
+}
+
+.hpBar {
+  width: 100%;
+  height: 1em;
+  height: 4px;
+  border-style: solid;
+  border-top-width: 2px;
+  border-right-width: 1px;
+  border-bottom-width: 2px;
+  border-left-width: .5px;
+  border-radius: 3px;
+}
+
+.greenHPBar {
+  border-top-color: #00dd60;
+  border-bottom-color: #007734;
+  border-right-color: #007734;
+}
+
+.yellowHPBar {
+  border-top-color: #f8e379;
+  border-bottom-color: #be9f0a;
+  border-right-color: #be9f0a;
+}
+
+.redHPBar {
+  border-top-color: #f37f67;
+  border-bottom-color: #a3260d;
+  border-right-color: #a3260d;
+}
+
+th {
+  padding-right: 0.5em;
+}
