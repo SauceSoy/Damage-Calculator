@@ -112,12 +112,12 @@
                 <div class="infogroup">
 
                     <div>
-                        <label class="typelbl">Type:</label>
+                        <label class="typelbl divAlign">Type:</label>
                         <label id="type1">Fire</label>
                     </div>
 
                     <div>
-                        <label>Gender: </label>
+                        <label class="divAlign">Gender: </label>
 
                         <select id="gender1" onchange="update()">
                             <option>Male</option>
@@ -127,7 +127,7 @@
                     </div>
 
                     <div>
-                        <label>Level: </label>
+                        <label class="divAlign">Level: </label>
                         <input id="level1" value=100 type=number min=1 max=100
                             onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="update()">
                     </div>
@@ -355,7 +355,7 @@
 
                 <div class="infogroup">
                     <div>
-                        <label>Personalities: </label>
+                        <label class="divAlign">Personality: </label>
                         <select id="posNat1" onchange="update()">
                             <option value="none">None</option>
                             <option value="brawny">Brawny</option>
@@ -377,27 +377,41 @@
                     </div>
 
                     <div>
-                        <label>Ability: </label>
+                        <label class="divAlign">Ability: </label>
                         <select id="ability1" onchange="update()">
                             <option>None</option>
                         </select>
                     </div>
 
                     <div>
-                        <label>Item: </label>
+                        <label class="divAlign">Item: </label>
                         <select id="item1" onchange="update()">
                             <option>None</option>
                         </select>
                     </div>
 
                     <div>
-                        <label>Status: </label>
+                        <label class="divAlign">Status: </label>
                         <select id="status1" onchange="update()">
                             <option value="healthy">Healthy</option>
                             <option value="paralasis">Paralyzed</option>
                             <option value="burned">Burned</option>
                             <option value="asleep">Asleep</option>
                         </select>
+                    </div>
+                </div>
+
+                <div class="infogroup">
+                    <label class="divAlign">Current HP </label>
+                    <input id="currentHP1" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updatePercent()">/
+                    <label id="totalHP1">321</label>
+                    <input id="percentHP1" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updateNumber()">%
+                    <br>
+                    <br>
+
+                    Health
+                    <div class="hpBar greenHPBar" id="hpBar1" style="background: linear-gradient(to right, green 100%, white 0%);">
+
                     </div>
                 </div>
 
@@ -558,12 +572,12 @@
                 <div class="infogroup">
 
                     <div>
-                        <label class="typelbl">Type:</label>
+                        <label class="typelbl divAlign">Type:</label>
                         <label id="type2">Fire</label>
                     </div>
 
                     <div>
-                        <label>Gender: </label>
+                        <label class="divAlign">Gender: </label>
 
                         <select id="gender2" onchange="update()">
                             <option>Male</option>
@@ -573,7 +587,7 @@
                     </div>
 
                     <div>
-                        <label>Level: </label>
+                        <label class="divAlign">Level: </label>
                         <input id="level2" value=100 type=number min=1 max=100
                             onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="update()">
                     </div>
@@ -801,7 +815,7 @@
 
                 <div class="infogroup">
                     <div>
-                        <label>Personalities: </label>
+                        <label class="divAlign">Personality: </label>
                         <select id="posNat2" onchange="update()">
                             <option value="none">None</option>
                             <option value="brawny">Brawny</option>
@@ -823,21 +837,21 @@
                     </div>
 
                     <div>
-                        <label>Ability: </label>
+                        <label class="divAlign">Ability: </label>
                         <select id="ability2" onchange="update()">
                             <option>None</option>
                         </select>
                     </div>
 
                     <div>
-                        <label>Item: </label>
+                        <label class="divAlign">Item: </label>
                         <select id="item2" onchange="update()">
                             <option>None</option>
                         </select>
                     </div>
 
                     <div>
-                        <label>Status: </label>
+                        <label class="divAlign">Status: </label>
                         <select id="status2" onchange="update()">
                             <option value="healthy">Healthy</option>
                             <option value="paralasis">Paralyzed</option>
@@ -847,6 +861,19 @@
                     </div>
                 </div>
 
+                <div class="infogroup">
+                    <label class="divAlign">Current HP </label>
+                    <input id="currentHP2" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updatePercent()">/
+                    <label id="totalHP2">321</label>
+                    <input id="percentHP2" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updateNumber()">%
+                    <br>
+                    <br>
+
+                    Health
+                    <div class="hpBar greenHPBar" id="hpBar2" style="background: linear-gradient(to right, green 100%, white 0%);">
+
+                    </div>
+                </div>
                 <div class="infogroup">
 
                     <div>
@@ -911,7 +938,7 @@
             return min;
         }
 
-        return value;
+        return parseInt(value);
     }
 </script>
 
