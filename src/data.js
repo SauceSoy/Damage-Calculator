@@ -5,6 +5,7 @@ var loomians = {
         types: ["Fire"],
         baseStats: {
             hp: 57,
+            energy: 51,
             attack: 60,
             defense: 67,
             attackR: 36,
@@ -19,6 +20,7 @@ var loomians = {
         types: ["Fire"],
         baseStats: {
             hp: 61,
+            energy: 67,
             attack: 75,
             defense: 95, 
             attackR: 46, 
@@ -33,6 +35,7 @@ var loomians = {
         types: ["Fire", "Metal"],
         baseStats: {
             hp: 89,
+            energy: 88,
             attack: 102,
             defense: 125,
             attackR: 64,
@@ -47,6 +50,7 @@ var loomians = {
         types: ["Water"],
         baseStats: {
             hp: 63,
+            energy: 51,
             attack: 56,
             defense: 50,
             attackR: 55,
@@ -61,6 +65,7 @@ var loomians = {
         types: ["Water"],
         baseStats: {
             hp: 78,
+            energy: 67,
             attack: 71,
             defense: 70,
             attackR: 70,
@@ -75,6 +80,7 @@ var loomians = {
         types: ["Water", "Light"],
         baseStats: {
             hp: 105,
+            energy: 88,
             attack: 90,
             defense: 95,
             attackR: 95,
@@ -89,6 +95,7 @@ var loomians = {
         types: ["Plant"],
         baseStats: {
             hp: 45,
+            energy: 51,
             attack: 76,
             defense: 40,
             attackR: 50,
@@ -103,6 +110,7 @@ var loomians = {
         types: ["Plant"],
         baseStats: {
             hp: 55,
+            energy: 67,
             attack: 96,
             defense: 55,
             attackR: 70,
@@ -117,6 +125,7 @@ var loomians = {
         types: ["Plant", "Brawler"],
         baseStats: {
             hp: 76,
+            energy: 88,
             attack: 126,
             defense: 75,
             attackR: 85,
@@ -131,6 +140,7 @@ var loomians = {
         types: ["Light"],
         baseStats: {
             hp: 45,
+            energy: 51,
             attack: 36,
             defense: 33,
             attackR: 79,
@@ -145,6 +155,7 @@ var loomians = {
         types: ["Light"],
         baseStats: {
             hp: 57,
+            energy: 67,
             attack: 64,
             defense: 40,
             attackR: 91,
@@ -159,6 +170,7 @@ var loomians = {
         types: ["Light", "Metal"],
         baseStats: {
             hp: 85,
+            energy: 88,
             attack: 84,
             defense: 71,
             attackR: 125,
@@ -173,6 +185,7 @@ var loomians = {
         types: ["Dark"],
         baseStats: {
             hp: 47,
+            energy: 51,
             attack: 47,
             defense: 50,
             attackR: 47,
@@ -187,6 +200,7 @@ var loomians = {
         types: ["Dark"],
         baseStats: {
             hp: 60,
+            energy: 67,
             attack: 65,
             defense: 75,
             attackR: 60,
@@ -201,6 +215,7 @@ var loomians = {
         types: ["Dark", "Spirit"],
         baseStats: {
             hp: 76,
+            energy: 88,
             attack: 110,
             defense: 90,
             attackR: 90,
@@ -215,6 +230,7 @@ var loomians = {
         types: ["Ice"],
         baseStats: {
             hp: 55,
+            energy: 51,
             attack: 45,
             defense: 38,
             attackR: 67,
@@ -229,6 +245,7 @@ var loomians = {
         types: ["Ice"],
         baseStats: {
             hp: 55,
+            energy: 67,
             attack: 45,
             defense: 38,
             attackR: 67,
@@ -243,6 +260,7 @@ var loomians = {
         types: ["Ice", "Earth"],
         baseStats: {
             hp: 132,
+            energy: 88,
             attack: 98,
             defense: 115,
             attackR: 65,
@@ -257,6 +275,7 @@ var loomians = {
         types: ["Electric"],
         baseStats: {
             hp: 51,
+            energy: 51,
             attack: 36,
             defense: 36,
             attackR: 67,
@@ -271,6 +290,7 @@ var loomians = {
         types: ["Electric"],
         baseStats: {
             hp: 71,
+            energy: 67,
             attack: 56,
             defense: 41,
             attackR: 88,
@@ -285,6 +305,7 @@ var loomians = {
         types: ["Electric", "Ancient"],
         baseStats: {
             hp: 78,
+            energy: 88,
             attack: 89,
             defense: 56,
             attackR: 109,
@@ -299,6 +320,7 @@ var loomians = {
         types: ["Typeless"],
         baseStats: {
             hp: 50,
+            energy: 41,
             attack: 38,
             defense: 41,
             attackR: 42,
@@ -313,6 +335,7 @@ var loomians = {
         types: ["Dark"],
         baseStats: {
             hp: 75,
+            energy: 79,
             attack: 96,
             defense: 79,
             attackR: 51,
@@ -327,6 +350,7 @@ var loomians = {
         types: ["Light"],
         baseStats: {
             hp: 75,
+            energy: 68,
             attack: 51,
             defense: 68,
             attackR: 96,
@@ -341,6 +365,7 @@ var loomians = {
         types: ["Bug"],
         baseStats: {
             hp: 35,
+            energy: 37,
             attack: 40,
             defense: 24,
             attackR: 55,
@@ -355,6 +380,7 @@ var loomians = {
         types: ["Bug"],
         baseStats: {
             hp: 50,
+            energy: 46,
             attack: 39,
             defense: 60,
             attackR: 39,
@@ -369,6 +395,7 @@ var loomians = {
         types: ["Bug", "Air"],
         baseStats: {
             hp: 60,
+            energy: 69,
             attack: 45,
             defense: 55,
             attackR: 92,
@@ -383,6 +410,7 @@ var loomians = {
         types: ["Air"],
         baseStats: {
             hp: 44,
+            energy: 40,
             attack: 50,
             defense: 38,
             attackR: 22,
@@ -397,6 +425,7 @@ var loomians = {
         types: ["Air"],
         baseStats: {
             hp: 54,
+            energy: 56,
             attack: 75,
             defense: 48,
             attackR: 32,
@@ -411,6 +440,7 @@ var loomians = {
         types: ["Air"],
         baseStats: {
             hp: 79,
+            energy: 80,
             attack: 100,
             defense: 68,
             attackR: 62,
@@ -425,6 +455,7 @@ var loomians = {
         types: ["Bug", "Toxic"],
         baseStats: {
             hp: 45,
+            energy: 43,
             attack: 60,
             defense: 40,
             attackR: 30,
@@ -439,6 +470,7 @@ var loomians = {
         types: ["Bug", "Toxic"],
         baseStats: {
             hp: 70,
+            energy: 68,
             attack: 90,
             defense: 65,
             attackR: 65,
@@ -453,6 +485,7 @@ var loomians = {
         types: ["Bug", "Plant"],
         baseStats: {
             hp: 55,
+            energy: 43,
             attack: 25,
             defense: 60,
             attackR: 40,
@@ -467,6 +500,7 @@ var loomians = {
         types: ["Bug", "Plant"],
         baseStats: {
             hp: 85,
+            energy: 68,
             attack: 45,
             defense: 90,
             attackR: 65,
@@ -481,6 +515,7 @@ var loomians = {
         types: ["Bug"],
         baseStats: {
             hp: 60,
+            energy: 39,
             attack: 45,
             defense: 65,
             attackR: 35,
@@ -495,6 +530,7 @@ var loomians = {
         types: ["Bug"],
         baseStats: {
             hp: 60,
+            energy: 48,
             attack: 45,
             defense: 65,
             attackR: 35,
@@ -509,6 +545,7 @@ var loomians = {
         types: ["Bug", "Toxic"],
         baseStats: {
             hp: 70,
+            energy: 70,
             attack: 97,
             defense: 80,
             attackR: 46,
@@ -523,6 +560,7 @@ var loomians = {
         types: ["Dark"],
         baseStats: {
             hp: 55,
+            energy: 48,
             attack: 50,
             defense: 40,
             attackR: 20,
@@ -537,6 +575,7 @@ var loomians = {
         types: ["Dark"],
         baseStats: {
             hp: 80,
+            energy: 75,
             attack: 90,
             defense: 85,
             attackR: 65,
@@ -551,6 +590,7 @@ var loomians = {
         types: ["Earth"],
         baseStats: {
             hp: 62,
+            energy: 46,
             attack: 60,
             defense: 60,
             attackR: 30,
@@ -565,6 +605,7 @@ var loomians = {
         types: ["Earth"],
         baseStats: {
             hp: 92,
+            energy: 76,
             attack: 110,
             defense: 90,
             attackR: 40,
@@ -579,6 +620,7 @@ var loomians = {
         types: ["Electric", "Light"],
         baseStats: {
             hp: 50,
+            energy: 55,
             attack: 50,
             defense: 45,
             attackR: 68,
@@ -593,6 +635,7 @@ var loomians = {
         types: ["Mind", "Spirit"],
         baseStats: {
             hp: 74,
+            energy: 91,
             attack: 100,
             defense: 81,
             attackR: 105,
@@ -1662,6 +1705,7 @@ var builtInSets = [
         setName: "Wallbreaker",
         evs: {
             hp: 132,
+            energy: 0,
             attack: 200,
             defense: 0,
             attackR: 0,
@@ -1670,6 +1714,7 @@ var builtInSets = [
         },
         ivs: {
             hp: 40,
+            energy: 40,
             attack: 40,
             defense: 40,
             attackR: 40,
@@ -1694,6 +1739,7 @@ var builtInSets = [
         setName: "Stall",
         evs: {
             hp: 200,
+            energy: 0,
             attack: 0,
             defense: 200,
             attackR: 0,
@@ -1702,6 +1748,7 @@ var builtInSets = [
         },
         ivs: {
             hp: 40,
+            energy: 40,
             attack: 40,
             defense: 40,
             attackR: 40,
@@ -1726,6 +1773,7 @@ var builtInSets = [
         setName: "Wallbreaker",
         evs: {
             hp: 0,
+            energy: 0,
             attack: 200,
             defense: 0,
             attackR: 196,
@@ -1734,6 +1782,7 @@ var builtInSets = [
         },
         ivs: {
             hp: 40,
+            energy: 40,
             attack: 40,
             defense: 40,
             attackR: 40,
@@ -1758,6 +1807,7 @@ var builtInSets = [
         setName: "Wallbreaker",
         evs: {
             hp: 60,
+            energy: 0,
             attack: 0,
             defense: 0,
             attackR: 200,
@@ -1766,6 +1816,7 @@ var builtInSets = [
         },
         ivs: {
             hp: 40,
+            energy: 40,
             attack: 40,
             defense: 40,
             attackR: 40,
@@ -1790,6 +1841,7 @@ var builtInSets = [
         setName: "Defensive",
         evs: {
             hp: 200,
+            energy: 0,
             attack: 0,
             defense: 0,
             attackR: 0,
@@ -1798,6 +1850,7 @@ var builtInSets = [
         },
         ivs: {
             hp: 40,
+            energy: 40,
             attack: 40,
             defense: 40,
             attackR: 40,
@@ -1822,6 +1875,7 @@ var builtInSets = [
         setName: "Icicle Trapper",
         evs: {
             hp: 200,
+            energy: 0,
             attack: 100,
             defense: 0,
             attackR: 0,
@@ -1830,6 +1884,7 @@ var builtInSets = [
         },
         ivs: {
             hp: 40,
+            energy: 40,
             attack: 40,
             defense: 40,
             attackR: 40,
@@ -1854,6 +1909,7 @@ var builtInSets = [
         setName: "Pivot",
         evs: {
             hp: 100,
+            energy: 0,
             attack: 0,
             defense: 0,
             attackR: 200,
@@ -1862,6 +1918,7 @@ var builtInSets = [
         },
         ivs: {
             hp: 40,
+            energy: 40,
             attack: 40,
             defense: 40,
             attackR: 40,
@@ -1886,6 +1943,7 @@ var builtInSets = [
         setName: "Peace of Mind",
         evs: {
             hp: 100,
+            energy: 0,
             attack: 0,
             defense: 0,
             attackR: 200,
@@ -1894,6 +1952,7 @@ var builtInSets = [
         },
         ivs: {
             hp: 40,
+            energy: 40,
             attack: 40,
             defense: 40,
             attackR: 40,

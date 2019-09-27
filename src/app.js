@@ -69,22 +69,25 @@ let moveTwoCrit2 = document.getElementById("moveTwoCrit2");
 let moveThreeCrit2 = document.getElementById("moveThreeCrit2");
 let moveFourCrit2 = document.getElementById("moveFourCrit2");
 
-
-var baseHP1 = document.getElementById("baseHP1");
-var baseHP2 = document.getElementById("baseHP2");
-var baseAtk1 = document.getElementById("baseAtk1");
-var baseAtk2 = document.getElementById("baseAtk2");
-var baseDef1 = document.getElementById("baseDef1");
-var baseDef2 = document.getElementById("baseDef2");
-var baseAtkR1 = document.getElementById("baseAtkR1");
-var baseAtkR2 = document.getElementById("baseAtkR2");
-var baseDefR1 = document.getElementById("baseDefR1");
-var baseDefR2 = document.getElementById("baseDefR2");
-var baseSpd1 = document.getElementById("baseSpd1");
-var baseSpd2 = document.getElementById("baseSpd2");
+let baseHP1 = document.getElementById("baseHP1");
+let baseHP2 = document.getElementById("baseHP2");
+let baseEnergy1 = document.getElementById("baseEnergy1");
+let baseEnergy2 = document.getElementById("baseEnergy2");
+let baseAtk1 = document.getElementById("baseAtk1");
+let baseAtk2 = document.getElementById("baseAtk2");
+let baseDef1 = document.getElementById("baseDef1");
+let baseDef2 = document.getElementById("baseDef2");
+let baseAtkR1 = document.getElementById("baseAtkR1");
+let baseAtkR2 = document.getElementById("baseAtkR2");
+let baseDefR1 = document.getElementById("baseDefR1");
+let baseDefR2 = document.getElementById("baseDefR2");
+let baseSpd1 = document.getElementById("baseSpd1");
+let baseSpd2 = document.getElementById("baseSpd2");
 
 let hpEV1 = document.getElementById("HPEV1");
 let hpIV1 = document.getElementById("HPIV1");
+let energyEV1 = document.getElementById("energyEV1");
+let energyIV1 = document.getElementById("energyIV1");
 let atkEV1 = document.getElementById("atkEV1");
 let atkIV1 = document.getElementById("atkIV1");
 let defEV1 = document.getElementById("defEV1");
@@ -98,6 +101,8 @@ let spdIV1 = document.getElementById("spdIV1");
 
 let hpEV2 = document.getElementById("HPEV2");
 let hpIV2 = document.getElementById("HPIV2");
+let energyEV2 = document.getElementById("energyEV2");
+let energyIV2 = document.getElementById("energyIV2");
 let atkEV2 = document.getElementById("atkEV2");
 let atkIV2 = document.getElementById("atkIV2");
 let defEV2 = document.getElementById("defEV2");
@@ -109,18 +114,20 @@ let defRIV2 = document.getElementById("defRIV2");
 let spdEV2 = document.getElementById("spdEV2");
 let spdIV2 = document.getElementById("spdIV2");
 
-var statHP1 = document.getElementById("statHP1");
-var statHP2 = document.getElementById("statHP2");
-var statAtk1 = document.getElementById("statAtk1");
-var statAtk2 = document.getElementById("statAtk2");
-var statDef1 = document.getElementById("statDef1");
-var statDef2 = document.getElementById("statDef2");
-var statAtkR1 = document.getElementById("statAtkR1");
-var statAtkR2 = document.getElementById("statAtkR2");
-var statDefR1 = document.getElementById("statDefR1");
-var statDefR2 = document.getElementById("statDefR2");
-var statSpd1 = document.getElementById("statSpd1");
-var statSpd2 = document.getElementById("statSpd2");
+let statHP1 = document.getElementById("statHP1");
+let statHP2 = document.getElementById("statHP2");
+let statEnergy1 = document.getElementById("statEnergy1");
+let statEnergy2 = document.getElementById("statEnergy2");
+let statAtk1 = document.getElementById("statAtk1");
+let statAtk2 = document.getElementById("statAtk2");
+let statDef1 = document.getElementById("statDef1");
+let statDef2 = document.getElementById("statDef2");
+let statAtkR1 = document.getElementById("statAtkR1");
+let statAtkR2 = document.getElementById("statAtkR2");
+let statDefR1 = document.getElementById("statDefR1");
+let statDefR2 = document.getElementById("statDefR2");
+let statSpd1 = document.getElementById("statSpd1");
+let statSpd2 = document.getElementById("statSpd2");
 
 let atkStages1 = document.getElementById("atkStages1");
 let defStages1 = document.getElementById("defStages1");
@@ -173,6 +180,7 @@ let percentHP2 = document.getElementById("percentHP2");
 let singleDouble = document.getElementById("singleDouble");
 
 let hp1;
+let energy1;
 let atk1;
 let def1;
 let atkR1;
@@ -180,6 +188,7 @@ let defR1;
 let spd1;
 
 let hp2;
+let energy2;
 let atk2;
 let def2;
 let atkR2;
@@ -346,6 +355,7 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         let negNat1 = document.getElementById("negNat1");
 
         hpEV1.value = set1.evs.hp;
+        energyEV1.value = set1.evs.energy;
         atkEV1.value = set1.evs.attack;
         defEV1.value = set1.evs.defense;
         atkREV1.value = set1.evs.attackR;
@@ -353,6 +363,7 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         spdEV1.value = set1.evs.speed;
 
         hpIV1.value = set1.ivs.hp;
+        energyIV1.value = set1.ivs.energy;
         atkIV1.value = set1.ivs.attack;
         defIV1.value = set1.ivs.defense;
         atkRIV1.value = set1.ivs.attackR;
@@ -384,6 +395,7 @@ function loadSets(onlyFirst = false, onlySecond = false) {
 
 
         hpEV2.value = set2.evs.hp;
+        energyEV2.value = set2.evs.energy;
         atkEV2.value = set2.evs.attack;
         defEV2.value = set2.evs.defense;
         atkREV2.value = set2.evs.attackR;
@@ -391,6 +403,7 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         spdEV2.value = set2.evs.speed;
 
         hpIV2.value = set2.ivs.hp;
+        energyIV2.value = set2.ivs.energy;
         atkIV2.value = set2.ivs.attack;
         defIV2.value = set2.ivs.defense;
         atkRIV2.value = set2.ivs.attackR;
@@ -442,6 +455,7 @@ function makeBlankSet(loomian) {
         setName: "Blank Set",
         evs: {
             hp: 0,
+            energy: 0,
             attack: 0,
             defense: 0,
             attackR: 0,
@@ -450,6 +464,7 @@ function makeBlankSet(loomian) {
         },
         ivs: {
             hp: 40,
+            energy: 40,
             attack: 40,
             defense: 40,
             attackR: 40,
@@ -531,6 +546,8 @@ function loadBaseStats() {
 
     baseHP1.value = firstLoom.baseStats.hp;
     baseHP2.value = secondLoom.baseStats.hp;
+    baseEnergy1.value = firstLoom.baseStats.energy;
+    baseEnergy2.value = secondLoom.baseStats.energy;
     baseAtk1.value = firstLoom.baseStats.attack;
     baseAtk2.value = secondLoom.baseStats.attack;
     baseDef1.value = firstLoom.baseStats.defense;
@@ -599,6 +616,7 @@ function loadStats() {
     let negNat2 = document.getElementById("negNat2").value;
 
     hp1 = calculateStat(baseHP1.value, hpIV1.value, hpEV1.value, level1.value, true, undefined, undefined, undefined);
+    energy1 = calculateStat(baseEnergy1.value, energyIV1.value, energyEV1.value, level1.value, undefined, undefined, undefined, undefined, undefined, true);
     atk1 = calculateStat(baseAtk1.value, atkIV1.value, atkEV1.value, level1.value, undefined, posNat1, negNat1, "AttackM");
     def1 = calculateStat(baseDef1.value, defIV1.value, defEV1.value, level1.value, undefined, posNat1, negNat1, "DefenseM");
     atkR1 = calculateStat(baseAtkR1.value, atkRIV1.value, atkREV1.value, level1.value, undefined, posNat1, negNat1, "AttackR");
@@ -606,6 +624,7 @@ function loadStats() {
     spd1 = calculateStat(baseSpd1.value, spdIV1.value, spdEV1.value, level1.value, undefined, posNat1, negNat1, "Speed");
 
     hp2 = calculateStat(baseHP2.value, hpIV2.value, hpEV2.value, level2.value, true, undefined, undefined, undefined);
+    energy2 = calculateStat(baseEnergy2.value, energyIV2.value, energyEV2.value, level2.value, undefined, undefined, undefined, undefined, undefined, true);
     atk2 = calculateStat(baseAtk2.value, atkIV2.value, atkEV2.value, level2.value, undefined, posNat2, negNat2, "AttackM");
     def2 = calculateStat(baseDef2.value, defIV2.value, defEV2.value, level2.value, undefined, posNat2, negNat2, "DefenseM");
     atkR2 = calculateStat(baseAtkR2.value, atkRIV2.value, atkREV2.value, level2.value, undefined, posNat2, negNat2, "AttackR");
@@ -616,6 +635,7 @@ function loadStats() {
     checkStages();
 
     statHP1.innerHTML = hp1;
+    statEnergy1.innerHTML = energy1;
     statAtk1.innerHTML = atk1;
     statDef1.innerHTML = def1;
     statAtkR1.innerHTML = atkR1;
@@ -623,6 +643,7 @@ function loadStats() {
     statSpd1.innerHTML = spd1;
 
     statHP2.innerHTML = hp2;
+    statEnergy2.innerHTML = energy2;
     statAtk2.innerHTML = atk2;
     statDef2.innerHTML = def2;
     statAtkR2.innerHTML = atkR2;
@@ -630,13 +651,16 @@ function loadStats() {
     statSpd2.innerHTML = spd2;
 
 }
-function calculateStat(base, IV, EV, level, isHP = false, posNat, negNat, name, rest = false) {
+function calculateStat(base, IV, EV, level, isHP = false, posNat, negNat, name, rest = false, isEnergy = false) {
     let stat;
 
     IV = parseInt(IV);
     level = parseInt(level);
     if (isHP) {
         return Math.floor((2 * base + IV + Math.floor(EV / 4)) * level / 100) + level + 10;
+    }
+    if (isEnergy) {
+        return Math.floor(Math.floor(2 * base + IV + Math.floor(EV / 4)) * level / 65 + 80);
     }
     stat = Math.floor(Math.floor((2 * base + IV + Math.floor(EV / 4)) * level / 100 + 5));
 
