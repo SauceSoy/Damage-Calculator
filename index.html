@@ -166,6 +166,26 @@
                             </tr>
 
                             <tr>
+                                <th>Energy</th>
+                                <td>
+                                    <input id="baseEnergy1" readonly value="30">
+                                </td>
+                                <td>
+                                    <input id="energyIV1" value=40 type=number min=0 max=40
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="energyEV1" value=0 type=number min=0 max=200 step=4
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statEnergy1">300</span>
+                                </td>
+                            </tr>                            
+
+                            <tr>
                                 <th>M Attack</th>
                                 <td>
                                     <input id="baseAtk1" readonly value="30">
@@ -625,6 +645,25 @@
                                 </td>
                             </tr>
 
+                            <tr>
+                                <th>Energy</th>
+                                <td>
+                                    <input id="baseEnergy2" readonly value="30">
+                                </td>
+                                <td>
+                                    <input id="energyIV2" value=40 type=number min=0 max=40
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="energyEV2" value=0 type=number min=0 max=200 step=4
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statEnergy2">300</span>
+                                </td>
+                            </tr>                              
                             <tr>
                                 <th>M Attack</th>
                                 <td>
