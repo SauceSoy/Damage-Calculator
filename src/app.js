@@ -1157,7 +1157,11 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     if (itemB != "None" && move.knockOff == true && withoutSlapDown) {
         multi *= 1.5;
     }
-
+    
+    if (move.name == "Oppress" && stat2 != "healthy") {
+        multi *= 1.5;
+    }
+    
     tempPower = pokeRound(tempPower * multi);
     multi = 1;
 
