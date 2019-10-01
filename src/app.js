@@ -298,9 +298,13 @@ function findOptgroup(sel, key) {
         }
     }
 }
+
 function update() {
     let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
     let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
+    
+    let wasMaxHP1 = (currentHP1.value == hp1 ? true : false);
+    let wasMaxHP2 = (currentHP2.value == hp2 ? true : false);
 
     document.getElementById("type1").innerHTML = firstLoom.types[0] + (firstLoom.types[1] != undefined ? "/" + firstLoom.types[1] : "");
     document.getElementById("type2").innerHTML = secondLoom.types[0] + (secondLoom.types[1] != undefined ? "/" + secondLoom.types[1] : "");
@@ -321,6 +325,9 @@ function update() {
 
     (currentHP1.value > hp1 ? currentHP1.value = hp1 : null);
     (currentHP2.value > hp2 ? currentHP2.value = hp2 : null);
+
+    (wasMaxHP1 ? currentHP1.value = hp1 : null);
+    (wasMaxHP2 ? currentHP2.value = hp2 : null);
     
     updatePercent();
 }
