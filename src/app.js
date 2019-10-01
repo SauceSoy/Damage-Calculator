@@ -314,9 +314,7 @@ function update() {
 
     loadBaseStats();
     loadStats();
-    loadMoves();
-    detailedReport();
-
+    
     totalHP1.innerHTML = hp1;
     totalHP2.innerHTML = hp2;
 
@@ -328,7 +326,10 @@ function update() {
 
     (wasMaxHP1 ? currentHP1.value = hp1 : null);
     (wasMaxHP2 ? currentHP2.value = hp2 : null);
-    
+
+    loadMoves();
+    detailedReport();
+
     updatePercent();
 }
 
@@ -872,7 +873,7 @@ function detailedReport() {
     let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
     let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
     let level = level1.value;
-    let hp = (second ? currentHP1.value : currentHP2.value);
+    let hp;
     let ice = iceTrap2.checked;
     let sap = { attacker: sapPlant1.checked, defender: sapPlant2.checked };
 
@@ -936,6 +937,7 @@ function detailedReport() {
     let item = (second ? item1.value : item2.value);
     let ability = (second ? abilities.find((x) => x == abilityDropdown1.value) : abilities.find((x) => x == abilityDropdown2.value));
     move = findMove(moveName);
+    hp = (second ? currentHP1.value : currentHP2.value);
     let selfHP = (second ? currentHP2.value : currentHP1.value);
 
     if (second && move.mr == "Ranged") {
@@ -1164,11 +1166,11 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     if (itemB != "None" && move.knockOff == true && withoutSlapDown) {
         multi *= 1.5;
     }
-    
+
     if (move.name == "Oppress" && stat2 != "healthy") {
         multi *= 1.5;
     }
-    
+
     tempPower = pokeRound(tempPower * multi);
     multi = 1;
 
