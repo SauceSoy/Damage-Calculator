@@ -1933,7 +1933,7 @@ var builtInSets = [
         },
         posNature: "nimble",
         negNature: "none",
-        ability: "Awakening",
+        ability: "None",
         item: "None",
         level: 50        
     },
