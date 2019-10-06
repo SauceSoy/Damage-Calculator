@@ -252,3 +252,10 @@ hr {
 th {
   padding-right: 0.5em;
 }
+
+.contributors {
+  position: absolute;
+  bottom: 2em;
+  left: 0.5em;
+  font-size: 18;
+}
