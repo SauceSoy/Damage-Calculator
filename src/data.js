@@ -1629,6 +1629,104 @@ var moves = {
         mr: "Ranged"
     },
     
+    foulChant: {
+        name: "Foul Chant",
+        power: 90,
+        type: "Mind",
+        mr: "Ranged",
+        secondaryEffect: true
+    },
+    
+    earthquake: {
+        name: "Earthquake",
+        power: 90,
+        type: "Earth",
+        mr: "Physical",
+        aoe: true
+    },
+    
+    fireBreath: {
+        name: "Fire Breath",
+        power: 90,
+        type: "Fire",
+        mr: "Ranged",
+        secondaryEffect: true
+    },
+    
+    geyser: {
+        name: "Geyser",
+        power: 75,
+        type: "Water",
+        mr: "Ranged",
+        secondaryEffect: true
+    },
+    
+    hydroSlash: {
+        name: "Hydro Slash",
+        power: 70,
+        type: "Water",
+        mr: "Melee",
+        contact: true
+    },
+    
+    magmaBurst: {
+        name: "Magma Burst",
+        power: 85,
+        type: "Fire",
+        mr: "Ranged",
+        secondaryEffect: true
+    },
+    
+    tripRoot: {
+        name: "Trip Root",
+        power: 0,
+        type: "Plant",
+        mr: "Ranged",
+        weightBased: true
+    },
+    
+    savageGreed: {
+        name: "Savage Greed",
+        power: 75,
+        type: "Ancient",
+        mr: "Melee",
+        contact: true
+    },
+    
+    blazeChomp: {
+        name: "Blaze Chomp",
+        power: 65,
+        type: "Fire",
+        mr: "Melee",
+        contact: true,
+        secondaryEffect: true
+    },
+    
+    primalSlash: {
+        name: "Primal Slash",
+        power: 80,
+        type: "Ancient",
+        mr: "Melee",
+        contact: true
+    },
+    
+    coconutBomb: {
+        name: "Coconut Bomb",
+        power: 70,
+        type: "Plant",
+        mr: "Melee",
+        secondaryEffect: true
+    },
+    
+    lavaSlash: {
+        name: "Lava Slash",
+        power: 70,
+        type: "Fire",
+        mr: "Melee",
+        contact: true,
+        secondaryEffect: true
+    },
+    
     //Support Moves -----------------------------------------------------------------------------------------------------------------------------------------
     
     accelerate: {
@@ -1880,6 +1978,62 @@ var moves = {
         name: "Web Shot",
         power: 0,
         type: "Bug",
+        mr: "Support"
+    },
+    
+    magmaBlock: {
+        name: "Magma Block",
+        power: 0,
+        type: "Fire",
+        mr: "Support"
+    },
+    
+    wonderHerb: {
+        name: "Wonder Herb",
+        power: 0,
+        type: "Plant",
+        mr: "Support"
+    },
+    
+    photosynthesis: {
+        name: "Photosynthesis",
+        power: 0,
+        type: "Plant",
+        mr: "Support"
+    },
+    
+    healthGift: {
+        name: "Health Gify",
+        power: 0,
+        type: "Mind",
+        mr: "Support"
+    },
+    
+    energyGift: {
+        name: "Energy Gift",
+        power: 0,
+        type: "Mind",
+        mr: "Support"
+    },
+    
+    briarBlock: {
+        name: "Briar Block",
+        power: 0,
+        type: "Plant",
+        mr: "Support"
+    },
+    
+    beastSlumber: {
+        name: "Beast's Slumber",
+        power: 0,
+        type: "Ancient",
+        mr: "Support"
+    },
+    
+    burnUp: {
+        name: "Burn Up",
+        power: 0,
+        type: "Fire",
         mr: "Support"
     }
 };
