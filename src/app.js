@@ -1112,6 +1112,8 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     let gen2 = gender2.value;
     let ability1 = (second == false ? abilities.find((x) => x == abilityDropdown1.value) : abilities.find((x) => x == abilityDropdown2.value));
     let ability2 = (second == false ? abilities.find((x) => x == abilityDropdown2.value) : abilities.find((x) => x == abilityDropdown1.value));
+    let typeModAbility1 = findTypeModAbility(ability1);
+    let typeModAbility2 = findTypeModAbility(ability2);
     let btl = (second == false ? enteredBtl2.checked : enteredBtl1.checked);
     let stat1 = (second == false ? status1.value : status2.value);
     let stat2 = (second == false ? status2.value : status1.value);
@@ -1130,6 +1132,10 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     dmg = Math.floor(2 * level / 5) + 2;
 
     //Power ----------------------------------------
+    
+    if (typeModAbility1 != undefined && tempType == typeModAbility1.typeModifier.type && typeModAbility1.powerMod == true) {
+        multi *= typeModAbility1.typeModifier.modifier;
+    }
 
     if (ability1 == "Neutralize") {
         tempType = "Typeless"
@@ -1255,8 +1261,8 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
 
     //Type -------------------------------
 
-    if ((ability2 == "Coursing Venom" && tempType == "Toxic") || (ability2 == "Lightning Rod" && tempType == "Electric") || (ability2 == "Prismatic" && tempType == "Light") || (ability2 == "Woodsman" && tempType == "Plant")) {
-        multi *= 0;
+    if (typeModAbility2 != undefined && tempType == typeModAbility2.typeModifier.type && typeModAbility2.powerMod == false) {
+        multi *= typeModAbility2.typeModifier.modifier;
     }
 
     if (types[loom2.types[0].toLowerCase()].weaknesses.includes(tempType.toLowerCase())) {
@@ -1409,6 +1415,15 @@ function findMove(name) {
             return moves[move];
         }
     }
+}
+
+function findTypeModAbility(name) {
+    for (let ability in typeModAbilities) {
+        if (typeModAbilities[ability].name == name) {
+            return typeModAbilities[ability];
+        }
+    }
+    return undefined;
 }
 
 function pokeRound(val) {
