@@ -34,12 +34,12 @@ var loomians = {
         number: 03,
         types: ["Fire", "Metal"],
         baseStats: {
-            hp: 89,
+            hp: 88,
             energy: 88,
             attack: 102,
             defense: 125,
-            attackR: 64,
-            defenseR: 85,
+            attackR: 60,
+            defenseR: 82,
             speed: 65
         }
     },
@@ -79,12 +79,12 @@ var loomians = {
         number: 06,
         types: ["Water", "Light"],
         baseStats: {
-            hp: 105,
+            hp: 102,
             energy: 88,
             attack: 90,
-            defense: 95,
-            attackR: 95,
-            defenseR: 85,
+            defense: 93,
+            attackR: 94,
+            defenseR: 83,
             speed: 60 
         }
     },
@@ -124,11 +124,11 @@ var loomians = {
         number: 09,
         types: ["Plant", "Brawler"],
         baseStats: {
-            hp: 76,
+            hp: 72,
             energy: 88,
             attack: 126,
             defense: 75,
-            attackR: 85,
+            attackR: 80,
             defenseR: 65,
             speed: 104
         }
@@ -169,12 +169,12 @@ var loomians = {
         number: 12,
         types: ["Light", "Metal"],
         baseStats: {
-            hp: 85,
+            hp: 84,
             energy: 88,
-            attack: 84,
+            attack: 80,
             defense: 71,
             attackR: 125,
-            defenseR: 90,
+            defenseR: 87,
             speed: 75
         }
     },
@@ -217,7 +217,7 @@ var loomians = {
             hp: 76,
             energy: 88,
             attack: 110,
-            defense: 90,
+            defense: 82,
             attackR: 90,
             defenseR: 65,
             speed: 99
@@ -259,7 +259,7 @@ var loomians = {
         number: 18,
         types: ["Ice", "Earth"],
         baseStats: {
-            hp: 132,
+            hp: 124,
             energy: 88,
             attack: 98,
             defense: 115,
@@ -308,8 +308,8 @@ var loomians = {
             energy: 88,
             attack: 89,
             defense: 56,
-            attackR: 109,
-            defenseR: 79,
+            attackR: 106,
+            defenseR: 74,
             speed: 119
         }
     },
@@ -471,11 +471,11 @@ var loomians = {
         baseStats: {
             hp: 70,
             energy: 68,
-            attack: 90,
+            attack: 100,
             defense: 65,
-            attackR: 65,
+            attackR: 45,
             defenseR: 65,
-            speed: 55
+            speed: 65
         }
     },
     
@@ -574,13 +574,13 @@ var loomians = {
         number: 40,
         types: ["Dark"],
         baseStats: {
-            hp: 80,
+            hp: 90,
             energy: 75,
             attack: 90,
             defense: 85,
-            attackR: 65,
+            attackR: 40,
             defenseR: 50,
-            speed: 80
+            speed: 90
         }
     },
     
@@ -626,6 +626,306 @@ var loomians = {
             attackR: 68,
             defenseR: 50,
             speed: 67
+        }
+    },
+    
+    slugling: {
+        name: "Slugling",
+        number: 45,
+        types: ["Plant"],
+        baseStats: {
+            hp: 70,
+            energy: 41,
+            attack: 10,
+            defense: 10,
+            attackR: 50,
+            defenseR: 70,
+            speed: 45
+        }
+    },
+    
+    escargrow: {
+        name: "Escargrow",
+        number: 46,
+        types: ["Plant"],
+        baseStats: {
+            hp: 90,
+            energy: 65,
+            attack: 35,
+            defense: 20,
+            attackR: 65,
+            defenseR: 90,
+            speed: 50
+        }
+    },
+    
+    gastroak: {
+        name: "Gastroak",
+        number: 47,
+        types: ["Plant"],
+        baseStats: {
+            hp: 115,
+            energy: 83,
+            attack: 55,
+            defense: 35,
+            attackR: 85,
+            defenseR: 115,
+            speed: 55
+        }
+    },
+    
+    kabunga: {
+        name: "Kabunga",
+        number: 48,
+        types: ["Plant"],
+        baseStats: {
+            hp: 52,
+            energy: 53,
+            attack: 76,
+            defense: 43,
+            attackR: 64,
+            defenseR: 34,
+            speed: 86
+        }
+    },
+    
+    wikiwiki: {
+        name: "WikiWiki",
+        number: 49,
+        types: ["Plant"],
+        baseStats: {
+            hp: 152,
+            energy: 125,
+            attack: 49,
+            defense: 55,
+            attackR: 49,
+            defenseR: 55,
+            speed: 47
+        }
+    },
+    
+    chartiki: {
+        name: "Chartiki",
+        number: 50,
+        types: ["Plant", "Fire"],
+        baseStats: {
+            hp: 98,
+            energy: 104,
+            attack: 55,
+            defense: 55,
+            attackR: 103,
+            defenseR: 55,
+            speed: 62
+        }
+    },
+    
+    shawchi: {
+        name: "Shawchi",
+        number: 51,
+        types: ["Mind"],
+        baseStats: {
+            hp: 61,
+            energy: 80,
+            attack: 36,
+            defense: 42,
+            attackR: 85,
+            defenseR: 64,
+            speed: 89
+        }
+    },
+    
+    rakrawla: {
+        name: "Rakrawla",
+        number: 52,
+        types: ["Earth"],
+        baseStats: {
+            hp: 75,
+            energy: 59,
+            attack: 51,
+            defense: 68,
+            attackR: 44,
+            defenseR: 54,
+            speed: 43
+        }
+    },
+    
+    sedimars: {
+        name: "Sedimars",
+        number: 53,
+        types: ["Earth"],
+        baseStats: {
+            hp: 107,
+            energy: 87,
+            attack: 88,
+            defense: 98,
+            attackR: 47,
+            defenseR: 76,
+            speed: 54
+        }
+    },
+    
+    gumpod: {
+        name: "Gumpod",
+        number: 54,
+        types: ["Water"],
+        baseStats: {
+            hp: 60,
+            energy: 55,
+            attack: 42,
+            defense: 98,
+            attackR: 42,
+            defenseR: 43,
+            speed: 33
+        }
+    },
+    
+    ventacean: {
+        name: "Ventacean",
+        number: 55,
+        types: ["Water"],
+        baseStats: {
+            hp: 90,
+            energy: 85,
+            attack: 75,
+            defense: 142,
+            attackR: 52,
+            defenseR: 53,
+            speed: 48
+        }
+    },
+    
+    skilava: {
+        name: "Skilava",
+        number: 60,
+        types: ["Fire"],
+        baseStats: {
+            hp: 50,
+            energy: 70,
+            attack: 48,
+            defense: 49,
+            attackR: 58,
+            defenseR: 49,
+            speed: 55
+        }
+    },
+    
+    geksplode: {
+        name: "Geksplode",
+        number: 61,
+        types: ["Fire"],
+        baseStats: {
+            hp: 65,
+            energy: 80,
+            attack: 52,
+            defense: 58,
+            attackR: 80,
+            defenseR: 59,
+            speed: 60
+        }
+    },
+    
+    eruptidon: {
+        name: "Eruptidon",
+        number: 62,
+        types: ["Fire"],
+        baseStats: {
+            hp: 81,
+            energy: 90,
+            attack: 72,
+            defense: 69,
+            attackR: 122,
+            defenseR: 84,
+            speed: 72
+        }
+    },
+    
+    craytal: {
+        name: "Craytal",
+        number: 63,
+        types: ["Fire"],
+        baseStats: {
+            hp: 76,
+            energy: 74,
+            attack: 34,
+            defense: 43,
+            attackR: 76,
+            defenseR: 43,
+            speed: 62
+        }
+    },
+    
+    krakaloa: {
+        name: "Krakaloa",
+        number: 64,
+        types: ["Fire"],
+        baseStats: {
+            hp: 102,
+            energy: 125,
+            attack: 55,
+            defense: 54,
+            attackR: 95,
+            defenseR: 59,
+            speed: 42
+        }
+    },
+    
+    volkaloa: {
+        name: "Volkaloa",
+        number: 65,
+        types: ["Fire", "Ancient"],
+        baseStats: {
+            hp: 81,
+            energy: 86,
+            attack: 105,
+            defense: 54,
+            attackR: 55,
+            defenseR: 49,
+            speed: 102
+        }
+    },
+    
+    igneol: {
+        name: "Igneol",
+        number: 66,
+        types: ["Ancient"],
+        baseStats: {
+            hp: 62,
+            energy: 75,
+            attack: 60,
+            defense: 70,
+            attackR: 42,
+            defenseR: 41,
+            speed: 42
+        }
+    },
+    
+    chrysite: {
+        name: "Chrysite",
+        number: 67,
+        types: ["Ancient"],
+        baseStats: {
+            hp: 82,
+            energy: 80,
+            attack: 64,
+            defense: 99,
+            attackR: 47,
+            defenseR: 46,
+            speed: 42
+        }
+    },
+    
+    obsidrugon: {
+        name: "Obsidrugon",
+        number: 68,
+        types: ["Ancient"],
+        baseStats: {
+            hp: 99,
+            energy: 100,
+            attack: 90,
+            defense: 124,
+            attackR: 67,
+            defenseR: 65,
+            speed: 65
         }
     },
     
@@ -958,7 +1258,7 @@ var moves = {
 
     muckBuck: {
         name: "Muck Buck",
-        power: 75,
+        power: 85,
         type: "Earth",
         mr: "Melee"
     },      
@@ -1933,7 +2233,7 @@ var builtInSets = [
         },
         posNature: "nimble",
         negNature: "none",
-        ability: "None",
+        ability: "Awakening",
         item: "None",
         level: 50        
     },
@@ -1967,7 +2267,7 @@ var builtInSets = [
         },
         posNature: "nimble",
         negNature: "none",
-        ability: "Awakening",
+        ability: "None",
         item: "Power Cuffs",
         level: 50        
     }      
