@@ -2143,7 +2143,7 @@ var types = {
     },
 };
 
-var abilities = ["Awakening", "Ambush", "Coursing Venom", "Drainage", "Lightning Rod", "Mean Spirited", "Neutralize", "Overshadow", "Illuminate", "Prismatic", "Territorial", "Woodsman", "Dusk", "Dawn", "Pyro", "Volcanic", "Combustible", "Noxious Weeds"];
+var abilities = ["Awakening", "Ambush", "Coursing Venom", "Hasty", "Drainage", "Lightning Rod", "Mean Spirited", "Neutralize", "Overshadow", "Illuminate", "Prismatic", "Territorial", "Woodsman", "Dusk", "Dawn", "Pyro", "Volcanic", "Combustible", "Noxious Weeds"];
 
 var typeModAbilities = {
     coursingVenom: {
