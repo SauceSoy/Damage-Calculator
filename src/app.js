@@ -1127,6 +1127,8 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     tempAtk = getTempAtkDef(second, move.mr).attack;
     tempDef = getTempAtkDef(second, move.mr).defense;
 
+    tempPower = (move.name == "Trip Root" ? getTripRootPower(loom2.weight) : tempPower);
+
     //Base ------------------------------------
 
     dmg = Math.floor(2 * level / 5) + 2;
@@ -1352,6 +1354,26 @@ function getTempAtkDef(second, mr) {
 
     return { attack: tempAtk, defense: tempDef };
 }
+
+function getTripRootPower(weight) {
+    if (weight < 10) {
+        return 20;
+    }
+    if (weight < 25) {
+        return 40;
+    }
+    if (weight < 50) {
+        return 60;
+    }
+    if (weight < 100) {
+        return 80;
+    }
+    if (weight < 200) {
+        return 100;
+    }
+    return 120;
+}
+
 function checkSapPlant(loom1, loom2, hp1, hp2, sap, item, ability) {
     let newHP = hp1;
     let multi = 1;
