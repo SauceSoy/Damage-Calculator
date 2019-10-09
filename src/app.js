@@ -1155,7 +1155,14 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     if (ability1 == "Ambush" && btl) {
         multi *= 2;
     }
-
+    
+    if (ability1 == "Sharp Claws" && move.contact == true) {
+        multi *= 1.3;
+    }
+    if (ability1 == "Brute Force" && move.secondaryEffect == true) {
+        multi *= 1.3;
+    }
+    
     if (gen1 == gen2 && ability1 == "Territorial") {
         multi *= 1.25;
     }
