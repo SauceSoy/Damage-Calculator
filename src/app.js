@@ -1114,7 +1114,8 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     let ability2 = (second == false ? abilities.find((x) => x == abilityDropdown2.value) : abilities.find((x) => x == abilityDropdown1.value));
     let typeModAbility1 = findTypeModAbility(ability1);
     let typeModAbility2 = findTypeModAbility(ability2);
-    let btl = (second == false ? enteredBtl2.checked : enteredBtl1.checked);
+    let btl1 = (second == false ? enteredBtl2.checked : enteredBtl1.checked);
+    let btl2 = (second == false ? enteredBtl1.checked : enteredBtl2.checked);
     let stat1 = (second == false ? status1.value : status2.value);
     let stat2 = (second == false ? status2.value : status1.value);
     let itemA = (second == false ? item1.value : item2.value);
@@ -1152,7 +1153,11 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
         multi *= 1.2;
     }
 
-    if (ability1 == "Ambush" && btl) {
+    if (ability1 == "Ambush" && btl1) {
+        multi *= 2;
+    }
+    
+    if (ability1 == "Vengeance" && btl2) {
         multi *= 2;
     }
     

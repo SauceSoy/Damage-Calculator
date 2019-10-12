@@ -615,7 +615,7 @@ var loomians = {
         baseStats: {
             hp: 90,
             energy: 75,
-            attack: 90,
+            attack: 95,
             defense: 85,
             attackR: 40,
             defenseR: 50,
@@ -839,11 +839,75 @@ var loomians = {
         baseStats: {
             hp: 90,
             energy: 85,
-            attack: 75,
+            attack: 52,
             defense: 142,
-            attackR: 52,
+            attackR: 75,
             defenseR: 53,
             speed: 48
+        }
+    },
+
+    phancub: {
+        name: "Phancub",
+        number: 56,
+        types: ["Spirit", "Brawler"], 
+        weight: 8,
+        baseStats: {
+            hp: 46,
+            energy: 60,
+            attack: 65,
+            defense: 50,
+            attackR: 46,
+            defenseR: 55,
+            speed: 60
+        }
+    },
+
+    ursoul: {
+        name: "Ursoul",
+        number: 57,
+        types: ["Spirit", "Brawler"], 
+        weight: 95,
+        baseStats: {
+            hp: 72,
+            energy: 89,
+            attack: 115,
+            defense: 60,
+            attackR: 75,
+            defenseR: 65,
+            speed: 75
+        }
+    },
+
+    whispup: {
+        name: "Whispup",
+        number: 58,
+        types: ["Spirit", "Fire"], 
+        weight: 1,
+        baseStats: {
+            hp: 45,
+            energy: 60,
+            attack: 57,
+            defense: 42,
+            attackR: 70,
+            defenseR: 48,
+            speed: 72
+        }
+    },
+
+    revenine: {
+        name: "Revenine",
+        number: 59,
+        types: ["Spirit", "Fire"], 
+        weight: 22,
+        baseStats: {
+            hp: 60,
+            energy: 89,
+            attack: 90,
+            defense: 58,
+            attackR: 115,
+            defenseR: 62,
+            speed: 97
         }
     },
 
@@ -887,11 +951,11 @@ var loomians = {
         baseStats: {
             hp: 81,
             energy: 90,
-            attack: 72,
+            attack: 89,
             defense: 69,
-            attackR: 122,
+            attackR: 100,
             defenseR: 84,
-            speed: 72
+            speed: 77
         }
     },
 
@@ -917,13 +981,13 @@ var loomians = {
         types: ["Fire"], 
         weight: 155,
         baseStats: {
-            hp: 102,
+            hp: 85,
             energy: 125,
-            attack: 55,
-            defense: 54,
-            attackR: 95,
-            defenseR: 59,
-            speed: 42
+            attack: 35,
+            defense: 90,
+            attackR: 81,
+            defenseR: 94,
+            speed: 22
         }
     },
 
@@ -1004,6 +1068,22 @@ var loomians = {
             attackR: 105,
             defenseR: 81,
             speed: 109
+        }
+    },    
+    
+    ikazune: {
+        name: "Ikazune",
+        number: 193,
+        types: ["Fire", "Electric"], 
+        weight: 38,
+        baseStats: {
+            hp: 68,
+            energy: 125,
+            attack: 104,
+            defense: 62,
+            attackR: 139,
+            defenseR: 78,
+            speed: 74
         }
     },
 };
@@ -1868,6 +1948,38 @@ var moves = {
         secondaryEffect: true
     },
 
+    electroburst: {
+        name: "Electroburst",
+        power: 75,
+        type: "Electric",
+        mr: "Ranged",
+        secondaryEffect: true
+    },
+
+    chaseDown: {
+        name: "Chase Down",
+        power: 40,
+        type: "Dark",
+        mr: "Melee",
+        contact: true
+    },
+
+    thunderCrash: {
+        name: "Thunder Crash",
+        power: 90,
+        type: "Electric",
+        mr: "Melee",
+        contact: true
+    },
+
+    ghostlyHowl: {
+        name: "Ghostly Howl",
+        power: 75,
+        type: "Spirit",
+        mr: "Ranged",
+        secondaryEffect: true
+    },
+
     //Support Moves -----------------------------------------------------------------------------------------------------------------------------------------
 
     accelerate: {
@@ -2286,7 +2398,7 @@ var types = {
 };
 
 var abilities = ["Awakening", "Ambush", "Coursing Venom", "Drainage", "Hasty", "Lightning Rod", "Mean Spirited", "Neutralize", "Overshadow", "Illuminate", "Prismatic", 
-                "Territorial", "Woodsman", "Dusk", "Dawn", "Pyro", "Volcanic", "Combustible", "Noxious Weeds", "Sharp Claws", "Brute Force"];
+                "Territorial", "Woodsman", "Dusk", "Dawn", "Pyro", "Volcanic", "Combustible", "Noxious Weeds", "Sharp Claws", "Brute Force", "Raging Fire", "Vengeance"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -2335,6 +2447,12 @@ var typeModAbilities = {
         name: "Volcanic",
         typeModifier: { type: "Fire", modifier: 2 },
         powerMod: true
+    },
+
+    ragingFire: {
+        name: "Raging Fire",
+        typerModifier: { type: "Fire", modifier: 0},
+        powerMod: false
     }
 }
 
