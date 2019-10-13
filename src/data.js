@@ -2451,7 +2451,7 @@ var typeModAbilities = {
 
     ragingFire: {
         name: "Raging Fire",
-        typerModifier: { type: "Fire", modifier: 0},
+        typeModifier: { type: "Fire", modifier: 0},
         powerMod: false
     }
 }
