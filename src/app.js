@@ -964,11 +964,15 @@ function detailedReport() {
     let possibleDmg = getMultiplier(firstLoom, secondLoom, move, crit, level, undefined, second, true);
     let lowerPercent = (possibleDmg[0] / hp * 100).toFixed(1);
     let upperPercent = (possibleDmg[15] / hp * 100).toFixed(1);
+    let stuffUsed = possibleDmg[16];
+    possibleDmg.pop();
     let possibleDmgStr = "Possible Damage Amounts: (";
-    let str = tempAtk + " " + firstLoom.name + " " + move.name + " vs. " + (!second ? hpEV2.value : hpEV1.value) + " HP / " + tempDef + " " + secondLoom.name + ": " + possibleDmg[0] + "-" + possibleDmg[15] + " (" + lowerPercent + " - " + upperPercent + "%) -- ";
+    let str = tempAtk + " " + stuffUsed.item1 + " " + stuffUsed.ability1 + " " + firstLoom.name + " " + move.name + " vs. " + (!second ? hpEV2.value : hpEV1.value) + " HP / " + 
+            tempDef + " " + stuffUsed.item2 + " " + stuffUsed.ability2 + " " + secondLoom.name + ": " + possibleDmg[0] + "-" + possibleDmg[15] + " (" + lowerPercent + " - " + upperPercent + "%) -- ";
+
     let hazardStr = (ice ? " after ice trap" : "");
 
-    for (let i = 0; i < possibleDmg.length; i++) {
+    for (let i = 0; i < possibleDmg.length  ; i++) {
         possibleDmgStr += (i != possibleDmg.length - 1 ? possibleDmg[i] + ", " : possibleDmg[i]);
     }
     possibleDmgStr += ")";
@@ -1124,6 +1128,7 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     let dusk = (second == false ? dusk1.checked : dusk2.checked);
     let dawn = (second == false ? dawn1.checked : dawn2.checked);
     let possibleDmg = [];
+    let stuffUsed = { ability1: "", ability2: "", item1: "", item2: "" };
 
     tempAtk = getTempAtkDef(second, move.mr).attack;
     tempDef = getTempAtkDef(second, move.mr).defense;
@@ -1138,53 +1143,66 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     
     if (typeModAbility1 != undefined && tempType == typeModAbility1.typeModifier.type && typeModAbility1.powerMod == true) {
         multi *= typeModAbility1.typeModifier.modifier;
+        stuffUsed.ability1 = ability1;
     }
 
     if (ability1 == "Neutralize") {
         tempType = "Typeless"
         multi *= 1.2;
+        stuffUsed.ability1 = ability1;
     }
     else if (ability1 == "Overshadow" && tempType == "Typeless") {
         tempType = "Dark";
         multi *= 1.2;
+        stuffUsed.ability1 = ability1;
     }
     else if (ability1 == "Illuminate" && tempType == "Typeless") {
         tempType = "Light";
         multi *= 1.2;
+        stuffUsed.ability1 = ability1;
     }
 
     if (ability1 == "Ambush" && btl1) {
         multi *= 2;
+        stuffUsed.ability1 = ability1;
     }
     
     if (ability1 == "Vengeance" && btl2) {
         multi *= 2;
+        stuffUsed.ability1 = ability1;
     }
     
     if (ability1 == "Sharp Claws" && move.contact == true) {
         multi *= 1.3;
+        stuffUsed.ability1 = ability1;
     }
     if (ability1 == "Brute Force" && move.secondaryEffect == true) {
         multi *= 1.3;
+        stuffUsed.ability1 = ability1;
     }
     
     if (gen1 == gen2 && ability1 == "Territorial") {
         multi *= 1.25;
+        stuffUsed.ability1 = ability1;
     }
     else if (gen1 != gen2 && ability1 == "Territorial") {
         multi *= 0.75;
+        stuffUsed.ability1 = ability1;
     }
 
     if (itemA.includes(tempType)) {
         multi *= 1.2;
+        stuffUsed.item1 = itemA;
     }
 
     if (itemA == "Power Cuffs") {
         multi *= 1.2;
+        stuffUsed.item1 = itemA;
     }
 
     if (itemB != "None" && move.knockOff == true && withoutSlapDown) {
         multi *= 1.5;
+        stuffUsed.item2 = itemB;
     }
 
     if (move.name == "Oppress" && stat2 != "healthy") {
@@ -1201,12 +1219,15 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     }
     if (ability1 == "Hasty" && move.mr == "Melee") {
         multi *= 1.5;
+        stuffUsed.ability1 = ability1;
     }
     if (dusk && isDouble && move.mr == "Melee" && ability1 == "Dusk") {
         multi *= 1.5;
+        stuffUsed.ability1 = ability1;
     }
     if (dawn && isDouble && move.mr == "Ranged" && ability1 == "Dawn") {
         multi *= 1.5;
+        stuffUsed.ability1 = ability1;
     }
 
 
@@ -1220,9 +1241,11 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     }
     if (itemB == "Heavy Shield" && move.mr == "Ranged") {
         multi *= 1.2;
+        stuffUsed.item2 = itemB;
     }
     if (itemB == "Heavy Armor" && move.mr == "Melee") {
         multi *= 1.2;
+        stuffUsed.item2 = itemB;
     }
 
     tempDef.def = pokeRound(tempDef.def * multi);
@@ -1259,6 +1282,7 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
 
     if (isStab(loom1, { type: tempType }) && ability1 == "Awakening") {
         multi *= 1.5;
+        stuffUsed.ability1 = ability1;
     }
     else if (isStab(loom1, { type: tempType })) {
         multi *= 1.25;
@@ -1277,6 +1301,7 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
 
     if (typeModAbility2 != undefined && tempType == typeModAbility2.typeModifier.type && typeModAbility2.powerMod == false) {
         multi *= typeModAbility2.typeModifier.modifier;
+        stuffUsed.ability2 = ability2;
     }
 
     if (types[loom2.types[0].toLowerCase()].weaknesses.includes(tempType.toLowerCase())) {
@@ -1318,12 +1343,15 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
 
     if (stat2 == "asleep" && ability1 == "Mean Spirited") {
         multi *= 1.5;
+        stuffUsed.ability1 = ability1;
     }
 
+    stuffUsed.item1 = (itemA == "Health Amulet" ? itemA : stuffUsed.item1);
     if (detailed) {
         for (let i = 0; i < possibleDmg.length; i++) {
             possibleDmg[i] = Math.floor(possibleDmg[i] * multi);
         }
+        possibleDmg[16] = stuffUsed;
         return possibleDmg;
     }
 
