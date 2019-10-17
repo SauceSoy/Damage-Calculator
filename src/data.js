@@ -207,8 +207,8 @@ var loomians = {
         }
     },
 
-    dinepire: {
-        name: "Dinpire",
+    dimpire: {
+        name: "Dimpire",
         number: 14,
         types: ["Dark"], 
         weight: 30,
