@@ -142,10 +142,10 @@ var builtInSets = [
             hp: 200,
             energy: 0,
             attack: 0,
-            defense: 0,
+            defense: 200,
             attackR: 0,
-            defenseR: 156,
-            speed: 144
+            defenseR: 80,
+            speed: 16
         },
         ivs: {
             hp: 40,
@@ -157,12 +157,12 @@ var builtInSets = [
             speed: 40
         },
         moves: {
-            move1: "Revival",
+            move1: "Dive Bomb",
             move2: "Shadow Sprint",
-            move3: "Bamboozle",
-            move4: "Blood Drain"
+            move3: "Blood Drain",
+            move4: "Revival"
         },
-        posNature: "clever",
+        posNature: "robust",
         negNature: "none",
         ability: "Awakening",
         item: "Health Amulet",
@@ -234,6 +234,40 @@ var builtInSets = [
         negNature: "none",
         ability: "Awakening",
         item: "None",
+        level: 50
+    },
+
+    {
+        name: "Umbrat",
+        setName: "Wallbreaker",
+        evs: {
+            hp: 100,
+            energy: 0,
+            attack: 200,
+            defense: 0,
+            attackR: 0,
+            defenseR: 0,
+            speed: 200
+        },
+        ivs: {
+            hp: 40,
+            energy: 40,
+            attack: 40,
+            defense: 40,
+            attackR: 40,
+            defenseR: 40,
+            speed: 40
+        },
+        moves: {
+            move1: "Raging Tackle",
+            move2: "Gloom Fangs",
+            move3: "Quick Pounce",
+            move4: "Sharpen"
+        },
+        posNature: "brawny",
+        negNature: "none",
+        ability: "Overshadow",
+        item: "Dark Essence",
         level: 50
     },
 
