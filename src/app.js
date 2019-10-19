@@ -624,7 +624,7 @@ function loadStats() {
     let negNat2 = document.getElementById("negNat2").value;
 
     hp1 = calculateStat(baseHP1.value, hpIV1.value, hpEV1.value, level1.value, true, undefined, undefined, undefined);
-    energy1 = calculateStat(baseEnergy1.value, energyIV1.value, energyEV1.value, level1.value, undefined, posNat1, negNat1, undefined, undefined, undefined, true);
+    energy1 = calculateStat(baseEnergy1.value, energyIV1.value, energyEV1.value, level1.value, undefined, posNat1, negNat1, undefined, undefined, true);
     atk1 = calculateStat(baseAtk1.value, atkIV1.value, atkEV1.value, level1.value, undefined, posNat1, negNat1, "AttackM");
     def1 = calculateStat(baseDef1.value, defIV1.value, defEV1.value, level1.value, undefined, posNat1, negNat1, "DefenseM");
     atkR1 = calculateStat(baseAtkR1.value, atkRIV1.value, atkREV1.value, level1.value, undefined, posNat1, negNat1, "AttackR");
@@ -632,7 +632,7 @@ function loadStats() {
     spd1 = calculateStat(baseSpd1.value, spdIV1.value, spdEV1.value, level1.value, undefined, posNat1, negNat1, "Speed");
 
     hp2 = calculateStat(baseHP2.value, hpIV2.value, hpEV2.value, level2.value, true, undefined, undefined, undefined);
-    energy2 = calculateStat(baseEnergy2.value, energyIV2.value, energyEV2.value, level2.value, undefined, posNat1, negNat2, undefined, undefined, undefined, true);
+    energy2 = calculateStat(baseEnergy2.value, energyIV2.value, energyEV2.value, level2.value, undefined, posNat1, negNat2, undefined, undefined, true);
     atk2 = calculateStat(baseAtk2.value, atkIV2.value, atkEV2.value, level2.value, undefined, posNat2, negNat2, "AttackM");
     def2 = calculateStat(baseDef2.value, defIV2.value, defEV2.value, level2.value, undefined, posNat2, negNat2, "DefenseM");
     atkR2 = calculateStat(baseAtkR2.value, atkRIV2.value, atkREV2.value, level2.value, undefined, posNat2, negNat2, "AttackR");
