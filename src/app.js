@@ -198,7 +198,7 @@ let spd2;
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let cook = document.cookie;
+        let cook = getCookie();
         try {
             let data = JSON.parse(cook);
             let newSets = [];
@@ -240,9 +240,20 @@ function load() {
 
 function saveCookie() {
     let json = JSON.stringify(sets);
-    document.cookie = json;
+    document.cookie = "setData=" + json;
 }
 
+function getCookie() {
+    let cook = document.cookie.split(";");
+
+    for (let i = 0; i < cook.length; i++) {
+        let line = cook[i];
+        if (line.indexOf("setData=") != -1) {
+            return line;
+        }
+    }
+    return "";
+}
 function loadDropdowns() {
     let moveNames = [];
 
