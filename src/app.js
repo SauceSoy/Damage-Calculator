@@ -195,7 +195,7 @@ let atkR2;
 let defR2;
 let spd2;
 
-window.addEventListener("load", load);
+$(document).ready(load);
 
 function load() {
     loadDropdowns();
@@ -250,6 +250,7 @@ function load() {
 function saveCookie() {
     let json = JSON.stringify(sets);
     document.cookie = "setData=" + json;
+    document.cookie = "changelog=true";
 }
 
 function getCookie(name) {
