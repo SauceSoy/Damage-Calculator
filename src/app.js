@@ -198,7 +198,13 @@ let spd2;
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let cook = getCookie().substring(9);
+        let cook = getCookie("setData").substring(9);
+        let seenChangelongCookie = getCookie("changelog").substring(10);
+        if (seenChangelongCookie != "true") {
+            alert(changelog);
+            document.cookie = "changelong=true";
+        }
+
         try {
             let data = JSON.parse(cook);
             let newSets = [];
@@ -211,6 +217,7 @@ function load() {
             console.log(err);
         }
     }
+    
     console.log(document.cookie);
 
     loadSets();
@@ -243,12 +250,12 @@ function saveCookie() {
     document.cookie = "setData=" + json;
 }
 
-function getCookie() {
+function getCookie(name) {
     let cook = document.cookie.split(";");
 
     for (let i = 0; i < cook.length; i++) {
         let line = cook[i];
-        if (line.indexOf("setData=") != -1) {
+        if (line.indexOf(name + "=") != -1) {
             return line;
         }
     }

@@ -2463,3 +2463,5 @@ for (let ty in types) {
 }
 
 var sets = [];
+
+var changelog = "Added this changelog function!";
