@@ -202,7 +202,7 @@ function load() {
         let seenChangelongCookie = getCookie("changelog").substring(10);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelong=true";
+            document.cookie = "changelog=true";
         }
 
         try {
