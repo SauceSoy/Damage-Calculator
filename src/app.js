@@ -195,6 +195,8 @@ let atkR2;
 let defR2;
 let spd2;
 
+window.addEventListener("load", load);
+
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
