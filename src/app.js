@@ -249,8 +249,8 @@ function load() {
 
 function saveCookie() {
     let json = JSON.stringify(sets);
-    document.cookie = "setData=" + json;
-    document.cookie = "changelog=true";
+    document.cookie = "setData=" + json + "; expires=Wed, 1 Jan 2020 12:00:00 UTC";
+    document.cookie = "changelog=true; expires=Wed, 1 Jan 2020 12:00:00 UTC";
 }
 
 function getCookie(name) {
