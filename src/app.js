@@ -1376,7 +1376,7 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
         stuffUsed.ability1 = ability1;
     }
 
-    stuffUsed.item1 = (itemA == "Health Amulet" ? itemA : stuffUsed.item1);
+    stuffUsed.item2 = (itemB == "Health Amulet" ? itemB : stuffUsed.item2);
     if (detailed) {
         for (let i = 0; i < possibleDmg.length; i++) {
             possibleDmg[i] = Math.floor(possibleDmg[i] * multi);
