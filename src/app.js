@@ -1053,6 +1053,7 @@ function detailedReport() {
 
     if (move.knockOff) {
         possibleDmg = getMultiplier(firstLoom, secondLoom, move, crit, level, undefined, second, true, false);
+        item = "";
     }
 
     hp = checkSapPlant(firstLoom, secondLoom, hp, selfHP, sap, item, ability);
