@@ -162,6 +162,15 @@ let item2 = document.getElementById("item2");
 let sapPlant1 = document.getElementById("sapPlant1");
 let sapPlant2 = document.getElementById("sapPlant2");
 
+let pestilence1 = document.getElementById("pestilence1");
+let pestilence2 = document.getElementById("pestilence2");
+
+let quicksand1 = document.getElementById("quicksand1");
+let quicksand2 = document.getElementById("quicksand2");
+
+let bloodDrain1 = document.getElementById("bloodDrain1");
+let bloodDrain2 = document.getElementById("bloodDrain2");
+
 let dusk1 = document.getElementById("dusk1");
 let dusk2 = document.getElementById("dusk2");
 
@@ -215,11 +224,11 @@ function load() {
                 newSets.push(data[set]);
                 addSet(newSets[newSets.length - 1]);
             }
-        } catch(err) {
+        } catch (err) {
             console.log(err);
         }
     }
-    
+
     console.log(document.cookie);
 
     loadSets();
@@ -323,7 +332,7 @@ function findOptgroup(sel, key) {
 function update() {
     let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
     let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
-    
+
     let wasMaxHP1 = (currentHP1.value == hp1 ? true : false);
     let wasMaxHP2 = (currentHP2.value == hp2 ? true : false);
 
@@ -335,7 +344,7 @@ function update() {
 
     loadBaseStats();
     loadStats();
-    
+
     totalHP1.innerHTML = hp1;
     totalHP2.innerHTML = hp2;
 
@@ -557,7 +566,7 @@ function updateHealthBar() {
 
 function updatePercent() {
     percentHP1.value = Math.floor(currentHP1.value / totalHP1.innerHTML * 100);
-    percentHP2.value = Math.floor(currentHP2.value / totalHP2.innerHTML * 100);    
+    percentHP2.value = Math.floor(currentHP2.value / totalHP2.innerHTML * 100);
 
     updateHealthBar();
 }
@@ -905,7 +914,8 @@ function detailedReport() {
     let level = level1.value;
     let hp;
     let ice = iceTrap2.checked;
-    let sap = { attacker: sapPlant1.checked, defender: sapPlant2.checked };
+    let currStatus = (second ? status1.value : status2.value);
+
 
     if (document.getElementById("moveOneLbl1").htmlFor == selected.id) {
         moveName = document.getElementById("moveOneLbl1").innerHTML;
@@ -931,7 +941,6 @@ function detailedReport() {
         secondLoom = loomians[pokeDropdown1.value.toLowerCase()];
         level = level2.value;
         ice = iceTrap1.checked;
-        sap = { attacker: sapPlant2.checked, defender: sapPlant1.checked };
     }
     else if (document.getElementById("moveTwoLbl2").htmlFor == selected.id) {
         moveName = document.getElementById("moveTwoLbl2").innerHTML;
@@ -941,7 +950,6 @@ function detailedReport() {
         secondLoom = loomians[pokeDropdown1.value.toLowerCase()];
         level = level2.value;
         ice = iceTrap1.checked;
-        sap = { attacker: sapPlant2.checked, defender: sapPlant1.checked };
     }
     else if (document.getElementById("moveThreeLbl2").htmlFor == selected.id) {
         moveName = document.getElementById("moveThreeLbl2").innerHTML;
@@ -951,7 +959,6 @@ function detailedReport() {
         secondLoom = loomians[pokeDropdown1.value.toLowerCase()];
         level = level2.value;
         ice = iceTrap1.checked;
-        sap = { attacker: sapPlant2.checked, defender: sapPlant1.checked };
     }
     else if (document.getElementById("moveFourLbl2").htmlFor == selected.id) {
         moveName = document.getElementById("moveFourLbl2").innerHTML;
@@ -961,7 +968,6 @@ function detailedReport() {
         secondLoom = loomians[pokeDropdown1.value.toLowerCase()];
         level = level2.value;
         ice = iceTrap1.checked;
-        sap = { attacker: sapPlant2.checked, defender: sapPlant1.checked };
     }
 
     let item = (second ? item1.value : item2.value);
@@ -992,17 +998,19 @@ function detailedReport() {
     }
 
     let possibleDmg = getMultiplier(firstLoom, secondLoom, move, crit, level, undefined, second, true);
+    let possibleDmg2 = possibleDmg;
+    let possibleDmg3 = possibleDmg;
     let lowerPercent = (possibleDmg[0] / hp * 100).toFixed(1);
     let upperPercent = (possibleDmg[15] / hp * 100).toFixed(1);
     let stuffUsed = possibleDmg[16];
     possibleDmg.pop();
     let possibleDmgStr = "Possible Damage Amounts: (";
-    let str = tempAtk + " " + stuffUsed.item1 + " " + stuffUsed.ability1 + " " + firstLoom.name + " " + move.name + " vs. " + (!second ? hpEV2.value : hpEV1.value) + " HP / " + 
-            tempDef + " " + stuffUsed.item2 + " " + stuffUsed.ability2 + " " + secondLoom.name + ": " + possibleDmg[0] + "-" + possibleDmg[15] + " (" + lowerPercent + " - " + upperPercent + "%) -- ";
+    let str = tempAtk + " " + stuffUsed.item1 + " " + stuffUsed.ability1 + " " + firstLoom.name + " " + move.name + " vs. " + (!second ? hpEV2.value : hpEV1.value) + " HP / " +
+        tempDef + " " + stuffUsed.item2 + " " + stuffUsed.ability2 + " " + secondLoom.name + ": " + possibleDmg[0] + "-" + possibleDmg[15] + " (" + lowerPercent + " - " + upperPercent + "%) -- ";
 
-    let hazardStr = (ice ? " after ice trap" : "");
+    let hazardStr = "";
 
-    for (let i = 0; i < possibleDmg.length  ; i++) {
+    for (let i = 0; i < possibleDmg.length; i++) {
         possibleDmgStr += (i != possibleDmg.length - 1 ? possibleDmg[i] + ", " : possibleDmg[i]);
     }
     possibleDmgStr += ")";
@@ -1038,7 +1046,7 @@ function detailedReport() {
             OHKOs.push(possibleDmg[i]);
         }
     }
-    
+
     if (OHKOs.length != 0) {
         let chance = (OHKOs.length / 16 * 100).toFixed(1);
         let chanceStr = chance + "% chance to OHKO";
@@ -1052,17 +1060,18 @@ function detailedReport() {
     }
 
     if (move.knockOff) {
-        possibleDmg = getMultiplier(firstLoom, secondLoom, move, crit, level, undefined, second, true, false);
+        possibleDmg2 = getMultiplier(firstLoom, secondLoom, move, crit, level, undefined, second, true, false);
+        possibleDmg3 = possibleDmg2;
         item = "";
     }
 
-    hp = checkSapPlant(firstLoom, secondLoom, hp, selfHP, sap, item, ability);
-    hazardStr = getHazardString(ice, sap);
+    hp = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second)[0];
+    hazardStr = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second)[1];
 
     for (let i = 0; i < possibleDmg.length; i++) {
-        for (let j = 0; j < possibleDmg.length; j++) {
-            if (possibleDmg[i] + possibleDmg[j] >= hp) {
-                THKOs.push(possibleDmg[i] + possibleDmg[j]);
+        for (let j = 0; j < possibleDmg2.length; j++) {
+            if (possibleDmg[i] + possibleDmg2[j] >= hp) {
+                THKOs.push(possibleDmg[i] + possibleDmg2[j]);
             }
         }
     }
@@ -1078,13 +1087,13 @@ function detailedReport() {
         return;
     }
 
-    hp = checkSapPlant(firstLoom, secondLoom, hp, selfHP, sap, item, ability);
+    hp = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second)[0];
 
     for (let i = 0; i < possibleDmg.length; i++) {
-        for (let j = 0; j < possibleDmg.length; j++) {
-            for (let k = 0; k < possibleDmg.length; k++) {
-                if (possibleDmg[i] + possibleDmg[j] + possibleDmg[k] >= hp) {
-                    TRHKOs.push(possibleDmg[i] + possibleDmg[j] + possibleDmg[k]);
+        for (let j = 0; j < possibleDmg2.length; j++) {
+            for (let k = 0; k < possibleDmg3.length; k++) {
+                if (possibleDmg[i] + possibleDmg2[j] + possibleDmg3[k] >= hp) {
+                    TRHKOs.push(possibleDmg[i] + possibleDmg2[j] + possibleDmg3[k]);
                 }
             }
         }
@@ -1101,7 +1110,7 @@ function detailedReport() {
         return;
     }
 
-    hp = checkSapPlant(firstLoom, secondLoom, hp, selfHP, sap, item, ability);
+    hp = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second)[0];
 
     if (possibleDmg[15] * 4 >= hp) {
         let FHKO = "possible 4HKO";
@@ -1111,7 +1120,7 @@ function detailedReport() {
         return;
     }
 
-    hp = checkSapPlant(firstLoom, secondLoom, hp, selfHP, sap, item, ability);
+    hp = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second)[0];
 
     if (possibleDmg[15] * 5 >= hp) {
         let FIHKO = "possible 5HKO";
@@ -1171,7 +1180,7 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     dmg = Math.floor(2 * level / 5) + 2;
 
     //Power ----------------------------------------
-    
+
     if (typeModAbility1 != undefined && tempType == typeModAbility1.typeModifier.type && typeModAbility1.powerMod == true) {
         multi *= typeModAbility1.typeModifier.modifier;
         stuffUsed.ability1 = ability1;
@@ -1197,12 +1206,12 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
         multi *= 2;
         stuffUsed.ability1 = ability1;
     }
-    
+
     if (ability1 == "Vengeance" && btl2) {
         multi *= 2;
         stuffUsed.ability1 = ability1;
     }
-    
+
     if (ability1 == "Sharp Claws" && move.contact == true) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
@@ -1211,7 +1220,7 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
-    
+
     if (gen1 == gen2 && ability1 == "Territorial") {
         multi *= 1.25;
         stuffUsed.ability1 = ability1;
@@ -1445,9 +1454,28 @@ function getTripRootPower(weight) {
     return 120;
 }
 
-function checkSapPlant(loom1, loom2, hp1, hp2, sap, item, ability) {
+
+function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false) {
     let newHP = hp1;
     let multi = 1;
+    let ice = iceTrap2.checked;
+    let sap = { attacker: sapPlant1.checked, defender: sapPlant2.checked };
+    let bloodDrain = { attacker: bloodDrain1.checked, defender: bloodDrain2.checked };
+    let pestilence = pestilence2.checked;
+    let quicksand = quicksand2.checked;
+    let hazardString = "";
+
+    if (second) {
+        ice = iceTrap1.checked;
+        sap = { attacker: sapPlant2.checked, defender: sapPlant1.checked };
+        bloodDrain = { attacker: bloodDrain2.checked, defender: bloodDrain1.checked };
+        pestilence = pestilence1.checked;
+        quicksand = quicksand1.checked;
+    }
+
+    if (ice) {
+        hazardString += "icicle trap and ";
+    }
 
     if (ability == "Drainage") {
         multi *= 1.5;
@@ -1456,41 +1484,55 @@ function checkSapPlant(loom1, loom2, hp1, hp2, sap, item, ability) {
         multi *= 1.2;
     }
     if (!loom1.types.includes("Plant") && sap.attacker == true) {
-        newHP += Math.floor(hp2 * 1 / 8 * multi)
+        newHP += Math.floor(hp2 * 1 / 8 * multi);
+        hazardString += "sap plant recovery and ";
     }
     if (!loom2.types.includes("Plant") && sap.defender == true) {
         newHP = Math.floor(newHP * 7 / 8);
+        hazardString += "sap plant damage and ";
     }
+
+    if (bloodDrain.attacker == true) {
+        newHP += Math.floor(hp2 * 1 / 12 * multi);
+        hazardString += "blood drain recovery and ";
+    }
+    if (bloodDrain.defender == true) {
+        newHP = Math.floor(newHP * 11 / 12);
+        hazardString += "blood drain damage and ";
+    }
+
+    if (pestilence) {
+        newHP = Math.floor(newHP * 7 / 8);
+        hazardString += "pestilence damage and ";
+    }
+
+    if (quicksand) {
+        newHP = Math.floor(newHP * 7 / 8);
+        hazardString += "quicksand damage and ";
+    }
+
     if (item == "Health Amulet") {
-        newHP = Math.floor(newHP * 17/16);
+        newHP = Math.floor(newHP * 17 / 16);
+        hazardString += "health amulet recovery and ";
     }
 
-    return newHP;
-}
+    if (second) {
+        loom1 = loomians[pokeDropdown2.value.toLowerCase()];
+        loom2 = loomians[pokeDropdown1.value.toLowerCase()];
+    }
+    if (status == "burned" && !loom1.types.includes("Fire")) {
+        newHP = Math.floor(newHP * 15 / 16);
+        hazardString += "burn damage and ";
+    }
+    if (status == "poisoned" && !loom1.types.includes("Toxic")) {
+        newHP = Math.floor(newHP * 7 / 8);
+        hazardString += "poison damage and ";
+    }
 
-function getHazardString(ice, sap) {
-    if (ice && sap.attacker && sap.defender) {
-        return " after icicle trap and sap plant recovery and damage";
-    }
-    if (ice && sap.attacker) {
-        return " after icicle trap and sap plant recovery";
-    }
-    if (ice && sap.defender) {
-        return " after icicle trap and sap plant damage";
-    }
-    if (sap.defender && sap.attacker) {
-        return " after sap plant recovery and damage";
-    }
-    if (sap.attacker) {
-        return " after sap plant recovery";
-    }
-    if (sap.defender) {
-        return " after sap plant damage";
-    }
-    if (ice) {
-        return " after icicle trap";
-    }
-    return "";
+    hazardString = hazardString.substr(0, hazardString.length - 5);
+    if (hazardString.length == 0) return [newHP, hazardString];
+    hazardString = " after " + hazardString;
+    return [newHP, hazardString];
 }
 
 function checkIceTrap(move) {
