@@ -1018,7 +1018,7 @@ function detailedReport() {
 
     let addedDmg = 0;
 
-    if (ice) {
+    if (ice && !secondLoom.types.includes("Fire")) {
         addedDmg = 12.5;
 
         if (types[secondLoom.types[0].toLowerCase()].weaknesses.includes("ice")) {
@@ -1473,7 +1473,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false)
         quicksand = quicksand1.checked;
     }
 
-    if (ice) {
+    if (ice && !loom2.types.includes("Fire")) {
         hazardString += "icicle trap and ";
     }
 
