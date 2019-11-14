@@ -340,6 +340,40 @@ var builtInSets = [
     },
 
     {
+        name: "Obsidrugon",
+        setName: "R Defensive",
+        evs: {
+            hp: 200,
+            energy: 0,
+            attack: 0,
+            defense: 124,
+            attackR: 0,
+            defenseR: 176,
+            speed: 0
+        },
+        ivs: {
+            hp: 40,
+            energy: 40,
+            attack: 40,
+            defense: 40,
+            attackR: 40,
+            defenseR: 40,
+            speed: 40
+        },
+        moves: {
+            move1: "Primal Slash",
+            move2: "Power Focus",
+            move3: "Scapegoat",
+            move4: "Beast's Slumber"
+        },
+        posNature: "clever",
+        negNature: "none",
+        ability: "None",
+        item: "Health Amulet",
+        level: 50
+    },
+
+    {
         name: "Duskit",
         setName: "Peace of Mind",
         evs: {
@@ -369,6 +403,40 @@ var builtInSets = [
         posNature: "nimble",
         negNature: "none",
         ability: "None",
+        item: "Power Cuffs",
+        level: 50
+    },
+
+    {
+        name: "Ikazune",
+        setName: "Wallbreaker",
+        evs: {
+            hp: 24,
+            energy: 64,
+            attack: 0,
+            defense: 64,
+            attackR: 200,
+            defenseR: 0,
+            speed: 144
+        },
+        ivs: {
+            hp: 40,
+            energy: 40,
+            attack: 40,
+            defense: 40,
+            attackR: 40,
+            defenseR: 40,
+            speed: 40
+        },
+        moves: {
+            move1: "Fire Breath",
+            move2: "Electroburst",
+            move3: "Power Focus",
+            move4: "Dodge"
+        },
+        posNature: "nimble",
+        negNature: "none",
+        ability: "Raging Fire",
         item: "Power Cuffs",
         level: 50
     }
