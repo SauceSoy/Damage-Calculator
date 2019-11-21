@@ -914,8 +914,6 @@ function detailedReport() {
     let level = level1.value;
     let hp;
     let ice = iceTrap2.checked;
-    let currStatus = (second ? status1.value : status2.value);
-
 
     if (document.getElementById("moveOneLbl1").htmlFor == selected.id) {
         moveName = document.getElementById("moveOneLbl1").innerHTML;
@@ -975,7 +973,8 @@ function detailedReport() {
     move = findMove(moveName);
     hp = (second ? currentHP1.value : currentHP2.value);
     let selfHP = (second ? currentHP2.value : currentHP1.value);
-
+    let currStatus = (second ? status1.value : status2.value);
+    
     if (second && move.mr == "Ranged") {
         tempAtk = atkREV2.value + " AtkR"
         tempDef = defREV1.value + " DefR"
