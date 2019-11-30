@@ -383,6 +383,22 @@ var loomians = {
         }
     },
 
+    tikilipse: {
+        name: "Tikilipse",
+        number: 25,
+        types: ["Light", "Dark"], 
+        weight: 42,
+        baseStats: {
+            hp: 85,
+            energy: 80,
+            attack: 51,
+            defense: 84,
+            attackR: 116,
+            defenseR: 93,
+            speed: 96
+        }
+    },
+
     cathorn: {
         name: "Cathorn",
         number: 26,
@@ -773,11 +789,11 @@ var loomians = {
         types: ["Mind"], 
         weight: 19,
         baseStats: {
-            hp: 61,
-            energy: 80,
+            hp: 79,
+            energy: 91,
             attack: 36,
             defense: 42,
-            attackR: 85,
+            attackR: 99,
             defenseR: 64,
             speed: 89
         }
@@ -1052,6 +1068,86 @@ var loomians = {
             attackR: 67,
             defenseR: 65,
             speed: 65
+        }
+    },
+
+    cafnotef: {
+        name: "CafnoteF",
+        number: 69,
+        types: ["Typeless"], 
+        weight: 57,
+        baseStats: {
+            hp: 60,
+            energy: 60,
+            attack: 42,
+            defense: 58,
+            attackR: 42,
+            defenseR: 62,
+            speed: 53
+        }
+    },
+
+    cafnotem: {
+        name: "CafnoteM",
+        number: 69,
+        types: ["Typeless"], 
+        weight: 57,
+        baseStats: {
+            hp: 60,
+            energy: 60,
+            attack: 42,
+            defense: 62,
+            attackR: 42,
+            defenseR: 58,
+            speed: 53
+        }
+    },
+
+    trumbull: {
+        name: "Trumbull",
+        number: 70,
+        types: ["Typeless"], 
+        weight: 187,
+        baseStats: {
+            hp: 92,
+            energy: 75,
+            attack: 134,
+            defense: 102,
+            attackR: 42,
+            defenseR: 62,
+            speed: 73
+        }
+    },
+
+    mootune: {
+        name: "Mootune",
+        number: 71,
+        types: ["Typeless"], 
+        weight: 146,
+        baseStats: {
+            hp: 92,
+            energy: 75,
+            attack: 42,
+            defense: 73,
+            attackR: 134,
+            defenseR: 102,
+            speed: 62
+        }
+    },
+
+    gobbidemic: {
+        name: "Gobbidemic",
+        number: 72,
+        types: ["Toxic"], 
+        weight: 43,
+        baseStats: {
+            hp: 70,
+            energy: 80,
+            attack: 15,
+            defense: 60,
+            attackR: 88,
+            defenseR: 64,
+            speed: 123
         }
     },
 
@@ -1852,7 +1948,7 @@ var moves = {
 
     foulChant: {
         name: "Foul Chant",
-        power: 90,
+        power: 110,
         type: "Mind",
         mr: "Ranged",
         secondaryEffect: true
@@ -2456,7 +2552,7 @@ var typeModAbilities = {
     }
 }
 
-var items = ["Heavy Shield", "Heavy Armor", "Power Cuffs", "Health Amulet", "Drain Orb"];
+var items = ["Heavy Shield", "Heavy Armor", "Power Cuffs", "Health Amulet", "Drain Orb", "Mystic Wand"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Essence");

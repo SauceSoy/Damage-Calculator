@@ -1192,12 +1192,12 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     }
     else if (ability1 == "Overshadow" && tempType == "Typeless") {
         tempType = "Dark";
-        multi *= 1.2;
+        multi *= 1.1;
         stuffUsed.ability1 = ability1;
     }
     else if (ability1 == "Illuminate" && tempType == "Typeless") {
         tempType = "Light";
-        multi *= 1.2;
+        multi *= 1.1;
         stuffUsed.ability1 = ability1;
     }
 
@@ -1216,7 +1216,7 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
         stuffUsed.ability1 = ability1;
     }
     if (ability1 == "Brute Force" && move.secondaryEffect == true) {
-        multi *= 1.3;
+        multi *= 1.2;
         stuffUsed.ability1 = ability1;
     }
 
@@ -1267,6 +1267,10 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     if (dawn && isDouble && move.mr == "Ranged" && ability1 == "Dawn") {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
+    }
+    if (itemA == "Mystic Wand" && loom1 == "Shawchi") {
+        multi *= 1.5;
+        stuffUsed.item1 = itemA;
     }
 
 
@@ -1320,7 +1324,7 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     //STAB ---------------------------------
 
     if (isStab(loom1, { type: tempType }) && ability1 == "Awakening") {
-        multi *= 1.5;
+        multi *= 1.4;
         stuffUsed.ability1 = ability1;
     }
     else if (isStab(loom1, { type: tempType })) {
