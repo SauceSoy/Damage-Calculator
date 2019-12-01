@@ -1661,7 +1661,8 @@ var moves = {
         power: 60,
         type: "Typeless",
         mr: "Melee",
-        contact: true
+        contact: true,
+        secondaryEffect: true
     },
 
     wingSlap: {
@@ -2076,6 +2077,54 @@ var moves = {
         secondaryEffect: true
     },
 
+    resonate: {
+        name: "Resonate",
+        power: 90,
+        type: "Typeless",
+        mr: "Ranged",
+        secondaryEffect: true
+    },
+
+    repeatingTune: {
+        name: "Repeating Tune",
+        power: 25,
+        type: "Typeless",
+        mr: "Ranged",
+        hits: 3,
+        secondaryEffect: true
+    },
+
+    gloominousRoar: {
+        name: "Gloominous Roar",
+        power: 85,
+        type: "Typeless",
+        mr: "Ranged"
+    },
+
+    gobbleGoop: {
+        name: "Gobble Goop",
+        power: 85,
+        type: "Toxic",
+        mr: "Ranged",
+        secondaryEffect: true
+    },
+
+    harmoniousChord: {
+        name: "Harmonious Chord",
+        power: 60,
+        type: "Typeless",
+        mr: "Ranged",
+        secondaryEffect: true
+    },
+
+    dissonantChord: {
+        name: "Dissonant Chord",
+        power: 80,
+        type: "Typeless",
+        mr: "Ranged",
+        secondaryEffect: true
+    },
+
     //Support Moves -----------------------------------------------------------------------------------------------------------------------------------------
 
     accelerate: {
@@ -2385,6 +2434,20 @@ var moves = {
         power: 0,
         type: "Fire",
         mr: "Support"
+    },
+
+    battleHorn: {
+        name: "Battle Horn",
+        power: 0,
+        type: "Typeless",
+        mr: "Support"
+    },
+
+    toneBarrier: {
+        name: "Tone Barrier",
+        power: 0,
+        type: "Typeless",
+        mr: "Support"
     }
 };
 
@@ -2494,7 +2557,8 @@ var types = {
 };
 
 var abilities = ["Awakening", "Ambush", "Coursing Venom", "Drainage", "Hasty", "Lightning Rod", "Mean Spirited", "Neutralize", "Overshadow", "Illuminate", "Prismatic", 
-                "Territorial", "Woodsman", "Dusk", "Dawn", "Pyro", "Volcanic", "Combustible", "Noxious Weeds", "Sharp Claws", "Brute Force", "Raging Fire", "Vengeance"];
+                "Territorial", "Woodsman", "Dusk", "Dawn", "Pyro", "Volcanic", "Combustible", "Noxious Weeds", "Sharp Claws", "Brute Force", "Raging Fire", "Vengeance",
+                "Total Eclipse"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -2549,6 +2613,11 @@ var typeModAbilities = {
         name: "Raging Fire",
         typeModifier: { type: "Fire", modifier: 0},
         powerMod: false
+    },
+
+    totalEclipse: {
+        name: "Total Eclipse",
+        typeModifier: { type: "Light", type2: "Dark", modifier: 0}
     }
 }
 

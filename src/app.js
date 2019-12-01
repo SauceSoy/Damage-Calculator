@@ -1268,7 +1268,7 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
-    if (itemA == "Mystic Wand" && loom1 == "Shawchi") {
+    if (itemA == "Mystic Wand" && loom1.name == "Shawchi") {
         multi *= 1.5;
         stuffUsed.item1 = itemA;
     }
@@ -1343,6 +1343,10 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     //Type -------------------------------
 
     if (typeModAbility2 != undefined && tempType == typeModAbility2.typeModifier.type && typeModAbility2.powerMod == false) {
+        multi *= typeModAbility2.typeModifier.modifier;
+        stuffUsed.ability2 = ability2;
+    }
+    else if (typeModAbility2 != undefined && tempType == typeModAbility2.typeModifier.type2 && typeModAbility2.powerMod == false) {
         multi *= typeModAbility2.typeModifier.modifier;
         stuffUsed.ability2 = ability2;
     }
