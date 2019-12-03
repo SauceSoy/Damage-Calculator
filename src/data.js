@@ -384,7 +384,7 @@ var loomians = {
     },
 
     tikilipse: {
-        name: "Tikilipse",
+        name: "Tiklipse",
         number: 25,
         types: ["Light", "Dark"], 
         weight: 42,
@@ -394,7 +394,7 @@ var loomians = {
             attack: 51,
             defense: 84,
             attackR: 116,
-            defenseR: 93,
+            defenseR: 83,
             speed: 96
         }
     },
@@ -1825,6 +1825,7 @@ var moves = {
         power: 75,
         type: "Light",
         mr: "Ranged",
+        sound: true
     },
 
     fireSlam: {
@@ -1911,7 +1912,8 @@ var moves = {
         name: "Raging Howl",
         power: 120,
         type: "Typeless",
-        mr: "Ranged"
+        mr: "Ranged",
+        sound: true
     },
 
     thunderChomp: {
@@ -2074,6 +2076,7 @@ var moves = {
         power: 75,
         type: "Spirit",
         mr: "Ranged",
+        sound: true,
         secondaryEffect: true
     },
 
@@ -2082,6 +2085,7 @@ var moves = {
         power: 90,
         type: "Typeless",
         mr: "Ranged",
+        sound: true,
         secondaryEffect: true
     },
 
@@ -2091,6 +2095,7 @@ var moves = {
         type: "Typeless",
         mr: "Ranged",
         hits: 3,
+        sound: true,
         secondaryEffect: true
     },
 
@@ -2098,7 +2103,8 @@ var moves = {
         name: "Gloominous Roar",
         power: 85,
         type: "Typeless",
-        mr: "Ranged"
+        mr: "Ranged",
+        sound: true
     },
 
     gobbleGoop: {
@@ -2114,6 +2120,7 @@ var moves = {
         power: 60,
         type: "Typeless",
         mr: "Ranged",
+        sound: true,
         secondaryEffect: true
     },
 
@@ -2122,6 +2129,7 @@ var moves = {
         power: 80,
         type: "Typeless",
         mr: "Ranged",
+        sound: true,
         secondaryEffect: true
     },
 
@@ -2558,7 +2566,7 @@ var types = {
 
 var abilities = ["Awakening", "Ambush", "Coursing Venom", "Drainage", "Hasty", "Lightning Rod", "Mean Spirited", "Neutralize", "Overshadow", "Illuminate", "Prismatic", 
                 "Territorial", "Woodsman", "Dusk", "Dawn", "Pyro", "Volcanic", "Combustible", "Noxious Weeds", "Sharp Claws", "Brute Force", "Raging Fire", "Vengeance",
-                "Total Eclipse"];
+                "Total Eclipse", "Tone Deaf", "Circadian"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -2629,4 +2637,4 @@ for (let ty in types) {
 
 var sets = [];
 
-var changelog = "Added this changelog function!";
+var changelog = "Rally Update \n •New Loomians! \n •New Moves! \n •New Abilities \n   •Tiklipse's ability Circadian is calculated assuming Tiklipse is a pure Light Type on the first turn and a pure Dark Type on the second.";

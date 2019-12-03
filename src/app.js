@@ -210,10 +210,10 @@ function load() {
     loadDropdowns();
     if (document.cookie != "") {
         let cook = getCookie("setData").substring(9);
-        let seenChangelongCookie = getCookie("changelog").substring(10);
+        let seenChangelongCookie = getCookie("changelog2").substring(10);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog=true";
+            document.cookie = "changelog2=true";
         }
 
         try {
@@ -974,6 +974,7 @@ function detailedReport() {
     hp = (second ? currentHP1.value : currentHP2.value);
     let selfHP = (second ? currentHP2.value : currentHP1.value);
     let currStatus = (second ? status1.value : status2.value);
+    let counter = 0;
     
     if (second && move.mr == "Ranged") {
         tempAtk = atkREV2.value + " AtkR"
@@ -1058,11 +1059,15 @@ function detailedReport() {
         return;
     }
 
+    counter = 1;
+
     if (move.knockOff) {
-        possibleDmg2 = getMultiplier(firstLoom, secondLoom, move, crit, level, undefined, second, true, false);
-        possibleDmg3 = possibleDmg2;
         item = "";
     }
+
+    possibleDmg2 = getMultiplier(firstLoom, secondLoom, move, crit, level, undefined, second, true, false, counter);
+    counter = 0;
+    possibleDmg3 = getMultiplier(firstLoom, secondLoom, move, crit, level, undefined, second, true, false, counter);
 
     hp = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second)[0];
     hazardStr = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second)[1];
@@ -1141,7 +1146,7 @@ function isStab(loom, move) {
     return false;
 }
 
-function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = false, detailed = false, withoutSlapDown = true) {
+function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = false, detailed = false, withoutSlapDown = true, takeSecondaryType = false) {
     if (move.power == 0 && detailed) return [0];
     if (move.power == 0) return 0;
 
@@ -1151,6 +1156,8 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     let tempPower = move.power;
     let tempAtk;
     let tempDef;
+    let tempPrimaryType = loom2.types[0];
+    let tempSecondaryType = (loom2.types[1] == undefined ? "" : loom2.types[0]);
     let gen1 = gender1.value;
     let gen2 = gender2.value;
     let ability1 = (second == false ? abilities.find((x) => x == abilityDropdown1.value) : abilities.find((x) => x == abilityDropdown2.value));
@@ -1173,6 +1180,17 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     tempDef = getTempAtkDef(second, move.mr).defense;
 
     tempPower = (move.name == "Trip Root" ? getTripRootPower(loom2.weight) : tempPower);
+
+    if (move.name == "Gloominous Roar" && ability1 == "Circadian" && loom1.types[1] != undefined) {
+        tempType = (takeSecondaryType ? loom1.types[1] : loom1.types[0]);
+        stuffUsed.ability1 = ability1;
+    }
+
+    if (ability2 == "Circadian" && tempSecondaryType != "") {
+        tempPrimaryType = (takeSecondaryType ? loom2.types[1] : loom1.types[0]);
+        tempSecondaryType = "";
+        stuffUsed.ability2 = ability2;
+    }
 
     //Base ------------------------------------
 
@@ -1246,6 +1264,10 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
 
     if (move.name == "Oppress" && stat2 != "healthy") {
         multi *= 1.5;
+    }
+
+    if (move.sound == true && ability1 == "Tone Deaf") {
+        multi *= 1.2;
     }
 
     tempPower = pokeRound(tempPower * multi);
@@ -1351,26 +1373,35 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
         stuffUsed.ability2 = ability2;
     }
 
-    if (types[loom2.types[0].toLowerCase()].weaknesses.includes(tempType.toLowerCase())) {
+    if (types[tempPrimaryType.toLowerCase()].weaknesses.includes(tempType.toLowerCase())) {
         multi *= 2;
     }
-    if (loom2.types[1] != undefined && types[loom2.types[1].toLowerCase()].weaknesses.includes(tempType.toLowerCase())) {
+    if (tempSecondaryType != "" && types[tempSecondaryType.toLowerCase()].weaknesses.includes(tempType.toLowerCase())) {
         multi *= 2;
     }
-    if (types[loom2.types[0].toLowerCase()].resistances.includes(tempType.toLowerCase())) {
+    if (types[tempPrimaryType.toLowerCase()].resistances.includes(tempType.toLowerCase())) {
         multi *= 0.5;
     }
-    if (loom2.types[1] != undefined && types[loom2.types[1].toLowerCase()].resistances.includes(tempType.toLowerCase())) {
+    if (tempSecondaryType != "" && types[tempSecondaryType.toLowerCase()].resistances.includes(tempType.toLowerCase())) {
         multi *= 0.5;
     }
-    if (types[loom2.types[0].toLowerCase()].immunities.includes(tempType.toLowerCase())) {
+    if (types[tempPrimaryType.toLowerCase()].immunities.includes(tempType.toLowerCase())) {
         multi *= 0;
     }
-    if (loom2.types[1] != undefined && types[loom2.types[1].toLowerCase()].immunities.includes(tempType.toLowerCase())) {
+    if (tempSecondaryType != "" && types[tempSecondaryType.toLowerCase()].immunities.includes(tempType.toLowerCase())) {
         multi *= 0;
     }
-    if (move.typeModifier != undefined && (loom2.types[0] == move.typeModifier.type || loom2.types[1] == move.typeModifier.type)) {
+    if (move.typeModifier != undefined && (tempPrimaryType == move.typeModifier.type || tempSecondaryType == move.typeModifier.type)) {
         multi *= move.typeModifier.modifier;
+    }
+
+    if (move.name == "Gloominous Roar" && loom1.name == "Tiklipse" && ability1 != "Circadian") {
+        if (tempPrimaryType == "Ancient" || tempSecondaryType == "Ancient") {
+            multi = 2;
+        }
+        if (tempPrimaryType == "Bug" || tempSecondaryType == "Bug") {
+            multi *= 0.5;
+        }
     }
 
     if (detailed) {
