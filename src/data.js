@@ -383,7 +383,7 @@ var loomians = {
         }
     },
 
-    tikilipse: {
+    tiklipse: {
         name: "Tiklipse",
         number: 25,
         types: ["Light", "Dark"], 
