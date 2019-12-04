@@ -2637,4 +2637,4 @@ for (let ty in types) {
 
 var sets = [];
 
-var changelog = "Rally Update \n •New Loomians! \n •New Moves! \n •New Abilities \n   •Tiklipse's ability Circadian is calculated assuming Tiklipse is a pure Light Type on the first turn and a pure Dark Type on the second.";
+var changelog = "Rally Update \n •New Loomians! \n •New Moves! \n •New Abilities \n  •Added a feature to allow changing of loomians types";
