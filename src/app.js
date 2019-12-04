@@ -3,6 +3,12 @@ const STAB = 1.25;
 var pokeDropdown1 = document.getElementById("pokes1");
 var pokeDropdown2 = document.getElementById("pokes2");
 
+var primaryTypeDropdown1 = document.getElementById("primaryType1");
+var secondaryTypeDropdown1 = document.getElementById("secondaryType1");
+
+var primaryTypeDropdown2 = document.getElementById("primaryType2");
+var secondaryTypeDropdown2 = document.getElementById("secondaryType2");
+
 var abilityDropdown1 = document.getElementById("ability1");
 var abilityDropdown2 = document.getElementById("ability2");
 
@@ -263,7 +269,7 @@ function saveCookie() {
 }
 
 function getCookie(name) {
-    let cook = document.cookie.split(";");
+    let cook = document.cookie.split("; ");
 
     for (let i = 0; i < cook.length; i++) {
         let line = cook[i];
@@ -291,6 +297,15 @@ function loadDropdowns() {
         pokeDropdown2.appendChild(optG2);
         optG2.appendChild(new Option(loomians[loom].name + " (Blank Set)", loomians[loom].name));
         pokeDropdown2.options[pokeDropdown2.options.length - 1].set = makeBlankSet(loomians[loom].name)
+    }
+
+    for (let type in types) {
+        let capitalized = capitalizeFirstLetter(type);
+        primaryTypeDropdown1.options[primaryTypeDropdown1.options.length] = new Option(capitalized);
+        primaryTypeDropdown2.options[primaryTypeDropdown2.options.length] = new Option(capitalized);
+
+        secondaryTypeDropdown1.options[secondaryTypeDropdown1.options.length] = new Option(capitalized);
+        secondaryTypeDropdown2.options[secondaryTypeDropdown2.options.length] = new Option(capitalized);
     }
 
     for (let ability in abilities) {
@@ -335,9 +350,6 @@ function update() {
 
     let wasMaxHP1 = (currentHP1.value == hp1 ? true : false);
     let wasMaxHP2 = (currentHP2.value == hp2 ? true : false);
-
-    document.getElementById("type1").innerHTML = firstLoom.types[0] + (firstLoom.types[1] != undefined ? "/" + firstLoom.types[1] : "");
-    document.getElementById("type2").innerHTML = secondLoom.types[0] + (secondLoom.types[1] != undefined ? "/" + secondLoom.types[1] : "");
 
     document.getElementById("loom1Info").innerHTML = firstLoom.name + "'s moves (select one for more info)";
     document.getElementById("loom2Info").innerHTML = secondLoom.name + "'s moves (select one for more info)";
@@ -423,6 +435,9 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         negNat1.value = (set1.negNature == undefined ? "none" : set1.negNature);
         abilityDropdown1.value = (set1.ability == undefined ? "none" : set1.ability);
         item1.value = (set1.item == undefined ? "none" : set1.item);
+
+        primaryTypeDropdown1.value = loomians[pokeDropdown1.value.toLowerCase()].types[0];
+        secondaryTypeDropdown1.value = (loomians[pokeDropdown1.value.toLowerCase()].types[1] != undefined ? loomians[pokeDropdown1.value.toLowerCase()].types[1] : "None");
     }
 
     if (onlySecond || (!onlyFirst && !onlySecond)) {
@@ -464,8 +479,10 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         negNat2.value = (set2.negNature == undefined ? "none" : set2.negNature);
         abilityDropdown2.value = (set2.ability == undefined ? "none" : set2.ability);
         item2.value = (set2.item == undefined ? "none" : set2.item);
-    }
 
+        primaryTypeDropdown2.value = loomians[pokeDropdown2.value.toLowerCase()].types[0];
+        secondaryTypeDropdown2.value = (loomians[pokeDropdown2.value.toLowerCase()].types[1] != undefined ? loomians[pokeDropdown2.value.toLowerCase()].types[1] : "None");
+    }
 
     update();
 }
@@ -1139,8 +1156,8 @@ function detailedReport() {
 
     document.getElementById("detailedResult").innerHTML = str;
 }
-function isStab(loom, move) {
-    if (loom.types.includes(move.type)) {
+function isStab(userTypes, move) {
+    if (userTypes.primary == move.type || userTypes.secondary == move.type) {
         return true;
     }
     return false;
@@ -1150,14 +1167,15 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     if (move.power == 0 && detailed) return [0];
     if (move.power == 0) return 0;
 
+    let bothTypes = getTypes(second);
+    let types1 = bothTypes.firstLoom;
+    let types2 = bothTypes.secondLoom;
     let multi = 1;
     let dmg;
     let tempType = move.type;
     let tempPower = move.power;
     let tempAtk;
     let tempDef;
-    let tempPrimaryType = loom2.types[0];
-    let tempSecondaryType = (loom2.types[1] == undefined ? "" : loom2.types[1]);
     let gen1 = gender1.value;
     let gen2 = gender2.value;
     let ability1 = (second == false ? abilities.find((x) => x == abilityDropdown1.value) : abilities.find((x) => x == abilityDropdown2.value));
@@ -1181,14 +1199,14 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
 
     tempPower = (move.name == "Trip Root" ? getTripRootPower(loom2.weight) : tempPower);
 
-    if (move.name == "Gloominous Roar" && ability1 == "Circadian" && loom1.types[1] != undefined) {
-        tempType = (takeSecondaryType ? loom1.types[1] : loom1.types[0]);
+    if (move.name == "Gloominous Roar" && ability1 == "Circadian" && types1.secondary != undefined) {
+        tempType = (takeSecondaryType ? types1.secondary : types1.primary);
         stuffUsed.ability1 = ability1;
     }
 
-    if (ability2 == "Circadian" && tempSecondaryType != "") {
-        tempPrimaryType = (takeSecondaryType ? loom2.types[1] : loom1.types[0]);
-        tempSecondaryType = "";
+    if (ability2 == "Circadian" && types2.secondary != "") {
+        types2.primary = (takeSecondaryType ? types2.secondary : types2.primary);
+        types2.secondary = "None";
         stuffUsed.ability2 = ability2;
     }
 
@@ -1345,11 +1363,14 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
 
     //STAB ---------------------------------
 
-    if (isStab(loom1, { type: tempType }) && ability1 == "Awakening") {
+    if (isStab(types1, { type: tempType }) && ability1 == "Awakening") {
         multi *= 1.4;
         stuffUsed.ability1 = ability1;
     }
-    else if (isStab(loom1, { type: tempType })) {
+    else if (isStab(types1, { type: tempType })) {
+        multi *= 1.25;
+    }
+    else if (move.name == "Gloominous Roar" && loom1.name == "Tiklipse" && ability1 != "Circadian") {
         multi *= 1.25;
     }
 
@@ -1373,33 +1394,33 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
         stuffUsed.ability2 = ability2;
     }
 
-    if (types[tempPrimaryType.toLowerCase()].weaknesses.includes(tempType.toLowerCase())) {
+    if (types[types2.primary.toLowerCase()].weaknesses.includes(tempType.toLowerCase())) {
         multi *= 2;
     }
-    if (tempSecondaryType != "" && types[tempSecondaryType.toLowerCase()].weaknesses.includes(tempType.toLowerCase())) {
+    if (types2.secondary != "None" && types[types2.secondary.toLowerCase()].weaknesses.includes(tempType.toLowerCase())) {
         multi *= 2;
     }
-    if (types[tempPrimaryType.toLowerCase()].resistances.includes(tempType.toLowerCase())) {
+    if (types[types2.primary.toLowerCase()].resistances.includes(tempType.toLowerCase())) {
         multi *= 0.5;
     }
-    if (tempSecondaryType != "" && types[tempSecondaryType.toLowerCase()].resistances.includes(tempType.toLowerCase())) {
+    if (types2.secondary != "None" && types[types2.secondary.toLowerCase()].resistances.includes(tempType.toLowerCase())) {
         multi *= 0.5;
     }
-    if (types[tempPrimaryType.toLowerCase()].immunities.includes(tempType.toLowerCase())) {
+    if (types[types2.primary.toLowerCase()].immunities.includes(tempType.toLowerCase())) {
         multi *= 0;
     }
-    if (tempSecondaryType != "" && types[tempSecondaryType.toLowerCase()].immunities.includes(tempType.toLowerCase())) {
+    if (types2.secondary != "None" && types[types2.secondary.toLowerCase()].immunities.includes(tempType.toLowerCase())) {
         multi *= 0;
     }
-    if (move.typeModifier != undefined && (tempPrimaryType == move.typeModifier.type || tempSecondaryType == move.typeModifier.type)) {
+    if (move.typeModifier != undefined && (types2.primary == move.typeModifier.type || types2.secondary == move.typeModifier.type)) {
         multi *= move.typeModifier.modifier;
     }
 
     if (move.name == "Gloominous Roar" && loom1.name == "Tiklipse" && ability1 != "Circadian") {
-        if (tempPrimaryType == "Ancient" || tempSecondaryType == "Ancient") {
+        if (types2.primary == "Ancient" || types2.secondary == "Ancient") {
             multi = 2;
         }
-        if (tempPrimaryType == "Bug" || tempSecondaryType == "Bug") {
+        if (types2.primary == "Bug" || types2.secondary == "Bug") {
             multi *= 0.5;
         }
     }
@@ -1473,6 +1494,29 @@ function getTempAtkDef(second, mr) {
     return { attack: tempAtk, defense: tempDef };
 }
 
+function getTypes(second) {
+    let obj = {};
+    obj.firstLoom = {};
+    obj.secondLoom = {};
+
+    if (second) {
+        obj.firstLoom.primary = primaryTypeDropdown2.value;
+        obj.firstLoom.secondary = secondaryTypeDropdown2.value;
+
+        obj.secondLoom.primary = primaryTypeDropdown1.value;
+        obj.secondLoom.secondary = secondaryTypeDropdown1.value;
+        
+        return obj;
+    }
+
+    obj.firstLoom.primary = primaryTypeDropdown1.value;
+    obj.firstLoom.secondary = secondaryTypeDropdown1.value;
+
+    obj.secondLoom.primary = primaryTypeDropdown2.value;
+    obj.secondLoom.secondary = secondaryTypeDropdown2.value;
+
+    return obj;
+}
 function getTripRootPower(weight) {
     if (weight < 10) {
         return 20;
@@ -1609,4 +1653,8 @@ function pokeRound(val) {
 function decode(txt) {
     let json = atob(txt);
     return JSON.parse(json);
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.substring(1);
 }
