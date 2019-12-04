@@ -1269,7 +1269,11 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
         stuffUsed.ability1 = ability1;
     }
 
-    if (itemA.includes(tempType)) {
+    if (move.name == "Gloominous Roar" && loom1.name == "Tiklipse" && ability1 != "Circadian" && itemA.includes("Light")) {
+        multi *= 1.2;
+        stuffUsed.item1 = itemA;
+    }
+    else if (itemA.includes(tempType)) {
         multi *= 1.2;
         stuffUsed.item1 = itemA;
     }
