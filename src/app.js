@@ -1417,6 +1417,7 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     }
 
     if (move.name == "Gloominous Roar" && loom1.name == "Tiklipse" && ability1 != "Circadian") {
+        multi = 1;
         if (types2.primary == "Ancient" || types2.secondary == "Ancient") {
             multi = 2;
         }
