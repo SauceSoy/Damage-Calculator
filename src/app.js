@@ -1256,6 +1256,10 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
         stuffUsed.ability1 = ability1;
     }
 
+    if (ability1 == "Baneful" && stat2 == "poisoned") {
+        multi *= 1.2;
+        stuffUsed.ability1 = ability1;
+    }
     if (gen1 == gen2 && ability1 == "Territorial") {
         multi *= 1.25;
         stuffUsed.ability1 = ability1;
