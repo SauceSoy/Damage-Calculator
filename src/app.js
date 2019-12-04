@@ -1157,7 +1157,7 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     let tempAtk;
     let tempDef;
     let tempPrimaryType = loom2.types[0];
-    let tempSecondaryType = (loom2.types[1] == undefined ? "" : loom2.types[0]);
+    let tempSecondaryType = (loom2.types[1] == undefined ? "" : loom2.types[1]);
     let gen1 = gender1.value;
     let gen2 = gender2.value;
     let ability1 = (second == false ? abilities.find((x) => x == abilityDropdown1.value) : abilities.find((x) => x == abilityDropdown2.value));
