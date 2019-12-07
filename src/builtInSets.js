@@ -75,9 +75,9 @@ var builtInSets = [
             energy: 0,
             attack: 200,
             defense: 0,
-            attackR: 196,
+            attackR: 100,
             defenseR: 0,
-            speed: 104
+            speed: 200
         },
         ivs: {
             hp: 40,
@@ -91,10 +91,10 @@ var builtInSets = [
         moves: {
             move1: "Junglejutsu",
             move2: "Nature's Force",
-            move3: "Life Drain",
-            move4: "Dodge"
+            move3: "Mud Spatter",
+            move4: "Poison"
         },
-        posNature: "brawny",
+        posNature: "nimble",
         negNature: "none",
         ability: "Awakening",
         item: "Power Cuffs",
@@ -207,9 +207,9 @@ var builtInSets = [
         name: "Zuelong",
         setName: "Pivot",
         evs: {
-            hp: 100,
+            hp: 0,
             energy: 0,
-            attack: 0,
+            attack: 100,
             defense: 0,
             attackR: 200,
             defenseR: 0,
@@ -225,15 +225,15 @@ var builtInSets = [
             speed: 40
         },
         moves: {
-            move1: "Ancient Roar",
-            move2: "Thunderstrike",
-            move3: "Elemental Burst",
-            move4: "Thunder Slam"
+            move1: "Thunderstrike",
+            move2: "Elemental Burst",
+            move3: "Chilly Chomp",
+            move4: "Ancient Roar"
         },
         posNature: "nimble",
         negNature: "none",
-        ability: "Awakening",
-        item: "None",
+        ability: "Brute Force",
+        item: "Ancient Essence",
         level: 50
     },
 

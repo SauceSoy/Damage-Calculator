@@ -2625,7 +2625,8 @@ var typeModAbilities = {
 
     totalEclipse: {
         name: "Total Eclipse",
-        typeModifier: { type: "Light", type2: "Dark", modifier: 0}
+        typeModifier: { type: "Light", type2: "Dark", modifier: 0},
+        powerMod: false
     }
 }
 
@@ -2637,4 +2638,4 @@ for (let ty in types) {
 
 var sets = [];
 
-var changelog = "Rally Update \n •New Loomians! \n •New Moves! \n •New Abilities \n  •Added a feature to allow changing of loomians types";
+var changelog = "Rally Update \n •Added Very Personalities, twice as strong as regular personalities. Also updated some old sets.";
