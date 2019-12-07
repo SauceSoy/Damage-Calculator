@@ -382,7 +382,7 @@ function importSets() {
     try {
         importedSets = decode(document.getElementById("import").value);
         document.getElementById("err").innerHTML = "";
-    } catch {
+    } catch (err) {
         document.getElementById("err").innerHTML = "Invalid Data";
         return;
     }
