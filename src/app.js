@@ -1003,8 +1003,8 @@ function detailedReport() {
     let move;
     let crit;
     let second = false;
-    let tempAtk = atkREV1.value + " AtkR";
-    let tempDef = defREV2.value + " DefR";
+    let tempAtk = " ";
+    let tempDef = " ";
 
     let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
     let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
@@ -1072,18 +1072,62 @@ function detailedReport() {
     let selfHP = (second ? currentHP2.value : currentHP1.value);
     let currStatus = (second ? status1.value : status2.value);
     let counter = 0;
-    
-    if (second && move.mr == "Ranged") {
-        tempAtk = atkREV2.value + " AtkR"
-        tempDef = defREV1.value + " DefR"
+    let atkDef = getTempAtkDef(second, move.mr);
+    let atkPlus = "";
+    let defPlus = "";
+
+    if (atkDef.attack.stage != 0 && !isNaN(atkDef.attack.stage)) {
+        tempAtk = (atkDef.attack.stage > 0 ? "+" : "") + atkDef.attack.stage + " ";
     }
-    else if (second && move.mr == "Melee") {
-        tempAtk = atkEV2.value + " AtkM";
-        tempDef = defEV1.value + " DefM";
+    if (atkDef.defense.stage != 0 && !isNaN(atkDef.defense.stage)) {
+        tempDef = (atkDef.defense.stage > 0 ? "+" : "") + atkDef.defense.stage + " ";
     }
-    else if (move.mr == "Melee") {
-        tempAtk = atkEV1.value + " AtkM";
-        tempDef = defEV2.value + " DefM";
+
+    if (move.mr == "Ranged") {
+        if (atkDef.attack.posNat == "smart" || atkDef.attack.negNat == "smart") {
+            atkPlus = "+";
+        }
+        if (atkDef.attack.veryNat == "vSmart") {
+            atkPlus = "++";
+        }
+        if (atkDef.defense.posNat == "clever" || atkDef.defense.negNat == "clever") {
+            defPlus = "+";
+        }
+        if (atkDef.defense.veryNat == "vClever") {
+            defPlus = "++";
+        }
+
+        if (second) {
+            tempAtk = tempAtk + atkREV2.value + " " + atkPlus + "AtkR";
+            tempDef = tempDef + defREV1.value + " " + defPlus + "DefR";
+        }
+        else {
+            tempAtk = tempAtk + atkREV1.value + " " + atkPlus + "AtkR";
+            tempDef = tempDef + defREV2.value + " " + defPlus + "DefR";
+        }
+    }
+    if (move.mr == "Melee") {
+        if (atkDef.attack.posNat == "brawny" || atkDef.attack.negNat == "brawny") {
+            atkPlus = "+";
+        }
+        if (atkDef.attack.veryNat == "vBrawny") {
+            atkPlus = "++";
+        }
+        if (atkDef.defense.posNat == "robust" || atkDef.defense.negNat == "robust") {
+            defPlus = "+";
+        }
+        if (atkDef.defense.veryNat == "vRobust") {
+            defPlus = "++";
+        }
+        
+        if (second) {
+            tempAtk = tempAtk + atkEV2.value + " " + atkPlus + "AtkM";
+            tempDef = tempDef + defEV1.value + " " + defPlus + "DefM";
+        }
+        else {
+            tempAtk = tempAtk + atkEV1.value + " " + atkPlus + "AtkM";
+            tempDef = tempDef + defEV2.value + " " + defPlus + "DefM";
+        }
     }
 
     if (move.power == 0) {
