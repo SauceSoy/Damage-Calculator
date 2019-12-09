@@ -1097,6 +1097,21 @@ function detailedReport() {
             defPlus = "++";
         }
 
+        //Negatives
+
+        if (atkDef.attack.posNat == "clumsy" || atkDef.attack.negNat == "clumsy") {
+            atkPlus = "-";
+        }
+        if (atkDef.attack.veryNat == "vClumsy") {
+            atkPlus = "--";
+        }
+        if (atkDef.defense.posNat == "foolish" || atkDef.defense.negNat == "foolish") {
+            defPlus = "-";
+        }
+        if (atkDef.defense.veryNat == "vFoolish") {
+            defPlus = "--";
+        }
+
         if (second) {
             tempAtk = tempAtk + atkREV2.value + " " + atkPlus + "AtkR";
             tempDef = tempDef + defREV1.value + " " + defPlus + "DefR";
@@ -1119,7 +1134,22 @@ function detailedReport() {
         if (atkDef.defense.veryNat == "vRobust") {
             defPlus = "++";
         }
-        
+
+        //Negatives
+
+        if (atkDef.attack.posNat == "frail" || atkDef.attack.negNat == "frail") {
+            atkPlus = "-";
+        }
+        if (atkDef.attack.veryNat == "vFrail") {
+            atkPlus = "--";
+        }
+        if (atkDef.defense.posNat == "tender" || atkDef.defense.negNat == "tender") {
+            defPlus = "-";
+        }
+        if (atkDef.defense.veryNat == "vTender") {
+            defPlus = "--";
+        }
+
         if (second) {
             tempAtk = tempAtk + atkEV2.value + " " + atkPlus + "AtkM";
             tempDef = tempDef + defEV1.value + " " + defPlus + "DefM";
