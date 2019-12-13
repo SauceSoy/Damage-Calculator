@@ -517,11 +517,11 @@ var loomians = {
         types: ["Bug", "Toxic"], 
         weight: 24,
         baseStats: {
-            hp: 70,
+            hp: 85,
             energy: 68,
-            attack: 100,
-            defense: 65,
-            attackR: 45,
+            attack: 115,
+            defense: 85,
+            attackR: 10,
             defenseR: 65,
             speed: 65
         }
@@ -684,6 +684,22 @@ var loomians = {
             attackR: 68,
             defenseR: 50,
             speed: 67
+        }
+    },
+
+    eleguana: {
+        name: "Eleguana",
+        number: 44,
+        types: ["Electric", "Light"], 
+        weight: 57,
+        baseStats: {
+            hp: 80,
+            energy: 80,
+            attack: 50,
+            defense: 85,
+            attackR: 80,
+            defenseR: 115,
+            speed: 80
         }
     },
 
@@ -885,12 +901,12 @@ var loomians = {
         types: ["Spirit", "Brawler"], 
         weight: 95,
         baseStats: {
-            hp: 72,
+            hp: 99,
             energy: 89,
             attack: 115,
-            defense: 60,
-            attackR: 75,
-            defenseR: 65,
+            defense: 63,
+            attackR: 30,
+            defenseR: 80,
             speed: 75
         }
     },
@@ -1127,9 +1143,9 @@ var loomians = {
         baseStats: {
             hp: 92,
             energy: 75,
-            attack: 42,
+            attack: 62,
             defense: 73,
-            attackR: 134,
+            attackR: 114,
             defenseR: 102,
             speed: 62
         }
@@ -1148,6 +1164,22 @@ var loomians = {
             attackR: 88,
             defenseR: 64,
             speed: 123
+        }
+    },
+
+    icigool: {
+        name: "Icigool",
+        number: 73,
+        types: ["Spirit", "Ice"], 
+        weight: 7,
+        baseStats: {
+            hp: 95,
+            energy: 69,
+            attack: 112,
+            defense: 94,
+            attackR: 10,
+            defenseR: 81,
+            speed: 39   
         }
     },
 
@@ -2455,6 +2487,20 @@ var moves = {
         name: "Tone Barrier",
         power: 0,
         type: "Typeless",
+        mr: "Support"
+    },
+
+    impersonate: {
+        name: "Impersonate",
+        power: 0,
+        type: "Spirit",
+        mr: "Support"
+    },
+
+    gainDrain: {
+        name: "Gain Drain",
+        power: 0,
+        type: "Dark",
         mr: "Support"
     }
 };

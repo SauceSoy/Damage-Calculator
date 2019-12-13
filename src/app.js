@@ -1447,7 +1447,8 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     }
 
     if (move.sound == true && ability1 == "Tone Deaf") {
-        multi *= 1.2;
+        multi *= 1.1;
+        stuffUsed.ability1 = ability1;
     }
 
     tempPower = pokeRound(tempPower * multi);
