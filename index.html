@@ -151,7 +151,9 @@
                             <tr>
                                 <th>HP</th>
                                 <td>
-                                    <input id="baseHP1" readonly value="30">
+                                    <input id="baseHP1" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
                                 </td>
                                 <td>
                                     <input id="HPIV1" value=40 type=number min=0 max=40
@@ -171,7 +173,9 @@
                             <tr>
                                 <th>Energy</th>
                                 <td>
-                                    <input id="baseEnergy1" readonly value="30">
+                                    <input id="baseEnergy1" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
                                 </td>
                                 <td>
                                     <input id="energyIV1" value=40 type=number min=0 max=40
@@ -191,7 +195,9 @@
                             <tr>
                                 <th>M Attack</th>
                                 <td>
-                                    <input id="baseAtk1" readonly value="30">
+                                    <input id="baseAtk1" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
                                 </td>
                                 <td>
                                     <input id="atkIV1" value=40 type=number min=0 max=40
@@ -228,7 +234,9 @@
                             <tr>
                                 <th>M Defense</th>
                                 <td>
-                                    <input id="baseDef1" readonly value="30">
+                                    <input id="baseDef1" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
                                 </td>
                                 <td>
                                     <input id="defIV1" value=40 type=number min=0 max=40
@@ -265,7 +273,9 @@
                             <tr>
                                 <th>R Attack</th>
                                 <td>
-                                    <input id="baseAtkR1" readonly value="30">
+                                    <input id="baseAtkR1" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
                                 </td>
                                 <td>
                                     <input id="atkRIV1" value=40 type=number min=0 max=40
@@ -302,7 +312,9 @@
                             <tr>
                                 <th>R Defense</th>
                                 <td>
-                                    <input id="baseDefR1" readonly value="30">
+                                    <input id="baseDefR1" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
                                 </td>
                                 <td>
                                     <input id="defRIV1" value=40 type=number min=0 max=40
@@ -339,7 +351,9 @@
                             <tr>
                                 <th>Speed</th>
                                 <td>
-                                    <input id="baseSpd1" readonly value="30">
+                                    <input id="baseSpd1" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
                                 </td>
                                 <td>
                                     <input id="spdIV1" value=40 type=number min=0 max=40
@@ -471,9 +485,11 @@
                 <div class="infogroup">
 
                     <div>
-                        <select class="moveSelect" id="moveOne1" onchange="update()">
+                        <select class="moveSelect" id="moveOne1" onchange="update(true)">
                         </select>
-                        <input id="moveOnePower1" readonly>
+                        <input id="moveOnePower1" value=0 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
                         <input class="moveslbl" id="moveOneType1" readonly>
                         <input class="moveslbl" id="moveOneMR1" readonly>
                         <input type="checkbox" class="hiddenToUser" id="moveOneCrit1" onchange="update()">
@@ -481,9 +497,11 @@
                     </div>
 
                     <div>
-                        <select class="moveSelect" id="moveTwo1" onchange="update()">
+                        <select class="moveSelect" id="moveTwo1" onchange="update(true)">
                         </select>
-                        <input id="moveTwoPower1" readonly>
+                        <input id="moveTwoPower1" value=0 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
                         <input class="moveslbl" id="moveTwoType1" readonly>
                         <input class="moveslbl" id="moveTwoMR1" readonly>
                         <input type="checkbox" class="hiddenToUser" id="moveTwoCrit1" onchange="update()">
@@ -491,9 +509,11 @@
                     </div>
 
                     <div>
-                        <select class="moveSelect" id="moveThree1" onchange="update()">
+                        <select class="moveSelect" id="moveThree1" onchange="update(true)">
                         </select>
-                        <input id="moveThreePower1" readonly>
+                        <input id="moveThreePower1" value=0 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">                        
                         <input class="moveslbl" id="moveThreeType1" readonly>
                         <input class="moveslbl" id="moveThreeMR1" readonly>
                         <input type="checkbox" class="hiddenToUser" id="moveThreeCrit1" onchange="update()">
@@ -501,9 +521,11 @@
                     </div>
 
                     <div>
-                        <select class="moveSelect" id="moveFour1" onchange="update()">
+                        <select class="moveSelect" id="moveFour1" onchange="update(true)">
                         </select>
-                        <input id="moveFourPower1" readonly>
+                        <input id="moveFourPower1" value=0 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
                         <input class="moveslbl" id="moveFourType1" readonly>
                         <input class="moveslbl" id="moveFourMR1" readonly>
                         <input type="checkbox" class="hiddenToUser" id="moveFourCrit1" onchange="update()">
@@ -699,7 +721,9 @@
                             <tr>
                                 <th>HP</th>
                                 <td>
-                                    <input id="baseHP2" readonly value="30">
+                                    <input id="baseHP2" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
                                 </td>
                                 <td>
                                     <input id="HPIV2" value=40 type=number min=0 max=40
@@ -719,7 +743,9 @@
                             <tr>
                                 <th>Energy</th>
                                 <td>
-                                    <input id="baseEnergy2" readonly value="30">
+                                    <input id="baseEnergy2" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
                                 </td>
                                 <td>
                                     <input id="energyIV2" value=40 type=number min=0 max=40
@@ -738,7 +764,9 @@
                             <tr>
                                 <th>M Attack</th>
                                 <td>
-                                    <input id="baseAtk2" readonly value="30">
+                                    <input id="baseAtk2" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
                                 </td>
                                 <td>
                                     <input id="atkIV2" value=40 type=number min=0 max=40
@@ -775,7 +803,9 @@
                             <tr>
                                 <th>M Defense</th>
                                 <td>
-                                    <input id="baseDef2" readonly value="30">
+                                    <input id="baseDef2" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
                                 </td>
                                 <td>
                                     <input id="defIV2" value=40 type=number min=0 max=40
@@ -812,7 +842,9 @@
                             <tr>
                                 <th>R Attack</th>
                                 <td>
-                                    <input id="baseAtkR2" readonly value="30">
+                                    <input id="baseAtkR2" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
                                 </td>
                                 <td>
                                     <input id="atkRIV2" value=40 type=number min=0 max=40
@@ -849,7 +881,9 @@
                             <tr>
                                 <th>R Defense</th>
                                 <td>
-                                    <input id="baseDefR2" readonly value="30">
+                                    <input id="baseDefR2" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
                                 </td>
                                 <td>
                                     <input id="defRIV2" value=40 type=number min=0 max=40
@@ -886,7 +920,9 @@
                             <tr>
                                 <th>Speed</th>
                                 <td>
-                                    <input id="baseSpd2" readonly value="30">
+                                    <input id="baseSpd2" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
                                 </td>
                                 <td>
                                     <input id="spdIV2" value=40 type=number min=0 max=40
@@ -1017,9 +1053,11 @@
                 <div class="infogroup">
 
                     <div>
-                        <select class="moveSelect" id="moveOne2" onchange="update()">
+                        <select class="moveSelect" id="moveOne2" onchange="update(true)">
                         </select>
-                        <input id="moveOnePower2" readonly>
+                        <input id="moveOnePower2" value=0 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
                         <input class="moveslbl" id="moveOneType2" readonly>
                         <input class="moveslbl" id="moveOneMR2" readonly>
                         <input type="checkbox" class="hiddenToUser" id="moveOneCrit2" onchange="update()">
@@ -1027,9 +1065,11 @@
                     </div>
 
                     <div>
-                        <select class="moveSelect" id="moveTwo2" onchange="update()">
+                        <select class="moveSelect" id="moveTwo2" onchange="update(true)">
                         </select>
-                        <input id="moveTwoPower2" readonly>
+                        <input id="moveTwoPower2" value=0 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
                         <input class="moveslbl" id="moveTwoType2" readonly>
                         <input class="moveslbl" id="moveTwoMR2" readonly>
                         <input type="checkbox" class="hiddenToUser" id="moveTwoCrit2" onchange="update()">
@@ -1037,9 +1077,11 @@
                     </div>
 
                     <div>
-                        <select class="moveSelect" id="moveThree2" onchange="update()">
+                        <select class="moveSelect" id="moveThree2" onchange="update(true)">
                         </select>
-                        <input id="moveThreePower2" readonly>
+                        <input id="moveThreePower2" value=0 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
                         <input class="moveslbl" id="moveThreeType2" readonly>
                         <input class="moveslbl" id="moveThreeMR2" readonly>
                         <input type="checkbox" class="hiddenToUser" id="moveThreeCrit2" onchange="update()">
@@ -1047,9 +1089,11 @@
                     </div>
 
                     <div>
-                        <select class="moveSelect" id="moveFour2" onchange="update()">
+                        <select class="moveSelect" id="moveFour2" onchange="update(true)">
                         </select>
-                        <input id="moveFourPower2" readonly>
+                        <input id="moveFourPower2" value=0 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
                         <input class="moveslbl" id="moveFourType2" readonly>
                         <input class="moveslbl" id="moveFourMR2" readonly>
                         <input type="checkbox" class="hiddenToUser" id="moveFourCrit2" onchange="update()">
