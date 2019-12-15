@@ -344,7 +344,7 @@ function findOptgroup(sel, key) {
     }
 }
 
-function update() {
+function update(updatePower = false, updateBaseStats = false) {
     let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
     let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
 
@@ -354,7 +354,7 @@ function update() {
     document.getElementById("loom1Info").innerHTML = firstLoom.name + "'s moves (select one for more info)";
     document.getElementById("loom2Info").innerHTML = secondLoom.name + "'s moves (select one for more info)";
 
-    loadBaseStats();
+    if (updateBaseStats) loadBaseStats();
     loadStats();
 
     totalHP1.innerHTML = hp1;
@@ -369,7 +369,7 @@ function update() {
     (wasMaxHP1 ? currentHP1.value = hp1 : null);
     (wasMaxHP2 ? currentHP2.value = hp2 : null);
 
-    loadMoves();
+    loadMoves(updatePower);
     detailedReport();
 
     updatePercent();
@@ -486,8 +486,8 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         primaryTypeDropdown2.value = loomians[pokeDropdown2.value.toLowerCase()].types[0];
         secondaryTypeDropdown2.value = (loomians[pokeDropdown2.value.toLowerCase()].types[1] != undefined ? loomians[pokeDropdown2.value.toLowerCase()].types[1] : "None");
     }
-
-    update();
+    
+    update(undefined, true);
 }
 
 function addSet(set, builtIn = false) {
@@ -619,7 +619,7 @@ function loadBaseStats() {
     baseSpd2.value = secondLoom.baseStats.speed;
 }
 
-function loadMoves() {
+function loadMoves(updatePower = false) {
     let moveOne1 = findMove(moveOneDropdown1.value);
     let moveTwo1 = findMove(moveTwoDropdown1.value);
     let moveThree1 = findMove(moveThreeDropdown1.value);
@@ -629,14 +629,16 @@ function loadMoves() {
     let moveThree2 = findMove(moveThreeDropdown2.value);
     let moveFour2 = findMove(moveFourDropdown2.value);
 
-    moveOnePower1.value = moveOne1.power;
-    moveTwoPower1.value = moveTwo1.power;
-    moveThreePower1.value = moveThree1.power;
-    moveFourPower1.value = moveFour1.power;
-    moveOnePower2.value = moveOne2.power;
-    moveTwoPower2.value = moveTwo2.power;
-    moveThreePower2.value = moveThree2.power;
-    moveFourPower2.value = moveFour2.power;
+    if (updatePower) {
+        moveOnePower1.value = moveOne1.power;
+        moveTwoPower1.value = moveTwo1.power;
+        moveThreePower1.value = moveThree1.power;
+        moveFourPower1.value = moveFour1.power;
+        moveOnePower2.value = moveOne2.power;
+        moveTwoPower2.value = moveTwo2.power;
+        moveThreePower2.value = moveThree2.power;
+        moveFourPower2.value = moveFour2.power;
+    }
 
     moveOneType1.value = moveOne1.type;
     moveTwoType1.value = moveTwo1.type;
@@ -945,52 +947,52 @@ function calculateDamage(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, mo
     let critThree2 = moveThreeCrit2.checked;
     let critFour2 = moveFourCrit2.checked;
 
-    let dmgMoveOneU1 = getMultiplier(firstLoom, secondLoom, moveOne1, critOne1, level1.value);
-    let dmgMoveOneL1 = getMultiplier(firstLoom, secondLoom, moveOne1, critOne1, level1.value, true);
+    let dmgMoveOneU1 = getMultiplier(firstLoom, secondLoom, moveOne1, moveOnePower1.value, critOne1, level1.value);
+    let dmgMoveOneL1 = getMultiplier(firstLoom, secondLoom, moveOne1, moveOnePower1.value, critOne1, level1.value, true);
     let dmgMoveOnePercent1 = (dmgMoveOneL1 / hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveOneU1 / hp2 * 100).toFixed(1).toString() + "%";
 
     moveOneDmg1.innerHTML = dmgMoveOnePercent1 + checkIceTrap(moveOne1);
 
-    let dmgMoveTwoU1 = getMultiplier(firstLoom, secondLoom, moveTwo1, critTwo1, level1.value);
-    let dmgMoveTwoL1 = getMultiplier(firstLoom, secondLoom, moveTwo1, critTwo1, level1.value, true);
+    let dmgMoveTwoU1 = getMultiplier(firstLoom, secondLoom, moveTwo1, moveTwoPower1.value, critTwo1, level1.value);
+    let dmgMoveTwoL1 = getMultiplier(firstLoom, secondLoom, moveTwo1, moveTwoPower1.value, critTwo1, level1.value, true);
     let dmgMoveTwoPercent1 = (dmgMoveTwoL1 / hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveTwoU1 / hp2 * 100).toFixed(1).toString() + "%";
 
     moveTwoDmg1.innerHTML = dmgMoveTwoPercent1 + checkIceTrap(moveTwo1);
 
-    let dmgMoveThreeU1 = getMultiplier(firstLoom, secondLoom, moveThree1, critThree1, level1.value);
-    let dmgMoveThreeL1 = getMultiplier(firstLoom, secondLoom, moveThree1, critThree1, level1.value, true);
+    let dmgMoveThreeU1 = getMultiplier(firstLoom, secondLoom, moveThree1, moveThreePower1.value, critThree1, level1.value);
+    let dmgMoveThreeL1 = getMultiplier(firstLoom, secondLoom, moveThree1, moveThreePower1.value, critThree1, level1.value, true);
     let dmgMoveThreePercent1 = (dmgMoveThreeL1 / hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveThreeU1 / hp2 * 100).toFixed(1).toString() + "%";
 
     moveThreeDmg1.innerHTML = dmgMoveThreePercent1 + checkIceTrap(moveThree1);
 
-    let dmgMoveFourU1 = getMultiplier(firstLoom, secondLoom, moveFour1, critFour1, level1.value);
-    let dmgMoveFourL1 = getMultiplier(firstLoom, secondLoom, moveFour1, critFour1, level1.value, true);
+    let dmgMoveFourU1 = getMultiplier(firstLoom, secondLoom, moveFour1, moveFourPower1.value, critFour1, level1.value);
+    let dmgMoveFourL1 = getMultiplier(firstLoom, secondLoom, moveFour1, moveFourPower1.value, critFour1, level1.value, true);
     let dmgMoveFourPercent1 = (dmgMoveFourL1 / hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveFourU1 / hp2 * 100).toFixed(1).toString() + "%";
 
     moveFourDmg1.innerHTML = dmgMoveFourPercent1 + checkIceTrap(moveFour1);
 
     //----------------------------------------------------------
 
-    let dmgMoveOneU2 = getMultiplier(secondLoom, firstLoom, moveOne2, critOne2, level2.value, undefined, true);
-    let dmgMoveOneL2 = getMultiplier(secondLoom, firstLoom, moveOne2, critOne2, level2.value, true, true);
+    let dmgMoveOneU2 = getMultiplier(secondLoom, firstLoom, moveOne2, moveOnePower2.value, critOne2, level2.value, undefined, true);
+    let dmgMoveOneL2 = getMultiplier(secondLoom, firstLoom, moveOne2, moveOnePower2.value, critOne2, level2.value, true, true);
     let dmgMoveOnePercent2 = (dmgMoveOneL2 / hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveOneU2 / hp1 * 100).toFixed(1).toString() + "%";
 
     moveOneDmg2.innerHTML = dmgMoveOnePercent2 + checkIceTrap(moveOne2);
 
-    let dmgMoveTwoU2 = getMultiplier(secondLoom, firstLoom, moveTwo2, critTwo2, level2.value, undefined, true);
-    let dmgMoveTwoL2 = getMultiplier(secondLoom, firstLoom, moveTwo2, critTwo2, level2.value, true, true);
+    let dmgMoveTwoU2 = getMultiplier(secondLoom, firstLoom, moveTwo2, moveTwoPower2.value, critTwo2, level2.value, undefined, true);
+    let dmgMoveTwoL2 = getMultiplier(secondLoom, firstLoom, moveTwo2, moveTwoPower2.value, critTwo2, level2.value, true, true);
     let dmgMoveTwoPercent2 = (dmgMoveTwoL2 / hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveTwoU2 / hp1 * 100).toFixed(1).toString() + "%";
 
     moveTwoDmg2.innerHTML = dmgMoveTwoPercent2 + checkIceTrap(moveTwo2);
 
-    let dmgMoveThreeU2 = getMultiplier(secondLoom, firstLoom, moveThree2, critThree2, level2.value, undefined, true);
-    let dmgMoveThreeL2 = getMultiplier(secondLoom, firstLoom, moveThree2, critThree2, level2.value, true, true);
+    let dmgMoveThreeU2 = getMultiplier(secondLoom, firstLoom, moveThree2, moveThreePower2.value, critThree2, level2.value, undefined, true);
+    let dmgMoveThreeL2 = getMultiplier(secondLoom, firstLoom, moveThree2, moveThreePower2.value, critThree2, level2.value, true, true);
     let dmgMoveThreePercent2 = (dmgMoveThreeL2 / hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveThreeU2 / hp1 * 100).toFixed(1).toString() + "%";
 
     moveThreeDmg2.innerHTML = dmgMoveThreePercent2 + checkIceTrap(moveThree2);
 
-    let dmgMoveFourU2 = getMultiplier(secondLoom, firstLoom, moveFour2, critFour2, level2.value, undefined, true);
-    let dmgMoveFourL2 = getMultiplier(secondLoom, firstLoom, moveFour2, critFour2, level2.value, true, true);
+    let dmgMoveFourU2 = getMultiplier(secondLoom, firstLoom, moveFour2, moveFourPower2.value, critFour2, level2.value, undefined, true);
+    let dmgMoveFourL2 = getMultiplier(secondLoom, firstLoom, moveFour2, moveFourPower2.value, critFour2, level2.value, true, true);
 
     let dmgMoveFourPercent2 = (dmgMoveFourL2 / hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveFourU2 / hp1 * 100).toFixed(1).toString() + "%";
 
@@ -1001,11 +1003,11 @@ function detailedReport() {
     let selected = document.querySelector('input[name="moveResult"]:checked');
     let moveName;
     let move;
+    let movePower;
     let crit;
     let second = false;
     let tempAtk = " ";
     let tempDef = " ";
-
     let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
     let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
     let level = level1.value;
@@ -1014,22 +1016,27 @@ function detailedReport() {
 
     if (document.getElementById("moveOneLbl1").htmlFor == selected.id) {
         moveName = document.getElementById("moveOneLbl1").innerHTML;
+        movePower = moveOnePower1.value;
         crit = moveOneCrit1.checked;
     }
     else if (document.getElementById("moveTwoLbl1").htmlFor == selected.id) {
         moveName = document.getElementById("moveTwoLbl1").innerHTML;
+        movePower = moveTwoPower1.value;
         crit = moveTwoCrit1.checked;
     }
     else if (document.getElementById("moveThreeLbl1").htmlFor == selected.id) {
         moveName = document.getElementById("moveThreeLbl1").innerHTML;
+        movePower = moveThreePower1.value;
         crit = moveThreeCrit1.checked;
     }
     else if (document.getElementById("moveFourLbl1").htmlFor == selected.id) {
         moveName = document.getElementById("moveFourLbl1").innerHTML;
+        movePower = moveFourPower1.value;
         crit = moveFourCrit1.checked;
     }
     else if (document.getElementById("moveOneLbl2").htmlFor == selected.id) {
         moveName = document.getElementById("moveOneLbl2").innerHTML;
+        movePower = moveOnePower2.value;
         crit = moveOneCrit2.checked;
         second = true;
         firstLoom = loomians[pokeDropdown2.value.toLowerCase()];
@@ -1039,6 +1046,7 @@ function detailedReport() {
     }
     else if (document.getElementById("moveTwoLbl2").htmlFor == selected.id) {
         moveName = document.getElementById("moveTwoLbl2").innerHTML;
+        movePower = moveTwoPower2.value;
         crit = moveTwoCrit2.checked;
         second = true;
         firstLoom = loomians[pokeDropdown2.value.toLowerCase()];
@@ -1048,6 +1056,7 @@ function detailedReport() {
     }
     else if (document.getElementById("moveThreeLbl2").htmlFor == selected.id) {
         moveName = document.getElementById("moveThreeLbl2").innerHTML;
+        movePower = moveThreePower2.value;
         crit = moveThreeCrit2.checked;
         second = true;
         firstLoom = loomians[pokeDropdown2.value.toLowerCase()];
@@ -1057,6 +1066,7 @@ function detailedReport() {
     }
     else if (document.getElementById("moveFourLbl2").htmlFor == selected.id) {
         moveName = document.getElementById("moveFourLbl2").innerHTML;
+        movePower = moveFourPower2.value;
         crit = moveFourCrit2.checked;
         second = true;
         firstLoom = loomians[pokeDropdown2.value.toLowerCase()];
@@ -1168,7 +1178,7 @@ function detailedReport() {
         return;
     }
 
-    let possibleDmg = getMultiplier(firstLoom, secondLoom, move, crit, level, undefined, second, true);
+    let possibleDmg = getMultiplier(firstLoom, secondLoom, move, movePower, crit, level, undefined, second, true);
     let possibleDmg2 = possibleDmg;
     let possibleDmg3 = possibleDmg;
     let lowerPercent = (possibleDmg[0] / hp * 100).toFixed(1);
@@ -1236,9 +1246,9 @@ function detailedReport() {
         item = "";
     }
 
-    possibleDmg2 = getMultiplier(firstLoom, secondLoom, move, crit, level, undefined, second, true, false, counter);
+    possibleDmg2 = getMultiplier(firstLoom, secondLoom, move, movePower, crit, level, undefined, second, true, false, counter);
     counter = 0;
-    possibleDmg3 = getMultiplier(firstLoom, secondLoom, move, crit, level, undefined, second, true, false, counter);
+    possibleDmg3 = getMultiplier(firstLoom, secondLoom, move, movePower, crit, level, undefined, second, true, false, counter);
 
     hp = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second)[0];
     hazardStr = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second)[1];
@@ -1317,7 +1327,7 @@ function isStab(userTypes, move) {
     return false;
 }
 
-function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = false, detailed = false, withoutSlapDown = true, takeSecondaryType = false) {
+function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, second = false, detailed = false, withoutSlapDown = true, takeSecondaryType = false) {
     if (move.power == 0 && detailed) return [0];
     if (move.power == 0) return 0;
 
@@ -1327,7 +1337,7 @@ function getMultiplier(loom1, loom2, move, crit, level, ul = false, second = fal
     let multi = 1;
     let dmg;
     let tempType = move.type;
-    let tempPower = move.power;
+    let tempPower = movePower;
     let tempAtk;
     let tempDef;
     let gen1 = gender1.value;
