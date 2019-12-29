@@ -1189,7 +1189,7 @@ function detailedReport() {
     let str = tempAtk + " " + stuffUsed.item1 + " " + stuffUsed.ability1 + " " + firstLoom.name + " " + move.name + " vs. " + (!second ? hpEV2.value : hpEV1.value) + " HP / " +
         tempDef + " " + stuffUsed.item2 + " " + stuffUsed.ability2 + " " + secondLoom.name + ": " + possibleDmg[0] + "-" + possibleDmg[15] + " (" + lowerPercent + " - " + upperPercent + "%) -- ";
 
-    let hazardStr = "";
+    let hazardStr = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second, true)[1];
 
     for (let i = 0; i < possibleDmg.length; i++) {
         possibleDmgStr += (i != possibleDmg.length - 1 ? possibleDmg[i] + ", " : possibleDmg[i]);
@@ -1713,7 +1713,7 @@ function getTripRootPower(weight) {
 }
 
 
-function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false) {
+function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false, onlyIncludeIceTrap = false) {
     let newHP = hp1;
     let multi = 1;
     let ice = iceTrap2.checked;
@@ -1730,11 +1730,16 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false)
         pestilence = pestilence1.checked;
         quicksand = quicksand1.checked;
     }
-
+    
     if (ice && !loom2.types.includes("Fire")) {
         hazardString += "icicle trap and ";
+        if (onlyIncludeIceTrap) {
+            hazardString = hazardString.substr(0, hazardString.length - 5);
+            hazardString = " after " + hazardString;
+            return [newHP, hazardString];
+        }
     }
-
+    
     if (ability == "Drainage") {
         multi *= 1.5;
     }

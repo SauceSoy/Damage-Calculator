@@ -207,8 +207,8 @@ var loomians = {
         }
     },
 
-    dinepire: {
-        name: "Dinpire",
+    dimpire: {
+        name: "Dimpire",
         number: 14,
         types: ["Dark"], 
         weight: 30,
@@ -343,8 +343,8 @@ var loomians = {
         baseStats: {
             hp: 50,
             energy: 41,
-            attack: 38,
-            defense: 41,
+            attack: 42,
+            defense: 38,
             attackR: 42,
             defenseR: 38,
             speed: 40
@@ -518,7 +518,7 @@ var loomians = {
         weight: 24,
         baseStats: {
             hp: 85,
-            energy: 68,
+            energy: 70,
             attack: 115,
             defense: 85,
             attackR: 10,
@@ -586,7 +586,7 @@ var loomians = {
             attack: 45,
             defense: 65,
             attackR: 35,
-            defenseR: 48,
+            defenseR: 65,
             speed: 37
         }
     },
@@ -1190,7 +1190,7 @@ var loomians = {
         weight: 16,
         baseStats: {
             hp: 74,
-            energy: 91,
+            energy: 100,
             attack: 100,
             defense: 81,
             attackR: 105,
@@ -2501,6 +2501,13 @@ var moves = {
         name: "Gain Drain",
         power: 0,
         type: "Dark",
+        mr: "Support"
+    },
+
+    magnify: {
+        name: "Magnify",
+        power: 0,
+        type: "Light",
         mr: "Support"
     }
 };
