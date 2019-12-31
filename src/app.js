@@ -216,10 +216,10 @@ function load() {
     loadDropdowns();
     if (document.cookie != "") {
         let cook = getCookie("setData").substring(9);
-        let seenChangelongCookie = getCookie("changelog").substring(10);
+        let seenChangelongCookie = getCookie("changelog2").substring(10);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog=true";
+            document.cookie = "changelog2=true";
         }
 
         try {
@@ -264,8 +264,8 @@ function load() {
 
 function saveCookie() {
     let json = JSON.stringify(sets);
-    document.cookie = "setData=" + json + "; expires=Wed, 1 Jan 2020 12:00:00 UTC";
-    document.cookie = "changelog=true; expires=Wed, 1 Jan 2020 12:00:00 UTC";
+    document.cookie = "setData=" + json + "; expires=Fri, 1 Jan 2021 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Fri, 1 Jan 2021 12:00:00 UTC";
 }
 
 function getCookie(name) {

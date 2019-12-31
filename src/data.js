@@ -2691,4 +2691,4 @@ for (let ty in types) {
 
 var sets = [];
 
-var changelog = "Rally Update \n •Added Very Personalities, twice as strong as regular personalities. Also updated some old sets.";
+var changelog = "New Years Update \n •Not an actual update, just wanted to say happy 2020.";
