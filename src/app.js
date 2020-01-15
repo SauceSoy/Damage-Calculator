@@ -216,7 +216,7 @@ function load() {
     loadDropdowns();
     if (document.cookie != "") {
         let cookRaw = getCookie("setData");
-        let cook = cookRaw.substring(9, cookRaw.length - 2);
+        let cook = cookRaw.substring(9, cookRaw.length - 1);
         let seenChangelongCookie = getCookie("changelog2").substring(11);
         if (seenChangelongCookie != "true") {
             alert(changelog);
