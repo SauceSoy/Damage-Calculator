@@ -2593,7 +2593,7 @@ var moves = {
     },
 
     healthGift: {
-        name: "Health Gify",
+        name: "Health Gift",
         power: 0,
         type: "Mind",
         mr: "Support"
