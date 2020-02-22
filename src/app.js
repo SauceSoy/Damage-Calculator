@@ -570,6 +570,7 @@ function addSet(set, builtIn = false) {
     if (!builtIn) sets.push(tempSet);
     opt1.set = tempSet;
     opt2.set = tempSet;
+    console.log(opt1);
     optG1.appendChild(opt1);
     optG2.appendChild(opt2);
 }
