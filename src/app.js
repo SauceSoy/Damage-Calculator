@@ -210,11 +210,59 @@ let atkR2;
 let defR2;
 let spd2;
 
+let darkMode = document.getElementById("darkMode");
 $(document).ready(load);
+
+//WORK IN PROGRESS ----------------------------------------------
+function toggleDarkMode() {
+    if (darkMode.checked) {
+        document.body.style.backgroundColor = "#222222";
+        document.body.style.color = "white";
+        let allFieldsets = document.querySelectorAll("fieldset");
+        for (let i = 0; i < allFieldsets.length; i++) {
+            allFieldsets[i].style.backgroundColor = "#424242";
+        }
+
+        let allInputs = document.querySelectorAll("input");
+        for (let j = 0; j < allInputs.length; j++) {
+            allInputs[j].style.backgroundColor = "#0ce3ac";
+            allInputs[j].style.border = "1px solid transparent";
+        }
+
+        let allSelects = document.querySelectorAll("select");
+        for (let k = 0; k < allSelects.length; k++) {
+            allSelects[k].style.backgroundColor = "#0ce3ac";
+        }
+
+        let allSelect2s = document.getElementsByClassName("pokeselect");
+        for (let l = 0; l < allSelect2s.length; l++) {
+            allSelect2s[l].style.color = "black";
+        }
+
+        let radioLabels = document.getElementsByClassName("radioLbl");
+        let resultLabels = document.getElementsByClassName("resultLbl");
+        for (let p = 0; p < radioLabels.length; p++) {
+            radioLabels[p].style.backgroundColor = "#545454";
+            radioLabels[p].style.color = "white";
+        } 
+        for (let q = 0; q < resultLabels.length; q++) {
+            resultLabels[q].style.backgroundColor = "#1DA1F2";
+            resultLabels[q].style.border = "1px solid #0ec3ac";
+        } 
+    }
+    else {
+        document.body.style.backgroundColor = "white";
+        document.body.style.color = "black";
+        let allFieldsets = document.querySelectorAll("fieldset");
+        for (let i = 0; i < allFieldsets.length; i++) {
+            allFieldsets[i].style.backgroundColor = "#f1f4f9";
+        }
+    }
+}
 
 function load() {
     loadDropdowns();
-    if (document.cookie != "") {
+    if (document.cookie != "a") {
         let cookRaw = getCookie("setData");
         let cook = cookRaw.substring(8, cookRaw.length);
         let seenChangelongCookie = getCookie("changelog2").substring(11);
@@ -441,6 +489,15 @@ function loadSets(onlyFirst = false, onlySecond = false) {
 
         primaryTypeDropdown1.value = loomians[pokeDropdown1.value.toLowerCase()].types[0];
         secondaryTypeDropdown1.value = (loomians[pokeDropdown1.value.toLowerCase()].types[1] != undefined ? loomians[pokeDropdown1.value.toLowerCase()].types[1] : "None");
+
+        if (set1.setName != "Blank Set" && set1.builtIn == undefined) {
+            document.getElementById("lineBreak1").style.display = "block";
+            document.getElementById("deleteSet1").style.display = "block";
+        }
+        else {
+            document.getElementById("lineBreak1").style.display = "none";
+            document.getElementById("deleteSet1").style.display = "none";
+        }
     }
 
     if (onlySecond || (!onlyFirst && !onlySecond)) {
@@ -486,6 +543,15 @@ function loadSets(onlyFirst = false, onlySecond = false) {
 
         primaryTypeDropdown2.value = loomians[pokeDropdown2.value.toLowerCase()].types[0];
         secondaryTypeDropdown2.value = (loomians[pokeDropdown2.value.toLowerCase()].types[1] != undefined ? loomians[pokeDropdown2.value.toLowerCase()].types[1] : "None");
+
+        if (set2.setName != "Blank Set" && set2.builtIn == undefined) {
+            document.getElementById("lineBreak2").style.display = "block";
+            document.getElementById("deleteSet2").style.display = "block";
+        }
+        else {
+            document.getElementById("lineBreak2").style.display = "none";
+            document.getElementById("deleteSet2").style.display = "none";
+        }
     }
     
     update(undefined, true);
@@ -508,6 +574,27 @@ function addSet(set, builtIn = false) {
     optG2.appendChild(opt2);
 }
 
+function deleteSet(second = false) {
+    if (!second) {
+        let set1 = pokeDropdown1.options[pokeDropdown1.selectedIndex].set;
+        for (let set in sets) {
+            if (sets[set] == set1) {
+                sets.splice(set, 1);
+                break;
+            }
+        }
+    }
+    else { 
+        let set2 = pokeDropdown2.options[pokeDropdown2.selectedIndex].set;
+        for (let set in sets) {
+            if (sets[set] == set2) {
+                sets.splice(set, 1);
+                break;
+            }
+        }
+    }
+    window.location.reload()
+}
 function makeBlankSet(loomian) {
     let set = {
         name: loomian,
