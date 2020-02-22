@@ -281,6 +281,8 @@ function load() {
                 addSet(newSets[newSets.length - 1]);
             }
         } catch (err) {
+            document.cookie = "setData=[]";
+            sets = [];
             console.log(err);
         }
     }
