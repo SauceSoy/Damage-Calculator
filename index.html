@@ -108,6 +108,8 @@
 
                 <select class="pokeselect" id="pokes1" onchange="loadSets(true)">
                 </select>
+                <br id="lineBreak1" style="display: none;">
+                <button id="deleteSet1" style="display: none;" onclick="deleteSet()">Delete This Set</button>
 
                 <div class="infogroup">
 
@@ -679,6 +681,9 @@
                 </legend>
                 <select class="pokeselect" id="pokes2" onchange="loadSets(undefined, true)"></select>
 
+                <br id="lineBreak1" style="display: none;">
+                <button id="deleteSet1" style="display: none;" onclick="deleteSet(true)">Delete This Set</button>
+
                 <div class="infogroup">
 
                     <div>
@@ -1110,7 +1115,10 @@
         </div>
     </div>
     <div class="contributors">
-        Made By: Sioist <br>Contributors: <br>• i_eaturface <br>• Team Apex <br><br><a href="https://github.com/SauceSoy/Damage-Calculator">GitHub Repo</a><br> RIP KOBE
+        <input type="checkbox" class="hiddenToUser" id="darkMode" onchange="toggleDarkMode()" style="visibility: hidden;">
+        <label class="radiolbl fieldlbl entered" for="darkMode" style="visibility: hidden;">Dark Mode</label>
+        <br>
+        Made By: Sioist <br>Contributors: <br>• i_eaturface <br>• Team Apex <br><br><a href="https://github.com/SauceSoy/Damage-Calculator">GitHub Repo</a>
     </div>
 </body>
 <script>
