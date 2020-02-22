@@ -274,9 +274,10 @@ function load() {
         try {
             let data = JSON.parse(cook);
             let newSets = [];
-
+            console.log(cook);
             for (let set in data) {
                 newSets.push(data[set]);
+                console.log(newSets);
                 addSet(newSets[newSets.length - 1]);
             }
         } catch (err) {
