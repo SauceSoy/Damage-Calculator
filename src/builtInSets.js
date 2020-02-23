@@ -30,7 +30,8 @@ var builtInSets = [
         negNature: "none",
         ability: "Awakening",
         item: "Power Cuffs",
-        level: 50
+        level: 50,
+        builtIn: true
     },
 
     {
@@ -64,7 +65,8 @@ var builtInSets = [
         negNature: "none",
         ability: "Awakening",
         item: "Health Amulet",
-        level: 50
+        level: 50,
+        builtIn: true
     },
 
     {
@@ -98,7 +100,8 @@ var builtInSets = [
         negNature: "none",
         ability: "Awakening",
         item: "Power Cuffs",
-        level: 50
+        level: 50,
+        builtIn: true
     },
 
     {
@@ -132,7 +135,8 @@ var builtInSets = [
         negNature: "none",
         ability: "Awakening",
         item: "Heavy Shield",
-        level: 50
+        level: 50,
+        builtIn: true
     },
 
     {
@@ -166,7 +170,8 @@ var builtInSets = [
         negNature: "none",
         ability: "Awakening",
         item: "Health Amulet",
-        level: 50
+        level: 50,
+        builtIn: true
     },
 
     {
@@ -200,7 +205,8 @@ var builtInSets = [
         negNature: "none",
         ability: "Awakening",
         item: "Health Amulet",
-        level: 50
+        level: 50,
+        builtIn: true
     },
 
     {
@@ -234,7 +240,8 @@ var builtInSets = [
         negNature: "none",
         ability: "Brute Force",
         item: "Ancient Essence",
-        level: 50
+        level: 50,
+        builtIn: true
     },
 
     {
@@ -268,7 +275,8 @@ var builtInSets = [
         negNature: "none",
         ability: "Overshadow",
         item: "Dark Essence",
-        level: 50
+        level: 50,
+        builtIn: true
     },
 
     {
@@ -302,7 +310,8 @@ var builtInSets = [
         negNature: "none",
         ability: "Illuminate",
         item: "Light Essence",
-        level: 50
+        level: 50,
+        builtIn: true
     },
 
     {
@@ -336,7 +345,8 @@ var builtInSets = [
         negNature: "none",
         ability: "None",
         item: "Air Essence",
-        level: 50
+        level: 50,
+        builtIn: true
     },
 
     {
@@ -370,7 +380,8 @@ var builtInSets = [
         negNature: "none",
         ability: "None",
         item: "Health Amulet",
-        level: 50
+        level: 50,
+        builtIn: true
     },
 
     {
@@ -404,7 +415,8 @@ var builtInSets = [
         negNature: "none",
         ability: "None",
         item: "Power Cuffs",
-        level: 50
+        level: 50,
+        builtIn: true
     },
 
     {
@@ -438,6 +450,7 @@ var builtInSets = [
         negNature: "none",
         ability: "Raging Fire",
         item: "Power Cuffs",
-        level: 50
+        level: 50,
+        builtIn: true
     }
 ];
