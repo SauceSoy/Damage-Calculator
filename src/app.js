@@ -1707,7 +1707,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
 
     if (stat2 == "asleep" && ability1 == "Mean Spirited") {
-        multi *= 1.5;
+        multi *= 1.2;
         stuffUsed.ability1 = ability1;
     }
 
