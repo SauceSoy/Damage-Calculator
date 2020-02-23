@@ -297,22 +297,25 @@ function toggleDarkMode() {
 
 function load() {
     loadDropdowns();
-    if (document.cookie != "") {
+    if (document.cookie != "a") {
         let cookRaw = getCookie("setData");
         let cook = cookRaw.substring(8, cookRaw.length);
         let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
             document.cookie = "changelog2=true";
+        }
+        if (darkModeCookie == "true") {
+            darkMode.click();
         }
 
         try {
             let data = JSON.parse(cook);
             let newSets = [];
-            console.log(cook);
+
             for (let set in data) {
                 newSets.push(data[set]);
-                console.log(newSets);
                 addSet(newSets[newSets.length - 1]);
             }
         } catch (err) {
@@ -353,6 +356,13 @@ function saveCookie() {
     let json = JSON.stringify(sets);
     document.cookie = "setData=" + json + "; expires=Fri, 1 Jan 2021 12:00:00 UTC";
     document.cookie = "changelog2=true; expires=Fri, 1 Jan 2021 12:00:00 UTC";
+
+    if (darkMode.checked) {
+        document.cookie = "darkMode=true; expires=Fri, 1 Jan 2021 12:00:00 UTC"
+    }
+    else {
+        document.cookie="darkMode=false; expires=Fri, 1 Jan 2021 12:00:00 UTC";
+    }
 }
 
 function getCookie(name) {
@@ -608,7 +618,6 @@ function addSet(set, builtIn = false) {
     if (!builtIn) sets.push(tempSet);
     opt1.set = tempSet;
     opt2.set = tempSet;
-    console.log(opt1);
     optG1.appendChild(opt1);
     optG2.appendChild(opt2);
 }
