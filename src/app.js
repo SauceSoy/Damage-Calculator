@@ -225,13 +225,15 @@ function toggleDarkMode() {
 
         let allInputs = document.querySelectorAll("input");
         for (let j = 0; j < allInputs.length; j++) {
-            allInputs[j].style.backgroundColor = "#0ce3ac";
-            allInputs[j].style.border = "1px solid transparent";
+            allInputs[j].style.backgroundColor = "#757575";
+            allInputs[j].style.color = "white";
+            allInputs[j].style.border = "1px solid #AAAAAA";
         }
 
         let allSelects = document.querySelectorAll("select");
         for (let k = 0; k < allSelects.length; k++) {
-            allSelects[k].style.backgroundColor = "#0ce3ac";
+            allSelects[k].style.backgroundColor = "#545454";
+            allSelects[k].style.color = "white";
         }
 
         let allSelect2s = document.getElementsByClassName("pokeselect");
@@ -246,8 +248,9 @@ function toggleDarkMode() {
             radioLabels[p].style.color = "white";
         } 
         for (let q = 0; q < resultLabels.length; q++) {
-            resultLabels[q].style.backgroundColor = "#1DA1F2";
-            resultLabels[q].style.border = "1px solid #0ec3ac";
+            resultLabels[q].style.backgroundColor = "#545454";
+            resultLabels[q].style.color = "white";
+            resultLabels[q].style.border = "1px solid #AAAAAA";
         } 
     }
     else {
@@ -256,6 +259,38 @@ function toggleDarkMode() {
         let allFieldsets = document.querySelectorAll("fieldset");
         for (let i = 0; i < allFieldsets.length; i++) {
             allFieldsets[i].style.backgroundColor = "#f1f4f9";
+        }
+
+        let allInputs = document.querySelectorAll("input");
+        for (let j = 0; j < allInputs.length; j++) {
+            allInputs[j].style.backgroundColor = "white";
+            allInputs[j].style.color = "black";
+            allInputs[j].style.borderStyle = "inset";
+            allInputs[j].style.borderColor = "initial";
+            allInputs[j].style.borderWidth = "2px";
+        }
+
+        let allSelects = document.querySelectorAll("select");
+        for (let k = 0; k < allSelects.length; k++) {
+            allSelects[k].style.backgroundColor = "white";
+            allSelects[k].style.color = "black";
+        }
+
+        let allSelect2s = document.getElementsByClassName("pokeselect");
+        for (let l = 0; l < allSelect2s.length; l++) {
+            allSelect2s[l].style.color = "black";
+        }
+
+        let radioLabels = document.getElementsByClassName("radioLbl");
+        let resultLabels = document.getElementsByClassName("resultLbl");
+        for (let p = 0; p < radioLabels.length; p++) {
+            radioLabels[p].style.backgroundColor = "#e9e9e9";
+            radioLabels[p].style.color = "#555555";
+        } 
+        for (let q = 0; q < resultLabels.length; q++) {
+            resultLabels[q].style.backgroundColor = "#e9e9e9";
+            resultLabels[q].style.color = "#555555";
+            resultLabels[q].style.border = "1px solid aaa";
         }
     }
 }
