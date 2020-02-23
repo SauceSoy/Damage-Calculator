@@ -262,3 +262,7 @@ th {
   left: 0.5em;
   font-size: 18;
 }
+
+.select2-results {
+  color: black !important;
+}
