@@ -2292,7 +2292,7 @@ var moves = {
 
     gobbleGoop: {
         name: "Gobble Goop",
-        power: 60,
+        power: 85,
         type: "Toxic",
         mr: "Ranged",
         secondaryEffect: true
@@ -2593,7 +2593,7 @@ var moves = {
     },
 
     healthGift: {
-        name: "Health Gift",
+        name: "Health Gify",
         power: 0,
         type: "Mind",
         mr: "Support"
@@ -2666,7 +2666,7 @@ var moves = {
 
 var types = {
     typeless: {
-        weaknesses: ["mind"],
+        weaknesses: ["mind", "brawler"],
         resistances: [],
         immunities: []
     },
@@ -2686,7 +2686,7 @@ var types = {
     plant: {
         weaknesses: ["fire", "ice", "dark", "bug", "toxic"],
         resistances: ["plant", "water", "earth", "electric", "light"],
-        immunities: []
+        immunities: ["light"]
     },
 
     electric: {
@@ -2697,7 +2697,7 @@ var types = {
 
     ice: {
         weaknesses: ["fire", "metal", "brawler"],
-        resistances: ["ice", "air"],
+        resistances: ["ice", "air", "typeless"],
         immunities: []
     },
 
@@ -2721,13 +2721,13 @@ var types = {
 
     bug: {
         weaknesses: ["ice", "air", "brawler"],
-        resistances: ["earth", "dark"],
+        resistances: ["earth", "dark", "plant", "bug"],
         immunities: []
     },
 
     metal: {
-        weaknesses: ["fire", "electric", "earth"],
-        resistances: ["air", "bug", "metal", "ancient", "typeless"],
+        weaknesses: ["fire", "electric", "earth", "brawler"],
+        resistances: ["air", "bug", "metal", "ancient", "typeless", "ice", "mind"],
         immunities: []
     },
 
@@ -2745,13 +2745,13 @@ var types = {
 
     spirit: {
         weaknesses: ["light", "ancient", "spirit"],
-        resistances: ["dark", "toxic"],
+        resistances: ["dark", "toxic", "electric", "typeless"],
         immunities: ["brawler"]
     },
 
     mind: {
         weaknesses: ["dark", "bug", "spirit"],
-        resistances: ["light", "mind"],
+        resistances: ["light", "mind", "brawler"],
         immunities: []
     },
 
@@ -2762,7 +2762,7 @@ var types = {
     },
 
     brawler: {
-        weaknesses: ["air", "spirit", "mind"],
+        weaknesses: ["air", "spirit", "mind", "toxic"],
         resistances: ["bug", "ice"],
         immunities: []
     },
@@ -2770,7 +2770,7 @@ var types = {
 
 var abilities = ["Awakening", "Ambush", "Coursing Venom", "Drainage", "Hasty", "Lightning Rod", "Mean Spirited", "Neutralize", "Overshadow", "Illuminate", "Prismatic", 
                 "Territorial", "Woodsman", "Dusk", "Dawn", "Pyro", "Volcanic", "Combustible", "Noxious Weeds", "Sharp Claws", "Brute Force", "Raging Fire", "Vengeance",
-                "Total Eclipse", "Tone Deaf", "Circadian", "Baneful"];
+                "Total Eclipse", "Tone Deaf", "Circadian", "Baneful", "Rechargeable"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -2824,6 +2824,12 @@ var typeModAbilities = {
     ragingFire: {
         name: "Raging Fire",
         typeModifier: { type: "Fire", modifier: 0},
+        powerMod: false
+    },
+    
+    rechargeable: {
+        name: "Rechargeable",
+        typeModifier: { type: "Electric", modifier: 0},
         powerMod: false
     },
 
