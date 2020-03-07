@@ -2292,7 +2292,7 @@ var moves = {
 
     gobbleGoop: {
         name: "Gobble Goop",
-        power: 85,
+        power: 60,
         type: "Toxic",
         mr: "Ranged",
         secondaryEffect: true
@@ -2593,7 +2593,7 @@ var moves = {
     },
 
     healthGift: {
-        name: "Health Gify",
+        name: "Health Gift",
         power: 0,
         type: "Mind",
         mr: "Support"
