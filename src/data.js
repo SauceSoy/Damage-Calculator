@@ -892,9 +892,9 @@ var loomians = {
             hp: 98,
             energy: 104,
             attack: 55,
-            defense: 55,
+            defense: 75,
             attackR: 103,
-            defenseR: 55,
+            defenseR: 75,
             speed: 62
         }
     },
