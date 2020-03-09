@@ -891,7 +891,7 @@ var loomians = {
         baseStats: {
             hp: 98,
             energy: 104,
-            attack: 55,
+            attack: 15,
             defense: 75,
             attackR: 103,
             defenseR: 75,
@@ -1287,9 +1287,9 @@ var loomians = {
         baseStats: {
             hp: 92,
             energy: 75,
-            attack: 62,
+            attack: 42,
             defense: 73,
-            attackR: 114,
+            attackR: 134,
             defenseR: 102,
             speed: 62
         }
@@ -1327,6 +1327,42 @@ var loomians = {
             attackR: 10,
             defenseR: 81,
             speed: 39
+        }
+    },
+
+    pyramind: {
+        name: "Pyramind",
+        number: 74,
+        types: ["Mind"],
+        abilities: ["Idiosyncratic", "Temper"],
+        sAbility: ["Contact Curse"],
+        weight: 113,
+        baseStats: {
+            hp: 88,
+            energy: 60,
+            attack: 45,
+            defense: 69,
+            attackR: 84,
+            defenseR: 99,
+            speed: 35
+        }
+    },
+
+    pharoglyph: {
+        name: "Pharoglyph",
+        number: 75,
+        types: ["Mind"],
+        abilities: ["Idiosyncratic", "Temper"],
+        sAbility: ["Contact Curse"],
+        weight: 166,
+        baseStats: {
+            hp: 88,
+            energy: 95,
+            attack: 50,
+            defense: 50,
+            attackR: 120,
+            defenseR: 101,
+            speed: 106
         }
     },
 
@@ -1921,7 +1957,7 @@ var moves = {
 
     flashPulse: {
         name: "Flash Pulse",
-        power: 75,
+        power: 85,
         type: "Light",
         mr: "Ranged",
         aoe: true,
@@ -2190,7 +2226,7 @@ var moves = {
 
     savageGreed: {
         name: "Savage Greed",
-        power: 75,
+        power: 95,
         type: "Ancient",
         mr: "Melee",
         contact: true
