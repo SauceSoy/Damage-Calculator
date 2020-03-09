@@ -2352,6 +2352,28 @@ var moves = {
         secondaryEffect: true
     },
 
+    flabbergast: {
+        name: "Flabbergast",
+        power: 70,
+        type: "Mind",
+        mr: "Ranged",
+        secondaryEffect: true
+    },
+
+    cerebralSlash: {
+        name: "Cerebral Slash",
+        power: 70,
+        type: "Mind",
+        mr: "Melee"
+    },
+
+    flashNFlee: {
+        name: "Flash 'n Flee",
+        power: 40,
+        type: "Light",
+        mr: "Ranged"
+    },
+
     //Support Moves -----------------------------------------------------------------------------------------------------------------------------------------
 
     accelerate: {
@@ -2696,6 +2718,27 @@ var moves = {
         power: 0,
         type: "Light",
         mr: "Support"
+    },
+
+    memorize: {
+        name: "Memorize",
+        power: 0,
+        type: "Mind",
+        mr: "Support"
+    },
+
+    baneOfHaste: {
+        name: "Bane of Haste",
+        power: 0,
+        type: "Ancient",
+        mr: "Support"
+    },
+
+    hypnotize: {
+        name: "Hypnotize",
+        power: 0,
+        type: "Mind",
+        mr: "Suport"
     }
 };
 
