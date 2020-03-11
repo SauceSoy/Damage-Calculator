@@ -2026,7 +2026,6 @@ var moves = {
         power: 120,
         type: "Typeless",
         mr: "Melee",
-        aoe: true,
         contact: true
     },
 
