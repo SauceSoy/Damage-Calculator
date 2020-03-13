@@ -1733,6 +1733,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         if (types2.primary == "Bug" || types2.secondary == "Bug") {
             multi *= 0.5;
         }
+        if (typeModAbility2 != undefined && tempType == typeModAbility2.typeModifier.type2 && typeModAbility2.powerMod == false) {
+            multi = 0;
+        }
     }
 
     if (detailed) {
