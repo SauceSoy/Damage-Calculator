@@ -2737,7 +2737,7 @@ var moves = {
         name: "Hypnotize",
         power: 0,
         type: "Mind",
-        mr: "Suport"
+        mr: "Support"
     }
 };
 
