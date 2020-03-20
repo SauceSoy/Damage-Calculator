@@ -1650,6 +1650,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
 
     dmg = Math.floor(dmg * multi);
+    multi = 1;
 
     //Crit and Random -----------------------------
 
