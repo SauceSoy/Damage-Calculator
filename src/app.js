@@ -559,7 +559,7 @@ function loadSets(onlyFirst = false, onlySecond = false) {
 
     if (onlySecond || (!onlyFirst && !onlySecond)) {
         let set2 = pokeDropdown2.options[pokeDropdown2.selectedIndex].set;
-        let secondLoom = loomians[pokeDropdown1.value.toLowerCase()];
+        let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
         let posNat2 = document.getElementById("posNat2");
         let negNat2 = document.getElementById("negNat2");
         let veryNat2 = document.getElementById("veryNat2");
