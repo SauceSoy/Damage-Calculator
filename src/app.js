@@ -498,6 +498,7 @@ function importSets() {
 function loadSets(onlyFirst = false, onlySecond = false) {
     if (onlyFirst || (!onlyFirst && !onlySecond)) {
         let set1 = pokeDropdown1.options[pokeDropdown1.selectedIndex].set;
+        let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
         let posNat1 = document.getElementById("posNat1");
         let negNat1 = document.getElementById("negNat1");
         let veryNat1 = document.getElementById("veryNat1");
@@ -546,11 +547,19 @@ function loadSets(onlyFirst = false, onlySecond = false) {
             document.getElementById("lineBreak1").style.display = "none";
             document.getElementById("deleteSet1").style.display = "none";
         }
+
+        baseHP1.value = firstLoom.baseStats.hp;
+        baseEnergy1.value = firstLoom.baseStats.energy;
+        baseAtk1.value = firstLoom.baseStats.attack;
+        baseDef1.value = firstLoom.baseStats.defense;
+        baseAtkR1.value = firstLoom.baseStats.attackR; 
+        baseDefR1.value = firstLoom.baseStats.defenseR;
+        baseSpd1.value = firstLoom.baseStats.speed;
     }
 
     if (onlySecond || (!onlyFirst && !onlySecond)) {
         let set2 = pokeDropdown2.options[pokeDropdown2.selectedIndex].set;
-
+        let secondLoom = loomians[pokeDropdown1.value.toLowerCase()];
         let posNat2 = document.getElementById("posNat2");
         let negNat2 = document.getElementById("negNat2");
         let veryNat2 = document.getElementById("veryNat2");
@@ -600,9 +609,17 @@ function loadSets(onlyFirst = false, onlySecond = false) {
             document.getElementById("lineBreak2").style.display = "none";
             document.getElementById("deleteSet2").style.display = "none";
         }
+
+        baseHP2.value = secondLoom.baseStats.hp;
+        baseEnergy2.value = secondLoom.baseStats.energy;
+        baseAtk2.value = secondLoom.baseStats.attack;
+        baseDef2.value = secondLoom.baseStats.defense;
+        baseAtkR2.value = secondLoom.baseStats.attackR;
+        baseDefR2.value = secondLoom.baseStats.defenseR;
+        baseSpd2.value = secondLoom.baseStats.speed;
     }
     
-    update(undefined, true);
+    update(undefined, false);
 }
 
 function addSet(set, builtIn = false) {
