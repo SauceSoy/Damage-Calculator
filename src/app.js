@@ -300,18 +300,19 @@ function load() {
     if (document.cookie != "") {
         let cookRaw = getCookie("setData");
         let cook = cookRaw.substring(8, cookRaw.length);
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
         }
 
         try {
-            let data = JSON.parse(cook);
+            let decoded = pako.inflate(atob(cook), {to: "string"});
+            let data = JSON.parse(decoded);
             let newSets = [];
 
             for (let set in data) {
@@ -354,8 +355,9 @@ function load() {
 
 function saveCookie() {
     let json = JSON.stringify(sets);
-    document.cookie = "setData=" + json + "; expires=Fri, 1 Jan 2021 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Fri, 1 Jan 2021 12:00:00 UTC";
+    let encoded = pako.deflate(json, {to: "string"});
+    document.cookie = "setData=" + btoa(encoded) + "; expires=Fri, 1 Jan 2021 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Fri, 1 Jan 2021 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Fri, 1 Jan 2021 12:00:00 UTC"
