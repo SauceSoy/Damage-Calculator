@@ -2934,4 +2934,4 @@ for (let ty in types) {
 
 var sets = [];
 
-var changelog = "New Years Update \n •Not an actual update, just wanted to say happy 2020.";
+var changelog = "Sets \n •Added support for double the amount of saved sets. \n •All your past set data is unfortunately invalid as of now.";
