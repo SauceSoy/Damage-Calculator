@@ -1993,7 +1993,7 @@ function pokeRound(val) {
 function decode(txt) {
     let decoded = pako.inflate(atob(txt), {to: "string"});
     let json = JSON.parse(decoded);
-    return JSON.parse(json);
+    return json;
 }
 
 function capitalizeFirstLetter(string) {
