@@ -150,6 +150,9 @@ let spdStages2 = document.getElementById("spdStages2");
 let level1 = document.getElementById("level1");
 let level2 = document.getElementById("level2");
 
+let immuneAbilityBoost1 = document.getElementById("immuneBoost1");
+let immuneAbilityBoost2 = document.getElementById("immuneBoost2");
+
 let iceTrap1 = document.getElementById("iceTrap1");
 let iceTrap2 = document.getElementById("iceTrap2");
 
@@ -472,6 +475,20 @@ function update(updatePower = false, updateBaseStats = false) {
     detailedReport();
 
     updatePercent();
+
+    if (abilityDropdown1.value == "Combustible" || abilityDropdown1.value == "Noxious Weeds" || abilityDropdown1.value == "Coursing Venom" || abilityDropdown1.value == "Prismatic") {
+        immuneAbilityBoost1.style.visibility = "visible";
+    }
+    else {
+        immuneAbilityBoost1.style.visibility = "hidden";
+    }
+
+    if (abilityDropdown2.value == "Combustible" || abilityDropdown2.value == "Noxious Weeds" || abilityDropdown2.value == "Coursing Venom" || abilityDropdown2.value == "Prismatic") {
+        immuneAbilityBoost2.style.visibility = "visible";
+    }
+    else {
+        immuneAbilityBoost2.style.visibility = "hidden";
+    }
 }
 
 function importSets() {
@@ -1475,6 +1492,7 @@ function detailedReport() {
 
     document.getElementById("detailedResult").innerHTML = str;
 }
+
 function isStab(userTypes, move) {
     if (userTypes.primary == move.type || userTypes.secondary == move.type) {
         return true;
@@ -1512,6 +1530,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     let dawn = (second == false ? dawn1.checked : dawn2.checked);
     let possibleDmg = [];
     let stuffUsed = { ability1: "", ability2: "", item1: "", item2: "" };
+
+    let immuneBoostCheck = (second == false ? immuneAbilityBoost1.checked : immuneAbilityBoost2.checked);
 
     tempAtk = getTempAtkDef(second, move.mr).attack;
     tempDef = getTempAtkDef(second, move.mr).defense;
@@ -1553,6 +1573,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     else if (ability1 == "Illuminate" && tempType == "Typeless") {
         tempType = "Light";
         multi *= 1.1;
+        stuffUsed.ability1 = ability1;
+    }
+
+    if ((ability1 == "Combustible" || ability1 == "Coursing Venom" || ability1 == "Noxious Weeds" || ability1 == "Prismatic") && immuneBoostCheck) {
+        multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
 
@@ -1852,6 +1877,7 @@ function getTypes(second) {
 
     return obj;
 }
+
 function getTripRootPower(weight) {
     if (weight < 10) {
         return 20;
