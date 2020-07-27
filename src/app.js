@@ -1577,8 +1577,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
 
     if ((ability1 == "Combustible" || ability1 == "Coursing Venom" || ability1 == "Noxious Weeds" || ability1 == "Prismatic") && immuneBoostCheck) {
-        multi *= 1.5;
-        stuffUsed.ability1 = ability1;
+        if (tempType == typeModAbility1.typeModifier.type) { 
+            multi *= 1.5;
+            stuffUsed.ability1 = ability1;
+        }
     }
 
     if (ability1 == "Ambush" && btl1) {
