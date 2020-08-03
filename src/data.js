@@ -2931,8 +2931,8 @@ var moves = {
         secondaryEffect: true
     },
  
-    metalBurst: {
-        name: "Metal Burst",
+    metalBlast: {
+        name: "Metal Blast",
         power: 85,
         type: "Metal",
         mr: "Ranged"
