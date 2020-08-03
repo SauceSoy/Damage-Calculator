@@ -303,11 +303,11 @@ function load() {
     if (document.cookie != "") {
         let cookRaw = getCookie("setData");
         let cook = cookRaw.substring(8, cookRaw.length);
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -360,7 +360,7 @@ function saveCookie() {
     let json = JSON.stringify(sets);
     let encoded = pako.deflate(json, {to: "string"});
     document.cookie = "setData=" + btoa(encoded) + "; expires=Fri, 1 Jan 2021 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Fri, 1 Jan 2021 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Fri, 1 Jan 2021 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Fri, 1 Jan 2021 12:00:00 UTC"
@@ -476,14 +476,14 @@ function update(updatePower = false, updateBaseStats = false) {
 
     updatePercent();
 
-    if (abilityDropdown1.value == "Combustible" || abilityDropdown1.value == "Noxious Weeds" || abilityDropdown1.value == "Coursing Venom" || abilityDropdown1.value == "Prismatic") {
+    if (abilityDropdown1.value == "Combustible" || abilityDropdown1.value == "Noxious Weeds" || abilityDropdown1.value == "Coursing Venom" || abilityDropdown1.value == "Prismatic" || abilityDropdown1.value == "Toxic Filter") {
         immuneAbilityBoost1.style.visibility = "visible";
     }
     else {
         immuneAbilityBoost1.style.visibility = "hidden";
     }
 
-    if (abilityDropdown2.value == "Combustible" || abilityDropdown2.value == "Noxious Weeds" || abilityDropdown2.value == "Coursing Venom" || abilityDropdown2.value == "Prismatic") {
+    if (abilityDropdown2.value == "Combustible" || abilityDropdown2.value == "Noxious Weeds" || abilityDropdown2.value == "Coursing Venom" || abilityDropdown2.value == "Prismatic" || abilityDropdown2.value == "Toxic Filter") {
         immuneAbilityBoost2.style.visibility = "visible";
     }
     else {
@@ -1254,7 +1254,7 @@ function detailedReport() {
     let selfHP = (second ? currentHP2.value : currentHP1.value);
     let currStatus = (second ? status1.value : status2.value);
     let counter = 0;
-    let atkDef = getTempAtkDef(second, move.mr);
+    let atkDef = getTempAtkDef(second, move);
     let atkPlus = "";
     let defPlus = "";
 
@@ -1533,8 +1533,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
 
     let immuneBoostCheck = (second == false ? immuneAbilityBoost1.checked : immuneAbilityBoost2.checked);
 
-    tempAtk = getTempAtkDef(second, move.mr).attack;
-    tempDef = getTempAtkDef(second, move.mr).defense;
+    tempAtk = getTempAtkDef(second, move).attack;
+    tempDef = getTempAtkDef(second, move).defense;
 
     tempPower = (move.name == "Trip Root" ? getTripRootPower(loom2.weight) : tempPower);
 
@@ -1582,6 +1582,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
             stuffUsed.ability1 = ability1;
         }
     }
+    if (ability1 == "Toxic Filter" && immuneBoostCheck) {
+        if (tempType == "Air") {
+            multi *= 1.5;
+            stuffUsed.ability1 = ability1;
+        }
+    }
 
     if (ability1 == "Ambush" && btl1) {
         multi *= 2;
@@ -1599,6 +1605,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
     if (ability1 == "Brute Force" && move.secondaryEffect == true) {
         multi *= 1.2;
+        stuffUsed.ability1 = ability1;
+    }
+    if (ability1 == "Power Jaw" && move.bite == true) {
+        multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
 
@@ -1643,6 +1653,18 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         stuffUsed.ability1 = ability1;
     }
 
+    if (ability1 == "Specialization") {
+        let count = specializationCount(second);
+        if (count == 1) multi *= 1.25;
+        if (count == 2) multi *= 1.5;
+        if (count == 3) multi *= 2;
+        if (count != 0) stuffUsed.ability1 = ability1;
+    }
+
+    if (move.name == "Rough Up" && loom1.height > loom2.height) {
+        multi *= 1.25;
+    }
+
     tempPower = pokeRound(tempPower * multi);
     multi = 1;
 
@@ -1683,6 +1705,14 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
     if (itemB == "Heavy Armor" && move.mr == "Melee") {
         multi *= 1.2;
+        stuffUsed.item2 = itemB;
+    }
+    if (ability2 == "Trash Armor" && move.mr == "Melee") {
+        multi *= 1.2;
+        stuffUsed.ability2 = ability2;
+    }
+    if (itemB == "Drop of Youth" && loom2.finalEvo == false) {
+        multi *= 1.5;
         stuffUsed.item2 = itemB;
     }
 
@@ -1805,6 +1835,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         stuffUsed.ability1 = ability1;
     }
 
+    
+    if (ability2 == "Tank" && withoutSlapDown) {
+        multi *= 0.5;
+        stuffUsed.ability2 = ability2;
+    }
+
     stuffUsed.item2 = (itemB == "Health Amulet" ? itemB : stuffUsed.item2);
     if (detailed) {
         for (let i = 0; i < possibleDmg.length; i++) {
@@ -1822,7 +1858,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     return dmg;
 }
 
-function getTempAtkDef(second, mr) {
+function getTempAtkDef(second, move) {
     let posNat1 = document.getElementById("posNat1").value;
     let negNat1 = document.getElementById("negNat1").value;
     let posNat2 = document.getElementById("posNat2").value;
@@ -1836,16 +1872,22 @@ function getTempAtkDef(second, mr) {
     let tempDef;
 
 
-    if (second && mr == "Ranged") {
+    if (second && move.mr == "Ranged") {
         tempAtk = { atk: atkR2, iv: atkRIV2, ev: atkREV2, base: baseAtkR2.value, name: "AttackR", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(atkRStages2.value), level: level2.value };
         tempDef = { def: defR1, iv: defRIV1, ev: defREV1, base: baseDefR1.value, name: "DefenseR", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(defRStages1.value), level: level1.value, rest: rest1 };
     }
-    else if (second && mr == "Melee") {
+    else if (second && move.mr == "Melee") {
         tempAtk = { atk: atk2, iv: atkIV2, ev: atkEV2, base: baseAtk2.value, name: "AttackM", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(atkStages2.value), level: level2.value };
+        if (move.name == "Battering Ram") {
+            tempAtk.atk = def2;
+        }
         tempDef = { def: def1, iv: defIV1, ev: defEV1, base: baseDef1.value, name: "DefenseM", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(defStages1.value), level: level1.value, rest: rest1 };
     }
-    else if (mr == "Melee") {
+    else if (move.mr == "Melee") {
         tempAtk = { atk: atk1, iv: atkIV1, ev: atkEV1, base: baseAtk1.value, name: "AttackM", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(atkStages1.value), level: level1.value };
+        if (move.name == "Battering Ram") {
+            tempAtk.atk = def1;
+        }
         tempDef = { def: def2, iv: defIV2, ev: defEV2, base: baseDef2.value, name: "DefenseM", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(defStages2.value), level: level2.value, rest: rest2 };
     }
     else {
@@ -1899,6 +1941,30 @@ function getTripRootPower(weight) {
     return 120;
 }
 
+function specializationCount(second) {
+    let moveOne1 = findMove(moveOneDropdown1.value);
+    let moveTwo1 = findMove(moveTwoDropdown1.value);
+    let moveThree1 = findMove(moveThreeDropdown1.value);
+    let moveFour1 = findMove(moveFourDropdown1.value);
+    let moveOne2 = findMove(moveOneDropdown2.value);
+    let moveTwo2 = findMove(moveTwoDropdown2.value);
+    let moveThree2 = findMove(moveThreeDropdown2.value);
+    let moveFour2 = findMove(moveFourDropdown2.value);
+
+    let counter = 0;
+    if (second) {
+        if (moveOne2.name == "(No Move)") counter++;
+        if (moveTwo2.name == "(No Move)") counter++;
+        if (moveThree2.name == "(No Move)") counter++;
+        if (moveFour2.name == "(No Move)") counter++;
+        return counter;    
+    }
+    if (moveOne1.name == "(No Move)") counter++;
+    if (moveTwo1.name == "(No Move)") counter++;
+    if (moveThree1.name == "(No Move)") counter++;
+    if (moveFour1.name == "(No Move)") counter++;
+    return counter;  
+}
 
 function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false, onlyIncludeIceTrap = false) {
     let newHP = hp1;
