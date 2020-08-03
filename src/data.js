@@ -2152,7 +2152,7 @@ var moves = {
  
     waterBomb: {
         name: "Water Bomb",
-        power: 50,
+        power: 60,
         type: "Water",
         mr: "Ranged",
         secondaryEffect: true
