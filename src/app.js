@@ -303,11 +303,11 @@ function load() {
     if (document.cookie != "") {
         let cookRaw = getCookie("setData");
         let cook = cookRaw.substring(8, cookRaw.length);
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -360,7 +360,7 @@ function saveCookie() {
     let json = JSON.stringify(sets);
     let encoded = pako.deflate(json, {to: "string"});
     document.cookie = "setData=" + btoa(encoded) + "; expires=Fri, 1 Jan 2021 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Fri, 1 Jan 2021 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Fri, 1 Jan 2021 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Fri, 1 Jan 2021 12:00:00 UTC"
@@ -702,10 +702,10 @@ function makeBlankSet(loomian) {
             speed: 40
         },
         moves: {
-            move1: "Air Whip",
-            move2: "Air Whip",
-            move3: "Air Whip",
-            move4: "Air Whip"
+            move1: "(No Move)",
+            move2: "(No Move)",
+            move3: "(No Move)",
+            move4: "(No Move)"
         },
         posNature: "none",
         negNature: "none",
@@ -1185,7 +1185,7 @@ function detailedReport() {
     let level = level1.value;
     let hp;
     let ice = iceTrap2.checked;
-
+ 
     if (document.getElementById("moveOneLbl1").htmlFor == selected.id) {
         moveName = document.getElementById("moveOneLbl1").innerHTML;
         movePower = moveOnePower1.value;
@@ -1246,7 +1246,7 @@ function detailedReport() {
         level = level2.value;
         ice = iceTrap1.checked;
     }
-
+ 
     let item = (second ? item1.value : item2.value);
     let ability = (second ? abilities.find((x) => x == abilityDropdown1.value) : abilities.find((x) => x == abilityDropdown2.value));
     move = findMove(moveName);
@@ -1257,14 +1257,14 @@ function detailedReport() {
     let atkDef = getTempAtkDef(second, move);
     let atkPlus = "";
     let defPlus = "";
-
+ 
     if (atkDef.attack.stage != 0 && !isNaN(atkDef.attack.stage)) {
         tempAtk = (atkDef.attack.stage > 0 ? "+" : "") + atkDef.attack.stage + " ";
     }
     if (atkDef.defense.stage != 0 && !isNaN(atkDef.defense.stage)) {
         tempDef = (atkDef.defense.stage > 0 ? "+" : "") + atkDef.defense.stage + " ";
     }
-
+ 
     if (move.mr == "Ranged") {
         if (atkDef.attack.posNat == "smart" || atkDef.attack.negNat == "smart") {
             atkPlus = "+";
@@ -1278,9 +1278,9 @@ function detailedReport() {
         if (atkDef.defense.veryNat == "vClever") {
             defPlus = "++";
         }
-
+ 
         //Negatives
-
+ 
         if (atkDef.attack.posNat == "clumsy" || atkDef.attack.negNat == "clumsy") {
             atkPlus = "-";
         }
@@ -1293,7 +1293,7 @@ function detailedReport() {
         if (atkDef.defense.veryNat == "vFoolish") {
             defPlus = "--";
         }
-
+ 
         if (second) {
             tempAtk = tempAtk + atkREV2.value + " " + atkPlus + "AtkR";
             tempDef = tempDef + defREV1.value + " " + defPlus + "DefR";
@@ -1310,19 +1310,31 @@ function detailedReport() {
         if (atkDef.attack.veryNat == "vBrawny") {
             atkPlus = "++";
         }
+        if (move.name == "Battering Ram" && (atkDef.attack.posNat == "robust" || atkDef.attack.negNat == "robust")) {
+            atkPlus = "+";
+        }
+        if (move.name == "Battering Ram" && atkDef.attack.veryNat == "vRobust") {
+            atkPlus = "++";
+        }
         if (atkDef.defense.posNat == "robust" || atkDef.defense.negNat == "robust") {
             defPlus = "+";
         }
         if (atkDef.defense.veryNat == "vRobust") {
             defPlus = "++";
         }
-
+ 
         //Negatives
-
+ 
         if (atkDef.attack.posNat == "frail" || atkDef.attack.negNat == "frail") {
             atkPlus = "-";
         }
         if (atkDef.attack.veryNat == "vFrail") {
+            atkPlus = "--";
+        }
+        if (move.name == "Battering Ram" && (atkDef.attack.posNat == "tender" || atkDef.attack.negNat == "tender")) {
+            atkPlus = "-";
+        }
+        if (move.name == "Battering Ram" && (atkDef.attack.veryNat == "vTender")) {
             atkPlus = "--";
         }
         if (atkDef.defense.posNat == "tender" || atkDef.defense.negNat == "tender") {
@@ -1331,25 +1343,35 @@ function detailedReport() {
         if (atkDef.defense.veryNat == "vTender") {
             defPlus = "--";
         }
-
+ 
         if (second) {
-            tempAtk = tempAtk + atkEV2.value + " " + atkPlus + "AtkM";
+            if (move.name == "Battering Ram") {
+                tempAtk = tempAtk + defEV2.value + " " + atkPlus + "DefM";
+            }
+            else {
+                tempAtk = tempAtk + atkEV2.value + " " + atkPlus + "AtkM";
+            }    
             tempDef = tempDef + defEV1.value + " " + defPlus + "DefM";
         }
         else {
-            tempAtk = tempAtk + atkEV1.value + " " + atkPlus + "AtkM";
+            if (move.name == "Battering Ram") {
+                tempAtk = tempAtk + defEV1.value + " " + atkPlus + "DefM";
+            }
+            else {
+                tempAtk = tempAtk + atkEV1.value + " " + atkPlus + "AtkM";
+            }    
             tempDef = tempDef + defEV2.value + " " + defPlus + "DefM";
         }
     }
-
+ 
     if (move.power == 0) {
         let str = tempAtk + " " + firstLoom.name + " " + move.name + " vs. " + (!second ? hpEV2.value : hpEV1.value) + " HP / " + tempDef + " " + secondLoom.name + ": 0-0 (0 - 0%) -- nice move there, bud";
-
+ 
         document.getElementById("detailedResult").innerHTML = str;
         document.getElementById("possibleDmg").innerHTML = "Possible Damage Amounts: (0)";
         return;
     }
-
+ 
     let possibleDmg = getMultiplier(firstLoom, secondLoom, move, movePower, crit, level, undefined, second, true);
     let possibleDmg2 = possibleDmg;
     let possibleDmg3 = possibleDmg;
@@ -1358,22 +1380,23 @@ function detailedReport() {
     let stuffUsed = possibleDmg[16];
     possibleDmg.pop();
     let possibleDmgStr = "Possible Damage Amounts: (";
-    let str = tempAtk + " " + stuffUsed.item1 + " " + stuffUsed.ability1 + " " + firstLoom.name + " " + move.name + " vs. " + (!second ? hpEV2.value : hpEV1.value) + " HP / " +
+    let critStr = (crit == true ? " Crit " : "");
+    let str = tempAtk + " " + stuffUsed.item1 + " " + stuffUsed.ability1 + " " + firstLoom.name + " " + critStr + move.name + " vs. " + (!second ? hpEV2.value : hpEV1.value) + " HP / " +
         tempDef + " " + stuffUsed.item2 + " " + stuffUsed.ability2 + " " + secondLoom.name + ": " + possibleDmg[0] + "-" + possibleDmg[15] + " (" + lowerPercent + " - " + upperPercent + "%) -- ";
-
+ 
     let hazardStr = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second, true)[1];
-
+ 
     for (let i = 0; i < possibleDmg.length; i++) {
         possibleDmgStr += (i != possibleDmg.length - 1 ? possibleDmg[i] + ", " : possibleDmg[i]);
     }
     possibleDmgStr += ")";
     document.getElementById("possibleDmg").innerHTML = possibleDmgStr;
-
+ 
     let addedDmg = 0;
-
+ 
     if (ice && !secondLoom.types.includes("Fire")) {
         addedDmg = 12.5;
-
+ 
         if (types[secondLoom.types[0].toLowerCase()].weaknesses.includes("ice")) {
             addedDmg *= 2;
         }
@@ -1387,44 +1410,44 @@ function detailedReport() {
             addedDmg *= 0.5;
         }
     }
-
+ 
     hp = hp - Math.floor(hp * addedDmg / 100);
-
+ 
     let OHKOs = [];
     let THKOs = [];
     let TRHKOs = [];
-
+ 
     for (let i = 0; i < possibleDmg.length; i++) {
         if (possibleDmg[i] >= hp) {
             OHKOs.push(possibleDmg[i]);
         }
     }
-
+ 
     if (OHKOs.length != 0) {
         let chance = (OHKOs.length / 16 * 100).toFixed(1);
         let chanceStr = chance + "% chance to OHKO";
-
+ 
         if (chance >= 100) chanceStr = "guaranteed OHKO";
-
+ 
         str += chanceStr + hazardStr;
-
+ 
         document.getElementById("detailedResult").innerHTML = str;
         return;
     }
-
+ 
     counter = 1;
-
+ 
     if (move.knockOff) {
         item = "";
     }
-
+ 
     possibleDmg2 = getMultiplier(firstLoom, secondLoom, move, movePower, crit, level, undefined, second, true, false, counter);
     counter = 0;
     possibleDmg3 = getMultiplier(firstLoom, secondLoom, move, movePower, crit, level, undefined, second, true, false, counter);
-
+ 
     hp = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second)[0];
     hazardStr = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second)[1];
-
+ 
     for (let i = 0; i < possibleDmg.length; i++) {
         for (let j = 0; j < possibleDmg2.length; j++) {
             if (possibleDmg[i] + possibleDmg2[j] >= hp) {
@@ -1432,20 +1455,20 @@ function detailedReport() {
             }
         }
     }
-
+ 
     if (THKOs.length != 0) {
         let chance = (THKOs.length / 256 * 100).toFixed(1);
         let chanceStr = chance + "% chance to 2HKO";
         if (chance >= 100) chanceStr = "guaranteed 2HKO";
-
+ 
         str += chanceStr + hazardStr;
-
+ 
         document.getElementById("detailedResult").innerHTML = str;
         return;
     }
-
+ 
     hp = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second)[0];
-
+ 
     for (let i = 0; i < possibleDmg.length; i++) {
         for (let j = 0; j < possibleDmg2.length; j++) {
             for (let k = 0; k < possibleDmg3.length; k++) {
@@ -1455,55 +1478,55 @@ function detailedReport() {
             }
         }
     }
-
+ 
     if (TRHKOs.length != 0) {
         let chance = (TRHKOs.length / 4096 * 100).toFixed(1);
         let chanceStr = chance + "% chance to 3HKO";
         if (chance >= 100) chanceStr = "guaranteed 3HKO";
-
+ 
         str += chanceStr + hazardStr;
-
+ 
         document.getElementById("detailedResult").innerHTML = str;
         return;
     }
-
+ 
     hp = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second)[0];
-
+ 
     if (possibleDmg[15] * 4 >= hp) {
         let FHKO = "possible 4HKO";
-
+ 
         str += FHKO + hazardStr;
         document.getElementById("detailedResult").innerHTML = str;
         return;
     }
-
+ 
     hp = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second)[0];
-
+ 
     if (possibleDmg[15] * 5 >= hp) {
         let FIHKO = "possible 5HKO";
-
+ 
         str += FIHKO + hazardStr;
         document.getElementById("detailedResult").innerHTML = str;
         return;
     }
-
+ 
     let badMove = "don't even bother, low damage";
     str += badMove;
-
+ 
     document.getElementById("detailedResult").innerHTML = str;
 }
-
+ 
 function isStab(userTypes, move) {
     if (userTypes.primary == move.type || userTypes.secondary == move.type) {
         return true;
     }
     return false;
 }
-
+ 
 function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, second = false, detailed = false, withoutSlapDown = true, takeSecondaryType = false) {
     if (move.power == 0 && detailed) return [0];
     if (move.power == 0) return 0;
-
+ 
     let bothTypes = getTypes(second);
     let types1 = bothTypes.firstLoom;
     let types2 = bothTypes.secondLoom;
@@ -1530,36 +1553,36 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     let dawn = (second == false ? dawn1.checked : dawn2.checked);
     let possibleDmg = [];
     let stuffUsed = { ability1: "", ability2: "", item1: "", item2: "" };
-
+ 
     let immuneBoostCheck = (second == false ? immuneAbilityBoost1.checked : immuneAbilityBoost2.checked);
-
+ 
     tempAtk = getTempAtkDef(second, move).attack;
     tempDef = getTempAtkDef(second, move).defense;
-
+ 
     tempPower = (move.name == "Trip Root" ? getTripRootPower(loom2.weight) : tempPower);
-
+ 
     if (move.name == "Gloominous Roar" && ability1 == "Circadian" && types1.secondary != undefined) {
         tempType = (takeSecondaryType ? types1.secondary : types1.primary);
         stuffUsed.ability1 = ability1;
     }
-
+ 
     if (ability2 == "Circadian" && types2.secondary != "") {
         types2.primary = (takeSecondaryType ? types2.secondary : types2.primary);
         types2.secondary = "None";
         stuffUsed.ability2 = ability2;
     }
-
+ 
     //Base ------------------------------------
-
+ 
     dmg = Math.floor(2 * level / 5) + 2;
-
+ 
     //Power ----------------------------------------
-
+ 
     if (typeModAbility1 != undefined && tempType == typeModAbility1.typeModifier.type && typeModAbility1.powerMod == true) {
         multi *= typeModAbility1.typeModifier.modifier;
         stuffUsed.ability1 = ability1;
     }
-
+ 
     if (ability1 == "Neutralize") {
         tempType = "Typeless"
         multi *= 1.2;
@@ -1575,7 +1598,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         multi *= 1.1;
         stuffUsed.ability1 = ability1;
     }
-
+ 
     if ((ability1 == "Combustible" || ability1 == "Coursing Venom" || ability1 == "Noxious Weeds" || ability1 == "Prismatic") && immuneBoostCheck) {
         if (tempType == typeModAbility1.typeModifier.type) { 
             multi *= 1.5;
@@ -1588,17 +1611,17 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
             stuffUsed.ability1 = ability1;
         }
     }
-
-    if (ability1 == "Ambush" && btl1) {
+ 
+    if (ability1 == "Ambush" && btl1 && withoutSlapDown) {
         multi *= 2;
         stuffUsed.ability1 = ability1;
     }
-
-    if (ability1 == "Vengeance" && btl2) {
+ 
+    if (ability1 == "Vengeance" && btl2 && withoutSlapDown) {
         multi *= 2;
         stuffUsed.ability1 = ability1;
     }
-
+ 
     if (ability1 == "Sharp Claws" && move.contact == true) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
@@ -1607,11 +1630,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         multi *= 1.2;
         stuffUsed.ability1 = ability1;
     }
+ 
     if (ability1 == "Power Jaw" && move.bite == true) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
-
+ 
     if (ability1 == "Baneful" && stat2 == "poisoned") {
         multi *= 1.2;
         stuffUsed.ability1 = ability1;
@@ -1624,7 +1648,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         multi *= 0.75;
         stuffUsed.ability1 = ability1;
     }
-
+ 
     if (move.name == "Gloominous Roar" && loom1.name == "Tiklipse" && ability1 != "Circadian" && itemA.includes("Light")) {
         multi *= 1.2;
         stuffUsed.item1 = itemA;
@@ -1633,43 +1657,58 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         multi *= 1.2;
         stuffUsed.item1 = itemA;
     }
-
+ 
     if (itemA == "Power Cuffs") {
         multi *= 1.2;
         stuffUsed.item1 = itemA;
     }
-
+ 
     if (itemB != "None" && move.knockOff == true && withoutSlapDown) {
         multi *= 1.5;
         stuffUsed.item2 = itemB;
     }
-
+ 
     if (move.name == "Oppress" && stat2 != "healthy") {
-        multi *= 1.5;
+        multi *= 2;
     }
-
+ 
+    if (move.name == "Ill Will" && stat1 != "healthy") {
+        multi *= 2;
+    }
+ 
+    if (move.name == "Battering Ram") {
+        if (ability1 == "Trash Armor") {
+            multi *= 1.5;
+            stuffUsed.ability1 = ability1;   
+        }
+        if (itemA == "Heavy Armor") {
+            multi *= 1.2;
+            stuffUsed.item1 = itemA;
+        }
+    }
+ 
     if (move.sound == true && ability1 == "Tone Deaf") {
         multi *= 1.1;
         stuffUsed.ability1 = ability1;
     }
-
+ 
     if (ability1 == "Specialization") {
         let count = specializationCount(second);
-        if (count == 1) multi *= 1.25;
-        if (count == 2) multi *= 1.5;
-        if (count == 3) multi *= 2;
-        if (count != 0) stuffUsed.ability1 = ability1;
+        if (count == 1) multi *= 1.5;
+        if (count == 2) multi *= 2;
+        if (count == 3) multi *= 3;
+        if (count != 0) stuffUsed.ability1 = ability1 + " (" + Math.abs(count-4) + ")";
     }
-
+ 
     if (move.name == "Rough Up" && loom1.height > loom2.height) {
         multi *= 1.25;
     }
-
+ 
     tempPower = pokeRound(tempPower * multi);
     multi = 1;
-
+ 
     //Attack -------------------------------------------
-
+ 
     if (crit && tempAtk.stage < 0) {
         tempAtk.atk = calculateStat(tempAtk.base, tempAtk.iv.value, tempAtk.ev.value, tempAtk.level, undefined, tempAtk.posNat, tempAtk.negNat, tempAtk.veryNat, tempAtk.name);
     }
@@ -1689,13 +1728,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         multi *= 1.5;
         stuffUsed.item1 = itemA;
     }
-
-
+ 
     tempAtk.atk = pokeRound(tempAtk.atk * multi);
     multi = 1;
-
+ 
     //Defense ----------------------------------------------------
-
+ 
     if (crit && tempDef.stage > 0) {
         tempDef.def = calculateStat(tempDef.base, tempDef.iv.value, tempDef.ev.value, tempDef.level, undefined, tempDef.posNat, tempDef.negNat, tempDef.veryNat, tempDef.name, tempDef.rest);
     }
@@ -1707,48 +1745,48 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         multi *= 1.2;
         stuffUsed.item2 = itemB;
     }
-    if (ability2 == "Trash Armor" && move.mr == "Melee") {
-        multi *= 1.2;
-        stuffUsed.ability2 = ability2;
-    }
     if (itemB == "Drop of Youth" && loom2.finalEvo == false) {
         multi *= 1.5;
         stuffUsed.item2 = itemB;
     }
-
+    if (ability2 == "Trash Armor" && move.mr == "Melee") {
+        multi *= 1.5;
+        stuffUsed.ability2 = ability2;
+    }
+ 
     tempDef.def = pokeRound(tempDef.def * multi);
     multi = 1;
-
+ 
     dmg = Math.floor(Math.floor(dmg * tempAtk.atk / tempDef.def * tempPower) / 50) + 2;
-
+ 
     if (isDouble && move.aoe == true) {
         multi *= 0.75;
     }
-
+ 
     dmg = Math.floor(dmg * multi);
     multi = 1;
-
+ 
     //Crit and Random -----------------------------
-
+ 
     if (crit) {
         multi *= 1.5;
     }
-
+ 
     if (ul) {
         multi *= 0.85;
     }
-
+ 
     if (detailed) {
         for (let i = 0.85; i <= 1; i += 0.01) {
             possibleDmg.push(Math.floor(dmg * multi * i));
         }
     }
-
+ 
     dmg = Math.floor(dmg * multi);
     multi = 1;
-
+ 
     //STAB ---------------------------------
-
+ 
     if (isStab(types1, { type: tempType }) && ability1 == "Awakening") {
         multi *= 1.4;
         stuffUsed.ability1 = ability1;
@@ -1759,18 +1797,18 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     else if (move.name == "Gloominous Roar" && loom1.name == "Tiklipse" && ability1 != "Circadian") {
         multi *= 1.25;
     }
-
+ 
     if (detailed) {
         for (let i = 0; i < possibleDmg.length; i++) {
             possibleDmg[i] = Math.floor(possibleDmg[i] * multi);
         }
     }
-
+ 
     dmg = Math.floor(dmg * multi);
     multi = 1;
-
+ 
     //Type -------------------------------
-
+ 
     if (typeModAbility2 != undefined && tempType == typeModAbility2.typeModifier.type && typeModAbility2.powerMod == false) {
         multi *= typeModAbility2.typeModifier.modifier;
         stuffUsed.ability2 = ability2;
@@ -1779,7 +1817,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         multi *= typeModAbility2.typeModifier.modifier;
         stuffUsed.ability2 = ability2;
     }
-
+ 
     if (types[types2.primary.toLowerCase()].weaknesses.includes(tempType.toLowerCase())) {
         multi *= 2;
     }
@@ -1801,7 +1839,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     if (move.typeModifier != undefined && (types2.primary == move.typeModifier.type || types2.secondary == move.typeModifier.type)) {
         multi *= move.typeModifier.modifier;
     }
-
+ 
     if (move.name == "Gloominous Roar" && loom1.name == "Tiklipse" && ability1 != "Circadian") {
         multi = 1;
         if (types2.primary == "Ancient" || types2.secondary == "Ancient") {
@@ -1814,33 +1852,32 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
             multi = 0;
         }
     }
-
+ 
     if (detailed) {
         for (let i = 0; i < possibleDmg.length; i++) {
             possibleDmg[i] = Math.floor(possibleDmg[i] * multi);
         }
     }
-
+ 
     dmg = Math.floor(dmg * multi);
     multi = 1;
-
+ 
     //Status ------------------------
-
-    if (stat1 == "burned" && move.mr == "Melee") {
+ 
+    if (stat1 == "burned" && move.mr == "Melee" && move.name != "Ill Will") {
         multi *= 0.5;
     }
-
+ 
     if (stat2 == "asleep" && ability1 == "Mean Spirited") {
         multi *= 1.2;
         stuffUsed.ability1 = ability1;
     }
-
-    
-    if (ability2 == "Tank" && withoutSlapDown) {
+ 
+    if (ability2 == "Tank" && btl1 && withoutSlapDown) {
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
-
+ 
     stuffUsed.item2 = (itemB == "Health Amulet" ? itemB : stuffUsed.item2);
     if (detailed) {
         for (let i = 0; i < possibleDmg.length; i++) {
@@ -1849,16 +1886,16 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         possibleDmg[16] = stuffUsed;
         return possibleDmg;
     }
-
+ 
     dmg = Math.floor(dmg * multi);
     multi = 1;
-
+ 
     //Other --------------------------------
-
+ 
     return dmg;
 }
-
-function getTempAtkDef(second, move) {
+ 
+function getTempAtkDef(second, mr) {
     let posNat1 = document.getElementById("posNat1").value;
     let negNat1 = document.getElementById("negNat1").value;
     let posNat2 = document.getElementById("posNat2").value;
@@ -1867,61 +1904,65 @@ function getTempAtkDef(second, move) {
     let veryNat2 = document.getElementById("veryNat2").value;
     let rest1 = document.getElementById("rest1").checked;
     let rest2 = document.getElementById("rest2").checked;
-
+ 
     let tempAtk;
     let tempDef;
-
-
-    if (second && move.mr == "Ranged") {
+ 
+ 
+    if (second && mr.mr == "Ranged") {
         tempAtk = { atk: atkR2, iv: atkRIV2, ev: atkREV2, base: baseAtkR2.value, name: "AttackR", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(atkRStages2.value), level: level2.value };
         tempDef = { def: defR1, iv: defRIV1, ev: defREV1, base: baseDefR1.value, name: "DefenseR", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(defRStages1.value), level: level1.value, rest: rest1 };
     }
-    else if (second && move.mr == "Melee") {
-        tempAtk = { atk: atk2, iv: atkIV2, ev: atkEV2, base: baseAtk2.value, name: "AttackM", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(atkStages2.value), level: level2.value };
-        if (move.name == "Battering Ram") {
-            tempAtk.atk = def2;
+    else if (second && mr.mr == "Melee") {
+        if (mr.name == "Battering Ram") {
+            tempAtk = { atk: def2, iv: defIV2, ev: defEV2, base: baseDef2.value, name: "DefenseM", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(defStages2.value), level: level2.value };
         }
+        else  {
+            tempAtk = { atk: atk2, iv: atkIV2, ev: atkEV2, base: baseAtk2.value, name: "AttackM", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(atkStages2.value), level: level2.value };
+        }    
         tempDef = { def: def1, iv: defIV1, ev: defEV1, base: baseDef1.value, name: "DefenseM", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(defStages1.value), level: level1.value, rest: rest1 };
     }
-    else if (move.mr == "Melee") {
-        tempAtk = { atk: atk1, iv: atkIV1, ev: atkEV1, base: baseAtk1.value, name: "AttackM", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(atkStages1.value), level: level1.value };
-        if (move.name == "Battering Ram") {
-            tempAtk.atk = def1;
+    else if (mr.mr == "Melee") {
+        if (mr.name == "Battering Ram") {
+            tempAtk = { atk: def1, iv: defIV1, ev: defEV1, base: baseDef1.value, name: "DefenseM", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(defStages1.value), level: level1.value };
         }
+        else {
+            tempAtk = { atk: atk1, iv: atkIV1, ev: atkEV1, base: baseAtk1.value, name: "AttackM", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(atkStages1.value), level: level1.value };
+        }    
         tempDef = { def: def2, iv: defIV2, ev: defEV2, base: baseDef2.value, name: "DefenseM", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(defStages2.value), level: level2.value, rest: rest2 };
     }
     else {
         tempAtk = { atk: atkR1, iv: atkRIV1, ev: atkREV1, base: baseAtkR1.value, name: "AttackR", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(atkRStages1.value), level: level1.value };
         tempDef = { def: defR2, iv: defRIV2, ev: defREV2, base: baseDefR2.value, name: "DefenseR", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(defRStages2.value), level: level2.value, rest: rest2 };
     }
-
+ 
     return { attack: tempAtk, defense: tempDef };
 }
-
+ 
 function getTypes(second) {
     let obj = {};
     obj.firstLoom = {};
     obj.secondLoom = {};
-
+ 
     if (second) {
         obj.firstLoom.primary = primaryTypeDropdown2.value;
         obj.firstLoom.secondary = secondaryTypeDropdown2.value;
-
+ 
         obj.secondLoom.primary = primaryTypeDropdown1.value;
         obj.secondLoom.secondary = secondaryTypeDropdown1.value;
-        
+ 
         return obj;
     }
-
+ 
     obj.firstLoom.primary = primaryTypeDropdown1.value;
     obj.firstLoom.secondary = secondaryTypeDropdown1.value;
-
+ 
     obj.secondLoom.primary = primaryTypeDropdown2.value;
     obj.secondLoom.secondary = secondaryTypeDropdown2.value;
-
+ 
     return obj;
 }
-
+ 
 function getTripRootPower(weight) {
     if (weight < 10) {
         return 20;
@@ -1940,7 +1981,7 @@ function getTripRootPower(weight) {
     }
     return 120;
 }
-
+ 
 function specializationCount(second) {
     let moveOne1 = findMove(moveOneDropdown1.value);
     let moveTwo1 = findMove(moveTwoDropdown1.value);
@@ -1950,7 +1991,7 @@ function specializationCount(second) {
     let moveTwo2 = findMove(moveTwoDropdown2.value);
     let moveThree2 = findMove(moveThreeDropdown2.value);
     let moveFour2 = findMove(moveFourDropdown2.value);
-
+ 
     let counter = 0;
     if (second) {
         if (moveOne2.name == "(No Move)") counter++;
@@ -1965,7 +2006,7 @@ function specializationCount(second) {
     if (moveFour1.name == "(No Move)") counter++;
     return counter;  
 }
-
+ 
 function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false, onlyIncludeIceTrap = false) {
     let newHP = hp1;
     let multi = 1;
@@ -1975,7 +2016,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     let pestilence = pestilence2.checked;
     let quicksand = quicksand2.checked;
     let hazardString = "";
-
+ 
     if (second) {
         ice = iceTrap1.checked;
         sap = { attacker: sapPlant2.checked, defender: sapPlant1.checked };
@@ -1983,7 +2024,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         pestilence = pestilence1.checked;
         quicksand = quicksand1.checked;
     }
-    
+ 
     if (ice && !loom2.types.includes("Fire")) {
         hazardString += "icicle trap and ";
         if (onlyIncludeIceTrap) {
@@ -1992,7 +2033,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
             return [newHP, hazardString];
         }
     }
-    
+ 
     if (ability == "Drainage") {
         multi *= 1.5;
     }
@@ -2007,7 +2048,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         newHP = Math.floor(newHP * 7 / 8);
         hazardString += "sap plant damage and ";
     }
-
+ 
     if (bloodDrain.attacker == true) {
         newHP += Math.floor(hp2 * 1 / 12 * multi);
         hazardString += "blood drain recovery and ";
@@ -2016,22 +2057,22 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         newHP = Math.floor(newHP * 11 / 12);
         hazardString += "blood drain damage and ";
     }
-
+ 
     if (pestilence) {
         newHP = Math.floor(newHP * 7 / 8);
         hazardString += "pestilence damage and ";
     }
-
+ 
     if (quicksand) {
         newHP = Math.floor(newHP * 7 / 8);
         hazardString += "quicksand damage and ";
     }
-
+ 
     if (item == "Health Amulet") {
         newHP = Math.floor(newHP * 17 / 16);
         hazardString += "health amulet recovery and ";
     }
-
+ 
     if (second) {
         loom1 = loomians[pokeDropdown2.value.toLowerCase()];
         loom2 = loomians[pokeDropdown1.value.toLowerCase()];
@@ -2044,13 +2085,13 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         newHP = Math.floor(newHP * 7 / 8);
         hazardString += "poison damage and ";
     }
-
+ 
     hazardString = hazardString.substr(0, hazardString.length - 5);
     if (hazardString.length == 0) return [newHP, hazardString];
     hazardString = " after " + hazardString;
     return [newHP, hazardString];
 }
-
+ 
 function checkIceTrap(move) {
     if (move.hits == undefined) {
         return "";
@@ -2059,7 +2100,7 @@ function checkIceTrap(move) {
         return " per hit"
     }
 }
-
+ 
 function findMove(name) {
     for (let move in moves) {
         if (moves[move].name == name) {
@@ -2067,7 +2108,7 @@ function findMove(name) {
         }
     }
 }
-
+ 
 function findTypeModAbility(name) {
     for (let ability in typeModAbilities) {
         if (typeModAbilities[ability].name == name) {
@@ -2076,20 +2117,20 @@ function findTypeModAbility(name) {
     }
     return undefined;
 }
-
+ 
 function pokeRound(val) {
     if (val - Math.floor(val) > 0.5) {
         return Math.ceil(val);
     }
     return Math.floor(val);
 }
-
+ 
 function decode(txt) {
     let decoded = pako.inflate(atob(txt), {to: "string"});
     let json = JSON.parse(decoded);
     return json;
 }
-
+ 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.substring(1);
 }
