@@ -1679,8 +1679,8 @@ var loomians = {
         }
     },
  
-    munchwheel: {
-        name: "Munchwheel",
+    munchweel: {
+        name: "Munchweel",
         number: 86,
         types: ["Metal"],
         abilities: ["Salvage", "Rev Up"],
