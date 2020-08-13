@@ -1694,9 +1694,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
  
     if (ability1 == "Specialization") {
         let count = specializationCount(second);
-        if (count == 1) multi *= 1.5;
-        if (count == 2) multi *= 2;
-        if (count == 3) multi *= 3;
+        if (count == 1) multi *= 1.25;
+        if (count == 2) multi *= 1.5;
+        if (count == 3) multi *= 2;
         if (count != 0) stuffUsed.ability1 = ability1 + " (" + Math.abs(count-4) + ")";
     }
  
