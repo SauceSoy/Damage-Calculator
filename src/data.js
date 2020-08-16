@@ -1795,6 +1795,25 @@ var loomians = {
             speed: 116
         }
     },
+
+    terraclaw: {
+        name: "Terraclaw",
+        number: 92,
+        types: ["Bug"],
+        abilities: ["Odd Husk", "Pincer Trap"],
+        sAbility: ["Slick Shell"],
+        weight: 33,
+        height: 44,
+        baseStats: {
+            hp: 79,
+            energy: 72,
+            attack: 121,
+            defense: 106,
+            attackR: 20,
+            defenseR: 54,
+            speed: 43
+        }
+    },
  
     duskit: {
         name: "Duskit",
@@ -1852,10 +1871,30 @@ var loomians = {
             speed: 121
         }
     },
+
+    mutagon: {
+        name: "Mutagon",
+        number: 203,
+        types: ["Mind", "Brawler"],
+        abilities: ["Tank"],
+        sAbility: ["Heavy Fists"],
+        weight: 125,
+        height: 92,
+        baseStats: {
+            hp: 107,
+            energy: 123,
+            attack: 104,
+            defense: 134,
+            attackR: 48,
+            defenseR: 63,
+            speed: 71
+        }
+    },
+
 };
- 
- 
- 
+
+
+
 var moves = {
     pounce: {
         name: "Pounce",
@@ -1864,7 +1903,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     singe: {
         name: "Singe",
         power: 40,
@@ -1872,14 +1911,14 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     spray: {
         name: "Spray",
         power: 40,
         type: "Water",
         mr: "Ranged"
     },
- 
+
     strike: {
         name: "Strike",
         power: 40,
@@ -1887,14 +1926,14 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     shine: {
         name: "Shine",
         power: 40,
         type: "Light",
         mr: "Ranged"
     },
- 
+
     gnaw: {
         name: "Gnaw",
         power: 40,
@@ -1903,7 +1942,7 @@ var moves = {
         contact: true,
         bite: true
     },
- 
+
     chomp: {
         name: "Chomp",
         power: 40,
@@ -1913,7 +1952,7 @@ var moves = {
         secondaryEffect: true,
         bite: true
     },
- 
+
     flurry: {
         name: "Flurry",
         power: 40,
@@ -1922,14 +1961,14 @@ var moves = {
         aoe: true,
         secondaryEffect: true
     },
- 
+
     petalPummel: {
         name: "Petal Pummel",
         power: 40,
         type: "Plant",
         mr: "Ranged"
     },
- 
+
     staticShock: {
         name: "Static Shock",
         power: 40,
@@ -1937,7 +1976,7 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     swipe: {
         name: "Swipe",
         power: 60,
@@ -1945,7 +1984,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     bugBite: {
         name: "Bug Bite",
         power: 30,
@@ -1954,7 +1993,7 @@ var moves = {
         contact: true,
         bite: true
     },
- 
+
     peck: {
         name: "Peck",
         power: 35,
@@ -1962,7 +2001,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     sting: {
         name: "Sting",
         power: 15,
@@ -1970,14 +2009,14 @@ var moves = {
         mr: "Melee",
         secondaryEffect: true
     },
- 
+
     pestilence: {
         name: "Pestilence",
         power: 35,
         type: "Bug",
         mr: "Ranged"
     },
- 
+
     bloodDrain: {
         name: "Blood Drain",
         power: 20,
@@ -1985,7 +2024,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     diveBomb: {
         name: "Dive Bomb",
         power: 50,
@@ -1993,7 +2032,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     bamboozle: {
         name: "Bamboozle",
         power: 60,
@@ -2001,7 +2040,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     scavenge: {
         name: "Scavenge",
         power: 60,
@@ -2009,7 +2048,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     submerge: {
         name: "Submerge",
         power: 75,
@@ -2017,7 +2056,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     mudSpatter: {
         name: "Mud Spatter",
         power: 55,
@@ -2025,7 +2064,7 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     doubleSting: {
         name: "Double Sting",
         power: 25,
@@ -2034,14 +2073,14 @@ var moves = {
         hits: 2,
         secondaryEffect: true
     },
- 
+
     lusterLoot: {
         name: "Luster Loot",
         power: 50,
         type: "Light",
         mr: "Ranged"
     },
- 
+
     mysticBreeze: {
         name: "Mystic Breeze",
         power: 60,
@@ -2049,7 +2088,7 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     pilfer: {
         name: "Pilfer",
         power: 60,
@@ -2057,7 +2096,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     tase: {
         name: "Tase",
         power: 20,
@@ -2066,21 +2105,21 @@ var moves = {
         contact: true,
         secondaryEffect: true
     },
- 
+
     gust: {
         name: "Gust",
         power: 40,
         type: "Air",
         mr: "Ranged"
     },
- 
+
     radiantForecast: {
         name: "Radiant Forecast",
         power: 85,
         type: "Light",
         mr: "Ranged"
     },
- 
+
     corrode: {
         name: "Corrode",
         power: 40,
@@ -2089,7 +2128,7 @@ var moves = {
         aoe: true,
         secondaryEffect: true
     },
- 
+
     quickPounce: {
         name: "Quick Pounce",
         power: 40,
@@ -2097,7 +2136,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     cycloneSlam: {
         name: "Cyclone Slam",
         power: 60,
@@ -2105,7 +2144,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     stormSummon: {
         name: "Storm Summon",
         power: 50,
@@ -2114,7 +2153,7 @@ var moves = {
         aoe: true,
         secondaryEffect: true
     },
- 
+
     chillyChomp: {
         name: "Chilly Chomp",
         power: 65,
@@ -2124,7 +2163,7 @@ var moves = {
         secondaryEffect: true,
         bite: true
     },
- 
+
     naturesRage: {
         name: "Nature's Rage",
         power: 70,
@@ -2132,7 +2171,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     slime: {
         name: "Slime",
         power: 65,
@@ -2140,7 +2179,7 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     rapidFire: {
         name: "Rapid Fire",
         power: 20,
@@ -2149,22 +2188,22 @@ var moves = {
         hits: 3,
         secondaryEffect: true
     },
- 
+
     waterBomb: {
         name: "Water Bomb",
-        power: 60,
+        power: 50,
         type: "Water",
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     leafBarrage: {
         name: "Leaf Barrage",
         power: 65,
         type: "Plant",
         mr: "Ranged"
     },
- 
+
     spare: {
         name: "Spare",
         power: 40,
@@ -2172,7 +2211,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     hopKick: {
         name: "Hop Kick",
         power: 60,
@@ -2181,7 +2220,7 @@ var moves = {
         contact: true,
         secondaryEffect: true
     },
- 
+
     airWhip: {
         name: "Air Whip",
         power: 60,
@@ -2189,7 +2228,7 @@ var moves = {
         mr: "Ranged",
         aoe: true
     },
- 
+
     gloomFangs: {
         name: "Gloom Fangs",
         power: 75,
@@ -2198,7 +2237,7 @@ var moves = {
         contact: true,
         bite: true
     },
- 
+
     holySlash: {
         name: "Holy Slash",
         power: 75,
@@ -2207,7 +2246,7 @@ var moves = {
         typeModifier: { type: "Dark", modifier: 2 },
         contact: true
     },
- 
+
     muckBuck: {
         name: "Muck Buck",
         power: 85,
@@ -2216,14 +2255,14 @@ var moves = {
         aoe: true,
         contact: true
     },
- 
+
     quicksand: {
         name: "Quicksand",
         power: 35,
         type: "Earth",
         mr: "Ranged"
     },
- 
+
     rant: {
         name: "Rant",
         power: 55,
@@ -2231,7 +2270,7 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     lightDash: {
         name: "Light Dash",
         power: 40,
@@ -2239,7 +2278,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     pester: {
         name: "Pester",
         power: 50,
@@ -2248,16 +2287,17 @@ var moves = {
         aoe: true,
         secondaryEffect: true
     },
- 
+
     slapDown: {
         name: "Slap Down",
         power: 65,
         type: "Dark",
         mr: "Melee",
         contact: true,
-        knockOff: true
+        knockOff: true,
+        slap: true
     },
- 
+
     startle: {
         name: "Startle",
         power: 30,
@@ -2266,7 +2306,7 @@ var moves = {
         contact: true,
         secondaryEffect: true
     },
- 
+
     brainwash: {
         name: "Brainwash",
         power: 50,
@@ -2274,7 +2314,7 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     stupefy: {
         name: "Stupefy",
         power: 30,
@@ -2282,7 +2322,7 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     bushWhack: {
         name: "Bush Whack",
         power: 65,
@@ -2290,14 +2330,14 @@ var moves = {
         mr: "Melee",
         secondaryEffect: true
     },
- 
+
     oppress: {
         name: "Oppress",
         power: 65,
         type: "Spirit",
         mr: "Ranged"
     },
- 
+
     spectralBurst: {
         name: "Spectral Burst",
         power: 80,
@@ -2305,7 +2345,7 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     phantomSlash: {
         name: "Phantom Slash",
         power: 70,
@@ -2313,7 +2353,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     venomChomp: {
         name: "Venom Chomp",
         power: 65,
@@ -2323,7 +2363,7 @@ var moves = {
         secondaryEffect: true,
         bite: true
     },
- 
+
     elementalBurst: {
         name: "Elemental Burst",
         power: 80,
@@ -2331,7 +2371,7 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     parasitize: {
         name: "Parasitize",
         power: 80,
@@ -2339,7 +2379,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     headbutt: {
         name: "Headbutt",
         power: 60,
@@ -2348,7 +2388,7 @@ var moves = {
         contact: true,
         secondaryEffect: true
     },
- 
+
     wingSlap: {
         name: "Wing Slap",
         power: 60,
@@ -2356,7 +2396,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     gammaPulse: {
         name: "Gamma Pulse",
         power: 80,
@@ -2364,7 +2404,7 @@ var moves = {
         mr: "Ranged",
         aoe: true
     },
- 
+
     naturesForce: {
         name: "Nature's Force",
         power: 90,
@@ -2372,14 +2412,14 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     lifeDrain: {
         name: "Life Drain",
         power: 75,
         type: "Plant",
         mr: "Ranged"
     },
- 
+
     snowdozer: {
         name: "Snowdozer",
         power: 30,
@@ -2387,7 +2427,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     searingSteel: {
         name: "Searing Steel",
         power: 85,
@@ -2396,7 +2436,7 @@ var moves = {
         secondaryEffect: true,
         typeModifier: { type: "Water", modifier: 2 }
     },
- 
+
     wintersFury: {
         name: "Winter's Fury",
         power: 30,
@@ -2405,7 +2445,7 @@ var moves = {
         contact: true,
         hits: 3
     },
- 
+
     thunderstrike: {
         name: "Thunderstrike",
         power: 90,
@@ -2413,14 +2453,14 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     maroon: {
         name: "Maroon",
         power: 70,
         type: "Water",
         mr: "Ranged"
     },
- 
+
     flashPulse: {
         name: "Flash Pulse",
         power: 85,
@@ -2429,7 +2469,7 @@ var moves = {
         aoe: true,
         secondaryEffect: true
     },
- 
+
     sleetShot: {
         name: "Sleet Shot",
         power: 55,
@@ -2437,7 +2477,7 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     bodySlam: {
         name: "Body Slam",
         power: 90,
@@ -2445,7 +2485,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     slash: {
         name: "Slash",
         power: 75,
@@ -2453,7 +2493,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     nosedive: {
         name: "Nosedive",
         power: 95,
@@ -2461,7 +2501,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     flamingKick: {
         name: "Flaming Kick",
         power: 85,
@@ -2470,7 +2510,7 @@ var moves = {
         contact: true,
         secondaryEffect: true
     },
- 
+
     yetisWrath: {
         name: "Yeti's Wrath",
         power: 120,
@@ -2478,7 +2518,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     junglejutsu: {
         name: "Junglejutsu",
         power: 90,
@@ -2486,7 +2526,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     ragingTackle: {
         name: "Raging Tackle",
         power: 120,
@@ -2494,7 +2534,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     megaChomp: {
         name: "Mega Chomp",
         power: 80,
@@ -2504,7 +2544,7 @@ var moves = {
         secondaryEffect: true,
         bite: true
     },
- 
+
     luminousRoar: {
         name: "Luminous Roar",
         power: 75,
@@ -2512,7 +2552,7 @@ var moves = {
         mr: "Ranged",
         sound: true
     },
- 
+
     fireSlam: {
         name: "Fire Slam",
         power: 60,
@@ -2521,7 +2561,7 @@ var moves = {
         contact: true,
         secondaryEffect: true
     },
- 
+
     shadowSprint: {
         name: "Shadow Sprint",
         power: 40,
@@ -2529,14 +2569,14 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     airBlade: {
         name: "Air Blade",
         power: 70,
         type: "Air",
         mr: "Ranged"
     },
- 
+
     boulderBlast: {
         name: "Boulder Blast",
         power: 25,
@@ -2544,7 +2584,7 @@ var moves = {
         mr: "Ranged",
         hits: 5
     },
- 
+
     darkSurge: {
         name: "Dark Surge",
         power: 80,
@@ -2552,16 +2592,17 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     earSlap: {
         name: "Ear Slap",
         power: 15,
         type: "Typeless",
         mr: "Melee",
         contact: true,
+        slap: true,
         hits: 5
     },
- 
+
     muckBlast: {
         name: "Muck Blast",
         power: 90,
@@ -2569,14 +2610,14 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     pheroblast: {
         name: "Pheroblast",
         power: 90,
         type: "Bug",
         mr: "Ranged",
     },
- 
+
     pineShot: {
         name: "Pine Shot",
         power: 25,
@@ -2584,15 +2625,25 @@ var moves = {
         mr: "Ranged",
         hits: 5
     },
- 
+
     quickPunch: {
         name: "Quick Punch",
         power: 40,
         type: "Brawler",
         mr: "Melee",
-        contact: true
+        contact: true,
+        punch: true
     },
- 
+
+    punch: {
+        name: "Punch",
+        power: 40,
+        type: "Brawler",
+        mr: "Melee",
+        contact: true,
+        punch: true
+    },
+
     ragingHowl: {
         name: "Raging Howl",
         power: 120,
@@ -2600,7 +2651,7 @@ var moves = {
         mr: "Ranged",
         sound: true
     },
- 
+
     thunderChomp: {
         name: "Thunder Chomp",
         power: 65,
@@ -2610,7 +2661,7 @@ var moves = {
         secondaryEffect: true,
         bite: true
     },
- 
+
     thunderSlam: {
         name: "Thunder Slam",
         power: 65,
@@ -2618,7 +2669,7 @@ var moves = {
         mr: "Melee",
         secondaryEffect: true
     },
- 
+
     toxicTail: {
         name: "Toxic Tail",
         power: 50,
@@ -2627,14 +2678,14 @@ var moves = {
         contact: true,
         secondaryEffect: true
     },
- 
+
     returnToSender: {
         name: "Return to Sender",
         power: 0,
         type: "Mind",
         mr: "Ranged"
     },
- 
+
     foulChant: {
         name: "Foul Chant",
         power: 110,
@@ -2642,7 +2693,7 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     earthquake: {
         name: "Earthquake",
         power: 90,
@@ -2650,7 +2701,7 @@ var moves = {
         mr: "Melee",
         aoe: true
     },
- 
+
     fireBreath: {
         name: "Fire Breath",
         power: 90,
@@ -2658,7 +2709,7 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     geyser: {
         name: "Geyser",
         power: 75,
@@ -2666,7 +2717,7 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     hydroSlash: {
         name: "Hydro Slash",
         power: 70,
@@ -2674,7 +2725,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     magmaBurst: {
         name: "Magma Burst",
         power: 85,
@@ -2682,7 +2733,7 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     tripRoot: {
         name: "Trip Root",
         power: -1,
@@ -2690,7 +2741,7 @@ var moves = {
         mr: "Ranged",
         weightBased: true
     },
- 
+
     savageGreed: {
         name: "Savage Greed",
         power: 95,
@@ -2698,7 +2749,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     blazeChomp: {
         name: "Blaze Chomp",
         power: 65,
@@ -2708,7 +2759,7 @@ var moves = {
         secondaryEffect: true,
         bite: true
     },
- 
+
     primalSlash: {
         name: "Primal Slash",
         power: 80,
@@ -2716,7 +2767,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     coconutBomb: {
         name: "Coconut Bomb",
         power: 70,
@@ -2724,7 +2775,7 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     lavaSlash: {
         name: "Lava Slash",
         power: 70,
@@ -2733,7 +2784,7 @@ var moves = {
         contact: true,
         secondaryEffect: true
     },
- 
+
     electroburst: {
         name: "Electroburst",
         power: 75,
@@ -2741,7 +2792,7 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     chaseDown: {
         name: "Chase Down",
         power: 40,
@@ -2749,7 +2800,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     thunderCrash: {
         name: "Thunder Crash",
         power: 90,
@@ -2757,7 +2808,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     ghostlyHowl: {
         name: "Ghostly Howl",
         power: 75,
@@ -2766,7 +2817,7 @@ var moves = {
         sound: true,
         secondaryEffect: true
     },
- 
+
     resonate: {
         name: "Resonate",
         power: 90,
@@ -2775,7 +2826,7 @@ var moves = {
         sound: true,
         secondaryEffect: true
     },
- 
+
     repeatingTune: {
         name: "Repeating Tune",
         power: 25,
@@ -2785,7 +2836,7 @@ var moves = {
         sound: true,
         secondaryEffect: true
     },
- 
+
     gloominousRoar: {
         name: "Gloominous Roar",
         power: 85,
@@ -2793,7 +2844,7 @@ var moves = {
         mr: "Ranged",
         sound: true
     },
- 
+
     gobbleGoop: {
         name: "Gobble Goop",
         power: 60,
@@ -2801,7 +2852,7 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     harmoniousChord: {
         name: "Harmonious Chord",
         power: 60,
@@ -2810,7 +2861,7 @@ var moves = {
         sound: true,
         secondaryEffect: true
     },
- 
+
     dissonantChord: {
         name: "Dissonant Chord",
         power: 80,
@@ -2819,7 +2870,7 @@ var moves = {
         sound: true,
         secondaryEffect: true
     },
- 
+
     flabbergast: {
         name: "Flabbergast",
         power: 70,
@@ -2827,21 +2878,21 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     cerebralSlash: {
         name: "Cerebral Slash",
         power: 70,
         type: "Mind",
         mr: "Melee"
     },
- 
+
     flashNFlee: {
         name: "Flash 'n Flee",
         power: 40,
         type: "Light",
         mr: "Ranged"
     },
- 
+
     roughUp: {
         name: "Rough Up",
         power: 70,
@@ -2849,7 +2900,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     heavyBash: {
         name: "Heavy Bash",
         power: 70,
@@ -2857,7 +2908,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     bash: {
         name: "Bash",
         power: 50,
@@ -2865,7 +2916,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     metalSwipes: {
         name: "Metal Swipes",
         power: 20,
@@ -2874,7 +2925,7 @@ var moves = {
         contact: true,
         hits: 2
     },
- 
+
     clamp: {
         name: "Clamp",
         power: 45,
@@ -2882,7 +2933,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     dartBurst: {
         name: "Dart Burst",
         power: 35,
@@ -2890,7 +2941,7 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     doubleWhack: {
         name: "Double Whack",
         power: 35,
@@ -2899,7 +2950,7 @@ var moves = {
         contact: true,
         hits: 2
     },
- 
+
     completeDemolition: {
         name: "Complete Demolition",
         power: 150,
@@ -2907,7 +2958,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     frostBeam: {
         name: "Frost Beam",
         power: 90,
@@ -2915,14 +2966,14 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     precisionBolt: {
         name: "Precision Bolt",
         power: 60,
         type: "Electric",
         mr: "Ranged"
     },
- 
+
     ragingFlame: {
         name: "Raging Flame",
         power: 50,
@@ -2930,21 +2981,21 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
- 
+
     metalBlast: {
         name: "Metal Blast",
         power: 85,
         type: "Metal",
         mr: "Ranged"
     },
- 
+
     reflectionBurst: {
         name: "Reflection Burst",
         power: 60,
         type: "Metal",
         mr: "Ranged"
     },
- 
+
     batteringRam: {
         name: "Battering Ram",
         power: 90,
@@ -2953,7 +3004,7 @@ var moves = {
         contact: true,
         secondaryEffect: true
     },
- 
+
     graffiti: {
         name: "Graffiti",
         power: 70,
@@ -2962,7 +3013,7 @@ var moves = {
         aoe: true,
         secondaryEffect: true
     },
- 
+
     canisterBurst: {
         name: "Canister Burst",
         power: 25,
@@ -2970,7 +3021,7 @@ var moves = {
         mr: "Ranged",
         hits: 3
     },
- 
+
     claySlap: {
         name: "Clay Slap",
         power: 60,
@@ -2979,7 +3030,7 @@ var moves = {
         contact: true,
         secondaryEffect: true
     },
- 
+
     tailSlap: {
         name: "Tail Slap",
         power: 40,
@@ -2987,7 +3038,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     energySurge: {
         name: "Energy Surge",
         power: 70,
@@ -2995,7 +3046,7 @@ var moves = {
         mr: "Ranged",
         aoe: true
     },
- 
+
     illWill: {
         name: "Ill Will",
         power: 60,
@@ -3003,7 +3054,7 @@ var moves = {
         mr: "Melee",
         contact: true
     },
- 
+
     steelCrusher: {
         name: "Steel Crusher",
         power: 90,
@@ -3012,184 +3063,232 @@ var moves = {
         contact: true,
         secondaryEffect: true
     },
- 
+
+    frostPunch: {
+        name: "Frost Punch",
+        power: 70,
+        type: "Ice",
+        mr: "Melee",
+        contact: true,
+        punch: true,
+        secondaryEffect: true
+    },
+
+    megaPunch: {
+        name: "Mega Punch",
+        power: 80,
+        type: "Brawler",
+        mr: "Melee",
+        contact: true,
+        punch: true,
+        secondaryEffect: true
+    },
+
+    telekineticSweep: {
+        name: "Telekinetic Sweep",
+        power: 90,
+        type: "Mind",
+        mr: "Melee",
+        contact: true,
+        aoe: true,
+        slap: true,
+        secondaryEffect: true
+    },
+
+    chop: {
+        name: "Chop",
+        power: 60,
+        type: "Brawler",
+        mr: "Melee",
+        contact: true,
+        secondaryEffect: true
+    },
+
+    clampClaw: {
+        name: "Clamp Claw",
+        power: 85,
+        type: "Bug",
+        mr: "Melee",
+        contact: true
+    },
+
     //Support Moves -----------------------------------------------------------------------------------------------------------------------------------------
- 
+
     noMove: {
         name: "(No Move)",
         power: 0,
         type: "Typeless",
         mr: "Support"
     },
- 
+
     accelerate: {
         name: "Accelerate",
         power: 0,
         type: "Typeless",
         mr: "Support"
     },
- 
+
     aim: {
         name: "Aim",
         power: 0,
         type: "Typeless",
         mr: "Support"
     },
- 
+
     ancientRoar: {
         name: "Ancient Roar",
         power: 0,
         type: "Ancient",
         mr: "Support"
     },
- 
+
     brace: {
         name: "Brace",
         power: 0,
         type: "Typeless",
         mr: "Support"
     },
- 
+
     burrow: {
         name: "Burrow",
         power: 0,
         type: "Earth",
         mr: "Support"
     },
- 
+
     charade: {
         name: "Charade",
         power: 0,
         type: "Dark",
         mr: "Support"
     },
- 
+
     dawdle: {
         name: "Dawdle",
         power: 0,
         type: "Typeless",
         mr: "Support"
     },
- 
+
     disperse: {
         name: "Disperse",
         power: 0,
         type: "Light",
         mr: "Support"
     },
- 
+
     dodge: {
         name: "Dodge",
         power: 0,
         type: "Typeless",
         mr: "Support"
     },
- 
+
     eerieStare: {
         name: "Eerie Stare",
         power: 0,
         type: "Typeless",
         mr: "Support"
     },
- 
+
     energize: {
         name: "Energize",
         power: 0,
         type: "Electric",
         mr: "Support"
     },
- 
+
     examine: {
         name: "Examine",
         power: 0,
         type: "Typeless",
         mr: "Support"
     },
- 
+
     finalRuse: {
         name: "Final Ruse",
         power: 0,
         type: "Spirit",
         mr: "Support"
     },
- 
+
     growl: {
         name: "Growl",
         power: 0,
         type: "Typeless",
         mr: "Support"
     },
- 
+
     icicleTrap: {
         name: "Icicle Trap",
         power: 0,
         type: "Ice",
         mr: "Support"
     },
- 
+
     mindsEye: {
         name: "Mind's Eye",
         power: 0,
         type: "Mind",
         mr: "Support"
     },
- 
+
     peaceOfMind: {
         name: "Peace Of Mind",
         power: 0,
         type: "Mind",
         mr: "Support"
     },
- 
+
     perch: {
         name: "Perch",
         power: 0,
         type: "Air",
         mr: "Support"
     },
- 
+
     poison: {
         name: "Poison",
         power: 0,
         type: "Toxic",
         mr: "Support"
     },
- 
+
     poisonBarbs: {
         name: "Poison Barbs",
         power: 0,
         type: "Toxic",
         mr: "Support"
     },
- 
+
     powerFocus: {
         name: "Power Focus",
         power: 0,
         type: "Typeless",
         mr: "Support"
     },
- 
+
     provoke: {
         name: "Provoke",
         power: 0,
         type: "Dark",
         mr: "Support"
     },
- 
+
     revival: {
         name: "Revival",
         power: 0,
         type: "Spirit",
         mr: "Support"
     },
- 
+
     sapPlant: {
         name: "Sap Plant",
         power: 0,
         type: "Plant",
         mr: "Support"
     },
- 
+
     scapeGoat: {
         name: "Scapegoat",
         power: 0,
@@ -3197,449 +3296,465 @@ var moves = {
         mr: "Support",
         contact: true
     },
- 
+
     sharpen: {
         name: "Sharpen",
         power: 0,
         type: "Dark",
         mr: "Support"
     },
- 
+
     snoreSpores: {
         name: "Snore Spores",
         power: 0,
         type: "Plant",
         mr: "Support"
     },
- 
+
     softWater: {
         name: "Soft Water",
         power: 0,
         type: "Water",
         mr: "Support"
     },
- 
+
     squawk: {
         name: "Squawk",
         power: 0,
         type: "Typeless",
         mr: "Support"
     },
- 
+
     stare: {
         name: "Stare",
         power: 0,
         type: "Typeless",
         mr: "Support"
     },
- 
+
     staticSpores: {
         name: "Static Spores",
         power: 0,
         type: "Plant",
         mr: "Support"
     },
- 
+
     stretch: {
         name: "Stretch",
         power: 0,
         type: "Typeless",
         mr: "Support"
     },
- 
+
     takeRoot: {
         name: "Take Root",
         power: 0,
         type: "Plant",
         mr: "Support"
     },
- 
+
     tease: {
         name: "Tease",
         power: 0,
         type: "Dark",
         mr: "Support"
     },
- 
+
     toxicSpores: {
         name: "Toxic Spores",
         power: 0,
         type: "Toxic",
         mr: "Support"
     },
- 
+
     webShot: {
         name: "Web Shot",
         power: 0,
         type: "Bug",
         mr: "Support"
     },
- 
+
     magmaBlock: {
         name: "Magma Block",
         power: 0,
         type: "Fire",
         mr: "Support"
     },
- 
+
     wonderHerb: {
         name: "Wonder Herb",
         power: 0,
         type: "Plant",
         mr: "Support"
     },
- 
+
     photosynthesis: {
         name: "Photosynthesis",
         power: 0,
         type: "Plant",
         mr: "Support"
     },
- 
+
     healthGift: {
         name: "Health Gift",
         power: 0,
         type: "Mind",
         mr: "Support"
     },
- 
+
     energyGift: {
         name: "Energy Gift",
         power: 0,
         type: "Mind",
         mr: "Support"
     },
- 
+
     briarBlock: {
         name: "Briar Block",
         power: 0,
         type: "Plant",
         mr: "Support"
     },
- 
+
     beastSlumber: {
         name: "Beast's Slumber",
         power: 0,
         type: "Ancient",
         mr: "Support"
     },
- 
+
     burnUp: {
         name: "Burn Up",
         power: 0,
         type: "Fire",
         mr: "Support"
     },
- 
+
     battleHorn: {
         name: "Battle Horn",
         power: 0,
         type: "Typeless",
         mr: "Support"
     },
- 
+
     toneBarrier: {
         name: "Tone Barrier",
         power: 0,
         type: "Typeless",
         mr: "Support"
     },
- 
+
     impersonate: {
         name: "Impersonate",
         power: 0,
         type: "Spirit",
         mr: "Support"
     },
- 
+
     gainDrain: {
         name: "Gain Drain",
         power: 0,
         type: "Dark",
         mr: "Support"
     },
- 
+
     magnify: {
         name: "Magnify",
         power: 0,
         type: "Light",
         mr: "Support"
     },
- 
+
     memorize: {
         name: "Memorize",
         power: 0,
         type: "Mind",
         mr: "Support"
     },
- 
+
     baneOfHaste: {
         name: "Bane of Haste",
         power: 0,
         type: "Ancient",
         mr: "Support"
     },
- 
+
     hypnotize: {
         name: "Hypnotize",
         power: 0,
         type: "Mind",
         mr: "Support"
     },
- 
+    
     rejuvenate: {
         name: "Rejuvenate",
         power: 0,
         type: "Typeless",
         mr: "Support"
     },
- 
+
     metalShriek: {
         name: "Metal Shriek",
         power: 0,
         type: "Metal",
         mr: "Support"
     },
- 
+
     oilLeak: {
         name: "Oil Leak",
         power: 0,
         type: "Toxic",
         mr: "Support"
     },
- 
+
     secondWind: {
         name: "Second Wind",
         power: 0,
         type: "Wind",
         mr: "Support"
     },
- 
+
      paintShower: {
         name: "Paint Shower",
         power: 0,
         type: "Toxic",
         mr: "Support"
     },
- 
+
      tuneUp: {
         name: "Tune-up",
         power: 0,
         type: "Metal",
         mr: "Support"
     },
- 
+
      ancientInstinct: {
         name: "Ancient Instinct",
         power: 0,
         type: "Ancient",
         mr: "Support"
     },
- 
+    
     jumpStart: {
         name: "Jump Start",
         power: 0,
         type: "Electric",
         mr: "Support"
     },
- 
+    
     barter: {
         name: "Barter",
         power: 0,
         type: "Typeless",
         mr: "Support"
     },
+
+    brawnBoost: {
+        name: "Brawn Boost",
+        power: 0,
+        type: "Brawler",
+        mr: "Support"
+    },
+
+    molt: {
+        name: "Molt",
+        power: 0,
+        type: "Bug",
+        mr: "Support"
+    },
+    
 };
- 
- 
+
+
 var types = {
     typeless: {
         weaknesses: ["mind", "brawler"],
         resistances: [],
         immunities: []
     },
- 
+
     fire: {
         weaknesses: ["water", "earth", "air"],
         resistances: ["fire", "plant", "ice", "metal", "bug"],
         immunities: []
     },
- 
+
     water: {
         weaknesses: ["plant", "electric", "toxic"],
         resistances: ["fire", "water", "ice", "metal"],
         immunities: []
     },
- 
+
     plant: {
         weaknesses: ["fire", "ice", "dark", "bug", "toxic"],
         resistances: ["plant", "water", "earth", "electric", "light"],
         immunities: ["light"]
     },
- 
+
     electric: {
         weaknesses: ["water", "earth"],
         resistances: ["electric", "metal", "air"],
         immunities: []
     },
- 
+
     ice: {
         weaknesses: ["fire", "metal", "brawler"],
         resistances: ["ice", "air", "typeless"],
         immunities: []
     },
- 
+
     earth: {
         weaknesses: ["water", "plant", "ice"],
         resistances: ["toxic"],
         immunities: ["electric"]
     },
- 
+
     light: {
         weaknesses: ["dark", "metal"],
         resistances: ["fire", "light", "ancient"],
         immunities: ["spirit"]
     },
- 
+
     dark: {
         weaknesses: ["fire", "light", "bug"],
         resistances: ["dark", "mind", "spirit"],
         immunities: []
     },
- 
+
     bug: {
         weaknesses: ["ice", "air", "brawler"],
         resistances: ["earth", "dark", "plant", "bug"],
         immunities: []
     },
- 
+
     metal: {
         weaknesses: ["fire", "electric", "earth", "brawler"],
         resistances: ["air", "bug", "metal", "ancient", "typeless", "ice", "mind"],
         immunities: []
     },
- 
+
     air: {
         weaknesses: ["ice", "electric"],
         resistances: ["brawler", "bug"],
         immunities: ["earth"]
     },
- 
+
     toxic: {
         weaknesses: ["earth", "mind"],
         resistances: ["toxic", "plant", "brawler"],
         immunities: []
     },
- 
+
     spirit: {
         weaknesses: ["light", "ancient", "spirit"],
         resistances: ["dark", "toxic", "electric", "typeless"],
         immunities: ["brawler"]
     },
- 
+
     mind: {
         weaknesses: ["dark", "bug", "spirit"],
         resistances: ["light", "mind", "brawler"],
         immunities: []
     },
- 
+
     ancient: {
         weaknesses: ["light", "metal", "ancient"],
         resistances: ["fire", "water", "plant", "spirit", "electric"],
         immunities: []
     },
- 
+
     brawler: {
         weaknesses: ["air", "spirit", "mind", "toxic"],
         resistances: ["bug", "ice"],
         immunities: []
     },
 };
- 
+
 var abilities = ["Awakening", "Ambush", "Coursing Venom", "Drainage", "Hasty", "Lightning Rod", "Mean Spirited", "Neutralize", "Overshadow", "Illuminate", "Prismatic", 
                 "Territorial", "Woodsman", "Dusk", "Dawn", "Pyro", "Volcanic", "Combustible", "Noxious Weeds", "Sharp Claws", "Brute Force", "Raging Fire", "Vengeance",
-                "Total Eclipse", "Tone Deaf", "Circadian", "Baneful", "Rechargeable", "Toxic Filter", "Trash Armor", "Tank", "Power Jaw", "Specialization"];
- 
+                "Total Eclipse", "Tone Deaf", "Circadian", "Baneful", "Rechargeable", "Toxic Filter", "Trash Armor", "Tank", "Power Jaw", "Specialization", "Slick Shell",
+                "Heavy Fists"];
+
 var typeModAbilities = {
     coursingVenom: {
         name: "Coursing Venom",
         typeModifier: { type: "Toxic", modifier: 0 },
         powerMod: false
     },
- 
+    
     lightningRod: {
         name: "Lightning Rod",
         typeModifier: { type: "Electric", modifier: 0 },
         powerMod: false
     },
- 
+    
     prismatic: {
         name: "Prismatic",
         typeModifier: { type: "Light", modifier: 0 },
         powerMod: false
     },
- 
+    
     woodsman: {
         name: "Woodsman",
         typeModifier: { type: "Plant", modifier: 0 },
         powerMod: false
     },
- 
+    
     combustible: {
         name: "Combustible",
         typeModifier: { type: "Fire", modifier: 0 },
         powerMod: false
     },
- 
+    
     noxiousWeeds: {
         name: "Noxious Weeds",
         typeModifier: { type: "Plant", modifier: 0 },
         powerMod: false
     },
- 
+    
     pyro: {
         name: "Pyro",
         typeModifier: { type: "Fire", modifier: 1.5 },
         powerMod: true
     },
- 
+    
     volcanic: {
         name: "Volcanic",
         typeModifier: { type: "Fire", modifier: 2 },
         powerMod: true
     },
- 
+
     ragingFire: {
         name: "Raging Fire",
         typeModifier: { type: "Fire", modifier: 0},
         powerMod: false
     },
- 
+    
     rechargeable: {
         name: "Rechargeable",
         typeModifier: { type: "Electric", modifier: 0},
         powerMod: false
     },
- 
+
     totalEclipse: {
         name: "Total Eclipse",
         typeModifier: { type: "Light", type2: "Dark", modifier: 0},
         powerMod: false
     },
- 
+
     toxicFilter: {
         name: "Toxic Filter",
         typeModifier: { type: "Toxic", modifier: 0},
         powerMod: false
     }
 }
- 
+
 var items = ["Heavy Shield", "Heavy Armor", "Power Cuffs", "Health Amulet", "Drain Orb", "Mystic Wand", "Drop of Youth"];
- 
+
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Essence");
 }
 
 var sets = [];
 
-var changelog = "Sepharite! \n •Added in new loomians, moves, abilities, and items.";
+var changelog = "Sepharite 1.1 \n •Added in the new loomians, moves, and abilities.";

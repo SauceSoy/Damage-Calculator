@@ -303,11 +303,11 @@ function load() {
     if (document.cookie != "") {
         let cookRaw = getCookie("setData");
         let cook = cookRaw.substring(8, cookRaw.length);
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -360,7 +360,7 @@ function saveCookie() {
     let json = JSON.stringify(sets);
     let encoded = pako.deflate(json, {to: "string"});
     document.cookie = "setData=" + btoa(encoded) + "; expires=Fri, 1 Jan 2021 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Fri, 1 Jan 2021 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Fri, 1 Jan 2021 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Fri, 1 Jan 2021 12:00:00 UTC"
@@ -1703,6 +1703,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     if (move.name == "Rough Up" && loom1.height > loom2.height) {
         multi *= 1.25;
     }
+
+    if (ability1 == "Heavy Fists" && (move.punch == true || move.slap == true)) {
+        multi *= 1.5;
+        stuffUsed.ability1 = ability1;
+    }
  
     tempPower = pokeRound(tempPower * multi);
     multi = 1;
@@ -1751,6 +1756,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
     if (ability2 == "Trash Armor" && move.mr == "Melee") {
         multi *= 1.5;
+        stuffUsed.ability2 = ability2;
+    }
+    if (ability2 == "Slick Shell" && move.mr == "Ranged") {
+        multi *= 2;
         stuffUsed.ability2 = ability2;
     }
  
