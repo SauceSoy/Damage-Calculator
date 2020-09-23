@@ -2086,11 +2086,11 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         loom1 = loomians[pokeDropdown2.value.toLowerCase()];
         loom2 = loomians[pokeDropdown1.value.toLowerCase()];
     }
-    if (status == "burned" && !loom1.types.includes("Fire")) {
+    if (status == "burned" && !loom2.types.includes("Fire")) {
         newHP = Math.floor(newHP * 15 / 16);
         hazardString += "burn damage and ";
     }
-    if (status == "poisoned" && !loom1.types.includes("Toxic")) {
+    if (status == "poisoned" && !loom2.types.includes("Toxic")) {
         newHP = Math.floor(newHP * 7 / 8);
         hazardString += "poison damage and ";
     }
