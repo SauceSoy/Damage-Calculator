@@ -1590,12 +1590,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
     else if (ability1 == "Overshadow" && tempType == "Typeless") {
         tempType = "Dark";
-        multi *= 1.1;
+        multi *= 1.2;
         stuffUsed.ability1 = ability1;
     }
     else if (ability1 == "Illuminate" && tempType == "Typeless") {
         tempType = "Light";
-        multi *= 1.1;
+        multi *= 1.2;
         stuffUsed.ability1 = ability1;
     }
  
@@ -1627,7 +1627,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         stuffUsed.ability1 = ability1;
     }
     if (ability1 == "Brute Force" && move.secondaryEffect == true) {
-        multi *= 1.2;
+        multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
  
@@ -1688,7 +1688,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
  
     if (move.sound == true && ability1 == "Tone Deaf") {
-        multi *= 1.1;
+        multi *= 1.2;
         stuffUsed.ability1 = ability1;
     }
  
@@ -1797,7 +1797,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     //STAB ---------------------------------
  
     if (isStab(types1, { type: tempType }) && ability1 == "Awakening") {
-        multi *= 1.4;
+        multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
     else if (isStab(types1, { type: tempType })) {
@@ -1818,7 +1818,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
  
     //Type -------------------------------
  
-    if (typeModAbility2 != undefined && tempType == typeModAbility2.typeModifier.type && typeModAbility2.powerMod == false) {
+    if (typeModAbility2 == "Total Eclipse" && (ability1 == "Overshadow" || ability1 == "Illuminate")) {
+        // nothing happens, prevents the next if statement 
+    }
+    else if (typeModAbility2 != undefined && tempType == typeModAbility2.typeModifier.type && typeModAbility2.powerMod == false) {
         multi *= typeModAbility2.typeModifier.modifier;
         stuffUsed.ability2 = ability2;
     }
