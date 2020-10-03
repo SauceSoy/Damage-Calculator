@@ -1263,9 +1263,9 @@ var loomians = {
             hp: 81,
             energy: 86,
             attack: 105,
-            defense: 54,
-            attackR: 55,
-            defenseR: 49,
+            defense: 74,
+            attackR: 20,
+            defenseR: 64,
             speed: 102
         }
     },
@@ -2115,7 +2115,7 @@ var moves = {
 
     radiantForecast: {
         name: "Radiant Forecast",
-        power: 85,
+        power: 110,
         type: "Light",
         mr: "Ranged"
     },
@@ -2524,7 +2524,8 @@ var moves = {
         power: 90,
         type: "Brawler",
         mr: "Melee",
-        contact: true
+        contact: true,
+        secondaryEffect: true
     },
 
     ragingTackle: {
@@ -2787,7 +2788,7 @@ var moves = {
 
     electroburst: {
         name: "Electroburst",
-        power: 75,
+        power: 85,
         type: "Electric",
         mr: "Ranged",
         secondaryEffect: true
