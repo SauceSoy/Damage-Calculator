@@ -1865,9 +1865,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         }
     }
  
-    if (multi > 1 && ability1 == "Enchanted Coat") {
+    if (multi > 1 && ability2 == "Enchanted Coat") {
         multi *= 0.75;
-        stuffUsed.ability1 = ability1;
+        stuffUsed.ability2 = ability2;
     }
     if (detailed) {
         for (let i = 0; i < possibleDmg.length; i++) {
