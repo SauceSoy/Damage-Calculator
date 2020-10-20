@@ -1814,6 +1814,25 @@ var loomians = {
             speed: 43
         }
     },
+
+    wakalaka: {
+        name: "WakaLaka",
+        number: 150,
+        types: ["Plant", "Mind"],
+        abilities: ["Communication", "Expertise"],
+        sAbility: ["Enchanted Coat"],
+        weight: 111,
+        height: 74,
+        baseStats: {
+            hp: 99,
+            energy: 58,
+            attack: 33,
+            defense: 76,
+            attackR: 124,
+            defenseR: 101,
+            speed: 41
+        }
+    },
  
     duskit: {
         name: "Duskit",
@@ -1890,6 +1909,25 @@ var loomians = {
             speed: 71
         }
     },
+
+    metronette: {
+        name: "Metronette",
+        number: 204,
+        types: ["Dark", "Mind"],
+        abilities: ["Mysterious Cloak"],
+        sAbility: ["Applied Frustration"],
+        weight: 30,
+        height: 38,
+        baseStats: {
+            hp: 72,
+            energy: 95,
+            attack: 49,
+            defense: 85,
+            attackR: 114,
+            defenseR: 90,
+            speed: 105
+        }
+    }
 
 };
 
@@ -3113,6 +3151,14 @@ var moves = {
         contact: true
     },
 
+    pyrokinesis: {
+        name: "Pyrokinesis",
+        power: 65,
+        type: "Fire",
+        mr: "Ranged",
+        secondaryEffect: true
+    },
+
     //Support Moves -----------------------------------------------------------------------------------------------------------------------------------------
 
     noMove: {
@@ -3563,7 +3609,20 @@ var moves = {
         type: "Bug",
         mr: "Support"
     },
+
+    fungusCurse: {
+        name: "Fungus Curse",
+        power: 0,
+        type: "Plant",
+        mr: "Support"
+    },
     
+    dejaVu: {
+        name: "Deja Vu",
+        power: 0,
+        type: "Mind",
+        mr: "Support"
+    }
 };
 
 
@@ -3674,7 +3733,7 @@ var types = {
 var abilities = ["Awakening", "Ambush", "Coursing Venom", "Drainage", "Hasty", "Lightning Rod", "Mean Spirited", "Neutralize", "Overshadow", "Illuminate", "Prismatic", 
                 "Territorial", "Woodsman", "Dusk", "Dawn", "Pyro", "Volcanic", "Combustible", "Noxious Weeds", "Sharp Claws", "Brute Force", "Raging Fire", "Vengeance",
                 "Total Eclipse", "Tone Deaf", "Circadian", "Baneful", "Rechargeable", "Toxic Filter", "Trash Armor", "Tank", "Power Jaw", "Specialization", "Slick Shell",
-                "Heavy Fists"];
+                "Heavy Fists", "Enchanted Coat"];
 
 var typeModAbilities = {
     coursingVenom: {
