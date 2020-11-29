@@ -1983,7 +1983,7 @@ var moves = {
 
     chomp: {
         name: "Chomp",
-        power: 40,
+        power: 45,
         type: "Dark",
         mr: "Melee",
         contact: true,
