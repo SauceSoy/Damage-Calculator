@@ -4146,6 +4146,12 @@ var moves = {
         mr: "Support"
     },
 
+    bulkUp: {
+        name: "Bulk Up",
+        power: 0,
+        type: "Brawler",
+        mr: "Support"
+    },
 };
 
 
