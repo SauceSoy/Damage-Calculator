@@ -1815,8 +1815,399 @@ var loomians = {
         }
     },
 
+    goppie: {
+        name: "Goppie",
+        number: 93,
+        types: ["Water"],
+        abilities: ["Apprehension", "Adorable"],
+        sAbility: ["Quick Recovery"],
+        finalEvo: false,
+        weight: 7,
+        height: 17,
+        baseStats: {
+            hp: 48,
+            energy: 54,
+            attack: 33,
+            defense: 45,
+            attackR: 53,
+            defenseR: 46,
+            speed: 64
+        }
+    },
+
+    arapaigo: {
+        name: "Arapaigo",
+        number: 94,
+        types: ["Water"],
+        abilities: ["Apprehension", "Finese"],
+        sAbility: ["Quick Recovery"],
+        weight: 63,
+        height: 99,
+        baseStats: {
+            hp: 95,
+            energy: 79,
+            attack: 51,
+            defense: 74,
+            attackR: 99,
+            defenseR: 74,
+            speed: 105
+        }
+    },
+
+    pyke: {
+        name: "Pyke",
+        number: 95,
+        types: ["Ancient", "Water"],
+        abilities: ["Bitter Touch", "Combative"],
+        sAbility: ["Contact Curse"],
+        finalEvo: false,
+        weight: 5,
+        height: 23,
+        baseStats: {
+            hp: 64,
+            energy: 84 ,
+            attack: 72,
+            defense: 58,
+            attackR: 23,
+            defenseR: 51,
+            speed: 68
+        }
+    },
+
+    skelic: {
+        name: "Skelic",
+        number: 96,
+        types: ["Ancient", "Water"],
+        abilities: ["Bitter Touch", "Combative"],
+        sAbility: ["Contact Curse"],
+        weight: 34,
+        height: 76,
+        baseStats: {
+            hp: 89,
+            energy: 100 ,
+            attack: 104,
+            defense: 82,
+            attackR: 45,
+            defenseR: 68,
+            speed: 87
+        }
+    },
+
+    zaleo: {
+        name: "Zaleo",
+        number: 97,
+        types: ["Ancient", "Electric"],
+        abilities: ["Adorable", "Driven"],
+        sAbility: ["Overcharged"],
+        finalEvo: false,
+        weight: 6,
+        height: 20,
+        baseStats: {
+            hp: 73,
+            energy: 68 ,
+            attack: 63,
+            defense: 55,
+            attackR: 55,
+            defenseR: 54,
+            speed: 52
+        }
+    },
+
+    joltooth: {
+        name: "Joltooth",
+        number: 98,
+        types: ["Ancient", "Electric"],
+        abilities: ["Ambush", "Driven"],
+        sAbility: ["Overcharged"],
+        weight: 62,
+        height: 61,
+        baseStats: {
+            hp: 94,
+            energy: 89 ,
+            attack: 126,
+            defense: 67,
+            attackR: 76,
+            defenseR: 64,
+            speed: 69
+        }
+    },
+
+    dobo: {
+        name: "Dobo",
+        number: 99,
+        types: ["Ancient", "Fire"],
+        abilities: ["Scorching Skin", "Pyro"],
+        sAbility: ["Power Napper"],
+        finalEvo: false,
+        weight: 5,
+        height: 16,
+        baseStats: {
+            hp: 58,
+            energy: 74 ,
+            attack: 47,
+            defense: 44,
+            attackR: 71,
+            defenseR: 68,
+            speed: 58
+        }
+    },
+
+    infernix: {
+        name: "Infernix",
+        number: 100,
+        types: ["Ancient", "Fire"],
+        abilities: ["Scorching Skin", "Pyro"],
+        sAbility: ["Power Napper"],
+        weight: 39,
+        height: 74,
+        baseStats: {
+            hp: 79,
+            energy: 90 ,
+            attack: 57,
+            defense: 53,
+            attackR: 110,
+            defenseR: 107,
+            speed: 89
+        }
+    },
+
+    kyogo: {
+        name: "Kyogo",
+        number: 101,
+        types: ["Ancient", "Dark"],
+        abilities: ["Apprehension"],
+        sAbility: ["Replicate"],
+        finalEvo: false,
+        weight: 10,
+        height: 26,
+        baseStats: {
+            hp: 51,
+            energy: 63 ,
+            attack: 55,
+            defense: 64,
+            attackR: 51,
+            defenseR: 62,
+            speed: 74
+        }
+    },
+
+    dorogo: {
+        name: "Dorogo",
+        number: 102,
+        types: ["Ancient", "Dark"],
+        abilities: ["Anomaly"],
+        sAbility: ["Surrogate"],
+        weight: 31,
+        height: 52,
+        baseStats: {
+            hp: 66,
+            energy: 81 ,
+            attack: 85,
+            defense: 72,
+            attackR: 81,
+            defenseR: 69,
+            speed: 116
+        }
+    },
+
+    wiledile: {
+        name: "Wiledile",
+        number: 103,
+        types: ["Water", "Plant"],
+        abilities: ["Swampy"],
+        sAbility: ["Woodsman"],
+        finalEvo: false,
+        weight: 25,
+        height: 37,
+        baseStats: {
+            hp: 63,
+            energy: 63 ,
+            attack: 74,
+            defense: 57,
+            attackR: 69,
+            defenseR: 50,
+            speed: 79
+        }
+    },
+
+    mawamurk: {
+        name: "Mawamurk",
+        number: 104,
+        types: ["Water", "Plant"],
+        abilities: ["Swampy"],
+        sAbility: ["Woodsman"],
+        weight: 102,
+        height: 103,
+        baseStats: {
+            hp: 109,
+            energy: 78 ,
+            attack: 92,
+            defense: 87,
+            attackR: 89,
+            defenseR: 84,
+            speed: 41
+        }
+    },
+
+    ampole: {
+        name: "Ampole",
+        number: 105,
+        types: ["Electric"],
+        abilities: ["Watcher", "Specialization"],
+        sAbility: ["Sly"],
+        finalEvo: false,
+        weight: 4,
+        height: 13,
+        baseStats: {
+            hp: 44,
+            energy: 55 ,
+            attack: 33,
+            defense: 41,
+            attackR: 35,
+            defenseR: 42,
+            speed: 69
+        }
+    },
+
+    amphiton: {
+        name: "Amphiton",
+        number: 106,
+        types: ["Electric", "Mind"],
+        abilities: ["Watcher", "Specialization"],
+        sAbility: ["Sly"],
+        finalEvo: false,
+        weight: 16,
+        height: 31,
+        baseStats: {
+            hp: 59,
+            energy: 72 ,
+            attack: 59,
+            defense: 61,
+            attackR: 60,
+            defenseR: 64,
+            speed: 84
+        }
+    },
+
+    meditoad: {
+        name: "Meditoad",
+        number: 107,
+        types: ["Electric", "Mind"],
+        abilities: ["Watcher", "Specialization"],
+        sAbility: ["Sly"],
+        weight: 55,
+        height: 56,
+        baseStats: {
+            hp: 89,
+            energy: 86 ,
+            attack: 95,
+            defense: 87,
+            attackR: 99,
+            defenseR: 91,
+            speed: 43
+        }
+    },
+
+    pwuff: {
+        name: "Pwuff",
+        number: 108,
+        types: ["Water"],
+        abilities: ["Toxic Spines", "Sharp Edges"],
+        sAbility: ["Baneful"],
+        finalEvo: false,
+        weight: 8,
+        height: 21,
+        baseStats: {
+            hp: 75,
+            energy: 54 ,
+            attack: 46,
+            defense: 71,
+            attackR: 47,
+            defenseR: 69,
+            speed: 49
+        }
+    },
+
+    bloatox: {
+        name: "Bloatox",
+        number: 109,
+        types: ["Water", "Toxic"],
+        abilities: ["Toxic Spines", "Sharp Edges"],
+        sAbility: ["Baneful"],
+        weight: 14,
+        height: 29,
+        baseStats: {
+            hp: 93,
+            energy: 80 ,
+            attack: 89,
+            defense: 91,
+            attackR: 57,
+            defenseR: 73,
+            speed: 82
+        }
+    },
+
+    swimp: {
+        name: "Swimp",
+        number: 111,
+        types: ["Water"],
+        abilities: ["Terrifying", "Power Jaw"],
+        sAbility: ["Devious"],
+        finalEvo: false,
+        weight: 7,
+        height: 25,
+        baseStats: {
+            hp: 46,
+            energy: 60 ,
+            attack: 52,
+            defense: 44,
+            attackR: 25,
+            defenseR: 47,
+            speed: 64
+        }
+    },
+
+    snapr: {
+        name: "Snapr",
+        number: 112,
+        types: ["Water"],
+        abilities: ["Terrifying", "Power Jaw"],
+        sAbility: ["Devious"],
+        finalEvo: false,
+        weight: 13,
+        height: 40,
+        baseStats: {
+            hp: 58,
+            energy: 71,
+            attack: 81,
+            defense: 63,
+            attackR: 31,
+            defenseR: 59,
+            speed: 72
+        }
+    },
+
+    garlash: {
+        name: "Garlash",
+        number: 113,
+        types: ["Water"],
+        abilities: ["Terrifying", "Power Jaw"],
+        sAbility: ["Devious"],
+        weight: 28,
+        height: 65,
+        baseStats: {
+            hp: 87,
+            energy: 89,
+            attack: 100,
+            defense: 79,
+            attackR: 53,
+            defenseR: 72,
+            speed: 100
+        }
+    },
+
     wakalaka: {
-        name: "WakaLaka",
+        name: "Waka-Laka",
         number: 150,
         types: ["Plant", "Mind"],
         abilities: ["Communication", "Expertise"],
@@ -1914,9 +2305,9 @@ var loomians = {
         name: "Metronette",
         number: 204,
         types: ["Dark", "Mind"],
-        abilities: ["Mysterious Cloak"],
+        abilities: ["Magical Cloak"],
         sAbility: ["Applied Frustration"],
-        weight: 30,
+        weight: 31,
         height: 38,
         baseStats: {
             hp: 72,
@@ -1927,10 +2318,28 @@ var loomians = {
             defenseR: 90,
             speed: 105
         }
-    }
+    },
+
+    cephalops: {
+        name: "Cephalops",
+        number: 205,
+        types: ["Water", "Dark"],
+        abilities: ["Bloodsucker"],
+        sAbility: ["Nightmarish"],
+        weight: 135,
+        height: 103,
+        baseStats: {
+            hp: 154,
+            energy: 96,
+            attack: 96,
+            defense: 64,
+            attackR: 119,
+            defenseR: 69,
+            speed: 52
+        }
+    },
 
 };
-
 
 
 var moves = {
@@ -1983,7 +2392,7 @@ var moves = {
 
     chomp: {
         name: "Chomp",
-        power: 45,
+        power: 40,
         type: "Dark",
         mr: "Melee",
         contact: true,
@@ -2116,7 +2525,8 @@ var moves = {
         name: "Luster Loot",
         power: 50,
         type: "Light",
-        mr: "Ranged"
+        mr: "Ranged",
+        drain: true
     },
 
     mysticBreeze: {
@@ -2415,7 +2825,8 @@ var moves = {
         power: 80,
         type: "Bug",
         mr: "Melee",
-        contact: true
+        contact: true,
+        drain: true
     },
 
     headbutt: {
@@ -2455,7 +2866,8 @@ var moves = {
         name: "Life Drain",
         power: 75,
         type: "Plant",
-        mr: "Ranged"
+        mr: "Ranged",
+        drain: true
     },
 
     snowdozer: {
@@ -2562,8 +2974,7 @@ var moves = {
         power: 90,
         type: "Brawler",
         mr: "Melee",
-        contact: true,
-        secondaryEffect: true
+        contact: true
     },
 
     ragingTackle: {
@@ -2667,15 +3078,6 @@ var moves = {
 
     quickPunch: {
         name: "Quick Punch",
-        power: 40,
-        type: "Brawler",
-        mr: "Melee",
-        contact: true,
-        punch: true
-    },
-
-    punch: {
-        name: "Punch",
         power: 40,
         type: "Brawler",
         mr: "Melee",
@@ -2809,10 +3211,11 @@ var moves = {
 
     coconutBomb: {
         name: "Coconut Bomb",
-        power: 70,
+        power: 80,
         type: "Plant",
-        mr: "Ranged",
-        secondaryEffect: true
+        mr: "Melee",
+        secondaryEffect: true,
+        contact: true
     },
 
     lavaSlash: {
@@ -2829,7 +3232,8 @@ var moves = {
         power: 85,
         type: "Electric",
         mr: "Ranged",
-        secondaryEffect: true
+        secondaryEffect: true,
+        aoe: true
     },
 
     chaseDown: {
@@ -3103,10 +3507,20 @@ var moves = {
         secondaryEffect: true
     },
 
-    frostPunch: {
+    chillyPunch: {
         name: "Frost Punch",
         power: 70,
         type: "Ice",
+        mr: "Melee",
+        contact: true,
+        punch: true,
+        secondaryEffect: true
+    },
+
+    thunderPunch: {
+        name: "Thunder Punch",
+        power: 70,
+        type: "Electric",
         mr: "Melee",
         contact: true,
         punch: true,
@@ -3130,7 +3544,7 @@ var moves = {
         mr: "Melee",
         contact: true,
         aoe: true,
-        slap: true,
+        punch: true,
         secondaryEffect: true
     },
 
@@ -3143,14 +3557,6 @@ var moves = {
         secondaryEffect: true
     },
 
-    clampClaw: {
-        name: "Clamp Claw",
-        power: 85,
-        type: "Bug",
-        mr: "Melee",
-        contact: true
-    },
-
     pyrokinesis: {
         name: "Pyrokinesis",
         power: 65,
@@ -3158,6 +3564,115 @@ var moves = {
         mr: "Ranged",
         secondaryEffect: true
     },
+
+    clampClaw: {
+        name: "Clamp Claw",
+        power: 85,
+        type: "Bug",
+        mr: "Melee",
+        contact: true,
+        bite: true
+    },
+
+    tsunami: {
+        name: "Tsunami",
+        power: 90,
+        type: "Water",
+        mr: "Ranged",
+        aoe: true
+    },
+
+    soulDrain: {
+        name: "Soul Drain",
+        power: 85,
+        type: "Dark",
+        mr: "Ranged",
+        drain: true
+    },
+
+    confound: {
+        name: "Confound",
+        power: 40,
+        type: "Ancient",
+        mr: "Ranged",
+        secondaryEffect: true
+    },
+
+    piercingDive: {
+        name: "Piercing Dive",
+        power: 75,
+        type: "Water",
+        mr: "Melee",
+        contact: true
+    },
+
+    dinoClaws: {
+        name: "Dino Claws",
+        power: 45,
+        type: "Ancient",
+        mr: "Melee",
+        contact: true,
+        secondaryEffect: true
+    },
+
+    shrewdBlast: {
+        name: "shrewdBlast",
+        power: 70,
+        type: "Ancient",
+        mr: "Ranged"
+    },
+
+    aquaJaws: {
+        name: "Aquatic Jaws",
+        power: 65,
+        type: "Water",
+        mr: "Melee",
+        contact: true,
+        secondaryEffect: true
+    },
+
+    thunderClap: {
+        name: "Thunder Clap",
+        power: 80,
+        type: "Electric",
+        mr: "Melee",
+        secondaryEffect: true
+    },
+
+    eggLob: {
+        name: "Egg Lob",
+        power: 100,
+        type: "Dark",
+        mr: "Ranged",
+        secondaryEffect: true
+    },
+
+    marshWave: {
+        name: "Marsh Wave",
+        power: 75,
+        type: "Water",
+        mr: "Ranged",
+        aoe: true,
+        secondaryEffect: true
+    },
+
+    psychalSlap: {
+        name: "Psychal Slap",
+         power: 85,
+         type: "Mind",
+         mr: "Melee"
+    },
+
+    viciousSnap: {
+        name: "Vicious Snap",
+         power: 75,
+         type: "Water",
+         mr: "Melee",
+         contact: true,
+         bite: true
+    },
+
+
 
     //Support Moves -----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -3610,19 +4125,27 @@ var moves = {
         mr: "Support"
     },
 
-    fungusCurse: {
-        name: "Fungus Curse",
+    baffle: {
+        name: "Baffle",
         power: 0,
-        type: "Plant",
+        type: "Bug",
         mr: "Support"
     },
-    
-    dejaVu: {
-        name: "Deja Vu",
+
+    phoenixFlame: {
+        name: "Phoenix Flame",
         power: 0,
-        type: "Mind",
+        type: "Fire",
         mr: "Support"
-    }
+    },
+
+    squareOne: {
+        name: "Square One",
+        power: 0,
+        type: "Dark",
+        mr: "Support"
+    },
+
 };
 
 
@@ -3733,7 +4256,7 @@ var types = {
 var abilities = ["Awakening", "Ambush", "Coursing Venom", "Drainage", "Hasty", "Lightning Rod", "Mean Spirited", "Neutralize", "Overshadow", "Illuminate", "Prismatic", 
                 "Territorial", "Woodsman", "Dusk", "Dawn", "Pyro", "Volcanic", "Combustible", "Noxious Weeds", "Sharp Claws", "Brute Force", "Raging Fire", "Vengeance",
                 "Total Eclipse", "Tone Deaf", "Circadian", "Baneful", "Rechargeable", "Toxic Filter", "Trash Armor", "Tank", "Power Jaw", "Specialization", "Slick Shell",
-                "Heavy Fists", "Enchanted Coat"];
+                "Heavy Fists", "Enchanted Coat", "Bloodsucker", "Overcharged", "Watcher", "Sly", "Devious"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -3817,4 +4340,4 @@ for (let ty in types) {
 
 var sets = [];
 
-var changelog = "Sepharite 1.1 \n •Added in the new loomians, moves, and abilities.";
+var changelog = "Route 8 UMV \n •Added in the new loomians, moves, and abilities. For halved icicle trap, it only works on fire types currently.";

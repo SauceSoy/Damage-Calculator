@@ -301,11 +301,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -357,7 +357,7 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
@@ -1319,6 +1319,12 @@ function detailedReport() {
         if (atkDef.defense.veryNat == "vRobust") {
             defPlus = "++";
         }
+        if (move.name == "Psychal Slap" && (atkDef.defense.posNat == "clever" || atkDef.defense.negNat == "clever")) {
+            defPlus = "+";
+        }
+        if (move.name == "Psychal Slap" && atkDef.defense.veryNat == "vClever") {
+            defPlus = "++";
+        }
 
         //Negatives
 
@@ -1340,6 +1346,12 @@ function detailedReport() {
         if (atkDef.defense.veryNat == "vTender") {
             defPlus = "--";
         }
+        if (move.name == "Psychal Slap" && (atkDef.defense.posNat == "foolish" || atkDef.defense.negNat == "foolish")) {
+            defPlus = "-";
+        }
+        if (move.name == "Psychal Slap" && (atkDef.defense.veryNat == "vFoolish")) {
+            defPlus = "--";
+        }
 
         if (second) {
             if (move.name == "Battering Ram") {
@@ -1348,7 +1360,12 @@ function detailedReport() {
             else {
                 tempAtk = tempAtk + atkEV2.value + " " + atkPlus + "AtkM";
             }
-            tempDef = tempDef + defEV1.value + " " + defPlus + "DefM";
+            if (move.name == "Psychal Slap") {
+                tempDef = tempDef + defREV1.value + " " + defPlus + "DefR";
+            }
+            else {
+                tempDef = tempDef + defEV1.value + " " + defPlus + "DefM";
+            }
         }
         else {
             if (move.name == "Battering Ram") {
@@ -1357,7 +1374,12 @@ function detailedReport() {
             else {
                 tempAtk = tempAtk + atkEV1.value + " " + atkPlus + "AtkM";
             }
-            tempDef = tempDef + defEV2.value + " " + defPlus + "DefM";
+            if (move.name == "Psychal Slap") {
+                tempDef = tempDef + defREV2.value + " " + defPlus + "DefR";
+            }
+            else {
+                tempDef = tempDef + defEV2.value + " " + defPlus + "DefM";
+            }
         }
     }
 
@@ -1391,7 +1413,7 @@ function detailedReport() {
 
     let addedDmg = 0;
 
-    if (ice && !secondLoom.types.includes("Fire")) {
+    if (ice) {
         addedDmg = 12.5;
 
         if (types[secondLoom.types[0].toLowerCase()].weaknesses.includes("ice")) {
@@ -1404,6 +1426,9 @@ function detailedReport() {
             addedDmg *= 0.5
         }
         if (secondLoom.types[1] != undefined && types[secondLoom.types[1].toLowerCase()].resistances.includes("ice")) {
+            addedDmg *= 0.5;
+        }
+        if (secondLoom.types.includes("Fire")) {
             addedDmg *= 0.5;
         }
     }
@@ -1535,6 +1560,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     let tempDef;
     let gen1 = gender1.value;
     let gen2 = gender2.value;
+    let spdA = (second == false ? spd1 : spd2);
+    let spdB = (second == false ? spd2 : spd1);
     let ability1 = (second == false ? abilities.find((x) => x == abilityDropdown1.value) : abilities.find((x) => x == abilityDropdown2.value));
     let ability2 = (second == false ? abilities.find((x) => x == abilityDropdown2.value) : abilities.find((x) => x == abilityDropdown1.value));
     let typeModAbility1 = findTypeModAbility(ability1);
@@ -1557,6 +1584,20 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     tempDef = getTempAtkDef(second, move).defense;
 
     tempPower = (move.name == "Trip Root" ? getTripRootPower(loom2.weight) : tempPower);
+
+    if(ability1 == "Devious") {
+        ability2 = "None";
+        stuffUsed.ability1 = ability1;
+    }
+
+    if(ability1 == "Sly") {
+        itemB = "None";
+        stuffUsed.ability1 = ability1;
+    }
+    if(ability2 == "Sly") {
+        itemA = "None";
+        stuffUsed.ability2 = ability2;
+    }
 
     if (move.name == "Gloominous Roar" && ability1 == "Circadian" && types1.secondary != undefined) {
         tempType = (takeSecondaryType ? types1.secondary : types1.primary);
@@ -1633,6 +1674,20 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         stuffUsed.ability1 = ability1;
     }
 
+    if (ability1 == "Bloodsucker" && move.drain == true) {
+        multi *= 1.25;
+        stuffUsed.ability1 = ability1;
+    }
+
+    if(ability1 == "Overcharged" && move.type == "Electric") {
+        multi *= 1.3;
+        stuffUsed.ability1 = ability1;
+    }
+    else if(ability2 == "Overcharged" && move.type == "Electric") {
+        multi *= 1.3;
+        stuffUsed.ability2 = ability2;
+    }
+
     if (ability1 == "Baneful" && stat2 == "poisoned") {
         multi *= 1.2;
         stuffUsed.ability1 = ability1;
@@ -1703,6 +1758,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
 
     if (ability1 == "Heavy Fists" && (move.punch == true || move.slap == true)) {
         multi *= 1.5;
+        stuffUsed.ability1 = ability1;
+    }
+
+    if (ability1 == "Watcher" && spdA < spdB) {
+        multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
 
@@ -1815,7 +1875,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
 
     //Type -------------------------------
 
-    if (typeModAbility2 == "Total Eclipse" && (ability1 == "Overshadow" || ability1 == "Illuminate")) {
+    if(ability1 == "Devious") {
+        typeModAbility2 = undefined;
+    }
+
+    else if (typeModAbility2 == "Total Eclipse" && (ability1 == "Overshadow" || ability1 == "Illuminate")) {
         // nothing happens, prevents the next if statement 
     }
     else if (typeModAbility2 != undefined && tempType == typeModAbility2.typeModifier.type && typeModAbility2.powerMod == false) {
@@ -1933,7 +1997,12 @@ function getTempAtkDef(second, mr) {
         else {
             tempAtk = { atk: atk2, iv: atkIV2, ev: atkEV2, base: baseAtk2.value, name: "AttackM", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(atkStages2.value), level: level2.value };
         }
-        tempDef = { def: def1, iv: defIV1, ev: defEV1, base: baseDef1.value, name: "DefenseM", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(defStages1.value), level: level1.value, rest: rest1 };
+        if (mr.name == "Psychal Slap") {
+            tempDef = { def: defR1, iv: defRIV1, ev: defREV1, base: baseDefR1.value, name: "DefenseR", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(defRStages1.value), level: level1.value, rest: rest1 };
+        }
+        else {
+            tempDef = { def: def1, iv: defIV1, ev: defEV1, base: baseDef1.value, name: "DefenseM", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(defStages1.value), level: level1.value, rest: rest1 };
+        }
     }
     else if (mr.mr == "Melee") {
         if (mr.name == "Battering Ram") {
@@ -1942,7 +2011,12 @@ function getTempAtkDef(second, mr) {
         else {
             tempAtk = { atk: atk1, iv: atkIV1, ev: atkEV1, base: baseAtk1.value, name: "AttackM", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(atkStages1.value), level: level1.value };
         }
-        tempDef = { def: def2, iv: defIV2, ev: defEV2, base: baseDef2.value, name: "DefenseM", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(defStages2.value), level: level2.value, rest: rest2 };
+        if (mr.name == "Psychal Slap") {
+            tempDef = { def: defR2, iv: defRIV2, ev: defREV2, base: baseDefR2.value, name: "DefenseR", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(defRStages2.value), level: level2.value, rest: rest2 };
+        }
+        else {
+            tempDef = { def: def2, iv: defIV2, ev: defEV2, base: baseDef2.value, name: "DefenseM", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(defStages2.value), level: level2.value, rest: rest2 };
+        }
     }
     else {
         tempAtk = { atk: atkR1, iv: atkRIV1, ev: atkREV1, base: baseAtkR1.value, name: "AttackR", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(atkRStages1.value), level: level1.value };
@@ -2038,8 +2112,11 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         quicksand = quicksand1.checked;
     }
 
-    if (ice && !loom2.types.includes("Fire")) {
+    if (ice) {
         hazardString += "icicle trap and ";
+        if (loom2.types.includes("Fire")) {
+            hazardString = "halved icicle trap and ";
+        }
         if (onlyIncludeIceTrap) {
             hazardString = hazardString.substr(0, hazardString.length - 5);
             hazardString = " after " + hazardString;
@@ -2063,11 +2140,11 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     }
 
     if (bloodDrain.attacker == true) {
-        newHP += Math.floor(hp2 * 1 / 12 * multi);
+        newHP += Math.floor(hp2 * 1 / 8 * multi);
         hazardString += "blood drain recovery and ";
     }
     if (bloodDrain.defender == true) {
-        newHP = Math.floor(newHP * 11 / 12);
+        newHP = Math.floor(newHP * 7 / 8);
         hazardString += "blood drain damage and ";
     }
 
