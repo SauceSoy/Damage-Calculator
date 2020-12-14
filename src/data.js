@@ -3616,14 +3616,14 @@ var moves = {
     },
 
     shrewdBlast: {
-        name: "shrewdBlast",
+        name: "Shrewd Blast",
         power: 70,
         type: "Ancient",
         mr: "Ranged"
     },
 
     aquaJaws: {
-        name: "Aquatic Jaws",
+        name: "Aqua Jaws",
         power: 65,
         type: "Water",
         mr: "Melee",
