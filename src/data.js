@@ -2207,7 +2207,7 @@ var loomians = {
     },
 
     wakalaka: {
-        name: "Waka-Laka",
+        name: "WakaLaka",
         number: 150,
         types: ["Plant", "Mind"],
         abilities: ["Communication", "Expertise"],
