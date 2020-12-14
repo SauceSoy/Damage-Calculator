@@ -2111,7 +2111,7 @@ var loomians = {
     pwuff: {
         name: "Pwuff",
         number: 108,
-        types: ["Water"],
+        types: ["Water", "Toxic"],
         abilities: ["Toxic Spines", "Sharp Edges"],
         sAbility: ["Baneful"],
         finalEvo: false,
