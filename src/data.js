@@ -3628,7 +3628,8 @@ var moves = {
         type: "Water",
         mr: "Melee",
         contact: true,
-        secondaryEffect: true
+        secondaryEffect: true,
+        bite: true
     },
 
     thunderClap: {
