@@ -2176,6 +2176,12 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         hazardString += "poison damage and ";
     }
 
+    let otherAbility = (second ? abilities.find((x) => x == abilityDropdown2.value) : abilities.find((x) => x == abilityDropdown1.value));
+    if (status == "asleep" && otherAbility == "Nightmarish") {
+        newHP = Math.floor(newHP * 7 / 8);
+        hazardString += "nightmarish damage and ";
+    }
+
     hazardString = hazardString.substr(0, hazardString.length - 5);
     if (hazardString.length == 0) return [newHP, hazardString];
     hazardString = " after " + hazardString;
