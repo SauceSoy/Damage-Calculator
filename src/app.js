@@ -1803,7 +1803,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         multi *= 1.2;
         stuffUsed.item2 = itemB;
     }
-    if (itemB == "Heavy Armor" && move.mr == "Melee") {
+    if (itemB == "Heavy Armor" && move.mr == "Melee" && move.name != "Psychal Slap") {
         multi *= 1.2;
         stuffUsed.item2 = itemB;
     }
@@ -1811,7 +1811,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         multi *= 1.5;
         stuffUsed.item2 = itemB;
     }
-    if (ability2 == "Trash Armor" && move.mr == "Melee") {
+    if (ability2 == "Trash Armor" && move.mr == "Melee" && move.name != "Psychal Slap") {
         multi *= 1.5;
         stuffUsed.ability2 = ability2;
     }
