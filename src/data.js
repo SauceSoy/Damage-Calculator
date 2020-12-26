@@ -1231,6 +1231,25 @@ var loomians = {
             speed: 62
         }
     },
+
+    craytalc: {
+        name: "CraytalC",
+        number: 63,
+        types: ["Ice", "Plant"],
+        abilities: ["Parting Gift", "Clingy"],
+        sAbility: ["Regift"],
+        weight: 11,
+        height: 32,
+        baseStats: {
+            hp: 76,
+            energy: 74,
+            attack: 76,
+            defense: 43,
+            attackR: 14,
+            defenseR: 63,
+            speed: 62
+        }
+    },
  
     krakaloa: {
         name: "Krakaloa",
@@ -2224,6 +2243,25 @@ var loomians = {
             speed: 41
         }
     },
+
+    festifir: {
+        name: "Festifir",
+        number: 151,
+        types: ["Ice", "Plant"],
+        abilities: ["Parting Gift", "Clingy"],
+        sAbility: ["Regift"],
+        weight: 68,
+        height: 81,
+        baseStats: {
+            hp: 113,
+            energy: 90,
+            attack: 119,
+            defense: 56,
+            attackR: 44,
+            defenseR: 88,
+            speed: 22
+        }
+    },
  
     duskit: {
         name: "Duskit",
@@ -2326,8 +2364,8 @@ var loomians = {
         types: ["Water", "Dark"],
         abilities: ["Bloodsucker"],
         sAbility: ["Nightmarish"],
-        weight: 135,
-        height: 103,
+        weight: 141,
+        height: 99,
         baseStats: {
             hp: 154,
             energy: 96,
@@ -2339,7 +2377,27 @@ var loomians = {
         }
     },
 
+    wabalisc: {
+        name: "Wabalisc",
+        number: 206,
+        types: ["Ice"],
+        abilities: ["Ignorant"],
+        sAbility: ["Hasty"],
+        weight: 131,
+        height: 86,
+        baseStats: {
+            hp: 101,
+            energy: 93,
+            attack: 99,
+            defense: 53,
+            attackR: 106,
+            defenseR: 93,
+            speed: 65
+        }
+    },
+
 };
+
 
 
 var moves = {
@@ -2348,6 +2406,8 @@ var moves = {
         power: 40,
         type: "Typeless",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -2356,6 +2416,8 @@ var moves = {
         power: 40,
         type: "Fire",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -2363,7 +2425,9 @@ var moves = {
         name: "Spray",
         power: 40,
         type: "Water",
-        mr: "Ranged"
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
     },
 
     strike: {
@@ -2371,6 +2435,8 @@ var moves = {
         power: 40,
         type: "Typeless",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -2378,7 +2444,9 @@ var moves = {
         name: "Shine",
         power: 40,
         type: "Light",
-        mr: "Ranged"
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
     },
 
     gnaw: {
@@ -2386,6 +2454,8 @@ var moves = {
         power: 40,
         type: "Typeless",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         bite: true
     },
@@ -2395,6 +2465,8 @@ var moves = {
         power: 40,
         type: "Dark",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true,
         bite: true
@@ -2405,6 +2477,8 @@ var moves = {
         power: 40,
         type: "Ice",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         aoe: true,
         secondaryEffect: true
     },
@@ -2413,7 +2487,9 @@ var moves = {
         name: "Petal Pummel",
         power: 40,
         type: "Plant",
-        mr: "Ranged"
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
     },
 
     staticShock: {
@@ -2421,6 +2497,8 @@ var moves = {
         power: 40,
         type: "Electric",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -2429,6 +2507,8 @@ var moves = {
         power: 60,
         type: "Typeless",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -2437,6 +2517,8 @@ var moves = {
         power: 30,
         type: "Bug",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         bite: true
     },
@@ -2446,6 +2528,8 @@ var moves = {
         power: 35,
         type: "Air",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -2454,6 +2538,8 @@ var moves = {
         power: 15,
         type: "Toxic",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         secondaryEffect: true
     },
 
@@ -2461,7 +2547,9 @@ var moves = {
         name: "Pestilence",
         power: 35,
         type: "Bug",
-        mr: "Ranged"
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
     },
 
     bloodDrain: {
@@ -2469,6 +2557,8 @@ var moves = {
         power: 20,
         type: "Dark",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -2477,6 +2567,8 @@ var moves = {
         power: 50,
         type: "Dark",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -2485,6 +2577,8 @@ var moves = {
         power: 60,
         type: "Dark",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -2493,6 +2587,8 @@ var moves = {
         power: 60,
         type: "Air",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -2501,6 +2597,8 @@ var moves = {
         power: 75,
         type: "Water",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -2509,6 +2607,8 @@ var moves = {
         power: 55,
         type: "Earth",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -2517,6 +2617,8 @@ var moves = {
         power: 25,
         type: "Bug",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         hits: 2,
         secondaryEffect: true
     },
@@ -2526,6 +2628,8 @@ var moves = {
         power: 50,
         type: "Light",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         drain: true
     },
 
@@ -2534,6 +2638,8 @@ var moves = {
         power: 60,
         type: "Bug",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -2542,6 +2648,8 @@ var moves = {
         power: 60,
         type: "Dark",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -2550,6 +2658,8 @@ var moves = {
         power: 20,
         type: "Electric",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true
     },
@@ -2558,14 +2668,18 @@ var moves = {
         name: "Gust",
         power: 40,
         type: "Air",
-        mr: "Ranged"
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
     },
 
     radiantForecast: {
         name: "Radiant Forecast",
         power: 110,
         type: "Light",
-        mr: "Ranged"
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
     },
 
     corrode: {
@@ -2573,6 +2687,8 @@ var moves = {
         power: 40,
         type: "Toxic",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         aoe: true,
         secondaryEffect: true
     },
@@ -2582,6 +2698,8 @@ var moves = {
         power: 40,
         type: "Typeless",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -2590,6 +2708,8 @@ var moves = {
         power: 60,
         type: "Air",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -2598,6 +2718,8 @@ var moves = {
         power: 50,
         type: "Electric",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         aoe: true,
         secondaryEffect: true
     },
@@ -2607,6 +2729,8 @@ var moves = {
         power: 65,
         type: "Ice",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true,
         bite: true
@@ -2617,6 +2741,8 @@ var moves = {
         power: 70,
         type: "Plant",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -2625,6 +2751,8 @@ var moves = {
         power: 65,
         type: "Toxic",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -2633,6 +2761,8 @@ var moves = {
         power: 20,
         type: "Fire",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         hits: 3,
         secondaryEffect: true
     },
@@ -2642,6 +2772,8 @@ var moves = {
         power: 50,
         type: "Water",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -2649,7 +2781,9 @@ var moves = {
         name: "Leaf Barrage",
         power: 65,
         type: "Plant",
-        mr: "Ranged"
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
     },
 
     spare: {
@@ -2657,6 +2791,8 @@ var moves = {
         power: 40,
         type: "Typeless",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -2665,6 +2801,8 @@ var moves = {
         power: 60,
         type: "Brawler",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true
     },
@@ -2674,6 +2812,8 @@ var moves = {
         power: 60,
         type: "Air",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         aoe: true
     },
 
@@ -2682,6 +2822,8 @@ var moves = {
         power: 75,
         type: "Dark",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         bite: true
     },
@@ -2691,6 +2833,8 @@ var moves = {
         power: 75,
         type: "Metal",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         typeModifier: { type: "Dark", modifier: 2 },
         contact: true
     },
@@ -2700,6 +2844,8 @@ var moves = {
         power: 85,
         type: "Earth",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         aoe: true,
         contact: true
     },
@@ -2708,7 +2854,9 @@ var moves = {
         name: "Quicksand",
         power: 35,
         type: "Earth",
-        mr: "Ranged"
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
     },
 
     rant: {
@@ -2716,6 +2864,8 @@ var moves = {
         power: 55,
         type: "Dark",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -2724,6 +2874,8 @@ var moves = {
         power: 40,
         type: "Light",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -2732,6 +2884,8 @@ var moves = {
         power: 50,
         type: "Bug",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         aoe: true,
         secondaryEffect: true
     },
@@ -2741,6 +2895,8 @@ var moves = {
         power: 65,
         type: "Dark",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         knockOff: true,
         slap: true
@@ -2751,6 +2907,8 @@ var moves = {
         power: 30,
         type: "Spirit",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true
     },
@@ -2760,6 +2918,8 @@ var moves = {
         power: 50,
         type: "Mind",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -2768,6 +2928,8 @@ var moves = {
         power: 30,
         type: "Spirit",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -2776,6 +2938,8 @@ var moves = {
         power: 65,
         type: "Plant",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         secondaryEffect: true
     },
 
@@ -2783,7 +2947,9 @@ var moves = {
         name: "Oppress",
         power: 65,
         type: "Spirit",
-        mr: "Ranged"
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
     },
 
     spectralBurst: {
@@ -2791,6 +2957,8 @@ var moves = {
         power: 80,
         type: "Spirit",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -2799,6 +2967,8 @@ var moves = {
         power: 70,
         type: "Spirit",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -2807,6 +2977,8 @@ var moves = {
         power: 65,
         type: "Toxic",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true,
         bite: true
@@ -2817,6 +2989,8 @@ var moves = {
         power: 80,
         type: "Ancient",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -2825,6 +2999,8 @@ var moves = {
         power: 80,
         type: "Bug",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         drain: true
     },
@@ -2834,6 +3010,8 @@ var moves = {
         power: 60,
         type: "Typeless",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true
     },
@@ -2843,6 +3021,8 @@ var moves = {
         power: 60,
         type: "Air",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -2851,6 +3031,8 @@ var moves = {
         power: 80,
         type: "Light",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         aoe: true
     },
 
@@ -2859,6 +3041,8 @@ var moves = {
         power: 90,
         type: "Plant",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -2867,6 +3051,8 @@ var moves = {
         power: 75,
         type: "Plant",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         drain: true
     },
 
@@ -2875,6 +3061,8 @@ var moves = {
         power: 30,
         type: "Ice",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -2883,6 +3071,8 @@ var moves = {
         power: 85,
         type: "Metal",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         secondaryEffect: true,
         typeModifier: { type: "Water", modifier: 2 }
     },
@@ -2892,6 +3082,8 @@ var moves = {
         power: 30,
         type: "Ice",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         hits: 3
     },
@@ -2901,6 +3093,8 @@ var moves = {
         power: 90,
         type: "Electric",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -2908,7 +3102,9 @@ var moves = {
         name: "Maroon",
         power: 70,
         type: "Water",
-        mr: "Ranged"
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
     },
 
     flashPulse: {
@@ -2916,6 +3112,8 @@ var moves = {
         power: 85,
         type: "Light",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         aoe: true,
         secondaryEffect: true
     },
@@ -2925,6 +3123,8 @@ var moves = {
         power: 55,
         type: "Ice",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -2933,6 +3133,8 @@ var moves = {
         power: 90,
         type: "Typeless",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -2941,6 +3143,8 @@ var moves = {
         power: 75,
         type: "Typeless",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -2949,6 +3153,8 @@ var moves = {
         power: 95,
         type: "Air",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -2957,6 +3163,8 @@ var moves = {
         power: 85,
         type: "Fire",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true
     },
@@ -2966,6 +3174,8 @@ var moves = {
         power: 120,
         type: "Earth",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -2974,6 +3184,8 @@ var moves = {
         power: 90,
         type: "Brawler",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -2982,6 +3194,8 @@ var moves = {
         power: 120,
         type: "Typeless",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -2990,6 +3204,8 @@ var moves = {
         power: 80,
         type: "Dark",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true,
         bite: true
@@ -3000,6 +3216,8 @@ var moves = {
         power: 75,
         type: "Light",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         sound: true
     },
 
@@ -3008,6 +3226,8 @@ var moves = {
         power: 60,
         type: "Fire",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true
     },
@@ -3017,6 +3237,8 @@ var moves = {
         power: 40,
         type: "Spirit",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -3024,7 +3246,9 @@ var moves = {
         name: "Air Blade",
         power: 70,
         type: "Air",
-        mr: "Ranged"
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
     },
 
     boulderBlast: {
@@ -3032,6 +3256,8 @@ var moves = {
         power: 25,
         type: "Earth",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         hits: 5
     },
 
@@ -3040,6 +3266,8 @@ var moves = {
         power: 80,
         type: "Dark",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -3048,6 +3276,8 @@ var moves = {
         power: 15,
         type: "Typeless",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         slap: true,
         hits: 5
@@ -3058,6 +3288,8 @@ var moves = {
         power: 90,
         type: "Toxic",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -3066,6 +3298,8 @@ var moves = {
         power: 90,
         type: "Bug",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
     },
 
     pineShot: {
@@ -3073,6 +3307,8 @@ var moves = {
         power: 25,
         type: "Plant",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         hits: 5
     },
 
@@ -3081,6 +3317,8 @@ var moves = {
         power: 40,
         type: "Brawler",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         punch: true
     },
@@ -3090,6 +3328,8 @@ var moves = {
         power: 120,
         type: "Typeless",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         sound: true
     },
 
@@ -3098,6 +3338,8 @@ var moves = {
         power: 65,
         type: "Electric",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true,
         bite: true
@@ -3108,6 +3350,8 @@ var moves = {
         power: 65,
         type: "Electric",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         secondaryEffect: true
     },
 
@@ -3116,6 +3360,8 @@ var moves = {
         power: 50,
         type: "Toxic",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true
     },
@@ -3124,7 +3370,9 @@ var moves = {
         name: "Return to Sender",
         power: 0,
         type: "Mind",
-        mr: "Ranged"
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
     },
 
     foulChant: {
@@ -3132,6 +3380,8 @@ var moves = {
         power: 110,
         type: "Mind",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -3140,6 +3390,8 @@ var moves = {
         power: 90,
         type: "Earth",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         aoe: true
     },
 
@@ -3148,6 +3400,8 @@ var moves = {
         power: 90,
         type: "Fire",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -3156,6 +3410,8 @@ var moves = {
         power: 75,
         type: "Water",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -3164,6 +3420,8 @@ var moves = {
         power: 70,
         type: "Water",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -3172,6 +3430,8 @@ var moves = {
         power: 85,
         type: "Fire",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -3180,6 +3440,8 @@ var moves = {
         power: -1,
         type: "Plant",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         weightBased: true
     },
 
@@ -3188,6 +3450,8 @@ var moves = {
         power: 95,
         type: "Ancient",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -3196,6 +3460,8 @@ var moves = {
         power: 65,
         type: "Fire",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true,
         bite: true
@@ -3206,6 +3472,8 @@ var moves = {
         power: 80,
         type: "Ancient",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -3214,6 +3482,8 @@ var moves = {
         power: 80,
         type: "Plant",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         secondaryEffect: true,
         contact: true
     },
@@ -3223,6 +3493,8 @@ var moves = {
         power: 70,
         type: "Fire",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true
     },
@@ -3232,6 +3504,8 @@ var moves = {
         power: 85,
         type: "Electric",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true,
         aoe: true
     },
@@ -3241,6 +3515,8 @@ var moves = {
         power: 40,
         type: "Dark",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -3249,6 +3525,8 @@ var moves = {
         power: 90,
         type: "Electric",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -3257,6 +3535,8 @@ var moves = {
         power: 75,
         type: "Spirit",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         sound: true,
         secondaryEffect: true
     },
@@ -3266,6 +3546,8 @@ var moves = {
         power: 90,
         type: "Typeless",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         sound: true,
         secondaryEffect: true
     },
@@ -3275,6 +3557,8 @@ var moves = {
         power: 25,
         type: "Typeless",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         hits: 3,
         sound: true,
         secondaryEffect: true
@@ -3285,6 +3569,8 @@ var moves = {
         power: 85,
         type: "Typeless",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         sound: true
     },
 
@@ -3293,6 +3579,8 @@ var moves = {
         power: 60,
         type: "Toxic",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -3301,6 +3589,8 @@ var moves = {
         power: 60,
         type: "Typeless",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         sound: true,
         secondaryEffect: true
     },
@@ -3310,6 +3600,8 @@ var moves = {
         power: 80,
         type: "Typeless",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         sound: true,
         secondaryEffect: true
     },
@@ -3319,6 +3611,8 @@ var moves = {
         power: 70,
         type: "Mind",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -3326,14 +3620,18 @@ var moves = {
         name: "Cerebral Slash",
         power: 70,
         type: "Mind",
-        mr: "Melee"
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense"
     },
 
     flashNFlee: {
         name: "Flash 'n Flee",
         power: 40,
         type: "Light",
-        mr: "Ranged"
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
     },
 
     roughUp: {
@@ -3341,6 +3639,8 @@ var moves = {
         power: 70,
         type: "Brawler",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -3349,6 +3649,8 @@ var moves = {
         power: 70,
         type: "Metal",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -3357,6 +3659,8 @@ var moves = {
         power: 50,
         type: "Metal",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -3365,6 +3669,8 @@ var moves = {
         power: 20,
         type: "Metal",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         hits: 2
     },
@@ -3374,6 +3680,8 @@ var moves = {
         power: 45,
         type: "Metal",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -3382,6 +3690,8 @@ var moves = {
         power: 35,
         type: "Metal",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -3390,6 +3700,8 @@ var moves = {
         power: 35,
         type: "Metal",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         hits: 2
     },
@@ -3399,6 +3711,8 @@ var moves = {
         power: 150,
         type: "Metal",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -3407,6 +3721,8 @@ var moves = {
         power: 90,
         type: "Ice",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -3414,7 +3730,9 @@ var moves = {
         name: "Precision Bolt",
         power: 60,
         type: "Electric",
-        mr: "Ranged"
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
     },
 
     ragingFlame: {
@@ -3422,6 +3740,8 @@ var moves = {
         power: 50,
         type: "Fire",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -3429,14 +3749,18 @@ var moves = {
         name: "Metal Blast",
         power: 85,
         type: "Metal",
-        mr: "Ranged"
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
     },
 
     reflectionBurst: {
         name: "Reflection Burst",
         power: 60,
         type: "Metal",
-        mr: "Ranged"
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
     },
 
     batteringRam: {
@@ -3444,6 +3768,8 @@ var moves = {
         power: 90,
         type: "Bug",
         mr: "Melee",
+        mr1: "Melee Defense",
+        mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true
     },
@@ -3453,6 +3779,8 @@ var moves = {
         power: 70,
         type: "Toxic",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         aoe: true,
         secondaryEffect: true
     },
@@ -3462,6 +3790,8 @@ var moves = {
         power: 25,
         type: "Toxic",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         hits: 3
     },
 
@@ -3470,6 +3800,8 @@ var moves = {
         power: 60,
         type: "Earth",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true
     },
@@ -3479,6 +3811,8 @@ var moves = {
         power: 40,
         type: "Typeless",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -3487,6 +3821,8 @@ var moves = {
         power: 70,
         type: "Light",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         aoe: true
     },
 
@@ -3495,6 +3831,8 @@ var moves = {
         power: 60,
         type: "Typeless",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -3503,6 +3841,8 @@ var moves = {
         power: 90,
         type: "Metal",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true
     },
@@ -3512,6 +3852,8 @@ var moves = {
         power: 70,
         type: "Ice",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         punch: true,
         secondaryEffect: true
@@ -3522,6 +3864,8 @@ var moves = {
         power: 70,
         type: "Electric",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         punch: true,
         secondaryEffect: true
@@ -3532,6 +3876,8 @@ var moves = {
         power: 80,
         type: "Brawler",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         punch: true,
         secondaryEffect: true
@@ -3542,9 +3888,11 @@ var moves = {
         power: 90,
         type: "Mind",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         aoe: true,
-        punch: true,
+        slap: true,
         secondaryEffect: true
     },
 
@@ -3553,6 +3901,8 @@ var moves = {
         power: 60,
         type: "Brawler",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true
     },
@@ -3562,6 +3912,8 @@ var moves = {
         power: 65,
         type: "Fire",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -3570,6 +3922,8 @@ var moves = {
         power: 85,
         type: "Bug",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         bite: true
     },
@@ -3579,6 +3933,8 @@ var moves = {
         power: 90,
         type: "Water",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         aoe: true
     },
 
@@ -3587,6 +3943,8 @@ var moves = {
         power: 85,
         type: "Dark",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         drain: true
     },
 
@@ -3595,6 +3953,8 @@ var moves = {
         power: 40,
         type: "Ancient",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -3603,6 +3963,8 @@ var moves = {
         power: 75,
         type: "Water",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true
     },
 
@@ -3611,6 +3973,8 @@ var moves = {
         power: 45,
         type: "Ancient",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true
     },
@@ -3619,7 +3983,9 @@ var moves = {
         name: "Shrewd Blast",
         power: 70,
         type: "Ancient",
-        mr: "Ranged"
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
     },
 
     aquaJaws: {
@@ -3627,6 +3993,8 @@ var moves = {
         power: 65,
         type: "Water",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true,
         bite: true
@@ -3637,6 +4005,8 @@ var moves = {
         power: 80,
         type: "Electric",
         mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         secondaryEffect: true
     },
 
@@ -3645,6 +4015,8 @@ var moves = {
         power: 100,
         type: "Dark",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -3653,24 +4025,41 @@ var moves = {
         power: 75,
         type: "Water",
         mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         aoe: true,
         secondaryEffect: true
     },
 
     psychalSlap: {
         name: "Psychal Slap",
-         power: 85,
-         type: "Mind",
-         mr: "Melee"
+        power: 85,
+        type: "Mind",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Ranged Defense",
+        slap: true
     },
 
     viciousSnap: {
         name: "Vicious Snap",
-         power: 75,
-         type: "Water",
-         mr: "Melee",
-         contact: true,
-         bite: true
+        power: 75,
+        type: "Water",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        bite: true
+    },
+
+    iceHammer: {
+        name: "Ice Hammer",
+        power: 95,
+        type: "Ice",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
     },
 
 
@@ -4153,6 +4542,14 @@ var moves = {
         type: "Brawler",
         mr: "Support"
     },
+
+    talentTrade: {
+        name: "Talent Trade",
+        power: 0,
+        type: "Dark",
+        mr: "Support"
+    },
+
 };
 
 
@@ -4347,4 +4744,4 @@ for (let ty in types) {
 
 var sets = [];
 
-var changelog = "Route 8 UMV \n •Added in the new loomians, moves, and abilities. For halved icicle trap, it only works on fire types currently.";
+var changelog = "Sets \n •Added support for double the amount of saved sets. \n •All your past set data is unfortunately invalid as of now.";
