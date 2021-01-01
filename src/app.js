@@ -1262,125 +1262,228 @@ function detailedReport() {
         tempDef = (atkDef.defense.stage > 0 ? "+" : "") + atkDef.defense.stage + " ";
     }
 
-    if (move.mr == "Ranged") {
+    //tempAtk
+    if (move.mr1 == "Ranged Attack") {
         if (atkDef.attack.posNat == "smart" || atkDef.attack.negNat == "smart") {
             atkPlus = "+";
         }
-        if (atkDef.attack.veryNat == "vSmart") {
+        else if (atkDef.attack.veryNat == "vSmart") {
             atkPlus = "++";
         }
-        if (atkDef.defense.posNat == "clever" || atkDef.defense.negNat == "clever") {
-            defPlus = "+";
-        }
-        if (atkDef.defense.veryNat == "vClever") {
-            defPlus = "++";
-        }
-
         //Negatives
-
         if (atkDef.attack.posNat == "clumsy" || atkDef.attack.negNat == "clumsy") {
             atkPlus = "-";
         }
-        if (atkDef.attack.veryNat == "vClumsy") {
+        else if (atkDef.attack.veryNat == "vClumsy") {
             atkPlus = "--";
         }
-        if (atkDef.defense.posNat == "foolish" || atkDef.defense.negNat == "foolish") {
-            defPlus = "-";
-        }
-        if (atkDef.defense.veryNat == "vFoolish") {
-            defPlus = "--";
-        }
-
+        //Used Stat
         if (second) {
             tempAtk = tempAtk + atkREV2.value + " " + atkPlus + "AtkR";
-            tempDef = tempDef + defREV1.value + " " + defPlus + "DefR";
         }
         else {
             tempAtk = tempAtk + atkREV1.value + " " + atkPlus + "AtkR";
-            tempDef = tempDef + defREV2.value + " " + defPlus + "DefR";
         }
     }
-    if (move.mr == "Melee") {
+    else if (move.mr1 == "Melee Attack") {
         if (atkDef.attack.posNat == "brawny" || atkDef.attack.negNat == "brawny") {
             atkPlus = "+";
         }
-        if (atkDef.attack.veryNat == "vBrawny") {
+        else if (atkDef.attack.veryNat == "vBrawny") {
             atkPlus = "++";
         }
-        if (move.name == "Battering Ram" && (atkDef.attack.posNat == "robust" || atkDef.attack.negNat == "robust")) {
-            atkPlus = "+";
-        }
-        if (move.name == "Battering Ram" && atkDef.attack.veryNat == "vRobust") {
-            atkPlus = "++";
-        }
-        if (atkDef.defense.posNat == "robust" || atkDef.defense.negNat == "robust") {
-            defPlus = "+";
-        }
-        if (atkDef.defense.veryNat == "vRobust") {
-            defPlus = "++";
-        }
-        if (move.name == "Psychal Slap" && (atkDef.defense.posNat == "clever" || atkDef.defense.negNat == "clever")) {
-            defPlus = "+";
-        }
-        if (move.name == "Psychal Slap" && atkDef.defense.veryNat == "vClever") {
-            defPlus = "++";
-        }
-
         //Negatives
-
         if (atkDef.attack.posNat == "frail" || atkDef.attack.negNat == "frail") {
             atkPlus = "-";
         }
-        if (atkDef.attack.veryNat == "vFrail") {
+        else if (atkDef.attack.veryNat == "vFrail") {
             atkPlus = "--";
         }
-        if (move.name == "Battering Ram" && (atkDef.attack.posNat == "tender" || atkDef.attack.negNat == "tender")) {
+        //Used Stat
+        if (second) {
+            tempAtk = tempAtk + atkEV2.value + " " + atkPlus + "AtkM";           
+        }
+        else {
+            tempAtk = tempAtk + atkEV1.value + " " + atkPlus + "AtkM";
+        }    
+    }
+    else if (move.mr1 == "Ranged Defense") {
+        if (atkDef.attack.posNat == "clever" || atkDef.attack.negNat == "clever") {
+            atkPlus = "+";
+        }
+        else if (atkDef.attack.veryNat == "vClever") {
+            atkPlus = "++";
+        }
+        //Negatives
+        if (atkDef.attack.posNat == "clumsy" || atkDef.attack.negNat == "clumsy") {
             atkPlus = "-";
         }
-        if (move.name == "Battering Ram" && (atkDef.attack.veryNat == "vTender")) {
+        else if (atkDef.attack.veryNat == "vClumsy") {
             atkPlus = "--";
         }
+        //Used Stat
+        if (second) {
+            tempAtk = tempAtk + defREV2.value + " " + atkPlus + "DefR";           
+        }
+        else {
+            tempAtk = tempAtk + defREV1.value + " " + atkPlus + "DefR";
+        } 
+    }
+    else if (move.mr1 == "Melee Defense") {
+        if (atkDef.attack.posNat == "robust" || atkDef.attack.negNat == "robust") {
+            atkPlus = "+";
+        }
+        else if (atkDef.attack.veryNat == "vRobust") {
+            atkPlus = "++";
+        }
+        //Negatives
+        if (atkDef.attack.posNat == "tender" || atkDef.attack.negNat == "tender") {
+            atkPlus = "-";
+        }
+        else if (atkDef.attack.veryNat == "vTender") {
+            atkPlus = "--";
+        }
+        //Used Stat
+        if (second) {
+            tempAtk = tempAtk + defEV2.value + " " + atkPlus + "DefM";           
+        }
+        else {
+            tempAtk = tempAtk + defEV1.value + " " + atkPlus + "DefM";
+        } 
+    }
+    else if (move.mr1 == "Speed") {
+        if (atkDef.attack.posNat == "nimble" || atkDef.attack.negNat == "nimble") {
+            atkPlus = "+";
+        }
+        else if (atkDef.attack.veryNat == "vNimble") {
+            atkPlus = "++";
+        }
+        //Negatives
+        if (atkDef.attack.posNat == "sluggish" || atkDef.attack.negNat == "sluggish") {
+            atkPlus = "-";
+        }
+        else if (atkDef.attack.veryNat == "vSluggish") {
+            atkPlus = "--";
+        }
+        //Used Stat
+        if (second) {
+            tempAtk = tempAtk + spdEV2.value + " " + atkPlus + "Spd";           
+        }
+        else {
+            tempAtk = tempAtk + spdEV1.value + " " + atkPlus + "Spd";
+        } 
+    }
+
+    //tempDef
+    if (move.mr2 == "Ranged Attack") {
+        if (atkDef.defense.posNat == "smart" || atkDef.defense.negNat == "smart") {
+            defPlus = "+";
+        }
+        else if (atkDef.defense.veryNat == "vSmart") {
+            defPlus = "++";
+        }
+        //Negatives
+        if (atkDef.defense.posNat == "clumsy" || atkDef.defense.negNat == "clumsy") {
+            defPlus = "-";
+        }
+        else if (atkDef.defense.veryNat == "vClumsy") {
+            defPlus = "--";
+        }
+        //Used Stat
+        if (second) {
+            tempDef = tempDef + atkREV1.value + " " + defPlus + "AtkR";
+        }
+        else {
+            tempDef = tempDef + atkREV2.value + " " + defPlus + "AtkR";           
+        } 
+    }
+    else if (move.mr2 == "Melee Attack") {
+        if (atkDef.defense.posNat == "brawny" || atkDef.defense.negNat == "brawny") {
+            defPlus = "+";
+        }
+        else if (atkDef.defense.veryNat == "vBrawny") {
+            defPlus = "++";
+        }
+        //Negatives
+        if (atkDef.defense.posNat == "frail" || atkDef.defense.negNat == "frail") {
+            defPlus = "-";
+        }
+        else if (atkDef.defense.veryNat == "vFrail") {
+            defPlus = "--";
+        }
+        //Used Stat
+        if (second) {
+            tempDef = tempDef + atkEV1.value + " " + defPlus + "AtkM";
+        }
+        else {
+            tempDef = tempDef + atkEV2.value + " " + defPlus + "AtkM";           
+        } 
+    }
+    else if (move.mr2 == "Ranged Defense") {
+        if (atkDef.defense.posNat == "clever" || atkDef.defense.negNat == "clever") {
+            defPlus = "+";
+        }
+        else if (atkDef.defense.veryNat == "vClever") {
+            defPlus = "++";
+        }
+        //Negatives
+        if (atkDef.defense.posNat == "foolish" || atkDef.defense.negNat == "foolish") {
+            defPlus = "-";
+        }
+        else if (atkDef.defense.veryNat == "vFoolish") {
+            defPlus = "--";
+        }
+        //Used Stat
+        if (second) {
+            tempDef = tempDef + defREV1.value + " " + defPlus + "DefR";
+        }
+        else {
+            tempDef = tempDef + defREV2.value + " " + defPlus + "DefR";           
+        } 
+    }
+    else if (move.mr2 == "Melee Defense") {
+        if (atkDef.defense.posNat == "robust" || atkDef.defense.negNat == "robust") {
+            defPlus = "+";
+        }
+        else if (atkDef.defense.veryNat == "vRobust") {
+            defPlus = "++";
+        }
+        //Negatives
         if (atkDef.defense.posNat == "tender" || atkDef.defense.negNat == "tender") {
             defPlus = "-";
         }
-        if (atkDef.defense.veryNat == "vTender") {
+        else if (atkDef.defense.veryNat == "vTender") {
             defPlus = "--";
         }
-        if (move.name == "Psychal Slap" && (atkDef.defense.posNat == "foolish" || atkDef.defense.negNat == "foolish")) {
-            defPlus = "-";
-        }
-        if (move.name == "Psychal Slap" && (atkDef.defense.veryNat == "vFoolish")) {
-            defPlus = "--";
-        }
-
+        //Used Stat
         if (second) {
-            if (move.name == "Battering Ram") {
-                tempAtk = tempAtk + defEV2.value + " " + atkPlus + "DefM";
-            }
-            else {
-                tempAtk = tempAtk + atkEV2.value + " " + atkPlus + "AtkM";
-            }
-            if (move.name == "Psychal Slap") {
-                tempDef = tempDef + defREV1.value + " " + defPlus + "DefR";
-            }
-            else {
-                tempDef = tempDef + defEV1.value + " " + defPlus + "DefM";
-            }
+            tempDef = tempDef + defEV1.value + " " + defPlus + "DefM";
         }
         else {
-            if (move.name == "Battering Ram") {
-                tempAtk = tempAtk + defEV1.value + " " + atkPlus + "DefM";
-            }
-            else {
-                tempAtk = tempAtk + atkEV1.value + " " + atkPlus + "AtkM";
-            }
-            if (move.name == "Psychal Slap") {
-                tempDef = tempDef + defREV2.value + " " + defPlus + "DefR";
-            }
-            else {
-                tempDef = tempDef + defEV2.value + " " + defPlus + "DefM";
-            }
+            tempDef = tempDef + defEV2.value + " " + defPlus + "DefM";           
+        } 
+    }
+    else if (move.mr2 == "Speed") {
+        if (atkDef.defense.posNat == "nimble" || atkDef.defense.negNat == "nimble") {
+            defPlus = "+";
         }
+        else if (atkDef.defense.veryNat == "vNimble") {
+            defPlus = "++";
+        }
+        //Negatives
+        if (atkDef.defense.posNat == "sluggish" || atkDef.defense.negNat == "sluggish") {
+            defPlus = "-";
+        }
+        else if (atkDef.defense.veryNat == "vSluggish") {
+            defPlus = "--";
+        }
+        //Used Stat
+        if (second) {
+            tempDef = tempDef + spdEV1.value + " " + defPlus + "Spd";
+        }
+        else {
+            tempDef = tempDef + spdEV2.value + " " + defPlus + "Spd";           
+        } 
     }
 
     if (move.power == 0) {
@@ -1558,6 +1661,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     let tempPower = movePower;
     let tempAtk;
     let tempDef;
+    let tempStats;
     let gen1 = gender1.value;
     let gen2 = gender2.value;
     let spdA = (second == false ? spd1 : spd2);
@@ -1572,6 +1676,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     let stat2 = (second == false ? status2.value : status1.value);
     let itemA = (second == false ? item1.value : item2.value);
     let itemB = (second == false ? item2.value : item1.value);
+    let tempItem;
     let isDouble = (singleDouble.value == "singles" ? false : true);
     let dusk = (second == false ? dusk1.checked : dusk2.checked);
     let dawn = (second == false ? dawn1.checked : dawn2.checked);
@@ -1580,21 +1685,22 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
 
     let immuneBoostCheck = (second == false ? immuneAbilityBoost1.checked : immuneAbilityBoost2.checked);
 
-    tempAtk = getTempAtkDef(second, move).attack;
-    tempDef = getTempAtkDef(second, move).defense;
+    tempStats = getTempAtkDef(second, move);
+    tempAtk = tempStats.attack;
+    tempDef = tempStats.defense;
 
     tempPower = (move.name == "Trip Root" ? getTripRootPower(loom2.weight) : tempPower);
 
-    if(ability1 == "Devious") {
+    if (ability1 == "Devious") {
         ability2 = "None";
         stuffUsed.ability1 = ability1;
     }
 
-    if(ability1 == "Sly") {
+    if (ability1 == "Sly") {
         itemB = "None";
         stuffUsed.ability1 = ability1;
     }
-    if(ability2 == "Sly") {
+    if (ability2 == "Sly") {
         itemA = "None";
         stuffUsed.ability2 = ability2;
     }
@@ -1633,6 +1739,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
     else if (ability1 == "Illuminate" && tempType == "Typeless") {
         tempType = "Light";
+        multi *= 1.2;
+        stuffUsed.ability1 = ability1;
+    }
+    else if (ability1 == "Chill" && tempType == "Typeless") {
+        tempType = "Ice";
         multi *= 1.2;
         stuffUsed.ability1 = ability1;
     }
@@ -1683,7 +1794,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
-    else if(ability2 == "Overcharged" && move.type == "Electric") {
+    if(ability2 == "Overcharged" && move.type == "Electric") {
         multi *= 1.3;
         stuffUsed.ability2 = ability2;
     }
@@ -1719,6 +1830,13 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         multi *= 1.5;
         stuffUsed.item2 = itemB;
     }
+    else if (ability1 == "Sly" && move.knockOff == true) {
+        tempItem = (second == false ? item2.value : item1.value);
+        if (tempItem != "None" && withoutSlapDown) {
+            multi *= 1.5;
+            stuffUsed.item2 = tempItem;
+        }
+    }
 
     if (move.name == "Oppress" && stat2 != "healthy") {
         multi *= 2;
@@ -1747,8 +1865,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     if (ability1 == "Specialization") {
         let count = specializationCount(second);
         if (count == 1) multi *= 1.25;
-        if (count == 2) multi *= 1.5;
-        if (count == 3) multi *= 2;
+        else if (count == 2) multi *= 1.5;
+        else if (count == 3) multi *= 2;
         if (count != 0) stuffUsed.ability1 = ability1 + " (" + Math.abs(count - 4) + ")";
     }
 
@@ -1761,7 +1879,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         stuffUsed.ability1 = ability1;
     }
 
-    if (ability1 == "Watcher" && spdA < spdB) {
+    if (ability1 == "Watcher" && (spdA < spdB || btl1 && withoutSlapDown)) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
@@ -1774,19 +1892,25 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     if (crit && tempAtk.stage < 0) {
         tempAtk.atk = calculateStat(tempAtk.base, tempAtk.iv.value, tempAtk.ev.value, tempAtk.level, undefined, tempAtk.posNat, tempAtk.negNat, tempAtk.veryNat, tempAtk.name);
     }
-    if (ability1 == "Hasty" && move.mr == "Melee") {
+
+    if (ability2 == "Ignorant") {
+        tempAtk.atk = calculateStat(tempAtk.base, tempAtk.iv.value, tempAtk.ev.value, tempAtk.level, undefined, tempAtk.posNat, tempAtk.negNat, tempAtk.veryNat, tempAtk.name);
+        stuffUsed.ability2 = ability2;
+    }
+
+    if (ability1 == "Hasty" && move.mr1 == "Melee Attack") {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
-    if (dusk && isDouble && move.mr == "Melee" && ability1 == "Dusk") {
+    if (dusk && isDouble && move.mr1 == "Melee Attack" && ability1 == "Dusk") {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
-    if (dawn && isDouble && move.mr == "Ranged" && ability1 == "Dawn") {
+    if (dawn && isDouble && move.mr1 == "Ranged Attack" && ability1 == "Dawn") {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
-    if (itemA == "Mystic Wand" && loom1.name == "Shawchi") {
+    if (itemA == "Mystic Wand" && loom1.name == "Shawchi" && move.mr1 == "Ranged Attack") {
         multi *= 1.5;
         stuffUsed.item1 = itemA;
     }
@@ -1799,11 +1923,15 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     if (crit && tempDef.stage > 0) {
         tempDef.def = calculateStat(tempDef.base, tempDef.iv.value, tempDef.ev.value, tempDef.level, undefined, tempDef.posNat, tempDef.negNat, tempDef.veryNat, tempDef.name, tempDef.rest);
     }
-    if (itemB == "Heavy Shield" && move.mr == "Ranged") {
+    if (ability1 == "Ignorant") {
+        tempDef.def = calculateStat(tempDef.base, tempDef.iv.value, tempDef.ev.value, tempDef.level, undefined, tempDef.posNat, tempDef.negNat, tempDef.veryNat, tempDef.name, tempDef.rest);
+        stuffUsed.ability1 = ability1;
+    }    
+    if (itemB == "Heavy Shield" && move.mr2 == "Ranged Defense") {
         multi *= 1.2;
         stuffUsed.item2 = itemB;
     }
-    if (itemB == "Heavy Armor" && move.mr == "Melee" && move.name != "Psychal Slap") {
+    if (itemB == "Heavy Armor" && move.mr2 == "Melee Defense") {
         multi *= 1.2;
         stuffUsed.item2 = itemB;
     }
@@ -1811,11 +1939,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         multi *= 1.5;
         stuffUsed.item2 = itemB;
     }
-    if (ability2 == "Trash Armor" && move.mr == "Melee" && move.name != "Psychal Slap") {
+    if (ability2 == "Trash Armor" && move.mr2 == "Melee Defense") {
         multi *= 1.5;
         stuffUsed.ability2 = ability2;
     }
-    if (ability2 == "Slick Shell" && move.mr == "Ranged") {
+    if (ability2 == "Slick Shell" && move.mr2 == "Ranged Defense") {
         multi *= 2;
         stuffUsed.ability2 = ability2;
     }
@@ -1985,42 +2113,83 @@ function getTempAtkDef(second, mr) {
     let tempAtk;
     let tempDef;
 
-
-    if (second && mr.mr == "Ranged") {
-        tempAtk = { atk: atkR2, iv: atkRIV2, ev: atkREV2, base: baseAtkR2.value, name: "AttackR", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(atkRStages2.value), level: level2.value };
-        tempDef = { def: defR1, iv: defRIV1, ev: defREV1, base: baseDefR1.value, name: "DefenseR", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(defRStages1.value), level: level1.value, rest: rest1 };
+    //tempAtk
+    if (mr.mr1 == "Ranged Attack") {
+        if (second) {
+            tempAtk = { atk: atkR2, iv: atkRIV2, ev: atkREV2, base: baseAtkR2.value, name: "AttackR", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(atkRStages2.value), level: level2.value };
+        } else {
+            tempAtk = { atk: atkR1, iv: atkRIV1, ev: atkREV1, base: baseAtkR1.value, name: "AttackR", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(atkRStages1.value), level: level1.value };
+        }    
     }
-    else if (second && mr.mr == "Melee") {
-        if (mr.name == "Battering Ram") {
-            tempAtk = { atk: def2, iv: defIV2, ev: defEV2, base: baseDef2.value, name: "DefenseM", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(defStages2.value), level: level2.value };
-        }
-        else {
+    else if (mr.mr1 == "Melee Attack") {
+        if (second) {
             tempAtk = { atk: atk2, iv: atkIV2, ev: atkEV2, base: baseAtk2.value, name: "AttackM", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(atkStages2.value), level: level2.value };
-        }
-        if (mr.name == "Psychal Slap") {
-            tempDef = { def: defR1, iv: defRIV1, ev: defREV1, base: baseDefR1.value, name: "DefenseR", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(defRStages1.value), level: level1.value, rest: rest1 };
-        }
-        else {
-            tempDef = { def: def1, iv: defIV1, ev: defEV1, base: baseDef1.value, name: "DefenseM", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(defStages1.value), level: level1.value, rest: rest1 };
-        }
-    }
-    else if (mr.mr == "Melee") {
-        if (mr.name == "Battering Ram") {
-            tempAtk = { atk: def1, iv: defIV1, ev: defEV1, base: baseDef1.value, name: "DefenseM", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(defStages1.value), level: level1.value };
-        }
-        else {
+        } else {
             tempAtk = { atk: atk1, iv: atkIV1, ev: atkEV1, base: baseAtk1.value, name: "AttackM", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(atkStages1.value), level: level1.value };
         }
-        if (mr.name == "Psychal Slap") {
-            tempDef = { def: defR2, iv: defRIV2, ev: defREV2, base: baseDefR2.value, name: "DefenseR", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(defRStages2.value), level: level2.value, rest: rest2 };
+    }
+    else if (mr.mr1 == "Ranged Defense") {
+        if (second) {
+            tempAtk = { atk: defR2, iv: defRIV2, ev: defREV2, base: baseDefR2.value, name: "DefenseR", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(defRStages2.value), level: level2.value };
+        } else {
+            tempAtk = { atk: defR1, iv: defRIV1, ev: defREV1, base: baseDefR1.value, name: "DefenseR", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(defRStages1.value), level: level1.value };
         }
-        else {
-            tempDef = { def: def2, iv: defIV2, ev: defEV2, base: baseDef2.value, name: "DefenseM", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(defStages2.value), level: level2.value, rest: rest2 };
+    }
+    else if (mr.mr1 == "Melee Defense") {
+        if (second) {
+            tempAtk = { atk: def2, iv: defIV2, ev: defEV2, base: baseDef2.value, name: "DefenseM", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(defStages2.value), level: level2.value };
+        } else {
+            tempAtk = { atk: def1, iv: defIV1, ev: defEV1, base: baseDef1.value, name: "DefenseM", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(defStages1.value), level: level1.value };
+        }
+    }
+    else if (mr.mr1 == "Speed") {
+        if (second) {
+            tempAtk = { atk: spd2, iv: spdIV2, ev: spdEV2, base: baseSpd2.value, name: "Speed", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(spdStages2.value), level: level2.value };
+        } else {
+            tempAtk = { atk: spd1, iv: spdIV1, ev: spdEV1, base: baseSpd1.value, name: "Speed", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(spdStages1.value), level: level1.value };
         }
     }
     else {
-        tempAtk = { atk: atkR1, iv: atkRIV1, ev: atkREV1, base: baseAtkR1.value, name: "AttackR", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(atkRStages1.value), level: level1.value };
-        tempDef = { def: defR2, iv: defRIV2, ev: defREV2, base: baseDefR2.value, name: "DefenseR", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(defRStages2.value), level: level2.value, rest: rest2 };
+        tempAtk = { atk: spd2, iv: spdIV2, ev: spdEV2, base: baseSpd2.value, name: "Speed", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(spdStages2.value), level: level2.value };
+    }
+    //tempDef
+    if (mr.mr2 == "Ranged Attack") {
+        if (second) {
+            tempDef = { def: atkR1, iv: atkRIV1, ev: atkREV1, base: baseAtkR1.value, name: "AttackR", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(atkRStages1.value), level: level1.value, rest: rest1 };
+        } else {
+            tempDef = { def: atkR2, iv: atkRIV2, ev: atkREV2, base: baseAtkR2.value, name: "AttackR", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(atkRStages2.value), level: level2.value, rest: rest2 };
+        }
+    }
+    else if (mr.mr2 == "Melee Attack") {
+        if (second) {
+            tempDef = { def: atk1, iv: atkIV1, ev: atkEV1, base: baseAtk1.value, name: "AttackM", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(atkStages1.value), level: level1.value, rest: rest1 };
+        } else {
+            tempDef = { def: atk2, iv: atkIV2, ev: atkEV2, base: baseAtk2.value, name: "AttackM", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(atkStages2.value), level: level2.value, rest: rest2 };
+        }
+    }
+    else if (mr.mr2 == "Ranged Defense") {
+        if (second) {
+            tempDef = { def: defR1, iv: defRIV1, ev: defREV1, base: baseDefR1.value, name: "DefenseR", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(defRStages1.value), level: level1.value, rest: rest1 };
+        } else {
+            tempDef = { def: defR2, iv: defRIV2, ev: defREV2, base: baseDefR2.value, name: "DefenseR", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(defRStages2.value), level: level2.value, rest: rest2 };
+        }
+    }
+    else if (mr.mr2 == "Melee Defense") {
+        if (second) {
+            tempDef = { def: def1, iv: defIV1, ev: defEV1, base: baseDef1.value, name: "DefenseM", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(defStages1.value), level: level1.value, rest: rest1 };
+        } else {
+            tempDef = { def: def2, iv: defIV2, ev: defEV2, base: baseDef2.value, name: "DefenseM", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(defStages2.value), level: level2.value, rest: rest2 };
+        }
+    }
+    else if (mr.mr2 == "Speed") {
+        if (second) {
+            tempDef = { def: spd1, iv: spdIV1, ev: spdEV1, base: baseSpd1.value, name: "Speed", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(spdStages1.value), level: level1.value, rest: rest1 };
+        } else {
+            tempDef = { def: spd2, iv: spdIV2, ev: spdEV2, base: baseSpd2.value, name: "Speed", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(spdStages2.value), level: level2.value, rest: rest2 };
+        }
+    }
+    else {
+        tempDef = { def: spd2, iv: spdIV2, ev: spdEV2, base: baseSpd2.value, name: "Speed", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(spdStages2.value), level: level2.value, rest: rest2 };
     }
 
     return { attack: tempAtk, defense: tempDef };
