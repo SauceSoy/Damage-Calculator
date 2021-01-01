@@ -2166,25 +2166,6 @@ var loomians = {
         }
     },
 
-    splitwatertwo: {
-        name: "SplitWaterTwo",
-        number: 110,
-        types: ["Water"],
-        abilities: ["Apprehension"],
-        sAbility: ["Replicate"],
-        weight: 135,
-        height: 103,
-        baseStats: {
-            hp: 96,
-            energy: 83 ,
-            attack: 57,
-            defense: 102,
-            attackR: 89,
-            defenseR: 93,
-            speed: 37
-        }
-    },
-
     swimp: {
         name: "Swimp",
         number: 111,
