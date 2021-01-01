@@ -1236,7 +1236,7 @@ var loomians = {
         name: "CraytalC",
         number: 63,
         types: ["Ice", "Plant"],
-        abilities: ["Parting Gift", "Clingy"],
+        abilities: ["Parting Gift", "Chilled"],
         sAbility: ["Regift"],
         weight: 11,
         height: 32,
@@ -2166,6 +2166,25 @@ var loomians = {
         }
     },
 
+    splitwatertwo: {
+        name: "SplitWaterTwo",
+        number: 110,
+        types: ["Water"],
+        abilities: ["Apprehension"],
+        sAbility: ["Replicate"],
+        weight: 135,
+        height: 103,
+        baseStats: {
+            hp: 96,
+            energy: 83 ,
+            attack: 57,
+            defense: 102,
+            attackR: 89,
+            defenseR: 93,
+            speed: 37
+        }
+    },
+
     swimp: {
         name: "Swimp",
         number: 111,
@@ -2248,7 +2267,7 @@ var loomians = {
         name: "Festifir",
         number: 151,
         types: ["Ice", "Plant"],
-        abilities: ["Parting Gift", "Clingy"],
+        abilities: ["Parting Gift", "Chilled"],
         sAbility: ["Regift"],
         weight: 68,
         height: 81,
@@ -4660,7 +4679,7 @@ var types = {
 var abilities = ["Awakening", "Ambush", "Coursing Venom", "Drainage", "Hasty", "Lightning Rod", "Mean Spirited", "Neutralize", "Overshadow", "Illuminate", "Prismatic", 
                 "Territorial", "Woodsman", "Dusk", "Dawn", "Pyro", "Volcanic", "Combustible", "Noxious Weeds", "Sharp Claws", "Brute Force", "Raging Fire", "Vengeance",
                 "Total Eclipse", "Tone Deaf", "Circadian", "Baneful", "Rechargeable", "Toxic Filter", "Trash Armor", "Tank", "Power Jaw", "Specialization", "Slick Shell",
-                "Heavy Fists", "Enchanted Coat", "Bloodsucker", "Overcharged", "Watcher", "Sly", "Devious", "Nightmarish"];
+                "Heavy Fists", "Enchanted Coat", "Bloodsucker", "Nightmarish", "Overcharged", "Watcher", "Sly", "Devious", "Ignorant", "Chill"];
 
 var typeModAbilities = {
     coursingVenom: {
