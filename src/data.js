@@ -431,6 +431,26 @@ var loomians = {
             speed: 40
         }
     },
+
+    twilatr: {
+        name: "TwilatR",
+        number: 22,
+        types: ["Typeless"],
+        abilities: ["Territorial", "Confidence"],
+        sAbility: ["Neutralize"],
+        finalEvo: false,
+        weight: 10,
+        height: 14,
+        baseStats: {
+            hp: 85,
+            energy: 80,
+            attack: 51,
+            defense: 84,
+            attackR: 116,
+            defenseR: 83,
+            speed: 96
+        }
+    },
  
     umbrat: {
         name: "Umbrat",
@@ -1236,8 +1256,9 @@ var loomians = {
         name: "CraytalC",
         number: 63,
         types: ["Ice", "Plant"],
-        abilities: ["Parting Gift", "Chilled"],
+        abilities: ["Parting Gift", "Chill"],
         sAbility: ["Regift"],
+        finalEvo: false,
         weight: 11,
         height: 32,
         baseStats: {
@@ -2104,7 +2125,7 @@ var loomians = {
             defense: 61,
             attackR: 60,
             defenseR: 64,
-            speed: 84
+            speed: 81
         }
     },
 
@@ -2225,6 +2246,124 @@ var loomians = {
         }
     },
 
+    hydrini: {
+        name: "Hydrini",
+        number: 114,
+        types: ["Bug", "Water"],
+        abilities: ["Shakedown", "Vivid Sight"],
+        sAbility: ["Aqua Body"],
+        weight: 5,
+        height: 14,
+        finalEvo: false,
+        baseStats: {
+            hp: 40,
+            energy: 52,
+            attack: 41,
+            defense: 48,
+            attackR: 56,
+            defenseR: 56,
+            speed: 45
+        }
+    },
+
+    bezeldew: {
+        name: "Bezeldew",
+        number: 115,
+        types: ["Bug", "Water"],
+        abilities: ["Shakedown", "Vivid Sight"],
+        sAbility: ["Aqua Body"],
+        weight: 26,
+        height: 28,
+        finalEvo: false,
+        baseStats: {
+            hp: 60,
+            energy: 65,
+            attack: 54,
+            defense: 78,
+            attackR: 80,
+            defenseR: 88,
+            speed: 52
+        }
+    },
+
+    deludrix: {
+        name: "Deludrix",
+        number: 116,
+        types: ["Bug", "Water"],
+        abilities: ["Shakedown", "Vivid Sight"],
+        sAbility: ["Aqua Body"],
+        weight: 57,
+        height: 55,
+        baseStats: {
+            hp: 60,
+            energy: 80,
+            attack: 109,
+            defense: 53,
+            attackR: 122,
+            defenseR: 62,
+            speed: 94
+        }
+    },
+
+    ceratot: {
+        name: "Ceratot",
+        number: 117,
+        types: ["Ancient", "Plant"],
+        abilities: ["Staunch", "Frail Armor"],
+        sAbility: ["Vigorous"],
+        finalEvo: false,
+        weight: 29,
+        height: 17,
+        baseStats: {
+            hp: 59,
+            energy: 69,
+            attack: 56,
+            defense: 64,
+            attackR: 26,
+            defenseR: 42,
+            speed: 44
+        }
+    },
+
+    trepodon: {
+        name: "Trepodon",
+        number: 118,
+        types: ["Ancient", "Plant"],
+        abilities: ["Staunch", "Frail Armor"],
+        sAbility: ["Vigorous"],
+        weight: 147,
+        height: 38,
+        finalEvo: false,
+        baseStats: {
+            hp: 74,
+            energy: 80,
+            attack: 84,
+            defense: 86,
+            attackR: 32,
+            defenseR: 56,
+            speed: 48
+        }
+    },
+
+    colossotrops: {
+        name: "Colossotrops",
+        number: 119,
+        types: ["Ancient", "Plant"],
+        abilities: ["Staunch", "Frail Armor"],
+        sAbility: ["Vigorous"],
+        weight: 348,
+        height: 68,
+        baseStats: {
+            hp: 103,
+            energy: 96,
+            attack: 124,
+            defense: 111,
+            attackR: 55,
+            defenseR: 67,
+            speed: 54
+        }
+    },
+
     wakalaka: {
         name: "WakaLaka",
         number: 150,
@@ -2248,7 +2387,7 @@ var loomians = {
         name: "Festifir",
         number: 151,
         types: ["Ice", "Plant"],
-        abilities: ["Parting Gift", "Chilled"],
+        abilities: ["Parting Gift", "Chill"],
         sAbility: ["Regift"],
         weight: 68,
         height: 81,
@@ -2348,12 +2487,12 @@ var loomians = {
         weight: 31,
         height: 38,
         baseStats: {
-            hp: 72,
+            hp: 80,
             energy: 95,
             attack: 49,
-            defense: 85,
-            attackR: 114,
-            defenseR: 90,
+            defense: 95,
+            attackR: 127,
+            defenseR: 99,
             speed: 105
         }
     },
@@ -2389,10 +2528,10 @@ var loomians = {
             hp: 101,
             energy: 93,
             attack: 99,
-            defense: 53,
-            attackR: 106,
+            defense: 83,
+            attackR: 112,
             defenseR: 93,
-            speed: 65
+            speed: 69
         }
     },
 
@@ -2462,7 +2601,7 @@ var moves = {
 
     chomp: {
         name: "Chomp",
-        power: 40,
+        power: 45,
         type: "Dark",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -2630,7 +2769,7 @@ var moves = {
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        drain: true
+        drain: 3/4
     },
 
     mysticBreeze: {
@@ -2847,7 +2986,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         aoe: true,
-        contact: true
+        contact: true,
+        recoil: 3/20
     },
 
     quicksand: {
@@ -3002,7 +3142,7 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        drain: true
+        drain: 1/2
     },
 
     headbutt: {
@@ -3053,7 +3193,7 @@ var moves = {
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        drain: true
+        drain: 1/2
     },
 
     snowdozer: {
@@ -3155,7 +3295,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true
+        contact: true,
+        recoil: 1/4
     },
 
     flamingKick: {
@@ -3196,7 +3337,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true
+        contact: true,
+        recoil: 1/3
     },
 
     megaChomp: {
@@ -3330,7 +3472,8 @@ var moves = {
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        sound: true
+        sound: true,
+        recoil: 1/3
     },
 
     thunderChomp: {
@@ -3479,13 +3622,14 @@ var moves = {
 
     coconutBomb: {
         name: "Coconut Bomb",
-        power: 80,
+        power: 90,
         type: "Plant",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         secondaryEffect: true,
-        contact: true
+        contact: true,
+        recoil: 1/4
     },
 
     lavaSlash: {
@@ -3527,7 +3671,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true
+        contact: true,
+        recoil: 1/4
     },
 
     ghostlyHowl: {
@@ -3847,7 +3992,7 @@ var moves = {
         secondaryEffect: true
     },
 
-    chillyPunch: {
+    frostPunch: {
         name: "Frost Punch",
         power: 70,
         type: "Ice",
@@ -3945,7 +4090,7 @@ var moves = {
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        drain: true
+        drain: 1/2
     },
 
     confound: {
@@ -4007,7 +4152,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        secondaryEffect: true
+        secondaryEffect: true,
+        contact: true
     },
 
     eggLob: {
@@ -4060,6 +4206,35 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true
+    },
+
+    timberThrash: {
+        name: "Timber Thrash",
+        power: 120,
+        type: "Plant",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        recoil: 1/3
+    },
+
+    douse: {
+        name: "Douse",
+        power: 90,
+        type: "Water",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+    },
+
+    rainbowBlast: {
+        name: "Rainbow Blast",
+        power: 100,
+        type: "Typeless",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
     },
 
 
@@ -4660,7 +4835,8 @@ var types = {
 var abilities = ["Awakening", "Ambush", "Coursing Venom", "Drainage", "Hasty", "Lightning Rod", "Mean Spirited", "Neutralize", "Overshadow", "Illuminate", "Prismatic", 
                 "Territorial", "Woodsman", "Dusk", "Dawn", "Pyro", "Volcanic", "Combustible", "Noxious Weeds", "Sharp Claws", "Brute Force", "Raging Fire", "Vengeance",
                 "Total Eclipse", "Tone Deaf", "Circadian", "Baneful", "Rechargeable", "Toxic Filter", "Trash Armor", "Tank", "Power Jaw", "Specialization", "Slick Shell",
-                "Heavy Fists", "Enchanted Coat", "Bloodsucker", "Nightmarish", "Overcharged", "Watcher", "Sly", "Devious", "Ignorant", "Chill"];
+                "Heavy Fists", "Enchanted Coat", "Bloodsucker", "Nightmarish", "Overcharged", "Watcher", "Sly", "Devious", "Ignorant", "Chill", "Vigorous", "Aqua Body",
+                "Idiosyncratic", "Adorable", "Terrifying", "Boast", "Staunch", "Anomaly", "Combative", "Defensive Priority", "Ungracious Host"];
 
 var typeModAbilities = {
     coursingVenom: {
