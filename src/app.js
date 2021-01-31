@@ -197,6 +197,7 @@ let percentHP2 = document.getElementById("percentHP2");
 
 let singleDouble = document.getElementById("singleDouble");
 
+let firstLoomian;
 let hp1;
 let energy1;
 let atk1;
@@ -204,7 +205,9 @@ let def1;
 let atkR1;
 let defR1;
 let spd1;
+let tempAbility1;
 
+let secondLoomian;
 let hp2;
 let energy2;
 let atk2;
@@ -212,6 +215,7 @@ let def2;
 let atkR2;
 let defR2;
 let spd2;
+let tempAbility2;
 
 let darkMode = document.getElementById("darkMode");
 $(document).ready(load);
@@ -447,14 +451,13 @@ function update(updatePower = false, updateBaseStats = false) {
     let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
     let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
 
-    let wasMaxHP1 = (currentHP1.value == hp1 ? true : false);
-    let wasMaxHP2 = (currentHP2.value == hp2 ? true : false);
-
     document.getElementById("loom1Info").innerHTML = firstLoom.name + "'s moves (select one for more info)";
     document.getElementById("loom2Info").innerHTML = secondLoom.name + "'s moves (select one for more info)";
 
     if (updateBaseStats) loadBaseStats();
     loadStats();
+    firstLoomian = firstLoom;
+    secondLoomian = secondLoom;
 
     totalHP1.innerHTML = hp1;
     totalHP2.innerHTML = hp2;
@@ -465,26 +468,27 @@ function update(updatePower = false, updateBaseStats = false) {
     (currentHP1.value > hp1 ? currentHP1.value = hp1 : null);
     (currentHP2.value > hp2 ? currentHP2.value = hp2 : null);
 
-    (wasMaxHP1 ? currentHP1.value = hp1 : null);
-    (wasMaxHP2 ? currentHP2.value = hp2 : null);
-
     loadMoves(updatePower);
     detailedReport();
 
     updatePercent();
 
-    if (abilityDropdown1.value == "Combustible" || abilityDropdown1.value == "Noxious Weeds" || abilityDropdown1.value == "Coursing Venom" || abilityDropdown1.value == "Prismatic" || abilityDropdown1.value == "Toxic Filter") {
+    if (abilityDropdown1.value == "Combustible" || abilityDropdown1.value == "Noxious Weeds" || abilityDropdown1.value == "Coursing Venom" || abilityDropdown1.value == "Prismatic" || abilityDropdown1.value == "Toxic Filter" ||
+        abilityDropdown1.value == "Adorable" || abilityDropdown1.value == "Terrifying" || abilityDropdown1.value == "Boast" || abilityDropdown1.value == "Defensive Priority") {
         immuneAbilityBoost1.style.visibility = "visible";
     }
     else {
         immuneAbilityBoost1.style.visibility = "hidden";
+        immuneAbilityBoost1.checked = false;
     }
 
-    if (abilityDropdown2.value == "Combustible" || abilityDropdown2.value == "Noxious Weeds" || abilityDropdown2.value == "Coursing Venom" || abilityDropdown2.value == "Prismatic" || abilityDropdown2.value == "Toxic Filter") {
+    if (abilityDropdown2.value == "Combustible" || abilityDropdown2.value == "Noxious Weeds" || abilityDropdown2.value == "Coursing Venom" || abilityDropdown2.value == "Prismatic" || abilityDropdown2.value == "Toxic Filter" ||
+        abilityDropdown2.value == "Adorable" || abilityDropdown2.value == "Terrifying" || abilityDropdown2.value == "Boast" || abilityDropdown2.value == "Defensive Priority") {
         immuneAbilityBoost2.style.visibility = "visible";
     }
     else {
         immuneAbilityBoost2.style.visibility = "hidden";
+        immuneAbilityBoost2.checked = false;
     }
 }
 
@@ -634,7 +638,7 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         baseDefR2.value = secondLoom.baseStats.defenseR;
         baseSpd2.value = secondLoom.baseStats.speed;
     }
-
+    
     update(undefined, false);
 }
 
@@ -768,24 +772,44 @@ function updateNumber() {
     updateHealthBar();
 }
 
-function loadBaseStats() {
+function loadBaseStats(side) {
     let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
     let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
-
-    baseHP1.value = firstLoom.baseStats.hp;
-    baseHP2.value = secondLoom.baseStats.hp;
-    baseEnergy1.value = firstLoom.baseStats.energy;
-    baseEnergy2.value = secondLoom.baseStats.energy;
-    baseAtk1.value = firstLoom.baseStats.attack;
-    baseAtk2.value = secondLoom.baseStats.attack;
-    baseDef1.value = firstLoom.baseStats.defense;
-    baseDef2.value = secondLoom.baseStats.defense;
-    baseAtkR1.value = firstLoom.baseStats.attackR;
-    baseAtkR2.value = secondLoom.baseStats.attackR;
-    baseDefR1.value = firstLoom.baseStats.defenseR;
-    baseDefR2.value = secondLoom.baseStats.defenseR;
-    baseSpd1.value = firstLoom.baseStats.speed;
-    baseSpd2.value = secondLoom.baseStats.speed;
+    let ability1 = abilities.find((x) => x == abilityDropdown1.value);
+    let ability2 = abilities.find((x) => x == abilityDropdown2.value);
+    tempAbility1 = abilities.find((x) => x == abilityDropdown1.value);
+    tempAbility2 = abilities.find((x) => x == abilityDropdown2.value);
+    
+    if (side == 1 || side == undefined) {
+        baseHP1.value = firstLoom.baseStats.hp;
+        baseEnergy1.value = firstLoom.baseStats.energy;
+        baseAtk1.value = firstLoom.baseStats.attack;
+        baseDef1.value = firstLoom.baseStats.defense;
+        baseAtkR1.value = firstLoom.baseStats.attackR;
+        baseDefR1.value = firstLoom.baseStats.defenseR;
+        baseSpd1.value = firstLoom.baseStats.speed;
+        if (ability1 == "Idiosyncratic") {
+            baseAtk1.value = firstLoom.baseStats.attackR;
+            baseDef1.value = firstLoom.baseStats.defenseR;
+            baseAtkR1.value = firstLoom.baseStats.attack;
+            baseDefR1.value = firstLoom.baseStats.defense;
+        }
+    }
+    if (side == 2 || side == undefined) {
+        baseHP2.value = secondLoom.baseStats.hp;
+        baseEnergy2.value = secondLoom.baseStats.energy;
+        baseAtk2.value = secondLoom.baseStats.attack;
+        baseDef2.value = secondLoom.baseStats.defense;
+        baseAtkR2.value = secondLoom.baseStats.attackR;
+        baseDefR2.value = secondLoom.baseStats.defenseR;
+        baseSpd2.value = secondLoom.baseStats.speed;
+        if (ability2 == "Idiosyncratic") {
+            baseAtk2.value = secondLoom.baseStats.attackR;
+            baseDef2.value = secondLoom.baseStats.defenseR;
+            baseAtkR2.value = secondLoom.baseStats.attack;
+            baseDefR2.value = secondLoom.baseStats.defense;
+        }
+    }
 }
 
 function loadMoves(updatePower = false) {
@@ -840,12 +864,16 @@ function loadMoves(updatePower = false) {
 }
 
 function loadStats() {
+    let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
+    let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
     let posNat1 = document.getElementById("posNat1").value;
     let negNat1 = document.getElementById("negNat1").value;
     let posNat2 = document.getElementById("posNat2").value;
     let negNat2 = document.getElementById("negNat2").value;
     let veryNat1 = document.getElementById("veryNat1").value;
     let veryNat2 = document.getElementById("veryNat2").value;
+    let wasMaxHP1 = (currentHP1.value == hp1 ? true : false);
+    let wasMaxHP2 = (currentHP2.value == hp2 ? true : false);
 
     hp1 = calculateStat(baseHP1.value, hpIV1.value, hpEV1.value, level1.value, true, undefined, undefined, undefined, undefined);
     energy1 = calculateStat(baseEnergy1.value, energyIV1.value, energyEV1.value, level1.value, undefined, posNat1, negNat1, veryNat1, undefined, undefined, true);
@@ -862,9 +890,25 @@ function loadStats() {
     atkR2 = calculateStat(baseAtkR2.value, atkRIV2.value, atkREV2.value, level2.value, undefined, posNat2, negNat2, veryNat2, "AttackR");
     defR2 = calculateStat(baseDefR2.value, defRIV2.value, defREV2.value, level2.value, undefined, posNat2, negNat2, veryNat2, "DefenseR");
     spd2 = calculateStat(baseSpd2.value, spdIV2.value, spdEV2.value, level2.value, undefined, posNat2, negNat2, veryNat2, "Speed");
-
-
+    
+    if (firstLoomian && firstLoomian != firstLoom) {
+        atkStages1.value = "--";
+        defStages1.value = "--";
+        atkRStages1.value = "--";
+        defRStages1.value = "--";
+        spdStages1.value = "--";
+    } 
+    if (secondLoomian && secondLoomian != secondLoom) {
+        atkStages2.value = "--";
+        defStages2.value = "--";
+        atkRStages2.value = "--";
+        defRStages2.value = "--";
+        spdStages2.value = "--";
+    }
     checkStages();
+
+    (wasMaxHP1 ? currentHP1.value = hp1 : null);
+    (wasMaxHP2 ? currentHP2.value = hp2 : null);
 
     statHP1.innerHTML = hp1;
     statEnergy1.innerHTML = energy1;
@@ -1019,9 +1063,11 @@ function calculateStat(base, IV, EV, level, isHP = false, posNat, negNat, veryNa
 }
 
 
-function checkStages() {
+function checkStages(abilityCheck = false) {
     let rest1 = document.getElementById("rest1").checked;
     let rest2 = document.getElementById("rest2").checked;
+    let ability1 = abilities.find((x) => x == abilityDropdown1.value);
+    let ability2 = abilities.find((x) => x == abilityDropdown2.value);
 
     let tempDefStage1 = (defStages1.value != "--" ? parseInt(defStages1.value) - rest1 : 0 - rest1);
     let tempDefStage2 = (defStages2.value != "--" ? parseInt(defStages2.value) - rest2 : 0 - rest2);
@@ -1029,11 +1075,81 @@ function checkStages() {
     let tempDefRStage1 = (defRStages1.value != "--" ? parseInt(defRStages1.value) - rest1 : 0 - rest1);
     let tempDefRStage2 = (defRStages2.value != "--" ? parseInt(defRStages2.value) - rest2 : 0 - rest2);
 
-    if (atkStages1.value != "--" && parseInt(atkStages1.value) > 0) {
-        atk1 = Math.floor(atk1 * (1 + 0.5 * parseInt(atkStages1.value)));
+    let tempAtkStage1 = (atkStages1.value != "--" ? parseInt(atkStages1.value) : 0);
+    let tempAtkStage2 = (atkStages2.value != "--" ? parseInt(atkStages2.value) : 0);
+
+    if (abilityCheck == 1) {
+        if (ability1 == "Boast" && ability2 != "Ignorant" && immuneAbilityBoost1.checked) {
+            if (atk1 > atk2) {
+                tempAtkStage1 = Math.min(tempAtkStage1 + 1, 6);
+            } else tempAtkStage1 = Math.max(tempAtkStage1 - 1, -6);
+        }
+        if (ability1 == "Adorable" && ability2 != "Staunch" && immuneAbilityBoost1.checked) {
+            if (ability2 == "Anomaly") {
+                tempDefStage2 = Math.min(tempDefStage2 + 1, 6);
+            } else {
+                if (rest2){
+                    tempDefStage2 = Math.max(temDefStage2 - 1, -7)
+                } else {
+                    tempDefStage2 = Math.max(tempDefStage2 - 1, -6);
+                }    
+            }
+        }
+        if (ability1 == "Defensive Priority" && ability2 != "Ignorant" && immuneAbilityBoost1.checked) {
+            tempDefStage1 = Math.min(tempDefStage1 + 1, 6);
+            tempDefRStage1 = Math.min(tempDefRStage1 + 1, 6);
+        }
+        if (ability2 == "Boast" && ability1 != "Ignorant" && immuneAbilityBoost2.checked) {
+            if (atk2 > atk1) {
+                tempAtkStage2 = Math.min(tempAtkStage2 + 1, 6);
+            } else tempAtkStage2 = Math.max(tempAtkStage2 - 1, -6);
+        }
+        if (ability2 == "Adorable" && ability1 != "Staunch" && immuneAbilityBoost2.checked) {
+            if (ability1 == "Anomaly") {
+                tempDefStage1 = Math.min(tempDefStage1 + 1, 6);
+            } else {
+                if (rest1) {
+                    temDefStage1 = Math.max(tempDefStage1 - 1, -7);
+                } else {
+                    tempDefStage1 = Math.max(tempDefStage1 - 1, -6);
+                }
+            }
+        }
+        if (ability2 == "Defensive Priority" && ability1 != "Ignorant" && immuneAbilityBoost2.checked) {
+            tempDefStage2 = Math.min(tempDefStage2 + 1, 6);
+            tempDefRStage2 = Math.min(tempDefRStage2 + 1, 6);
+        }
     }
-    else if (atkStages1.value != "--" && parseInt(atkStages1.value) < 0) {
-        atk1 = Math.floor(atk1 * (2 / (2 - parseInt(atkStages1.value))));
+    if (abilityCheck == 2) {
+        if (ability1 == "Terrifying" && ability2 != "Staunch" && immuneAbilityBoost1.checked) {
+            if (ability2 == "Anomaly" || ability2 == "Combative") {
+                tempAtkStage2 = Math.min(tempAtkStage2 + 1, 6);
+            } else tempAtkStage2 = Math.max(tempAtkStage2 - 1, -6);
+        }
+        if (ability2 == "Terrifying" && ability1 != "Staunch" && immuneAbilityBoost2.checked) {
+            if (ability1 == "Anomaly" || ability1 == "Combative") {
+                tempAtkStage1 = Math.min(tempAtkStage1 + 1, 6);
+            } else tempAtkStage1 = Math.max(tempAtkStage1 - 1, -6);
+        }
+    }
+    if (abilityCheck && immuneAbilityBoost1.checked && immuneAbilityBoost2.checked) {
+        if (ability1 == "Boast" && ability2 == "Terrifying") {
+            if (atk1 > atk2) {
+                tempAtkStage1 = Math.min(tempAtkStage1 + 1, 6);
+            } else tempAtkStage1 = Math.max(tempAtkStage1 - 1, -6);
+        }
+        if (ability2 == "Boast" && ability1 == "Terrifying") {
+            if (atk2 > atk1) {
+                tempAtkStage2 = Math.min(tempAtkStage2 + 1, 6);
+            } else tempAtkStage2 = Math.max(tempAtkStage2 - 1, -6);
+        }
+    }
+
+    if (tempAtkStage1 > 0) {
+        atk1 = Math.floor(atk1 * (1 + 0.5 * tempAtkStage1));
+    }
+    else if (tempAtkStage1 < 0) {
+        atk1 = Math.floor(atk1 * (2 / (2 - tempAtkStage1)));
     }
 
     if (tempDefStage1 > 0) {
@@ -1043,7 +1159,7 @@ function checkStages() {
         def1 = Math.floor(def1 * (2 / (2 - tempDefStage1)));
     }
 
-    if (atkRStages1.value != "--" && parseInt(atkRStages1.value) > 0) {
+   if (atkRStages1.value != "--" && parseInt(atkRStages1.value) > 0) {
         atkR1 = Math.floor(atkR1 * (1 + 0.5 * parseInt(atkRStages1.value)));
     }
     else if (atkRStages1.value != "--" && parseInt(atkRStages1.value) < 0) {
@@ -1064,11 +1180,11 @@ function checkStages() {
         spd1 = Math.floor(spd1 * (2 / (2 - parseInt(spdStages1.value))));
     }
 
-    if (atkStages2.value != "--" && parseInt(atkStages2.value) > 0) {
-        atk2 = Math.floor(atk2 * (1 + 0.5 * parseInt(atkStages2.value)));
+    if (tempAtkStage2 > 0) {
+        atk2 = Math.floor(atk2 * (1 + 0.5 * tempAtkStage2));
     }
-    else if (atkStages2.value != "--" && parseInt(atkStages2.value) < 0) {
-        atk2 = Math.floor(atk2 * (2 / (2 - parseInt(atkStages2.value))));
+    else if (tempAtkStage2 < 0) {
+        atk2 = Math.floor(atk2 * (2 / (2 - tempAtkStage2)));
     }
 
     if (tempDefStage2 > 0) {
@@ -1098,6 +1214,12 @@ function checkStages() {
     else if (spdStages2.value != "--" && parseInt(spdStages2.value) < 0) {
         spd2 = Math.floor(spd2 * (2 / (2 - parseInt(spdStages2.value))));
     }
+    
+    if (abilityCheck) {
+        let tempStats1 = {atk: atk1, def: def1, atkR: atkR1, defR: defR1, spd: spd1};
+        let tempStats2 = {atk: atk2, def: def2, atkR: atkR2, defR: defR2, spd: spd2};
+        return [tempStats1, tempStats2];
+    }
 
 }
 
@@ -1105,6 +1227,19 @@ function checkStages() {
 function calculateDamage(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTwo2, moveThree2, moveFour2) {
     let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
     let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
+
+    let ability1 = abilities.find((x) => x == abilityDropdown1.value);
+    let ability2 = abilities.find((x) => x == abilityDropdown2.value);
+    if ((tempAbility1 != ability1 && (tempAbility1 == "Idiosyncratic" || ability1 == "Idiosyncratic"))) {
+        loadBaseStats(1);
+        loadStats();
+    }
+    if ((tempAbility2 != ability2 && (tempAbility2 == "Idiosyncratic" || ability2 == "Idiosyncratic"))) {
+        loadBaseStats(2);
+        loadStats();
+    }
+    let itemA = item1.value;
+    let itemB = item2.value;
 
     let critOne1 = moveOneCrit1.checked;
     let critTwo1 = moveTwoCrit1.checked;
@@ -1120,25 +1255,25 @@ function calculateDamage(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, mo
     let dmgMoveOneL1 = getMultiplier(firstLoom, secondLoom, moveOne1, moveOnePower1.value, critOne1, level1.value, true);
     let dmgMoveOnePercent1 = (dmgMoveOneL1 / hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveOneU1 / hp2 * 100).toFixed(1).toString() + "%";
 
-    moveOneDmg1.innerHTML = dmgMoveOnePercent1 + checkIceTrap(moveOne1);
+    moveOneDmg1.innerHTML = dmgMoveOnePercent1 + checkIceTrap(moveOne1, Math.min(dmgMoveOneL1, hp2), Math.min(dmgMoveOneU1, hp2), hp1, itemA, ability1, ability2);
 
     let dmgMoveTwoU1 = getMultiplier(firstLoom, secondLoom, moveTwo1, moveTwoPower1.value, critTwo1, level1.value);
     let dmgMoveTwoL1 = getMultiplier(firstLoom, secondLoom, moveTwo1, moveTwoPower1.value, critTwo1, level1.value, true);
     let dmgMoveTwoPercent1 = (dmgMoveTwoL1 / hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveTwoU1 / hp2 * 100).toFixed(1).toString() + "%";
 
-    moveTwoDmg1.innerHTML = dmgMoveTwoPercent1 + checkIceTrap(moveTwo1);
+    moveTwoDmg1.innerHTML = dmgMoveTwoPercent1 + checkIceTrap(moveTwo1, Math.min(dmgMoveTwoL1, hp2), Math.min(dmgMoveTwoU1, hp2), hp1, itemA, ability1, ability2, ability2);
 
     let dmgMoveThreeU1 = getMultiplier(firstLoom, secondLoom, moveThree1, moveThreePower1.value, critThree1, level1.value);
     let dmgMoveThreeL1 = getMultiplier(firstLoom, secondLoom, moveThree1, moveThreePower1.value, critThree1, level1.value, true);
     let dmgMoveThreePercent1 = (dmgMoveThreeL1 / hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveThreeU1 / hp2 * 100).toFixed(1).toString() + "%";
 
-    moveThreeDmg1.innerHTML = dmgMoveThreePercent1 + checkIceTrap(moveThree1);
+    moveThreeDmg1.innerHTML = dmgMoveThreePercent1 + checkIceTrap(moveThree1, Math.min(dmgMoveThreeL1, hp2), Math.min(dmgMoveThreeU1, hp2), hp1, itemA, ability1, ability2);
 
     let dmgMoveFourU1 = getMultiplier(firstLoom, secondLoom, moveFour1, moveFourPower1.value, critFour1, level1.value);
     let dmgMoveFourL1 = getMultiplier(firstLoom, secondLoom, moveFour1, moveFourPower1.value, critFour1, level1.value, true);
     let dmgMoveFourPercent1 = (dmgMoveFourL1 / hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveFourU1 / hp2 * 100).toFixed(1).toString() + "%";
 
-    moveFourDmg1.innerHTML = dmgMoveFourPercent1 + checkIceTrap(moveFour1);
+    moveFourDmg1.innerHTML = dmgMoveFourPercent1 + checkIceTrap(moveFour1, Math.min(dmgMoveFourL1, hp2), Math.min(dmgMoveFourU1, hp2), hp1, itemA, ability1, ability2);
 
     //----------------------------------------------------------
 
@@ -1146,26 +1281,26 @@ function calculateDamage(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, mo
     let dmgMoveOneL2 = getMultiplier(secondLoom, firstLoom, moveOne2, moveOnePower2.value, critOne2, level2.value, true, true);
     let dmgMoveOnePercent2 = (dmgMoveOneL2 / hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveOneU2 / hp1 * 100).toFixed(1).toString() + "%";
 
-    moveOneDmg2.innerHTML = dmgMoveOnePercent2 + checkIceTrap(moveOne2);
+    moveOneDmg2.innerHTML = dmgMoveOnePercent2 + checkIceTrap(moveOne2, Math.min(dmgMoveOneL2, hp1), Math.min(dmgMoveOneU2, hp1), hp2, itemB, ability2, ability1);
 
     let dmgMoveTwoU2 = getMultiplier(secondLoom, firstLoom, moveTwo2, moveTwoPower2.value, critTwo2, level2.value, undefined, true);
     let dmgMoveTwoL2 = getMultiplier(secondLoom, firstLoom, moveTwo2, moveTwoPower2.value, critTwo2, level2.value, true, true);
     let dmgMoveTwoPercent2 = (dmgMoveTwoL2 / hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveTwoU2 / hp1 * 100).toFixed(1).toString() + "%";
 
-    moveTwoDmg2.innerHTML = dmgMoveTwoPercent2 + checkIceTrap(moveTwo2);
+    moveTwoDmg2.innerHTML = dmgMoveTwoPercent2 + checkIceTrap(moveTwo2, Math.min(dmgMoveTwoL2, hp1), Math.min(dmgMoveTwoU2, hp1), hp2, itemB, ability2, ability1);
 
     let dmgMoveThreeU2 = getMultiplier(secondLoom, firstLoom, moveThree2, moveThreePower2.value, critThree2, level2.value, undefined, true);
     let dmgMoveThreeL2 = getMultiplier(secondLoom, firstLoom, moveThree2, moveThreePower2.value, critThree2, level2.value, true, true);
     let dmgMoveThreePercent2 = (dmgMoveThreeL2 / hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveThreeU2 / hp1 * 100).toFixed(1).toString() + "%";
 
-    moveThreeDmg2.innerHTML = dmgMoveThreePercent2 + checkIceTrap(moveThree2);
+    moveThreeDmg2.innerHTML = dmgMoveThreePercent2 + checkIceTrap(moveThree2, Math.min(dmgMoveThreeL2, hp1), Math.min(dmgMoveThreeU2, hp1), hp2, itemB, ability2, ability1);
 
     let dmgMoveFourU2 = getMultiplier(secondLoom, firstLoom, moveFour2, moveFourPower2.value, critFour2, level2.value, undefined, true);
     let dmgMoveFourL2 = getMultiplier(secondLoom, firstLoom, moveFour2, moveFourPower2.value, critFour2, level2.value, true, true);
 
     let dmgMoveFourPercent2 = (dmgMoveFourL2 / hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveFourU2 / hp1 * 100).toFixed(1).toString() + "%";
 
-    moveFourDmg2.innerHTML = dmgMoveFourPercent2 + checkIceTrap(moveFour2);
+    moveFourDmg2.innerHTML = dmgMoveFourPercent2 + checkIceTrap(moveFour2, Math.min(dmgMoveFourL2, hp1), Math.min(dmgMoveFourU2, hp1), hp2, itemB, ability2, ability1);
 }
 
 function detailedReport() {
@@ -1501,17 +1636,13 @@ function detailedReport() {
     let upperPercent = (possibleDmg[15] / hp * 100).toFixed(1);
     let stuffUsed = possibleDmg[16];
     possibleDmg.pop();
-    let possibleDmgStr = "Possible Damage Amounts: (";
+    let possibleDmgStr = "Possible Damage Amounts: (" + displayDamage(possibleDmg) + ")";
     let critStr = (crit == true ? " Crit " : "");
     let str = tempAtk + " " + stuffUsed.item1 + " " + stuffUsed.ability1 + " " + firstLoom.name + " " + critStr + move.name + " vs. " + (!second ? hpEV2.value : hpEV1.value) + " HP / " +
         tempDef + " " + stuffUsed.item2 + " " + stuffUsed.ability2 + " " + secondLoom.name + ": " + possibleDmg[0] + "-" + possibleDmg[15] + " (" + lowerPercent + " - " + upperPercent + "%) -- ";
 
     let hazardStr = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second, true)[1];
 
-    for (let i = 0; i < possibleDmg.length; i++) {
-        possibleDmgStr += (i != possibleDmg.length - 1 ? possibleDmg[i] + ", " : possibleDmg[i]);
-    }
-    possibleDmgStr += ")";
     document.getElementById("possibleDmg").innerHTML = possibleDmgStr;
 
     let addedDmg = 0;
@@ -1656,6 +1787,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     let types1 = bothTypes.firstLoom;
     let types2 = bothTypes.secondLoom;
     let multi = 1;
+    let effectiveness;
     let dmg;
     let tempType = move.type;
     let tempPower = movePower;
@@ -1664,8 +1796,15 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     let tempStats;
     let gen1 = gender1.value;
     let gen2 = gender2.value;
-    let spdA = (second == false ? spd1 : spd2);
-    let spdB = (second == false ? spd2 : spd1);
+    let stats1;
+    let stats2;
+    if (second) {
+        stats1 = {atk: atk2, def: def2, atkR: atkR2, defR: defR2, spd: spd2};
+        stats2 = {atk: atk1, def: def1, atkR: atkR1, defR: defR1, spd: spd1};
+    } else {
+        stats1 = {atk: atk1, def: def1, atkR: atkR1, defR: defR1, spd: spd1};
+        stats2 = {atk: atk2, def: def2, atkR: atkR2, defR: defR2, spd: spd2};
+    }
     let ability1 = (second == false ? abilities.find((x) => x == abilityDropdown1.value) : abilities.find((x) => x == abilityDropdown2.value));
     let ability2 = (second == false ? abilities.find((x) => x == abilityDropdown2.value) : abilities.find((x) => x == abilityDropdown1.value));
     let typeModAbility1 = findTypeModAbility(ability1);
@@ -1683,13 +1822,17 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     let possibleDmg = [];
     let stuffUsed = { ability1: "", ability2: "", item1: "", item2: "" };
 
-    let immuneBoostCheck = (second == false ? immuneAbilityBoost1.checked : immuneAbilityBoost2.checked);
+    let immuneBoostCheck1 = (second == false ? immuneAbilityBoost1.checked : immuneAbilityBoost2.checked);
+    let immuneBoostCheck2 = (second == false ? immuneAbilityBoost2.checked : immuneAbilityBoost1.checked);
 
     tempStats = getTempAtkDef(second, move);
     tempAtk = tempStats.attack;
     tempDef = tempStats.defense;
 
     tempPower = (move.name == "Trip Root" ? getTripRootPower(loom2.weight) : tempPower);
+
+    if (ability1 == "Idiosyncratic") stuffUsed.ability1 = ability1;
+    if (ability2 == "Idiosyncratic") stuffUsed.ability2 = ability2;
 
     if (ability1 == "Devious") {
         ability2 = "None";
@@ -1748,80 +1891,64 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         stuffUsed.ability1 = ability1;
     }
 
-    if ((ability1 == "Combustible" || ability1 == "Coursing Venom" || ability1 == "Noxious Weeds" || ability1 == "Prismatic") && immuneBoostCheck) {
+    if ((ability1 == "Combustible" || ability1 == "Coursing Venom" || ability1 == "Noxious Weeds" || ability1 == "Prismatic") && immuneBoostCheck1) {
         if (tempType == typeModAbility1.typeModifier.type) {
             multi *= 1.5;
             stuffUsed.ability1 = ability1;
         }
     }
-    if (ability1 == "Toxic Filter" && immuneBoostCheck) {
+    if (ability1 == "Toxic Filter" && immuneBoostCheck1) {
         if (tempType == "Air") {
             multi *= 1.5;
             stuffUsed.ability1 = ability1;
         }
     }
 
-    if (ability1 == "Ambush" && btl1 && withoutSlapDown) {
+    if ((ability1 == "Ambush" && btl1 && withoutSlapDown) ||
+       (ability1 == "Vengeance" && btl2 && withoutSlapDown)) {
         multi *= 2;
         stuffUsed.ability1 = ability1;
     }
 
-    if (ability1 == "Vengeance" && btl2 && withoutSlapDown) {
-        multi *= 2;
-        stuffUsed.ability1 = ability1;
-    }
-
-    if (ability1 == "Sharp Claws" && move.contact == true) {
-        multi *= 1.3;
-        stuffUsed.ability1 = ability1;
-    }
-    if (ability1 == "Brute Force" && move.secondaryEffect == true) {
+    if ((ability1 == "Sharp Claws" && move.contact == true) || 
+       (ability1 == "Brute Force" && move.secondaryEffect == true) ||
+       (ability1 == "Overcharged" && tempType == "Electric") ||
+       (ability1 == "Watcher" && (stats1.spd < stats2.spd || btl1 && withoutSlapDown))) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
 
-    if (ability1 == "Power Jaw" && move.bite == true) {
+    if ((ability1 == "Power Jaw" && move.bite == true) ||
+       (ability1 == "Heavy Fists" && (move.punch == true || move.slap == true))) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
 
-    if (ability1 == "Bloodsucker" && move.drain == true) {
+    if ((ability1 == "Bloodsucker" && move.drain) ||
+       (gen1 == gen2 && ability1 == "Territorial")) {
         multi *= 1.25;
         stuffUsed.ability1 = ability1;
     }
 
-    if(ability1 == "Overcharged" && move.type == "Electric") {
-        multi *= 1.3;
-        stuffUsed.ability1 = ability1;
-    }
-    if(ability2 == "Overcharged" && move.type == "Electric") {
+    if(ability2 == "Overcharged" && tempType == "Electric") {
         multi *= 1.3;
         stuffUsed.ability2 = ability2;
     }
 
-    if (ability1 == "Baneful" && stat2 == "poisoned") {
+    if ((ability1 == "Baneful" && stat2 == "poisoned") ||
+       (move.sound == true && ability1 == "Tone Deaf") ||
+       (stat2 == "asleep" && ability1 == "Mean Spirited")) {
         multi *= 1.2;
         stuffUsed.ability1 = ability1;
     }
-    if (gen1 == gen2 && ability1 == "Territorial") {
-        multi *= 1.25;
-        stuffUsed.ability1 = ability1;
-    }
-    else if (gen1 != gen2 && ability1 == "Territorial") {
+    if (gen1 != gen2 && ability1 == "Territorial") {
         multi *= 0.75;
         stuffUsed.ability1 = ability1;
     }
 
-    if (move.name == "Gloominous Roar" && loom1.name == "Tiklipse" && ability1 != "Circadian" && itemA.includes("Light")) {
-        multi *= 1.2;
-        stuffUsed.item1 = itemA;
-    }
-    else if (itemA.includes(tempType)) {
-        multi *= 1.2;
-        stuffUsed.item1 = itemA;
-    }
-
-    if (itemA == "Power Cuffs") {
+    if ((move.name == "Gloominous Roar" && loom1.name == "Tiklipse" && ability1 != "Circadian" && itemA.includes("Light")) ||
+       (itemA.includes(tempType)) ||
+       (itemA == "Power Cuffs")) {
         multi *= 1.2;
         stuffUsed.item1 = itemA;
     }
@@ -1838,28 +1965,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         }
     }
 
-    if (move.name == "Oppress" && stat2 != "healthy") {
+    if ((move.name == "Oppress" && stat2 != "healthy") ||
+       (move.name == "Ill Will" && stat1 != "healthy")) {
         multi *= 2;
-    }
-
-    if (move.name == "Ill Will" && stat1 != "healthy") {
-        multi *= 2;
-    }
-
-    if (move.name == "Battering Ram") {
-        if (ability1 == "Trash Armor") {
-            multi *= 1.5;
-            stuffUsed.ability1 = ability1;
-        }
-        if (itemA == "Heavy Armor") {
-            multi *= 1.2;
-            stuffUsed.item1 = itemA;
-        }
-    }
-
-    if (move.sound == true && ability1 == "Tone Deaf") {
-        multi *= 1.2;
-        stuffUsed.ability1 = ability1;
     }
 
     if (ability1 == "Specialization") {
@@ -1874,14 +1982,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         multi *= 1.25;
     }
 
-    if (ability1 == "Heavy Fists" && (move.punch == true || move.slap == true)) {
-        multi *= 1.5;
-        stuffUsed.ability1 = ability1;
-    }
-
-    if (ability1 == "Watcher" && (spdA < spdB || btl1 && withoutSlapDown)) {
-        multi *= 1.3;
-        stuffUsed.ability1 = ability1;
+    if (ability2 == "Aqua Body" && tempType == "Fire") {
+        multi *= 0.5;
+        stuffUsed.ability2 = ability2;
     }
 
     tempPower = pokeRound(tempPower * multi);
@@ -1897,18 +2000,45 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         tempAtk.atk = calculateStat(tempAtk.base, tempAtk.iv.value, tempAtk.ev.value, tempAtk.level, undefined, tempAtk.posNat, tempAtk.negNat, tempAtk.veryNat, tempAtk.name);
         stuffUsed.ability2 = ability2;
     }
-
-    if (ability1 == "Hasty" && move.mr1 == "Melee Attack") {
-        multi *= 1.5;
+    if (ability1 == "Boast" && move.mr1 == "Melee Attack" && immuneBoostCheck1 && ability2 != "Ignorant") {
+        if (second){
+            atk2 = calculateStat(tempAtk.base, tempAtk.iv.value, tempAtk.ev.value, tempAtk.level, undefined, tempAtk.posNat, tempAtk.negNat, tempAtk.veryNat, tempAtk.name);
+            tempAtk.atk = checkStages(1)[1].atk;
+        } else {
+            atk1 = calculateStat(tempAtk.base, tempAtk.iv.value, tempAtk.ev.value, tempAtk.level, undefined, tempAtk.posNat, tempAtk.negNat, tempAtk.veryNat, tempAtk.name);
+            tempAtk.atk = checkStages(1)[0].atk;
+        }
         stuffUsed.ability1 = ability1;
     }
-    if (dusk && isDouble && move.mr1 == "Melee Attack" && ability1 == "Dusk") {
-        multi *= 1.5;
-        stuffUsed.ability1 = ability1;
+    if (ability2 == "Terrifying" && move.mr1 == "Melee Attack" && immuneBoostCheck2 && ability1 != "Staunch") {
+         if (second){
+             atk2 = calculateStat(tempAtk.base, tempAtk.iv.value, tempAtk.ev.value, tempAtk.level, undefined, tempAtk.posNat, tempAtk.negNat, tempAtk.veryNat, tempAtk.name);
+            tempAtk.atk = checkStages(2)[1].atk;
+        } else {
+            atk1 = calculateStat(tempAtk.base, tempAtk.iv.value, tempAtk.ev.value, tempAtk.level, undefined, tempAtk.posNat, tempAtk.negNat, tempAtk.veryNat, tempAtk.name);
+            tempAtk.atk = checkStages(2)[0].atk;
+        }    
+        stuffUsed.ability2 = ability2;
+        if (ability1 == "Anomaly" || ability1 == "Combative") {
+            stuffUsed.ability1 = ability1;
+        }
     }
-    if (dawn && isDouble && move.mr1 == "Ranged Attack" && ability1 == "Dawn") {
+    if ((ability1 == "Hasty" && move.mr1 == "Melee Attack") ||
+       (ability1 == "Vigorous" && stat1 != "healthy" && move.mr1 == "Melee Attack") ||
+       (dusk && isDouble && move.mr1 == "Melee Attack" && ability1 == "Dusk") ||
+       (dawn && isDouble && move.mr1 == "Ranged Attack" && ability1 == "Dawn") ||
+       (move.mr1 == "Melee Defense" && ability1 == "Trash Armor")) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
+    }   
+    if ((move.mr1 == "Melee Defense" && itemA == "Heavy Armor") ||
+       (move.mr1 == "Ranged Defense" && itemA == "Heavy Shield")) {
+            multi *= 1.2;
+            stuffUsed.item1 = itemA;
+    }
+    if (move.mr1 == "Ranged Defense" && ability1 == "Slick Shell") {
+        multi *= 2;
+        stuffUsed.ability1 = ability1
     }
     if (itemA == "Mystic Wand" && loom1.name == "Shawchi" && move.mr1 == "Ranged Attack") {
         multi *= 1.5;
@@ -1926,12 +2056,31 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     if (ability1 == "Ignorant") {
         tempDef.def = calculateStat(tempDef.base, tempDef.iv.value, tempDef.ev.value, tempDef.level, undefined, tempDef.posNat, tempDef.negNat, tempDef.veryNat, tempDef.name, tempDef.rest);
         stuffUsed.ability1 = ability1;
-    }    
-    if (itemB == "Heavy Shield" && move.mr2 == "Ranged Defense") {
-        multi *= 1.2;
-        stuffUsed.item2 = itemB;
     }
-    if (itemB == "Heavy Armor" && move.mr2 == "Melee Defense") {
+    if (ability1 == "Adorable" && move.mr2 == "Melee Defense" && immuneBoostCheck1 && ability2 != "Staunch") {
+        if (second) {
+            def1 = calculateStat(tempDef.base, tempDef.iv.value, tempDef.ev.value, tempDef.level, undefined, tempDef.posNat, tempDef.negNat, tempDef.veryNat, tempDef.name);
+            tempDef.def = checkStages(1)[0].def;
+        } else {
+            def2 = calculateStat(tempDef.base, tempDef.iv.value, tempDef.ev.value, tempDef.level, undefined, tempDef.posNat, tempDef.negNat, tempDef.veryNat, tempDef.name);
+            tempDef.def = checkStages(1)[1].def;
+        }    
+        stuffUsed.ability1 = ability1;
+        if (ability2 == "Anomaly") {
+            stuffUsed.ability2 = ability2;
+        }
+    }
+    if (ability2 == "Defensive Priority" && (move.mr2 == "Melee Defense" || move.mr2 == "Ranged Defense") && immuneAbilityBoost2 && ability1 != "Ignorant") {
+        if (second) {
+            def1 = calculateStat(tempDef.base, tempDef.iv.value, tempDef.ev.value, tempDef.level, undefined, tempDef.posNat, tempDef.negNat, tempDef.veryNat, tempDef.name);
+            tempDef.def = checkStages(1)[0].def;
+        } else {
+            def2 = calculateStat(tempDef.base, tempDef.iv.value, tempDef.ev.value, tempDef.level, undefined, tempDef.posNat, tempDef.negNat, tempDef.veryNat, tempDef.name);
+            tempDef.def = checkStages(1)[1].def;
+        }
+    }   
+    if ((itemB == "Heavy Shield" && move.mr2 == "Ranged Defense") ||
+       (itemB == "Heavy Armor" && move.mr2 == "Melee Defense")) {
         multi *= 1.2;
         stuffUsed.item2 = itemB;
     }
@@ -2049,15 +2198,16 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         if (types2.primary == "Bug" || types2.secondary == "Bug") {
             multi *= 0.5;
         }
+        if (types2.primary == "Plant" || types2.secondary == "Plant") {
+            multi *= 0;
+        }
         if (typeModAbility2 != undefined && tempType == typeModAbility2.typeModifier.type2 && typeModAbility2.powerMod == false) {
             multi = 0;
         }
     }
 
-    if (multi > 1 && ability2 == "Enchanted Coat") {
-        multi *= 0.75;
-        stuffUsed.ability2 = ability2;
-    }
+    effectiveness = multi;
+
     if (detailed) {
         for (let i = 0; i < possibleDmg.length; i++) {
             possibleDmg[i] = Math.floor(possibleDmg[i] * multi);
@@ -2069,21 +2219,32 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
 
     //Status ------------------------
 
-    if (stat1 == "burned" && move.mr == "Melee" && move.name != "Ill Will") {
+    if (stat1 == "burned" && move.mr == "Melee" && move.name != "Ill Will" && ability1 != "Vigorous" && ability1 != "Aqua Body" && types1.primary != "Fire" && types1.secondary != "Fire") {
         multi *= 0.5;
     }
 
-    if (stat2 == "asleep" && ability1 == "Mean Spirited") {
-        multi *= 1.2;
-        stuffUsed.ability1 = ability1;
+    if (detailed) {
+        for (let i = 0; i < possibleDmg.length; i++) {
+            possibleDmg[i] = Math.floor(possibleDmg[i] * multi);
+        }
     }
+
+    dmg = Math.floor(dmg * multi);
+    multi = 1;
+
+    //Other --------------------------------
 
     if (ability2 == "Tank" && btl1 && withoutSlapDown) {
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
+    if (effectiveness > 1 && ability2 == "Enchanted Coat") {
+        multi *= 0.75;
+        stuffUsed.ability2 = ability2;
+    }
 
     stuffUsed.item2 = (itemB == "Health Amulet" ? itemB : stuffUsed.item2);
+
     if (detailed) {
         for (let i = 0; i < possibleDmg.length; i++) {
             possibleDmg[i] = Math.floor(possibleDmg[i] * multi);
@@ -2093,9 +2254,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
 
     dmg = Math.floor(dmg * multi);
-    multi = 1;
-
-    //Other --------------------------------
 
     return dmg;
 }
@@ -2263,6 +2421,10 @@ function specializationCount(second) {
     return counter;
 }
 
+function displayDamage(damage) {
+    return damage.join(", ");
+}
+
 function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false, onlyIncludeIceTrap = false) {
     let newHP = hp1;
     let multi = 1;
@@ -2336,7 +2498,9 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         loom1 = loomians[pokeDropdown2.value.toLowerCase()];
         loom2 = loomians[pokeDropdown1.value.toLowerCase()];
     }
-    if (status == "burned" && !loom2.types.includes("Fire")) {
+    
+    let otherAbility = (second ? abilities.find((x) => x == abilityDropdown2.value) : abilities.find((x) => x == abilityDropdown1.value));
+    if (status == "burned" && !loom2.types.includes("Fire") && ability != "Aqua Body") {
         newHP = Math.floor(newHP * 15 / 16);
         hazardString += "burn damage and ";
     }
@@ -2345,7 +2509,6 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         hazardString += "poison damage and ";
     }
 
-    let otherAbility = (second ? abilities.find((x) => x == abilityDropdown2.value) : abilities.find((x) => x == abilityDropdown1.value));
     if (status == "asleep" && otherAbility == "Nightmarish") {
         newHP = Math.floor(newHP * 7 / 8);
         hazardString += "nightmarish damage and ";
@@ -2357,7 +2520,20 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     return [newHP, hazardString];
 }
 
-function checkIceTrap(move) {
+function checkIceTrap(move, l, u, hp, item, ability, ability2) {
+    if (move.drain) {
+        let drainMI = (item == "Drain Orb" ? 1.2 : 1);
+        let drainMA = (ability == "Drainage" ? 1.5 : 1); 
+        let drainL = Math.max(Math.floor(l * move.drain * drainMI * drainMA), 1);
+        let drainU = Math.max(Math.floor(u * move.drain * drainMI * drainMA), 1);
+        if (ability2 == "Ungracious Host") return " (" + (drainL / hp * 100).toFixed(1) + " - " + (drainU / hp * 100).toFixed(1) + "% recoil damage)";
+        return " (" + (drainL / hp * 100).toFixed(1) + " - " + (drainU / hp * 100).toFixed(1) + "% recovered)";
+    }
+    if (move.recoil) {
+        let recoilL = Math.max(Math.floor(l * move.recoil), 1);
+        let recoilU = Math.max(Math.floor(u * move.recoil), 1);
+        return " (" + (recoilL / hp * 100).toFixed(1) + " - " + (recoilU / hp * 100).toFixed(1) + "% recoil damage)";
+    }
     if (move.hits == undefined) {
         return "";
     }
