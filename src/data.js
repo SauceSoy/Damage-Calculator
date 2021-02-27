@@ -1809,9 +1809,9 @@ var loomians = {
         baseStats: {
             hp: 51,
             energy: 51,
-            attack: 49,
+            attack: 59,
             defense: 52,
-            attackR: 41,
+            attackR: 31,
             defenseR: 47,
             speed: 69
         }
@@ -2364,6 +2364,163 @@ var loomians = {
         }
     },
 
+    cupoink: {
+        name: "Cupoink",
+        number: 121,
+        types: ["Fire"],
+        abilities: ["Caddie", "Madcap"],
+        sAbility: ["Sweet Touch"],
+        weight: 7,
+        height: 16,
+        finalEvo: false,
+        baseStats: {
+            hp: 52,
+            energy: 67,
+            attack: 65,
+            defense: 56,
+            attackR: 34,
+            defenseR: 64,
+            speed: 55
+        }
+    },
+
+    hoganosh: {
+        name: "Hoganosh",
+        number: 122,
+        types: ["Fire"],
+        abilities: ["Caddie", "Madcap"],
+        sAbility: ["Sweet Touch"],
+        weight: 40,
+        height: 51,
+        baseStats: {
+            hp: 74,
+            energy: 88,
+            attack: 109,
+            defense: 85,
+            attackR: 42,
+            defenseR: 99,
+            speed: 41
+        }
+    },
+
+    mochibi: {
+        name: "Mochibi",
+        number: 123,
+        types: ["Ice"],
+        abilities: ["Sugar Rush", "Lucky"],
+        sAbility: ["Shakedown"],
+        weight: 6,
+        height: 13,
+        finalEvo: false,
+        baseStats: {
+            hp: 51,
+            energy: 60,
+            attack: 28,
+            defense: 53,
+            attackR: 65,
+            defenseR: 44,
+            speed: 79
+        }
+    },
+
+    totemochi: {
+        name: "Totemochi",
+        number: 124,
+        types: ["Ice"],
+        abilities: ["Sugar Rush", "Lucky"],
+        sAbility: ["Shakedown"],
+        weight: 20,
+        height: 38,
+        finalEvo: false,
+        baseStats: {
+            hp: 58,
+            energy: 84,
+            attack: 33,
+            defense: 68,
+            attackR: 100,
+            defenseR: 63,
+            speed: 88
+        }
+    },
+
+    mocho: {
+        name: "Mocho",
+        number: 125,
+        types: ["Ice"],
+        abilities: ["Sugar Rush", "Lucky"],
+        sAbility: ["Shakedown"],
+        weight: 66,
+        height: 53,
+        baseStats: {
+            hp: 71,
+            energy: 90,
+            attack: 37,
+            defense: 102,
+            attackR: 120,
+            defenseR: 93,
+            speed: 67
+        }
+    },
+
+    gwurm: {
+        name: "Gwurm",
+        number: 126,
+        types: ["Bug"],
+        abilities: ["Hard Candy", "Clingy"],
+        sAbility: ["Defensive Priority"],
+        weight: 5,
+        height: 14,
+        finalEvo: false,
+        baseStats: {
+            hp: 47,
+            energy: 55,
+            attack: 27,
+            defense: 53,
+            attackR: 42,
+            defenseR: 41,
+            speed: 30
+        }
+    },
+
+    odasho: {
+        name: "Odasho",
+        number: 127,
+        types: ["Bug"],
+        abilities: ["Hard Candy", "Clingy"],
+        sAbility: ["Defensive Priority"],
+        weight: 6,
+        height: 35,
+        finalEvo: false,
+        baseStats: {
+            hp: 55,
+            energy: 60,
+            attack: 32,
+            defense: 73,
+            attackR: 59,
+            defenseR: 58,
+            speed: 42
+        }
+    },
+
+    spreezy: {
+        name: "Spreezy",
+        number: 128,
+        types: ["Bug"],
+        abilities: ["Hard Candy", "Clingy"],
+        sAbility: ["Sugar Rush"],
+        weight: 15,
+        height: 38,
+        baseStats: {
+            hp: 62,
+            energy: 95,
+            attack: 41,
+            defense: 93,
+            attackR: 79,
+            defenseR: 76,
+            speed: 93
+        }
+    },
+
     wakalaka: {
         name: "WakaLaka",
         number: 150,
@@ -2532,6 +2689,25 @@ var loomians = {
             attackR: 112,
             defenseR: 93,
             speed: 69
+        }
+    },
+
+    nymaurae: {
+        name: "Nymaurae",
+        number: 207,
+        types: ["Light", "Air"],
+        abilities: ["Quick Recovery"],
+        sAbility: ["Incandescent"],
+        weight: 10,
+        height: 27,
+        baseStats: {
+            hp: 71,
+            energy: 115,
+            attack: 46,
+            defense: 77,
+            attackR: 119,
+            defenseR: 122,
+            speed: 100
         }
     },
 
@@ -2908,7 +3084,7 @@ var moves = {
 
     waterBomb: {
         name: "Water Bomb",
-        power: 50,
+        power: 60,
         type: "Water",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4237,6 +4413,47 @@ var moves = {
         mr2: "Ranged Defense",
     },
 
+    twirlyWhirl: {
+        name: "Twirly Whirl",
+        power: 75,
+        type: "Bug",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
+    },
+
+    peppermintBreath: {
+        name: "Peppermint Breath",
+        power: 75,
+        type: "Ice",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
+    },
+
+    fieryFondant: {
+        name: "Fiery Fondant",
+        power: 90,
+        type: "Fire",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        recoil: 1/4,
+        secondaryEffect: true
+    },
+
+    flail: {
+        name: "Flail",
+        power: 40,
+        type: "Null",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+    },
+
 
 
     //Support Moves -----------------------------------------------------------------------------------------------------------------------------------------
@@ -4725,6 +4942,13 @@ var moves = {
         mr: "Support"
     },
 
+    bait: {
+        name: "Bait",
+        power: 0,
+        type: "Typeless",
+        mr: "Support"
+    },
+
 };
 
 
@@ -4836,7 +5060,8 @@ var abilities = ["Awakening", "Ambush", "Coursing Venom", "Drainage", "Hasty", "
                 "Territorial", "Woodsman", "Dusk", "Dawn", "Pyro", "Volcanic", "Combustible", "Noxious Weeds", "Sharp Claws", "Brute Force", "Raging Fire", "Vengeance",
                 "Total Eclipse", "Tone Deaf", "Circadian", "Baneful", "Rechargeable", "Toxic Filter", "Trash Armor", "Tank", "Power Jaw", "Specialization", "Slick Shell",
                 "Heavy Fists", "Enchanted Coat", "Bloodsucker", "Nightmarish", "Overcharged", "Watcher", "Sly", "Devious", "Ignorant", "Chill", "Vigorous", "Aqua Body",
-                "Idiosyncratic", "Adorable", "Terrifying", "Boast", "Staunch", "Anomaly", "Combative", "Defensive Priority", "Ungracious Host"];
+                "Idiosyncratic", "Adorable", "Terrifying", "Boast", "Staunch", "Anomaly", "Combative", "Defensive Priority", "Ungracious Host", "Madcap", "Hard Candy",
+                "Incandescent"];
 
 var typeModAbilities = {
     coursingVenom: {
