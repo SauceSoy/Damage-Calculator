@@ -1080,7 +1080,7 @@ function checkStages(abilityCheck = false) {
 
     if (abilityCheck == 1) {
         if (ability1 == "Boast" && ability2 != "Ignorant" && immuneAbilityBoost1.checked) {
-            if (atk1 > atk2) {
+            if (statAtk1.innerHTML > statAtk2.innerHTML) {
                 tempAtkStage1 = Math.min(tempAtkStage1 + 1, 6);
             } else tempAtkStage1 = Math.max(tempAtkStage1 - 1, -6);
         }
@@ -1100,7 +1100,7 @@ function checkStages(abilityCheck = false) {
             tempDefRStage1 = Math.min(tempDefRStage1 + 1, 6);
         }
         if (ability2 == "Boast" && ability1 != "Ignorant" && immuneAbilityBoost2.checked) {
-            if (atk2 > atk1) {
+            if (statAtk2.innerHTML > statAtk1.innerHTML) {
                 tempAtkStage2 = Math.min(tempAtkStage2 + 1, 6);
             } else tempAtkStage2 = Math.max(tempAtkStage2 - 1, -6);
         }
@@ -1134,12 +1134,12 @@ function checkStages(abilityCheck = false) {
     }
     if (abilityCheck && immuneAbilityBoost1.checked && immuneAbilityBoost2.checked) {
         if (ability1 == "Boast" && ability2 == "Terrifying") {
-            if (atk1 > atk2) {
+            if (statAtk1.innerHTML > statAtk2.innerHTML) {
                 tempAtkStage1 = Math.min(tempAtkStage1 + 1, 6);
             } else tempAtkStage1 = Math.max(tempAtkStage1 - 1, -6);
         }
         if (ability2 == "Boast" && ability1 == "Terrifying") {
-            if (atk2 > atk1) {
+            if (statAtk2.innerHTML > statAtk1.innerHTML) {
                 tempAtkStage2 = Math.min(tempAtkStage2 + 1, 6);
             } else tempAtkStage2 = Math.max(tempAtkStage2 - 1, -6);
         }
@@ -1925,7 +1925,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
 
     if ((ability1 == "Bloodsucker" && move.drain) ||
-       (gen1 == gen2 && ability1 == "Territorial")) {
+       (gen1 == gen2 && ability1 == "Territorial") ||
+       (ability1 == "Incandescent" && tempType == "Light")) {
         multi *= 1.25;
         stuffUsed.ability1 = ability1;
     }
@@ -1936,8 +1937,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
 
     if ((ability1 == "Baneful" && stat2 == "poisoned") ||
-       (move.sound == true && ability1 == "Tone Deaf") ||
-       (stat2 == "asleep" && ability1 == "Mean Spirited")) {
+       (move.sound == true && ability1 == "Tone Deaf") || 
+       (stat2 == "asleep" && ability1 == "Mean Spirited") ||
+       (move.recoil && ability1 == "Madcap")) {
         multi *= 1.2;
         stuffUsed.ability1 = ability1;
     }
@@ -1984,6 +1986,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
 
     if (ability2 == "Aqua Body" && tempType == "Fire") {
         multi *= 0.5;
+        stuffUsed.ability2 = ability2;
+    }
+
+    if (tempType == "Water" && ability2 == "Hard Candy") {
+        multi *= 2;
         stuffUsed.ability2 = ability2;
     }
 
@@ -2088,7 +2095,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         multi *= 1.5;
         stuffUsed.item2 = itemB;
     }
-    if (ability2 == "Trash Armor" && move.mr2 == "Melee Defense") {
+    if ((ability2 == "Trash Armor" || ability2 == "Hard Candy") && move.mr2 == "Melee Defense") {
         multi *= 1.5;
         stuffUsed.ability2 = ability2;
     }
@@ -2533,6 +2540,9 @@ function checkIceTrap(move, l, u, hp, item, ability, ability2) {
         let recoilL = Math.max(Math.floor(l * move.recoil), 1);
         let recoilU = Math.max(Math.floor(u * move.recoil), 1);
         return " (" + (recoilL / hp * 100).toFixed(1) + " - " + (recoilU / hp * 100).toFixed(1) + "% recoil damage)";
+    }
+    if (move.name == "Flail") {
+        return " (" + (Math.floor(hp / 8) / hp * 100).toFixed(1) + "% recoil damage)";
     }
     if (move.hits == undefined) {
         return "";
