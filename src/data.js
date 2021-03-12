@@ -438,7 +438,6 @@ var loomians = {
         types: ["Typeless"],
         abilities: ["Territorial", "Confidence"],
         sAbility: ["Neutralize"],
-        finalEvo: false,
         weight: 10,
         height: 14,
         baseStats: {
@@ -1112,6 +1111,26 @@ var loomians = {
             attackR: 46,
             defenseR: 55,
             speed: 60
+        }
+    },
+
+    phancubv: {
+        name: "PhancubV",
+        number: 56,
+        types: ["Spirit", "Brawler"],
+        abilities: ["Ignorant"],
+        sAbility: ["Clingy"],
+        finalEvo: false,
+        weight: 8,
+        height: 26,
+        baseStats: {
+            hp: 58,
+            energy: 67,
+            attack: 52,
+            defense: 79,
+            attackR: 17,
+            defenseR: 63,
+            speed: 46
         }
     },
  
@@ -2558,6 +2577,25 @@ var loomians = {
             speed: 22
         }
     },
+
+    ursnac: {
+        name: "Ursnac",
+        number: 152,
+        types: ["Spirit", "Brawler"],
+        abilities: ["Tank"],
+        sAbility: ["Bursting Seams"],
+        weight: 73,
+        height: 74,
+        baseStats: {
+            hp: 99,
+            energy: 92,
+            attack: 86,
+            defense: 110,
+            attackR: 21,
+            defenseR: 88,
+            speed: 55
+        }
+    },
  
     duskit: {
         name: "Duskit",
@@ -2835,7 +2873,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        bite: true
+        bite: true,
+        drain: 1/2
     },
 
     peck: {
@@ -4452,6 +4491,17 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
+    },
+
+    heartBreak: {
+        name: "Heart Break",
+        power: 50,
+        type: "Brawler",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        secondaryEffect: true
     },
 
 
