@@ -958,6 +958,26 @@ var loomians = {
             speed: 86
         }
     },
+
+    kabungah: {
+        name: "KabungaH",
+        number: 48,
+        types: ["Plant", "Mind"],
+        abilities: ["Communication", "Territorial"],
+        sAbility: ["Noxious Weeds"],
+        finalEvo: false,
+        weight: 24,
+        height: 35,
+        baseStats: {
+            hp: 52,
+            energy: 53,
+            attack: 76,
+            defense: 43,
+            attackR: 64,
+            defenseR: 34,
+            speed: 86
+        }
+    },
  
     wikiwiki: {
         name: "WikiWiki",
@@ -2537,6 +2557,65 @@ var loomians = {
             attackR: 79,
             defenseR: 76,
             speed: 93
+        }
+    },
+
+    pipsee: {
+        name: "Pipsee",
+        number: 129,
+        types: ["Plant", "Air"],
+        abilities: ["Glide", "Compliant"],
+        sAbility: ["Viligent"],
+        weight: 1,
+        height: 13,
+        finalEvo: false,
+        baseStats: {
+            hp: 44,
+            energy: 52,
+            attack: 30,
+            defense: 55,
+            attackR: 43,
+            defenseR: 49,
+            speed: 55
+        }
+    },
+
+    dandylil: {
+        name: "Dandylil",
+        number: 130,
+        types: ["Plant", "Air"],
+        abilities: ["Glide", "Compliant"],
+        sAbility: ["Viligent"],
+        weight: 2,
+        height: 31,
+        finalEvo: false,
+        baseStats: {
+            hp: 56,
+            energy: 79,
+            attack: 43,
+            defense: 63,
+            attackR: 90,
+            defenseR: 64,
+            speed: 75
+        }
+    },
+
+    whippledriff: {
+        name: "Whippledriff",
+        number: 131,
+        types: ["Plant", "Air"],
+        abilities: ["Glide", "Compliant"],
+        sAbility: ["Viligent"],
+        weight: 3,
+        height: 45,
+        baseStats: {
+            hp: 67,
+            energy: 90,
+            attack: 53,
+            defense: 110,
+            attackR: 100,
+            defenseR: 71,
+            speed: 89
         }
     },
 
@@ -4996,6 +5075,13 @@ var moves = {
         name: "Bait",
         power: 0,
         type: "Typeless",
+        mr: "Support"
+    },
+
+    bequeath: {
+        name: "Bequeath",
+        power: 0,
+        type: "Mind",
         mr: "Support"
     },
 
