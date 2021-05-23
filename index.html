@@ -499,6 +499,7 @@
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
                         onchange="update()">
                         <input class="moveslbl" id="moveOneType1" readonly>
+                        <input id="moveOneEnergy1" value="0" readonly>
                         <input class="moveslbl" id="moveOneMR1" readonly>
                         <input type="checkbox" class="hiddenToUser" id="moveOneCrit1" onchange="update()">
                         <label class="radiolbl critlbl" for="moveOneCrit1">Crit</label>
@@ -511,6 +512,7 @@
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
                         onchange="update()">
                         <input class="moveslbl" id="moveTwoType1" readonly>
+                        <input id="moveTwoEnergy1" value="0" readonly>
                         <input class="moveslbl" id="moveTwoMR1" readonly>
                         <input type="checkbox" class="hiddenToUser" id="moveTwoCrit1" onchange="update()">
                         <label class="radiolbl critlbl" for="moveTwoCrit1">Crit</label>
@@ -523,6 +525,7 @@
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
                         onchange="update()">                        
                         <input class="moveslbl" id="moveThreeType1" readonly>
+                        <input id="moveThreeEnergy1" value="0" readonly>
                         <input class="moveslbl" id="moveThreeMR1" readonly>
                         <input type="checkbox" class="hiddenToUser" id="moveThreeCrit1" onchange="update()">
                         <label class="radiolbl critlbl" for="moveThreeCrit1">Crit</label>
@@ -535,6 +538,7 @@
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
                         onchange="update()">
                         <input class="moveslbl" id="moveFourType1" readonly>
+                        <input id="moveFourEnergy1" value="0" readonly>
                         <input class="moveslbl" id="moveFourMR1" readonly>
                         <input type="checkbox" class="hiddenToUser" id="moveFourCrit1" onchange="update()">
                         <label class="radiolbl critlbl" for="moveFourCrit1">Crit</label>
@@ -562,7 +566,7 @@
 
                 <hr>
                 <div class="fieldTraps">
-                        <div>
+                     <div>
                         <div class="left">
                             <input type="checkbox" class="hiddenToUser" id="rest1" onchange="update()">
                             <label class="radiolbl fieldlbl rest" for="rest1">Rest</label>
@@ -577,9 +581,13 @@
                         <div class="left">
                             <input type="checkbox" class="hiddenToUser" id="iceTrap1" onchange="update()">
                             <label class="radiolbl fieldlbl icetrap" for="iceTrap1" title="Is this side affected by Icicle Trap">Icicle Trap</label>
+                            <input type="checkbox" class="hiddenToUser" id="halfIce1" onchange="update()">
+                            <label class="radiolbl fieldlbl" id="halfStyle1" style="width: 3em;" for="halfIce1" title="Are Icicle Traps halved">Halved</label>
                         </div>
 
                         <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="halfIce2" onchange="update()">
+                            <label class="radiolbl fieldlbl" id="halfStyle2" style="width: 3em;" for="halfIce2" title="Are Icicle Traps halved">Halved</label>
                             <input type="checkbox" class="hiddenToUser" id="iceTrap2" onchange="update()">
                             <label class="radiolbl fieldlbl icetrap" for="iceTrap2" title="Is this side affected by Icicle Trap">Icicle Trap</label>
                         </div>
@@ -645,6 +653,18 @@
 
                     <div>
                         <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="softWater1" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="softWater1" title="Is this side affected by Soft Water?">Soft Water</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="softWater2" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="softWater2" title="Is this side affected by Soft Water?">Soft Water</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="left">
                             <input type="checkbox" class="hiddenToUser" id="dusk1" onchange="update()">
                             <label class="radiolbl fieldlbl entered" for="dusk1">Ally Has Dusk</label>
                         </div>
@@ -665,8 +685,22 @@
                             <label class="radiolbl fieldlbl entered" for="dawn2">Ally Has Dawn</label>
                         </div>
                     </div>
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="guardian1" onchange="update()">
+                            <label class="radiolbl fieldlbl entered" for="guardian1">Ally Has Guardian</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="guardian2" onchange="update()">
+                            <label class="radiolbl fieldlbl entered" for="guardian2">Ally Has Guardian</label>
+                        </div>
+                    </div>
                 </div>
 
+                <br>
+                <br>
+                <br>
                 <hr>
                 <div class="bott">
                     <a href="https://saucesoy.github.io/Set-Maker">You can make sets here</a>
@@ -1071,6 +1105,7 @@
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
                         onchange="update()">
                         <input class="moveslbl" id="moveOneType2" readonly>
+                        <input id="moveOneEnergy2" value="0" readonly>
                         <input class="moveslbl" id="moveOneMR2" readonly>
                         <input type="checkbox" class="hiddenToUser" id="moveOneCrit2" onchange="update()">
                         <label class="radiolbl critlbl" for="moveOneCrit2">Crit</label>
@@ -1083,6 +1118,7 @@
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
                         onchange="update()">
                         <input class="moveslbl" id="moveTwoType2" readonly>
+                        <input id="moveTwoEnergy2" value="0" readonly>
                         <input class="moveslbl" id="moveTwoMR2" readonly>
                         <input type="checkbox" class="hiddenToUser" id="moveTwoCrit2" onchange="update()">
                         <label class="radiolbl critlbl" for="moveTwoCrit2">Crit</label>
@@ -1095,6 +1131,7 @@
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
                         onchange="update()">
                         <input class="moveslbl" id="moveThreeType2" readonly>
+                        <input id="moveThreeEnergy2" value="0" readonly>
                         <input class="moveslbl" id="moveThreeMR2" readonly>
                         <input type="checkbox" class="hiddenToUser" id="moveThreeCrit2" onchange="update()">
                         <label class="radiolbl critlbl" for="moveThreeCrit2">Crit</label>
@@ -1107,6 +1144,7 @@
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
                         onchange="update()">
                         <input class="moveslbl" id="moveFourType2" readonly>
+                        <input id="moveFourEnergy2" value="0" readonly>
                         <input class="moveslbl" id="moveFourMR2" readonly>
                         <input type="checkbox" class="hiddenToUser" id="moveFourCrit2" onchange="update()">
                         <label class="radiolbl critlbl" for="moveFourCrit2">Crit</label>
