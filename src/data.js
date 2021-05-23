@@ -477,7 +477,7 @@ var loomians = {
         abilities: ["Dawn", "Confidence"],
         sAbility: ["Illuminate"],
         weight: 37,
-        hegiht: 39,
+        height: 39,
         baseStats: {
             hp: 75,
             energy: 75,
@@ -2213,6 +2213,7 @@ var loomians = {
         types: ["Water", "Toxic"],
         abilities: ["Toxic Spines", "Sharp Edges"],
         sAbility: ["Baneful"],
+        finalEvo: false,
         weight: 14,
         height: 29,
         baseStats: {
@@ -2595,7 +2596,7 @@ var loomians = {
             attack: 43,
             defense: 63,
             attackR: 90,
-            defenseR: 64,
+            defenseR: 54,
             speed: 75
         }
     },
@@ -2616,6 +2617,64 @@ var loomians = {
             attackR: 100,
             defenseR: 71,
             speed: 89
+        }
+    },
+
+    vari: {
+        name: "Vari",
+        number: 134,
+        types: ["Typeless"],
+        abilities: ["Guardian", "Apprehension"],
+        sAbility: ["Adorable"],
+        weight: 15,
+        height: 28,
+        finalEvo: false,
+        baseStats: {
+            hp: 49,
+            energy: 60,
+            attack: 52,
+            defense: 43,
+            attackR: 52,
+            defenseR: 43,
+            speed: 57
+        }
+    },
+
+    cervolen: {
+        name: "Cervolen",
+        number: 135,
+        types: ["Typeless"],
+        abilities: ["Confidence", "Boast"],
+        sAbility: ["Vengeance"],
+        weight: 105,
+        height: 68,
+        baseStats: {
+            hp: 82,
+            energy: 85,
+            attack: 110,
+            defense: 85,
+            attackR: 52,
+            defenseR: 72,
+            speed: 89
+        }
+    },
+
+    wendolen: {
+        name: "Wendolen",
+        number: 136,
+        types: ["Spirit"],
+        abilities: ["Temper", "Sharp Claws"],
+        sAbility: ["Finese"],
+        weight: 86,
+        height: 83,
+        baseStats: {
+            hp: 50,
+            energy: 80,
+            attack: 119,
+            defense: 55,
+            attackR: 93,
+            defenseR: 75,
+            speed: 103
         }
     },
 
@@ -2836,6 +2895,8 @@ var moves = {
     pounce: {
         name: "Pounce",
         power: 40,
+        energy: 15,
+        accuracy: 100,
         type: "Typeless",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -2846,6 +2907,8 @@ var moves = {
     singe: {
         name: "Singe",
         power: 40,
+        energy: 20,
+        accuracy: 100,
         type: "Fire",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -2856,6 +2919,8 @@ var moves = {
     spray: {
         name: "Spray",
         power: 40,
+        energy: 20,
+        accuracy: 100,
         type: "Water",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -2865,6 +2930,8 @@ var moves = {
     strike: {
         name: "Strike",
         power: 40,
+        energy: 15,
+        accuracy: 100,
         type: "Typeless",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -2875,6 +2942,8 @@ var moves = {
     shine: {
         name: "Shine",
         power: 40,
+        energy: 20,
+        accuracy: 100,
         type: "Light",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -2884,6 +2953,8 @@ var moves = {
     gnaw: {
         name: "Gnaw",
         power: 40,
+        energy: 15,
+        accuracy: 100,
         type: "Typeless",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -2895,6 +2966,8 @@ var moves = {
     chomp: {
         name: "Chomp",
         power: 45,
+        energy: 22,
+        accuracy: 100,
         type: "Dark",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -2907,6 +2980,8 @@ var moves = {
     flurry: {
         name: "Flurry",
         power: 40,
+        energy: 22,
+        accuracy: 100,
         type: "Ice",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -2918,6 +2993,8 @@ var moves = {
     petalPummel: {
         name: "Petal Pummel",
         power: 40,
+        energy: 20,
+        accuracy: 100,
         type: "Plant",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -2927,6 +3004,8 @@ var moves = {
     staticShock: {
         name: "Static Shock",
         power: 40,
+        energy: 20,
+        accuracy: 100,
         type: "Electric",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -2937,6 +3016,8 @@ var moves = {
     swipe: {
         name: "Swipe",
         power: 60,
+        energy: 22,
+        accuracy: 100,
         type: "Typeless",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -2947,6 +3028,8 @@ var moves = {
     bugBite: {
         name: "Bug Bite",
         power: 30,
+        energy: 20,
+        accuracy: 100,
         type: "Bug",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -2959,6 +3042,8 @@ var moves = {
     peck: {
         name: "Peck",
         power: 35,
+        energy: 15,
+        accuracy: 100,
         type: "Air",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -2969,6 +3054,8 @@ var moves = {
     sting: {
         name: "Sting",
         power: 15,
+        energy: 10,
+        accuracy: 100,
         type: "Toxic",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -2979,6 +3066,8 @@ var moves = {
     pestilence: {
         name: "Pestilence",
         power: 35,
+        energy: 50,
+        accuracy: 100,
         type: "Bug",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -2988,6 +3077,8 @@ var moves = {
     bloodDrain: {
         name: "Blood Drain",
         power: 20,
+        energy: 34,
+        accuracy: 90,
         type: "Dark",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -2998,6 +3089,8 @@ var moves = {
     diveBomb: {
         name: "Dive Bomb",
         power: 50,
+        energy: 26,
+        accuracy: 90,
         type: "Dark",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3008,6 +3101,8 @@ var moves = {
     bamboozle: {
         name: "Bamboozle",
         power: 60,
+        energy: 26,
+        accuracy: "N/A",
         type: "Dark",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3018,6 +3113,8 @@ var moves = {
     scavenge: {
         name: "Scavenge",
         power: 60,
+        energy: 32,
+        accuracy: 100,
         type: "Air",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3028,6 +3125,8 @@ var moves = {
     submerge: {
         name: "Submerge",
         power: 75,
+        energy: 38,
+        accuracy: 100,
         type: "Water",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3038,6 +3137,8 @@ var moves = {
     mudSpatter: {
         name: "Mud Spatter",
         power: 55,
+        energy: 30,
+        accuracy: 100,
         type: "Earth",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3048,6 +3149,8 @@ var moves = {
     doubleSting: {
         name: "Double Sting",
         power: 25,
+        energy: 28,
+        accuracy: 100,
         type: "Bug",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3059,6 +3162,8 @@ var moves = {
     lusterLoot: {
         name: "Luster Loot",
         power: 50,
+        energy: 35,
+        accuracy: 100,
         type: "Light",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3069,6 +3174,8 @@ var moves = {
     mysticBreeze: {
         name: "Mystic Breeze",
         power: 60,
+        energy: 30,
+        accuracy: 100,
         type: "Bug",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3079,6 +3186,8 @@ var moves = {
     pilfer: {
         name: "Pilfer",
         power: 60,
+        energy: 32,
+        accuracy: 100,
         type: "Dark",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3089,6 +3198,8 @@ var moves = {
     tase: {
         name: "Tase",
         power: 20,
+        energy: 35,
+        accuracy: 100,
         type: "Electric",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3100,6 +3211,8 @@ var moves = {
     gust: {
         name: "Gust",
         power: 40,
+        energy: 20,
+        accuracy: 100,
         type: "Air",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3109,6 +3222,8 @@ var moves = {
     radiantForecast: {
         name: "Radiant Forecast",
         power: 110,
+        energy: 44,
+        accuracy: 100,
         type: "Light",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3118,6 +3233,8 @@ var moves = {
     corrode: {
         name: "Corrode",
         power: 40,
+        energy: 24,
+        accuracy: 100,
         type: "Toxic",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3129,6 +3246,8 @@ var moves = {
     quickPounce: {
         name: "Quick Pounce",
         power: 40,
+        energy: 25,
+        accuracy: 100,
         type: "Typeless",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3139,6 +3258,8 @@ var moves = {
     cycloneSlam: {
         name: "Cyclone Slam",
         power: 60,
+        energy: 26,
+        accuracy: "N/A",
         type: "Air",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3149,6 +3270,8 @@ var moves = {
     stormSummon: {
         name: "Storm Summon",
         power: 50,
+        energy: 46,
+        accuracy: 100,
         type: "Electric",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3160,6 +3283,8 @@ var moves = {
     chillyChomp: {
         name: "Chilly Chomp",
         power: 65,
+        energy: 32,
+        accuracy: 95,
         type: "Ice",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3172,6 +3297,8 @@ var moves = {
     naturesRage: {
         name: "Nature's Rage",
         power: 70,
+        energy: 55,
+        accuracy: 100,
         type: "Plant",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3182,6 +3309,8 @@ var moves = {
     slime: {
         name: "Slime",
         power: 65,
+        energy: 32,
+        accuracy: 100,
         type: "Toxic",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3192,6 +3321,8 @@ var moves = {
     rapidFire: {
         name: "Rapid Fire",
         power: 20,
+        energy: 32,
+        accuracy: 95,
         type: "Fire",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3203,6 +3334,8 @@ var moves = {
     waterBomb: {
         name: "Water Bomb",
         power: 60,
+        energy: 26,
+        accuracy: 100,
         type: "Water",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3213,6 +3346,8 @@ var moves = {
     leafBarrage: {
         name: "Leaf Barrage",
         power: 65,
+        energy: 30,
+        accuracy: 90,
         type: "Plant",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3222,6 +3357,8 @@ var moves = {
     spare: {
         name: "Spare",
         power: 40,
+        energy: 15,
+        accuracy: 100,
         type: "Typeless",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3232,6 +3369,8 @@ var moves = {
     hopKick: {
         name: "Hop Kick",
         power: 60,
+        energy: 30,
+        accuracy: 85,
         type: "Brawler",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3243,6 +3382,8 @@ var moves = {
     airWhip: {
         name: "Air Whip",
         power: 60,
+        energy: 32,
+        accuracy: 100,
         type: "Air",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3253,6 +3394,8 @@ var moves = {
     gloomFangs: {
         name: "Gloom Fangs",
         power: 75,
+        energy: 36,
+        accuracy: 90,
         type: "Dark",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3264,6 +3407,8 @@ var moves = {
     holySlash: {
         name: "Holy Slash",
         power: 75,
+        energy: 32,
+        accuracy: 100,
         type: "Metal",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3275,6 +3420,8 @@ var moves = {
     muckBuck: {
         name: "Muck Buck",
         power: 85,
+        energy: 50,
+        accuracy: 95,
         type: "Earth",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3287,6 +3434,8 @@ var moves = {
     quicksand: {
         name: "Quicksand",
         power: 35,
+        energy: 50,
+        accuracy: 100,
         type: "Earth",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3296,6 +3445,8 @@ var moves = {
     rant: {
         name: "Rant",
         power: 55,
+        energy: 32,
+        accuracy: 95,
         type: "Dark",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3306,6 +3457,8 @@ var moves = {
     lightDash: {
         name: "Light Dash",
         power: 40,
+        energy: 25,
+        accuracy: 100,
         type: "Light",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3316,6 +3469,8 @@ var moves = {
     pester: {
         name: "Pester",
         power: 50,
+        energy: 32,
+        accuracy: 100,
         type: "Bug",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3327,6 +3482,8 @@ var moves = {
     slapDown: {
         name: "Slap Down",
         power: 65,
+        energy: 45,
+        accuracy: 100,
         type: "Dark",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3339,6 +3496,8 @@ var moves = {
     startle: {
         name: "Startle",
         power: 30,
+        energy: 15,
+        accuracy: 100,
         type: "Spirit",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3350,6 +3509,8 @@ var moves = {
     brainwash: {
         name: "Brainwash",
         power: 50,
+        energy: 24,
+        accuracy: 100,
         type: "Mind",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3360,6 +3521,8 @@ var moves = {
     stupefy: {
         name: "Stupefy",
         power: 30,
+        energy: 25,
+        accuracy: 100,
         type: "Spirit",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3370,6 +3533,8 @@ var moves = {
     bushWhack: {
         name: "Bush Whack",
         power: 65,
+        energy: 35,
+        accuracy: 100,
         type: "Plant",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3380,6 +3545,8 @@ var moves = {
     oppress: {
         name: "Oppress",
         power: 65,
+        energy: 44,
+        accuracy: 100,
         type: "Spirit",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3389,6 +3556,8 @@ var moves = {
     spectralBurst: {
         name: "Spectral Burst",
         power: 80,
+        energy: 40,
+        accuracy: 100,
         type: "Spirit",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3399,6 +3568,8 @@ var moves = {
     phantomSlash: {
         name: "Phantom Slash",
         power: 70,
+        energy: 36,
+        accuracy: 100,
         type: "Spirit",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3409,6 +3580,8 @@ var moves = {
     venomChomp: {
         name: "Venom Chomp",
         power: 65,
+        energy: 32,
+        accuracy: 95,
         type: "Toxic",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3421,6 +3594,8 @@ var moves = {
     elementalBurst: {
         name: "Elemental Burst",
         power: 80,
+        energy: 48,
+        accuracy: 100,
         type: "Ancient",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3431,6 +3606,8 @@ var moves = {
     parasitize: {
         name: "Parasitize",
         power: 80,
+        energy: 55,
+        accuracy: 100,
         type: "Bug",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3442,6 +3619,8 @@ var moves = {
     headbutt: {
         name: "Headbutt",
         power: 60,
+        energy: 25,
+        accuracy: 100,
         type: "Typeless",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3453,6 +3632,8 @@ var moves = {
     wingSlap: {
         name: "Wing Slap",
         power: 60,
+        energy: 26,
+        accuracy: 100,
         type: "Air",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3463,6 +3644,8 @@ var moves = {
     gammaPulse: {
         name: "Gamma Pulse",
         power: 80,
+        energy: 50,
+        accuracy: 100,
         type: "Light",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3473,6 +3656,8 @@ var moves = {
     naturesForce: {
         name: "Nature's Force",
         power: 90,
+        energy: 50,
+        accuracy: 100,
         type: "Plant",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3483,6 +3668,8 @@ var moves = {
     lifeDrain: {
         name: "Life Drain",
         power: 75,
+        energy: 48,
+        accuracy: 100,
         type: "Plant",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3493,6 +3680,8 @@ var moves = {
     snowdozer: {
         name: "Snowdozer",
         power: 30,
+        energy: 24,
+        accuracy: 90,
         type: "Ice",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3503,6 +3692,8 @@ var moves = {
     searingSteel: {
         name: "Searing Steel",
         power: 85,
+        energy: 48,
+        accuracy: 100,
         type: "Metal",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3514,6 +3705,8 @@ var moves = {
     wintersFury: {
         name: "Winter's Fury",
         power: 30,
+        energy: 55,
+        accuracy: 100,
         type: "Ice",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3525,6 +3718,8 @@ var moves = {
     thunderstrike: {
         name: "Thunderstrike",
         power: 90,
+        energy: 50,
+        accuracy: 100,
         type: "Electric",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3535,6 +3730,8 @@ var moves = {
     maroon: {
         name: "Maroon",
         power: 70,
+        energy: 45,
+        accuracy: 100,
         type: "Water",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3544,6 +3741,8 @@ var moves = {
     flashPulse: {
         name: "Flash Pulse",
         power: 85,
+        energy: 42,
+        accuracy: 90,
         type: "Light",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3555,6 +3754,8 @@ var moves = {
     sleetShot: {
         name: "Sleet Shot",
         power: 55,
+        energy: 28,
+        accuracy: 95,
         type: "Ice",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3565,6 +3766,8 @@ var moves = {
     bodySlam: {
         name: "Body Slam",
         power: 90,
+        energy: 35,
+        accuracy: 100,
         type: "Typeless",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3575,6 +3778,8 @@ var moves = {
     slash: {
         name: "Slash",
         power: 75,
+        energy: 36,
+        accuracy: 100,
         type: "Typeless",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3585,6 +3790,8 @@ var moves = {
     nosedive: {
         name: "Nosedive",
         power: 95,
+        energy: 40,
+        accuracy: 100,
         type: "Air",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3596,6 +3803,8 @@ var moves = {
     flamingKick: {
         name: "Flaming Kick",
         power: 85,
+        energy: 45,
+        accuracy: 90,
         type: "Fire",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3607,6 +3816,8 @@ var moves = {
     yetisWrath: {
         name: "Yeti's Wrath",
         power: 120,
+        energy: 90,
+        accuracy: 100,
         type: "Earth",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3617,6 +3828,8 @@ var moves = {
     junglejutsu: {
         name: "Junglejutsu",
         power: 90,
+        energy: 50,
+        accuracy: 100,
         type: "Brawler",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3627,6 +3840,8 @@ var moves = {
     ragingTackle: {
         name: "Raging Tackle",
         power: 120,
+        energy: 62,
+        accuracy: 100,
         type: "Typeless",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3638,6 +3853,8 @@ var moves = {
     megaChomp: {
         name: "Mega Chomp",
         power: 80,
+        energy: 40,
+        accuracy: 100,
         type: "Dark",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3650,6 +3867,8 @@ var moves = {
     luminousRoar: {
         name: "Luminous Roar",
         power: 75,
+        energy: 36,
+        accuracy: 90,
         type: "Light",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3660,6 +3879,8 @@ var moves = {
     fireSlam: {
         name: "Fire Slam",
         power: 60,
+        energy: 26,
+        accuracy: 100,
         type: "Fire",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3671,6 +3892,8 @@ var moves = {
     shadowSprint: {
         name: "Shadow Sprint",
         power: 40,
+        energy: 25,
+        accuracy: 100,
         type: "Spirit",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3681,6 +3904,8 @@ var moves = {
     airBlade: {
         name: "Air Blade",
         power: 70,
+        energy: 40,
+        accuracy: 100,
         type: "Air",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3690,6 +3915,8 @@ var moves = {
     boulderBlast: {
         name: "Boulder Blast",
         power: 25,
+        energy: 25,
+        accuracy: 90,
         type: "Earth",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3700,6 +3927,8 @@ var moves = {
     darkSurge: {
         name: "Dark Surge",
         power: 80,
+        energy: 40,
+        accuracy: 100,
         type: "Dark",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3710,6 +3939,8 @@ var moves = {
     earSlap: {
         name: "Ear Slap",
         power: 15,
+        energy: 18,
+        accuracy: 85,
         type: "Typeless",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3722,6 +3953,8 @@ var moves = {
     muckBlast: {
         name: "Muck Blast",
         power: 90,
+        energy: 50,
+        accuracy: 100,
         type: "Toxic",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3732,6 +3965,8 @@ var moves = {
     pheroblast: {
         name: "Pheroblast",
         power: 90,
+        energy: 50,
+        accuracy: 100,
         type: "Bug",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3741,6 +3976,8 @@ var moves = {
     pineShot: {
         name: "Pine Shot",
         power: 25,
+        energy: 25,
+        accuracy: 100,
         type: "Plant",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3751,6 +3988,8 @@ var moves = {
     quickPunch: {
         name: "Quick Punch",
         power: 40,
+        energy: 25,
+        accuracy: 100,
         type: "Brawler",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3762,6 +4001,8 @@ var moves = {
     ragingHowl: {
         name: "Raging Howl",
         power: 120,
+        energy: 62,
+        accuracy: 100,
         type: "Typeless",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3773,6 +4014,8 @@ var moves = {
     thunderChomp: {
         name: "Thunder Chomp",
         power: 65,
+        energy: 30,
+        accuracy: 95,
         type: "Electric",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3785,6 +4028,8 @@ var moves = {
     thunderSlam: {
         name: "Thunder Slam",
         power: 65,
+        energy: 26,
+        accuracy: 100,
         type: "Electric",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3795,6 +4040,8 @@ var moves = {
     toxicTail: {
         name: "Toxic Tail",
         power: 50,
+        energy: 30,
+        accuracy: 100,
         type: "Toxic",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3806,6 +4053,8 @@ var moves = {
     returnToSender: {
         name: "Return to Sender",
         power: 0,
+        energy: 25,
+        accuracy: 100,
         type: "Mind",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3815,6 +4064,8 @@ var moves = {
     foulChant: {
         name: "Foul Chant",
         power: 110,
+        energy: 45,
+        accuracy: 70,
         type: "Mind",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3825,6 +4076,8 @@ var moves = {
     earthquake: {
         name: "Earthquake",
         power: 90,
+        energy: 50,
+        accuracy: 100,
         type: "Earth",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3835,6 +4088,8 @@ var moves = {
     fireBreath: {
         name: "Fire Breath",
         power: 90,
+        energy: 50,
+        accuracy: 100,
         type: "Fire",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3845,6 +4100,8 @@ var moves = {
     geyser: {
         name: "Geyser",
         power: 75,
+        energy: 40,
+        accuracy: 100,
         type: "Water",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3855,6 +4112,8 @@ var moves = {
     hydroSlash: {
         name: "Hydro Slash",
         power: 70,
+        energy: 36,
+        accuracy: 100,
         type: "Water",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3865,6 +4124,8 @@ var moves = {
     magmaBurst: {
         name: "Magma Burst",
         power: 85,
+        energy: 45,
+        accuracy: 100,
         type: "Fire",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3875,6 +4136,8 @@ var moves = {
     tripRoot: {
         name: "Trip Root",
         power: -1,
+        energy: 30,
+        accuracy: 100,
         type: "Plant",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3885,6 +4148,8 @@ var moves = {
     savageGreed: {
         name: "Savage Greed",
         power: 95,
+        energy: 52,
+        accuracy: 90,
         type: "Ancient",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3895,6 +4160,8 @@ var moves = {
     blazeChomp: {
         name: "Blaze Chomp",
         power: 65,
+        energy: 32,
+        accuracy: 95,
         type: "Fire",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3907,6 +4174,8 @@ var moves = {
     primalSlash: {
         name: "Primal Slash",
         power: 80,
+        energy: 45,
+        accuracy: 100,
         type: "Ancient",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3917,6 +4186,8 @@ var moves = {
     coconutBomb: {
         name: "Coconut Bomb",
         power: 90,
+        energy: 45,
+        accuracy: 100,
         type: "Plant",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3929,6 +4200,8 @@ var moves = {
     lavaSlash: {
         name: "Lava Slash",
         power: 70,
+        energy: 45,
+        accuracy: 100,
         type: "Fire",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3940,6 +4213,8 @@ var moves = {
     electroburst: {
         name: "Electroburst",
         power: 85,
+        energy: 50,
+        accuracy: 95,
         type: "Electric",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3951,6 +4226,8 @@ var moves = {
     chaseDown: {
         name: "Chase Down",
         power: 40,
+        energy: 30,
+        accuracy: 100,
         type: "Dark",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3961,6 +4238,8 @@ var moves = {
     thunderCrash: {
         name: "Thunder Crash",
         power: 90,
+        energy: 38,
+        accuracy: 100,
         type: "Electric",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3972,6 +4251,8 @@ var moves = {
     ghostlyHowl: {
         name: "Ghostly Howl",
         power: 75,
+        energy: 38,
+        accuracy: "N/A",
         type: "Spirit",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3983,6 +4264,8 @@ var moves = {
     resonate: {
         name: "Resonate",
         power: 90,
+        energy: 50,
+        accuracy: 100,
         type: "Typeless",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -3994,18 +4277,21 @@ var moves = {
     repeatingTune: {
         name: "Repeating Tune",
         power: 25,
+        energy: 25,
+        accuracy: 100,
         type: "Typeless",
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         hits: 3,
         sound: true,
-        secondaryEffect: true
     },
 
     gloominousRoar: {
         name: "Gloominous Roar",
         power: 85,
+        energy: 46,
+        accuracy: 100,
         type: "Typeless",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4016,6 +4302,8 @@ var moves = {
     gobbleGoop: {
         name: "Gobble Goop",
         power: 60,
+        energy: 36,
+        accuracy: 100,
         type: "Toxic",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4026,6 +4314,8 @@ var moves = {
     harmoniousChord: {
         name: "Harmonious Chord",
         power: 60,
+        energy: 35,
+        accuracy: 100,
         type: "Typeless",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4037,6 +4327,8 @@ var moves = {
     dissonantChord: {
         name: "Dissonant Chord",
         power: 80,
+        energy: 40,
+        accuracy: 100,
         type: "Typeless",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4048,6 +4340,8 @@ var moves = {
     flabbergast: {
         name: "Flabbergast",
         power: 70,
+        energy: 36,
+        accuracy: 100,
         type: "Mind",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4058,6 +4352,8 @@ var moves = {
     cerebralSlash: {
         name: "Cerebral Slash",
         power: 70,
+        energy: 36,
+        accuracy: 100,
         type: "Mind",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4067,6 +4363,8 @@ var moves = {
     flashNFlee: {
         name: "Flash 'n Flee",
         power: 40,
+        energy: 50,
+        accuracy: 100,
         type: "Light",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4076,6 +4374,8 @@ var moves = {
     roughUp: {
         name: "Rough Up",
         power: 70,
+        energy: 40,
+        accuracy: 100,
         type: "Brawler",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4086,6 +4386,8 @@ var moves = {
     heavyBash: {
         name: "Heavy Bash",
         power: 70,
+        energy: 36,
+        accuracy: 100,
         type: "Metal",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4096,6 +4398,8 @@ var moves = {
     bash: {
         name: "Bash",
         power: 50,
+        energy: 20,
+        accuracy: 100,
         type: "Metal",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4106,6 +4410,8 @@ var moves = {
     metalSwipes: {
         name: "Metal Swipes",
         power: 20,
+        energy: 20,
+        accuracy: 95,
         type: "Metal",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4117,6 +4423,8 @@ var moves = {
     clamp: {
         name: "Clamp",
         power: 45,
+        energy: 22,
+        accuracy: 100,
         type: "Metal",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4127,6 +4435,8 @@ var moves = {
     dartBurst: {
         name: "Dart Burst",
         power: 35,
+        energy: 40,
+        accuracy: 90,
         type: "Metal",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4137,6 +4447,8 @@ var moves = {
     doubleWhack: {
         name: "Double Whack",
         power: 35,
+        energy: 34,
+        accuracy: 100,
         type: "Metal",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4148,6 +4460,8 @@ var moves = {
     completeDemolition: {
         name: "Complete Demolition",
         power: 150,
+        energy: 60,
+        accuracy: 90,
         type: "Metal",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4158,6 +4472,8 @@ var moves = {
     frostBeam: {
         name: "Frost Beam",
         power: 90,
+        energy: 50,
+        accuracy: 100,
         type: "Ice",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4168,6 +4484,8 @@ var moves = {
     precisionBolt: {
         name: "Precision Bolt",
         power: 60,
+        energy: 26,
+        accuracy: "N/A",
         type: "Electric",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4177,6 +4495,8 @@ var moves = {
     ragingFlame: {
         name: "Raging Flame",
         power: 50,
+        energy: 35,
+        accuracy: 100,
         type: "Fire",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4187,6 +4507,8 @@ var moves = {
     metalBlast: {
         name: "Metal Blast",
         power: 85,
+        energy: 42,
+        accuracy: 100,
         type: "Metal",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4196,6 +4518,8 @@ var moves = {
     reflectionBurst: {
         name: "Reflection Burst",
         power: 60,
+        energy: 40,
+        accuracy: 100,
         type: "Metal",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4205,6 +4529,8 @@ var moves = {
     batteringRam: {
         name: "Battering Ram",
         power: 90,
+        energy: 50,
+        accuracy: 100,
         type: "Bug",
         mr: "Melee",
         mr1: "Melee Defense",
@@ -4216,6 +4542,8 @@ var moves = {
     graffiti: {
         name: "Graffiti",
         power: 70,
+        energy: 50,
+        accuracy: 90,
         type: "Toxic",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4227,6 +4555,8 @@ var moves = {
     canisterBurst: {
         name: "Canister Burst",
         power: 25,
+        energy: 35,
+        accuracy: 95,
         type: "Toxic",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4237,6 +4567,8 @@ var moves = {
     claySlap: {
         name: "Clay Slap",
         power: 60,
+        energy: 35,
+        accuracy: 100,
         type: "Earth",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4248,6 +4580,8 @@ var moves = {
     tailSlap: {
         name: "Tail Slap",
         power: 40,
+        energy: 10,
+        accuracy: 100,
         type: "Typeless",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4258,6 +4592,8 @@ var moves = {
     energySurge: {
         name: "Energy Surge",
         power: 70,
+        energy: 40,
+        accuracy: 100,
         type: "Light",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4268,6 +4604,8 @@ var moves = {
     illWill: {
         name: "Ill Will",
         power: 60,
+        energy: 40,
+        accuracy: 100,
         type: "Typeless",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4278,6 +4616,8 @@ var moves = {
     steelCrusher: {
         name: "Steel Crusher",
         power: 90,
+        energy: 50,
+        accuracy: 90,
         type: "Metal",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4289,6 +4629,8 @@ var moves = {
     frostPunch: {
         name: "Frost Punch",
         power: 70,
+        energy: 40,
+        accuracy: 100,
         type: "Ice",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4301,6 +4643,8 @@ var moves = {
     electroPunch: {
         name: "Electro Punch",
         power: 70,
+        energy: 40,
+        accuracy: 100,
         type: "Electric",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4313,6 +4657,8 @@ var moves = {
     megaPunch: {
         name: "Mega Punch",
         power: 80,
+        energy: 40,
+        accuracy: 100,
         type: "Brawler",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4325,6 +4671,8 @@ var moves = {
     telekineticSweep: {
         name: "Telekinetic Sweep",
         power: 90,
+        energy: 45,
+        accuracy: 90,
         type: "Mind",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4338,6 +4686,8 @@ var moves = {
     chop: {
         name: "Chop",
         power: 60,
+        energy: 30,
+        accuracy: 90,
         type: "Brawler",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4349,6 +4699,8 @@ var moves = {
     pyrokinesis: {
         name: "Pyrokinesis",
         power: 65,
+        energy: 38,
+        accuracy: 100,
         type: "Fire",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4359,6 +4711,8 @@ var moves = {
     clampClaw: {
         name: "Clamp Claw",
         power: 85,
+        energy: 55,
+        accuracy: 100,
         type: "Bug",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4370,6 +4724,8 @@ var moves = {
     tsunami: {
         name: "Tsunami",
         power: 90,
+        energy: 60,
+        accuracy: 100,
         type: "Water",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4380,6 +4736,8 @@ var moves = {
     soulDrain: {
         name: "Soul Drain",
         power: 85,
+        energy: 50,
+        accuracy: 100,
         type: "Dark",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4390,6 +4748,8 @@ var moves = {
     confound: {
         name: "Confound",
         power: 40,
+        energy: 18,
+        accuracy: 100,
         type: "Ancient",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4400,6 +4760,8 @@ var moves = {
     piercingDrive: {
         name: "Piercing Drive",
         power: 75,
+        energy: 40,
+        accuracy: 90,
         type: "Water",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4410,6 +4772,8 @@ var moves = {
     dinoClaws: {
         name: "Dino Claws",
         power: 45,
+        energy: 24,
+        accuracy: 100,
         type: "Ancient",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4421,6 +4785,8 @@ var moves = {
     shrewdBlast: {
         name: "Shrewd Blast",
         power: 70,
+        energy: 42,
+        accuracy: "N/A",
         type: "Ancient",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4430,6 +4796,8 @@ var moves = {
     aquaJaws: {
         name: "Aqua Jaws",
         power: 65,
+        energy: 38,
+        accuracy: 90,
         type: "Water",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4442,6 +4810,8 @@ var moves = {
     thunderClap: {
         name: "Thunder Clap",
         power: 80,
+        energy: 45,
+        accuracy: 100,
         type: "Electric",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4453,6 +4823,8 @@ var moves = {
     eggLob: {
         name: "Egg Lob",
         power: 100,
+        energy: 46,
+        accuracy: 100,
         type: "Dark",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4463,6 +4835,8 @@ var moves = {
     marshWave: {
         name: "Marsh Wave",
         power: 75,
+        energy: 45,
+        accuracy: 100,
         type: "Water",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4474,6 +4848,8 @@ var moves = {
     psychalSlap: {
         name: "Psychal Slap",
         power: 85,
+        energy: 45,
+        accuracy: 100,
         type: "Mind",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4484,6 +4860,8 @@ var moves = {
     viciousSnap: {
         name: "Vicious Snap",
         power: 75,
+        energy: 45,
+        accuracy: 100,
         type: "Water",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4495,6 +4873,8 @@ var moves = {
     iceHammer: {
         name: "Ice Hammer",
         power: 95,
+        energy: 50,
+        accuracy: 100,
         type: "Ice",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4505,6 +4885,8 @@ var moves = {
     timberThrash: {
         name: "Timber Thrash",
         power: 120,
+        energy: 60,
+        accuracy: 100,
         type: "Plant",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4516,6 +4898,8 @@ var moves = {
     douse: {
         name: "Douse",
         power: 90,
+        energy: 50,
+        accuracy: 100,
         type: "Water",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4525,6 +4909,8 @@ var moves = {
     rainbowBlast: {
         name: "Rainbow Blast",
         power: 100,
+        energy: 50,
+        accuracy: 100,
         type: "Typeless",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4534,6 +4920,8 @@ var moves = {
     twirlyWhirl: {
         name: "Twirly Whirl",
         power: 75,
+        energy: 40,
+        accuracy: 100,
         type: "Bug",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4544,6 +4932,8 @@ var moves = {
     peppermintBreath: {
         name: "Peppermint Breath",
         power: 75,
+        energy: 40,
+        accuracy: 100,
         type: "Ice",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -4554,6 +4944,8 @@ var moves = {
     fieryFondant: {
         name: "Fiery Fondant",
         power: 90,
+        energy: 55,
+        accuracy: 100,
         type: "Fire",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4566,6 +4958,8 @@ var moves = {
     flail: {
         name: "Flail",
         power: 40,
+        energy: 0,
+        accuracy: 100,
         type: "Null",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4575,7 +4969,33 @@ var moves = {
     heartBreak: {
         name: "Heart Break",
         power: 50,
+        energy: 25,
+        accuracy: 100,
         type: "Brawler",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        secondaryEffect: true
+    },
+
+    powerSiphon: {
+        name: "Power Siphon",
+        power: 20,
+        energy: 32,
+        accuracy: 90,
+        type: "Electric",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
+    },
+
+    adaptiveAssault: {
+        name: "Adaptive Assault",
+        power: 75,
+        energy: 35,
+        accuracy: 100,
+        type: "Typeless",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
@@ -4590,6 +5010,8 @@ var moves = {
     noMove: {
         name: "(No Move)",
         power: 0,
+        energy: 0,
+        accuracy: 100,
         type: "Typeless",
         mr: "Support"
     },
@@ -4597,6 +5019,8 @@ var moves = {
     accelerate: {
         name: "Accelerate",
         power: 0,
+        energy: 25,
+        accuracy: 100,
         type: "Typeless",
         mr: "Support"
     },
@@ -4604,6 +5028,8 @@ var moves = {
     aim: {
         name: "Aim",
         power: 0,
+        energy: 10,
+        accuracy: "N/A",
         type: "Typeless",
         mr: "Support"
     },
@@ -4611,13 +5037,18 @@ var moves = {
     ancientRoar: {
         name: "Ancient Roar",
         power: 0,
+        energy: 50,
+        accuracy: 100,
         type: "Ancient",
-        mr: "Support"
+        mr: "Support",
+        sound: true
     },
 
     brace: {
         name: "Brace",
         power: 0,
+        energy: 15,
+        accuracy: "N/A",
         type: "Typeless",
         mr: "Support"
     },
@@ -4625,6 +5056,8 @@ var moves = {
     burrow: {
         name: "Burrow",
         power: 0,
+        energy: 15,
+        accuracy: "N/A",
         type: "Earth",
         mr: "Support"
     },
@@ -4632,6 +5065,8 @@ var moves = {
     charade: {
         name: "Charade",
         power: 0,
+        energy: 25,
+        accuracy: 100,
         type: "Dark",
         mr: "Support"
     },
@@ -4639,6 +5074,8 @@ var moves = {
     dawdle: {
         name: "Dawdle",
         power: 0,
+        energy: 10,
+        accuracy: 100,
         type: "Typeless",
         mr: "Support"
     },
@@ -4646,6 +5083,8 @@ var moves = {
     disperse: {
         name: "Disperse",
         power: 0,
+        energy: 25,
+        accuracy: "N/A",
         type: "Light",
         mr: "Support"
     },
@@ -4653,6 +5092,8 @@ var moves = {
     dodge: {
         name: "Dodge",
         power: 0,
+        energy: 20,
+        accuracy: "N/A",
         type: "Typeless",
         mr: "Support"
     },
@@ -4660,6 +5101,8 @@ var moves = {
     eerieStare: {
         name: "Eerie Stare",
         power: 0,
+        energy: 25,
+        accuracy: 100,
         type: "Typeless",
         mr: "Support"
     },
@@ -4667,6 +5110,8 @@ var moves = {
     energize: {
         name: "Energize",
         power: 0,
+        energy: 25,
+        accuracy: "N/A",
         type: "Electric",
         mr: "Support"
     },
@@ -4674,6 +5119,8 @@ var moves = {
     examine: {
         name: "Examine",
         power: 0,
+        energy: 15,
+        accuracy: "N/A",
         type: "Typeless",
         mr: "Support"
     },
@@ -4681,6 +5128,8 @@ var moves = {
     finalRuse: {
         name: "Final Ruse",
         power: 0,
+        energy: 40,
+        accuracy: "N/A",
         type: "Spirit",
         mr: "Support"
     },
@@ -4688,13 +5137,18 @@ var moves = {
     growl: {
         name: "Growl",
         power: 0,
+        energy: 10,
+        accuracy: 100,
         type: "Typeless",
-        mr: "Support"
+        mr: "Support",
+        sound: true
     },
 
     icicleTrap: {
         name: "Icicle Trap",
         power: 0,
+        energy: 45,
+        accuracy: "N/A",
         type: "Ice",
         mr: "Support"
     },
@@ -4702,6 +5156,8 @@ var moves = {
     mindsEye: {
         name: "Mind's Eye",
         power: 0,
+        energy: 15,
+        accuracy: "N/A",
         type: "Mind",
         mr: "Support"
     },
@@ -4709,6 +5165,8 @@ var moves = {
     peaceOfMind: {
         name: "Peace Of Mind",
         power: 0,
+        energy: 25,
+        accuracy: "N/A",
         type: "Mind",
         mr: "Support"
     },
@@ -4716,6 +5174,8 @@ var moves = {
     perch: {
         name: "Perch",
         power: 0,
+        energy: 72,
+        accuracy: "N/A",
         type: "Air",
         mr: "Support"
     },
@@ -4723,6 +5183,8 @@ var moves = {
     poison: {
         name: "Poison",
         power: 0,
+        energy: 25,
+        accuracy: 90,
         type: "Toxic",
         mr: "Support"
     },
@@ -4730,6 +5192,8 @@ var moves = {
     poisonBarbs: {
         name: "Poison Barbs",
         power: 0,
+        energy: 25,
+        accuracy: "N/A",
         type: "Toxic",
         mr: "Support"
     },
@@ -4737,6 +5201,8 @@ var moves = {
     powerFocus: {
         name: "Power Focus",
         power: 0,
+        energy: 25,
+        accuracy: "N/A",
         type: "Typeless",
         mr: "Support"
     },
@@ -4744,6 +5210,8 @@ var moves = {
     provoke: {
         name: "Provoke",
         power: 0,
+        energy: 25,
+        accuracy: 100,
         type: "Dark",
         mr: "Support"
     },
@@ -4751,6 +5219,8 @@ var moves = {
     revival: {
         name: "Revival",
         power: 0,
+        energy: 72,
+        accuracy: "N/A",
         type: "Spirit",
         mr: "Support"
     },
@@ -4758,6 +5228,8 @@ var moves = {
     sapPlant: {
         name: "Sap Plant",
         power: 0,
+        energy: 35,
+        accuracy: 90,
         type: "Plant",
         mr: "Support"
     },
@@ -4765,6 +5237,8 @@ var moves = {
     scapeGoat: {
         name: "Scapegoat",
         power: 0,
+        energy: 0,
+        accuracy: "N/A",
         type: "Typeless",
         mr: "Support",
         contact: true
@@ -4773,6 +5247,8 @@ var moves = {
     sharpen: {
         name: "Sharpen",
         power: 0,
+        energy: 25,
+        accuracy: "N/A",
         type: "Dark",
         mr: "Support"
     },
@@ -4780,6 +5256,8 @@ var moves = {
     snoreSpores: {
         name: "Snore Spores",
         power: 0,
+        energy: 25,
+        accuracy: 75,
         type: "Plant",
         mr: "Support"
     },
@@ -4787,6 +5265,8 @@ var moves = {
     softWater: {
         name: "Soft Water",
         power: 0,
+        energy: 60,
+        accuracy: "N/A",
         type: "Water",
         mr: "Support"
     },
@@ -4794,13 +5274,18 @@ var moves = {
     squawk: {
         name: "Squawk",
         power: 0,
+        energy: 10,
+        accuracy: 100,
         type: "Typeless",
-        mr: "Support"
+        mr: "Support",
+        sound: true
     },
 
     stare: {
         name: "Stare",
         power: 0,
+        energy: 10,
+        accuracy: 100,
         type: "Typeless",
         mr: "Support"
     },
@@ -4808,6 +5293,8 @@ var moves = {
     staticSpores: {
         name: "Static Spores",
         power: 0,
+        energy: 25,
+        accuracy: 75,
         type: "Plant",
         mr: "Support"
     },
@@ -4815,6 +5302,8 @@ var moves = {
     stretch: {
         name: "Stretch",
         power: 0,
+        energy: 15,
+        accuracy: "N/A",
         type: "Typeless",
         mr: "Support"
     },
@@ -4822,6 +5311,8 @@ var moves = {
     takeRoot: {
         name: "Take Root",
         power: 0,
+        energy: 50,
+        accuracy: "N/A",
         type: "Plant",
         mr: "Support"
     },
@@ -4829,6 +5320,8 @@ var moves = {
     tease: {
         name: "Tease",
         power: 0,
+        energy: 20,
+        accuracy: 100,
         type: "Dark",
         mr: "Support"
     },
@@ -4836,6 +5329,8 @@ var moves = {
     toxicSpores: {
         name: "Toxic Spores",
         power: 0,
+        energy: 25,
+        accuracy: 75,
         type: "Toxic",
         mr: "Support"
     },
@@ -4843,6 +5338,8 @@ var moves = {
     webShot: {
         name: "Web Shot",
         power: 0,
+        energy: 10,
+        accuracy: 90,
         type: "Bug",
         mr: "Support"
     },
@@ -4850,6 +5347,8 @@ var moves = {
     magmaBlock: {
         name: "Magma Block",
         power: 0,
+        energy: 30,
+        accuracy: "N/A",
         type: "Fire",
         mr: "Support"
     },
@@ -4857,6 +5356,8 @@ var moves = {
     wonderHerb: {
         name: "Wonder Herb",
         power: 0,
+        energy: 45,
+        accuracy: "N/A",
         type: "Plant",
         mr: "Support"
     },
@@ -4864,6 +5365,8 @@ var moves = {
     photosynthesis: {
         name: "Photosynthesis",
         power: 0,
+        energy: 72,
+        accuracy: "N/A",
         type: "Plant",
         mr: "Support"
     },
@@ -4871,6 +5374,8 @@ var moves = {
     healthGift: {
         name: "Health Gift",
         power: 0,
+        energy: 50,
+        accuracy: "N/A",
         type: "Mind",
         mr: "Support"
     },
@@ -4878,6 +5383,8 @@ var moves = {
     energyGift: {
         name: "Energy Gift",
         power: 0,
+        energy: 50,
+        accuracy: "N/A",
         type: "Mind",
         mr: "Support"
     },
@@ -4885,6 +5392,8 @@ var moves = {
     briarBlock: {
         name: "Briar Block",
         power: 0,
+        energy: 30,
+        accuracy: "N/A",
         type: "Plant",
         mr: "Support"
     },
@@ -4892,6 +5401,8 @@ var moves = {
     beastSlumber: {
         name: "Beast's Slumber",
         power: 0,
+        energy: 65,
+        accuracy: "N/A",
         type: "Ancient",
         mr: "Support"
     },
@@ -4899,6 +5410,8 @@ var moves = {
     burnUp: {
         name: "Burn Up",
         power: 0,
+        energy: 25,
+        accuracy: "N/A",
         type: "Fire",
         mr: "Support"
     },
@@ -4906,20 +5419,28 @@ var moves = {
     battleHorn: {
         name: "Battle Horn",
         power: 0,
+        energy: 50,
+        accuracy: "N/A",
         type: "Typeless",
-        mr: "Support"
+        mr: "Support",
+        sound: true
     },
 
     toneBarrier: {
         name: "Tone Barrier",
         power: 0,
+        energy: 20,
+        accuracy: "N/A",
         type: "Typeless",
-        mr: "Support"
+        mr: "Support",
+        sound: true
     },
 
     impersonate: {
         name: "Impersonate",
         power: 0,
+        energy: 45,
+        accuracy: "N/A",
         type: "Spirit",
         mr: "Support"
     },
@@ -4927,6 +5448,8 @@ var moves = {
     gainDrain: {
         name: "Gain Drain",
         power: 0,
+        energy: 45,
+        accuracy: "N/A",
         type: "Dark",
         mr: "Support"
     },
@@ -4934,6 +5457,8 @@ var moves = {
     magnify: {
         name: "Magnify",
         power: 0,
+        energy: 25,
+        accuracy: "N/A",
         type: "Light",
         mr: "Support"
     },
@@ -4941,6 +5466,8 @@ var moves = {
     memorize: {
         name: "Memorize",
         power: 0,
+        energy: 25,
+        accuracy: "N/A",
         type: "Mind",
         mr: "Support"
     },
@@ -4948,6 +5475,8 @@ var moves = {
     baneOfHaste: {
         name: "Bane of Haste",
         power: 0,
+        energy: 50,
+        accuracy: "N/A",
         type: "Ancient",
         mr: "Support"
     },
@@ -4955,6 +5484,8 @@ var moves = {
     hypnotize: {
         name: "Hypnotize",
         power: 0,
+        energy: 25,
+        accuracy: 75,
         type: "Mind",
         mr: "Support"
     },
@@ -4962,6 +5493,8 @@ var moves = {
     rejuvenate: {
         name: "Rejuvenate",
         power: 0,
+        energy: 72,
+        accuracy: "N/A",
         type: "Typeless",
         mr: "Support"
     },
@@ -4969,6 +5502,8 @@ var moves = {
     metalShriek: {
         name: "Metal Shriek",
         power: 0,
+        energy: 25,
+        accuracy: "N/A",
         type: "Metal",
         mr: "Support"
     },
@@ -4976,6 +5511,8 @@ var moves = {
     oilLeak: {
         name: "Oil Leak",
         power: 0,
+        energy: 10,
+        accuracy: "N/A",
         type: "Toxic",
         mr: "Support"
     },
@@ -4983,27 +5520,35 @@ var moves = {
     secondWind: {
         name: "Second Wind",
         power: 0,
+        energy: 0,
+        accuracy: "N/A",
         type: "Wind",
         mr: "Support"
     },
 
-     paintShower: {
+    paintShower: {
         name: "Paint Shower",
         power: 0,
+        energy: 40,
+        accuracy: "N/A",
         type: "Toxic",
         mr: "Support"
     },
 
-     tuneUp: {
+    tuneUp: {
         name: "Tune-up",
         power: 0,
+        energy: 25,
+        accuracy: "N/A",
         type: "Metal",
         mr: "Support"
     },
 
-     ancientInstinct: {
+    ancientInstinct: {
         name: "Ancient Instinct",
         power: 0,
+        energy: 25,
+        accuracy: "N/A",
         type: "Ancient",
         mr: "Support"
     },
@@ -5011,6 +5556,8 @@ var moves = {
     jumpStart: {
         name: "Jump Start",
         power: 0,
+        energy: 40,
+        accuracy: "N/A",
         type: "Electric",
         mr: "Support"
     },
@@ -5018,6 +5565,8 @@ var moves = {
     barter: {
         name: "Barter",
         power: 0,
+        energy: 50,
+        accuracy: 100,
         type: "Typeless",
         mr: "Support"
     },
@@ -5025,6 +5574,8 @@ var moves = {
     brawnBoost: {
         name: "Brawn Boost",
         power: 0,
+        energy: 25,
+        accuracy: "N/A",
         type: "Brawler",
         mr: "Support"
     },
@@ -5032,6 +5583,8 @@ var moves = {
     molt: {
         name: "Molt",
         power: 0,
+        energy: 25,
+        accuracy: "N/A",
         type: "Bug",
         mr: "Support"
     },
@@ -5039,6 +5592,8 @@ var moves = {
     baffle: {
         name: "Baffle",
         power: 0,
+        energy: 50,
+        accuracy: 100,
         type: "Dark",
         mr: "Support"
     },
@@ -5046,6 +5601,8 @@ var moves = {
     phoenixFlame: {
         name: "Phoenix Flame",
         power: 0,
+        energy: 0,
+        accuracy: "N/A",
         type: "Fire",
         mr: "Support"
     },
@@ -5053,6 +5610,8 @@ var moves = {
     squareOne: {
         name: "Square One",
         power: 0,
+        energy: 40,
+        accuracy: "N/A",
         type: "Dark",
         mr: "Support"
     },
@@ -5060,6 +5619,8 @@ var moves = {
     bulkUp: {
         name: "Bulk Up",
         power: 0,
+        energy: 25,
+        accuracy: "N/A",
         type: "Brawler",
         mr: "Support"
     },
@@ -5067,6 +5628,8 @@ var moves = {
     talentTrade: {
         name: "Talent Trade",
         power: 0,
+        energy: 40,
+        accuracy: "N/A",
         type: "Dark",
         mr: "Support"
     },
@@ -5074,6 +5637,8 @@ var moves = {
     bait: {
         name: "Bait",
         power: 0,
+        energy: 30,
+        accuracy: "N/A",
         type: "Typeless",
         mr: "Support"
     },
@@ -5081,7 +5646,36 @@ var moves = {
     bequeath: {
         name: "Bequeath",
         power: 0,
+        energy: 50,
+        accuracy: "N/A",
+        type: "Typeless",
+        mr: "Support"
+    },
+
+    dejaVu: {
+        name: "Deja Vu",
+        power: 0,
+        energy: 30,
+        accuracy: "N/A",
         type: "Mind",
+        mr: "Support"
+    },
+
+    fungusCurse: {
+        name: "Fungus Curse",
+        power: 0,
+        energy: 25,
+        accuracy: "N/A",
+        type: "Plant",
+        mr: "Support"
+    },
+
+    steelTrap: {
+        name: "Steel Trap",
+        power: 0,
+        energy: 35,
+        accuracy: 95,
+        type: "Metal",
         mr: "Support"
     },
 
@@ -5197,7 +5791,7 @@ var abilities = ["Awakening", "Ambush", "Coursing Venom", "Drainage", "Hasty", "
                 "Total Eclipse", "Tone Deaf", "Circadian", "Baneful", "Rechargeable", "Toxic Filter", "Trash Armor", "Tank", "Power Jaw", "Specialization", "Slick Shell",
                 "Heavy Fists", "Enchanted Coat", "Bloodsucker", "Nightmarish", "Overcharged", "Watcher", "Sly", "Devious", "Ignorant", "Chill", "Vigorous", "Aqua Body",
                 "Idiosyncratic", "Adorable", "Terrifying", "Boast", "Staunch", "Anomaly", "Combative", "Defensive Priority", "Ungracious Host", "Madcap", "Hard Candy",
-                "Incandescent"];
+                "Incandescent", "Expertise", "Virtuoso", "Sharp Focus"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -5273,7 +5867,7 @@ var typeModAbilities = {
     }
 }
 
-var items = ["Heavy Shield", "Heavy Armor", "Power Cuffs", "Health Amulet", "Drain Orb", "Mystic Wand", "Drop of Youth"];
+var items = ["Heavy Shield", "Heavy Armor", "Power Cuffs", "Health Amulet", "Drain Orb", "Mystic Wand", "Drop of Youth", "Energy Orb"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Essence");
