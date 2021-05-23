@@ -39,6 +39,15 @@ let moveTwoType2 = document.getElementById("moveTwoType2");
 let moveThreeType2 = document.getElementById("moveThreeType2");
 let moveFourType2 = document.getElementById("moveFourType2");
 
+let moveOneEnergy1 = document.getElementById("moveOneEnergy1");
+let moveTwoEnergy1 = document.getElementById("moveTwoEnergy1");
+let moveThreeEnergy1 = document.getElementById("moveThreeEnergy1");
+let moveFourEnergy1 = document.getElementById("moveFourEnergy1");
+let moveOneEnergy2 = document.getElementById("moveOneEnergy2");
+let moveTwoEnergy2 = document.getElementById("moveTwoEnergy2");
+let moveThreeEnergy2 = document.getElementById("moveThreeEnergy2");
+let moveFourEnergy2 = document.getElementById("moveFourEnergy2");
+
 let moveOneMR1 = document.getElementById("moveOneMR1");
 let moveTwoMR1 = document.getElementById("moveTwoMR1");
 let moveThreeMR1 = document.getElementById("moveThreeMR1");
@@ -156,6 +165,11 @@ let immuneAbilityBoost2 = document.getElementById("immuneBoost2");
 let iceTrap1 = document.getElementById("iceTrap1");
 let iceTrap2 = document.getElementById("iceTrap2");
 
+let halfIce1 = document.getElementById("halfIce1");
+let halfStyle1 = document.getElementById("halfStyle1");
+let halfIce2 = document.getElementById("halfIce2");
+let halfStyle2 = document.getElementById("halfStyle2");
+
 let enteredBtl1 = document.getElementById("enteredBtl1");
 let enteredBtl2 = document.getElementById("enteredBtl2");
 
@@ -180,11 +194,17 @@ let quicksand2 = document.getElementById("quicksand2");
 let bloodDrain1 = document.getElementById("bloodDrain1");
 let bloodDrain2 = document.getElementById("bloodDrain2");
 
+let softWater1 = document.getElementById("softWater1");
+let softWater2 = document.getElementById("softWater2");
+
 let dusk1 = document.getElementById("dusk1");
 let dusk2 = document.getElementById("dusk2");
 
 let dawn1 = document.getElementById("dawn1");
 let dawn2 = document.getElementById("dawn2");
+
+let guardian1 = document.getElementById("guardian1");
+let guardian2 = document.getElementById("guardian2");
 
 let currentHP1 = document.getElementById("currentHP1");
 let currentHP2 = document.getElementById("currentHP2");
@@ -472,6 +492,24 @@ function update(updatePower = false, updateBaseStats = false) {
     detailedReport();
 
     updatePercent();
+
+    if (iceTrap1.checked == true) {
+        halfIce1.style.visibility = "visible";
+        halfStyle1.style.visibility = "visible";
+    } else {
+        halfIce1.style.visibility = "hidden";
+        halfStyle1.style.visibility = "hidden";
+        halfIce1.checked = false;
+    }
+
+    if (iceTrap2.checked == true) {
+        halfIce2.style.visibility = "visible";
+        halfStyle2.style.visibility = "visible";
+    } else {
+        halfIce2.style.visibility = "hidden";
+        halfStyle2.style.visibility = "hidden";
+        halfIce2.checked = false;
+    }
 
     if (abilityDropdown1.value == "Combustible" || abilityDropdown1.value == "Noxious Weeds" || abilityDropdown1.value == "Coursing Venom" || abilityDropdown1.value == "Prismatic" || abilityDropdown1.value == "Toxic Filter") {
         immuneAbilityBoost1.style.visibility = "visible";
@@ -840,6 +878,8 @@ function loadMoves(updatePower = false) {
     moveThreeType2.value = moveThree2.type;
     moveFourType2.value = moveFour2.type;
 
+    checkEnergy(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTwo2, moveThree2, moveFour2);
+
     moveOneMR1.value = moveOne1.mr;
     moveTwoMR1.value = moveTwo1.mr;
     moveThreeMR1.value = moveThree1.mr;
@@ -1149,6 +1189,116 @@ function checkStages() {
     }
 }
 
+function checkEnergy(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTwo2, moveThree2, moveFour2) {
+    let ability1 = abilities.find((x) => x == abilityDropdown1.value);
+    let ability2 = abilities.find((x) => x == abilityDropdown2.value);
+    let itemA = item1.value;
+    let itemB = item2.value;
+    let movesEnergy1 = [moveOne1.energy, moveTwo1.energy, moveThree1.energy, moveFour1.energy];
+    let movesEnergy2 = [moveOne2.energy, moveTwo2.energy, moveThree2.energy, moveFour2.energy];
+    let moves1 = [moveOne1, moveTwo1, moveThree1, moveFour1];
+    let moves2 = [moveOne2, moveTwo2, moveThree2, moveFour2];
+
+// Side 1
+    if (ability1 == "Expertise") {
+       for (let i = 0; i < 4; i++) {
+           movesEnergy1[i] = movesEnergy1[i] * 0.75;
+       }
+    }
+    else if (ability1 == "Virtuoso") {
+        for (let i = 0; i < 4; i++) {
+            if (moves1[i].sound) {
+                movesEnergy1[i] = movesEnergy1[i] * 0.75;
+            }
+        }
+    }
+    else if (ability1 == "Pyro") {
+        for (let i = 0; i < 4; i++) {
+            if (moves1[i].type == "Fire" && moves1[i].mr != "Support") {
+                movesEnergy1[i] = movesEnergy1[i] * 1.5;
+            }
+        }
+    }
+    else if (ability1 == "Sharp Focus") {
+        for (let i = 0; i < 4; i++) {
+            if (moves1[i].accuracy != 100 && moves1[i].accuracy != "N/A") {
+                movesEnergy1[i] = movesEnergy1[i] * 1.1;
+            }
+        }
+    }
+    if (itemA == "Energy Orb") {
+        for (let i = 0; i < 4; i++) {
+           movesEnergy1[i] = movesEnergy1[i] * 0.75;
+       }
+    }
+    else if (itemA == "Power Cuffs") {
+        for (let i = 0; i < 4; i++) {
+            if (moves1[i].mr != "Support") {
+                movesEnergy1[i] = movesEnergy1[i] * 1.25;
+            }
+        }
+    }
+    else if (itemA == "Heavy Armor" || itemA == "Heavy Shield") {
+        for (let i = 0; i < 4; i++) {
+            movesEnergy1[i] = movesEnergy1[i] * 1.15;
+        }
+    }
+
+//Side 2
+    if (ability2 == "Expertise") {
+       for (let i = 0; i < 4; i++) {
+           movesEnergy2[i] = movesEnergy2[i] * 0.75;
+       }
+    }
+    else if (ability2 == "Virtuoso") {
+        for (let i = 0; i < 4; i++) {
+            if (moves2[i].sound) {
+                movesEnergy2[i] = movesEnergy2[i] * 0.75;
+            }
+        }
+    }
+    else if (ability2 == "Pyro") {
+        for (let i = 0; i < 4; i++) {
+            if (moves2[i].type == "Fire" && moves2[i].mr != "Support") {
+                movesEnergy2[i] = movesEnergy2[i] * 1.5;
+            }
+        }
+    }
+    else if (ability2 == "Sharp Focus") {
+        for (let i = 0; i < 4; i++) {
+            if (moves2[i].accuracy != 100 && moves2[i].accuracy != "N/A") {
+                movesEnergy2[i] = movesEnergy2[i] * 1.1;
+            }
+        }
+    }
+    if (itemB == "Energy Orb") {
+        for (let i = 0; i < 4; i++) {
+           movesEnergy2[i] = movesEnergy2[i] * 0.75;
+       }
+    }
+    else if (itemB == "Power Cuffs") {
+        for (let i = 0; i < 4; i++) {
+            if (moves2[i].mr != "Support") {
+                movesEnergy2[i] = movesEnergy2[i] * 1.25;
+            }
+        }
+    }
+    else if (itemB == "Heavy Armor" || itemB == "Heavy Shield") {
+        for (let i = 0; i < 4; i++) {
+            movesEnergy2[i] = movesEnergy2[i] * 1.15;
+        }
+    }
+    
+    moveOneEnergy1.value = (Math.round(movesEnergy1[0])).toString();
+    moveTwoEnergy1.value = (Math.round(movesEnergy1[1])).toString();
+    moveThreeEnergy1.value = (Math.round(movesEnergy1[2])).toString();
+    moveFourEnergy1.value = (Math.round(movesEnergy1[3])).toString();
+    moveOneEnergy2.value = (Math.round(movesEnergy2[0])).toString();
+    moveTwoEnergy2.value = (Math.round(movesEnergy2[1])).toString();
+    moveThreeEnergy2.value = (Math.round(movesEnergy2[2])).toString();
+    moveFourEnergy2.value = (Math.round(movesEnergy2[3])).toString();
+}
+
 
 function calculateDamage(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTwo2, moveThree2, moveFour2) {
     let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
@@ -1243,6 +1393,7 @@ function detailedReport() {
     let level = level1.value;
     let hp;
     let ice = iceTrap2.checked;
+    let halfIce = halfIce2.checked;
 
     if (document.getElementById("moveOneLbl1").htmlFor == selected.id) {
         moveName = document.getElementById("moveOneLbl1").innerHTML;
@@ -1273,6 +1424,7 @@ function detailedReport() {
         secondLoom = loomians[pokeDropdown1.value.toLowerCase()];
         level = level2.value;
         ice = iceTrap1.checked;
+        halfIce = halfIce1.checked;
     }
     else if (document.getElementById("moveTwoLbl2").htmlFor == selected.id) {
         moveName = document.getElementById("moveTwoLbl2").innerHTML;
@@ -1283,6 +1435,7 @@ function detailedReport() {
         secondLoom = loomians[pokeDropdown1.value.toLowerCase()];
         level = level2.value;
         ice = iceTrap1.checked;
+        halfIce = halfIce1.checked;
     }
     else if (document.getElementById("moveThreeLbl2").htmlFor == selected.id) {
         moveName = document.getElementById("moveThreeLbl2").innerHTML;
@@ -1293,6 +1446,7 @@ function detailedReport() {
         secondLoom = loomians[pokeDropdown1.value.toLowerCase()];
         level = level2.value;
         ice = iceTrap1.checked;
+        halfIce = halfIce1.checked;
     }
     else if (document.getElementById("moveFourLbl2").htmlFor == selected.id) {
         moveName = document.getElementById("moveFourLbl2").innerHTML;
@@ -1303,6 +1457,7 @@ function detailedReport() {
         secondLoom = loomians[pokeDropdown1.value.toLowerCase()];
         level = level2.value;
         ice = iceTrap1.checked;
+        halfIce = halfIce1.checked;
     }
 
     let item = (second ? item1.value : item2.value);
@@ -1575,6 +1730,7 @@ function detailedReport() {
 
     if (ice) {
         addedDmg = 12.5;
+        if (halfIce) addedDmg = 6.25;
 
         if (types[secondLoom.types[0].toLowerCase()].weaknesses.includes("ice")) {
             addedDmg *= 2;
@@ -1590,6 +1746,10 @@ function detailedReport() {
         }
         if (secondLoom.types.includes("Fire")) {
             addedDmg *= 0.5;
+            if (halfIce) addedDmg *= 0;
+        }
+        if (secondLoom.types.includes("Ice")) {
+            addedDmg *= 0
         }
     }
 
@@ -1745,16 +1905,32 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     let isDouble = (singleDouble.value == "singles" ? false : true);
     let dusk = (second == false ? dusk1.checked : dusk2.checked);
     let dawn = (second == false ? dawn1.checked : dawn2.checked);
+    let guardian = (second == false ? guardian2.checked : guardian1.checked);
     let possibleDmg = [];
     let stuffUsed = { ability1: "", ability2: "", item1: "", item2: "", extra1: "", extra2: ""};
+    let adaptive = { mr: "", mr1: "", mr2: ""};
 
     let immuneBoostCheck1 = (second == false ? immuneAbilityBoost1.checked : immuneAbilityBoost2.checked);
 
-    tempStats = getTempAtkDef(second, move);
+    if (move.name == "Adaptive Assault") {
+        tempType = types1.primary;
+        if (loom1.baseStats.attackR > loom1.baseStats.attack) {
+            adaptive.mr = "Ranged";
+            adaptive.mr1 = "Ranged Attack";
+            adaptive.mr2 = "Ranged Defense";
+        } else {
+            adaptive.mr = "Melee";
+            adaptive.mr1 = "Melee Attack";
+            adaptive.mr2 = "Melee Defense";
+        }
+        tempStats = getTempAtkDef(second, adaptive);
+        stuffUsed.extra1 = " (" + adaptive.mr + " " + tempType + ")";
+    } else tempStats = getTempAtkDef(second, move);
     tempAtk = tempStats.attack;
     tempDef = tempStats.defense;
 
     tempPower = (move.name == "Trip Root" ? getTripRootPower(loom2.weight) : tempPower);
+
 
     if (move.name == "Trip Root") {
         stuffUsed.extra1 = " (" + getTripRootPower(loom2.weight) + " BP)";
@@ -1848,7 +2024,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
 
     if ((ability1 == "Power Jaw" && move.bite == true) ||
-       (ability1 == "Heavy Fists" && (move.punch == true || move.slap == true))) {
+       (ability1 == "Heavy Fists" && (move.punch == true || move.slap == true)) || 
+       (stat2 == "asleep" && ability1 == "Mean Spirited")) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
@@ -1866,8 +2043,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
 
     if ((ability1 == "Baneful" && stat2 == "poisoned") ||
-       (move.sound == true && ability1 == "Tone Deaf") || 
-       (stat2 == "asleep" && ability1 == "Mean Spirited") ||
+       (move.sound == true && ability1 == "Tone Deaf") ||
        (move.recoil && ability1 == "Madcap")) {
         multi *= 1.2;
         stuffUsed.ability1 = ability1;
@@ -2136,6 +2312,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         multi *= 0.75;
         stuffUsed.ability2 = ability2;
     }
+    if (isDouble && guardian) {
+        multi *= 0.75;
+    }
 
     stuffUsed.item2 = (itemB == "Health Amulet" ? itemB : stuffUsed.item2);
 
@@ -2163,7 +2342,6 @@ function getTempAtkDef(second, mr) {
 
     let tempAtk;
     let tempDef;
-
     //tempAtk
     if (mr.mr1 == "Ranged Attack") {
         if (second) {
@@ -2322,24 +2500,33 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     let newHP = hp1;
     let multi = 1;
     let ice = iceTrap2.checked;
+    let halfIce = halfIce2.checked;
     let sap = { attacker: sapPlant1.checked, defender: sapPlant2.checked };
     let bloodDrain = { attacker: bloodDrain1.checked, defender: bloodDrain2.checked };
     let pestilence = pestilence2.checked;
     let quicksand = quicksand2.checked;
+    let softWater = softWater2.checked;
     let hazardString = "";
 
     if (second) {
         ice = iceTrap1.checked;
+        halfIce = halfIce1.checked;
         sap = { attacker: sapPlant2.checked, defender: sapPlant1.checked };
         bloodDrain = { attacker: bloodDrain2.checked, defender: bloodDrain1.checked };
         pestilence = pestilence1.checked;
         quicksand = quicksand1.checked;
+        softWater = softWater1.checked;
     }
 
-    if (ice) {
-        hazardString += "icicle trap and ";
-        if (loom2.types.includes("Fire")) {
-            hazardString = "halved icicle trap and ";
+    if (ice && !(loom2.types.includes("Ice"))) {
+        if (loom2.types.includes("Fire") || halfIce) {
+            if (loom2.types.includes("Fire") && halfIce){
+            } else {
+                hazardString += "halved icicle trap and "
+            }
+        }    
+        else {
+            hazardString += "icicle trap and ";
         }
         if (onlyIncludeIceTrap) {
             hazardString = hazardString.substr(0, hazardString.length - 5);
@@ -2380,6 +2567,11 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     if (quicksand) {
         newHP = Math.floor(newHP * 7 / 8);
         hazardString += "quicksand damage and ";
+    }
+
+    if (softWater) {
+        newHP = Math.floor(newHP * 9 / 8);
+        hazardString += "soft water recovery and "
     }
 
     if (item == "Health Amulet") {
