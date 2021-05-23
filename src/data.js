@@ -2828,6 +2828,62 @@ var loomians = {
         }
     },
 
+    vari: {
+        name: "Vari",
+        number: 134,
+        types: ["Typeless"],
+        abilities: ["Guardian", "Apprehension"],
+        sAbility: ["Adorable"],
+        weight: 15,
+        height: 28,
+        baseStats: {
+            hp: 48,
+            energy: 60,
+            attack: 52,
+            defense: 43,
+            attackR: 52,
+            defenseR: 43,
+            speed: 57,
+        }
+    },
+
+    cervolen: {
+        name: "Cervolen",
+        number: 135,
+        types: ["Typeless"],
+        abilities: ["Confidence", "Boast"],
+        sAbility: ["Vengeance"],
+        weight: 105,
+        height: 68,
+        baseStats: {
+            hp: 82,
+            energy: 85,
+            attack: 110,
+            defense: 85,
+            attackR: 52,
+            defenseR: 72,
+            speed: 89,
+        }
+    },
+
+    wendolen: {
+        name: "Wendolen",
+        number: 136,
+        types: ["Spirit"],
+        abilities: ["Temper", "Sharp Claws"],
+        sAbility: ["Finesse"],
+        weight: 86,
+        height: 72,
+        baseStats: {
+            hp: 50,
+            energy: 80,
+            attack: 119,
+            defense: 55,
+            attackR: 93,
+            defenseR: 75,
+            speed: 103,
+        }
+    },
 };
 
 
