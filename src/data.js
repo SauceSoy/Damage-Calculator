@@ -2004,9 +2004,9 @@ var loomians = {
             hp: 94,
             energy: 89 ,
             attack: 126,
-            defense: 67,
-            attackR: 76,
-            defenseR: 64,
+            defense: 87,
+            attackR: 36,
+            defenseR: 84,
             speed: 69
         }
     },
@@ -2675,6 +2675,25 @@ var loomians = {
             attackR: 93,
             defenseR: 75,
             speed: 103
+        }
+    },
+
+    kirolen: {
+        name: "Kirolen",
+        number: 137,
+        types: ["Ancient"],
+        abilities: ["Hasty", "Territorial"],
+        sAbility: ["Devious"],
+        weight: 97,
+        height: 69,
+        baseStats: {
+            hp: 78,
+            energy: 83,
+            attack: 137,
+            defense: 69,
+            attackR: 73,
+            defenseR: 53,
+            speed: 82
         }
     },
 
