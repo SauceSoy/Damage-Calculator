@@ -2697,6 +2697,25 @@ var loomians = {
         }
     },
 
+    zepholen: {
+        name: "Zepholen",
+        number: 138,
+        types: ["Air"],
+        abilities: ["Sharp Focus", "Confidence"],
+        sAbility: ["Turbulent"],
+        weight: 91,
+        height: 73,
+        baseStats: {
+            hp: 70,
+            energy: 92,
+            attack: 52,
+            defense: 90,
+            attackR: 123,
+            defenseR: 61,
+            speed: 87
+        }
+    },
+
     wakalaka: {
         name: "WakaLaka",
         number: 150,
@@ -5004,9 +5023,9 @@ var moves = {
         energy: 32,
         accuracy: 90,
         type: "Electric",
-        mr: "Ranged",
-        mr1: "Ranged Attack",
-        mr2: "Ranged Defense"
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense"
     },
 
     adaptiveAssault: {
@@ -5810,7 +5829,7 @@ var abilities = ["Awakening", "Ambush", "Coursing Venom", "Drainage", "Hasty", "
                 "Total Eclipse", "Tone Deaf", "Circadian", "Baneful", "Rechargeable", "Toxic Filter", "Trash Armor", "Tank", "Power Jaw", "Specialization", "Slick Shell",
                 "Heavy Fists", "Enchanted Coat", "Bloodsucker", "Nightmarish", "Overcharged", "Watcher", "Sly", "Devious", "Ignorant", "Chill", "Vigorous", "Aqua Body",
                 "Idiosyncratic", "Adorable", "Terrifying", "Boast", "Staunch", "Anomaly", "Combative", "Defensive Priority", "Ungracious Host", "Madcap", "Hard Candy",
-                "Incandescent", "Expertise", "Virtuoso", "Sharp Focus"];
+                "Incandescent", "Expertise", "Virtuoso", "Sharp Focus", "Turbulent"];
 
 var typeModAbilities = {
     coursingVenom: {
