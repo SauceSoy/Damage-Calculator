@@ -1479,7 +1479,7 @@ function detailedReport() {
     }
 
     //tempAtk
-    if (move.mr1 == "Ranged Attack") {
+    if (move.mr1 == "Ranged Attack" || (move.name == "Adaptive Assault" && firstLoom.baseStats.attackR > firstLoom.baseStats.attack)) {
         if (atkDef.attack.posNat == "smart" || atkDef.attack.negNat == "smart") {
             atkPlus = "+";
         }
@@ -1635,7 +1635,7 @@ function detailedReport() {
             tempDef = tempDef + atkEV2.value + " " + defPlus + "AtkM";           
         } 
     }
-    else if (move.mr2 == "Ranged Defense") {
+    else if (move.mr2 == "Ranged Defense" || (move.name == "Adaptive Assault" && firstLoom.baseStats.attackR > firstLoom.baseStats.attack)) {
         if (atkDef.defense.posNat == "clever" || atkDef.defense.negNat == "clever") {
             defPlus = "+";
         }
@@ -1918,10 +1918,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
             adaptive.mr = "Ranged";
             adaptive.mr1 = "Ranged Attack";
             adaptive.mr2 = "Ranged Defense";
+            move.contact = false;
         } else {
             adaptive.mr = "Melee";
             adaptive.mr1 = "Melee Attack";
             adaptive.mr2 = "Melee Defense";
+            move.contact = true;
         }
         tempStats = getTempAtkDef(second, adaptive);
         stuffUsed.extra1 = " (" + adaptive.mr + " " + tempType + ")";
@@ -1992,6 +1994,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
     else if (ability1 == "Chill" && tempType == "Typeless") {
         tempType = "Ice";
+        multi *= 1.2;
+        stuffUsed.ability1 = ability1;
+    }
+    else if (ability1 == "Turbulent" && tempType == "Typeless") {
+        tempType = "Air";
         multi *= 1.2;
         stuffUsed.ability1 = ability1;
     }
