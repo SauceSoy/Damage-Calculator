@@ -2716,6 +2716,25 @@ var loomians = {
         }
     },
 
+    venolen: {
+        name: "Venolen",
+        number: 139,
+        types: ["Toxic"],
+        abilities: ["Devious", "Acidic Body"],
+        sAbility: ["Baneful"],
+        weight: 110,
+        height: 77,
+        baseStats: {
+            hp: 83,
+            energy: 90,
+            attack: 56,
+            defense: 62,
+            attackR: 101,
+            defenseR: 122,
+            speed: 61
+        }
+    },
+
     wakalaka: {
         name: "WakaLaka",
         number: 150,
@@ -5522,7 +5541,7 @@ var moves = {
     hypnotize: {
         name: "Hypnotize",
         power: 0,
-        energy: 25,
+        energy: 40,
         accuracy: 75,
         type: "Mind",
         mr: "Support"
