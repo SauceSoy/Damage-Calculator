@@ -1465,9 +1465,17 @@ function detailedReport() {
     move = findMove(moveName);
     hp = (second ? currentHP1.value : currentHP2.value);
     let selfHP = (second ? currentHP2.value : currentHP1.value);
+    let maxHP = (second ? hp1 : hp2);
     let currStatus = (second ? status1.value : status2.value);
     let counter = 0;
-    let atkDef = getTempAtkDef(second, move);
+    let adaptive = { mr: "", mr1: "", mr2: ""};
+    let atkDef;
+    if (move.name == "Adaptive Assault" && firstLoom.baseStats.attackR > firstLoom.baseStats.attack){
+        adaptive.mr = "Ranged";
+        adaptive.mr1 = "Ranged Attack";
+        adaptive.mr2 = "Ranged Defense";
+        atkDef = getTempAtkDef(second, adaptive);
+    } else atkDef = getTempAtkDef(second, move);
     let atkPlus = "";
     let defPlus = "";
 
@@ -1753,8 +1761,10 @@ function detailedReport() {
         }
     }
 
-    hp = hp - Math.floor(hp * addedDmg / 100);
-
+    hp = hp - Math.floor(maxHP * addedDmg / 100);
+    hp = hp - adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second)[0];
+    hazardStr = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second)[1];
+    
     let OHKOs = [];
     let THKOs = [];
     let TRHKOs = [];
@@ -1787,7 +1797,7 @@ function detailedReport() {
     counter = 0;
     possibleDmg3 = getMultiplier(firstLoom, secondLoom, move, movePower, crit, level, undefined, second, true, false, counter);
 
-    hp = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second)[0];
+    hp = hp - adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second)[0];
     hazardStr = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second)[1];
 
     for (let i = 0; i < possibleDmg.length; i++) {
@@ -1809,7 +1819,7 @@ function detailedReport() {
         return;
     }
 
-    hp = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second)[0];
+    hp = hp - adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second)[0];
 
     for (let i = 0; i < possibleDmg.length; i++) {
         for (let j = 0; j < possibleDmg2.length; j++) {
@@ -1832,7 +1842,7 @@ function detailedReport() {
         return;
     }
 
-    hp = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second)[0];
+    hp = hp - adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second)[0];
 
     if (possibleDmg[15] * 4 >= hp) {
         let FHKO = "possible 4HKO";
@@ -1842,7 +1852,7 @@ function detailedReport() {
         return;
     }
 
-    hp = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second)[0];
+    hp = hp - adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second)[0];
 
     if (possibleDmg[15] * 5 >= hp) {
         let FIHKO = "possible 5HKO";
@@ -2156,8 +2166,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         tempDef.def = calculateStat(tempDef.base, tempDef.iv.value, tempDef.ev.value, tempDef.level, undefined, tempDef.posNat, tempDef.negNat, tempDef.veryNat, tempDef.name, tempDef.rest);
         stuffUsed.ability1 = ability1;
     }
-    if ((itemB == "Heavy Shield" && move.mr2 == "Ranged Defense") ||
-       (itemB == "Heavy Armor" && move.mr2 == "Melee Defense")) {
+    if ((itemB == "Heavy Shield" && (move.mr2 == "Ranged Defense" || adaptive.mr2 == "Ranged Defense")) ||
+       (itemB == "Heavy Armor" && move.mr2 == "Melee Defense" & adaptive.mr2 != "Ranged Defense")) {
         multi *= 1.2;
         stuffUsed.item2 = itemB;
     }
@@ -2165,11 +2175,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         multi *= 1.5;
         stuffUsed.item2 = itemB;
     }
-    if ((ability2 == "Trash Armor" || ability2 == "Hard Candy") && move.mr2 == "Melee Defense") {
+    if ((ability2 == "Trash Armor" || ability2 == "Hard Candy") && move.mr2 == "Melee Defense" && adaptive.mr2 != "Ranged Defense") {
         multi *= 1.5;
         stuffUsed.ability2 = ability2;
     }
-    if (ability2 == "Slick Shell" && move.mr2 == "Ranged Defense") {
+    if (ability2 == "Slick Shell" && (move.mr2 == "Ranged Defense" || adaptive.mr2 == "Ranged Defense")) {
         multi *= 2;
         stuffUsed.ability2 = ability2;
     }
@@ -2504,7 +2514,7 @@ function displayDamage(damage) {
 }
 
 function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false, onlyIncludeIceTrap = false) {
-    let newHP = hp1;
+    let newHP = 0;
     let multi = 1;
     let ice = iceTrap2.checked;
     let halfIce = halfIce2.checked;
@@ -2538,7 +2548,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         if (onlyIncludeIceTrap) {
             hazardString = hazardString.substr(0, hazardString.length - 5);
             hazardString = " after " + hazardString;
-            return [newHP, hazardString];
+            return [hp1, hazardString];
         }
     }
 
@@ -2549,40 +2559,40 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         multi *= 1.2;
     }
     if (!loom1.types.includes("Plant") && sap.attacker == true) {
-        newHP += Math.floor(hp2 * 1 / 8 * multi);
+        newHP -= Math.floor(hp2 * 1 / 8 * multi);
         hazardString += "sap plant recovery and ";
     }
     if (!loom2.types.includes("Plant") && sap.defender == true) {
-        newHP = Math.floor(newHP * 7 / 8);
+        newHP += Math.floor(hp1 * 1 / 8);
         hazardString += "sap plant damage and ";
     }
 
     if (bloodDrain.attacker == true) {
-        newHP += Math.floor(hp2 * 1 / 8 * multi);
+        newHP -= Math.floor(hp2 * 1 / 8 * multi);
         hazardString += "blood drain recovery and ";
     }
     if (bloodDrain.defender == true) {
-        newHP = Math.floor(newHP * 7 / 8);
+        newHP += Math.floor(hp1 * 1 / 8);
         hazardString += "blood drain damage and ";
     }
 
     if (pestilence) {
-        newHP = Math.floor(newHP * 7 / 8);
+        newHP += Math.floor(hp1 * 1 / 8);
         hazardString += "pestilence damage and ";
     }
 
     if (quicksand) {
-        newHP = Math.floor(newHP * 7 / 8);
+        newHP += Math.floor(hp1 * 1 / 8);
         hazardString += "quicksand damage and ";
     }
 
     if (softWater) {
-        newHP = Math.floor(newHP * 9 / 8);
+        newHP -= Math.floor(hp1 * 1 / 8);
         hazardString += "soft water recovery and "
     }
 
     if (item == "Health Amulet") {
-        newHP = Math.floor(newHP * 17 / 16);
+        newHP -= Math.floor(hp1 * 1 / 16);
         hazardString += "health amulet recovery and ";
     }
 
@@ -2593,16 +2603,16 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     
     let otherAbility = (second ? abilities.find((x) => x == abilityDropdown2.value) : abilities.find((x) => x == abilityDropdown1.value));
     if (status == "burned" && !loom2.types.includes("Fire") && ability != "Aqua Body") {
-        newHP = Math.floor(newHP * 15 / 16);
+        newHP += Math.floor(hp1 * 1 / 16);
         hazardString += "burn damage and ";
     }
     if (status == "poisoned" && !loom2.types.includes("Toxic")) {
-        newHP = Math.floor(newHP * 7 / 8);
+        newHP += Math.floor(hp1 * 1 / 8);
         hazardString += "poison damage and ";
     }
 
     if (status == "asleep" && otherAbility == "Nightmarish") {
-        newHP = Math.floor(newHP * 7 / 8);
+        newHP += Math.floor(hp1 * 1 / 8);
         hazardString += "nightmarish damage and ";
     }
 
