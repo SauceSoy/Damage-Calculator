@@ -963,19 +963,19 @@ var loomians = {
         name: "KabungaH",
         number: 48,
         types: ["Plant", "Mind"],
-        abilities: ["Communication", "Territorial"],
+        abilities: ["Communication", "Expertise"],
         sAbility: ["Noxious Weeds"],
         finalEvo: false,
         weight: 24,
         height: 35,
         baseStats: {
-            hp: 52,
-            energy: 53,
-            attack: 76,
-            defense: 43,
-            attackR: 64,
-            defenseR: 34,
-            speed: 86
+            hp: 65,
+            energy: 68,
+            attack: 23,
+            defense: 58,
+            attackR: 99,
+            defenseR: 74,
+            speed: 5
         }
     },
  
@@ -2745,8 +2745,8 @@ var loomians = {
         height: 74,
         baseStats: {
             hp: 99,
-            energy: 58,
-            attack: 33,
+            energy: 68,
+            attack: 23,
             defense: 76,
             attackR: 124,
             defenseR: 101,
@@ -2944,6 +2944,63 @@ var loomians = {
         }
     },
 
+    cosmioree: {
+        name: "CosmioreE",
+        number: 208,
+        types: ["Ancient", "Mind"],
+        abilities: ["Regift"],
+        sAbility: ["Enchanted Coat"],
+        weight: 123,
+        height: 37,
+        baseStats: {
+            hp: 99,
+            energy: 145,
+            attack: 43,
+            defense: 135,
+            attackR: 84,
+            defenseR: 98,
+            speed: 46
+        }
+    },
+
+    cosmiorec: {
+        name: "CosmioreC",
+        number: 208,
+        types: ["Ancient", "Mind"],
+        abilities: ["Regift"],
+        sAbility: ["Enchanted Coat"],
+        weight: 123,
+        height: 37,
+        baseStats: {
+            hp: 99,
+            energy: 115,
+            attack: 43,
+            defense: 115,
+            attackR: 124,
+            defenseR: 78,
+            speed: 76
+        }
+    },
+
+    cosmioreu: {
+        name: "CosmioreU",
+        number: 208,
+        types: ["Ancient", "Mind"],
+        abilities: ["Surrogate"],
+        sAbility: ["Idiosyncratic"],
+        weight: 123,
+        height: 37,
+        baseStats: {
+            hp: 99,
+            energy: 105,
+            attack: 134,
+            defense: 105,
+            attackR: 43,
+            defenseR: 68,
+            speed: 96
+        }
+    },
+
 };
 
 
@@ -3053,9 +3110,9 @@ var moves = {
         energy: 20,
         accuracy: 100,
         type: "Plant",
-        mr: "Ranged",
-        mr1: "Ranged Attack",
-        mr2: "Ranged Defense"
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense"
     },
 
     staticShock: {
@@ -3935,7 +3992,7 @@ var moves = {
 
     fireSlam: {
         name: "Fire Slam",
-        power: 60,
+        power: 65,
         energy: 26,
         accuracy: 100,
         type: "Fire",
@@ -4071,7 +4128,7 @@ var moves = {
     thunderChomp: {
         name: "Thunder Chomp",
         power: 65,
-        energy: 30,
+        energy: 32,
         accuracy: 95,
         type: "Electric",
         mr: "Melee",
@@ -4498,6 +4555,7 @@ var moves = {
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
+        hits: 3,
         secondaryEffect: true
     },
 
@@ -5060,6 +5118,44 @@ var moves = {
         secondaryEffect: true
     },
 
+    meteorSmash: {
+        name: "Meteor Smash",
+        power: 90,
+        energy: 50,
+        accuracy: 100,
+        type: "Ancient",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        aoe: true
+    },
+
+    meteorCrash: {
+        name: "Meteor Crash",
+        power: 90,
+        energy: 50,
+        accuracy: 100,
+        type: "Ancient",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        aoe: true
+    },
+
+    psychoBlast: {
+        name: "Psycho Blast",
+        power: 90,
+        energy: 45,
+        accuracy: 100,
+        type: "Mind",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        contact: true,
+        secondaryEffect: true
+    },
+
 
 
     //Support Moves -----------------------------------------------------------------------------------------------------------------------------------------
@@ -5313,7 +5409,7 @@ var moves = {
     snoreSpores: {
         name: "Snore Spores",
         power: 0,
-        energy: 25,
+        energy: 40,
         accuracy: 75,
         type: "Plant",
         mr: "Support"
@@ -5733,6 +5829,15 @@ var moves = {
         energy: 35,
         accuracy: 95,
         type: "Metal",
+        mr: "Support"
+    },
+
+    slumber: {
+        name: "Slumber",
+        power: 0,
+        energy: 50,
+        accuracy: "N/A",
+        type: "Typeless",
         mr: "Support"
     },
 
