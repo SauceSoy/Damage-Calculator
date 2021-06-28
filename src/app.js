@@ -1761,11 +1761,12 @@ function detailedReport() {
         }
     }
 
-    hp = hp - Math.floor(maxHP * addedDmg / 100);
-    hp = hp - adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second)[0];
-    hazardStr = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second)[1];
+    let tickDamage = adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second, "OHKO")[0];
+    tickDamage = tickDamage + Math.floor(maxHP * addedDmg / 100);
+    hazardStr = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second, "OHKO")[1];
     
     let OHKOs = [];
+    let tickOHKOs = [];
     let THKOs = [];
     let TRHKOs = [];
 
@@ -1773,21 +1774,34 @@ function detailedReport() {
         if (possibleDmg[i] >= hp) {
             OHKOs.push(possibleDmg[i]);
         }
+        if (possibleDmg[i] + tickDamage >= hp) {
+            tickOHKOs.push(possibleDmg[i]);
+        }
     }
 
     if (OHKOs.length != 0) {
         let chance = (OHKOs.length / 16 * 100).toFixed(1);
         let chanceStr = chance + "% chance to OHKO";
 
-        if (chance >= 100) chanceStr = "guaranteed OHKO";
-
+        if (chance >= 100) {
+            chanceStr = "guaranteed OHKO";
+            str += chanceStr;
+            document.getElementById("detailedResult").innerHTML = str;
+            return;
+        } else {
+            chance = (tickOHKOs.length / 16 * 100).toFixed(1);
+            chanceStr = chance + "% chance to OHKO";
+            if (chance >= 100) {
+                chanceStr = "guaranteed OHKO";
+            }
+        }
         str += chanceStr + hazardStr;
-
         document.getElementById("detailedResult").innerHTML = str;
         return;
     }
 
     counter = 1;
+    hp = hp - tickDamage;
 
     if (move.knockOff) {
         item = "";
@@ -2243,7 +2257,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         typeModAbility2 = undefined;
     }
 
-    else if (typeModAbility2 == "Total Eclipse" && (ability1 == "Overshadow" || ability1 == "Illuminate")) {
+    else if (typeModAbility2 && typeModAbility2.name == "Total Eclipse" && (ability1 == "Overshadow" || ability1 == "Illuminate")) {
         // nothing happens, prevents the next if statement 
     }
     else if (typeModAbility2 != undefined && tempType == typeModAbility2.typeModifier.type && typeModAbility2.powerMod == false) {
@@ -2513,7 +2527,7 @@ function displayDamage(damage) {
     return damage.join(", ");
 }
 
-function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false, onlyIncludeIceTrap = false) {
+function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false, OHKO, onlyIncludeIceTrap = false) {
     let newHP = 0;
     let multi = 1;
     let ice = iceTrap2.checked;
@@ -2558,19 +2572,12 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     if (item == "Drain Orb") {
         multi *= 1.2;
     }
-    if (!loom1.types.includes("Plant") && sap.attacker == true) {
-        newHP -= Math.floor(hp2 * 1 / 8 * multi);
-        hazardString += "sap plant recovery and ";
-    }
+    
     if (!loom2.types.includes("Plant") && sap.defender == true) {
         newHP += Math.floor(hp1 * 1 / 8);
         hazardString += "sap plant damage and ";
     }
 
-    if (bloodDrain.attacker == true) {
-        newHP -= Math.floor(hp2 * 1 / 8 * multi);
-        hazardString += "blood drain recovery and ";
-    }
     if (bloodDrain.defender == true) {
         newHP += Math.floor(hp1 * 1 / 8);
         hazardString += "blood drain damage and ";
@@ -2586,14 +2593,23 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         hazardString += "quicksand damage and ";
     }
 
-    if (softWater) {
-        newHP -= Math.floor(hp1 * 1 / 8);
-        hazardString += "soft water recovery and "
-    }
-
-    if (item == "Health Amulet") {
-        newHP -= Math.floor(hp1 * 1 / 16);
-        hazardString += "health amulet recovery and ";
+    if (!OHKO) {
+        if (!loom1.types.includes("Plant") && sap.attacker == true) {
+            newHP -= Math.floor(hp2 * 1 / 8 * multi);
+            hazardString += "sap plant recovery and ";
+        }
+        if (bloodDrain.attacker == true) {
+            newHP -= Math.floor(hp2 * 1 / 8 * multi);
+            hazardString += "blood drain recovery and ";
+        }
+        if (softWater) {
+            newHP -= Math.floor(hp1 * 1 / 8);
+            hazardString += "soft water recovery and "
+        }
+        if (item == "Health Amulet") {
+            newHP -= Math.floor(hp1 * 1 / 16);
+            hazardString += "health amulet recovery and ";
+        }
     }
 
     if (second) {
