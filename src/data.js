@@ -189,9 +189,9 @@ var loomians = {
             hp: 45,
             energy: 51,
             attack: 36,
-            defense: 33,
-            attackR: 79,
-            defenseR: 57,
+            defense: 36,
+            attackR: 71,
+            defenseR: 62,
             speed: 60
         }
     },
@@ -5121,7 +5121,7 @@ var moves = {
     meteorSmash: {
         name: "Meteor Smash",
         power: 90,
-        energy: 50,
+        energy: 55,
         accuracy: 100,
         type: "Ancient",
         mr: "Melee",
@@ -5134,7 +5134,7 @@ var moves = {
     meteorCrash: {
         name: "Meteor Crash",
         power: 90,
-        energy: 50,
+        energy: 55,
         accuracy: 100,
         type: "Ancient",
         mr: "Ranged",
@@ -5146,7 +5146,7 @@ var moves = {
     psychoBlast: {
         name: "Psycho Blast",
         power: 90,
-        energy: 45,
+        energy: 50,
         accuracy: 100,
         type: "Mind",
         mr: "Ranged",
