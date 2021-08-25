@@ -215,6 +215,15 @@ let totalHP2 = document.getElementById("totalHP2");
 let percentHP1 = document.getElementById("percentHP1");
 let percentHP2 = document.getElementById("percentHP2");
 
+let currentNRG1 = document.getElementById("currentNRG1");
+let currentNRG2 = document.getElementById("currentNRG2");
+
+let totalNRG1 = document.getElementById("totalNRG1");
+let totalNRG2 = document.getElementById("totalNRG2");
+
+let percentNRG1 = document.getElementById("percentNRG1");
+let percentNRG2 = document.getElementById("percentNRG2");
+
 let singleDouble = document.getElementById("singleDouble");
 
 let firstLoomian;
@@ -325,11 +334,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -360,18 +369,28 @@ function load() {
 
     currentHP1.addEventListener("keyup", updatePercent);
     currentHP2.addEventListener("keyup", updatePercent);
+    currentNRG1.addEventListener("keyup", updatePercent);
+    currentNRG2.addEventListener("keyup", updatePercent);
 
     percentHP1.addEventListener("keyup", updateNumber);
     percentHP2.addEventListener("keyup", updateNumber);
+    percentNRG1.addEventListener("keyup", updateNumber);
+    percentNRG2.addEventListener("keyup", updateNumber);
 
     currentHP1.addEventListener("change", update);
     currentHP2.addEventListener("change", update);
+    currentNRG1.addEventListener("change", update);
+    currentNRG2.addEventListener("change", update);
 
     percentHP1.addEventListener("change", update);
     percentHP2.addEventListener("change", update);
+    percentNRG1.addEventListener("change", update);
+    percentNRG2.addEventListener("change", update);
 
     currentHP1.value = hp1;
     currentHP2.value = hp2;
+    currentNRG1.value = energy1;
+    currentNRG2.value = energy2;
     updatePercent();
     update();
 }
@@ -381,7 +400,7 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
@@ -481,12 +500,18 @@ function update(updatePower = false, updateBaseStats = false) {
 
     totalHP1.innerHTML = hp1;
     totalHP2.innerHTML = hp2;
+    totalNRG1.innerHTML = energy1;
+    totalNRG2.innerHTML = energy2;
 
     currentHP1.max = hp1;
     currentHP2.max = hp2;
+    currentNRG1.max = energy1;
+    currentNRG2.max = energy2;
 
     (currentHP1.value > hp1 ? currentHP1.value = hp1 : null);
     (currentHP2.value > hp2 ? currentHP2.value = hp2 : null);
+    (currentNRG1.value > energy1 ? currentNRG1.value = energy1 : null);
+    (currentNRG2.value > energy2 ? currentNRG2.value = energy2 : null);
 
     loadMoves(updatePower);
     detailedReport();
@@ -757,9 +782,13 @@ function makeBlankSet(loomian) {
 function updateHealthBar() {
     let hpBar1 = document.getElementById("hpBar1");
     let hpBar2 = document.getElementById("hpBar2");
+    let nrgBar1 = document.getElementById("nrgBar1");
+    let nrgBar2 = document.getElementById("nrgBar2");
 
     let percent1 = parseInt(percentHP1.value);
     let percent2 = parseInt(percentHP2.value);
+    let nrgPercent1 = parseInt(percentNRG1.value);
+    let nrgPercent2 = parseInt(percentNRG2.value);
 
     if (percent1 > 50) {
         hpBar1.style = "background: linear-gradient(to right, green " + percent1 + "%, white 0%);";
@@ -792,11 +821,15 @@ function updateHealthBar() {
         hpBar2.classList.remove(hpBar2.classList[hpBar2.classList.length - 1]);
         hpBar2.classList.add("redHPBar");
     }
+    nrgBar1.style = "background: linear-gradient(to right, rgba(0,150,255) " + nrgPercent1 + "%, white 0%);";
+    nrgBar2.style = "background: linear-gradient(to right, rgba(0,150,255) " + nrgPercent2 + "%, white 0%);";
 }
 
 function updatePercent() {
     percentHP1.value = Math.floor(currentHP1.value / totalHP1.innerHTML * 100);
     percentHP2.value = Math.floor(currentHP2.value / totalHP2.innerHTML * 100);
+    percentNRG1.value = Math.floor(currentNRG1.value / totalNRG1.innerHTML * 100);
+    percentNRG2.value = Math.floor(currentNRG2.value / totalNRG2.innerHTML * 100);
 
     updateHealthBar();
 }
@@ -804,6 +837,8 @@ function updatePercent() {
 function updateNumber() {
     currentHP1.value = Math.ceil(totalHP1.innerHTML * percentHP1.value / 100);
     currentHP2.value = Math.ceil(totalHP2.innerHTML * percentHP2.value / 100);
+    currentNRG1.value = Math.ceil(totalNRG1.innerHTML * percentNRG1.value / 100);
+    currentNRG2.value = Math.ceil(totalNRG2.innerHTML * percentNRG2.value / 100);
 
     updateHealthBar();
 }
@@ -912,6 +947,8 @@ function loadStats() {
     let veryNat2 = document.getElementById("veryNat2").value;
     let wasMaxHP1 = (currentHP1.value == hp1 ? true : false);
     let wasMaxHP2 = (currentHP2.value == hp2 ? true : false);
+    let wasMaxNRG1 = (currentNRG1.value == energy1 ? true : false);
+    let wasMaxNRG2 = (currentNRG2.value == energy2 ? true : false);
 
     hp1 = calculateStat(baseHP1.value, hpIV1.value, hpEV1.value, level1.value, true, undefined, undefined, undefined, undefined);
     energy1 = calculateStat(baseEnergy1.value, energyIV1.value, energyEV1.value, level1.value, undefined, posNat1, negNat1, veryNat1, undefined, undefined, true);
@@ -949,6 +986,8 @@ function loadStats() {
 
     (wasMaxHP1 ? currentHP1.value = hp1 : null);
     (wasMaxHP2 ? currentHP2.value = hp2 : null);
+    (wasMaxNRG1 ? currentNRG1.value = energy1 : null);
+    (wasMaxNRG2 ? currentNRG2.value = energy2 : null);
 
     statHP1.innerHTML = hp1;
     statEnergy1.innerHTML = energy1;
@@ -1331,25 +1370,25 @@ function calculateDamage(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, mo
     let dmgMoveOneL1 = getMultiplier(firstLoom, secondLoom, moveOne1, moveOnePower1.value, critOne1, level1.value, true);
     let dmgMoveOnePercent1 = (dmgMoveOneL1 / hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveOneU1 / hp2 * 100).toFixed(1).toString() + "%";
 
-    moveOneDmg1.innerHTML = dmgMoveOnePercent1 + checkIceTrap(moveOne1, Math.min(dmgMoveOneL1, hp2), Math.min(dmgMoveOneU1, hp2), hp1, itemA, ability1, ability2);
+    moveOneDmg1.innerHTML = dmgMoveOnePercent1 + checkIceTrap(moveOne1, Math.min(dmgMoveOneL1, hp2), Math.min(dmgMoveOneU1, hp2), hp1, energy1, itemA, ability1, ability2);
 
     let dmgMoveTwoU1 = getMultiplier(firstLoom, secondLoom, moveTwo1, moveTwoPower1.value, critTwo1, level1.value);
     let dmgMoveTwoL1 = getMultiplier(firstLoom, secondLoom, moveTwo1, moveTwoPower1.value, critTwo1, level1.value, true);
     let dmgMoveTwoPercent1 = (dmgMoveTwoL1 / hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveTwoU1 / hp2 * 100).toFixed(1).toString() + "%";
 
-    moveTwoDmg1.innerHTML = dmgMoveTwoPercent1 + checkIceTrap(moveTwo1, Math.min(dmgMoveTwoL1, hp2), Math.min(dmgMoveTwoU1, hp2), hp1, itemA, ability1, ability2, ability2);
+    moveTwoDmg1.innerHTML = dmgMoveTwoPercent1 + checkIceTrap(moveTwo1, Math.min(dmgMoveTwoL1, hp2), Math.min(dmgMoveTwoU1, hp2), hp1, energy1, itemA, ability1, ability2, ability2);
 
     let dmgMoveThreeU1 = getMultiplier(firstLoom, secondLoom, moveThree1, moveThreePower1.value, critThree1, level1.value);
     let dmgMoveThreeL1 = getMultiplier(firstLoom, secondLoom, moveThree1, moveThreePower1.value, critThree1, level1.value, true);
     let dmgMoveThreePercent1 = (dmgMoveThreeL1 / hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveThreeU1 / hp2 * 100).toFixed(1).toString() + "%";
 
-    moveThreeDmg1.innerHTML = dmgMoveThreePercent1 + checkIceTrap(moveThree1, Math.min(dmgMoveThreeL1, hp2), Math.min(dmgMoveThreeU1, hp2), hp1, itemA, ability1, ability2);
+    moveThreeDmg1.innerHTML = dmgMoveThreePercent1 + checkIceTrap(moveThree1, Math.min(dmgMoveThreeL1, hp2), Math.min(dmgMoveThreeU1, hp2), hp1, energy1, itemA, ability1, ability2);
 
     let dmgMoveFourU1 = getMultiplier(firstLoom, secondLoom, moveFour1, moveFourPower1.value, critFour1, level1.value);
     let dmgMoveFourL1 = getMultiplier(firstLoom, secondLoom, moveFour1, moveFourPower1.value, critFour1, level1.value, true);
     let dmgMoveFourPercent1 = (dmgMoveFourL1 / hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveFourU1 / hp2 * 100).toFixed(1).toString() + "%";
 
-    moveFourDmg1.innerHTML = dmgMoveFourPercent1 + checkIceTrap(moveFour1, Math.min(dmgMoveFourL1, hp2), Math.min(dmgMoveFourU1, hp2), hp1, itemA, ability1, ability2);
+    moveFourDmg1.innerHTML = dmgMoveFourPercent1 + checkIceTrap(moveFour1, Math.min(dmgMoveFourL1, hp2), Math.min(dmgMoveFourU1, hp2), hp1, energy1, itemA, ability1, ability2);
 
     //----------------------------------------------------------
 
@@ -1357,26 +1396,26 @@ function calculateDamage(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, mo
     let dmgMoveOneL2 = getMultiplier(secondLoom, firstLoom, moveOne2, moveOnePower2.value, critOne2, level2.value, true, true);
     let dmgMoveOnePercent2 = (dmgMoveOneL2 / hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveOneU2 / hp1 * 100).toFixed(1).toString() + "%";
 
-    moveOneDmg2.innerHTML = dmgMoveOnePercent2 + checkIceTrap(moveOne2, Math.min(dmgMoveOneL2, hp1), Math.min(dmgMoveOneU2, hp1), hp2, itemB, ability2, ability1);
+    moveOneDmg2.innerHTML = dmgMoveOnePercent2 + checkIceTrap(moveOne2, Math.min(dmgMoveOneL2, hp1), Math.min(dmgMoveOneU2, hp1), hp2, energy2, itemB, ability2, ability1);
 
     let dmgMoveTwoU2 = getMultiplier(secondLoom, firstLoom, moveTwo2, moveTwoPower2.value, critTwo2, level2.value, undefined, true);
     let dmgMoveTwoL2 = getMultiplier(secondLoom, firstLoom, moveTwo2, moveTwoPower2.value, critTwo2, level2.value, true, true);
     let dmgMoveTwoPercent2 = (dmgMoveTwoL2 / hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveTwoU2 / hp1 * 100).toFixed(1).toString() + "%";
 
-    moveTwoDmg2.innerHTML = dmgMoveTwoPercent2 + checkIceTrap(moveTwo2, Math.min(dmgMoveTwoL2, hp1), Math.min(dmgMoveTwoU2, hp1), hp2, itemB, ability2, ability1);
+    moveTwoDmg2.innerHTML = dmgMoveTwoPercent2 + checkIceTrap(moveTwo2, Math.min(dmgMoveTwoL2, hp1), Math.min(dmgMoveTwoU2, hp1), hp2, energy2, itemB, ability2, ability1);
 
     let dmgMoveThreeU2 = getMultiplier(secondLoom, firstLoom, moveThree2, moveThreePower2.value, critThree2, level2.value, undefined, true);
     let dmgMoveThreeL2 = getMultiplier(secondLoom, firstLoom, moveThree2, moveThreePower2.value, critThree2, level2.value, true, true);
     let dmgMoveThreePercent2 = (dmgMoveThreeL2 / hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveThreeU2 / hp1 * 100).toFixed(1).toString() + "%";
 
-    moveThreeDmg2.innerHTML = dmgMoveThreePercent2 + checkIceTrap(moveThree2, Math.min(dmgMoveThreeL2, hp1), Math.min(dmgMoveThreeU2, hp1), hp2, itemB, ability2, ability1);
+    moveThreeDmg2.innerHTML = dmgMoveThreePercent2 + checkIceTrap(moveThree2, Math.min(dmgMoveThreeL2, hp1), Math.min(dmgMoveThreeU2, hp1), hp2, energy2, itemB, ability2, ability1);
 
     let dmgMoveFourU2 = getMultiplier(secondLoom, firstLoom, moveFour2, moveFourPower2.value, critFour2, level2.value, undefined, true);
     let dmgMoveFourL2 = getMultiplier(secondLoom, firstLoom, moveFour2, moveFourPower2.value, critFour2, level2.value, true, true);
 
     let dmgMoveFourPercent2 = (dmgMoveFourL2 / hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveFourU2 / hp1 * 100).toFixed(1).toString() + "%";
 
-    moveFourDmg2.innerHTML = dmgMoveFourPercent2 + checkIceTrap(moveFour2, Math.min(dmgMoveFourL2, hp1), Math.min(dmgMoveFourU2, hp1), hp2, itemB, ability2, ability1);
+    moveFourDmg2.innerHTML = dmgMoveFourPercent2 + checkIceTrap(moveFour2, Math.min(dmgMoveFourL2, hp1), Math.min(dmgMoveFourU2, hp1), hp2, energy2, itemB, ability2, ability1);
 }
 
 function detailedReport() {
@@ -1962,6 +2001,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         stuffUsed.extra1 = " (" + getTripRootPower(loom2.weight) + " BP)";
     }
 
+    if (move.name == "Outburst") {
+        let energyValue = (second ? percentNRG2.value : percentNRG1.value);
+        tempPower = Math.max(1, Math.floor(125 * energyValue / 100));
+        stuffUsed.extra1 = " (" + tempPower + " BP)";
+    }
+
     if (ability1 == "Idiosyncratic") stuffUsed.ability1 = ability1;
     if (ability2 == "Idiosyncratic") stuffUsed.ability2 = ability2;
 
@@ -2074,7 +2119,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
 
     if ((ability1 == "Baneful" && stat2 == "poisoned") ||
        (move.sound == true && ability1 == "Tone Deaf") ||
-       (move.recoil && ability1 == "Madcap") || 
+       (move.recoil && ability1 == "Madcap") ||
        (stat2 == "asleep" && ability1 == "Mean Spirited")) {
         multi *= 1.2;
         stuffUsed.ability1 = ability1;
@@ -2638,7 +2683,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     return [newHP, hazardString];
 }
 
-function checkIceTrap(move, l, u, hp, item, ability, ability2) {
+function checkIceTrap(move, l, u, hp, energy, item, ability, ability2) {
     if (move.drain) {
         let drainMI = (item == "Drain Orb" ? 1.2 : 1);
         let drainMA = (ability == "Drainage" ? 1.5 : 1); 
@@ -2654,6 +2699,11 @@ function checkIceTrap(move, l, u, hp, item, ability, ability2) {
     }
     if (move.name == "Flail") {
         return " (" + (Math.floor(hp / 8) / hp * 100).toFixed(1) + "% recoil damage)";
+    }
+    if (move.regen) {
+        let regenL = Math.max(Math.floor(l * move.regen), 1);
+        let regenU = Math.max(Math.floor(u * move.regen), 1);
+        return " (" + regenL + " - " + regenU + " energy refunded)";
     }
     if (move.hits == undefined) {
         return "";

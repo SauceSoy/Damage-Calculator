@@ -2213,7 +2213,6 @@ var loomians = {
         types: ["Water", "Toxic"],
         abilities: ["Toxic Spines", "Sharp Edges"],
         sAbility: ["Baneful"],
-        finalEvo: false,
         weight: 14,
         height: 29,
         baseStats: {
@@ -2732,6 +2731,65 @@ var loomians = {
             attackR: 101,
             defenseR: 122,
             speed: 61
+        }
+    },
+
+    copling: {
+        name: "Copling",
+        number: 140,
+        types: ["Ancient", "Metal"],
+        abilities: ["Oxidize", "Devious"],
+        sAbility: ["Playful"],
+        weight: 15,
+        height: 28,
+        finalEvo: false,
+        baseStats: {
+            hp: 34,
+            energy: 70,
+            attack: 55,
+            defense: 61,
+            attackR: 25,
+            defenseR: 51,
+            speed: 99
+        }
+    },
+
+    copperage: {
+        name: "Copperage",
+        number: 141,
+        types: ["Ancient", "Metal"],
+        abilities: ["Oxidize", "Devious"],
+        sAbility: ["Playful"],
+        weight: 15,
+        height: 28,
+        finalEvo: false,
+        baseStats: {
+            hp: 66,
+            energy: 80,
+            attack: 78,
+            defense: 90,
+            attackR: 35,
+            defenseR: 62,
+            speed: 74
+        }
+    },
+
+    oxidrake: {
+        name: "Oxidrake",
+        number: 142,
+        types: ["Ancient", "Metal"],
+        abilities: ["Oxidize", "Devious"],
+        sAbility: ["Combative"],
+        weight: 15,
+        height: 28,
+        baseStats: {
+            hp: 87,
+            energy: 90,
+            attack: 123,
+            defense: 113,
+            attackR: 38,
+            defenseR: 76,
+            speed: 63
         }
     },
 
@@ -4249,7 +4307,7 @@ var moves = {
 
     tripRoot: {
         name: "Trip Root",
-        power: -1,
+        power: 1,
         energy: 30,
         accuracy: 100,
         type: "Plant",
@@ -5072,7 +5130,7 @@ var moves = {
 
     flail: {
         name: "Flail",
-        power: 40,
+        power: 30,
         energy: 0,
         accuracy: 100,
         type: "Null",
@@ -5127,7 +5185,6 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true,
         aoe: true
     },
 
@@ -5152,8 +5209,32 @@ var moves = {
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        contact: true,
         secondaryEffect: true
+    },
+
+    drivingForce: {
+        name: "Driving Force",
+        power: 60,
+        energy: 40,
+        accuracy: 100,
+        type: "Brawler",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
+    },
+
+    outburst: {
+        name: "Outburst",
+        power: 1,
+        energy: 60,
+        accuracy: 100,
+        type: "Ancient",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        regen: 1/5
     },
 
 
@@ -6037,4 +6118,4 @@ for (let ty in types) {
 
 var sets = [];
 
-var changelog = "Sets \n •Added support for double the amount of saved sets. \n •All your past set data is unfortunately invalid as of now.";
+var changelog = "-Added Oxidrake line. \n -Added Energy bar to calculate the move Outburst properly.";

@@ -234,6 +234,12 @@ hr {
   border-radius: 3px;
 }
 
+.blueNRGBar {
+  border-top-color: #5897fb;
+  border-bottom-color: #0046b5;
+  border-right-color: #0046b5;
+}
+
 .greenHPBar {
   border-top-color: #00dd60;
   border-bottom-color: #007734;
