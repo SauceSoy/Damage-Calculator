@@ -25,33 +25,33 @@
             <div>
                 <input class="hiddenToUser" type="radio" id="moveOneRadio1" name="moveResult" checked="checked" onchange="update()">
                 <label class="resultlbl" id="moveOneLbl1" for="moveOneRadio1">
-                    Placeholder
+                    Blizzard
                 </label>
-                <span id="moveOneDmg1">65 - 75%</span>
+                <span id="moveOneDmg1">65-75%</span>
             </div>
 
             <div>
                 <input class="hiddenToUser" type="radio" id="moveTwoRadio1" name="moveResult" onchange="update()">
                 <label class="resultlbl" id="moveTwoLbl1" for="moveTwoRadio1">
-                    Placeholder
+                    Flamethrower
                 </label>
-                <span id="moveTwoDmg1">65 - 50%</span>
+                <span id="moveTwoDmg1">65-50%</span>
             </div>
 
             <div>
                 <input class="hiddenToUser" type="radio" id="moveThreeRadio1" name="moveResult" onchange="update()">
                 <label class="resultlbl" id="moveThreeLbl1" for="moveThreeRadio1">
-                    Placeholder
+                    Mud Buck
                 </label>
-                <span id="moveThreeDmg1">53 - 34%</span>
+                <span id="moveThreeDmg1">53-34%</span>
             </div>
 
             <div>
                 <input class="hiddenToUser" type="radio" id="moveFourRadio1" name="moveResult" onchange="update()">
                 <label class="resultlbl" id="moveFourLbl1" for="moveFourRadio1">
-                    Placeholder
+                    Searing Steel
                 </label>
-                <span id="moveFourDmg1">32 - 54%</span>
+                <span id="moveFourDmg1">32% - 54%</span>
             </div>
 
         </div>
@@ -61,33 +61,33 @@
             <div>
                 <input class="hiddenToUser" type="radio" id="moveOneRadio2" name="moveResult" onchange="update()">
                 <label class="resultlbl" id="moveOneLbl2" for="moveOneRadio2">
-                    Placeholder
+                    Blizzard
                 </label>
-                <span id="moveOneDmg2">65 - 75%</span>
+                <span id="moveOneDmg2">65-75%</span>
             </div>
 
             <div>
                 <input class="hiddenToUser" type="radio" id="moveTwoRadio2" name="moveResult" onchange="update()">
                 <label class="resultlbl" id="moveTwoLbl2" for="moveTwoRadio2">
-                    Placeholder
+                    Flamethrower
                 </label>
-                <span id="moveTwoDmg2">65 - 50%</span>
+                <span id="moveTwoDmg2">65-50%</span>
             </div>
 
             <div>
                 <input class="hiddenToUser" type="radio" id="moveThreeRadio2" name="moveResult" onchange="update()">
                 <label class="resultlbl" id="moveThreeLbl2" for="moveThreeRadio2">
-                    Placeholder
+                    Mud Buck
                 </label>
-                <span id="moveThreeDmg2">53 - 34%</span>
+                <span id="moveThreeDmg2">53-34%</span>
             </div>
 
             <div>
                 <input class="hiddenToUser" type="radio" id="moveFourRadio2" name="moveResult" onchange="update()">
                 <label class="resultlbl" id="moveFourLbl2" for="moveFourRadio2">
-                    Placeholder
+                    Searing Steel
                 </label>
-                <span id="moveFourDmg2">32 - 54%</span>
+                <span id="moveFourDmg2">32% - 54%</span>
             </div>
 
         </div>
@@ -482,14 +482,23 @@
                     <label id="totalHP1">321</label>
                     <input id="percentHP1" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updateNumber()">%
                     <br>
+                    <label class="divAlign">Current Ene </label>
+                    <input id="currentNRG1" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updatePercent()">/
+                    <label id="totalNRG1">321</label>
+                    <input id="percentNRG1" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updateNumber()">%
+                    <br>
                     <br>
 
                     Health
                     <div class="hpBar greenHPBar" id="hpBar1" style="background: linear-gradient(to right, green 100%, white 0%);">
+                    <br>
+                    Energy
+                    <div class="hpBar blueNRGBar" id="nrgBar1" style="background: linear-gradient(to right, rgba(0,150,255) 100%, white 0%);">
 
                     </div>
                 </div>
-
+                <br>
+                <br>
                 <div class="infogroup">
 
                     <div>
@@ -1089,13 +1098,24 @@
                     <label id="totalHP2">321</label>
                     <input id="percentHP2" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updateNumber()">%
                     <br>
+                    <label class="divAlign">Current Ene </label>
+                    <input id="currentNRG2" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updatePercent()">/
+                    <label id="totalNRG2">321</label>
+                    <input id="percentNRG2" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updateNumber()">%
+                    <br>
                     <br>
 
                     Health
                     <div class="hpBar greenHPBar" id="hpBar2" style="background: linear-gradient(to right, green 100%, white 0%);">
+                    <br>
+                    Energy
+                    <div class="hpBar blueNRGBar" id="nrgBar2" style="background: linear-gradient(to right, rgba(0,150,255) 100%, white 0%);">
+
 
                     </div>
                 </div>
+                <br>
+                <br>
                 <div class="infogroup">
 
                     <div>
@@ -1163,7 +1183,7 @@
         <input type="checkbox" class="hiddenToUser" id="darkMode" onchange="toggleDarkMode()">
         <label class="radiolbl fieldlbl entered" for="darkMode">Dark Mode</label>
         <br>
-        Made By: Sioist <br>Contributors: <br>• i_eaturface <br>• Team Apex <br><br><a href="https://github.com/SauceSoy/Damage-Calculator">GitHub Repo</a>
+        Made By: Sioist <br>Contributors: <br>- i_eaturface <br>- Team Apex <br><br><a href="https://github.com/SauceSoy/Damage-Calculator">GitHub Repo</a>
     </div>
 </body>
 <script>
