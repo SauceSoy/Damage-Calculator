@@ -1971,6 +1971,22 @@ var loomians = {
             speed: 87
         }
     },
+     metronette: {
+        name: "Metronette",
+        number: 204,
+        types: ["Mind", "Dark"],
+        abilities: ["Mysterious Cloak"],
+        sAbility: ["Applied Frustration"],
+        weight: 125,
+        height: 92,
+        baseStats: {
+            hp: 72,
+            energy: 95,
+            attack: 49,
+            defense: 85,
+            attackR: 114,
+            defenseR: 90,
+            speed: 105
 
     zaleo: {
         name: "Zaleo",
@@ -2029,6 +2045,14 @@ var loomians = {
             defenseR: 68,
             speed: 58
         }
+    },
+    
+    pyrokinesis: {
+        name: "Pyrokinesis",
+        power: 65,
+        type: "Fire",
+        mr: "Ranged",
+        secondaryEffect: true
     },
 
     infernix: {
@@ -5232,6 +5256,12 @@ var moves = {
         type: "Typeless",
         mr: "Support"
     },
+    DejaVu: {
+        name: "Deja Vu",
+        power: 0,
+        type: "Mind",
+        mr: "Support"
+    },
 
     disperse: {
         name: "Disperse",
@@ -5284,6 +5314,12 @@ var moves = {
         energy: 40,
         accuracy: "N/A",
         type: "Spirit",
+        mr: "Support"
+    },
+     fungusCurse: {
+        name: "Fungus Curse",
+        power: 0,
+        type: "Plant",
         mr: "Support"
     },
 
@@ -5949,7 +5985,7 @@ var types = {
 };
 
 var abilities = ["Awakening", "Ambush", "Coursing Venom", "Drainage", "Hasty", "Lightning Rod", "Mean Spirited", "Neutralize", "Overshadow", "Illuminate", "Prismatic", 
-                "Territorial", "Woodsman", "Dusk", "Dawn", "Pyro", "Volcanic", "Combustible", "Noxious Weeds", "Sharp Claws", "Brute Force", "Raging Fire", "Vengeance",
+                "Territorial", "Woodsman", "Dusk", "Dawn", "Pyro", "Volcanic", "Combustible", "Mysterious Cloak", "Noxious Weeds", "Sharp Claws", "Brute Force", "Raging Fire", "Vengeance",
                 "Total Eclipse", "Tone Deaf", "Circadian", "Baneful", "Rechargeable", "Toxic Filter", "Trash Armor", "Tank", "Power Jaw", "Specialization", "Slick Shell",
                 "Heavy Fists", "Enchanted Coat", "Bloodsucker", "Nightmarish", "Overcharged", "Watcher", "Sly", "Devious", "Ignorant", "Chill", "Vigorous", "Aqua Body",
                 "Idiosyncratic", "Adorable", "Terrifying", "Boast", "Staunch", "Anomaly", "Combative", "Defensive Priority", "Ungracious Host", "Madcap", "Hard Candy",
@@ -5965,6 +6001,11 @@ var typeModAbilities = {
     lightningRod: {
         name: "Lightning Rod",
         typeModifier: { type: "Electric", modifier: 0 },
+        powerMod: false
+    },
+    mysteriousCloak: {
+        name: "Mysterious Cloak",
+        typeModifier: { type: "Toxic", modifier: 0 },
         powerMod: false
     },
     
