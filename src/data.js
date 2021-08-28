@@ -2793,6 +2793,25 @@ var loomians = {
         }
     },
 
+    wresolen: {
+        name: "Wresolen",
+        number: 146,
+        types: ["Brawler"],
+        abilities: ["Aggressive", "Ignorant"],
+        sAbility: ["Ace"],
+        weight: 110,
+        height: 77,
+        baseStats: {
+            hp: 104,
+            energy: 79,
+            attack: 130,
+            defense: 84,
+            attackR: 17,
+            defenseR: 79,
+            speed: 78
+        }
+    },
+
     wakalaka: {
         name: "WakaLaka",
         number: 150,
@@ -5237,6 +5256,31 @@ var moves = {
         regen: 1/5
     },
 
+    blazePunch: {
+        name: "Blaze Punch",
+        power: 70,
+        energy: 40,
+        accuracy: 100,
+        type: "Fire",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        secondaryEffect: true
+    },
+
+    boomBash: {
+        name: "Boom Bash",
+        power: 80,
+        energy: 45,
+        accuracy: 100,
+        type: "Brawler",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
+    },
+
 
 
     //Support Moves -----------------------------------------------------------------------------------------------------------------------------------------
@@ -5922,6 +5966,15 @@ var moves = {
         mr: "Support"
     },
 
+    buckUp: {
+        name: "Buck Up",
+        power: 0,
+        energy: 20,
+        accuracy: "N/A",
+        type: "Brawler",
+        mr: "Support"
+    },
+
 };
 
 
@@ -6034,7 +6087,7 @@ var abilities = ["Awakening", "Ambush", "Coursing Venom", "Drainage", "Hasty", "
                 "Total Eclipse", "Tone Deaf", "Circadian", "Baneful", "Rechargeable", "Toxic Filter", "Trash Armor", "Tank", "Power Jaw", "Specialization", "Slick Shell",
                 "Heavy Fists", "Enchanted Coat", "Bloodsucker", "Nightmarish", "Overcharged", "Watcher", "Sly", "Devious", "Ignorant", "Chill", "Vigorous", "Aqua Body",
                 "Idiosyncratic", "Adorable", "Terrifying", "Boast", "Staunch", "Anomaly", "Combative", "Defensive Priority", "Ungracious Host", "Madcap", "Hard Candy",
-                "Incandescent", "Expertise", "Virtuoso", "Sharp Focus", "Turbulent"];
+                "Incandescent", "Expertise", "Virtuoso", "Sharp Focus", "Turbulent", "Ace"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -6118,4 +6171,4 @@ for (let ty in types) {
 
 var sets = [];
 
-var changelog = "-Added Oxidrake line. \n -Added Energy bar to calculate the move Outburst properly.";
+var changelog = "-Added Wresolen and its new moves.";
