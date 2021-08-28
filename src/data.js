@@ -2805,7 +2805,7 @@ var loomians = {
             hp: 104,
             energy: 79,
             attack: 130,
-            defense: 84,
+            defense: 88,
             attackR: 17,
             defenseR: 79,
             speed: 78
