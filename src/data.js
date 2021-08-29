@@ -5266,6 +5266,7 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
+        punch: true,
         secondaryEffect: true
     },
 
