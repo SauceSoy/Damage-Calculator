@@ -3078,6 +3078,25 @@ var loomians = {
         }
     },
 
+    heavybag: {
+        name: "HeavyBag",
+        number: 9999,
+        types: ["None"],
+        abilities: ["Surrogate"],
+        sAbility: ["Idiosyncratic"],
+        weight: 123,
+        height: 200,
+        baseStats: {
+            hp: 450,
+            energy: 1,
+            attack: 1,
+            defense: 100,
+            attackR: 1,
+            defenseR: 100,
+            speed: 1
+        }
+    },
+
 };
 
 
@@ -6079,6 +6098,12 @@ var types = {
     brawler: {
         weaknesses: ["air", "spirit", "mind", "toxic"],
         resistances: ["bug", "ice"],
+        immunities: []
+    },
+
+    none: {
+        weaknesses: [],
+        resistances: [],
         immunities: []
     },
 };

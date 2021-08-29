@@ -2355,6 +2355,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
             multi = 0;
         }
     }
+    if (loom2.name == "HeavyBag" && tempType == "Brawler") {
+        multi *= 2;
+    }
 
     effectiveness = multi;
 
