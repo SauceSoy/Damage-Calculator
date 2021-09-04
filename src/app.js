@@ -191,6 +191,9 @@ let pestilence2 = document.getElementById("pestilence2");
 let quicksand1 = document.getElementById("quicksand1");
 let quicksand2 = document.getElementById("quicksand2");
 
+let buzzolen1 = document.getElementById("buzzolen1");
+let buzzolen2 = document.getElementById("buzzolen2");
+
 let bloodDrain1 = document.getElementById("bloodDrain1");
 let bloodDrain2 = document.getElementById("bloodDrain2");
 
@@ -2258,7 +2261,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     //Crit and Random -----------------------------
 
     if (crit) {
-        multi *= 1.5;
+        if (ability1 == "Marksman") {
+            multi *= 2.25;
+            stuffUsed.ability1 = ability1;
+        }
+        else multi *= 1.5;
     }
 
     if (ul) {
@@ -2355,8 +2362,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
             multi = 0;
         }
     }
-    if (loom2.name == "HeavyBag" && tempType == "Brawler") {
-        multi *= 2;
+    if (loom2.name == "HeavyBag" && tempType == "Mind") {
+        multi *= 0.5;
     }
 
     effectiveness = multi;
@@ -2588,6 +2595,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     let bloodDrain = { attacker: bloodDrain1.checked, defender: bloodDrain2.checked };
     let pestilence = pestilence2.checked;
     let quicksand = quicksand2.checked;
+    let buzzolen = buzzolen2.checked;
     let softWater = softWater2.checked;
     let hazardString = "";
 
@@ -2598,6 +2606,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         bloodDrain = { attacker: bloodDrain2.checked, defender: bloodDrain1.checked };
         pestilence = pestilence1.checked;
         quicksand = quicksand1.checked;
+        buzzolen = buzzolen1.checked;
         softWater = softWater1.checked;
     }
 
@@ -2643,6 +2652,11 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     if (quicksand) {
         newHP += Math.floor(hp1 * 1 / 8);
         hazardString += "quicksand damage and ";
+    }
+
+    if (buzzolen) {
+        newHP += Math.floor(hp1 * 1 / 16);
+        hazardString += "stinger damage and ";
     }
 
     if (!OHKO) {
