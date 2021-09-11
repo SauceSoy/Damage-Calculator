@@ -762,6 +762,25 @@ var loomians = {
             speed: 72
         }
     },
+
+    terraclaw: {
+        name: "Terraclaw",
+        number: 92,
+        types: ["Bug"],
+        abilities: ["Odd Husk", "Pincer Trap"],
+        sAbility: ["Slick Shell"],
+        weight: 33,
+        height: 44,
+        baseStats: {
+            hp: 79,
+            energy: 72,
+            attack: 121,
+            defense: 106,
+            attackR: 20,
+            defenseR: 54,
+            speed: 43
+        }
+    },
  
     kleptyke: {
         name: "Kleptyke",
@@ -1016,6 +1035,25 @@ var loomians = {
             speed: 62
         }
     },
+
+    wakalaka: {
+        name: "WakaLaka",
+        number: 150,
+        types: ["Plant", "Mind"],
+        abilities: ["Communication", "Expertise"],
+        sAbility: ["Enchanted Coat"],
+        weight: 111,
+        height: 74,
+        baseStats: {
+            hp: 99,
+            energy: 68,
+            attack: 23,
+            defense: 76,
+            attackR: 124,
+            defenseR: 101,
+            speed: 41
+        }
+    },
  
     shawchi: {
         name: "Shawchi",
@@ -1170,6 +1208,25 @@ var loomians = {
             attackR: 30,
             defenseR: 80,
             speed: 75
+        }
+    },
+
+    ursnac: {
+        name: "Ursnac",
+        number: 152,
+        types: ["Spirit", "Brawler"],
+        abilities: ["Tank"],
+        sAbility: ["Bursting Seams"],
+        weight: 73,
+        height: 74,
+        baseStats: {
+            hp: 99,
+            energy: 92,
+            attack: 86,
+            defense: 110,
+            attackR: 21,
+            defenseR: 88,
+            speed: 55
         }
     },
  
@@ -1346,6 +1403,25 @@ var loomians = {
             attackR: 20,
             defenseR: 64,
             speed: 102
+        }
+    },
+
+    festifir: {
+        name: "Festifir",
+        number: 151,
+        types: ["Ice", "Plant"],
+        abilities: ["Parting Gift", "Chill"],
+        sAbility: ["Regift"],
+        weight: 68,
+        height: 81,
+        baseStats: {
+            hp: 113,
+            energy: 90,
+            attack: 119,
+            defense: 56,
+            attackR: 44,
+            defenseR: 88,
+            speed: 22
         }
     },
  
@@ -1872,25 +1948,6 @@ var loomians = {
             attackR: 43,
             defenseR: 69,
             speed: 116
-        }
-    },
-
-    terraclaw: {
-        name: "Terraclaw",
-        number: 92,
-        types: ["Bug"],
-        abilities: ["Odd Husk", "Pincer Trap"],
-        sAbility: ["Slick Shell"],
-        weight: 33,
-        height: 44,
-        baseStats: {
-            hp: 79,
-            energy: 72,
-            attack: 121,
-            defense: 106,
-            attackR: 20,
-            defenseR: 54,
-            speed: 43
         }
     },
 
@@ -2734,14 +2791,52 @@ var loomians = {
         }
     },
 
+    wresolen: {
+        name: "Wresolen",
+        number: 146,
+        types: ["Brawler"],
+        abilities: ["Aggressive", "Ignorant"],
+        sAbility: ["Ace"],
+        weight: 156,
+        height: 81,
+        baseStats: {
+            hp: 104,
+            energy: 79,
+            attack: 130,
+            defense: 88,
+            attackR: 17,
+            defenseR: 79,
+            speed: 78
+        }
+    },
+
+    buzzolen: {
+        name: "Buzzolen",
+        number: 147,
+        types: ["Bug"],
+        abilities: ["Vigorous", "Sniper"],
+        sAbility: ["Sweet Scent"],
+        weight: 19,
+        height: 38,
+        baseStats: {
+            hp: 69,
+            energy: 100,
+            attack: 99,
+            defense: 75,
+            attackR: 35,
+            defenseR: 96,
+            speed: 101
+        }
+    },
+
     copling: {
         name: "Copling",
         number: 140,
         types: ["Ancient", "Metal"],
         abilities: ["Oxidize", "Devious"],
         sAbility: ["Playful"],
-        weight: 15,
-        height: 28,
+        weight: 17,
+        height: 14,
         finalEvo: false,
         baseStats: {
             hp: 34,
@@ -2760,8 +2855,8 @@ var loomians = {
         types: ["Ancient", "Metal"],
         abilities: ["Oxidize", "Devious"],
         sAbility: ["Playful"],
-        weight: 15,
-        height: 28,
+        weight: 40,
+        height: 26,
         finalEvo: false,
         baseStats: {
             hp: 66,
@@ -2780,8 +2875,8 @@ var loomians = {
         types: ["Ancient", "Metal"],
         abilities: ["Oxidize", "Devious"],
         sAbility: ["Combative"],
-        weight: 15,
-        height: 28,
+        weight: 166,
+        height: 80,
         baseStats: {
             hp: 87,
             energy: 90,
@@ -2790,101 +2885,6 @@ var loomians = {
             attackR: 38,
             defenseR: 76,
             speed: 63
-        }
-    },
-
-    wresolen: {
-        name: "Wresolen",
-        number: 146,
-        types: ["Brawler"],
-        abilities: ["Aggressive", "Ignorant"],
-        sAbility: ["Ace"],
-        weight: 110,
-        height: 77,
-        baseStats: {
-            hp: 104,
-            energy: 79,
-            attack: 130,
-            defense: 88,
-            attackR: 17,
-            defenseR: 79,
-            speed: 78
-        }
-    },
-
-    buzzolen: {
-        name: "Buzzolen",
-        number: 147,
-        types: ["Bug"],
-        abilities: ["Vigorous", "Sniper"],
-        sAbility: ["Sweet Scent"],
-        weight: 110,
-        height: 77,
-        baseStats: {
-            hp: 69,
-            energy: 100,
-            attack: 99,
-            defense: 75,
-            attackR: 35,
-            defenseR: 96,
-            speed: 101
-        }
-    },
-
-    wakalaka: {
-        name: "WakaLaka",
-        number: 150,
-        types: ["Plant", "Mind"],
-        abilities: ["Communication", "Expertise"],
-        sAbility: ["Enchanted Coat"],
-        weight: 111,
-        height: 74,
-        baseStats: {
-            hp: 99,
-            energy: 68,
-            attack: 23,
-            defense: 76,
-            attackR: 124,
-            defenseR: 101,
-            speed: 41
-        }
-    },
-
-    festifir: {
-        name: "Festifir",
-        number: 151,
-        types: ["Ice", "Plant"],
-        abilities: ["Parting Gift", "Chill"],
-        sAbility: ["Regift"],
-        weight: 68,
-        height: 81,
-        baseStats: {
-            hp: 113,
-            energy: 90,
-            attack: 119,
-            defense: 56,
-            attackR: 44,
-            defenseR: 88,
-            speed: 22
-        }
-    },
-
-    ursnac: {
-        name: "Ursnac",
-        number: 152,
-        types: ["Spirit", "Brawler"],
-        abilities: ["Tank"],
-        sAbility: ["Bursting Seams"],
-        weight: 73,
-        height: 74,
-        baseStats: {
-            hp: 99,
-            energy: 92,
-            attack: 86,
-            defense: 110,
-            attackR: 21,
-            defenseR: 88,
-            speed: 55
         }
     },
  
@@ -2964,25 +2964,6 @@ var loomians = {
         }
     },
 
-    metronette: {
-        name: "Metronette",
-        number: 204,
-        types: ["Dark", "Mind"],
-        abilities: ["Magical Cloak"],
-        sAbility: ["Applied Frustration"],
-        weight: 31,
-        height: 38,
-        baseStats: {
-            hp: 80,
-            energy: 95,
-            attack: 49,
-            defense: 95,
-            attackR: 127,
-            defenseR: 99,
-            speed: 105
-        }
-    },
-
     cephalops: {
         name: "Cephalops",
         number: 205,
@@ -2999,6 +2980,25 @@ var loomians = {
             attackR: 119,
             defenseR: 69,
             speed: 52
+        }
+    },
+
+    metronette: {
+        name: "Metronette",
+        number: 204,
+        types: ["Dark", "Mind"],
+        abilities: ["Magical Cloak"],
+        sAbility: ["Applied Frustration"],
+        weight: 31,
+        height: 38,
+        baseStats: {
+            hp: 80,
+            energy: 95,
+            attack: 49,
+            defense: 95,
+            attackR: 127,
+            defenseR: 99,
+            speed: 105
         }
     },
 
