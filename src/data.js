@@ -3097,6 +3097,24 @@ var loomians = {
         }
     },
 
+    nevermare: {
+        name: "Nevermare",
+        types: ["Plant", "Spirit"],
+        abilities: ["Razor Sharp"],
+        sAbility: ["Frenzy"],
+        weight: 221,
+        height: 86,
+        baseStats: {
+            hp: 61,
+            energy: 120,
+            attack: 113,
+            defense: 89,
+            attackR: 46,
+            defenseR: 110,
+            speed: 111
+        }
+    },
+
     heavybag: {
         name: "HeavyBag",
         number: 9999,
@@ -5332,6 +5350,19 @@ var moves = {
         contact: true,
         secondaryEffect: true
     },
+
+    thistleSlash: {
+        name: "Thistle Slash",
+        power: 70,
+        energy: 36,
+        accuracy: 100,
+        type: "Plant",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
+    },
+
 
 
     //Support Moves -----------------------------------------------------------------------------------------------------------------------------------------
