@@ -2145,31 +2145,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         stuffUsed.item1 = itemA;
     }
 
-    if (itemA == "Power Amulet") {
-        let tempMulti = 1;
-        if (energyValue == 100) {
-            multi *= 1.4;
-            tempMulti = 1.4;
-        } else if (energyValue >= 90) {
-            multi *= 1.3;
-            tempMulti = 1.3;
-        } else if (energyValue >= 75) {
-            multi *= 1.2;
-            tempMulti = 1.2;
-        } else if (energyValue >= 50) {
-            multi *= 1.1;
-            tempMulti = 1.1;
-        } else if (energyValue >= 40) {
-            multi *= 1.05;
-            tempMulti = 1.05;
-        } else if (energyValue < 25) {
-            multi *= .9;
-            tempMulti = .9;
-        }
-        stuffUsed.item1 = itemA;
-        stuffUsed.extra1 += " (x" + tempMulti + ")";
-    }
-
     if (itemB != "None" && move.knockOff == true && withoutSlapDown) {
         multi *= 1.5;
         stuffUsed.item2 = itemB;
