@@ -831,8 +831,12 @@ function updateHealthBar() {
 function updatePercent() {
     percentHP1.value = Math.floor(currentHP1.value / totalHP1.innerHTML * 100);
     percentHP2.value = Math.floor(currentHP2.value / totalHP2.innerHTML * 100);
-    percentNRG1.value = Math.floor(currentNRG1.value / totalNRG1.innerHTML * 100);
-    percentNRG2.value = Math.floor(currentNRG2.value / totalNRG2.innerHTML * 100);
+    if (totalNRG1.innerHTML == 0) {
+        percentNRG1.value = 0;
+    } else percentNRG1.value = Math.floor(currentNRG1.value / totalNRG1.innerHTML * 100);
+    if (totalNRG2.innerHTML == 0) {
+        percentNRG2.value = 0;
+    } else percentNRG2.value = Math.floor(currentNRG2.value / totalNRG2.innerHTML * 100);
 
     updateHealthBar();
 }
@@ -960,6 +964,7 @@ function loadStats() {
     atkR1 = calculateStat(baseAtkR1.value, atkRIV1.value, atkREV1.value, level1.value, undefined, posNat1, negNat1, veryNat1, "AttackR");
     defR1 = calculateStat(baseDefR1.value, defRIV1.value, defREV1.value, level1.value, undefined, posNat1, negNat1, veryNat1, "DefenseR");
     spd1 = calculateStat(baseSpd1.value, spdIV1.value, spdEV1.value, level1.value, undefined, posNat1, negNat1, veryNat1, "Speed");
+    if (firstLoom.name == "Spirivii" || firstLoom.name == "Eidohusk" || firstLoom.name == "Harvesect") energy1 = 0;
 
     hp2 = calculateStat(baseHP2.value, hpIV2.value, hpEV2.value, level2.value, true, undefined, undefined, undefined, undefined);
     energy2 = calculateStat(baseEnergy2.value, energyIV2.value, energyEV2.value, level2.value, undefined, posNat2, negNat2, veryNat2, undefined, undefined, true);
@@ -968,6 +973,7 @@ function loadStats() {
     atkR2 = calculateStat(baseAtkR2.value, atkRIV2.value, atkREV2.value, level2.value, undefined, posNat2, negNat2, veryNat2, "AttackR");
     defR2 = calculateStat(baseDefR2.value, defRIV2.value, defREV2.value, level2.value, undefined, posNat2, negNat2, veryNat2, "DefenseR");
     spd2 = calculateStat(baseSpd2.value, spdIV2.value, spdEV2.value, level2.value, undefined, posNat2, negNat2, veryNat2, "Speed");
+    if (secondLoom.name == "Spirivii" || secondLoom.name == "Eidohusk" || secondLoom.name == "Harvesect") energy2 = 0;
     
     if (firstLoomian && firstLoomian != firstLoom) {
         atkStages1.value = "--";
@@ -1975,6 +1981,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     let possibleDmg = [];
     let stuffUsed = { ability1: "", ability2: "", item1: "", item2: "", extra1: "", extra2: ""};
     let adaptive = { mr: "", mr1: "", mr2: ""};
+    let energyValue = (second ? percentNRG2.value : percentNRG1.value);
 
     let immuneBoostCheck1 = (second == false ? immuneAbilityBoost1.checked : immuneAbilityBoost2.checked);
 
@@ -1992,7 +1999,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
             move.contact = true;
         }
         tempStats = getTempAtkDef(second, adaptive);
-        stuffUsed.extra1 = " (" + adaptive.mr + " " + tempType + ")";
+        stuffUsed.extra1 += " (" + adaptive.mr + " " + tempType + ")";
     } else tempStats = getTempAtkDef(second, move);
     tempAtk = tempStats.attack;
     tempDef = tempStats.defense;
@@ -2001,13 +2008,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
 
 
     if (move.name == "Trip Root") {
-        stuffUsed.extra1 = " (" + getTripRootPower(loom2.weight) + " BP)";
+        stuffUsed.extra1 += " (" + getTripRootPower(loom2.weight) + " BP)";
     }
 
     if (move.name == "Outburst") {
-        let energyValue = (second ? percentNRG2.value : percentNRG1.value);
         tempPower = Math.max(1, Math.floor(125 * energyValue / 100));
-        stuffUsed.extra1 = " (" + tempPower + " BP)";
+        stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
 
     if (ability1 == "Idiosyncratic") stuffUsed.ability1 = ability1;
@@ -2103,14 +2109,14 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
 
     if ((ability1 == "Power Jaw" && move.bite == true) ||
-       (ability1 == "Heavy Fists" && (move.punch == true || move.slap == true))) {
+       (ability1 == "Heavy Fists" && (move.punch == true || move.slap == true)) ||
+       (ability1 == "Incandescent" && tempType == "Light")) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
 
     if ((ability1 == "Bloodsucker" && move.drain) ||
-       (gen1 == gen2 && ability1 == "Territorial") ||
-       (ability1 == "Incandescent" && tempType == "Light")) {
+       (gen1 == gen2 && ability1 == "Territorial")) {
         multi *= 1.25;
         stuffUsed.ability1 = ability1;
     }
@@ -2139,6 +2145,31 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         stuffUsed.item1 = itemA;
     }
 
+    if (itemA == "Power Amulet") {
+        let tempMulti = 1;
+        if (energyValue == 100) {
+            multi *= 1.4;
+            tempMulti = 1.4;
+        } else if (energyValue >= 90) {
+            multi *= 1.3;
+            tempMulti = 1.3;
+        } else if (energyValue >= 75) {
+            multi *= 1.2;
+            tempMulti = 1.2;
+        } else if (energyValue >= 50) {
+            multi *= 1.1;
+            tempMulti = 1.1;
+        } else if (energyValue >= 40) {
+            multi *= 1.05;
+            tempMulti = 1.05;
+        } else if (energyValue < 25) {
+            multi *= .9;
+            tempMulti = .9;
+        }
+        stuffUsed.item1 = itemA;
+        stuffUsed.extra1 += " (x" + tempMulti + ")";
+    }
+
     if (itemB != "None" && move.knockOff == true && withoutSlapDown) {
         multi *= 1.5;
         stuffUsed.item2 = itemB;
@@ -2154,7 +2185,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     if ((move.name == "Oppress" && stat2 != "healthy") ||
        (move.name == "Ill Will" && stat1 != "healthy")) {
         multi *= 2;
-        stuffUsed.extra1 = " (" + Math.floor(move.power * 2) + " BP)";
+        stuffUsed.extra1 += " (" + Math.floor(move.power * 2) + " BP)";
     }
 
     if (ability1 == "Specialization") {
@@ -2167,7 +2198,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
 
     if (move.name == "Rough Up" && loom1.height > loom2.height) {
         multi *= 1.25;
-        stuffUsed.extra1 = " (" + Math.floor(move.power * 1.25) + " BP)";
+        stuffUsed.extra1 += " (" + Math.floor(move.power * 1.25) + " BP)";
     }
 
     if (ability2 == "Aqua Body" && tempType == "Fire") {

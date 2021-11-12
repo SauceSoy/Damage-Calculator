@@ -2887,6 +2887,65 @@ var loomians = {
             speed: 63
         }
     },
+
+    spirivii: {
+        name: "Spirivii",
+        number: 140,
+        types: ["Bug", "Spirit"],
+        abilities: ["Life Force"],
+        sAbility: [],
+        weight: 4,
+        height: 18,
+        finalEvo: false,
+        baseStats: {
+            hp: 61,
+            energy: 0,
+            attack: 44,
+            defense: 42,
+            attackR: 25,
+            defenseR: 33,
+            speed: 45
+        }
+    },
+
+    eidohusk: {
+        name: "Eidohusk",
+        number: 141,
+        types: ["Bug", "Spirit"],
+        abilities: ["Life Force"],
+        sAbility: [],
+        weight: 13,
+        height: 43,
+        finalEvo: false,
+        baseStats: {
+            hp: 81,
+            energy: 0,
+            attack: 44,
+            defense: 88,
+            attackR: 25,
+            defenseR: 62,
+            speed: 20
+        }
+    },
+
+    harvesect: {
+        name: "Harvesect",
+        number: 142,
+        types: ["Bug", "Spirit"],
+        abilities: ["Life Force"],
+        sAbility: [],
+        weight: 78,
+        height: 77,
+        baseStats: {
+            hp: 116,
+            energy: 0,
+            attack: 100,
+            defense: 119,
+            attackR: 34,
+            defenseR: 77,
+            speed: 56
+        }
+    },
  
     duskit: {
         name: "Duskit",
@@ -3125,12 +3184,12 @@ var loomians = {
         height: 200,
         baseStats: {
             hp: 450,
-            energy: 1,
-            attack: 1,
+            energy: 0,
+            attack: 0,
             defense: 100,
-            attackR: 1,
+            attackR: 0,
             defenseR: 100,
-            speed: 1
+            speed: 0
         }
     },
 
@@ -5363,6 +5422,30 @@ var moves = {
         contact: true
     },
 
+    soulHarvest: {
+        name: "Soul Harvest",
+        power: 50,
+        energy: 30,
+        accuracy: 100,
+        type: "Spirit",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
+    },
+
+    soulStorm: {
+        name: "Soul Storm",
+        power: 80,
+        energy: 40,
+        accuracy: 100,
+        type: "Spirit",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
+    },
+
 
 
     //Support Moves -----------------------------------------------------------------------------------------------------------------------------------------
@@ -6245,7 +6328,7 @@ var typeModAbilities = {
     }
 }
 
-var items = ["Heavy Shield", "Heavy Armor", "Power Cuffs", "Health Amulet", "Drain Orb", "Mystic Wand", "Drop of Youth", "Energy Orb"];
+var items = ["Heavy Shield", "Heavy Armor", "Power Cuffs", "Health Amulet", "Drain Orb", "Mystic Wand", "Drop of Youth", "Energy Orb", "Power Amulet"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Essence");
