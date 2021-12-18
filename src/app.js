@@ -2371,8 +2371,19 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     if (loom2.name == "HeavyBag" && tempType == "Mind") {
         multi *= 0.5;
     }
+    if (move.name == "Brain Freeze" && (types2.primary == "Mind" || types2.secondary == "Mind")) {
+        multi *= 2;
+    }
+    if (move.name == "Deep Freeze" && (types2.primary == "Water" || types2.secondary == "Water")) {
+        multi *= 4;
+    }
 
     effectiveness = multi;
+
+    if (ability1 == "Wise" && effectiveness < 1) {
+        multi *= 2;
+        stuffUsed.ability1 = ability1;
+    }
 
     if (detailed) {
         for (let i = 0; i < possibleDmg.length; i++) {

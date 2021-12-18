@@ -2946,6 +2946,65 @@ var loomians = {
             speed: 56
         }
     },
+
+    snowl: {
+        name: "Snowl",
+        number: 143,
+        types: ["Ice"],
+        abilities: ["Wise", "Chill"],
+        sAbility: ["Glide"],
+        weight: 4,
+        height: 18,
+        finalEvo: false,
+        baseStats: {
+            hp: 15,
+            energy: 71,
+            attack: 9,
+            defense: 20,
+            attackR: 12,
+            defenseR: 24,
+            speed: 59
+        }
+    },
+
+    stricicle: {
+        name: "Stricicle",
+        number: 143,
+        types: ["Ice", "Air"],
+        abilities: ["Wise", "Chill"],
+        sAbility: ["Glide"],
+        weight: 4,
+        height: 18,
+        finalEvo: false,
+        baseStats: {
+            hp: 48,
+            energy: 81,
+            attack: 48,
+            defense: 58,
+            attackR: 86,
+            defenseR: 61,
+            speed: 70
+        }
+    },
+
+    wintrix: {
+        name: "Wintrix",
+        number: 143,
+        types: ["Ice", "Air"],
+        abilities: ["Wise", "Chill"],
+        sAbility: ["Glide"],
+        weight: 4,
+        height: 18,
+        baseStats: {
+            hp: 66,
+            energy: 92,
+            attack: 58,
+            defense: 81,
+            attackR: 114,
+            defenseR: 85,
+            speed: 94
+        }
+    },
  
     duskit: {
         name: "Duskit",
@@ -3171,6 +3230,24 @@ var loomians = {
             attackR: 46,
             defenseR: 110,
             speed: 111
+        }
+    },
+
+    akhalos: {
+        name: "Akhalos",
+        types: ["Ice", "Water"],
+        abilities: ["Aqua Body"],
+        sAbility: ["Aggressive"],
+        weight: 221,
+        height: 86,
+        baseStats: {
+            hp: 111,
+            energy: 94,
+            attack: 120,
+            defense: 92,
+            attackR: 63,
+            defenseR: 86,
+            speed: 84
         }
     },
 
@@ -5446,6 +5523,41 @@ var moves = {
         contact: true
     },
 
+    brainFreeze: {
+        name: "Brain Freeze",
+        power: 80,
+        energy: 44,
+        accuracy: 100,
+        type: "Ice",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
+    },
+
+    deepFreeze: {
+        name: "Deep Freeze",
+        power: 75,
+        energy: 40,
+        accuracy: 100,
+        type: "Ice",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
+    },
+
+    snotShot: {
+        name: "Snot Shot",
+        power: 60,
+        energy: 30,
+        accuracy: 100,
+        type: "Ice",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
+    },
+
 
 
     //Support Moves -----------------------------------------------------------------------------------------------------------------------------------------
@@ -6140,6 +6252,15 @@ var moves = {
         mr: "Support"
     },
 
+    bagOfTricks: {
+        name: "Ancient Instinct",
+        power: 0,
+        energy: 25,
+        accuracy: "N/A",
+        type: "Ancient",
+        mr: "Support"
+    },
+
 };
 
 
@@ -6252,7 +6373,7 @@ var abilities = ["Awakening", "Ambush", "Coursing Venom", "Drainage", "Hasty", "
                 "Total Eclipse", "Tone Deaf", "Circadian", "Baneful", "Rechargeable", "Toxic Filter", "Trash Armor", "Tank", "Power Jaw", "Specialization", "Slick Shell",
                 "Heavy Fists", "Enchanted Coat", "Bloodsucker", "Nightmarish", "Overcharged", "Watcher", "Sly", "Devious", "Ignorant", "Chill", "Vigorous", "Aqua Body",
                 "Idiosyncratic", "Adorable", "Terrifying", "Boast", "Staunch", "Anomaly", "Combative", "Defensive Priority", "Ungracious Host", "Madcap", "Hard Candy",
-                "Incandescent", "Expertise", "Virtuoso", "Sharp Focus", "Turbulent", "Ace", "Marksman"];
+                "Incandescent", "Expertise", "Virtuoso", "Sharp Focus", "Turbulent", "Ace", "Marksman", "Wise"];
 
 var typeModAbilities = {
     coursingVenom: {
