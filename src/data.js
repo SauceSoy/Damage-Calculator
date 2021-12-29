@@ -2829,6 +2829,25 @@ var loomians = {
         }
     },
 
+    tundrolen: {
+        name: "Tundrolen",
+        number: 147,
+        types: ["Ice"],
+        abilities: ["Insulated", "Mysterious Cloak"],
+        sAbility: ["Resilience"],
+        weight: 19,
+        height: 38,
+        baseStats: {
+            hp: 91,
+            energy: 86,
+            attack: 91,
+            defense: 130,
+            attackR: 61,
+            defenseR: 66,
+            speed: 50
+        }
+    },
+
     copling: {
         name: "Copling",
         number: 140,
@@ -5558,6 +5577,18 @@ var moves = {
         secondaryEffect: true
     },
 
+     bodyCrash: {
+        name: "Body Crash",
+        power: 80,
+        energy: 40,
+        accuracy: 100,
+        type: "Brawler",
+        mr: "Melee",
+        mr1: "Melee Defense",
+        mr2: "Melee Defense",
+        contact: true
+    },
+
 
 
     //Support Moves -----------------------------------------------------------------------------------------------------------------------------------------
@@ -6373,7 +6404,7 @@ var abilities = ["Awakening", "Ambush", "Coursing Venom", "Drainage", "Hasty", "
                 "Total Eclipse", "Tone Deaf", "Circadian", "Baneful", "Rechargeable", "Toxic Filter", "Trash Armor", "Tank", "Power Jaw", "Specialization", "Slick Shell",
                 "Heavy Fists", "Enchanted Coat", "Bloodsucker", "Nightmarish", "Overcharged", "Watcher", "Sly", "Devious", "Ignorant", "Chill", "Vigorous", "Aqua Body",
                 "Idiosyncratic", "Adorable", "Terrifying", "Boast", "Staunch", "Anomaly", "Combative", "Defensive Priority", "Ungracious Host", "Madcap", "Hard Candy",
-                "Incandescent", "Expertise", "Virtuoso", "Sharp Focus", "Turbulent", "Ace", "Marksman", "Wise"];
+                "Incandescent", "Expertise", "Virtuoso", "Sharp Focus", "Turbulent", "Ace", "Marksman", "Wise", "Insulated"];
 
 var typeModAbilities = {
     coursingVenom: {

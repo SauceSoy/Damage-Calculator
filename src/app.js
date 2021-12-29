@@ -2377,6 +2377,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     if (move.name == "Deep Freeze" && (types2.primary == "Water" || types2.secondary == "Water")) {
         multi *= 4;
     }
+    if ((tempType == "Ice" || tempType == "Fire") && ability2 == "Insulated") {
+        multi *= 0.5;
+        stuffUsed.ability2 = ability2;
+    }
 
     effectiveness = multi;
 
