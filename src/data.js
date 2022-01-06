@@ -6403,8 +6403,8 @@ var abilities = ["Awakening", "Ambush", "Coursing Venom", "Drainage", "Hasty", "
                 "Territorial", "Woodsman", "Dusk", "Dawn", "Pyro", "Volcanic", "Combustible", "Noxious Weeds", "Sharp Claws", "Brute Force", "Raging Fire", "Vengeance",
                 "Total Eclipse", "Tone Deaf", "Circadian", "Baneful", "Rechargeable", "Toxic Filter", "Trash Armor", "Tank", "Power Jaw", "Specialization", "Slick Shell",
                 "Heavy Fists", "Enchanted Coat", "Bloodsucker", "Nightmarish", "Overcharged", "Watcher", "Sly", "Devious", "Ignorant", "Chill", "Vigorous", "Aqua Body",
-                "Idiosyncratic", "Adorable", "Terrifying", "Boast", "Staunch", "Anomaly", "Combative", "Defensive Priority", "Ungracious Host", "Madcap", "Hard Candy",
-                "Incandescent", "Expertise", "Virtuoso", "Sharp Focus", "Turbulent", "Ace", "Marksman", "Wise", "Insulated"];
+                "Idiosyncratic", "Staunch", "Anomaly", "Ungracious Host", "Madcap", "Hard Candy", "Incandescent", "Expertise", "Virtuoso", "Sharp Focus", "Turbulent",
+                "Ace", "Marksman", "Wise", "Insulated"];
 
 var typeModAbilities = {
     coursingVenom: {

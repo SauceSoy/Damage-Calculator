@@ -2109,14 +2109,14 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
 
     if ((ability1 == "Power Jaw" && move.bite == true) ||
-       (ability1 == "Heavy Fists" && (move.punch == true || move.slap == true)) ||
-       (ability1 == "Incandescent" && tempType == "Light")) {
+       (ability1 == "Heavy Fists" && (move.punch == true || move.slap == true))) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
 
     if ((ability1 == "Bloodsucker" && move.drain) ||
-       (gen1 == gen2 && ability1 == "Territorial")) {
+       (gen1 == gen2 && ability1 == "Territorial") ||
+       (ability1 == "Incandescent" && tempType == "Light")) {
         multi *= 1.25;
         stuffUsed.ability1 = ability1;
     }
