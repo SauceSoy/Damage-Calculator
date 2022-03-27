@@ -603,13 +603,36 @@
                     </div>
                     <div>
                         <div class="left">
+                            <input type="radio" class="hiddenToUser" name="barbsL" value="0" id="leftBarb0" checked="checked" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 1em;" for="leftBarb0">0</label>
+                            <input type="radio" class="hiddenToUser" name="barbsL" value="1" id="leftBarb1" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 1em;" for="leftBarb1" title="1 layer of barbs.">1</label>
+                            <input type="radio" class="hiddenToUser" name="barbsL" value="2" id="leftBarb2" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 1em;" for="leftBarb2" title="2 layers of barbs.">2</label>
+                            <input type="radio" class="hiddenToUser" name="barbsL" value="3" id="leftBarb3" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 4em;" for="leftBarb3" title="3 layers of barbs.">3 Barbs</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="radio" class="hiddenToUser" name="barbsR" value="3" id="rightBarb3" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 4em;" for="rightBarb3" title="3 layers of barbs.">3 Barbs</label>
+                            <input type="radio" class="hiddenToUser" name="barbsR" value="2" id="rightBarb2" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 1em;" for="rightBarb2" title="2 layers of barbs.">2</label>
+                            <input type="radio" class="hiddenToUser" name="barbsR" value="1" id="rightBarb1" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 1em;" for="rightBarb1" title="1 layer of barbs.">1</label>
+                            <input type="radio" class="hiddenToUser" name="barbsR" value="0" id="rightBarb0" checked="checked" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 1em;" for="rightBarb0">0</label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="left">
                             <input type="checkbox" class="hiddenToUser" id="enteredBtl1" onchange="update()">
-                            <label class="radiolbl fieldlbl entered" for="enteredBtl1" title="Has this side just entered battle?">Just Entered Battle</label>
+                            <label class="radiolbl fieldlbl entered" for="enteredBtl1" title="Has this side just entered battle?">Just Switched In/Out</label>
                         </div>
 
                         <div class="right">
                             <input type="checkbox" class="hiddenToUser" id="enteredBtl2" onchange="update()">
-                            <label class="radiolbl fieldlbl entered" for="enteredBtl2" title="Has this side just entered battle?">Just Entered Battle</label>
+                            <label class="radiolbl fieldlbl entered" for="enteredBtl2" title="Has this side just entered battle?">Just Switched In/Out</label>
                         </div>
                     </div>
                     <div>
@@ -686,24 +709,36 @@
 
                     <div>
                         <div class="left">
-                            <input type="checkbox" class="hiddenToUser" id="dusk1" onchange="update()">
-                            <label class="radiolbl fieldlbl entered" for="dusk1">Ally Has Dusk</label>
+                            <input type="checkbox" class="hiddenToUser" id="smackDown1" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 7em;" for="smackDown1" title="Is this side prevented from levitating?">Smacked Down</label>
                         </div>
 
                         <div class="right">
-                            <input type="checkbox" class="hiddenToUser" id="dusk2" onchange="update()">
-                            <label class="radiolbl fieldlbl entered" for="dusk2">Ally Has Dusk</label>
+                            <input type="checkbox" class="hiddenToUser" id="smackDown2" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 7em;" for="smackDown2" title="Is this side prevented from levitating?">Smacked Down</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="tagTeam1" onchange="update()">
+                            <label class="radiolbl fieldlbl entered" for="tagTeam1">Team Has Conspire</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="tagTeam2" onchange="update()">
+                            <label class="radiolbl fieldlbl entered" for="tagTeam2">Team Has Conspire</label>
                         </div>
                     </div>
                     <div>
                         <div class="left">
                             <input type="checkbox" class="hiddenToUser" id="dawn1" onchange="update()">
-                            <label class="radiolbl fieldlbl entered" for="dawn1">Ally Has Dawn</label>
+                            <label class="radiolbl fieldlbl entered" for="dawn1">Ally Has Dusk/Dawn</label>
                         </div>
 
                         <div class="right">
                             <input type="checkbox" class="hiddenToUser" id="dawn2" onchange="update()">
-                            <label class="radiolbl fieldlbl entered" for="dawn2">Ally Has Dawn</label>
+                            <label class="radiolbl fieldlbl entered" for="dawn2">Ally Has Dusk/Dawn</label>
                         </div>
                     </div>
                     <div>
@@ -719,10 +754,6 @@
                     </div>
                 </div>
 
-                <br>
-                <br>
-                <br>
-                <br>
                 <hr>
                 <div class="bott">
                     <a href="https://saucesoy.github.io/Set-Maker">You can make sets here</a>
