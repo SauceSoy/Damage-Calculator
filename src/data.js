@@ -573,8 +573,8 @@ var loomians = {
         types: ["Bug", "Brawler"],
         abilities: ["Guru"],
         sAbility: ["Double Strike"],
-        weight: 20,
-        height: 45,
+        weight: 154,
+        height: 62,
         baseStats: {
             hp: 57,
             energy: 80,
@@ -2308,8 +2308,8 @@ var loomians = {
         types: ["Water", "Toxic"],
         abilities: ["Toxic Spines", "Parting Gift"],
         sAbility: ["High Explosive"],
-        weight: 14,
-        height: 29,
+        weight: 34,
+        height: 30,
         baseStats: {
             hp: 96,
             energy: 83 ,
@@ -2886,281 +2886,6 @@ var loomians = {
         }
     },
 
-    sharpod: {
-        name: "Sharpod",
-        number: 140,
-        types: ["Water", "Metal"],
-        abilities: ["Rev Up", "Terrifying"],
-        sAbility: ["Frenzy"],
-        weight: 17,
-        height: 14,
-        finalEvo: false,
-        baseStats: {
-            hp: 82,
-            energy: 77,
-            attack: 99,
-            defense: 62,
-            attackR: 25,
-            defenseR: 48,
-            speed: 75
-        }
-    },
-
-    samarine: {
-        name: "Samarine",
-        number: 140,
-        types: ["Water", "Metal"],
-        abilities: ["Rev Up", "Terrifying"],
-        sAbility: ["Frenzy"],
-        weight: 17,
-        height: 14,
-        baseStats: {
-            hp: 120,
-            energy: 87,
-            attack: 117,
-            defense: 72,
-            attackR: 33,
-            defenseR: 59,
-            speed: 80
-        }
-    },
-
-    snagull: {
-        name: "Snagull",
-        number: 140,
-        types: ["Air"],
-        abilities: ["Clingy", "Immunized"],
-        sAbility: ["Marksman"],
-        weight: 17,
-        height: 14,
-        finalEvo: false,
-        baseStats: {
-            hp: 68,
-            energy: 60,
-            attack: 42,
-            defense: 53,
-            attackR: 81,
-            defenseR: 58,
-            speed: 78
-        }
-    },
-
-    snagulp: {
-        name: "Snagulp",
-        number: 140,
-        types: ["Air", "Toxic"],
-        abilities: ["Clingy", "Immunized"],
-        sAbility: ["Marksman"],
-        weight: 17,
-        height: 14,
-        finalEvo: false,
-        baseStats: {
-            hp: 59,
-            energy: 79,
-            attack: 50,
-            defense: 59,
-            attackR: 91,
-            defenseR: 69,
-            speed: 98
-        }
-    },
-
-    snagoop: {
-        name: "Snagoop",
-        number: 140,
-        types: ["Air", "Toxic"],
-        abilities: ["Clingy", "Immunized"],
-        sAbility: ["Marksman"],
-        weight: 17,
-        height: 14,
-        baseStats: {
-            hp: 50,
-            energy: 89,
-            attack: 58,
-            defense: 72,
-            attackR: 121,
-            defenseR: 89,
-            speed: 108
-        }
-    },
-
-    makame: {
-        name: "Makame",
-        number: 140,
-        types: ["Water"],
-        abilities: ["Tone Deaf", "Frail Armor"],
-        sAbility: ["Quick Recovery"],
-        weight: 17,
-        height: 14,
-        finalEvo: false,
-        baseStats: {
-            hp: 44,
-            energy: 59,
-            attack: 30,
-            defense: 76,
-            attackR: 51,
-            defenseR: 43,
-            speed: 30
-        }
-    },
-
-    makoro: {
-        name: "Makoro",
-        number: 140,
-        types: ["Water"],
-        abilities: ["Tone Deaf", "Frail Armor"],
-        sAbility: ["Quick Recovery"],
-        weight: 17,
-        height: 14,
-        finalEvo: false,
-        baseStats: {
-            hp: 71,
-            energy: 70,
-            attack: 38,
-            defense: 101,
-            attackR: 75,
-            defenseR: 57,
-            speed: 32
-        }
-    },
-
-    tsukame: {
-        name: "Tsukame",
-        number: 140,
-        types: ["Water"],
-        abilities: ["Tone Deaf", "Frail Armor"],
-        sAbility: ["Quick Recovery"],
-        weight: 17,
-        height: 14,
-        baseStats: {
-            hp: 91,
-            energy: 80,
-            attack: 42,
-            defense: 120,
-            attackR: 111,
-            defenseR: 77,
-            speed: 34
-        }
-    },
-
-    lumica: {
-        name: "Lumica",
-        number: 140,
-        types: ["Water"],
-        abilities: ["Sharp Edges", "Premonition"],
-        sAbility: ["Repugnant"],
-        weight: 17,
-        height: 14,
-        finalEvo: false,
-        baseStats: {
-            hp: 66,
-            energy: 85,
-            attack: 69,
-            defense: 63,
-            attackR: 33,
-            defenseR: 71,
-            speed: 15
-        }
-    },
-
-    lumello: {
-        name: "Lumello",
-        number: 140,
-        types: ["Water"],
-        abilities: ["Sharp Edges", "Premonition"],
-        sAbility: ["Repugnant"],
-        weight: 17,
-        height: 14,
-        baseStats: {
-            hp: 95,
-            energy: 100,
-            attack: 99,
-            defense: 86,
-            attackR: 52,
-            defenseR: 81,
-            speed: 15
-        }
-    },
-
-    cavenish: {
-        name: "Cavenish",
-        number: 140,
-        types: ["Water", "Plant"],
-        abilities: ["Bully", "Conspire"],
-        sAbility: ["Sly"],
-        weight: 17,
-        height: 14,
-        finalEvo: false,
-        baseStats: {
-            hp: 61,
-            energy: 66,
-            attack: 31,
-            defense: 79,
-            attackR: 61,
-            defenseR: 52,
-            speed: 86
-        }
-    },
-
-    banfino: {
-        name: "Banfino",
-        number: 140,
-        types: ["Water", "Plant"],
-        abilities: ["Bully", "Conspire"],
-        sAbility: ["Sly"],
-        weight: 17,
-        height: 14,
-        finalEvo: false,
-        baseStats: {
-            hp: 72,
-            energy: 79,
-            attack: 53,
-            defense: 92,
-            attackR: 98,
-            defenseR: 66,
-            speed: 109
-        }
-    },
-
-    kanki: {
-        name: "Kanki",
-        number: 140,
-        types: ["Water", "Brawler"],
-        abilities: ["Madcap", "Aggressive"],
-        sAbility: ["Ambush"],
-        weight: 17,
-        height: 14,
-        finalEvo: false,
-        baseStats: {
-            hp: 43,
-            energy: 50,
-            attack: 82,
-            defense: 66,
-            attackR: 5,
-            defenseR: 44,
-            speed: 63
-        }
-    },
-
-    kanibo: {
-        name: "Kanibo",
-        number: 140,
-        types: ["Water", "Brawler"],
-        abilities: ["Madcap", "Aggressive"],
-        sAbility: ["Ambush"],
-        weight: 17,
-        height: 14,
-        baseStats: {
-            hp: 68,
-            energy: 97,
-            attack: 125,
-            defense: 103,
-            attackR: 9,
-            defenseR: 73,
-            speed: 80
-        }
-    },
-
     copling: {
         name: "Copling",
         number: 140,
@@ -3335,6 +3060,281 @@ var loomians = {
             attackR: 114,
             defenseR: 85,
             speed: 94
+        }
+    },
+
+    snagull: {
+        name: "Snagull",
+        number: 140,
+        types: ["Air"],
+        abilities: ["Clingy", "Immunized"],
+        sAbility: ["Marksman"],
+        weight: 5,
+        height: 23,
+        finalEvo: false,
+        baseStats: {
+            hp: 68,
+            energy: 60,
+            attack: 42,
+            defense: 53,
+            attackR: 81,
+            defenseR: 58,
+            speed: 78
+        }
+    },
+
+    snagulp: {
+        name: "Snagulp",
+        number: 140,
+        types: ["Air", "Toxic"],
+        abilities: ["Clingy", "Immunized"],
+        sAbility: ["Marksman"],
+        weight: 10,
+        height: 27,
+        finalEvo: false,
+        baseStats: {
+            hp: 59,
+            energy: 79,
+            attack: 50,
+            defense: 59,
+            attackR: 91,
+            defenseR: 69,
+            speed: 98
+        }
+    },
+
+    snagoop: {
+        name: "Snagoop",
+        number: 140,
+        types: ["Air", "Toxic"],
+        abilities: ["Clingy", "Immunized"],
+        sAbility: ["Marksman"],
+        weight: 21,
+        height: 66,
+        baseStats: {
+            hp: 50,
+            energy: 89,
+            attack: 58,
+            defense: 72,
+            attackR: 121,
+            defenseR: 89,
+            speed: 108
+        }
+    },
+
+    makame: {
+        name: "Makame",
+        number: 140,
+        types: ["Water"],
+        abilities: ["Tone Deaf", "Frail Armor"],
+        sAbility: ["Quick Recovery"],
+        weight: 8,
+        height: 17,
+        finalEvo: false,
+        baseStats: {
+            hp: 44,
+            energy: 59,
+            attack: 30,
+            defense: 76,
+            attackR: 51,
+            defenseR: 43,
+            speed: 30
+        }
+    },
+
+    makoro: {
+        name: "Makoro",
+        number: 140,
+        types: ["Water"],
+        abilities: ["Tone Deaf", "Frail Armor"],
+        sAbility: ["Quick Recovery"],
+        weight: 22,
+        height: 40,
+        finalEvo: false,
+        baseStats: {
+            hp: 71,
+            energy: 70,
+            attack: 38,
+            defense: 101,
+            attackR: 75,
+            defenseR: 57,
+            speed: 32
+        }
+    },
+
+    tsukame: {
+        name: "Tsukame",
+        number: 140,
+        types: ["Water"],
+        abilities: ["Tone Deaf", "Frail Armor"],
+        sAbility: ["Quick Recovery"],
+        weight: 135,
+        height: 78,
+        baseStats: {
+            hp: 91,
+            energy: 80,
+            attack: 42,
+            defense: 120,
+            attackR: 111,
+            defenseR: 77,
+            speed: 34
+        }
+    },
+
+    cavenish: {
+        name: "Cavenish",
+        number: 140,
+        types: ["Water", "Plant"],
+        abilities: ["Bully", "Conspire"],
+        sAbility: ["Sly"],
+        weight: 3,
+        height: 13,
+        finalEvo: false,
+        baseStats: {
+            hp: 61,
+            energy: 66,
+            attack: 31,
+            defense: 79,
+            attackR: 61,
+            defenseR: 52,
+            speed: 86
+        }
+    },
+
+    banfino: {
+        name: "Banfino",
+        number: 140,
+        types: ["Water", "Plant"],
+        abilities: ["Bully", "Conspire"],
+        sAbility: ["Sly"],
+        weight: 83,
+        height: 38,
+        finalEvo: false,
+        baseStats: {
+            hp: 72,
+            energy: 79,
+            attack: 53,
+            defense: 92,
+            attackR: 98,
+            defenseR: 66,
+            speed: 109
+        }
+    },
+
+    kanki: {
+        name: "Kanki",
+        number: 140,
+        types: ["Water", "Brawler"],
+        abilities: ["Madcap", "Aggressive"],
+        sAbility: ["Ambush"],
+        weight: 7,
+        height: 17,
+        finalEvo: false,
+        baseStats: {
+            hp: 43,
+            energy: 50,
+            attack: 82,
+            defense: 66,
+            attackR: 5,
+            defenseR: 44,
+            speed: 63
+        }
+    },
+
+    kanibo: {
+        name: "Kanibo",
+        number: 140,
+        types: ["Water", "Brawler"],
+        abilities: ["Madcap", "Aggressive"],
+        sAbility: ["Ambush"],
+        weight: 47,
+        height: 51,
+        baseStats: {
+            hp: 68,
+            energy: 97,
+            attack: 125,
+            defense: 103,
+            attackR: 9,
+            defenseR: 73,
+            speed: 80
+        }
+    },
+
+    sharpod: {
+        name: "Sharpod",
+        number: 140,
+        types: ["Water", "Metal"],
+        abilities: ["Rev Up", "Terrifying"],
+        sAbility: ["Frenzy"],
+        weight: 52,
+        height: 28,
+        finalEvo: false,
+        baseStats: {
+            hp: 82,
+            energy: 77,
+            attack: 99,
+            defense: 62,
+            attackR: 25,
+            defenseR: 48,
+            speed: 75
+        }
+    },
+
+    samarine: {
+        name: "Samarine",
+        number: 140,
+        types: ["Water", "Metal"],
+        abilities: ["Rev Up", "Terrifying"],
+        sAbility: ["Frenzy"],
+        weight: 290,
+        height: 66,
+        baseStats: {
+            hp: 120,
+            energy: 87,
+            attack: 117,
+            defense: 72,
+            attackR: 33,
+            defenseR: 59,
+            speed: 80
+        }
+    },
+
+    lumica: {
+        name: "Lumica",
+        number: 140,
+        types: ["Water"],
+        abilities: ["Sharp Edges", "Premonition"],
+        sAbility: ["Repugnant"],
+        weight: 4,
+        height: 10,
+        finalEvo: false,
+        baseStats: {
+            hp: 66,
+            energy: 85,
+            attack: 69,
+            defense: 63,
+            attackR: 33,
+            defenseR: 71,
+            speed: 15
+        }
+    },
+
+    lumello: {
+        name: "Lumello",
+        number: 140,
+        types: ["Water"],
+        abilities: ["Sharp Edges", "Premonition"],
+        sAbility: ["Repugnant"],
+        weight: 17,
+        height: 14,
+        baseStats: {
+            hp: 95,
+            energy: 100,
+            attack: 99,
+            defense: 86,
+            attackR: 52,
+            defenseR: 81,
+            speed: 15
         }
     },
  
