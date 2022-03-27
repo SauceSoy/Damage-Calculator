@@ -432,8 +432,8 @@ var loomians = {
         }
     },
 
-    twilatr: {
-        name: "TwilatR",
+    'twilat-rainbow': {
+        name: "Twilat-Rainbow",
         number: 22,
         types: ["Typeless"],
         abilities: ["Territorial", "Confidence"],
@@ -564,6 +564,25 @@ var loomians = {
             attackR: 92,
             defenseR: 80,
             speed: 83
+        }
+    },
+
+    sumobito: {
+        name: "Sumobito",
+        number: 28,
+        types: ["Bug", "Brawler"],
+        abilities: ["Guru"],
+        sAbility: ["Double Strike"],
+        weight: 20,
+        height: 45,
+        baseStats: {
+            hp: 57,
+            energy: 80,
+            attack: 110,
+            defense: 91,
+            attackR: 21,
+            defenseR: 86,
+            speed: 50
         }
     },
  
@@ -978,8 +997,8 @@ var loomians = {
         }
     },
 
-    kabungah: {
-        name: "KabungaH",
+    'kabunga-halloween': {
+        name: "Kabunga-Halloween",
         number: 48,
         types: ["Plant", "Mind"],
         abilities: ["Communication", "Expertise"],
@@ -998,8 +1017,8 @@ var loomians = {
         }
     },
  
-    wikiwiki: {
-        name: "WikiWiki",
+    'wiki-wiki': {
+        name: "Wiki-Wiki",
         number: 49,
         types: ["Plant"],
         abilities: ["Communication", "Chaperone"],
@@ -1036,8 +1055,8 @@ var loomians = {
         }
     },
 
-    wakalaka: {
-        name: "WakaLaka",
+    'waka-laka': {
+        name: "Waka-Laka",
         number: 150,
         types: ["Plant", "Mind"],
         abilities: ["Communication", "Expertise"],
@@ -1172,8 +1191,8 @@ var loomians = {
         }
     },
 
-    phancubv: {
-        name: "PhancubV",
+    'phancub-valentine': {
+        name: "Phancub-Valentine",
         number: 56,
         types: ["Spirit", "Brawler"],
         abilities: ["Ignorant"],
@@ -1348,8 +1367,8 @@ var loomians = {
         }
     },
 
-    craytalc: {
-        name: "CraytalC",
+    'craytal-winter': {
+        name: "Craytal-Winter",
         number: 63,
         types: ["Ice", "Plant"],
         abilities: ["Parting Gift", "Chill"],
@@ -1484,8 +1503,8 @@ var loomians = {
         }
     },
  
-    cafnotef: {
-        name: "CafnoteF",
+    'cafnote-female': {
+        name: "Cafnote-Female",
         number: 69,
         types: ["Typeless"],
         abilities: ["Adorable", "Virtuoso"],
@@ -1504,8 +1523,8 @@ var loomians = {
         }
     },
  
-    cafnotem: {
-        name: "CafnoteM",
+    'cafnote-male': {
+        name: "Cafnote-Male",
         number: 69,
         types: ["Typeless"],
         abilities: ["Territorial", "Virtuoso"],
@@ -2002,9 +2021,9 @@ var loomians = {
         baseStats: {
             hp: 64,
             energy: 84 ,
-            attack: 72,
+            attack: 62,
             defense: 58,
-            attackR: 23,
+            attackR: 33,
             defenseR: 51,
             speed: 68
         }
@@ -2280,6 +2299,25 @@ var loomians = {
             attackR: 57,
             defenseR: 73,
             speed: 82
+        }
+    },
+
+    barblast: {
+        name: "Barblast",
+        number: 109,
+        types: ["Water", "Toxic"],
+        abilities: ["Toxic Spines", "Parting Gift"],
+        sAbility: ["High Explosive"],
+        weight: 14,
+        height: 29,
+        baseStats: {
+            hp: 96,
+            energy: 83 ,
+            attack: 57,
+            defense: 102,
+            attackR: 89,
+            defenseR: 93,
+            speed: 37
         }
     },
 
@@ -2848,6 +2886,281 @@ var loomians = {
         }
     },
 
+    sharpod: {
+        name: "Sharpod",
+        number: 140,
+        types: ["Water", "Metal"],
+        abilities: ["Rev Up", "Terrifying"],
+        sAbility: ["Frenzy"],
+        weight: 17,
+        height: 14,
+        finalEvo: false,
+        baseStats: {
+            hp: 82,
+            energy: 77,
+            attack: 99,
+            defense: 62,
+            attackR: 25,
+            defenseR: 48,
+            speed: 75
+        }
+    },
+
+    samarine: {
+        name: "Samarine",
+        number: 140,
+        types: ["Water", "Metal"],
+        abilities: ["Rev Up", "Terrifying"],
+        sAbility: ["Frenzy"],
+        weight: 17,
+        height: 14,
+        baseStats: {
+            hp: 120,
+            energy: 87,
+            attack: 117,
+            defense: 72,
+            attackR: 33,
+            defenseR: 59,
+            speed: 80
+        }
+    },
+
+    snagull: {
+        name: "Snagull",
+        number: 140,
+        types: ["Air"],
+        abilities: ["Clingy", "Immunized"],
+        sAbility: ["Marksman"],
+        weight: 17,
+        height: 14,
+        finalEvo: false,
+        baseStats: {
+            hp: 68,
+            energy: 60,
+            attack: 42,
+            defense: 53,
+            attackR: 81,
+            defenseR: 58,
+            speed: 78
+        }
+    },
+
+    snagulp: {
+        name: "Snagulp",
+        number: 140,
+        types: ["Air", "Toxic"],
+        abilities: ["Clingy", "Immunized"],
+        sAbility: ["Marksman"],
+        weight: 17,
+        height: 14,
+        finalEvo: false,
+        baseStats: {
+            hp: 59,
+            energy: 79,
+            attack: 50,
+            defense: 59,
+            attackR: 91,
+            defenseR: 69,
+            speed: 98
+        }
+    },
+
+    snagoop: {
+        name: "Snagoop",
+        number: 140,
+        types: ["Air", "Toxic"],
+        abilities: ["Clingy", "Immunized"],
+        sAbility: ["Marksman"],
+        weight: 17,
+        height: 14,
+        baseStats: {
+            hp: 50,
+            energy: 89,
+            attack: 58,
+            defense: 72,
+            attackR: 121,
+            defenseR: 89,
+            speed: 108
+        }
+    },
+
+    makame: {
+        name: "Makame",
+        number: 140,
+        types: ["Water"],
+        abilities: ["Tone Deaf", "Frail Armor"],
+        sAbility: ["Quick Recovery"],
+        weight: 17,
+        height: 14,
+        finalEvo: false,
+        baseStats: {
+            hp: 44,
+            energy: 59,
+            attack: 30,
+            defense: 76,
+            attackR: 51,
+            defenseR: 43,
+            speed: 30
+        }
+    },
+
+    makoro: {
+        name: "Makoro",
+        number: 140,
+        types: ["Water"],
+        abilities: ["Tone Deaf", "Frail Armor"],
+        sAbility: ["Quick Recovery"],
+        weight: 17,
+        height: 14,
+        finalEvo: false,
+        baseStats: {
+            hp: 71,
+            energy: 70,
+            attack: 38,
+            defense: 101,
+            attackR: 75,
+            defenseR: 57,
+            speed: 32
+        }
+    },
+
+    tsukame: {
+        name: "Tsukame",
+        number: 140,
+        types: ["Water"],
+        abilities: ["Tone Deaf", "Frail Armor"],
+        sAbility: ["Quick Recovery"],
+        weight: 17,
+        height: 14,
+        baseStats: {
+            hp: 91,
+            energy: 80,
+            attack: 42,
+            defense: 120,
+            attackR: 111,
+            defenseR: 77,
+            speed: 34
+        }
+    },
+
+    lumica: {
+        name: "Lumica",
+        number: 140,
+        types: ["Water"],
+        abilities: ["Sharp Edges", "Premonition"],
+        sAbility: ["Repugnant"],
+        weight: 17,
+        height: 14,
+        finalEvo: false,
+        baseStats: {
+            hp: 66,
+            energy: 85,
+            attack: 69,
+            defense: 63,
+            attackR: 33,
+            defenseR: 71,
+            speed: 15
+        }
+    },
+
+    lumello: {
+        name: "Lumello",
+        number: 140,
+        types: ["Water"],
+        abilities: ["Sharp Edges", "Premonition"],
+        sAbility: ["Repugnant"],
+        weight: 17,
+        height: 14,
+        baseStats: {
+            hp: 95,
+            energy: 100,
+            attack: 99,
+            defense: 86,
+            attackR: 52,
+            defenseR: 81,
+            speed: 15
+        }
+    },
+
+    cavenish: {
+        name: "Cavenish",
+        number: 140,
+        types: ["Water", "Plant"],
+        abilities: ["Bully", "Conspire"],
+        sAbility: ["Sly"],
+        weight: 17,
+        height: 14,
+        finalEvo: false,
+        baseStats: {
+            hp: 61,
+            energy: 66,
+            attack: 31,
+            defense: 79,
+            attackR: 61,
+            defenseR: 52,
+            speed: 86
+        }
+    },
+
+    banfino: {
+        name: "Banfino",
+        number: 140,
+        types: ["Water", "Plant"],
+        abilities: ["Bully", "Conspire"],
+        sAbility: ["Sly"],
+        weight: 17,
+        height: 14,
+        finalEvo: false,
+        baseStats: {
+            hp: 72,
+            energy: 79,
+            attack: 53,
+            defense: 92,
+            attackR: 98,
+            defenseR: 66,
+            speed: 109
+        }
+    },
+
+    kanki: {
+        name: "Kanki",
+        number: 140,
+        types: ["Water", "Brawler"],
+        abilities: ["Madcap", "Aggressive"],
+        sAbility: ["Ambush"],
+        weight: 17,
+        height: 14,
+        finalEvo: false,
+        baseStats: {
+            hp: 43,
+            energy: 50,
+            attack: 82,
+            defense: 66,
+            attackR: 5,
+            defenseR: 44,
+            speed: 63
+        }
+    },
+
+    kanibo: {
+        name: "Kanibo",
+        number: 140,
+        types: ["Water", "Brawler"],
+        abilities: ["Madcap", "Aggressive"],
+        sAbility: ["Ambush"],
+        weight: 17,
+        height: 14,
+        baseStats: {
+            hp: 68,
+            energy: 97,
+            attack: 125,
+            defense: 103,
+            attackR: 9,
+            defenseR: 73,
+            speed: 80
+        }
+    },
+
     copling: {
         name: "Copling",
         number: 140,
@@ -3177,8 +3490,8 @@ var loomians = {
         }
     },
 
-    cosmioree: {
-        name: "CosmioreE",
+    'cosmiore-encased': {
+        name: "Cosmiore-Encased",
         number: 208,
         types: ["Ancient", "Mind"],
         abilities: ["Regift"],
@@ -3196,8 +3509,8 @@ var loomians = {
         }
     },
 
-    cosmiorec: {
-        name: "CosmioreC",
+    'cosmiore-cracked': {
+        name: "Cosmiore-Cracked",
         number: 208,
         types: ["Ancient", "Mind"],
         abilities: ["Regift"],
@@ -3215,8 +3528,8 @@ var loomians = {
         }
     },
 
-    cosmioreu: {
-        name: "CosmioreU",
+    'cosmiore-unleashed': {
+        name: "Cosmiore-Unleashed",
         number: 208,
         types: ["Ancient", "Mind"],
         abilities: ["Surrogate"],
@@ -3270,8 +3583,8 @@ var loomians = {
         }
     },
 
-    heavybag: {
-        name: "HeavyBag",
+    'heavy bag': {
+        name: "Heavy Bag",
         number: 9999,
         types: ["Typeless"],
         abilities: ["Surrogate"],
@@ -3742,7 +4055,8 @@ var moves = {
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        secondaryEffect: true
+        secondaryEffect: true,
+        bomb: true
     },
 
     leafBarrage: {
@@ -4484,7 +4798,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        aoe: true
+        aoe: true,
+        grounded: true,
     },
 
     fireBreath: {
@@ -4596,6 +4911,7 @@ var moves = {
         mr2: "Melee Defense",
         secondaryEffect: true,
         contact: true,
+        bomb: true,
         recoil: 1/4
     },
 
@@ -4630,7 +4946,7 @@ var moves = {
         power: 40,
         energy: 30,
         accuracy: 100,
-        type: "Dark",
+        type: "Typeless",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
@@ -5589,6 +5905,106 @@ var moves = {
         contact: true
     },
 
+    toxiblast: {
+        name: "Toxiblast",
+        power: 75,
+        energy: 40,
+        accuracy: 100,
+        type: "Toxic",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        bomb: true,
+        secondaryEffect: true
+    },
+
+    plunge: {
+        name: "Plunge",
+        power: 90,
+        energy: 40,
+        accuracy: 100,
+        type: "Water",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
+    },
+
+    jetStream: {
+        name: "Jet Stream",
+        power: 90,
+        energy: 50,
+        accuracy: 100,
+        type: "Air",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
+    },
+
+    counterStance: {
+        name: "Counter Stance",
+        power: 70,
+        energy: 40,
+        accuracy: 100,
+        type: "Brawler",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
+    },
+
+    clawber: {
+        name: "Clawber",
+        power: 100,
+        energy: 55,
+        accuracy: 100,
+        type: "Brawler",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        recoil: 1/3
+    },
+
+    bludgeon: {
+        name: "Bludgeon",
+        power: 65,
+        energy: 36,
+        accuracy: 90,
+        type: "Brawler",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        secondaryEffect: true
+    },
+
+    swat: {
+        name: "Swat",
+        power: 45,
+        energy: 32,
+        accuracy: 100,
+        type: "Brawler",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        punishLevitate: true
+    },
+
+    hornDashi: {
+        name: "Horn-Dashi",
+        power: 60,
+        energy: 40,
+        accuracy: 100,
+        type: "Brawler",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+    },
+
 
 
     //Support Moves -----------------------------------------------------------------------------------------------------------------------------------------
@@ -6292,6 +6708,24 @@ var moves = {
         mr: "Support"
     },
 
+    harvest: {
+        name: "Harvest",
+        power: 0,
+        energy: 72,
+        accuracy: "N/A",
+        type: "Plant",
+        mr: "Support"
+    },
+
+    barbs: {
+        name: "Barbs",
+        power: 0,
+        energy: 20,
+        accuracy: "N/A",
+        type: "Metal",
+        mr: "Support"
+    },
+
 };
 
 
@@ -6299,103 +6733,120 @@ var types = {
     typeless: {
         weaknesses: ["mind", "brawler"],
         resistances: [],
-        immunities: []
+        immunities: [],
+        otherName: "plain"
     },
 
     fire: {
         weaknesses: ["water", "earth", "air"],
         resistances: ["fire", "plant", "ice", "metal", "bug"],
-        immunities: []
+        immunities: [],
+        otherName: "flame"
     },
 
     water: {
         weaknesses: ["plant", "electric", "toxic"],
         resistances: ["fire", "water", "ice", "metal"],
-        immunities: []
+        immunities: [],
+        otherName: "wave"
     },
 
     plant: {
         weaknesses: ["fire", "ice", "dark", "bug", "toxic"],
         resistances: ["plant", "water", "earth", "electric", "light"],
-        immunities: ["light"]
+        immunities: ["light"],
+        otherName: "blossom"
     },
 
     electric: {
         weaknesses: ["water", "earth"],
         resistances: ["electric", "metal", "air"],
-        immunities: []
+        immunities: [],
+        otherName: "volt"
     },
 
     ice: {
         weaknesses: ["fire", "metal", "brawler"],
         resistances: ["ice", "air", "typeless"],
-        immunities: []
+        immunities: [],
+        otherName: "frost"
     },
 
     earth: {
         weaknesses: ["water", "plant", "ice"],
         resistances: ["toxic"],
-        immunities: ["electric"]
+        immunities: ["electric"],
+        otherName: "terra"
     },
 
     light: {
         weaknesses: ["dark", "metal"],
         resistances: ["fire", "light", "ancient"],
-        immunities: ["spirit"]
+        immunities: ["spirit"],
+        otherName: "shine"
     },
 
     dark: {
         weaknesses: ["fire", "light", "bug"],
         resistances: ["dark", "mind", "spirit"],
-        immunities: []
+        immunities: [],
+        otherName: "shade"
     },
 
     bug: {
         weaknesses: ["ice", "air", "brawler"],
         resistances: ["earth", "dark", "plant", "bug"],
-        immunities: []
+        immunities: [],
+        otherName: "web"
     },
 
     metal: {
         weaknesses: ["fire", "electric", "earth", "brawler"],
         resistances: ["air", "bug", "metal", "ancient", "typeless", "ice", "mind"],
-        immunities: []
+        immunities: [],
+        otherName: "metalic"
     },
 
     air: {
         weaknesses: ["ice", "electric"],
         resistances: ["brawler", "bug"],
-        immunities: ["earth"]
+        immunities: ["earth"],
+        otherName: "draft"
     },
 
     toxic: {
         weaknesses: ["earth", "mind"],
         resistances: ["toxic", "plant", "brawler"],
-        immunities: []
+        immunities: [],
+        otherName: "noxious"
     },
 
     spirit: {
         weaknesses: ["light", "ancient", "spirit"],
         resistances: ["dark", "toxic", "electric", "typeless"],
-        immunities: ["brawler"]
+        immunities: ["brawler"],
+        otherName: "spectral"
     },
 
     mind: {
         weaknesses: ["dark", "bug", "spirit"],
         resistances: ["light", "mind", "brawler"],
-        immunities: []
+        immunities: [],
+        otherName: "mental"
     },
 
     ancient: {
         weaknesses: ["light", "metal", "ancient"],
         resistances: ["fire", "water", "plant", "spirit", "electric"],
-        immunities: []
+        immunities: [],
+        otherName: "archaic"
     },
 
     brawler: {
         weaknesses: ["air", "spirit", "mind", "toxic"],
         resistances: ["bug", "ice"],
-        immunities: []
+        immunities: [],
+        otherName: "martial"
     },
 };
 
@@ -6404,7 +6855,7 @@ var abilities = ["Awakening", "Ambush", "Coursing Venom", "Drainage", "Hasty", "
                 "Total Eclipse", "Tone Deaf", "Circadian", "Baneful", "Rechargeable", "Toxic Filter", "Trash Armor", "Tank", "Power Jaw", "Specialization", "Slick Shell",
                 "Heavy Fists", "Enchanted Coat", "Bloodsucker", "Nightmarish", "Overcharged", "Watcher", "Sly", "Devious", "Ignorant", "Chill", "Vigorous", "Aqua Body",
                 "Idiosyncratic", "Staunch", "Anomaly", "Ungracious Host", "Madcap", "Hard Candy", "Incandescent", "Expertise", "Virtuoso", "Sharp Focus", "Turbulent",
-                "Ace", "Marksman", "Wise", "Insulated"];
+                "Ace", "Marksman", "Wise", "Insulated", "Double Strike", "Guru", "Bully", "High Explosive", "Repugnant"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -6484,8 +6935,9 @@ var items = ["Heavy Shield", "Heavy Armor", "Power Cuffs", "Health Amulet", "Dra
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Essence");
+    items.push(types[ty].otherName.charAt(0).toUpperCase() + types[ty].otherName.slice(1) + " Pearl");
 }
 
 var sets = [];
 
-var changelog = "-Added Wresolen and its new moves.";
+var changelog = "-Added Beach Loomians and items.";

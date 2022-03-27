@@ -170,6 +170,17 @@ let halfStyle1 = document.getElementById("halfStyle1");
 let halfIce2 = document.getElementById("halfIce2");
 let halfStyle2 = document.getElementById("halfStyle2");
 
+let leftBarb0 = document.getElementById("leftBarb0");
+let leftBarb1 = document.getElementById("leftBarb1");
+let leftBarb2 = document.getElementById("leftBarb2");
+let leftBarb3 = document.getElementById("leftBarb3");
+let rightBarb0 = document.getElementById("rightBarb0");
+let rightBarb1 = document.getElementById("rightBarb1");
+let rightBarb2 = document.getElementById("rightBarb2");
+let rightBarb3 = document.getElementById("rightBarb3");
+
+let barbs = [0,0];
+
 let enteredBtl1 = document.getElementById("enteredBtl1");
 let enteredBtl2 = document.getElementById("enteredBtl2");
 
@@ -200,6 +211,9 @@ let bloodDrain2 = document.getElementById("bloodDrain2");
 let softWater1 = document.getElementById("softWater1");
 let softWater2 = document.getElementById("softWater2");
 
+let smackDown1 = document.getElementById("smackDown1");
+let smackDown2 = document.getElementById("smackDown2");
+
 let dusk1 = document.getElementById("dusk1");
 let dusk2 = document.getElementById("dusk2");
 
@@ -208,6 +222,9 @@ let dawn2 = document.getElementById("dawn2");
 
 let guardian1 = document.getElementById("guardian1");
 let guardian2 = document.getElementById("guardian2");
+
+let tagTeam1 = document.getElementById("tagTeam1");
+let tagTeam2 = document.getElementById("tagTeam2");
 
 let currentHP1 = document.getElementById("currentHP1");
 let currentHP2 = document.getElementById("currentHP2");
@@ -337,11 +354,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -403,7 +420,7 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
@@ -1442,6 +1459,8 @@ function detailedReport() {
     let hp;
     let ice = iceTrap2.checked;
     let halfIce = halfIce2.checked;
+    barbs = [~~$("input:radio[name='barbsL']:checked").val(), ~~$("input:radio[name='barbsR']:checked").val()];
+    let barb = barbs[1];
 
     if (document.getElementById("moveOneLbl1").htmlFor == selected.id) {
         moveName = document.getElementById("moveOneLbl1").innerHTML;
@@ -1473,6 +1492,7 @@ function detailedReport() {
         level = level2.value;
         ice = iceTrap1.checked;
         halfIce = halfIce1.checked;
+        barb = barbs[0];
     }
     else if (document.getElementById("moveTwoLbl2").htmlFor == selected.id) {
         moveName = document.getElementById("moveTwoLbl2").innerHTML;
@@ -1484,6 +1504,7 @@ function detailedReport() {
         level = level2.value;
         ice = iceTrap1.checked;
         halfIce = halfIce1.checked;
+        barb = barbs[0];
     }
     else if (document.getElementById("moveThreeLbl2").htmlFor == selected.id) {
         moveName = document.getElementById("moveThreeLbl2").innerHTML;
@@ -1495,6 +1516,7 @@ function detailedReport() {
         level = level2.value;
         ice = iceTrap1.checked;
         halfIce = halfIce1.checked;
+        barb = barbs[0];
     }
     else if (document.getElementById("moveFourLbl2").htmlFor == selected.id) {
         moveName = document.getElementById("moveFourLbl2").innerHTML;
@@ -1506,8 +1528,8 @@ function detailedReport() {
         level = level2.value;
         ice = iceTrap1.checked;
         halfIce = halfIce1.checked;
+        barb = barbs[0];
     }
-
     let item = (second ? item1.value : item2.value);
     let ability = (second ? abilities.find((x) => x == abilityDropdown1.value) : abilities.find((x) => x == abilityDropdown2.value));
     move = findMove(moveName);
@@ -1766,17 +1788,23 @@ function detailedReport() {
         return;
     }
 
-    let possibleDmg = getMultiplier(firstLoom, secondLoom, move, movePower, crit, level, undefined, second, true);
-    let possibleDmg2 = possibleDmg;
-    let possibleDmg3 = possibleDmg;
-    let lowerPercent = (possibleDmg[0] / hp * 100).toFixed(1);
-    let upperPercent = (possibleDmg[15] / hp * 100).toFixed(1);
+    let possibleArray = getMultiplier(firstLoom, secondLoom, move, movePower, crit, level, undefined, second, true);
+    let possibleDmg = possibleArray[0];
+    let foulDamage = possibleArray[1];
+    let possibleDmg2 = possibleDmg[0];
+    let possibleDmg3 = possibleDmg[15];
+    if (foulDamage) {
+        possibleDmg2 = possibleDmg2 + foulDamage[0];
+        possibleDmg3 = possibleDmg3 + foulDamage[15];
+    }
+    let lowerPercent = (possibleDmg2 / hp * 100).toFixed(1);
+    let upperPercent = (possibleDmg3 / hp * 100).toFixed(1);
     let stuffUsed = possibleDmg[16];
     possibleDmg.pop();
-    let possibleDmgStr = "Possible Damage Amounts: (" + displayDamage(possibleDmg) + ")";
-    let critStr = (crit == true ? " CRIT " : "");
+    let possibleDmgStr = "Possible Damage Amounts: (" + displayDamage(possibleArray) + ")";
+    let critStr = (crit == true ? " Crit " : "");
     let str = tempAtk + " " + stuffUsed.item1 + " " + stuffUsed.ability1 + " " + firstLoom.name + " " + critStr + move.name + stuffUsed.extra1 + " vs. " + (!second ? hpEV2.value : hpEV1.value) + " HP / " +
-        tempDef + " " + stuffUsed.item2 + " " + stuffUsed.ability2 + " " + secondLoom.name + ": " + possibleDmg[0] + "-" + possibleDmg[15] + " (" + lowerPercent + " - " + upperPercent + "%) -- ";
+        tempDef + " " + stuffUsed.item2 + " " + stuffUsed.ability2 + " " + secondLoom.name + ": " + possibleDmg2 + "-" + possibleDmg3 + " (" + lowerPercent + " - " + upperPercent + "%) -- ";
 
     let hazardStr = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second, true)[1];
 
@@ -1809,6 +1837,16 @@ function detailedReport() {
         }
     }
 
+    if (barb > 0 && !secondLoom.levitate) {
+        if (barb == 1) {
+            addedDmg += 12.5;
+        } else if (barb == 2) {
+            addedDmg += 1 / 6 * 100;
+        } else if (barb == 3) {
+            addedDmg += 25;
+        }
+    }
+
     let tickDamage = adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second, "OHKO")[0];
     tickDamage = tickDamage + Math.floor(maxHP * addedDmg / 100);
     hazardStr = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second, "OHKO")[1];
@@ -1817,6 +1855,12 @@ function detailedReport() {
     let tickOHKOs = [];
     let THKOs = [];
     let TRHKOs = [];
+
+    if (foulDamage && foulDamage.length == possibleDmg.length) {
+        for (let i = 0; i < possibleDmg.length; i++) {
+            possibleDmg[i] = possibleDmg[i] + foulDamage[i];
+        }
+    }
 
     for (let i = 0; i < possibleDmg.length; i++) {
         if (possibleDmg[i] >= hp) {
@@ -1827,7 +1871,7 @@ function detailedReport() {
         }
     }
 
-    if (OHKOs.length != 0) {
+    if (tickOHKOs.length != 0) {
         let chance = (OHKOs.length / 16 * 100).toFixed(1);
         let chanceStr = chance + "% chance to OHKO";
 
@@ -1855,9 +1899,25 @@ function detailedReport() {
         item = "";
     }
 
-    possibleDmg2 = getMultiplier(firstLoom, secondLoom, move, movePower, crit, level, undefined, second, true, false, counter);
+    possibleArray = getMultiplier(firstLoom, secondLoom, move, movePower, crit, level, undefined, second, true, false, counter);
+    possibleDmg2 = possibleArray[0];
+    foulDamage = possibleArray[1];
+    if (foulDamage && foulDamage.length == possibleDmg2.length) {
+        for (let i = 0; i < possibleDmg2.length; i++) {
+            possibleDmg2[i] = possibleDmg2[i] + foulDamage2[i];
+        }
+    }
+    
     counter = 0;
-    possibleDmg3 = getMultiplier(firstLoom, secondLoom, move, movePower, crit, level, undefined, second, true, false, counter);
+    
+    possibleArray = getMultiplier(firstLoom, secondLoom, move, movePower, crit, level, undefined, second, true, false, counter);
+    possibleDmg3 = possibleArray[0];
+    foulDamage = possibleArray[1];
+    if (foulDamage && foulDamage.length == possibleDmg3.length) {
+        for (let i = 0; i < possibleDmg3.length; i++) {
+            possibleDmg3[i] = possibleDmg3[i] + foulDamage3[i];
+        }
+    }
 
     hp = hp - adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second)[0];
     hazardStr = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second)[1];
@@ -1937,7 +1997,7 @@ function isStab(userTypes, move) {
     return false;
 }
 
-function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, second = false, detailed = false, withoutSlapDown = true, takeSecondaryType = false) {
+function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, second = false, detailed = false, withoutSlapDown = true, takeSecondaryType = false, foulHit = false) {
     if (move.power == 0 && detailed) return [0];
     if (move.power == 0) return 0;
 
@@ -1947,6 +2007,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     let multi = 1;
     let effectiveness;
     let dmg;
+    let foulDmg = 0;
     let tempType = move.type;
     let tempPower = movePower;
     let tempAtk;
@@ -1975,10 +2036,13 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     let itemB = (second == false ? item2.value : item1.value);
     let tempItem;
     let isDouble = (singleDouble.value == "singles" ? false : true);
-    let dusk = (second == false ? dusk1.checked : dusk2.checked);
+    //let dusk = (second == false ? dusk1.checked : dusk2.checked);
     let dawn = (second == false ? dawn1.checked : dawn2.checked);
     let guardian = (second == false ? guardian2.checked : guardian1.checked);
+    let tagTeam = (second == false ? tagTeam1.checked : tagTeam2.checked);
+    let smacked = (second == false ? smackDown2.checked : smackDown1.checked);
     let possibleDmg = [];
+    let possibleFoulDmg;
     let stuffUsed = { ability1: "", ability2: "", item1: "", item2: "", extra1: "", extra2: ""};
     let adaptive = { mr: "", mr1: "", mr2: ""};
     let energyValue = (second ? percentNRG2.value : percentNRG1.value);
@@ -2019,7 +2083,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     if (ability1 == "Idiosyncratic") stuffUsed.ability1 = ability1;
     if (ability2 == "Idiosyncratic") stuffUsed.ability2 = ability2;
 
-    if (ability1 == "Devious") {
+    if ((ability1 == "Devious") || 
+       (ability1 == "Bully" && loom1.height > loom2.height)) {
         ability2 = "None";
         stuffUsed.ability1 = ability1;
     }
@@ -2109,7 +2174,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
 
     if ((ability1 == "Power Jaw" && move.bite == true) ||
-       (ability1 == "Heavy Fists" && (move.punch == true || move.slap == true))) {
+       (ability1 == "Heavy Fists" && (move.punch == true || move.slap == true)) ||
+       (ability1 == "Guru" && tempPower <= 60) ||
+       (ability1 == "High Explosive" && move.bomb == true)) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
@@ -2139,7 +2206,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
 
     if ((move.name == "Gloominous Roar" && loom1.name == "Tiklipse" && ability1 != "Circadian" && itemA.includes("Light")) ||
-       (itemA.includes(tempType)) ||
+       (itemA.includes(tempType) && itemA.includes("Essence")) ||
        (itemA == "Power Cuffs")) {
         multi *= 1.2;
         stuffUsed.item1 = itemA;
@@ -2158,9 +2225,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
 
     if ((move.name == "Oppress" && stat2 != "healthy") ||
-       (move.name == "Ill Will" && stat1 != "healthy")) {
+       (move.name == "Ill Will" && stat1 != "healthy") ||
+       (loom2.levitate && move.punishLevitate && (move.name != "Swat" || (move.name == "Swat" && withoutSlapDown)))) {
         multi *= 2;
-        stuffUsed.extra1 += " (" + Math.floor(move.power * 2) + " BP)";
+        stuffUsed.extra1 += " (" + Math.floor(tempPower * 2) + " BP)";
     }
 
     if (ability1 == "Specialization") {
@@ -2171,12 +2239,18 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         if (count != 0) stuffUsed.ability1 = ability1 + " (" + Math.abs(count - 4) + ")";
     }
 
-    if (move.name == "Rough Up" && loom1.height > loom2.height) {
-        multi *= 1.25;
-        stuffUsed.extra1 += " (" + Math.floor(move.power * 1.25) + " BP)";
+    if(move.name == "Chase Down" && btl1) {
+        multi *= 1.5;
+        stuffUsed.extra1 += " (" + Math.floor(tempPower * 1.5) + " BP)";
     }
 
-    if (ability2 == "Aqua Body" && tempType == "Fire") {
+    if (move.name == "Rough Up" && loom1.height > loom2.height) {
+        multi *= 1.25;
+        stuffUsed.extra1 += " (" + Math.floor(tempPower * 1.25) + " BP)";
+    }
+
+    if ((ability2 == "Aqua Body" && tempType == "Fire") ||
+       (ability2 == "Repugnant" && move.bite == true)) {
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
@@ -2184,6 +2258,15 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     if (tempType == "Water" && ability2 == "Hard Candy") {
         multi *= 2;
         stuffUsed.ability2 = ability2;
+    }
+
+    if (foulHit) {
+        multi *= 0.25;
+    }
+
+    if (tagTeam && isDouble) {
+        multi *= 1.5;
+        stuffUsed.extra1 += " (Conspire)"
     }
 
     tempPower = pokeRound(tempPower * multi);
@@ -2201,7 +2284,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
     if ((ability1 == "Hasty" && move.mr1 == "Melee Attack") ||
        (ability1 == "Vigorous" && stat1 != "healthy" && move.mr1 == "Melee Attack") ||
-       (dusk && isDouble && move.mr1 == "Melee Attack" && ability1 == "Dusk") ||
+       (dawn && isDouble && move.mr1 == "Melee Attack" && ability1 == "Dusk") ||
        (dawn && isDouble && move.mr1 == "Ranged Attack" && ability1 == "Dawn") ||
        (move.mr1 == "Melee Defense" && ability1 == "Trash Armor")) {
         multi *= 1.5;
@@ -2230,7 +2313,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     if (crit && tempDef.stage > 0) {
         tempDef.def = calculateStat(tempDef.base, tempDef.iv.value, tempDef.ev.value, tempDef.level, undefined, tempDef.posNat, tempDef.negNat, tempDef.veryNat, tempDef.name, tempDef.rest);
     }
-    if (ability1 == "Ignorant") {
+    if ((ability1 == "Ignorant") || 
+       (ability1 == "Bully" && loom1.height > loom2.height)) {
         tempDef.def = calculateStat(tempDef.base, tempDef.iv.value, tempDef.ev.value, tempDef.level, undefined, tempDef.posNat, tempDef.negNat, tempDef.veryNat, tempDef.name, tempDef.rest);
         stuffUsed.ability1 = ability1;
     }
@@ -2315,7 +2399,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
 
     //Type -------------------------------
 
-    if(ability1 == "Devious") {
+    if((ability1 == "Devious") || 
+       (ability1 == "Bully" && loom1.height > loom2.height)) {
         typeModAbility2 = undefined;
     }
 
@@ -2368,7 +2453,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
             multi = 0;
         }
     }
-    if (loom2.name == "HeavyBag" && tempType == "Mind") {
+    if (loom2.name == "Heavy Bag" && tempType == "Mind") {
         multi *= 0.5;
     }
     if (move.name == "Brain Freeze" && (types2.primary == "Mind" || types2.secondary == "Mind")) {
@@ -2415,9 +2500,13 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
 
     //Other --------------------------------
 
-    if (ability2 == "Tank" && btl1 && withoutSlapDown) {
+    if (ability2 == "Tank" && btl1 && withoutSlapDown && !foulHit) {
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
+    }
+    if (itemB.includes(types[tempType.toLowerCase()].otherName.charAt(0).toUpperCase() + types[tempType.toLowerCase()].otherName.slice(1)) && itemB.includes("Pearl") && withoutSlapDown && !foulHit) {
+        multi *= 0.5;
+        stuffUsed.item2 = itemB;
     }
     if (effectiveness > 1 && ability2 == "Enchanted Coat") {
         multi *= 0.75;
@@ -2427,18 +2516,35 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         multi *= 0.75;
     }
 
+    if (move.grounded && loom2.levitate && !smacked) multi *= 0;
+
     stuffUsed.item2 = (itemB == "Health Amulet" ? itemB : stuffUsed.item2);
+
+    if (ability1 == "Double Strike" && !foulHit && !(isDouble && move.aoe == true) && !move.hits) {
+        if (detailed) {
+            let foulArray = getMultiplier(loom1, loom2, move, movePower, crit, level, ul, second, detailed, withoutSlapDown, takeSecondaryType, true);
+            foulDmg = foulArray[0];
+            possibleFoulDmg = foulArray[1];
+        } else {
+            foulDmg = getMultiplier(loom1, loom2, move, movePower, crit, level, ul, second, detailed, withoutSlapDown, takeSecondaryType, true);
+        }
+        stuffUsed.ability1 = ability1;
+    }
 
     if (detailed) {
         for (let i = 0; i < possibleDmg.length; i++) {
             possibleDmg[i] = Math.floor(possibleDmg[i] * multi);
         }
+        if (foulHit) {
+            return [dmg, possibleDmg];
+        }
         possibleDmg[16] = stuffUsed;
-        return possibleDmg;
+        return [possibleDmg, possibleFoulDmg];
     }
 
     dmg = Math.floor(dmg * multi);
-    return dmg;
+
+    return dmg + foulDmg;
 }
 
 function getTempAtkDef(second, mr) {
@@ -2604,7 +2710,11 @@ function specializationCount(second) {
 }
 
 function displayDamage(damage) {
-    return damage.join(", ");
+    if (damage[1]) {
+        return "1st Hit: " + damage[0].join(", ") + "; 2nd Hit: " + damage[1].join(", ");
+    }
+    damage.pop();
+    return damage[0].join(", ");
 }
 
 function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false, OHKO, onlyIncludeIceTrap = false) {
@@ -2612,6 +2722,8 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     let multi = 1;
     let ice = iceTrap2.checked;
     let halfIce = halfIce2.checked;
+    barbs = [~~$("input:radio[name='barbsL']:checked").val(), ~~$("input:radio[name='barbsR']:checked").val()];
+    let barb = barbs[1];
     let sap = { attacker: sapPlant1.checked, defender: sapPlant2.checked };
     let bloodDrain = { attacker: bloodDrain1.checked, defender: bloodDrain2.checked };
     let pestilence = pestilence2.checked;
@@ -2623,6 +2735,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     if (second) {
         ice = iceTrap1.checked;
         halfIce = halfIce1.checked;
+        barb = barbs[0];
         sap = { attacker: sapPlant2.checked, defender: sapPlant1.checked };
         bloodDrain = { attacker: bloodDrain2.checked, defender: bloodDrain1.checked };
         pestilence = pestilence1.checked;
@@ -2645,6 +2758,16 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
             hazardString = hazardString.substr(0, hazardString.length - 5);
             hazardString = " after " + hazardString;
             return [hp1, hazardString];
+        }
+    }
+
+    if (barb > 0  && !loom2.levitate) {
+        if (barb == 1) {
+            hazardString += "1 layer of barbs and ";
+        } else if (barb == 2) {
+            hazardString += "2 layers of barbs and ";
+        } else if (barb == 3) {
+            hazardString += "3 layer of barbs and ";
         }
     }
 
