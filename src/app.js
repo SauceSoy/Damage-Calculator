@@ -373,6 +373,7 @@ function load() {
                 newSets.push(data[set]);
                 addSet(newSets[newSets.length - 1]);
             }
+            console.log(newSets);
         } catch (err) {
 
         }
