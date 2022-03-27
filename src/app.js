@@ -420,13 +420,13 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 3 Jan 2022 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
 
     if (darkMode.checked) {
-        document.cookie = "darkMode=true; expires=Mon, 3 Jan 2022 12:00:00 UTC"
+        document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
     }
     else {
-        document.cookie = "darkMode=false; expires=Mon, 3 Jan 2022 12:00:00 UTC";
+        document.cookie = "darkMode=false; expires=Mon, 1 Jan 2024 12:00:00 UTC";
     }
 }
 
