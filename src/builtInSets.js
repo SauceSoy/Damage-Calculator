@@ -397,7 +397,7 @@ var builtInSets = [
 	    moves: {
 	        move1: "Barter",
 	        move2: "Provoke",
-	        move3: "Muck Buck",
+	        move3: "Muck Blast",
 	        move4: "Jet Stream"
 	    },
 	    posNature: "smart",
