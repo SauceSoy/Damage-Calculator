@@ -354,11 +354,17 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let clearedSetData = getCookie("clearedData").substring(12);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
+        if (clearedSetData != "true") {
+            localStorage.clear();
+            console.log("cleared Data successfully");
+            document.cookie = "clearedData=true";
+        }
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -420,7 +426,9 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "clearedData=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
@@ -2159,7 +2167,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         }
     }
 
-    if ((ability1 == "Ambush" && btl1 && withoutSlapDown) ||
+    if ((ability1 == "Ambush" && btl1 && withoutSlapDown && move.name != "Chase Down") ||
        (ability1 == "Vengeance" && btl2 && withoutSlapDown)) {
         multi *= 2;
         stuffUsed.ability1 = ability1;
@@ -2212,9 +2220,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         stuffUsed.item1 = itemA;
     }
 
-    if (itemB != "None" && move.knockOff == true && withoutSlapDown) {
+    if (itemB != "None" && move.knockOff == true && (withoutSlapDown || ability2 == "Clingy")) {
         multi *= 1.5;
         stuffUsed.item2 = itemB;
+        stuffUsed.ability2 = (ability2 == "Clingy" ? ability2 : stuffUsed.ability2);
     }
     else if (ability1 == "Sly" && move.knockOff == true) {
         tempItem = (second == false ? item2.value : item1.value);
@@ -2239,10 +2248,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         if (count != 0) stuffUsed.ability1 = ability1 + " (" + Math.abs(count - 4) + ")";
     }
 
-    if(move.name == "Chase Down" && btl1) {
+    /*if(move.name == "Chase Down" && btl1) {
         multi *= 1.5;
         stuffUsed.extra1 += " (" + Math.floor(tempPower * 1.5) + " BP)";
-    }
+    }*/
 
     if (move.name == "Rough Up" && loom1.height > loom2.height) {
         multi *= 1.25;

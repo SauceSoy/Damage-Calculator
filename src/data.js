@@ -4167,7 +4167,8 @@ var moves = {
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        secondaryEffect: true
+        secondaryEffect: true,
+        sound: true
     },
 
     lightDash: {
@@ -4946,7 +4947,7 @@ var moves = {
         power: 40,
         energy: 30,
         accuracy: 100,
-        type: "Typeless",
+        type: "Dark",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
@@ -5548,7 +5549,8 @@ var moves = {
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        secondaryEffect: true
+        secondaryEffect: true,
+        bomb: true
     },
 
     marshWave: {
@@ -5908,7 +5910,7 @@ var moves = {
     toxiblast: {
         name: "Toxiblast",
         power: 75,
-        energy: 40,
+        energy: 36,
         accuracy: 100,
         type: "Toxic",
         mr: "Ranged",
@@ -6855,7 +6857,7 @@ var abilities = ["Awakening", "Ambush", "Coursing Venom", "Drainage", "Hasty", "
                 "Total Eclipse", "Tone Deaf", "Circadian", "Baneful", "Rechargeable", "Toxic Filter", "Trash Armor", "Tank", "Power Jaw", "Specialization", "Slick Shell",
                 "Heavy Fists", "Enchanted Coat", "Bloodsucker", "Nightmarish", "Overcharged", "Watcher", "Sly", "Devious", "Ignorant", "Chill", "Vigorous", "Aqua Body",
                 "Idiosyncratic", "Staunch", "Anomaly", "Ungracious Host", "Madcap", "Hard Candy", "Incandescent", "Expertise", "Virtuoso", "Sharp Focus", "Turbulent",
-                "Ace", "Marksman", "Wise", "Insulated", "Double Strike", "Guru", "Bully", "High Explosive", "Repugnant"];
+                "Ace", "Marksman", "Wise", "Insulated", "Double Strike", "Guru", "Bully", "High Explosive", "Repugnant", "Clingy"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -6940,4 +6942,4 @@ for (let ty in types) {
 
 var sets = [];
 
-var changelog = "-Added Beach Loomians and items.";
+var changelog = "-Had to wipe sets. Also added some built in sets.";
