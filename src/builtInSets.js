@@ -210,8 +210,8 @@ var builtInSets = [
 	        hp: 200,
 	        energy: 60,
 	        attack: 0,
-	        defense: 0,
-	        attackR: 200,
+	        defense: 200,
+	        attackR: 0,
 	        defenseR: 40,
 	        speed: 0
 	    },
