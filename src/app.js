@@ -355,7 +355,7 @@ function load() {
     loadDropdowns();
     if (document.cookie != "") {
         let clearedSetData = getCookie("clearedData").substring(12);
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (clearedSetData != "true") {
             localStorage.clear();
@@ -364,7 +364,7 @@ function load() {
         }
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -428,7 +428,7 @@ function saveCookie() {
 
     document.cookie = "clearedData=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
@@ -547,22 +547,14 @@ function update(updatePower = false, updateBaseStats = false) {
     updatePercent();
 
     if (iceTrap1.checked == true) {
-        halfIce1.style.visibility = "visible";
-        halfStyle1.style.visibility = "visible";
-    } else {
-        halfIce1.style.visibility = "hidden";
-        halfStyle1.style.visibility = "hidden";
         halfIce1.checked = false;
     }
+    halfIce1.onclick = function() {changeButton(halfIce1)};
 
     if (iceTrap2.checked == true) {
-        halfIce2.style.visibility = "visible";
-        halfStyle2.style.visibility = "visible";
-    } else {
-        halfIce2.style.visibility = "hidden";
-        halfStyle2.style.visibility = "hidden";
         halfIce2.checked = false;
     }
+    halfIce2.onclick = function() {changeButton(halfIce2)};
 
     if (abilityDropdown1.value == "Combustible" || abilityDropdown1.value == "Noxious Weeds" || abilityDropdown1.value == "Coursing Venom" || abilityDropdown1.value == "Prismatic" || abilityDropdown1.value == "Toxic Filter") {
         immuneAbilityBoost1.style.visibility = "visible";
@@ -578,6 +570,20 @@ function update(updatePower = false, updateBaseStats = false) {
     else {
         immuneAbilityBoost2.style.visibility = "hidden";
         immuneAbilityBoost2.checked = false;
+    }
+}
+
+function changeButton(button) {
+    if (button == halfIce1) {
+        if (iceTrap1.checked) {
+            iceTrap1.checked = false;
+            halfIce1.checked = true;
+        }
+    } else if (button == halfIce2) {
+        if (iceTrap2.checked) {
+            iceTrap2.checked = false;
+            halfIce2.checked = true;
+        }
     }
 }
 
@@ -971,6 +977,9 @@ function loadMoves(updatePower = false) {
 function loadStats() {
     let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
     let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
+    let firstItem = item1.value;
+    let secondItem = item2.value;
+
     let posNat1 = document.getElementById("posNat1").value;
     let negNat1 = document.getElementById("negNat1").value;
     let posNat2 = document.getElementById("posNat2").value;
@@ -1023,6 +1032,7 @@ function loadStats() {
     (wasMaxNRG1 ? currentNRG1.value = energy1 : null);
     (wasMaxNRG2 ? currentNRG2.value = energy2 : null);
 
+    if (firstItem == "Specialty Boots") spd1 = Math.floor(spd1 * 1.5);
     statHP1.innerHTML = hp1;
     statEnergy1.innerHTML = energy1;
     statAtk1.innerHTML = atk1;
@@ -1031,6 +1041,7 @@ function loadStats() {
     statDefR1.innerHTML = defR1;
     statSpd1.innerHTML = spd1;
 
+    if (secondItem == "Specialty Boots") spd2 = Math.floor(spd2 * 1.5);
     statHP2.innerHTML = hp2;
     statEnergy2.innerHTML = energy2;
     statAtk2.innerHTML = atk2;
@@ -2190,13 +2201,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
 
     if ((ability1 == "Bloodsucker" && move.drain) ||
-       (gen1 == gen2 && ability1 == "Territorial") ||
-       (ability1 == "Incandescent" && tempType == "Light")) {
+       (gen1 == gen2 && ability1 == "Territorial")) {
         multi *= 1.25;
         stuffUsed.ability1 = ability1;
     }
 
-    if(ability2 == "Overcharged" && tempType == "Electric") {
+    if (ability2 == "Overcharged" && tempType == "Electric") {
         multi *= 1.3;
         stuffUsed.ability2 = ability2;
     }
@@ -2232,9 +2242,13 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
             stuffUsed.item2 = tempItem;
         }
     }
+    if (itemA.includes(types[tempType.toLowerCase()].otherName.charAt(0).toUpperCase() + types[tempType.toLowerCase()].otherName.slice(1)) && itemA.includes("Shell") && withoutSlapDown && !foulHit) {
+        multi *= 1.5;
+        stuffUsed.item1 = itemA;
+    }
 
     if ((move.name == "Oppress" && stat2 != "healthy") ||
-       (move.name == "Ill Will" && stat1 != "healthy") ||
+       ((move.name == "Ill Will" || move.name == "Headache Split") && stat1 != "healthy") ||
        (loom2.levitate && move.punishLevitate && (move.name != "Swat" || (move.name == "Swat" && withoutSlapDown)))) {
         multi *= 2;
         stuffUsed.extra1 += " (" + Math.floor(tempPower * 2) + " BP)";
@@ -2258,14 +2272,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         stuffUsed.extra1 += " (" + Math.floor(tempPower * 1.25) + " BP)";
     }
 
-    if ((ability2 == "Aqua Body" && tempType == "Fire") ||
-       (ability2 == "Repugnant" && move.bite == true)) {
+    if (ability2 == "Repugnant" && move.bite == true) {
         multi *= 0.5;
-        stuffUsed.ability2 = ability2;
-    }
-
-    if (tempType == "Water" && ability2 == "Hard Candy") {
-        multi *= 2;
         stuffUsed.ability2 = ability2;
     }
 
@@ -2464,16 +2472,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
     if (loom2.name == "Heavy Bag" && tempType == "Mind") {
         multi *= 0.5;
-    }
-    if (move.name == "Brain Freeze" && (types2.primary == "Mind" || types2.secondary == "Mind")) {
-        multi *= 2;
-    }
-    if (move.name == "Deep Freeze" && (types2.primary == "Water" || types2.secondary == "Water")) {
-        multi *= 4;
-    }
-    if ((tempType == "Ice" || tempType == "Fire") && ability2 == "Insulated") {
-        multi *= 0.5;
-        stuffUsed.ability2 = ability2;
     }
 
     effectiveness = multi;

@@ -131,7 +131,7 @@ var builtInSets = [
 	    posNature: "none",
 	    negNature: "nimble",
 	    veryNature: "none",
-	    ability: "None",
+	    ability: "Razor Sharp",
 	    item: "Power Cuffs",
 	    level: 50
 	},
@@ -165,8 +165,8 @@ var builtInSets = [
 	    posNature: "sluggish",
 	    negNature: "clumsy",
 	    veryNature: "vRobust",
-	    ability: "None",
-	    item: "None",
+	    ability: "Resilience",
+	    item: "Mysterious Dust",
 	    level: 50
 	},
 	{
@@ -301,7 +301,7 @@ var builtInSets = [
 	    posNature: "nimble",
 	    negNature: "smart",
 	    veryNature: "vFrail",
-	    ability: "None",
+	    ability: "Glide",
 	    item: "Air Essence",
 	    level: 50
 	},
@@ -403,8 +403,42 @@ var builtInSets = [
 	    posNature: "smart",
 	    negNature: "nimble",
 	    veryNature: "vFrail",
-	    ability: "None",
-	    item: "None",
+	    ability: "Immunized",
+	    item: "Volcanic Ash",
+	    level: 50
+	},
+	{
+	    name: "Boonary",
+	    setName: "[P7] Revenge Killer",
+	    evs: {
+	        hp: 200,
+	        energy: 200,
+	        attack: 0,
+	        defense: 0,
+	        attackR: 0,
+	        defenseR: 0,
+	        speed: 0
+	    },
+	    ivs: {
+	        hp: 40,
+	        energy: 40,
+	        attack: 40,
+	        defense: 40,
+	        attackR: 40,
+	        defenseR: 40,
+	        speed: 40
+	    },
+	    moves: {
+	        move1: "Emulate",
+	        move2: "(No Move)",
+	        move3: "(No Move)",
+	        move4: "(No Move)"
+	    },
+	    posNature: "hyper",
+	    negNature: "none",
+	    veryNature: "none",
+	    ability: "Two Face",
+	    item: "Specialty Boots",
 	    level: 50
 	},
 ];
