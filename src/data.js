@@ -7211,7 +7211,7 @@ var typeModAbilities = {
     },
 }
 
-var items = ["Heavy Shield", "Heavy Armor", "Power Cuffs", "Health Amulet", "Drain Orb", "Mystic Wand", "Drop of Youth", "Energy Orb", "Power Amulet", "Chocolate Bar", "Mysterious Dust", "Heavy Shackles", "Thunder Orb",
+var items = ["Heavy Shield", "Heavy Armor", "Power Cuffs", "Health Amulet", "Drain Orb", "Mystic Wand", "Drop of Youth", "Energy Orb", "Chocolate Bar", "Mysterious Dust", "Heavy Shackles", "Thunder Orb",
              "Volcanic Ash", "Rageful Plushie", "Clutch Plushie", "Specialty Boots"];
 
 for (let ty in types) {
