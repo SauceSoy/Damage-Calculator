@@ -979,6 +979,8 @@ function loadStats() {
     let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
     let firstItem = item1.value;
     let secondItem = item2.value;
+    let ability1 = abilities.find((x) => x == abilityDropdown1.value);
+    let ability2 = abilities.find((x) => x == abilityDropdown2.value);
 
     let posNat1 = document.getElementById("posNat1").value;
     let negNat1 = document.getElementById("negNat1").value;
@@ -1033,6 +1035,7 @@ function loadStats() {
     (wasMaxNRG2 ? currentNRG2.value = energy2 : null);
 
     if (firstItem == "Specialty Boots") spd1 = Math.floor(spd1 * 1.5);
+    if (ability1 == "Slick Shell") defR1 *= 2;
     statHP1.innerHTML = hp1;
     statEnergy1.innerHTML = energy1;
     statAtk1.innerHTML = atk1;
@@ -1042,6 +1045,7 @@ function loadStats() {
     statSpd1.innerHTML = spd1;
 
     if (secondItem == "Specialty Boots") spd2 = Math.floor(spd2 * 1.5);
+    if (ability2 == "Slick Shell") defR2 *= 2;
     statHP2.innerHTML = hp2;
     statEnergy2.innerHTML = energy2;
     statAtk2.innerHTML = atk2;
