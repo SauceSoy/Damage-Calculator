@@ -7111,7 +7111,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Repugnant", "Resilience", "Rev Up", "Salvage", "Scorching Skin", "Shakedown", "Sharp Claws", "Sharp Edges", "Sharp Focus", "Slick Shell", "Slimy", "Sly", "Specialization", "Staunch",
                  "Sugar Rush", "Surrogate", "Swampy", "Sweet Aroma", "Sweet Touch", "Tank", "Temper", "Terrifying", "Territorial", "Thriving Pace", "Tone Deaf", "Total Eclipse", "Toxic Filter",
                  "Toxic Spines", "Toxic Touch", "Trash Armor", "Turbulent", "Ungracious Host", "Vengeance", "Vigilant", "Vigorous", "Virtuoso", "Vivid Sight", "Volcanic", "Watcher", "Webbing",
-                 "Woodsman", "Two Face", "Insulated"];
+                 "Woodsman", "Two Face", "Insulated", "Wise"];
 
 var typeModAbilities = {
     coursingVenom: {
