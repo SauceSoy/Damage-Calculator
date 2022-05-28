@@ -355,16 +355,15 @@ function load() {
     loadDropdowns();
     if (document.cookie != "") {
         let clearedSetData = getCookie("clearedData").substring(12);
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (clearedSetData != "true") {
             localStorage.clear();
-            console.log("cleared Data successfully");
             document.cookie = "clearedData=true";
         }
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -428,7 +427,8 @@ function saveCookie() {
 
     document.cookie = "clearedData=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2018 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
@@ -1034,26 +1034,29 @@ function loadStats() {
     (wasMaxNRG1 ? currentNRG1.value = energy1 : null);
     (wasMaxNRG2 ? currentNRG2.value = energy2 : null);
 
-    if (firstItem == "Specialty Boots") spd1 = Math.floor(spd1 * 1.5);
-    if (ability1 == "Slick Shell") defR1 *= 2;
     statHP1.innerHTML = hp1;
     statEnergy1.innerHTML = energy1;
     statAtk1.innerHTML = atk1;
     statDef1.innerHTML = def1;
+    if (ability1 == "Trash Armor" || ability1 == "Hard Candy" || (firstItem == "Drop of Youth" && firstLoom.finalEvo == false)) statDef1.innerHTML = Math.floor(def1 * 1.5);
     statAtkR1.innerHTML = atkR1;
     statDefR1.innerHTML = defR1;
+    if (ability1 == "Slick Shell") statDefR1.innerHTML = Math.floor(defR1 * 2);
+    if (firstItem == "Drop of Youth" && firstLoom.finalEvo == false) statDefR1.innerHTML = Math.floor(defR1 * 1.5);
     statSpd1.innerHTML = spd1;
+    if (firstItem == "Specialty Boots") statSpd1.innerHTML = Math.floor(spd1 * 1.5);
 
-    if (secondItem == "Specialty Boots") spd2 = Math.floor(spd2 * 1.5);
-    if (ability2 == "Slick Shell") defR2 *= 2;
     statHP2.innerHTML = hp2;
     statEnergy2.innerHTML = energy2;
     statAtk2.innerHTML = atk2;
     statDef2.innerHTML = def2;
+    if (ability2 == "Trash Armor" || ability2 == "Hard Candy" || (secondItem == "Drop of Youth" && secondLoom.finalEvo == false)) statDef2.innerHTML = Math.floor(def2 * 1.5);
     statAtkR2.innerHTML = atkR2;
     statDefR2.innerHTML = defR2;
+    if (ability2 == "Slick Shell") statDefR2.innerHTML = Math.floor(defR2 * 2);
+    if (secondItem == "Drop of Youth" && secondLoom.finalEvo == false) statDefR2.innerHTML = Math.floor(defR2 * 1.5);
     statSpd2.innerHTML = spd2;
-
+    if (secondItem == "Specialty Boots") statSpd2.innerHTML = Math.floor(spd2 * 1.5);
 }
 
 function calculateStat(base, IV, EV, level, isHP = false, posNat, negNat, veryNat, name, rest = false, isEnergy = false) {

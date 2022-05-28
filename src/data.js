@@ -3434,6 +3434,25 @@ var loomians = {
             speed: 64
         }
     },
+
+    elephage: {
+        name: "Elephage",
+        number: 140,
+        types: ["Electric"],
+        abilities: ["Malware"],
+        sAbility: ["Replicate"],
+        weight: 10,
+        height: 35,
+        baseStats: {
+            hp: 105,
+            energy: 90,
+            attack: 55,
+            defense: 55,
+            attackR: 125,
+            defenseR: 55,
+            speed: 110
+        }
+    },
  
     duskit: {
         name: "Duskit",
@@ -6174,7 +6193,7 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         punch: true,
-        regen: 1/2
+        regen: 1/5
     },
 
     megaKick: {
@@ -6200,6 +6219,28 @@ var moves = {
         mr2: "Ranged Defense",
         sound: true,
         secondaryEffect: true
+    },
+
+    jolt: {
+        name: "Jolt",
+        power: 40,
+        energy: 25,
+        accuracy: 100,
+        type: "Electric",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+    },
+
+    zipZap: {
+        name: "Zip-Zap",
+        power: 40,
+        energy: 50,
+        accuracy: 100,
+        type: "Electric",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
     },
 
 
@@ -7111,7 +7152,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Repugnant", "Resilience", "Rev Up", "Salvage", "Scorching Skin", "Shakedown", "Sharp Claws", "Sharp Edges", "Sharp Focus", "Slick Shell", "Slimy", "Sly", "Specialization", "Staunch",
                  "Sugar Rush", "Surrogate", "Swampy", "Sweet Aroma", "Sweet Touch", "Tank", "Temper", "Terrifying", "Territorial", "Thriving Pace", "Tone Deaf", "Total Eclipse", "Toxic Filter",
                  "Toxic Spines", "Toxic Touch", "Trash Armor", "Turbulent", "Ungracious Host", "Vengeance", "Vigilant", "Vigorous", "Virtuoso", "Vivid Sight", "Volcanic", "Watcher", "Webbing",
-                 "Woodsman", "Two Face", "Insulated", "Wise"];
+                 "Woodsman", "Two Face", "Insulated", "Wise", "Malware"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -7222,4 +7263,4 @@ for (let ty in types) {
 
 var sets = [];
 
-var changelog = "Atlanthian Loomians/Items were added. Also added the unused Abilities/Items for the sake of consistency.";
+var changelog = "Elephage was added to the calculator.";
