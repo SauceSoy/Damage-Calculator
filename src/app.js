@@ -2249,7 +2249,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
             stuffUsed.item2 = tempItem;
         }
     }
-    if (itemA.includes(types[tempType.toLowerCase()].otherName.charAt(0).toUpperCase() + types[tempType.toLowerCase()].otherName.slice(1)) && itemA.includes("Shell") && withoutSlapDown && !foulHit) {
+    if (tempType != "Null" && itemA.includes(types[tempType.toLowerCase()].otherName.charAt(0).toUpperCase() + types[tempType.toLowerCase()].otherName.slice(1)) && itemA.includes("Shell") && withoutSlapDown && !foulHit) {
         multi *= 1.5;
         stuffUsed.item1 = itemA;
     }
@@ -2518,7 +2518,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
-    if (itemB.includes(types[tempType.toLowerCase()].otherName.charAt(0).toUpperCase() + types[tempType.toLowerCase()].otherName.slice(1)) && itemB.includes("Pearl") && withoutSlapDown && !foulHit) {
+    if (tempType != "Null" && itemB.includes(types[tempType.toLowerCase()].otherName.charAt(0).toUpperCase() + types[tempType.toLowerCase()].otherName.slice(1)) && itemB.includes("Pearl") && withoutSlapDown && !foulHit) {
         multi *= 0.5;
         stuffUsed.item2 = itemB;
     }

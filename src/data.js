@@ -6168,6 +6168,7 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
+        contact: true,
         hits: 5
     },
 
