@@ -2886,6 +2886,25 @@ var loomians = {
         }
     },
 
+    pyrolen: {
+        name: "Pyrolen",
+        number: 147,
+        types: ["Fire"],
+        abilities: ["Fanning Flame", "Volcanic"],
+        sAbility: ["Quick Recovery"],
+        weight: 19,
+        height: 38,
+        baseStats: {
+            hp: 119,
+            energy: 91,
+            attack: 24,
+            defense: 63,
+            attackR: 133,
+            defenseR: 79,
+            speed: 66
+        }
+    },
+
     copling: {
         name: "Copling",
         number: 140,
@@ -7153,7 +7172,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Repugnant", "Resilience", "Rev Up", "Salvage", "Scorching Skin", "Shakedown", "Sharp Claws", "Sharp Edges", "Sharp Focus", "Slick Shell", "Slimy", "Sly", "Specialization", "Staunch",
                  "Sugar Rush", "Surrogate", "Swampy", "Sweet Aroma", "Sweet Touch", "Tank", "Temper", "Terrifying", "Territorial", "Thriving Pace", "Tone Deaf", "Total Eclipse", "Toxic Filter",
                  "Toxic Spines", "Toxic Touch", "Trash Armor", "Turbulent", "Ungracious Host", "Vengeance", "Vigilant", "Vigorous", "Virtuoso", "Vivid Sight", "Volcanic", "Watcher", "Webbing",
-                 "Woodsman", "Two Face", "Insulated", "Wise", "Malware"];
+                 "Woodsman", "Two Face", "Insulated", "Wise", "Malware", "Fanning Flame"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -7251,6 +7270,12 @@ var typeModAbilities = {
         typeModifier: { type: "Fire", type2: "Ice", modifier: 0.5},
         powerMod: false
     },
+
+    fanningTheFlame: {
+        name: "Fanning Flame",
+        typeModifier: { type: "Air", modifier: 0.5},
+        powerMod: false
+    },
 }
 
 var items = ["Heavy Shield", "Heavy Armor", "Power Cuffs", "Health Amulet", "Drain Orb", "Mystic Wand", "Drop of Youth", "Energy Orb", "Chocolate Bar", "Mysterious Dust", "Heavy Shackles", "Thunder Orb",
@@ -7264,4 +7289,4 @@ for (let ty in types) {
 
 var sets = [];
 
-var changelog = "Elephage was added to the calculator.";
+var changelog = "Pyrolen was added to the calculator.";

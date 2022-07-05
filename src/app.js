@@ -355,7 +355,7 @@ function load() {
     loadDropdowns();
     if (document.cookie != "") {
         let clearedSetData = getCookie("clearedData").substring(12);
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (clearedSetData != "true") {
             localStorage.clear();
@@ -363,7 +363,7 @@ function load() {
         }
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -427,8 +427,7 @@ function saveCookie() {
 
     document.cookie = "clearedData=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2018 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
