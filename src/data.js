@@ -3472,6 +3472,45 @@ var loomians = {
             speed: 110
         }
     },
+
+    cinnaboo: {
+        name: "Cinnaboo",
+        number: 140,
+        types: ["Spirit"],
+        abilities: ["Sweet Touch", "Vigilant"],
+        sAbility: ["Shakedown"],
+        weight: 9,
+        height: 19,
+        finalEvo: false,
+        baseStats: {
+            hp: 51,
+            energy: 55,
+            attack: 11,
+            defense: 40,
+            attackR: 63,
+            defenseR: 60,
+            speed: 70
+        }
+    },
+
+    cinnogre: {
+        name: "Cinnogre",
+        number: 140,
+        types: ["Spirit"],
+        abilities: ["Sweet Touch", "Vigilant"],
+        sAbility: ["Shakedown"],
+        weight: 110,
+        height: 70,
+        baseStats: {
+            hp: 112,
+            energy: 99,
+            attack: 35,
+            defense: 61,
+            attackR: 110,
+            defenseR: 81,
+            speed: 77
+        }
+    },
  
     duskit: {
         name: "Duskit",
@@ -3527,45 +3566,6 @@ var loomians = {
             attackR: 111,
             defenseR: 96,
             speed: 121
-        }
-    },
-
-    cinnaboo: {
-        name: "Cinnaboo",
-        number: 140,
-        types: ["Spirit"],
-        abilities: ["Sweet Touch", "Vigilant"],
-        sAbility: ["Shakedown"],
-        weight: 9,
-        height: 19,
-        finalEvo: false,
-        baseStats: {
-            hp: 45,
-            energy: 65,
-            attack: 44,
-            defense: 37,
-            attackR: 57,
-            defenseR: 39,
-            speed: 85
-        }
-    },
-
-    cinnogre: {
-        name: "Cinnogre",
-        number: 140,
-        types: ["Spirit"],
-        abilities: ["Sweet Touch", "Vigilant"],
-        sAbility: ["Shakedown"],
-        weight: 110,
-        height: 70,
-        baseStats: {
-            hp: 112,
-            energy: 99,
-            attack: 35,
-            defense: 61,
-            attackR: 110,
-            defenseR: 81,
-            speed: 77
         }
     },
 
