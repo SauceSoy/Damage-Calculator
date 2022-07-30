@@ -2123,7 +2123,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         stuffUsed.ability2 = ability2;
     }
 
-    if (move.name == "Gloominous Roar" && ability1 == "Circadian" && types1.secondary != undefined) {
+    if (move.name == "Gloominous Roar" && ability1 == "Circadian" && types1.secondary != "None" && types1.secondary != undefined) {
         tempType = (takeSecondaryType ? types1.secondary : types1.primary);
         stuffUsed.ability1 = ability1;
     }

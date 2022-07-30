@@ -3530,6 +3530,45 @@ var loomians = {
         }
     },
 
+    cinnaboo: {
+        name: "Cinnaboo",
+        number: 140,
+        types: ["Spirit"],
+        abilities: ["Sweet Touch", "Vigilant"],
+        sAbility: ["Shakedown"],
+        weight: 9,
+        height: 19,
+        finalEvo: false,
+        baseStats: {
+            hp: 45,
+            energy: 65,
+            attack: 44,
+            defense: 37,
+            attackR: 57,
+            defenseR: 39,
+            speed: 85
+        }
+    },
+
+    cinnogre: {
+        name: "Cinnogre",
+        number: 140,
+        types: ["Spirit"],
+        abilities: ["Sweet Touch", "Vigilant"],
+        sAbility: ["Shakedown"],
+        weight: 110,
+        height: 70,
+        baseStats: {
+            hp: 112,
+            energy: 99,
+            attack: 35,
+            defense: 61,
+            attackR: 110,
+            defenseR: 81,
+            speed: 77
+        }
+    },
+
     mutagon: {
         name: "Mutagon",
         number: 203,
@@ -5225,6 +5264,17 @@ var moves = {
         mr2: "Ranged Defense"
     },
 
+    fadeAway: {
+        name: "Fade Away",
+        power: 40,
+        energy: 50,
+        accuracy: 100,
+        type: "Spirit",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense"
+    },
+
     roughUp: {
         name: "Rough Up",
         power: 70,
@@ -6782,7 +6832,7 @@ var moves = {
         power: 0,
         energy: 0,
         accuracy: "N/A",
-        type: "Wind",
+        type: "Air",
         mr: "Support"
     },
 
@@ -7038,6 +7088,15 @@ var moves = {
         mr: "Support"
     },
 
+    spite: {
+        name: "Spite",
+        power: 0,
+        energy: 40,
+        accuracy: 90,
+        type: "Dark",
+        mr: "Support"
+    },
+
 };
 
 
@@ -7279,7 +7338,7 @@ var typeModAbilities = {
 }
 
 var items = ["Heavy Shield", "Heavy Armor", "Power Cuffs", "Health Amulet", "Drain Orb", "Mystic Wand", "Drop of Youth", "Energy Orb", "Chocolate Bar", "Mysterious Dust", "Heavy Shackles", "Thunder Orb",
-             "Volcanic Ash", "Rageful Plushie", "Clutch Plushie", "Specialty Boots"];
+             "Volcanic Ash", "Rageful Plushie", "Clutch Plushie", "Specialty Boots", "Milkshake"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Essence");
@@ -7289,4 +7348,4 @@ for (let ty in types) {
 
 var sets = [];
 
-var changelog = "Pyrolen was added to the calculator.";
+var changelog = "Cinnaboo and Cinnogre were added to the calculator.";
