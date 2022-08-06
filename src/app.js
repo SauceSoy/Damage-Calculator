@@ -355,7 +355,7 @@ function load() {
     loadDropdowns();
     if (document.cookie != "") {
         let clearedSetData = getCookie("clearedData").substring(12);
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (clearedSetData != "true") {
             localStorage.clear();
@@ -363,7 +363,7 @@ function load() {
         }
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -427,7 +427,7 @@ function saveCookie() {
 
     document.cookie = "clearedData=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
@@ -1039,6 +1039,7 @@ function loadStats() {
     statDef1.innerHTML = def1;
     if (ability1 == "Trash Armor" || ability1 == "Hard Candy" || (firstItem == "Drop of Youth" && firstLoom.finalEvo == false)) statDef1.innerHTML = Math.floor(def1 * 1.5);
     statAtkR1.innerHTML = atkR1;
+    if (firstLoom.name == "Shawchi" && firstItem == "Mystic Wand") statAtkR1.innerHTML = Math.floor(atkR1 * 1.5);
     statDefR1.innerHTML = defR1;
     if (ability1 == "Slick Shell") statDefR1.innerHTML = Math.floor(defR1 * 2);
     if (firstItem == "Drop of Youth" && firstLoom.finalEvo == false) statDefR1.innerHTML = Math.floor(defR1 * 1.5);
@@ -1051,6 +1052,7 @@ function loadStats() {
     statDef2.innerHTML = def2;
     if (ability2 == "Trash Armor" || ability2 == "Hard Candy" || (secondItem == "Drop of Youth" && secondLoom.finalEvo == false)) statDef2.innerHTML = Math.floor(def2 * 1.5);
     statAtkR2.innerHTML = atkR2;
+    if (secondLoom.name == "Shawchi" && secondItem == "Mystic Wand") statAtkR2.innerHTML = Math.floor(atkR2 * 1.5);
     statDefR2.innerHTML = defR2;
     if (ability2 == "Slick Shell") statDefR2.innerHTML = Math.floor(defR2 * 2);
     if (secondItem == "Drop of Youth" && secondLoom.finalEvo == false) statDefR2.innerHTML = Math.floor(defR2 * 1.5);

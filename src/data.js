@@ -3511,6 +3511,25 @@ var loomians = {
             speed: 77
         }
     },
+
+    swirelle: {
+        name: "Swirelle",
+        number: 140,
+        types: ["Air"],
+        abilities: ["Appetite"],
+        sAbility: [],
+        weight: 9,
+        height: 34,
+        baseStats: {
+            hp: 60,
+            energy: 100,
+            attack: 60,
+            defense: 60,
+            attackR: 60,
+            defenseR: 60,
+            speed: 100
+        }
+    },
  
     duskit: {
         name: "Duskit",
@@ -5255,7 +5274,7 @@ var moves = {
 
     flashNFlee: {
         name: "Flash 'n Flee",
-        power: 40,
+        power: 70,
         energy: 50,
         accuracy: 100,
         type: "Light",
@@ -5266,7 +5285,7 @@ var moves = {
 
     fadeAway: {
         name: "Fade Away",
-        power: 40,
+        power: 70,
         energy: 50,
         accuracy: 100,
         type: "Spirit",
@@ -6304,7 +6323,7 @@ var moves = {
 
     zipZap: {
         name: "Zip-Zap",
-        power: 40,
+        power: 70,
         energy: 50,
         accuracy: 100,
         type: "Electric",
@@ -7231,7 +7250,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Repugnant", "Resilience", "Rev Up", "Salvage", "Scorching Skin", "Shakedown", "Sharp Claws", "Sharp Edges", "Sharp Focus", "Slick Shell", "Slimy", "Sly", "Specialization", "Staunch",
                  "Sugar Rush", "Surrogate", "Swampy", "Sweet Aroma", "Sweet Touch", "Tank", "Temper", "Terrifying", "Territorial", "Thriving Pace", "Tone Deaf", "Total Eclipse", "Toxic Filter",
                  "Toxic Spines", "Toxic Touch", "Trash Armor", "Turbulent", "Ungracious Host", "Vengeance", "Vigilant", "Vigorous", "Virtuoso", "Vivid Sight", "Volcanic", "Watcher", "Webbing",
-                 "Woodsman", "Two Face", "Insulated", "Wise", "Malware", "Fanning Flame"];
+                 "Woodsman", "Two Face", "Insulated", "Wise", "Malware", "Fanning Flame", "Appetite"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -7348,4 +7367,4 @@ for (let ty in types) {
 
 var sets = [];
 
-var changelog = "Cinnaboo and Cinnogre were added to the calculator.";
+var changelog = "Swirelle added to the calc.";
