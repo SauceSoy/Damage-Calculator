@@ -3530,6 +3530,45 @@ var loomians = {
             speed: 100
         }
     },
+
+    swishy: {
+        name: "Swishy",
+        number: 140,
+        types: ["Water"],
+        abilities: ["Regift", "Gummy"],
+        sAbility: ["Viscid"],
+        weight: 8,
+        height: 27,
+        finalEvo: false,
+        baseStats: {
+            hp: 39,
+            energy: 53,
+            attack: 15,
+            defense: 51,
+            attackR: 52,
+            defenseR: 77,
+            speed: 72
+        }
+    },
+
+    fiscarna: {
+        name: "Fiscarna",
+        number: 140,
+        types: ["Water"],
+        abilities: ["Regift", "Gummy"],
+        sAbility: ["Viscid"],
+        weight: 76,
+        height: 86,
+        baseStats: {
+            hp: 69,
+            energy: 88,
+            attack: 23,
+            defense: 87,
+            attackR: 113,
+            defenseR: 110,
+            speed: 79
+        }
+    },
  
     duskit: {
         name: "Duskit",
@@ -3874,7 +3913,7 @@ var moves = {
     chomp: {
         name: "Chomp",
         power: 45,
-        energy: 22,
+        energy: 20,
         accuracy: 100,
         type: "Dark",
         mr: "Melee",
@@ -4190,9 +4229,9 @@ var moves = {
 
     chillyChomp: {
         name: "Chilly Chomp",
-        power: 65,
-        energy: 32,
-        accuracy: 95,
+        power: 70,
+        energy: 35,
+        accuracy: 100,
         type: "Ice",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4279,13 +4318,12 @@ var moves = {
         name: "Hop Kick",
         power: 60,
         energy: 30,
-        accuracy: 85,
+        accuracy: 90,
         type: "Brawler",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        secondaryEffect: true
     },
 
     airWhip: {
@@ -4489,9 +4527,9 @@ var moves = {
 
     venomChomp: {
         name: "Venom Chomp",
-        power: 65,
-        energy: 32,
-        accuracy: 95,
+        power: 70,
+        energy: 35,
+        accuracy: 100,
         type: "Toxic",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4712,8 +4750,8 @@ var moves = {
 
     flamingKick: {
         name: "Flaming Kick",
-        power: 85,
-        energy: 45,
+        power: 80,
+        energy: 40,
         accuracy: 90,
         type: "Fire",
         mr: "Melee",
@@ -4923,9 +4961,9 @@ var moves = {
 
     thunderChomp: {
         name: "Thunder Chomp",
-        power: 65,
-        energy: 32,
-        accuracy: 95,
+        power: 70,
+        energy: 35,
+        accuracy: 100,
         type: "Electric",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -5070,9 +5108,9 @@ var moves = {
 
     blazeChomp: {
         name: "Blaze Chomp",
-        power: 65,
-        energy: 32,
-        accuracy: 95,
+        power: 70,
+        energy: 35,
+        accuracy: 100,
         type: "Fire",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -5553,7 +5591,7 @@ var moves = {
     frostPunch: {
         name: "Frost Punch",
         power: 70,
-        energy: 40,
+        energy: 35,
         accuracy: 100,
         type: "Ice",
         mr: "Melee",
@@ -5567,7 +5605,7 @@ var moves = {
     electroPunch: {
         name: "Electro Punch",
         power: 70,
-        energy: 40,
+        energy: 35,
         accuracy: 100,
         type: "Electric",
         mr: "Melee",
@@ -5992,7 +6030,7 @@ var moves = {
     blazePunch: {
         name: "Blaze Punch",
         power: 70,
-        energy: 40,
+        energy: 35,
         accuracy: 100,
         type: "Fire",
         mr: "Melee",
@@ -6288,7 +6326,7 @@ var moves = {
     megaKick: {
         name: "Mega Kick",
         power: 90,
-        energy: 50,
+        energy: 45,
         accuracy: 90,
         type: "Brawler",
         mr: "Melee",
@@ -6422,6 +6460,15 @@ var moves = {
         name: "Dodge",
         power: 0,
         energy: 20,
+        accuracy: "N/A",
+        type: "Typeless",
+        mr: "Support"
+    },
+
+    recycle: {
+        name: "Recycle",
+        power: 0,
+        energy: 25,
         accuracy: "N/A",
         type: "Typeless",
         mr: "Support"
@@ -7250,7 +7297,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Repugnant", "Resilience", "Rev Up", "Salvage", "Scorching Skin", "Shakedown", "Sharp Claws", "Sharp Edges", "Sharp Focus", "Slick Shell", "Slimy", "Sly", "Specialization", "Staunch",
                  "Sugar Rush", "Surrogate", "Swampy", "Sweet Aroma", "Sweet Touch", "Tank", "Temper", "Terrifying", "Territorial", "Thriving Pace", "Tone Deaf", "Total Eclipse", "Toxic Filter",
                  "Toxic Spines", "Toxic Touch", "Trash Armor", "Turbulent", "Ungracious Host", "Vengeance", "Vigilant", "Vigorous", "Virtuoso", "Vivid Sight", "Volcanic", "Watcher", "Webbing",
-                 "Woodsman", "Two Face", "Insulated", "Wise", "Malware", "Fanning Flame", "Appetite"];
+                 "Woodsman", "Two Face", "Insulated", "Wise", "Malware", "Fanning Flame", "Appetite", "Gummy", "Viscid"];
 
 var typeModAbilities = {
     coursingVenom: {

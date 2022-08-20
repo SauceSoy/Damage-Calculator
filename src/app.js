@@ -245,6 +245,7 @@ let percentNRG1 = document.getElementById("percentNRG1");
 let percentNRG2 = document.getElementById("percentNRG2");
 
 let singleDouble = document.getElementById("singleDouble");
+let levelCheck = document.getElementById("levelCheck");
 
 let firstLoomian;
 let hp1;
@@ -572,6 +573,18 @@ function update(updatePower = false, updateBaseStats = false) {
     }
 }
 
+function updateLevel() {
+    if (levelCheck.checked) {
+        level1.value = 100;
+        level2.value = 100;
+        update();
+    } else {
+        level1.value = 50;
+        level2.value = 50;
+        update();
+    }
+}
+
 function changeButton(button) {
     if (button == halfIce1) {
         if (iceTrap1.checked) {
@@ -634,6 +647,7 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         spdIV1.value = set1.ivs.speed;
 
         level1.value = set1.level;
+        if (levelCheck.checked) level1.value = 100;
 
         $("#moveOne1").val(set1.moves.move1);
         $("#moveOne1").select2().trigger('change');
@@ -695,6 +709,7 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         spdIV2.value = set2.ivs.speed;
 
         level2.value = set2.level;
+        if (levelCheck.checked) level2.value = 100;
 
         $("#moveOne2").val(set2.moves.move1);
         $("#moveOne2").select2().trigger('change');
@@ -2037,6 +2052,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     let foulDmg = 0;
     let tempType = move.type;
     let tempPower = movePower;
+    let powerCheck = movePower;
     let tempAtk;
     let tempDef;
     let tempStats;
@@ -2105,6 +2121,20 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     if (move.name == "Outburst") {
         tempPower = Math.max(1, Math.floor(125 * energyValue / 100));
         stuffUsed.extra1 += " (" + tempPower + " BP)";
+    }
+
+    if ((move.name == "Oppress" && stat2 != "healthy") ||
+       ((move.name == "Ill Will" || move.name == "Headache Split") && stat1 != "healthy") ||
+       (loom2.levitate && move.punishLevitate && (move.name != "Swat" || (move.name == "Swat" && withoutSlapDown)))) {
+        powerCheck *= 2;
+        multi *= 2;
+        stuffUsed.extra1 += " (" + Math.floor(tempPower * 2) + " BP)";
+    }
+
+    if (move.name == "Rough Up" && loom1.height > loom2.height) {
+        powerCheck *= 1.25;
+        multi *= 1.25;
+        stuffUsed.extra1 += " (" + Math.floor(tempPower * 1.25) + " BP)";
     }
 
     if (ability1 == "Idiosyncratic") stuffUsed.ability1 = ability1;
@@ -2202,7 +2232,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
 
     if ((ability1 == "Power Jaw" && move.bite == true) ||
        (ability1 == "Heavy Fists" && (move.punch == true || move.slap == true)) ||
-       (ability1 == "Guru" && tempPower <= 60) ||
+       (ability1 == "Guru" && tempPower <= 60 && powerCheck <= 60) ||
        (ability1 == "High Explosive" && move.bomb == true)) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
@@ -2255,13 +2285,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         stuffUsed.item1 = itemA;
     }
 
-    if ((move.name == "Oppress" && stat2 != "healthy") ||
-       ((move.name == "Ill Will" || move.name == "Headache Split") && stat1 != "healthy") ||
-       (loom2.levitate && move.punishLevitate && (move.name != "Swat" || (move.name == "Swat" && withoutSlapDown)))) {
-        multi *= 2;
-        stuffUsed.extra1 += " (" + Math.floor(tempPower * 2) + " BP)";
-    }
-
     if (ability1 == "Specialization") {
         let count = specializationCount(second);
         if (count == 1) multi *= 1.25;
@@ -2274,11 +2297,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         multi *= 1.5;
         stuffUsed.extra1 += " (" + Math.floor(tempPower * 1.5) + " BP)";
     }*/
-
-    if (move.name == "Rough Up" && loom1.height > loom2.height) {
-        multi *= 1.25;
-        stuffUsed.extra1 += " (" + Math.floor(tempPower * 1.25) + " BP)";
-    }
 
     if (ability2 == "Repugnant" && move.bite == true) {
         multi *= 0.5;
@@ -2477,6 +2495,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         if (typeModAbility2 != undefined && tempType == typeModAbility2.typeModifier.type2 && typeModAbility2.powerMod == false) {
             multi = 0;
         }
+    }
+    if (ability2 == "Gummy" && move.bomb) {
+        multi *= 0;
+        stuffUsed.ability2 = ability2;
     }
     if (loom2.name == "Heavy Bag" && tempType == "Mind") {
         multi *= 0.5;
@@ -2818,6 +2840,11 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         hazardString += "stinger damage and ";
     }
 
+    if (ability == "Appetite") {
+        newHP += Math.floor(hp1 * 1 / 16);
+        hazardString += "appetite damage and ";
+    }
+
     if (!OHKO) {
         if (!loom1.types.includes("Plant") && sap.attacker == true) {
             newHP -= Math.floor(hp2 * 1 / 8 * multi);
@@ -2875,6 +2902,7 @@ function checkIceTrap(move, l, u, hp, energy, item, ability, ability2) {
     if (move.recoil) {
         let recoilL = Math.max(Math.floor(l * move.recoil), 1);
         let recoilU = Math.max(Math.floor(u * move.recoil), 1);
+        if (l == 0 && u == 0) return "";
         return " (" + (recoilL / hp * 100).toFixed(1) + " - " + (recoilU / hp * 100).toFixed(1) + "% recoil damage)";
     }
     if (move.name == "Flail") {
