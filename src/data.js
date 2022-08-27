@@ -3569,6 +3569,45 @@ var loomians = {
             speed: 79
         }
     },
+
+    bunpuff: {
+        name: "Bunpuff",
+        number: 140,
+        types: ["Plant", "Earth"],
+        abilities: ["Adorable", "Noxious Weeds"],
+        sAbility: ["Glutton"],
+        weight: 12,
+        height: 30,
+        finalEvo: false,
+        baseStats: {
+            hp: 46,
+            energy: 70,
+            attack: 22,
+            defense: 41,
+            attackR: 56,
+            defenseR: 51,
+            speed: 71
+        }
+    },
+
+    bunnecki: {
+        name: "Bunnecki",
+        number: 140,
+        types: ["Plant", "Earth"],
+        abilities: ["Adorable", "Noxious Weeds"],
+        sAbility: ["Glutton"],
+        weight: 40,
+        height: 67,
+        baseStats: {
+            hp: 72,
+            energy: 94,
+            attack: 48,
+            defense: 67,
+            attackR: 92,
+            defenseR: 80,
+            speed: 102
+        }
+    },
  
     duskit: {
         name: "Duskit",
@@ -4093,6 +4132,18 @@ var moves = {
         secondaryEffect: true
     },
 
+    landslide: {
+        name: "Landslide",
+        power: 90,
+        energy: 50,
+        accuracy: 100,
+        type: "Earth",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        aoe: true
+    },
+
     doubleSting: {
         name: "Double Sting",
         power: 25,
@@ -4194,6 +4245,18 @@ var moves = {
         name: "Quick Pounce",
         power: 40,
         energy: 25,
+        accuracy: 100,
+        type: "Typeless",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
+    },
+
+    moocher: {
+        name: "Moocher",
+        power: 75,
+        energy: 35,
         accuracy: 100,
         type: "Typeless",
         mr: "Melee",
@@ -7297,7 +7360,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Repugnant", "Resilience", "Rev Up", "Salvage", "Scorching Skin", "Shakedown", "Sharp Claws", "Sharp Edges", "Sharp Focus", "Slick Shell", "Slimy", "Sly", "Specialization", "Staunch",
                  "Sugar Rush", "Surrogate", "Swampy", "Sweet Aroma", "Sweet Touch", "Tank", "Temper", "Terrifying", "Territorial", "Thriving Pace", "Tone Deaf", "Total Eclipse", "Toxic Filter",
                  "Toxic Spines", "Toxic Touch", "Trash Armor", "Turbulent", "Ungracious Host", "Vengeance", "Vigilant", "Vigorous", "Virtuoso", "Vivid Sight", "Volcanic", "Watcher", "Webbing",
-                 "Woodsman", "Two Face", "Insulated", "Wise", "Malware", "Fanning Flame", "Appetite", "Gummy", "Viscid"];
+                 "Woodsman", "Two Face", "Insulated", "Wise", "Malware", "Fanning Flame", "Appetite", "Gummy", "Viscid", "Glutton"];
 
 var typeModAbilities = {
     coursingVenom: {
