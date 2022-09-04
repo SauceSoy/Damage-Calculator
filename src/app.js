@@ -2256,7 +2256,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     if ((ability1 == "Baneful" && stat2 == "poisoned") ||
        (move.sound == true && ability1 == "Tone Deaf") ||
        (move.recoil && ability1 == "Madcap") ||
-       (stat2 == "asleep" && ability1 == "Mean Spirited")) {
+       (stat2 != "healthy" && ability1 == "Mean Spirited")) {
         multi *= 1.2;
         stuffUsed.ability1 = ability1;
     }
@@ -2297,10 +2297,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         if (count != 0) stuffUsed.ability1 = ability1 + " (" + Math.abs(count - 4) + ")";
     }
 
-    /*if(move.name == "Chase Down" && btl1) {
+    if(move.name == "Chase Down" && btl1) {
         multi *= 1.5;
         stuffUsed.extra1 += " (" + Math.floor(tempPower * 1.5) + " BP)";
-    }*/
+    }
 
     if (ability2 == "Repugnant" && move.bite == true) {
         multi *= 0.5;

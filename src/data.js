@@ -3608,6 +3608,66 @@ var loomians = {
             speed: 102
         }
     },
+
+    dractus: {
+        name: "Dractus",
+        number: 140,
+        types: ["Plant"],
+        abilities: ["Protective Shell", "Insulated"],
+        sAbility: ["Anomaly"],
+        weight: 21,
+        height: 33,
+        finalEvo: false,
+        baseStats: {
+            hp: 52,
+            energy: 70,
+            attack: 87,
+            defense: 51,
+            attackR: 49,
+            defenseR: 49,
+            speed: 63
+        }
+    },
+
+    frutress: {
+        name: "Frutress",
+        number: 140,
+        types: ["Plant"],
+        abilities: ["Sharp Edges", "Insulated"],
+        sAbility: ["Anomaly"],
+        weight: 23,
+        height: 36,
+        finalEvo: false,
+        baseStats: {
+            hp: 67,
+            energy: 80,
+            attack: 87,
+            defense: 76,
+            attackR: 49,
+            defenseR: 57,
+            speed: 36
+        }
+    },
+
+    seedrake: {
+        name: "Seedrake",
+        number: 140,
+        types: ["Plant"],
+        abilities: ["Sharp Edges", "Insulated"],
+        sAbility: ["Anomaly"],
+        weight: 171,
+        height: 119,
+        finalEvo: false,
+        baseStats: {
+            hp: 74,
+            energy: 86,
+            attack: 120,
+            defense: 89,
+            attackR: 92,
+            defenseR: 66,
+            speed: 83
+        }
+    },
  
     duskit: {
         name: "Duskit",
@@ -3987,6 +4047,17 @@ var moves = {
         mr2: "Melee Defense"
     },
 
+    thornSlam: {
+        name: "Thorn Slam",
+        power: 110,
+        energy: 55,
+        accuracy: 100,
+        type: "Plant",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense"
+    },
+
     staticShock: {
         name: "Static Shock",
         power: 40,
@@ -4204,17 +4275,6 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true
-    },
-
-    gust: {
-        name: "Gust",
-        power: 40,
-        energy: 20,
-        accuracy: 100,
-        type: "Air",
-        mr: "Ranged",
-        mr1: "Ranged Attack",
-        mr2: "Ranged Defense"
     },
 
     radiantForecast: {
@@ -5241,7 +5301,7 @@ var moves = {
         power: 40,
         energy: 30,
         accuracy: 100,
-        type: "Dark",
+        type: "Typeless",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
@@ -5515,18 +5575,6 @@ var moves = {
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense"
-    },
-
-    ragingFlame: {
-        name: "Raging Flame",
-        power: 50,
-        energy: 35,
-        accuracy: 100,
-        type: "Fire",
-        mr: "Ranged",
-        mr1: "Ranged Attack",
-        mr2: "Ranged Defense",
-        secondaryEffect: true
     },
 
     metalBlast: {
@@ -6619,6 +6667,16 @@ var moves = {
         mr: "Support"
     },
 
+    gust: {
+        name: "Gust",
+        power: 0,
+        energy: 20,
+        accuracy: 100,
+        type: "Air",
+        mr: "Support"
+    },
+
+
     poison: {
         name: "Poison",
         power: 0,
@@ -6851,6 +6909,15 @@ var moves = {
         power: 0,
         energy: 25,
         accuracy: "N/A",
+        type: "Fire",
+        mr: "Support"
+    },
+
+    ragingFlame: {
+        name: "Raging Flame",
+        power: 0,
+        energy: 35,
+        accuracy: 90,
         type: "Fire",
         mr: "Support"
     },
