@@ -3462,6 +3462,7 @@ var loomians = {
         sAbility: ["Replicate"],
         weight: 10,
         height: 35,
+        finalEvo: false,
         baseStats: {
             hp: 105,
             energy: 90,
@@ -3666,6 +3667,25 @@ var loomians = {
             attackR: 92,
             defenseR: 66,
             speed: 83
+        }
+    },
+
+    phagenaut: {
+        name: "Phagenaut",
+        number: 140,
+        types: ["Electric"],
+        abilities: ["Malware"],
+        sAbility: ["Overcharged"],
+        weight: 114,
+        height: 107,
+        baseStats: {
+            hp: 105,
+            energy: 100,
+            attack: 55,
+            defense: 100,
+            attackR: 140,
+            defenseR: 55,
+            speed: 95
         }
     },
  
@@ -6431,6 +6451,18 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         punch: true,
+        regen: 1/5
+    },
+
+    powerDraw: {
+        name: "Power Draw",
+        power: 80,
+        energy: 55,
+        accuracy: 100,
+        type: "Electric",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         regen: 1/5
     },
 
