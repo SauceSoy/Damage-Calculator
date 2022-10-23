@@ -3454,26 +3454,6 @@ var loomians = {
         }
     },
 
-    elephage: {
-        name: "Elephage",
-        number: 140,
-        types: ["Electric"],
-        abilities: ["Malware"],
-        sAbility: ["Replicate"],
-        weight: 10,
-        height: 35,
-        finalEvo: false,
-        baseStats: {
-            hp: 105,
-            energy: 90,
-            attack: 55,
-            defense: 55,
-            attackR: 125,
-            defenseR: 55,
-            speed: 110
-        }
-    },
-
     cinnaboo: {
         name: "Cinnaboo",
         number: 140,
@@ -3670,22 +3650,101 @@ var loomians = {
         }
     },
 
-    phagenaut: {
-        name: "Phagenaut",
+    volpup: {
+        name: "Volpup",
         number: 140,
-        types: ["Electric"],
-        abilities: ["Malware"],
-        sAbility: ["Overcharged"],
-        weight: 114,
-        height: 107,
+        types: ["Electric", "Toxic"],
+        abilities: ["Aggressive", "Pitch-Black"],
+        sAbility: ["Mystery Toxins"],
+        weight: 25,
+        height: 37,
+        finalEvo: false,
         baseStats: {
-            hp: 105,
-            energy: 100,
-            attack: 55,
-            defense: 100,
-            attackR: 140,
-            defenseR: 55,
-            speed: 95
+            hp: 54,
+            energy: 78,
+            attack: 70,
+            defense: 49,
+            attackR: 19,
+            defenseR: 44,
+            speed: 73
+        }
+    },
+
+    halvantic: {
+        name: "Halvantic",
+        number: 140,
+        types: ["Electric", "Toxic"],
+        abilities: ["Aggressive", "Pitch-Black"],
+        sAbility: ["Mystery Toxins"],
+        weight: 144,
+        height: 86,
+        baseStats: {
+            hp: 123,
+            energy: 95,
+            attack: 130,
+            defense: 71,
+            attackR: 26,
+            defenseR: 60,
+            speed: 85
+        }
+    },
+
+    impkin: {
+        name: "Impkin",
+        number: 140,
+        types: ["Dark"],
+        abilities: ["Resentful", "Devious"],
+        sAbility: ["Handy"],
+        weight: 15,
+        height: 28,
+        finalEvo: false,
+        baseStats: {
+            hp: 54,
+            energy: 50,
+            attack: 47,
+            defense: 29,
+            attackR: 71,
+            defenseR: 27,
+            speed: 72
+        }
+    },
+
+    grimmick: {
+        name: "Grimmick",
+        number: 140,
+        types: ["Dark"],
+        abilities: ["Resentful", "Devious"],
+        sAbility: ["Handy"],
+        weight: 31,
+        height: 52,
+        finalEvo: false,
+        baseStats: {
+            hp: 72,
+            energy: 72,
+            attack: 61,
+            defense: 39,
+            attackR: 95,
+            defenseR: 35,
+            speed: 92
+        }
+    },
+
+    imperior: {
+        name: "Imperior",
+        number: 140,
+        types: ["Dark"],
+        abilities: ["Resentful", "Devious"],
+        sAbility: ["Handy"],
+        weight: 66,
+        height: 77,
+        baseStats: {
+            hp: 97,
+            energy: 91,
+            attack: 78,
+            defense: 57,
+            attackR: 115,
+            defenseR: 52,
+            speed: 100
         }
     },
  
@@ -3718,12 +3777,12 @@ var loomians = {
         height: 69,
         baseStats: {
             hp: 68,
-            energy: 125,
+            energy: 110,
             attack: 104,
             defense: 62,
             attackR: 139,
-            defenseR: 78,
-            speed: 74
+            defenseR: 73,
+            speed: 94
         }
     },
  
@@ -3755,11 +3814,11 @@ var loomians = {
         weight: 125,
         height: 92,
         baseStats: {
-            hp: 107,
+            hp: 97,
             energy: 123,
             attack: 104,
-            defense: 134,
-            attackR: 48,
+            defense: 114,
+            attackR: 78,
             defenseR: 63,
             speed: 71
         }
@@ -3784,6 +3843,45 @@ var loomians = {
         }
     },
 
+    elephage: {
+        name: "Elephage",
+        number: 140,
+        types: ["Electric"],
+        abilities: ["Malware"],
+        sAbility: ["Replicate"],
+        weight: 10,
+        height: 35,
+        finalEvo: false,
+        baseStats: {
+            hp: 105,
+            energy: 90,
+            attack: 55,
+            defense: 55,
+            attackR: 125,
+            defenseR: 55,
+            speed: 110
+        }
+    },
+
+    phagenaut: {
+        name: "Phagenaut",
+        number: 140,
+        types: ["Electric"],
+        abilities: ["Malware"],
+        sAbility: ["Overcharged"],
+        weight: 114,
+        height: 107,
+        baseStats: {
+            hp: 105,
+            energy: 100,
+            attack: 55,
+            defense: 100,
+            attackR: 140,
+            defenseR: 55,
+            speed: 95
+        }
+    },
+
     metronette: {
         name: "Metronette",
         number: 204,
@@ -3793,12 +3891,12 @@ var loomians = {
         weight: 31,
         height: 38,
         baseStats: {
-            hp: 80,
-            energy: 95,
-            attack: 49,
-            defense: 95,
+            hp: 83,
+            energy: 98,
+            attack: 69,
+            defense: 79,
             attackR: 127,
-            defenseR: 99,
+            defenseR: 89,
             speed: 105
         }
     },
@@ -4041,6 +4139,31 @@ var moves = {
         contact: true,
         secondaryEffect: true,
         bite: true
+    },
+
+    trickyTactics: {
+        name: "Tricky Tactics",
+        power: 95,
+        energy: 55,
+        accuracy: 100,
+        type: "Dark",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+    },
+
+    gnarlyGash: {
+        name: "Gnarly Gash",
+        power: 90,
+        energy: 50,
+        accuracy: 100,
+        type: "Dark",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        secondaryEffect: true,
     },
 
     flurry: {
@@ -7459,7 +7582,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Repugnant", "Resilience", "Rev Up", "Salvage", "Scorching Skin", "Shakedown", "Sharp Claws", "Sharp Edges", "Sharp Focus", "Slick Shell", "Slimy", "Sly", "Specialization", "Staunch",
                  "Sugar Rush", "Surrogate", "Swampy", "Sweet Aroma", "Sweet Touch", "Tank", "Temper", "Terrifying", "Territorial", "Thriving Pace", "Tone Deaf", "Total Eclipse", "Toxic Filter",
                  "Toxic Spines", "Toxic Touch", "Trash Armor", "Turbulent", "Ungracious Host", "Vengeance", "Vigilant", "Vigorous", "Virtuoso", "Vivid Sight", "Volcanic", "Watcher", "Webbing",
-                 "Woodsman", "Two Face", "Insulated", "Wise", "Malware", "Fanning Flame", "Appetite", "Gummy", "Viscid", "Glutton"];
+                 "Woodsman", "Two Face", "Insulated", "Wise", "Malware", "Fanning Flame", "Appetite", "Gummy", "Viscid", "Glutton", "Resentful", "Pitch-Black"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -7549,6 +7672,12 @@ var typeModAbilities = {
     incandescent: {
         name: "Incandescent",
         typeModifier: { type: "Light", modifier: 1.25},
+        powerMod: true
+    },
+
+    'pitch-black': {
+        name: "Pitch-Black",
+        typeModifier: { type: "Dark", modifier: 1.5},
         powerMod: true
     },
 

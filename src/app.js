@@ -1048,35 +1048,48 @@ function loadStats() {
     (wasMaxNRG1 ? currentNRG1.value = energy1 : null);
     (wasMaxNRG2 ? currentNRG2.value = energy2 : null);
 
+    let multi = 1;
+
     statHP1.innerHTML = hp1;
     statEnergy1.innerHTML = energy1;
-    statAtk1.innerHTML = atk1;
-    statDef1.innerHTML = def1;
-    if (ability1 == "Trash Armor" || ability1 == "Hard Candy" || (firstItem == "Drop of Youth" && firstLoom.finalEvo == false)) statDef1.innerHTML = Math.floor(def1 * 1.5);
-    if (firstItem == "Heavy Armor") statDef1.innerHTML = Math.floor(def1 * 1.2);
-    statAtkR1.innerHTML = atkR1;
-    if (firstLoom.name == "Shawchi" && firstItem == "Mystic Wand") statAtkR1.innerHTML = Math.floor(atkR1 * 1.5);
-    statDefR1.innerHTML = defR1;
-    if (ability1 == "Slick Shell") statDefR1.innerHTML = Math.floor(defR1 * 2);
-    if (firstItem == "Drop of Youth" && firstLoom.finalEvo == false) statDefR1.innerHTML = Math.floor(defR1 * 1.5);
-    if (firstItem == "Heavy Shield") statDefR1.innerHTML = Math.floor(defR1 * 1.2);
-    statSpd1.innerHTML = spd1;
-    if (firstItem == "Specialty Boots") statSpd1.innerHTML = Math.floor(spd1 * 1.5);
+    statAtk1.innerHTML = Math.floor(atk1 * multi);
+    multi = 1;
+    if (ability1 == "Trash Armor" || ability1 == "Hard Candy") multi *= 1.5;
+    if (firstItem == "Drop of Youth" && firstLoom.finalEvo == false) multi *= 1.5;
+    if (firstItem == "Heavy Armor") multi *= 1.2;
+    statDef1.innerHTML = Math.floor(def1 * multi);
+    multi = 1;
+    if (firstLoom.name == "Shawchi" && firstItem == "Mystic Wand") multi *= 1.5;
+    statAtkR1.innerHTML = Math.floor(atkR1 * multi);
+    multi = 1;
+    if (ability1 == "Slick Shell") multi *= 2;
+    if (firstItem == "Drop of Youth" && firstLoom.finalEvo == false) multi *= 1.5;
+    if (firstItem == "Heavy Shield") multi *= 1.2;
+    statDefR1.innerHTML = Math.floor(defR1 * multi);
+    multi = 1;
+    if (firstItem == "Specialty Boots") multi *= 1.5;
+    statSpd1.innerHTML = Math.floor(spd1 * multi);
+    multi = 1;
 
     statHP2.innerHTML = hp2;
     statEnergy2.innerHTML = energy2;
-    statAtk2.innerHTML = atk2;
-    statDef2.innerHTML = def2;
-    if (ability2 == "Trash Armor" || ability2 == "Hard Candy" || (secondItem == "Drop of Youth" && secondLoom.finalEvo == false)) statDef2.innerHTML = Math.floor(def2 * 1.5);
-    if (secondItem == "Heavy Armor") statDef2.innerHTML = Math.floor(def2 * 1.2);
-    statAtkR2.innerHTML = atkR2;
-    if (secondLoom.name == "Shawchi" && secondItem == "Mystic Wand") statAtkR2.innerHTML = Math.floor(atkR2 * 1.5);
-    statDefR2.innerHTML = defR2;
-    if (ability2 == "Slick Shell") statDefR2.innerHTML = Math.floor(defR2 * 2);
-    if (secondItem == "Drop of Youth" && secondLoom.finalEvo == false) statDefR2.innerHTML = Math.floor(defR2 * 1.5);
-    if (secondItem == "Heavy Shield") statDefR2.innerHTML = Math.floor(defR2 * 1.2);
-    statSpd2.innerHTML = spd2;
-    if (secondItem == "Specialty Boots") statSpd2.innerHTML = Math.floor(spd2 * 1.5);
+    statAtk2.innerHTML = Math.floor(atk2 * multi);
+    multi = 1;
+    if (ability2 == "Trash Armor" || ability2 == "Hard Candy" || (secondItem == "Drop of Youth" && secondLoom.finalEvo == false)) multi *= 1.5;
+    if (secondItem == "Heavy Armor") multi *= 1.2;
+    statDef2.innerHTML = Math.floor(def2 * multi);
+    multi = 1;
+    if (secondLoom.name == "Shawchi" && secondItem == "Mystic Wand") multi *= 1.5;
+    statAtkR2.innerHTML = Math.floor(atkR2 * multi);
+    multi = 1;
+    if (ability2 == "Slick Shell") multi *= 2;
+    if (secondItem == "Drop of Youth" && secondLoom.finalEvo == false) multi *= 1.5;
+    if (secondItem == "Heavy Shield") multi *= 1.2;
+    statDefR2.innerHTML = Math.floor(defR2 * multi);
+    multi = 1;
+    if (secondItem == "Specialty Boots") multi *= 1.5;
+    statSpd2.innerHTML = Math.floor(spd2 * multi);
+    multi = 1;
 }
 
 function calculateStat(base, IV, EV, level, isHP = false, posNat, negNat, veryNat, name, rest = false, isEnergy = false) {
@@ -1641,10 +1654,10 @@ function detailedReport() {
         }
         //Used Stat
         if (second) {
-            tempAtk = tempAtk + atkEV2.value + " " + atkPlus + "AtkM";           
+            tempAtk = tempAtk + atkDef.attack.ev.value + " " + atkPlus + "AtkM";           
         }
         else {
-            tempAtk = tempAtk + atkEV1.value + " " + atkPlus + "AtkM";
+            tempAtk = tempAtk + atkDef.attack.ev.value + " " + atkPlus + "AtkM";
         }    
     }
     else if (move.mr1 == "Ranged Defense") {
@@ -2610,9 +2623,17 @@ function getTempAtkDef(second, mr) {
     }
     else if (mr.mr1 == "Melee Attack") {
         if (second) {
-            tempAtk = { atk: atk2, iv: atkIV2, ev: atkEV2, base: baseAtk2.value, name: "AttackM", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(atkStages2.value), level: level2.value };
+            if (mr.name == "Tricky Tactics") {
+                tempAtk = { atk: atk1, iv: atkIV1, ev: atkEV1, base: baseAtk1.value, name: "AttackM", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(atkStages1.value), level: level1.value };
+            } else {
+                tempAtk = { atk: atk2, iv: atkIV2, ev: atkEV2, base: baseAtk2.value, name: "AttackM", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(atkStages2.value), level: level2.value };
+            }
         } else {
-            tempAtk = { atk: atk1, iv: atkIV1, ev: atkEV1, base: baseAtk1.value, name: "AttackM", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(atkStages1.value), level: level1.value };
+            if (mr.name == "Tricky Tactics") {
+                tempAtk = { atk: atk2, iv: atkIV2, ev: atkEV2, base: baseAtk2.value, name: "AttackM", posNat: posNat2, negNat: negNat2, veryNat: veryNat2, stage: parseInt(atkStages2.value), level: level2.value };
+            } else {
+                tempAtk = { atk: atk1, iv: atkIV1, ev: atkEV1, base: baseAtk1.value, name: "AttackM", posNat: posNat1, negNat: negNat1, veryNat: veryNat1, stage: parseInt(atkStages1.value), level: level1.value };
+            }
         }
     }
     else if (mr.mr1 == "Ranged Defense") {
