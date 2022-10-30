@@ -4032,6 +4032,78 @@ var loomians = {
         }
     },
 
+    gargolem: {
+        name: "Gargolem",
+        types: ["Earth", "Air"],
+        abilities: ["Immunized"],
+        sAbility: ["Master"],
+        weight: 155,
+        height: 73,
+        baseStats: {
+            hp: 55,
+            energy: 100,
+            attack: 115,
+            defense: 85,
+            attackR: 115,
+            defenseR: 85,
+            speed: 95
+        }
+    },
+
+    'gargolem-attack': {
+        name: "Gargolem-Attack",
+        types: ["Earth", "Air"],
+        abilities: ["Immunized"],
+        sAbility: ["Master"],
+        weight: 155,
+        height: 73,
+        baseStats: {
+            hp: 55,
+            energy: 100,
+            attack: 155,
+            defense: 40,
+            attackR: 155,
+            defenseR: 40,
+            speed: 105
+        }
+    },
+
+    'gargolem-defense': {
+        name: "Gargolem-Defense",
+        types: ["Earth", "Air"],
+        abilities: ["Immunized"],
+        sAbility: ["Master"],
+        weight: 155,
+        height: 73,
+        baseStats: {
+            hp: 55,
+            energy: 100,
+            attack: 60,
+            defense: 155,
+            attackR: 60,
+            defenseR: 155,
+            speed: 65
+        }
+    },
+
+    'gargolem-speed': {
+        name: "Gargolem-Speed",
+        types: ["Earth", "Air"],
+        abilities: ["Immunized"],
+        sAbility: ["Master"],
+        weight: 155,
+        height: 73,
+        baseStats: {
+            hp: 55,
+            energy: 100,
+            attack: 85,
+            defense: 85,
+            attackR: 85,
+            defenseR: 85,
+            speed: 155
+        }
+    },
+
     'heavy bag': {
         name: "Heavy Bag",
         number: 9999,
@@ -4456,8 +4528,8 @@ var moves = {
         contact: true
     },
 
-    moocher: {
-        name: "Moocher",
+    nab: {
+        name: "Nab",
         power: 75,
         energy: 35,
         accuracy: 100,
@@ -6695,6 +6767,15 @@ var moves = {
         mr: "Support"
     },
 
+    tamp: {
+        name: "Tamp",
+        power: 0,
+        energy: 25,
+        accuracy: "N/A",
+        type: "Earth",
+        mr: "Support"
+    },
+
     charade: {
         name: "Charade",
         power: 0,
@@ -7582,7 +7663,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Repugnant", "Resilience", "Rev Up", "Salvage", "Scorching Skin", "Shakedown", "Sharp Claws", "Sharp Edges", "Sharp Focus", "Slick Shell", "Slimy", "Sly", "Specialization", "Staunch",
                  "Sugar Rush", "Surrogate", "Swampy", "Sweet Aroma", "Sweet Touch", "Tank", "Temper", "Terrifying", "Territorial", "Thriving Pace", "Tone Deaf", "Total Eclipse", "Toxic Filter",
                  "Toxic Spines", "Toxic Touch", "Trash Armor", "Turbulent", "Ungracious Host", "Vengeance", "Vigilant", "Vigorous", "Virtuoso", "Vivid Sight", "Volcanic", "Watcher", "Webbing",
-                 "Woodsman", "Two Face", "Insulated", "Wise", "Malware", "Fanning Flame", "Appetite", "Gummy", "Viscid", "Glutton", "Resentful", "Pitch-Black"];
+                 "Woodsman", "Two Face", "Insulated", "Wise", "Malware", "Fanning Flame", "Appetite", "Gummy", "Viscid", "Glutton", "Resentful", "Pitch-Black", "Master"];
 
 var typeModAbilities = {
     coursingVenom: {
