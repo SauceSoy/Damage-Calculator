@@ -5941,7 +5941,20 @@ var moves = {
         punch: true,
         secondaryEffect: true
     },
-
+    
+    punch: {
+    name: "Punch",
+    power: 45,
+    energy: 20,
+    accuracy: 100,
+    type: "Brawler",
+    mr: "Melee"
+    mr1: "Melee Attack",
+    mr2: "Melee Defense",
+    contact: true,
+    punch: true,
+    secondaryEffect: true
+    },
     megaPunch: {
         name: "Mega Punch",
         power: 80,
