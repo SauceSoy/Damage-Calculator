@@ -2091,6 +2091,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         stats1 = {atk: atk1, def: def1, atkR: atkR1, defR: defR1, spd: spd1};
         stats2 = {atk: atk2, def: def2, atkR: atkR2, defR: defR2, spd: spd2};
     }
+    let currentEnergy1 = (second == false ? currentNRG1.value : currentNRG2.value);
+    let currentEnergy2 = (second == false ? currentNRG2.value : currentNRG1.value);
     let ability1 = (second == false ? abilities.find((x) => x == abilityDropdown1.value) : abilities.find((x) => x == abilityDropdown2.value));
     let ability2 = (second == false ? abilities.find((x) => x == abilityDropdown2.value) : abilities.find((x) => x == abilityDropdown1.value));
     let typeModAbility1 = findTypeModAbility(ability1);
@@ -2342,11 +2344,15 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     //Attack -------------------------------------------
 
     if (crit && tempAtk.stage < 0) {
-        tempAtk.atk = calculateStat(tempAtk.base, tempAtk.iv.value, tempAtk.ev.value, tempAtk.level, undefined, tempAtk.posNat, tempAtk.negNat, tempAtk.veryNat, tempAtk.name);
+        if (ability1 == "Festive Spirit") {
+            tempAtk.atk = currentEnergy1;
+        } else tempAtk.atk = calculateStat(tempAtk.base, tempAtk.iv.value, tempAtk.ev.value, tempAtk.level, undefined, tempAtk.posNat, tempAtk.negNat, tempAtk.veryNat, tempAtk.name);
     }
 
     if (ability2 == "Ignorant") {
-        tempAtk.atk = calculateStat(tempAtk.base, tempAtk.iv.value, tempAtk.ev.value, tempAtk.level, undefined, tempAtk.posNat, tempAtk.negNat, tempAtk.veryNat, tempAtk.name);
+        if (ability1 == "Festive Spirit") {
+            tempAtk.atk = currentEnergy1;
+        } else tempAtk.atk = calculateStat(tempAtk.base, tempAtk.iv.value, tempAtk.ev.value, tempAtk.level, undefined, tempAtk.posNat, tempAtk.negNat, tempAtk.veryNat, tempAtk.name);
         stuffUsed.ability2 = ability2;
     }
     if ((ability1 == "Hasty" && move.mr1 == "Melee Attack") ||

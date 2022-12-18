@@ -4295,8 +4295,8 @@ var moves = {
         secondaryEffect: true
     },
 
-    lightspeed: {
-        name: "Lightspeed",
+    lightspeedRay: {
+        name: "Lightspeed Ray",
         power: 40,
         energy: 25,
         accuracy: 100,
@@ -7927,7 +7927,7 @@ var typeModAbilities = {
 }
 
 var items = ["Heavy Shield", "Heavy Armor", "Power Cuffs", "Health Amulet", "Drain Orb", "Mystic Wand", "Drop of Youth", "Energy Orb", "Chocolate Bar", "Mysterious Dust", "Heavy Shackles", "Thunder Orb",
-             "Volcanic Ash", "Rageful Plushie", "Clutch Plushie", "Specialty Boots", "Milkshake"];
+             "Volcanic Ash", "Rageful Plushie", "Clutch Plushie", "Specialty Boots", "Milkshake", "Kabunga Coffee"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Essence");
