@@ -1015,6 +1015,7 @@ function loadStats() {
     defR1 = calculateStat(baseDefR1.value, defRIV1.value, defREV1.value, level1.value, undefined, posNat1, negNat1, veryNat1, "DefenseR");
     spd1 = calculateStat(baseSpd1.value, spdIV1.value, spdEV1.value, level1.value, undefined, posNat1, negNat1, veryNat1, "Speed");
     if (firstLoom.name == "Spirivii" || firstLoom.name == "Eidohusk" || firstLoom.name == "Harvesect") energy1 = 0;
+    if (firstLoom.name == "Mistlebud" || firstLoom.name == "Hollibunch") atkR1 = 0;
 
     hp2 = calculateStat(baseHP2.value, hpIV2.value, hpEV2.value, level2.value, true, undefined, undefined, undefined, undefined);
     energy2 = calculateStat(baseEnergy2.value, energyIV2.value, energyEV2.value, level2.value, undefined, posNat2, negNat2, veryNat2, undefined, undefined, true);
@@ -1024,6 +1025,7 @@ function loadStats() {
     defR2 = calculateStat(baseDefR2.value, defRIV2.value, defREV2.value, level2.value, undefined, posNat2, negNat2, veryNat2, "DefenseR");
     spd2 = calculateStat(baseSpd2.value, spdIV2.value, spdEV2.value, level2.value, undefined, posNat2, negNat2, veryNat2, "Speed");
     if (secondLoom.name == "Spirivii" || secondLoom.name == "Eidohusk" || secondLoom.name == "Harvesect") energy2 = 0;
+    if (secondLoom.name == "Mistlebud" || secondLoom.name == "Hollibunch") atkR2 = 0;
     
     if (firstLoomian && firstLoomian != firstLoom) {
         atkStages1.value = "--";
@@ -1041,12 +1043,17 @@ function loadStats() {
         spdStages2.value = "--";
         status2.value = "healthy";
     }
-    checkStages();
 
     (wasMaxHP1 ? currentHP1.value = hp1 : null);
     (wasMaxHP2 ? currentHP2.value = hp2 : null);
     (wasMaxNRG1 ? currentNRG1.value = energy1 : null);
     (wasMaxNRG2 ? currentNRG2.value = energy2 : null);
+    if (ability1 == "Festive Spirit") atkR1 = currentNRG1.value;
+    if (ability2 == "Festive Spirit") atkR2 = currentNRG2.value;
+    
+    checkStages();
+    
+
 
     let multi = 1;
 

@@ -3747,6 +3747,84 @@ var loomians = {
             speed: 100
         }
     },
+
+    mistlebud: {
+        name: "Mistlebud",
+        number: 140,
+        types: ["Plant"],
+        abilities: ["Festive Spirit"],
+        sAbility: [],
+        weight: 1,
+        height: 7,
+        finalEvo: false,
+        baseStats: {
+            hp: 25,
+            energy: 50,
+            attack: 9,
+            defense: 75,
+            attackR: 0,
+            defenseR: 75,
+            speed: 16
+        }
+    },
+
+    hollibunch: {
+        name: "Hollibunch",
+        number: 140,
+        types: ["Plant", "Light"],
+        abilities: ["Festive Spirit"],
+        sAbility: [],
+        weight: 7,
+        height: 25,
+        baseStats: {
+            hp: 50,
+            energy: 100,
+            attack: 22,
+            defense: 125,
+            attackR: 0,
+            defenseR: 125,
+            speed: 28
+        }
+    },
+
+    cryocub: {
+        name: "Cryocub",
+        number: 140,
+        types: ["Ice"],
+        abilities: ["Adorable", "Communication"],
+        sAbility: ["Mysterious Cloak"],
+        weight: 10,
+        height: 30,
+        finalEvo: false,
+        baseStats: {
+            hp: 49,
+            energy: 57,
+            attack: 41,
+            defense: 65,
+            attackR: 37,
+            defenseR: 46,
+            speed: 51
+        }
+    },
+
+    barbadger: {
+        name: "Barbadger",
+        number: 140,
+        types: ["Ice", "Brawler"],
+        abilities: ["Dauntless", "Communication"],
+        sAbility: ["Mysterious Cloak"],
+        weight: 74,
+        height: 90,
+        baseStats: {
+            hp: 73,
+            energy: 93,
+            attack: 115,
+            defense: 101,
+            attackR: 42,
+            defenseR: 67,
+            speed: 82
+        }
+    },
  
     duskit: {
         name: "Duskit",
@@ -4055,8 +4133,8 @@ var loomians = {
         types: ["Earth", "Air"],
         abilities: ["Immunized"],
         sAbility: ["Master"],
-        weight: 155,
-        height: 73,
+        weight: 171,
+        height: 77,
         baseStats: {
             hp: 55,
             energy: 100,
@@ -4073,8 +4151,8 @@ var loomians = {
         types: ["Earth", "Air"],
         abilities: ["Immunized"],
         sAbility: ["Master"],
-        weight: 155,
-        height: 73,
+        weight: 181,
+        height: 78,
         baseStats: {
             hp: 55,
             energy: 100,
@@ -4091,8 +4169,8 @@ var loomians = {
         types: ["Earth", "Air"],
         abilities: ["Immunized"],
         sAbility: ["Master"],
-        weight: 155,
-        height: 73,
+        weight: 64,
+        height: 61,
         baseStats: {
             hp: 55,
             energy: 100,
@@ -4120,6 +4198,25 @@ var loomians = {
             attackR: 0,
             defenseR: 100,
             speed: 0
+        }
+    },
+
+    celesting: {
+        name: "Celesting",
+        number: 140,
+        types: ["Metal", "Light"],
+        abilities: ["Reverberate"],
+        sAbility: ["Mystic Tone"],
+        weight: 21,
+        height: 33,
+        baseStats: {
+            hp: 125,
+            energy: 125,
+            attack: 53,
+            defense: 74,
+            attackR: 103,
+            defenseR: 79,
+            speed: 91
         }
     },
 
@@ -4179,6 +4276,29 @@ var moves = {
         name: "Shine",
         power: 40,
         energy: 20,
+        accuracy: 100,
+        type: "Light",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
+    },
+
+    novaBlast: {
+        name: "Nova Blast",
+        power: 95,
+        energy: 52,
+        accuracy: 100,
+        type: "Light",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
+    },
+
+    lightspeed: {
+        name: "Lightspeed",
+        power: 40,
+        energy: 25,
         accuracy: 100,
         type: "Light",
         mr: "Ranged",
@@ -5984,6 +6104,18 @@ var moves = {
         secondaryEffect: true
     },
 
+    rogueAssault: {
+        name: "Rogue Assault",
+        power: 120,
+        energy: 60,
+        accuracy: 100,
+        type: "Brawler",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+    },
+
     pyrokinesis: {
         name: "Pyrokinesis",
         power: 65,
@@ -6730,6 +6862,15 @@ var moves = {
         mr: "Support"
     },
 
+    summon: {
+        name: "Summon",
+        power: 0,
+        energy: 25,
+        accuracy: 100,
+        type: "Typeless",
+        mr: "Support"
+    },
+
     aim: {
         name: "Aim",
         power: 0,
@@ -6796,6 +6937,15 @@ var moves = {
 
     disperse: {
         name: "Disperse",
+        power: 0,
+        energy: 25,
+        accuracy: "N/A",
+        type: "Light",
+        mr: "Support"
+    },
+
+    flash: {
+        name: "Flash",
         power: 0,
         energy: 25,
         accuracy: "N/A",
@@ -7478,7 +7628,7 @@ var moves = {
     tearDown: {
         name: "Tear Down",
         power: 0,
-        energy: 40,
+        energy: 45,
         accuracy: "N/A",
         type: "Typeless",
         mr: "Support"
@@ -7663,7 +7813,8 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Repugnant", "Resilience", "Rev Up", "Salvage", "Scorching Skin", "Shakedown", "Sharp Claws", "Sharp Edges", "Sharp Focus", "Slick Shell", "Slimy", "Sly", "Specialization", "Staunch",
                  "Sugar Rush", "Surrogate", "Swampy", "Sweet Aroma", "Sweet Touch", "Tank", "Temper", "Terrifying", "Territorial", "Thriving Pace", "Tone Deaf", "Total Eclipse", "Toxic Filter",
                  "Toxic Spines", "Toxic Touch", "Trash Armor", "Turbulent", "Ungracious Host", "Vengeance", "Vigilant", "Vigorous", "Virtuoso", "Vivid Sight", "Volcanic", "Watcher", "Webbing",
-                 "Woodsman", "Two Face", "Insulated", "Wise", "Malware", "Fanning Flame", "Appetite", "Gummy", "Viscid", "Glutton", "Resentful", "Pitch-Black", "Master"];
+                 "Woodsman", "Two Face", "Insulated", "Wise", "Malware", "Fanning Flame", "Appetite", "Gummy", "Viscid", "Glutton", "Resentful", "Pitch-Black", "Master", "Reverberate", "Mystic Tone",
+                 "Dauntless", "Festive Spirit"];
 
 var typeModAbilities = {
     coursingVenom: {
