@@ -1598,6 +1598,7 @@ function detailedReport() {
     }
     let item = (second ? item1.value : item2.value);
     let ability = (second ? abilities.find((x) => x == abilityDropdown1.value) : abilities.find((x) => x == abilityDropdown2.value));
+    let playerAbility = (second ? abilities.find((x) => x == abilityDropdown2.value) : abilities.find((x) => x == abilityDropdown1.value));
     move = findMove(moveName);
     hp = (second ? currentHP1.value : currentHP2.value);
     let selfHP = (second ? currentHP2.value : currentHP1.value);
@@ -1624,14 +1625,20 @@ function detailedReport() {
 
     //tempAtk
     if (move.mr1 == "Ranged Attack" || (move.name == "Adaptive Assault" && firstLoom.baseStats.attackR > firstLoom.baseStats.attack)) {
-        if (atkDef.attack.posNat == "smart" || atkDef.attack.negNat == "smart") {
+        if ((playerAbility == "Festive Spirit" && atkDef.attack.posNat == "hyper") || (playerAbility == "Festive Spirit" && atkDef.attack.negNat == "hyper")) {
+            atkPlus = "+";
+        }
+        else if (atkDef.attack.posNat == "smart" || atkDef.attack.negNat == "smart") {
             atkPlus = "+";
         }
         else if (atkDef.attack.veryNat == "vSmart") {
             atkPlus = "++";
         }
         //Negatives
-        if (atkDef.attack.posNat == "clumsy" || atkDef.attack.negNat == "clumsy") {
+        if ((playerAbility == "Festive Spirit" && atkDef.attack.posNat == "dull") || (playerAbility == "Festive Spirit" && atkDef.attack.negNat == "dull")) {
+            atkPlus = "-";
+        }
+        else if (atkDef.attack.posNat == "clumsy" || atkDef.attack.negNat == "clumsy") {
             atkPlus = "-";
         }
         else if (atkDef.attack.veryNat == "vClumsy") {
@@ -1639,10 +1646,13 @@ function detailedReport() {
         }
         //Used Stat
         if (second) {
-            tempAtk = tempAtk + atkREV2.value + " " + atkPlus + "AtkR";
+            if (playerAbility == "Festive Spirit") tempAtk = tempAtk + energyEV2.value + " " + atkPlus + "Energy";
+            else tempAtk = tempAtk + atkREV2.value + " " + atkPlus + "AtkR";
+
         }
         else {
-            tempAtk = tempAtk + atkREV1.value + " " + atkPlus + "AtkR";
+            if (playerAbility == "Festive Spirit") tempAtk = tempAtk + energyEV1.value + " " + atkPlus + "Energy";
+            else tempAtk = tempAtk + atkREV1.value + " " + atkPlus + "AtkR";
         }
     }
     else if (move.mr1 == "Melee Attack") {
