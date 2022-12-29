@@ -573,6 +573,21 @@ function update(updatePower = false, updateBaseStats = false) {
     }
 }
 
+function updateItem(item) {
+    let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
+    let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
+    if (item == "item1") {
+        if (item1.value == "Thunder Orb" && !firstLoom.types.includes("Electric")) status1.value = "paralasis";
+        else if (item1.value == "Volcanic Ash" && !firstLoom.types.includes("Fire")) status1.value = "burned";
+        else status1.value = "healthy";
+    } else if (item == "item2") {
+        if (item2.value == "Thunder Orb" && !secondLoom.types.includes("Electric")) status2.value = "paralasis";
+        else if (item2.value == "Volcanic Ash" && !secondLoom.types.includes("Fire")) status2.value = "burned";
+        else status2.value = "healthy";
+    }
+    update();
+}
+
 function updateLevel() {
     if (levelCheck.checked) {
         level1.value = 100;
@@ -1075,6 +1090,9 @@ function loadStats() {
     statDefR1.innerHTML = Math.floor(defR1 * multi);
     multi = 1;
     if (firstItem == "Specialty Boots") multi *= 1.5;
+    if (status1.value == "paralasis" && !firstLoom.types.includes("Electric") && ability1 != "Thriving Pace") multi *= 0.5;
+    if (ability1 == "Thriving Pace" && status1.value != "healthy") multi *= 1.5;
+    else if (ability1 == "Sugar Rush" && firstItem == "None") multi *= 2;
     statSpd1.innerHTML = Math.floor(spd1 * multi);
     multi = 1;
 
@@ -1095,6 +1113,9 @@ function loadStats() {
     statDefR2.innerHTML = Math.floor(defR2 * multi);
     multi = 1;
     if (secondItem == "Specialty Boots") multi *= 1.5;
+    if (status2.value == "paralasis" && !secondLoom.types.includes("Electric") && ability2 != "Thriving Pace") multi *= 0.5;
+    if (ability2 == "Thriving Pace" && status2.value != "healthy") multi *= 1.5;
+    else if (ability2 == "Sugar Rush" && secondItem == "None") multi *= 2;
     statSpd2.innerHTML = Math.floor(spd2 * multi);
     multi = 1;
 }

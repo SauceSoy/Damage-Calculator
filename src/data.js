@@ -195,6 +195,25 @@ var loomians = {
             speed: 60
         }
     },
+
+    'eaglit-armenti': {
+        name: "Eaglit-Armenti",
+        number: 10,
+        types: ["Light"],
+        abilities: ["Awakening"],
+        sAbility: ["Applied Frustration"],
+        weight: 17,
+        heigth: 29,
+        baseStats: {
+            hp: 84,
+            energy: 88,
+            attack: 80,
+            defense: 71,
+            attackR: 125,
+            defenseR: 87,
+            speed: 75
+        }
+    },
  
     torprey: {
         name: "Torprey",
