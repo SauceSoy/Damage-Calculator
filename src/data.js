@@ -3796,13 +3796,13 @@ var loomians = {
         weight: 7,
         height: 25,
         baseStats: {
-            hp: 50,
-            energy: 100,
-            attack: 22,
-            defense: 125,
+            hp: 65,
+            energy: 110,
+            attack: 26,
+            defense: 130,
             attackR: 0,
-            defenseR: 125,
-            speed: 28
+            defenseR: 130,
+            speed: 39
         }
     },
 
@@ -7609,7 +7609,7 @@ var moves = {
     },
 
     bagOfTricks: {
-        name: "Ancient Instinct",
+        name: "Bag of Tricks",
         power: 0,
         energy: 25,
         accuracy: "N/A",
