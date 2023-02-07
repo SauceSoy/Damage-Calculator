@@ -577,7 +577,7 @@ var loomians = {
         height: 45,
         baseStats: {
             hp: 60,
-            energy: 69,
+            energy: 80,
             attack: 45,
             defense: 55,
             attackR: 92,
@@ -3989,11 +3989,11 @@ var loomians = {
         height: 38,
         baseStats: {
             hp: 83,
-            energy: 98,
+            energy: 118,
             attack: 69,
-            defense: 79,
+            defense: 69,
             attackR: 127,
-            defenseR: 89,
+            defenseR: 79,
             speed: 105
         }
     },
@@ -4140,10 +4140,10 @@ var loomians = {
             hp: 55,
             energy: 100,
             attack: 115,
-            defense: 85,
+            defense: 80,
             attackR: 115,
-            defenseR: 85,
-            speed: 95
+            defenseR: 80,
+            speed: 105
         }
     },
 
@@ -4201,25 +4201,6 @@ var loomians = {
         }
     },
 
-    'heavy bag': {
-        name: "Heavy Bag",
-        number: 9999,
-        types: ["Typeless"],
-        abilities: ["Surrogate"],
-        sAbility: ["Idiosyncratic"],
-        weight: 123,
-        height: 200,
-        baseStats: {
-            hp: 450,
-            energy: 0,
-            attack: 0,
-            defense: 100,
-            attackR: 0,
-            defenseR: 100,
-            speed: 0
-        }
-    },
-
     celesting: {
         name: "Celesting",
         number: 140,
@@ -4236,6 +4217,25 @@ var loomians = {
             attackR: 103,
             defenseR: 79,
             speed: 91
+        }
+    },
+
+    'heavy bag': {
+        name: "Heavy Bag",
+        number: 9999,
+        types: ["Typeless"],
+        abilities: ["Surrogate"],
+        sAbility: ["Idiosyncratic"],
+        weight: 123,
+        height: 200,
+        baseStats: {
+            hp: 450,
+            energy: 0,
+            attack: 0,
+            defense: 100,
+            attackR: 0,
+            defenseR: 100,
+            speed: 0
         }
     },
 
