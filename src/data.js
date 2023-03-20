@@ -4409,7 +4409,8 @@ var moves = {
         type: "Plant",
         mr: "Melee",
         mr1: "Melee Attack",
-        mr2: "Melee Defense"
+        mr2: "Melee Defense",
+        contact: true
     },
 
     staticShock: {
@@ -4471,7 +4472,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        secondaryEffect: true
+        secondaryEffect: true,
+        contact: true
     },
 
     pestilence: {
@@ -4579,7 +4581,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         hits: 2,
-        secondaryEffect: true
+        secondaryEffect: true,
+        contact: true
     },
 
     lusterLoot: {
@@ -5806,7 +5809,8 @@ var moves = {
         type: "Spirit",
         mr: "Melee",
         mr1: "Melee Attack",
-        mr2: "Melee Defense"
+        mr2: "Melee Defense",
+        contact: true
     },
 
     roughUp: {
@@ -6427,7 +6431,8 @@ var moves = {
         type: "Electric",
         mr: "Melee",
         mr1: "Melee Attack",
-        mr2: "Melee Defense"
+        mr2: "Melee Defense",
+        contact: true
     },
 
     adaptiveAssault: {
