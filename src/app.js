@@ -592,12 +592,11 @@ function updateLevel() {
     if (levelCheck.checked) {
         level1.value = 100;
         level2.value = 100;
-        update();
     } else {
         level1.value = 50;
         level2.value = 50;
-        update();
     }
+    update();
 }
 
 function changeButton(button) {
@@ -2388,6 +2387,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
     if ((ability1 == "Hasty" && move.mr1 == "Melee Attack") ||
        (ability1 == "Vigorous" && stat1 != "healthy" && move.mr1 == "Melee Attack") ||
+       (ability1 == "Vicious" && stat1 == "poisoned") ||
        (dawn && isDouble && move.mr1 == "Melee Attack" && ability1 == "Dusk") ||
        (dawn && isDouble && move.mr1 == "Ranged Attack" && ability1 == "Dawn") ||
        (move.mr1 == "Melee Defense" && ability1 == "Trash Armor")) {
@@ -2960,6 +2960,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
 }
 
 function checkIceTrap(move, l, u, hp, energy, item, ability, ability2) {
+    if (l == 0 && u == 0) return "";
     if (move.drain) {
         let drainMI = (item == "Drain Orb" ? 1.2 : 1);
         let drainMA = (ability == "Drainage" ? 1.5 : 1); 
@@ -2969,6 +2970,7 @@ function checkIceTrap(move, l, u, hp, energy, item, ability, ability2) {
         return " (" + (drainL / hp * 100).toFixed(1) + " - " + (drainU / hp * 100).toFixed(1) + "% recovered)";
     }
     if (move.recoil) {
+        if (ability == "Mysterious Cloak") return "";
         let recoilL = Math.max(Math.floor(l * move.recoil), 1);
         let recoilU = Math.max(Math.floor(u * move.recoil), 1);
         if (l == 0 && u == 0) return "";

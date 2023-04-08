@@ -3844,6 +3844,45 @@ var loomians = {
             speed: 82
         }
     },
+
+    kyeggo: {
+        name: "Kyeggo",
+        number: 140,
+        types: ["Dark"],
+        abilities: ["Anomaly", "Vivid Sight"],
+        sAbility: ["Vicious"],
+        weight: 5,
+        height: 18,
+        finalEvo: false,
+        baseStats: {
+            hp: 67,
+            energy: 62,
+            attack: 26,
+            defense: 54,
+            attackR: 66,
+            defenseR: 56,
+            speed: 44
+        }
+    },
+
+    doreggo: {
+        name: "Doreggo",
+        number: 140,
+        types: ["Dark", "Air"],
+        abilities: ["Anomaly", "Vivid Sight"],
+        sAbility: ["Vicious"],
+        weight: 10,
+        height: 30,
+        baseStats: {
+            hp: 86,
+            energy: 78,
+            attack: 42,
+            defense: 66,
+            attackR: 102,
+            defenseR: 70,
+            speed: 56
+        }
+    },
  
     duskit: {
         name: "Duskit",
@@ -6200,6 +6239,17 @@ var moves = {
         secondaryEffect: true
     },
 
+    dracoBeam: {
+        name: "Draco Beam",
+        power: 130,
+        energy: 60,
+        accuracy: 90,
+        type: "Ancient",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+    },
+
     piercingDrive: {
         name: "Piercing Drive",
         power: 75,
@@ -7838,7 +7888,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Sugar Rush", "Surrogate", "Swampy", "Sweet Aroma", "Sweet Touch", "Tank", "Temper", "Terrifying", "Territorial", "Thriving Pace", "Tone Deaf", "Total Eclipse", "Toxic Filter",
                  "Toxic Spines", "Toxic Touch", "Trash Armor", "Turbulent", "Ungracious Host", "Vengeance", "Vigilant", "Vigorous", "Virtuoso", "Vivid Sight", "Volcanic", "Watcher", "Webbing",
                  "Woodsman", "Two Face", "Insulated", "Wise", "Malware", "Fanning Flame", "Appetite", "Gummy", "Viscid", "Glutton", "Resentful", "Pitch-Black", "Master", "Reverberate", "Mystic Tone",
-                 "Dauntless", "Festive Spirit"];
+                 "Dauntless", "Festive Spirit", "Vicious"];
 
 var typeModAbilities = {
     coursingVenom: {
