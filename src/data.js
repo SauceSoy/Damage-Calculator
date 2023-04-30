@@ -3871,8 +3871,9 @@ var loomians = {
         types: ["Dark", "Air"],
         abilities: ["Anomaly", "Vivid Sight"],
         sAbility: ["Vicious"],
-        weight: 10,
-        height: 30,
+        weight: 13,
+        height: 35,
+        finalEvo: false,
         baseStats: {
             hp: 86,
             energy: 78,
@@ -3881,6 +3882,26 @@ var loomians = {
             attackR: 102,
             defenseR: 70,
             speed: 56
+        }
+    },
+
+    dreggodyne: {
+        name: "Dreggodyne",
+        number: 140,
+        types: ["Dark", "Air"],
+        abilities: ["Anomaly", "Vivid Sight"],
+        sAbility: ["Vicious"],
+        weight: 13,
+        height: 35,
+        finalEvo: false,
+        baseStats: {
+            hp: 96,
+            energy: 92,
+            attack: 58,
+            defense: 77,
+            attackR: 135,
+            defenseR: 82,
+            speed: 70
         }
     },
  
@@ -4919,6 +4940,19 @@ var moves = {
         mr2: "Ranged Defense",
         secondaryEffect: true,
         sound: true
+    },
+
+    eggStorm: {
+        name: "Egg Storm",
+        power: 90,
+        energy: 52,
+        accuracy: 100,
+        type: "Dark",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true,
+        aoe: true
     },
 
     lightDash: {
