@@ -3891,9 +3891,8 @@ var loomians = {
         types: ["Dark", "Air"],
         abilities: ["Anomaly", "Vivid Sight"],
         sAbility: ["Vicious"],
-        weight: 13,
-        height: 35,
-        finalEvo: false,
+        weight: 146,
+        height: 92,
         baseStats: {
             hp: 96,
             energy: 92,
@@ -8011,7 +8010,7 @@ var typeModAbilities = {
 
     incandescent: {
         name: "Incandescent",
-        typeModifier: { type: "Light", modifier: 1.25},
+        typeModifier: { type: "Light", modifier: 1.5},
         powerMod: true
     },
 

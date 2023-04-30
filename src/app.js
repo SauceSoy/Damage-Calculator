@@ -1366,7 +1366,7 @@ function checkEnergy(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTw
     else if (ability1 == "Pyro") {
         for (let i = 0; i < 4; i++) {
             if (moves1[i].type == "Fire" && moves1[i].mr != "Support") {
-                movesEnergy1[i] = movesEnergy1[i] * 1.5;
+                movesEnergy1[i] = movesEnergy1[i] * 1.25;
             }
         }
     }
@@ -1411,7 +1411,7 @@ function checkEnergy(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTw
     else if (ability2 == "Pyro") {
         for (let i = 0; i < 4; i++) {
             if (moves2[i].type == "Fire" && moves2[i].mr != "Support") {
-                movesEnergy2[i] = movesEnergy2[i] * 1.5;
+                movesEnergy2[i] = movesEnergy2[i] * 1.25;
             }
         }
     }
