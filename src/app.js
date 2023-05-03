@@ -2867,7 +2867,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         }
     }
 
-    if (barb > 0  && !secondLoom.types.includes("Air")) {
+    if (barb > 0  && !loom2.types.includes("Air")) {
         if (barb == 1) {
             hazardString += "1 layer of barbs and ";
         } else if (barb == 2) {
