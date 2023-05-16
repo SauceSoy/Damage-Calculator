@@ -577,6 +577,17 @@
                 </div>
 
                 <hr>
+                <div align="center">
+                    <input type="radio" class="hiddenToUser" name="weather" value="0" id="noWeather" checked="checked" onchange="update()">
+                    <label class="radiolbl fieldlbl btn-left" for="noWeather" title="Select the current weather condition">None</label>
+                    <input type="radio" class="hiddenToUser" name="weather" value="1" id="rain" onchange="update()">
+                    <label class="radiolbl fieldlbl btn-mid" for="rain" title="Select the current weather condition">Rain</label>
+                    <input type="radio" class="hiddenToUser" name="weather" value="2" id="winds" onchange="update()">
+                    <label class="radiolbl fieldlbl btn-mid" for="winds" title="Select the current weather condition">Strong Wind</label>
+                    <input type="radio" class="hiddenToUser" name="weather" value="3" id="fog" onchange="update()">
+                    <label class="radiolbl fieldlbl btn-right" for="fog" title="Select the current weather condition">Fog</label>
+                </div>
+                <hr>
                 <div class="fieldTraps">
                      <div>
                         <div class="left">
