@@ -7848,6 +7848,33 @@ var moves = {
         mr: "Support"
     },
 
+    hazyShroud: {
+        name: "Hazy Shroud",
+        power: 0,
+        energy: 25,
+        accuracy: "N/A",
+        type: "Spirit",
+        mr: "Support"
+    },
+
+    downpour: {
+        name: "Downpour",
+        power: 0,
+        energy: 25,
+        accuracy: "N/A",
+        type: "Water",
+        mr: "Support"
+    },
+
+    galeForce: {
+        name: "Gale Force",
+        power: 0,
+        energy: 25,
+        accuracy: "N/A",
+        type: "Air",
+        mr: "Support"
+    },
+
     spite: {
         name: "Spite",
         power: 0,
