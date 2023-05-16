@@ -3903,6 +3903,65 @@ var loomians = {
             speed: 70
         }
     },
+
+    wispur: {
+        name: "Wispur",
+        number: 140,
+        types: ["Spirit", "Light"],
+        abilities: ["Radiance", "Prismatic"],
+        sAbility: ["Captivating"],
+        weight: 1,
+        height: 13,
+        finalEvo: false,
+        baseStats: {
+            hp: 25,
+            energy: 61,
+            attack: 9,
+            defense: 47,
+            attackR: 72,
+            defenseR: 70,
+            speed: 33
+        }
+    },
+
+    lampurge: {
+        name: "Lampurge",
+        number: 140,
+        types: ["Spirit", "Light"],
+        abilities: ["Radiance", "Prismatic"],
+        sAbility: ["Captivating"],
+        weight: 4,
+        height: 31,
+        finalEvo: false,
+        baseStats: {
+            hp: 42,
+            energy: 81,
+            attack: 39,
+            defense: 78,
+            attackR: 97,
+            defenseR: 91,
+            speed: 40
+        }
+    },
+
+    charonyx: {
+        name: "Charonyx",
+        number: 140,
+        types: ["Spirit", "Light"],
+        abilities: ["Radiance", "Prismatic"],
+        sAbility: ["Reaper"],
+        weight: 5,
+        height: 49,
+        baseStats: {
+            hp: 56,
+            energy: 101,
+            attack: 48,
+            defense: 96,
+            attackR: 122,
+            defenseR: 106,
+            speed: 51
+        }
+    },
  
     duskit: {
         name: "Duskit",
@@ -5028,6 +5087,18 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         secondaryEffect: true
+    },
+
+    apparition: {
+        name: "Apparition",
+        power: 90,
+        energy: 55,
+        accuracy: "N/A",
+        type: "Spirit",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        typeModifier: { type: "Dark", modifier: 4 }
     },
 
     bushWhack: {
@@ -7921,7 +7992,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Sugar Rush", "Surrogate", "Swampy", "Sweet Aroma", "Sweet Touch", "Tank", "Temper", "Terrifying", "Territorial", "Thriving Pace", "Tone Deaf", "Total Eclipse", "Toxic Filter",
                  "Toxic Spines", "Toxic Touch", "Trash Armor", "Turbulent", "Ungracious Host", "Vengeance", "Vigilant", "Vigorous", "Virtuoso", "Vivid Sight", "Volcanic", "Watcher", "Webbing",
                  "Woodsman", "Two Face", "Insulated", "Wise", "Malware", "Fanning Flame", "Appetite", "Gummy", "Viscid", "Glutton", "Resentful", "Pitch-Black", "Master", "Reverberate", "Mystic Tone",
-                 "Dauntless", "Festive Spirit", "Vicious"];
+                 "Dauntless", "Festive Spirit", "Vicious", "Reaper", "Captivating"];
 
 var typeModAbilities = {
     coursingVenom: {

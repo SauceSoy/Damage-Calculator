@@ -162,6 +162,10 @@ let level2 = document.getElementById("level2");
 let immuneAbilityBoost1 = document.getElementById("immuneBoost1");
 let immuneAbilityBoost2 = document.getElementById("immuneBoost2");
 
+let rain = document.getElementById("rain");
+let winds = document.getElementById("winds");
+let fog = document.getElementById("fog");
+
 let iceTrap1 = document.getElementById("iceTrap1");
 let iceTrap2 = document.getElementById("iceTrap2");
 
@@ -1090,6 +1094,7 @@ function loadStats() {
     multi = 1;
     if (firstItem == "Specialty Boots") multi *= 1.5;
     if (status1.value == "paralasis" && !firstLoom.types.includes("Electric") && ability1 != "Thriving Pace") multi *= 0.5;
+    if (firstLoom.types.includes("Air") && winds.checked) multi *= 1.1;
     if (ability1 == "Thriving Pace" && status1.value != "healthy") multi *= 1.5;
     else if (ability1 == "Sugar Rush" && firstItem == "None") multi *= 2;
     statSpd1.innerHTML = Math.floor(spd1 * multi);
@@ -1113,6 +1118,7 @@ function loadStats() {
     multi = 1;
     if (secondItem == "Specialty Boots") multi *= 1.5;
     if (status2.value == "paralasis" && !secondLoom.types.includes("Electric") && ability2 != "Thriving Pace") multi *= 0.5;
+    if (secondLoom.types.includes("Air") && winds.checked) multi *= 1.1;
     if (ability2 == "Thriving Pace" && status2.value != "healthy") multi *= 1.5;
     else if (ability2 == "Sugar Rush" && secondItem == "None") multi *= 2;
     statSpd2.innerHTML = Math.floor(spd2 * multi);
@@ -1900,7 +1906,7 @@ function detailedReport() {
     let possibleDmgStr = "Possible Damage Amounts: (" + displayDamage(possibleArray) + ")";
     let critStr = (crit == true ? " Crit " : "");
     let str = tempAtk + " " + stuffUsed.item1 + " " + stuffUsed.ability1 + " " + firstLoom.name + " " + critStr + move.name + stuffUsed.extra1 + " vs. " + (!second ? hpEV2.value : hpEV1.value) + " HP / " +
-        tempDef + " " + stuffUsed.item2 + " " + stuffUsed.ability2 + " " + secondLoom.name + ": " + possibleDmg2 + "-" + possibleDmg3 + " (" + lowerPercent + " - " + upperPercent + "%) -- ";
+        tempDef + " " + stuffUsed.item2 + " " + stuffUsed.ability2 + " " + secondLoom.name + stuffUsed.weather + ": " + possibleDmg2 + "-" + possibleDmg3 + " (" + lowerPercent + " - " + upperPercent + "%) -- ";
 
     let hazardStr = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second, true)[1];
 
@@ -2142,7 +2148,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     let smacked = (second == false ? smackDown2.checked : smackDown1.checked);
     let possibleDmg = [];
     let possibleFoulDmg;
-    let stuffUsed = { ability1: "", ability2: "", item1: "", item2: "", extra1: "", extra2: ""};
+    let stuffUsed = { ability1: "", ability2: "", item1: "", item2: "", extra1: "", extra2: "", weather: ""};
     let adaptive = { mr: "", mr1: "", mr2: ""};
     let energyValue = (second ? percentNRG2.value : percentNRG1.value);
 
@@ -2200,6 +2206,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
        (ability1 == "Bully" && loom1.height > loom2.height)) {
         ability2 = "None";
         stuffUsed.ability1 = ability1;
+    }
+
+    if (fog.checked) {
+        if (!loom1.types.includes("Spirit")) ability1 = "None";
+        if (!loom2.types.includes("Spirit")) ability2 = "None";
+        stuffUsed.weather += " in the fog";
     }
 
     if (ability1 == "Sly") {
@@ -2366,6 +2378,16 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     if (tagTeam && isDouble) {
         multi *= 1.5;
         stuffUsed.extra1 += " (Conspire)"
+    }
+
+    if (rain.checked) {
+        if (tempType == "Water") {
+            multi *= 1.25;
+            stuffUsed.weather += " in the rain";
+        } else if (tempType == "Fire") {
+            multi *= 0.75;
+            stuffUsed.weather += " in the rain";
+        }
     }
 
     tempPower = pokeRound(tempPower * multi);
@@ -2930,6 +2952,10 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         if (item == "Health Amulet") {
             newHP -= Math.floor(hp1 * 1 / 16);
             hazardString += "health amulet recovery and ";
+        }
+        if (loom2.types.includes("Plant") && rain.checked) {
+            newHP -= Math.floor(hp1 * 1 / 16);
+            hazardString += "rain recovery and ";
         }
     }
 
