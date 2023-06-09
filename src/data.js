@@ -3855,12 +3855,12 @@ var loomians = {
         height: 18,
         finalEvo: false,
         baseStats: {
-            hp: 67,
+            hp: 72,
             energy: 62,
-            attack: 26,
-            defense: 54,
+            attack: 41,
+            defense: 44,
             attackR: 66,
-            defenseR: 56,
+            defenseR: 46,
             speed: 44
         }
     },
@@ -3877,11 +3877,11 @@ var loomians = {
         baseStats: {
             hp: 86,
             energy: 78,
-            attack: 42,
-            defense: 66,
+            attack: 56,
+            defense: 56,
             attackR: 102,
-            defenseR: 70,
-            speed: 56
+            defenseR: 60,
+            speed: 52
         }
     },
 
@@ -3896,11 +3896,11 @@ var loomians = {
         baseStats: {
             hp: 96,
             energy: 92,
-            attack: 58,
-            defense: 77,
-            attackR: 135,
-            defenseR: 82,
-            speed: 70
+            attack: 78,
+            defense: 67,
+            attackR: 125,
+            defenseR: 72,
+            speed: 60
         }
     },
 
@@ -6812,6 +6812,19 @@ var moves = {
         contact: true
     },
 
+    waveWrecker: {
+        name: "Wave Wrecker",
+        power: 90,
+        energy: 50,
+        accuracy: 100,
+        type: "Water",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        secondaryEffect: true
+    },
+
     jetStream: {
         name: "Jet Stream",
         power: 90,
@@ -8142,4 +8155,4 @@ for (let ty in types) {
 
 var sets = [];
 
-var changelog = "Swirelle added to the calc.";
+var changelog = "Dreggodyne line nerfs + Wave Wrecker";
