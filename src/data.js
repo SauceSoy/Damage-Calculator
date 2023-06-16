@@ -3962,6 +3962,65 @@ var loomians = {
             speed: 51
         }
     },
+
+    smoal: {
+        name: "Smoal",
+        number: 140,
+        types: ["Fire", "Toxic"],
+        abilities: ["Forge", "Scorching Skin"],
+        sAbility: ["Blistering Heat"],
+        weight: 20,
+        height: 19,
+        finalEvo: false,
+        baseStats: {
+            hp: 37,
+            energy: 67,
+            attack: 38,
+            defense: 30,
+            attackR: 38,
+            defenseR: 25,
+            speed: 54
+        }
+    },
+
+    charkiln: {
+        name: "Charkiln",
+        number: 140,
+        types: ["Fire", "Toxic"],
+        abilities: ["Forge", "Scorching Skin"],
+        sAbility: ["Blistering Heat"],
+        weight: 40,
+        height: 45,
+        finalEvo: false,
+        baseStats: {
+            hp: 56,
+            energy: 77,
+            attack: 74,
+            defense: 52,
+            attackR: 74,
+            defenseR: 39,
+            speed: 84
+        }
+    },
+
+    billoforge: {
+        name: "Billoforge",
+        number: 140,
+        types: ["Fire", "Toxic"],
+        abilities: ["Forge", "Scorching Skin"],
+        sAbility: ["Blistering Heat"],
+        weight: 296,
+        height: 76,
+        baseStats: {
+            hp: 80,
+            energy: 87,
+            attack: 112,
+            defense: 104,
+            attackR: 112,
+            defenseR: 61,
+            speed: 24
+        }
+    },
  
     duskit: {
         name: "Duskit",
@@ -6677,6 +6736,18 @@ var moves = {
         secondaryEffect: true
     },
 
+    kindledRage: {
+        name: "Kindled Rage",
+        power: 70,
+        energy: 45,
+        accuracy: 100,
+        type: "Fire",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+    },
+
     boomBash: {
         name: "Boom Bash",
         power: 80,
@@ -6800,6 +6871,17 @@ var moves = {
         secondaryEffect: true
     },
 
+    paintShower: {
+        name: "Paint Shower",
+        power: 100,
+        energy: 54,
+        accuracy: 100,
+        type: "Toxic",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
+    },
+
     plunge: {
         name: "Plunge",
         power: 90,
@@ -6835,6 +6917,17 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         secondaryEffect: true
+    },
+
+    tempest: {
+        name: "Tempest",
+        power: -1,
+        energy: 40,
+        accuracy: 100,
+        type: "Air",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
     },
 
     counterStance: {
@@ -7609,15 +7702,6 @@ var moves = {
         mr: "Support"
     },
 
-    paintShower: {
-        name: "Paint Shower",
-        power: 0,
-        energy: 40,
-        accuracy: "N/A",
-        type: "Toxic",
-        mr: "Support"
-    },
-
     tuneUp: {
         name: "Tune-up",
         power: 0,
@@ -7685,6 +7769,15 @@ var moves = {
         name: "Phoenix Flame",
         power: 0,
         energy: 0,
+        accuracy: "N/A",
+        type: "Fire",
+        mr: "Support"
+    },
+
+    heatWave: {
+        name: "Heat Wave",
+        power: 0,
+        energy: 25,
         accuracy: "N/A",
         type: "Fire",
         mr: "Support"
@@ -8032,7 +8125,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Sugar Rush", "Surrogate", "Swampy", "Sweet Aroma", "Sweet Touch", "Tank", "Temper", "Terrifying", "Territorial", "Thriving Pace", "Tone Deaf", "Total Eclipse", "Toxic Filter",
                  "Toxic Spines", "Toxic Touch", "Trash Armor", "Turbulent", "Ungracious Host", "Vengeance", "Vigilant", "Vigorous", "Virtuoso", "Vivid Sight", "Volcanic", "Watcher", "Webbing",
                  "Woodsman", "Two Face", "Insulated", "Wise", "Malware", "Fanning Flame", "Appetite", "Gummy", "Viscid", "Glutton", "Resentful", "Pitch-Black", "Master", "Reverberate", "Mystic Tone",
-                 "Dauntless", "Festive Spirit", "Vicious", "Reaper", "Captivating"];
+                 "Dauntless", "Festive Spirit", "Vicious", "Reaper", "Captivating", "Forge", "Blistering Heat"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -8142,6 +8235,12 @@ var typeModAbilities = {
         typeModifier: { type: "Air", modifier: 0.5},
         powerMod: false
     },
+
+    forge: {
+        name: "Forge",
+        typeModifier: { type: "Fire", modifier: 0.5},
+        powerMod: false
+    },
 }
 
 var items = ["Heavy Shield", "Heavy Armor", "Power Cuffs", "Health Amulet", "Drain Orb", "Mystic Wand", "Drop of Youth", "Energy Orb", "Chocolate Bar", "Mysterious Dust", "Heavy Shackles", "Thunder Orb",
@@ -8155,4 +8254,4 @@ for (let ty in types) {
 
 var sets = [];
 
-var changelog = "Dreggodyne line nerfs + Wave Wrecker";
+var changelog = "Billoforge + Heat Wave added.";

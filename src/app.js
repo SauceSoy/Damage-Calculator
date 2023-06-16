@@ -165,6 +165,7 @@ let immuneAbilityBoost2 = document.getElementById("immuneBoost2");
 let rain = document.getElementById("rain");
 let winds = document.getElementById("winds");
 let fog = document.getElementById("fog");
+let heat = document.getElementById("heat");
 
 let iceTrap1 = document.getElementById("iceTrap1");
 let iceTrap2 = document.getElementById("iceTrap2");
@@ -589,6 +590,15 @@ function updateItem(item) {
         else if (item2.value == "Volcanic Ash" && !secondLoom.types.includes("Fire")) status2.value = "burned";
         else status2.value = "healthy";
     }
+    update();
+}
+
+function updateAbility(ability) {
+    let ability1 = abilities.find((x) => x == abilityDropdown1.value);
+    let ability2 = abilities.find((x) => x == abilityDropdown2.value);
+
+
+
     update();
 }
 
@@ -2180,6 +2190,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         stuffUsed.extra1 += " (" + getTripRootPower(loom2.weight) + " BP)";
     }
 
+    if (move.name == "Tempest") {
+        tempPower = getSpeedPower(stats1.spd, stats2.spd);
+        stuffUsed.extra1 += " (" + tempPower + " BP)";
+    }
+
     if (move.name == "Outburst") {
         tempPower = Math.max(1, Math.floor(125 * energyValue / 100));
         stuffUsed.extra1 += " (" + tempPower + " BP)";
@@ -2211,7 +2226,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     if (fog.checked) {
         if (!loom1.types.includes("Spirit")) ability1 = "None";
         if (!loom2.types.includes("Spirit")) ability2 = "None";
-        stuffUsed.weather += " in the fog";
+        stuffUsed.weather += " in Dense Fog";
     }
 
     if (ability1 == "Sly") {
@@ -2383,10 +2398,20 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     if (rain.checked) {
         if (tempType == "Water") {
             multi *= 1.25;
-            stuffUsed.weather += " in the rain";
+            stuffUsed.weather += " in Heavy Rainfall";
         } else if (tempType == "Fire") {
             multi *= 0.75;
-            stuffUsed.weather += " in the rain";
+            stuffUsed.weather += " in Heavy Rainfall";
+        }
+    }
+
+    if (heat.checked) {
+        if (tempType == "Fire") {
+            multi *= 1.25;
+            stuffUsed.weather += " in Smoldering Heat";
+        } else if (tempType == "Water") {
+            multi *= 0.75;
+            stuffUsed.weather += " in Smoldering Heat";
         }
     }
 
@@ -2526,7 +2551,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     //Type -------------------------------
 
     if((ability1 == "Devious") || 
-       (ability1 == "Bully" && loom1.height > loom2.height)) {
+       (ability1 == "Bully" && loom1.height > loom2.height) ||
+       (fog.checked)) {
         typeModAbility2 = undefined;
     }
 
@@ -2812,6 +2838,14 @@ function getTripRootPower(weight) {
     return 120;
 }
 
+function getSpeedPower(spd1, spd2) {
+    if (spd2 > spd1 || spd2 == 0) return 40;
+    if (spd1 / spd2 >= 1 && spd1 / spd2 < 2) return 60;
+    if (spd1 / spd2 >= 2 && spd1 / spd2 < 3) return 80;
+    if (spd1 / spd2 >= 3 && spd1 / spd2 < 4) return 120;
+    return 150;
+}
+
 function specializationCount(second) {
     let moveOne1 = findMove(moveOneDropdown1.value);
     let moveTwo1 = findMove(moveTwoDropdown1.value);
@@ -2934,6 +2968,11 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     if (ability == "Appetite") {
         newHP += Math.floor(hp1 * 1 / 16);
         hazardString += "appetite damage and ";
+    }
+
+    if (loom2.types.includes("Ice") && heat.checked) {
+        newHP += Math.floor(hp1 * 1 / 16);
+        hazardString += "smoldering heat damage and ";
     }
 
     if (!OHKO) {
