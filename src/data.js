@@ -4021,6 +4021,25 @@ var loomians = {
             speed: 24
         }
     },
+
+    sherbot: {
+        name: "Sherbot",
+        number: 140,
+        types: ["Ice", "Metal"],
+        abilities: ["Shakedown", "Sugar Rush"],
+        sAbility: ["Chill"],
+        weight: 96,
+        height: 57,
+        baseStats: {
+            hp: 69,
+            energy: 85,
+            attack: 22,
+            defense: 97,
+            attackR: 94,
+            defenseR: 57,
+            speed: 76
+        }
+    },
  
     duskit: {
         name: "Duskit",
@@ -4565,6 +4584,17 @@ var moves = {
         mr2: "Ranged Defense",
         aoe: true,
         secondaryEffect: true
+    },
+
+    outOfOrder: {
+        name: "Out of Order",
+        power: 150,
+        energy: 60,
+        accuracy: 100,
+        type: "Ice",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
     },
 
     petalPummel: {
@@ -8254,4 +8284,4 @@ for (let ty in types) {
 
 var sets = [];
 
-var changelog = "Billoforge + Heat Wave added.";
+var changelog = "Sherbot added.";
