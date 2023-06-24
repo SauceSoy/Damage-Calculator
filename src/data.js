@@ -4022,8 +4022,8 @@ var loomians = {
         }
     },
 
-    sherbot: {
-        name: "Sherbot",
+    'iron fumble': {
+        name: "Iron Fumble",
         number: 140,
         types: ["Ice", "Metal"],
         abilities: ["Shakedown", "Sugar Rush"],
