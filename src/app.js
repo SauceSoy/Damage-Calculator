@@ -464,13 +464,17 @@ function loadDropdowns() {
         let optG1 = document.createElement("optgroup");
         optG1.label = loomians[loom].name;
         pokeDropdown1.appendChild(optG1);
-        optG1.appendChild(new Option(loomians[loom].name + " (Blank Set)", loomians[loom].name));
+        if (loomians[loom].name == "Iron Fumble") {
+            optG1.appendChild(new Option(loomians[loom].name + " (Sherbot)", loomians[loom].name));
+        } else optG1.appendChild(new Option(loomians[loom].name + " (Blank Set)", loomians[loom].name));
         pokeDropdown1.options[pokeDropdown1.options.length - 1].set = makeBlankSet(loomians[loom].name);
 
         let optG2 = document.createElement("optgroup");
         optG2.label = loomians[loom].name;
         pokeDropdown2.appendChild(optG2);
-        optG2.appendChild(new Option(loomians[loom].name + " (Blank Set)", loomians[loom].name));
+        if (loomians[loom].name == "Iron Fumble") {
+            optG2.appendChild(new Option(loomians[loom].name + " (Sherbot)", loomians[loom].name));
+        } else optG2.appendChild(new Option(loomians[loom].name + " (Blank Set)", loomians[loom].name));
         pokeDropdown2.options[pokeDropdown2.options.length - 1].set = makeBlankSet(loomians[loom].name)
     }
 
