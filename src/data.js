@@ -4040,6 +4040,65 @@ var loomians = {
             speed: 76
         }
     },
+
+    llamba: {
+        name: "Llamba",
+        number: 140,
+        types: ["Typeless"],
+        abilities: ["Playful", "Regurgitate"],
+        sAbility: ["Wholesome"],
+        weight: 11,
+        height: 28,
+        finalEvo: false,
+        baseStats: {
+            hp: 59,
+            energy: 51,
+            attack: 20,
+            defense: 59,
+            attackR: 64,
+            defenseR: 47,
+            speed: 70
+        }
+    },
+
+    choochew: {
+        name: "Choochew",
+        number: 140,
+        types: ["Typeless"],
+        abilities: ["Playful", "Regurgitate"],
+        sAbility: ["Wholesome"],
+        weight: 40,
+        height: 55,
+        finalEvo: false,
+        baseStats: {
+            hp: 76,
+            energy: 76,
+            attack: 37,
+            defense: 50,
+            attackR: 83,
+            defenseR: 62,
+            speed: 86
+        }
+    },
+
+    loomala: {
+        name: "Loomala",
+        number: 140,
+        types: ["Typeless"],
+        abilities: ["Herd Behavior", "Regurgitate"],
+        sAbility: ["Wholesome"],
+        weight: 93,
+        height: 80,
+        baseStats: {
+            hp: 92,
+            energy: 98,
+            attack: 45,
+            defense: 89,
+            attackR: 95,
+            defenseR: 80,
+            speed: 111
+        }
+    },
  
     duskit: {
         name: "Duskit",
@@ -6276,6 +6335,18 @@ var moves = {
         contact: true
     },
 
+    stampede: {
+        name: "Stampede",
+        power: 1,
+        energy: 55,
+        accuracy: 100,
+        type: "Typeless",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
+    },
+
     steelCrusher: {
         name: "Steel Crusher",
         power: 90,
@@ -7132,6 +7203,17 @@ var moves = {
         secondaryEffect: true
     },
 
+    spitOut: {
+        name: "Spit Out",
+        power: 90,
+        energy: 50,
+        accuracy: 100,
+        type: "Typeless",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+    },
+
     jolt: {
         name: "Jolt",
         power: 40,
@@ -7171,6 +7253,15 @@ var moves = {
         name: "Accelerate",
         power: 0,
         energy: 25,
+        accuracy: 100,
+        type: "Typeless",
+        mr: "Support"
+    },
+
+    daydream: {
+        name: "Daydream",
+        power: 0,
+        energy: 0,
         accuracy: 100,
         type: "Typeless",
         mr: "Support"
@@ -8155,7 +8246,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Sugar Rush", "Surrogate", "Swampy", "Sweet Aroma", "Sweet Touch", "Tank", "Temper", "Terrifying", "Territorial", "Thriving Pace", "Tone Deaf", "Total Eclipse", "Toxic Filter",
                  "Toxic Spines", "Toxic Touch", "Trash Armor", "Turbulent", "Ungracious Host", "Vengeance", "Vigilant", "Vigorous", "Virtuoso", "Vivid Sight", "Volcanic", "Watcher", "Webbing",
                  "Woodsman", "Two Face", "Insulated", "Wise", "Malware", "Fanning Flame", "Appetite", "Gummy", "Viscid", "Glutton", "Resentful", "Pitch-Black", "Master", "Reverberate", "Mystic Tone",
-                 "Dauntless", "Festive Spirit", "Vicious", "Reaper", "Captivating", "Forge", "Blistering Heat"];
+                 "Dauntless", "Festive Spirit", "Vicious", "Reaper", "Captivating", "Forge", "Blistering Heat", "Herd Behavior", "Regurgitate", "Wholesome"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -8271,6 +8362,12 @@ var typeModAbilities = {
         typeModifier: { type: "Fire", modifier: 0.5},
         powerMod: false
     },
+
+    wholesome: {
+        name: "Wholesome",
+        typeModifier: { type: "Brawler", type2: "Mind", modifier: 0.5},
+        powerMod: false
+    },
 }
 
 var items = ["Heavy Shield", "Heavy Armor", "Power Cuffs", "Health Amulet", "Drain Orb", "Mystic Wand", "Drop of Youth", "Energy Orb", "Chocolate Bar", "Mysterious Dust", "Heavy Shackles", "Thunder Orb",
@@ -8284,4 +8381,4 @@ for (let ty in types) {
 
 var sets = [];
 
-var changelog = "Sherbot added.";
+var changelog = "Llamba line added.";

@@ -1637,6 +1637,7 @@ function detailedReport() {
         barb = barbs[0];
     }
     let item = (second ? item1.value : item2.value);
+    let playerItem = (second ? item2.value : item1.value);
     let ability = (second ? abilities.find((x) => x == abilityDropdown1.value) : abilities.find((x) => x == abilityDropdown2.value));
     let playerAbility = (second ? abilities.find((x) => x == abilityDropdown2.value) : abilities.find((x) => x == abilityDropdown1.value));
     move = findMove(moveName);
@@ -1896,7 +1897,7 @@ function detailedReport() {
         } 
     }
 
-    if (move.power == 0) {
+    if (move.power == 0 || (move.name == "Spit Out" && playerItem == "None")) {
         let str = tempAtk + " " + firstLoom.name + " " + move.name + " vs. " + (!second ? hpEV2.value : hpEV1.value) + " HP / " + tempDef + " " + secondLoom.name + ": 0-0 (0 - 0%) -- nice move there, bud";
 
         document.getElementById("detailedResult").innerHTML = str;
@@ -2204,6 +2205,23 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
 
+    if (move.name == "Spit Out" && itemA == "None") {
+        if (detailed) return [0];
+        else return 0;
+    }
+
+    if (move.name == "Spit Out" && ((itemA.includes("Shell")) || (itemA.includes("Essence")) || (itemA.includes("Pearl"))) && withoutSlapDown && !foulHit) {
+        if (itemA.includes("Essence")) {
+            tempType = itemA.split(" ")[0];
+        } else if (itemA.includes("Shell") || itemA.includes("Pearl")) {
+            let itemName = itemA.split(" ")[0].toLowerCase();
+            for (let type in types) {
+                if (itemName == types[type].otherName) tempType = String(type.charAt(0).toUpperCase() + type.slice(1));
+            }
+        }
+        stuffUsed.extra1 += " (" + tempType + ")";
+    }
+
     if ((move.name == "Oppress" && stat2 != "healthy") ||
        ((move.name == "Ill Will" || move.name == "Headache Split") && stat1 != "healthy") ||
        (loom2.levitate && move.punishLevitate && (move.name != "Swat" || (move.name == "Swat" && withoutSlapDown)))) {
@@ -2349,8 +2367,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
 
     if ((move.name == "Gloominous Roar" && loom1.name == "Tiklipse" && ability1 != "Circadian" && itemA.includes("Light")) ||
-       (itemA.includes(tempType) && itemA.includes("Essence")) ||
-       (itemA == "Power Cuffs")) {
+       (itemA.includes(tempType) && itemA.includes("Essence") && move.name != "Spit Out") ||
+       (itemA == "Power Cuffs" && move.name != "Spit Out")) {
         multi *= 1.2;
         stuffUsed.item1 = itemA;
     }
@@ -2367,7 +2385,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
             stuffUsed.item2 = tempItem;
         }
     }
-    if (tempType != "Null" && itemA.includes(types[tempType.toLowerCase()].otherName.charAt(0).toUpperCase() + types[tempType.toLowerCase()].otherName.slice(1)) && itemA.includes("Shell") && withoutSlapDown && !foulHit) {
+    if (move.name != "Spit Out" && tempType != "Null" && itemA.includes(types[tempType.toLowerCase()].otherName.charAt(0).toUpperCase() + types[tempType.toLowerCase()].otherName.slice(1)) && itemA.includes("Shell") && withoutSlapDown && !foulHit) {
         multi *= 1.5;
         stuffUsed.item1 = itemA;
     }
