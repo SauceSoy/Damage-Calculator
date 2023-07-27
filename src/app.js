@@ -2367,8 +2367,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
 
     if ((move.name == "Gloominous Roar" && loom1.name == "Tiklipse" && ability1 != "Circadian" && itemA.includes("Light")) ||
-       (itemA.includes(tempType) && itemA.includes("Essence") && move.name != "Spit Out") ||
-       (itemA == "Power Cuffs" && move.name != "Spit Out")) {
+       (itemA.includes(tempType) && itemA.includes("Essence")) ||
+       (itemA == "Power Cuffs")) {
         multi *= 1.2;
         stuffUsed.item1 = itemA;
     }
@@ -2385,7 +2385,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
             stuffUsed.item2 = tempItem;
         }
     }
-    if (move.name != "Spit Out" && tempType != "Null" && itemA.includes(types[tempType.toLowerCase()].otherName.charAt(0).toUpperCase() + types[tempType.toLowerCase()].otherName.slice(1)) && itemA.includes("Shell") && withoutSlapDown && !foulHit) {
+    if (tempType != "Null" && itemA.includes(types[tempType.toLowerCase()].otherName.charAt(0).toUpperCase() + types[tempType.toLowerCase()].otherName.slice(1)) && itemA.includes("Shell") && withoutSlapDown && !foulHit) {
         multi *= 1.5;
         stuffUsed.item1 = itemA;
     }
