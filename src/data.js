@@ -741,6 +741,26 @@ var loomians = {
             speed: 35
         }
     },
+
+    'florant-flychomp': {
+        name: "Florant-Flychomp",
+        number: 35,
+        types: ["Bug", "Plant"],
+        soulMove: "Carnivorous Snap",
+        ability: "Power Jaw",
+        item: "Floraburst",
+        weight: 33,
+        height: 44,
+        baseStats: {
+            hp: 100,
+            energy: 80,
+            attack: 123,
+            defense: 100,
+            attackR: 25,
+            defenseR: 100,
+            speed: 50
+        }
+    },
  
     grubby: {
         name: "Grubby",
@@ -993,6 +1013,26 @@ var loomians = {
             attackR: 85,
             defenseR: 115,
             speed: 55
+        }
+    },
+
+    'gastroak-terraform': {
+        name: "Gastroak-Terraform",
+        number: 47,
+        types: ["Plant", "Earth"],
+        soulMove: "Flora Blast",
+        ability: "Insulated",
+        item: "Gastroburst",
+        weight: 130,
+        height: 93,
+        baseStats: {
+            hp: 140,
+            energy: 88,
+            attack: 60,
+            defense: 45,
+            attackR: 105,
+            defenseR: 140,
+            speed: 65
         }
     },
  
@@ -1365,6 +1405,26 @@ var loomians = {
             speed: 77
         }
     },
+
+    'eruptidon-magmadire': {
+        name: "Eruptidon-Magmadire",
+        number: 62,
+        types: ["Fire", "Earth"],
+        weight: 102,
+        height: 105,
+        soulMove: "Hellstorm",
+        ability: "Pyro Pro",
+        item: "Eruptiburst",
+        baseStats: {
+            hp: 81,
+            energy: 90,
+            attack: 99,
+            defense: 89,
+            attackR: 127,
+            defenseR: 89,
+            speed: 80
+        }
+    },
  
     craytal: {
         name: "Craytal",
@@ -1422,6 +1482,26 @@ var loomians = {
             attackR: 81,
             defenseR: 94,
             speed: 22
+        }
+    },
+
+    'krakaloa-lavafiend': {
+        name: "Krakaloa-Lavafiend",
+        number: 64,
+        types: ["Fire", "Spirit"],
+        soulMove: "Eruption",
+        ability: "Applied Frustration",
+        item: "Krakaburst",
+        weight: 155,
+        height: 81,
+        baseStats: {
+            hp: 115,
+            energy: 125,
+            attack: 55,
+            defense: 100,
+            attackR: 121,
+            defenseR: 104,
+            speed: 12
         }
     },
  
@@ -1743,6 +1823,26 @@ var loomians = {
         sAbility: ["Toxic Filter"],
         weight: 221,
         height: 90,
+        baseStats: {
+            hp: 95,
+            energy: 80,
+            attack: 34,
+            defense: 77,
+            attackR: 105,
+            defenseR: 108,
+            speed: 81
+        }
+    },
+
+    'stratusoar-jetwing': {
+        name: "Stratusoar-Jetwing",
+        number: 79,
+        types: ["Metal", "Air"],
+        weight: 221,
+        height: 90,
+        soulMove: "Airstrike",
+        ability: "Turbulent",
+        item: "Stratuburst",
         baseStats: {
             hp: 95,
             energy: 80,
@@ -2924,6 +3024,22 @@ var loomians = {
         }
     },
 
+    hydrolen: {
+        name: "Hydrolen",
+        types: ["Water"],
+        weight: 70,
+        height: 63,
+        baseStats: {
+            hp: 80,
+            energy: 85,
+            attack: 97,
+            defense: 49,
+            attackR: 97,
+            defenseR: 60,
+            speed: 107
+        }
+    },
+
     copling: {
         name: "Copling",
         number: 140,
@@ -3376,6 +3492,56 @@ var loomians = {
         }
     },
 
+    polypi: {
+        name: "Polypi",
+        types: ["Water", "Light"],
+        weight: 1,
+        height: 8,
+        finalEvo: false,
+        baseStats: {
+            hp: 42,
+            energy: 77,
+            attack: 10,
+            defense: 24,
+            attackR: 54,
+            defenseR: 54,
+            speed: 39
+        }
+    },
+
+    laphyra: {
+        name: "Laphyra",
+        types: ["Water", "Light"],
+        weight: 5,
+        height: 20,
+        finalEvo: false,
+        baseStats: {
+            hp: 75,
+            energy: 88,
+            attack: 15,
+            defense: 44,
+            attackR: 72,
+            defenseR: 85,
+            speed: 71
+        }
+    },
+
+    jellusa: {
+        name: "Jellusa",
+        types: ["Water", "Light"],
+        weight: 30,
+        height: 57,
+        baseStats: {
+            hp: 100,
+            energy: 99,
+            attack: 18,
+            defense: 66,
+            attackR: 95,
+            defenseR: 110,
+            speed: 92
+        }
+    },
+
     taoshi: {
         name: "Taoshi",
         number: 140,
@@ -3456,10 +3622,8 @@ var loomians = {
 
     boonary: {
         name: "Boonary",
-        number: 140,
         types: ["Spirit"],
-        abilities: ["Two Face"],
-        sAbility: [],
+        ability: "Two Face",
         weight: 1,
         height: 10,
         baseStats: {
@@ -3470,6 +3634,39 @@ var loomians = {
             attackR: 64,
             defenseR: 64,
             speed: 64
+        }
+    },
+
+    somata: {
+        name: "Somata",
+        types: ["Water", "Mind"],
+        weight: 4,
+        height: 14,
+        finalEvo: false,
+        baseStats: {
+            hp: 65,
+            energy: 70,
+            attack: 8,
+            defense: 44,
+            attackR: 57,
+            defenseR: 93,
+            speed: 22
+        }
+    },
+
+    clionae: {
+        name: "Clionae",
+        types: ["Water", "Mind"],
+        weight: 33,
+        height: 62,
+        baseStats: {
+            hp: 97,
+            energy: 91,
+            attack: 14,
+            defense: 66,
+            attackR: 95,
+            defenseR: 127,
+            speed: 70
         }
     },
 
@@ -4099,6 +4296,222 @@ var loomians = {
             speed: 111
         }
     },
+
+    fentern: {
+        name: "Fentern",
+        types: ["Typeless"],
+        weight: 8,
+        height: 21,
+        finalEvo: false,
+        baseStats: {
+            hp: 45,
+            energy: 100,
+            attack: 42,
+            defense: 46,
+            attackR: 16,
+            defenseR: 41,
+            speed: 70
+        }
+    },
+
+    weaselin: {
+        name: "Weaselin",
+        types: ["Typeless"],
+        weight: 39,
+        height: 62,
+        baseStats: {
+            hp: 75,
+            energy: 150,
+            attack: 72,
+            defense: 66,
+            attackR: 36,
+            defenseR: 61,
+            speed: 90
+        }
+    },
+
+    singeel: {
+        name: "Singeel",
+        types: ["Electric"],
+        weight: 7,
+        height: 25,
+        finalEvo: false,
+        ability: "Defensive Priority",
+        baseStats: {
+            hp: 75,
+            energy: 43,
+            attack: 6,
+            defense: 24,
+            attackR: 31,
+            defenseR: 16,
+            speed: 5
+        }
+    },
+
+    moreel: {
+        name: "Moreel",
+        types: ["Electric", "Dark"],
+        weight: 35,
+        height: 79,
+        ability: "One of Many",
+        baseStats: {
+            hp: 105,
+            energy: 83,
+            attack: 76,
+            defense: 104,
+            attackR: 121,
+            defenseR: 76,
+            speed: 35
+        }
+    },
+
+    crabushi: {
+        name: "Crabushi",
+        types: ["Metal", "Brawler"],
+        weight: 3,
+        height: 14,
+        finalEvo: false,
+        baseStats: {
+            hp: 35,
+            energy: 48,
+            attack: 53,
+            defense: 84,
+            attackR: 5,
+            defenseR: 52,
+            speed: 76
+        }
+    },
+
+    crabtana: {
+        name: "Crabtana",
+        types: ["Metal", "Brawler"],
+        weight: 20,
+        height: 37,
+        baseStats: {
+            hp: 60,
+            energy: 90,
+            attack: 100,
+            defense: 117,
+            attackR: 9,
+            defenseR: 79,
+            speed: 100
+        }
+    },
+
+    teripod: {
+        name: "Teripod",
+        types: ["Ancient", "Light"],
+        weight: 6,
+        height: 18,
+        finalEvo: false,
+        baseStats: {
+            hp: 79,
+            energy: 90,
+            attack: 49,
+            defense: 74,
+            attackR: 15,
+            defenseR: 52,
+            speed: 61
+        }
+    },
+
+    teridescent: {
+        name: "Teridescent",
+        types: ["Ancient", "Light"],
+        weight: 34,
+        height: 50,
+        baseStats: {
+            hp: 115,
+            energy: 90,
+            attack: 112,
+            defense: 105,
+            attackR: 20,
+            defenseR: 73,
+            speed: 70
+        }
+    },
+
+    skampi: {
+        name: "Skampi",
+        types: ["Water"],
+        weight: 1,
+        height: 7,
+        finalEvo: false,
+        baseStats: {
+            hp: 10,
+            energy: 72,
+            attack: 7,
+            defense: 97,
+            attackR: 7,
+            defenseR: 67,
+            speed: 110
+        }
+    },
+
+    prawnsu: {
+        name: "Prawnsu",
+        types: ["Water"],
+        weight: 10,
+        height: 33,
+        baseStats: {
+            hp: 50,
+            energy: 100,
+            attack: 14,
+            defense: 77,
+            attackR: 130,
+            defenseR: 67,
+            speed: 92
+        }
+    },
+
+    shrimposte: {
+        name: "Shrimposte",
+        types: ["Water"],
+        weight: 13,
+        height: 37,
+        baseStats: {
+            hp: 50,
+            energy: 100,
+            attack: 130,
+            defense: 97,
+            attackR: 14,
+            defenseR: 67,
+            speed: 72
+        }
+    },
+
+    dokan: {
+        name: "Dokan",
+        types: ["Earth", "Toxic"],
+        weight: 4,
+        height: 13,
+        finalEvo: false,
+        baseStats: {
+            hp: 63,
+            energy: 88,
+            attack: 49,
+            defense: 66,
+            attackR: 23,
+            defenseR: 52,
+            speed: 49
+        }
+    },
+
+    dokumori: {
+        name: "Dokumori",
+        types: ["Earth", "Toxic"],
+        weight: 29,
+        height: 42,
+        baseStats: {
+            hp: 88,
+            energy: 101,
+            attack: 101,
+            defense: 96,
+            attackR: 40,
+            defenseR: 70,
+            speed: 59
+        }
+    },
  
     duskit: {
         name: "Duskit",
@@ -4157,6 +4570,42 @@ var loomians = {
         }
     },
 
+    dakuda: {
+        name: "Dakuda",
+        types: ["Water"],
+        weight: 135,
+        height: 86,
+        baseStats: {
+            hp: 94,
+            energy: 99,
+            attack: 122,
+            defense: 76,
+            attackR: 90,
+            defenseR: 72,
+            speed: 97
+        }
+    },
+
+    'dakuda-overcharged': {
+        name: "Dakuda-Overcharged",
+        types: ["Water", "Electric"],
+        soulMove: "Electro Blast",
+        ability: "Railgun",
+        item: "Dakuburst",
+        weight: 135,
+        height: 86,
+        baseStats: {
+            hp: 114,
+            energy: 99,
+            attack: 90,
+            defense: 86,
+            attackR: 152,
+            defenseR: 82,
+            speed: 77
+        }
+    },
+
+
     mutagon: {
         name: "Mutagon",
         number: 203,
@@ -4212,6 +4661,55 @@ var loomians = {
             attackR: 125,
             defenseR: 55,
             speed: 110
+        }
+    },
+
+    arceros: {
+        name: "Arceros",
+        types: ["Fire", "Ancient"],
+        weight: 198,
+        height: 116,
+        baseStats: {
+            hp: 91,
+            energy: 115,
+            attack: 119,
+            defense: 112,
+            attackR: 63,
+            defenseR: 59,
+            speed: 91
+        }
+    },
+
+    glacadia: {
+        name: "Glacadia",
+        types: ["Ice", "Ancient"],
+        weight: 236,
+        height: 122,
+        baseStats: {
+            hp: 91,
+            energy: 115,
+            attack: 63,
+            defense: 59,
+            attackR: 119,
+            defenseR: 92,
+            speed: 111
+        }
+    },
+
+    novadeaus: {
+        name: "Novadeaus",
+        types: ["Fire", "Ice"],
+        ability: "Obsidian Heart",
+        weight: 429,
+        height: 145,
+        baseStats: {
+            hp: 91,
+            energy: 90,
+            attack: 129,
+            defense: 85,
+            attackR: 129,
+            defenseR: 75,
+            speed: 101
         }
     },
 
@@ -4523,6 +5021,30 @@ var moves = {
         secondaryEffect: true
     },
 
+    eruption: {
+        name: "Eruption",
+        power: 125,
+        energy: 0,
+        accuracy: "N/A",
+        type: "Fire",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        aoe: true
+    },
+
+    hellstorm: {
+        name: "Hellstorm",
+        power: 100,
+        energy: 0,
+        accuracy: "N/A",
+        type: "Fire",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        aoe: true
+    },
+
     spray: {
         name: "Spray",
         power: 40,
@@ -4717,6 +5239,20 @@ var moves = {
         drain: 1/2
     },
 
+    carnivorousSnap: {
+        name: "Carnivorous Snap",
+        power: 100,
+        energy: 0,
+        accuracy: "N/A",
+        type: "Plant",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        bite: true,
+        drain: 1/2,
+    },
+
     peck: {
         name: "Peck",
         power: 35,
@@ -4744,8 +5280,8 @@ var moves = {
 
     pestilence: {
         name: "Pestilence",
-        power: 35,
-        energy: 50,
+        power: 60,
+        energy: 35,
         accuracy: 100,
         type: "Bug",
         mr: "Ranged",
@@ -4811,6 +5347,19 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true
+    },
+
+    torrentialSlash: {
+        name: "Torrential Slash",
+        power: 95,
+        energy: 50,
+        accuracy: 100,
+        type: "Water",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        secondaryEffect: true
     },
 
     mudSpatter: {
@@ -4933,7 +5482,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true
+        contact: true,
+        priority: true
     },
 
     nab: {
@@ -5126,8 +5676,8 @@ var moves = {
 
     quicksand: {
         name: "Quicksand",
-        power: 35,
-        energy: 50,
+        power: 60,
+        energy: 35,
         accuracy: 100,
         type: "Earth",
         mr: "Ranged",
@@ -5170,7 +5720,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true
+        contact: true,
+        priority: true
     },
 
     pester: {
@@ -5332,6 +5883,7 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
+        bite: true,
         drain: 1/2
     },
 
@@ -5382,6 +5934,18 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         secondaryEffect: true
+    },
+
+    floraBlast: {
+        name: "Flora Blast",
+        power: 100,
+        energy: 0,
+        accuracy: "N/A",
+        type: "Plant",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        typeModifier: { type: "Plant", modifier: 4 }
     },
 
     lifeDrain: {
@@ -5444,6 +6008,17 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         secondaryEffect: true
+    },
+
+    electroBlast: {
+        name: "Electro Blast",
+        power: 125,
+        energy: 0,
+        accuracy: "N/A",
+        type: "Electric",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
     },
 
     maroon: {
@@ -5617,7 +6192,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true
+        contact: true,
+        priority: true
     },
 
     airBlade: {
@@ -5653,6 +6229,17 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         secondaryEffect: true
+    },
+
+    shadowLurk: {
+        name: "Shadow Lurk",
+        power: 100,
+        energy: 55,
+        accuracy: "N/A",
+        type: "Dark",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
     },
 
     earSlap: {
@@ -5714,7 +6301,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        punch: true
+        punch: true,
+        priority: true
     },
 
     ragingHowl: {
@@ -5829,11 +6417,34 @@ var moves = {
         secondaryEffect: true
     },
 
+    shellShrapnel: {
+        name: "Shell Shrapnel",
+        power: 110,
+        energy: 56,
+        accuracy: 100,
+        type: "Water",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+    },
+
     hydroSlash: {
         name: "Hydro Slash",
         power: 70,
         energy: 36,
         accuracy: 100,
+        type: "Water",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
+    },
+
+    shellBash: {
+        name: "Shell Bash",
+        power: 0,
+        energy: 40,
+        accuracy: "N/A",
         type: "Water",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -6128,6 +6739,18 @@ var moves = {
         contact: true
     },
 
+    razorSlash: {
+        name: "Razor Slash",
+        power: 90,
+        energy: 50,
+        accuracy: 100,
+        type: "Metal",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
+    },
+
     bash: {
         name: "Bash",
         power: 50,
@@ -6231,6 +6854,17 @@ var moves = {
         power: 85,
         energy: 42,
         accuracy: 100,
+        type: "Metal",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
+    },
+
+    airstrike: {
+        name: "Airstrike",
+        power: 125,
+        energy: 0,
+        accuracy: "N/A",
         type: "Metal",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -7106,6 +7740,18 @@ var moves = {
         contact: true,
     },
 
+    hyperSting: {
+        name: "Hyper Sting",
+        power: 90,
+        energy: 55,
+        accuracy: 100,
+        type: "Light",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+    },
+
     headacheSplit: {
         name: "Headache Split",
         power: 60,
@@ -7214,6 +7860,18 @@ var moves = {
         mr2: "Ranged Defense",
     },
 
+    spit: {
+        name: "Spit",
+        power: 50,
+        energy: 25,
+        accuracy: 100,
+        type: "Typeless",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
+    },
+
     jolt: {
         name: "Jolt",
         power: 40,
@@ -7223,6 +7881,7 @@ var moves = {
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
+        priority: true
     },
 
     zipZap: {
@@ -7461,7 +8120,7 @@ var moves = {
     gust: {
         name: "Gust",
         power: 0,
-        energy: 20,
+        energy: 25,
         accuracy: 100,
         type: "Air",
         mr: "Support"
@@ -7553,7 +8212,7 @@ var moves = {
     softWater: {
         name: "Soft Water",
         power: 0,
-        energy: 60,
+        energy: 50,
         accuracy: "N/A",
         type: "Water",
         mr: "Support"
@@ -7599,7 +8258,7 @@ var moves = {
     takeRoot: {
         name: "Take Root",
         power: 0,
-        energy: 50,
+        energy: 40,
         accuracy: "N/A",
         type: "Plant",
         mr: "Support"
@@ -7940,6 +8599,15 @@ var moves = {
         mr: "Support"
     },
 
+    enamor: {
+        name: "Enamor",
+        power: 0,
+        energy: 25,
+        accuracy: "N/A",
+        type: "Typeless",
+        mr: "Support"
+    },
+
     bequeath: {
         name: "Bequeath",
         power: 0,
@@ -7955,6 +8623,33 @@ var moves = {
         energy: 30,
         accuracy: "N/A",
         type: "Mind",
+        mr: "Support"
+    },
+
+    dissipate: {
+        name: "Dissipate",
+        power: 0,
+        energy: 50,
+        accuracy: "N/A",
+        type: "Mind",
+        mr: "Support"
+    },
+
+    nearEnchantment: {
+        name: "Near Enchantment",
+        power: 0,
+        energy: 50,
+        accuracy: "N/A",
+        type: "Ancient",
+        mr: "Support"
+    },
+
+    farEnchantment: {
+        name: "Far Enchantment",
+        power: 0,
+        energy: 50,
+        accuracy: "N/A",
+        type: "Ancient",
         mr: "Support"
     },
 
@@ -7980,6 +8675,15 @@ var moves = {
         name: "Slumber",
         power: 0,
         energy: 50,
+        accuracy: "N/A",
+        type: "Typeless",
+        mr: "Support"
+    },
+
+    teamwork: {
+        name: "Teamwork",
+        power: 0,
+        energy: 20,
         accuracy: "N/A",
         type: "Typeless",
         mr: "Support"
@@ -8246,7 +8950,9 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Sugar Rush", "Surrogate", "Swampy", "Sweet Aroma", "Sweet Touch", "Tank", "Temper", "Terrifying", "Territorial", "Thriving Pace", "Tone Deaf", "Total Eclipse", "Toxic Filter",
                  "Toxic Spines", "Toxic Touch", "Trash Armor", "Turbulent", "Ungracious Host", "Vengeance", "Vigilant", "Vigorous", "Virtuoso", "Vivid Sight", "Volcanic", "Watcher", "Webbing",
                  "Woodsman", "Two Face", "Insulated", "Wise", "Malware", "Fanning Flame", "Appetite", "Gummy", "Viscid", "Glutton", "Resentful", "Pitch-Black", "Master", "Reverberate", "Mystic Tone",
-                 "Dauntless", "Festive Spirit", "Vicious", "Reaper", "Captivating", "Forge", "Blistering Heat", "Herd Behavior", "Regurgitate", "Wholesome"];
+                 "Dauntless", "Festive Spirit", "Vicious", "Reaper", "Captivating", "Forge", "Blistering Heat", "Herd Behavior", "Regurgitate", "Wholesome", "Pyro Pro", "Persistence", "One of Many",
+                 "Mesmerizing", "Hydrate", "Railgun", "Spine Break", "Sponge", "Burning Rage", "Third-Degree Burn", "Frostbite", "Chilling Passion", "Obsidian Heart", "Luck Of The Sea", "Intern",
+                 "Partnership", "Rush Hour", "Trader"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -8287,6 +8993,12 @@ var typeModAbilities = {
     
     pyro: {
         name: "Pyro",
+        typeModifier: { type: "Fire", modifier: 1.5 },
+        powerMod: true
+    },
+
+    pyroPro: {
+        name: "Pyro Pro",
         typeModifier: { type: "Fire", modifier: 1.5 },
         powerMod: true
     },
@@ -8368,6 +9080,42 @@ var typeModAbilities = {
         typeModifier: { type: "Brawler", type2: "Mind", modifier: 0.5},
         powerMod: false
     },
+
+    hydrate: {
+        name: "Hydrate",
+        typeModifier: { type: "Water", modifier: 0},
+        powerMod: false
+    },
+
+    sponge: {
+        name: "Sponge",
+        typeModifier: { type: "Water", modifier: 0},
+        powerMod: false
+    },
+
+    railgun: {
+        name: "Railgun",
+        typeModifier: { type: "Electric", modifier: 1.5},
+        powerMod: true
+    },
+
+    burningRage: {
+        name: "Burning Rage",
+        typeModifier: { type: "Fire", modifier: 1.5},
+        powerMod: true
+    },
+
+    chillingPassion: {
+        name: "Chilling Passion",
+        typeModifier: { type: "Ice", modifier: 1.5},
+        powerMod: true
+    },
+
+    obsidianHeart: {
+        name: "Obsidian Heart",
+        typeModifier: { type: "Ancient", modifier: 1.5},
+        powerMod: true
+    },
 }
 
 var items = ["Heavy Shield", "Heavy Armor", "Power Cuffs", "Health Amulet", "Drain Orb", "Mystic Wand", "Drop of Youth", "Energy Orb", "Chocolate Bar", "Mysterious Dust", "Heavy Shackles", "Thunder Orb",
@@ -8379,6 +9127,10 @@ for (let ty in types) {
     items.push(types[ty].otherName.charAt(0).toUpperCase() + types[ty].otherName.slice(1) + " Shell");
 }
 
+for (let loo in loomians) {
+    if (loomians[loo].item) items.push(loomians[loo].item);
+}
+
 var sets = [];
 
-var changelog = "Llamba line added.";
+var changelog = "Added Atlanthian P2 Loomians. Includes the 6 Soul Bursts, Aranatta Trench Loomians, and Fentern line. Still need to make Hydrolen's Adaptive Assault work correctly but I worked on this up to 4 AM..";
