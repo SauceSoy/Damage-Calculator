@@ -54,6 +54,14 @@
                 <span id="moveFourDmg1">32% - 54%</span>
             </div>
 
+            <div>
+                <input class="hiddenToUser" type="radio" id="soulMoveRadio1" name="moveResult" onchange="update()">
+                <label class="resultlbl" id="soulMoveLbl1" style="visibility: hidden;" for="soulMoveRadio1">
+                    Searing Steel
+                </label>
+                <span style="visibility: hidden;" id="soulMoveDmg1">32% - 54%</span>
+            </div>
+
         </div>
 
         <div class="results">
@@ -88,6 +96,14 @@
                     Searing Steel
                 </label>
                 <span id="moveFourDmg2">32% - 54%</span>
+            </div>
+
+            <div>
+                <input class="hiddenToUser" type="radio" id="soulMoveRadio2" name="moveResult" onchange="update()">
+                <label class="resultlbl" id="soulMoveLbl2" style="visibility: hidden;" for="soulMoveRadio2">
+                    Searing Steel
+                </label>
+                <span style="visibility: hidden;" id="soulMoveDmg2">32% - 54%</span>
             </div>
 
         </div>
@@ -549,7 +565,7 @@
                         <input class="moveslbl" id="moveFourMR1" readonly>
                         <input type="checkbox" class="hiddenToUser" id="moveFourCrit1" onchange="update()">
                         <label class="radiolbl critlbl" for="moveFourCrit1">Crit</label>
-                    </div>
+                    </div>  
 
                 </div>
 
@@ -653,6 +669,21 @@
                     </div>
                     <div>
                         <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="wall1" onchange="update()">
+                            <label class="radiolbl fieldlbl btn-left" style="font-size: 0.6em;" for="wall1" title="Is this side protected by Near Enchantment?">Near Enchant</label>
+                            <input type="checkbox" class="hiddenToUser" id="shield1" onchange="update()">
+                            <label class="radiolbl fieldlbl btn-right" style="font-size: 0.6em;" for="shield1" title="Is this side protected by Far Enchantment?">Far Enchant</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="shield2" onchange="update()">
+                            <label class="radiolbl fieldlbl btn-left" style="font-size: 0.6em;" for="shield2" title="Is this side protected by Magical Shield?">Far Enchant</label>
+                            <input type="checkbox" class="hiddenToUser" id="wall2" onchange="update()">
+                            <label class="radiolbl fieldlbl btn-right" style="font-size: 0.6em;" for="wall2" title="Is this side protected by Near Enchantment?">Near Enchant</label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="left">
                             <input type="checkbox" class="hiddenToUser" id="sapPlant1" onchange="update()">
                             <label class="radiolbl fieldlbl icetrap" for="sapPlant1" title="Is this side affected by Sap Plant">Sap Plant</label>
                         </div>
@@ -708,6 +739,18 @@
                         <div class="right">
                             <input type="checkbox" class="hiddenToUser" id="buzzolen2" onchange="update()">
                             <label class="radiolbl fieldlbl entered" for="buzzolen2" title="Was this side stung by Buzzolen?">Stung by Buzzolen</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="hellstorm1" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="hellstorm1" title="Is this side affected by Hellstorm?">Hellstorm</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="hellstorm2" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="hellstorm2" title="Is this side affected by Hellstorm?">Hellstorm</label>
                         </div>
                     </div>
 
@@ -1226,7 +1269,7 @@
                         <input class="moveslbl" id="moveFourMR2" readonly>
                         <input type="checkbox" class="hiddenToUser" id="moveFourCrit2" onchange="update()">
                         <label class="radiolbl critlbl" for="moveFourCrit2">Crit</label>
-                    </div>
+                    </div> 
 
                 </div>
 
