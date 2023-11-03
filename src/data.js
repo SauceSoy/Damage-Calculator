@@ -1845,12 +1845,12 @@ var loomians = {
         item: "Stratuburst",
         baseStats: {
             hp: 95,
-            energy: 80,
-            attack: 34,
-            defense: 77,
-            attackR: 105,
-            defenseR: 108,
-            speed: 81
+            energy: 100,
+            attack: 56,
+            defense: 67,
+            attackR: 135,
+            defenseR: 78,
+            speed: 119
         }
     },
  
