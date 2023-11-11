@@ -2488,7 +2488,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         stuffUsed.item1 = itemA;
     }
 
-    if (itemB.includes("burst") || (itemB != "None" && move.knockOff == true && (withoutSlapDown || ability2 == "Clingy"))) {
+    if ((itemB.includes("burst") && move.knockOff) || (itemB != "None" && move.knockOff == true && (withoutSlapDown || ability2 == "Clingy"))) {
         multi *= 1.5;
         stuffUsed.item2 = itemB;
         stuffUsed.ability2 = (ability2 == "Clingy" ? ability2 : stuffUsed.ability2);
