@@ -238,8 +238,8 @@ let bloodDrain2 = document.getElementById("bloodDrain2");
 let softWater1 = document.getElementById("softWater1");
 let softWater2 = document.getElementById("softWater2");
 
-let smackDown1 = document.getElementById("smackDown1");
-let smackDown2 = document.getElementById("smackDown2");
+let teamwork1 = document.getElementById("teamwork1");
+let teamwork2 = document.getElementById("teamwork2");
 
 let dusk1 = document.getElementById("dusk1");
 let dusk2 = document.getElementById("dusk2");
@@ -382,11 +382,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -448,8 +448,8 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
@@ -1150,7 +1150,7 @@ function loadStats() {
     statEnergy1.innerHTML = energy1;
     statAtk1.innerHTML = Math.floor(atk1 * multi);
     multi = 1;
-    if (ability1 == "Trash Armor" || ability1 == "Hard Candy") multi *= 1.5;
+    if (ability1 == "Trash Armor" || ability1 == "Hard Candy" || ability1 == "Safety Pot") multi *= 1.5;
     if (firstItem == "Drop of Youth" && firstLoom.finalEvo == false) multi *= 1.5;
     if (firstItem == "Heavy Armor") multi *= 1.2;
     statDef1.innerHTML = Math.floor(def1 * multi);
@@ -1159,6 +1159,7 @@ function loadStats() {
     statAtkR1.innerHTML = Math.floor(atkR1 * multi);
     multi = 1;
     if (ability1 == "Slick Shell") multi *= 2;
+    if (ability1 == "Safety Pot") multi *= 1.5;
     if (firstItem == "Drop of Youth" && firstLoom.finalEvo == false) multi *= 1.5;
     if (firstItem == "Heavy Shield") multi *= 1.2;
     statDefR1.innerHTML = Math.floor(defR1 * multi);
@@ -1167,7 +1168,8 @@ function loadStats() {
     if (status1.value == "paralasis" && !firstLoom.types.includes("Electric") && ability1 != "Thriving Pace") multi *= 0.5;
     if (firstLoom.types.includes("Air") && winds.checked) multi *= 1.1;
     if ((ability1 == "Thriving Pace" && status1.value != "healthy") || ability1 == "Rush Hour") multi *= 1.5;
-    else if (ability1 == "Sugar Rush" && firstItem == "None") multi *= 2;
+    if (ability1 == "Sugar Rush" && firstItem == "None") multi *= 2;
+    if (ability1 == "Safety Pot") multi *= 2/3;
     statSpd1.innerHTML = Math.floor(spd1 * multi);
     multi = 1;
 
@@ -1175,7 +1177,8 @@ function loadStats() {
     statEnergy2.innerHTML = energy2;
     statAtk2.innerHTML = Math.floor(atk2 * multi);
     multi = 1;
-    if (ability2 == "Trash Armor" || ability2 == "Hard Candy" || (secondItem == "Drop of Youth" && secondLoom.finalEvo == false)) multi *= 1.5;
+    if (ability2 == "Trash Armor" || ability2 == "Hard Candy" || ability2 == "Safety Pot") multi *= 1.5;
+    if (secondItem == "Drop of Youth" && secondLoom.finalEvo == false) multi *= 1.5;
     if (secondItem == "Heavy Armor") multi *= 1.2;
     statDef2.innerHTML = Math.floor(def2 * multi);
     multi = 1;
@@ -1183,6 +1186,7 @@ function loadStats() {
     statAtkR2.innerHTML = Math.floor(atkR2 * multi);
     multi = 1;
     if (ability2 == "Slick Shell") multi *= 2;
+    if (ability2 == "Safety Pot") multi *= 1.5;
     if (secondItem == "Drop of Youth" && secondLoom.finalEvo == false) multi *= 1.5;
     if (secondItem == "Heavy Shield") multi *= 1.2;
     statDefR2.innerHTML = Math.floor(defR2 * multi);
@@ -1191,7 +1195,8 @@ function loadStats() {
     if (status2.value == "paralasis" && !secondLoom.types.includes("Electric") && ability2 != "Thriving Pace") multi *= 0.5;
     if (secondLoom.types.includes("Air") && winds.checked) multi *= 1.1;
     if ((ability2 == "Thriving Pace" && status2.value != "healthy") || ability2 == "Rush Hour") multi *= 1.5;
-    else if (ability2 == "Sugar Rush" && secondItem == "None") multi *= 2;
+    if (ability2 == "Sugar Rush" && secondItem == "None") multi *= 2;
+    if (ability2 == "Safety Pot") multi *= 2/3;
     statSpd2.innerHTML = Math.floor(spd2 * multi);
     multi = 1;
 }
@@ -1647,6 +1652,7 @@ function detailedReport() {
     let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
     let level = level1.value;
     let hp;
+    let atks = {melee: atk1, ranged: atkR1};
     let ice = iceTrap2.checked;
     let halfIce = halfIce2.checked;
     barbs = [~~$("input:radio[name='barbsL']:checked").val(), ~~$("input:radio[name='barbsR']:checked").val()];
@@ -1685,6 +1691,7 @@ function detailedReport() {
         firstLoom = loomians[pokeDropdown2.value.toLowerCase()];
         secondLoom = loomians[pokeDropdown1.value.toLowerCase()];
         level = level2.value;
+        atks = {melee: atk2, ranged: atkR2};
         ice = iceTrap1.checked;
         halfIce = halfIce1.checked;
         barb = barbs[0];
@@ -1697,6 +1704,7 @@ function detailedReport() {
         firstLoom = loomians[pokeDropdown2.value.toLowerCase()];
         secondLoom = loomians[pokeDropdown1.value.toLowerCase()];
         level = level2.value;
+        atks = {melee: atk2, ranged: atkR2};
         ice = iceTrap1.checked;
         halfIce = halfIce1.checked;
         barb = barbs[0];
@@ -1709,6 +1717,7 @@ function detailedReport() {
         firstLoom = loomians[pokeDropdown2.value.toLowerCase()];
         secondLoom = loomians[pokeDropdown1.value.toLowerCase()];
         level = level2.value;
+        atks = {melee: atk2, ranged: atkR2};
         ice = iceTrap1.checked;
         halfIce = halfIce1.checked;
         barb = barbs[0];
@@ -1721,6 +1730,7 @@ function detailedReport() {
         firstLoom = loomians[pokeDropdown2.value.toLowerCase()];
         secondLoom = loomians[pokeDropdown1.value.toLowerCase()];
         level = level2.value;
+        atks = {melee: atk2, ranged: atkR2};
         ice = iceTrap1.checked;
         halfIce = halfIce1.checked;
         barb = barbs[0];
@@ -1733,6 +1743,7 @@ function detailedReport() {
         firstLoom = loomians[pokeDropdown2.value.toLowerCase()];
         secondLoom = loomians[pokeDropdown1.value.toLowerCase()];
         level = level2.value;
+        atks = {melee: atk2, ranged: atkR2};
         ice = iceTrap1.checked;
         halfIce = halfIce1.checked;
         barb = barbs[0];
@@ -1750,10 +1761,11 @@ function detailedReport() {
     let adaptive = { mr: "", mr1: "", mr2: ""};
     let adaptiveResult;
     let atkDef;
-    if (move.name == "Adaptive Assault" && firstLoom.baseStats.attackR > firstLoom.baseStats.attack){
+    if (move.name == "Adaptive Assault" && (firstLoom.baseStats.attackR > firstLoom.baseStats.attack) || (firstLoom.name == "Hydrolen" && atks.ranged > atks.melee)){
         adaptive.mr = "Ranged";
         adaptive.mr1 = "Ranged Attack";
         adaptive.mr2 = "Ranged Defense";
+        adaptiveResult = "ranged";
         atkDef = getTempAtkDef(second, adaptive);
     } else atkDef = getTempAtkDef(second, move);
     let atkPlus = "";
@@ -1767,7 +1779,7 @@ function detailedReport() {
     }
 
     //tempAtk
-    if (move.mr1 == "Ranged Attack" || (move.name == "Adaptive Assault" && firstLoom.baseStats.attackR > firstLoom.baseStats.attack)) {
+    if (move.mr1 == "Ranged Attack" || (move.name == "Adaptive Assault" && adaptiveResult == "ranged")) {
         if ((playerAbility == "Festive Spirit" && atkDef.attack.posNat == "hyper") || (playerAbility == "Festive Spirit" && atkDef.attack.negNat == "hyper")) {
             atkPlus = "+";
         }
@@ -1932,7 +1944,7 @@ function detailedReport() {
             tempDef = tempDef + atkEV2.value + " " + defPlus + "AtkM";           
         } 
     }
-    else if (move.mr2 == "Ranged Defense" || (move.name == "Adaptive Assault" && firstLoom.baseStats.attackR > firstLoom.baseStats.attack)) {
+    else if (move.mr2 == "Ranged Defense" || (move.name == "Adaptive Assault" && adaptiveResult == "ranged")) {
         if (atkDef.defense.posNat == "clever" || atkDef.defense.negNat == "clever") {
             defPlus = "+";
         }
@@ -2264,7 +2276,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     let dawn = (second == false ? dawn1.checked : dawn2.checked);
     let guardian = (second == false ? guardian2.checked : guardian1.checked);
     let tagTeam = (second == false ? tagTeam1.checked : tagTeam2.checked);
-    let smacked = (second == false ? smackDown2.checked : smackDown1.checked);
+    let teamwork = (second == false ? teamwork1.checked : teamwork2.checked);
     let possibleDmg = [];
     let possibleFoulDmg;
     let stuffUsed = { ability1: "", ability2: "", item1: "", item2: "", extra1: "", extra2: "", weather: ""};
@@ -2275,7 +2287,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
 
     if (move.name == "Adaptive Assault") {
         tempType = types1.primary;
-        if (loom1.baseStats.attackR > loom1.baseStats.attack) {
+        if ((loom1.baseStats.attackR > loom1.baseStats.attack) || (loom1.name == "Hydrolen" && stats1.atkR > stats1.atk)) {
             adaptive.mr = "Ranged";
             adaptive.mr1 = "Ranged Attack";
             adaptive.mr2 = "Ranged Defense";
@@ -2327,8 +2339,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
 
     if ((move.name == "Oppress" && stat2 != "healthy") ||
-       ((move.name == "Ill Will" || move.name == "Headache Split") && stat1 != "healthy") ||
-       (loom2.levitate && move.punishLevitate && (move.name != "Swat" || (move.name == "Swat" && withoutSlapDown)))) {
+       ((move.name == "Ill Will" || move.name == "Headache Split") && stat1 != "healthy")) {
         powerCheck *= 2;
         multi *= 2;
         stuffUsed.extra1 += " (" + Math.floor(tempPower * 2) + " BP)";
@@ -2477,7 +2488,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         stuffUsed.item1 = itemA;
     }
 
-    if (itemB != "None" && move.knockOff == true && (withoutSlapDown || ability2 == "Clingy") && !(itemB.includes("burst"))) {
+    if (itemB.includes("burst") || (itemB != "None" && move.knockOff == true && (withoutSlapDown || ability2 == "Clingy"))) {
         multi *= 1.5;
         stuffUsed.item2 = itemB;
         stuffUsed.ability2 = (ability2 == "Clingy" ? ability2 : stuffUsed.ability2);
@@ -2519,6 +2530,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     if (tagTeam && isDouble) {
         multi *= 1.5;
         stuffUsed.extra1 += " (Conspire)"
+    }
+    if (teamwork && isDouble) {
+        multi *= 1.5;
+        stuffUsed.extra1 += " (Teamwork)"
     }
 
     if (rain.checked) {
@@ -2800,8 +2815,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     if (isDouble && guardian) {
         multi *= 0.75;
     }
-
-    if (move.grounded && loom2.levitate && !smacked) multi *= 0;
 
     stuffUsed.item2 = (itemB == "Health Amulet" ? itemB : stuffUsed.item2);
 

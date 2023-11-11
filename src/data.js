@@ -4336,7 +4336,7 @@ var loomians = {
         weight: 7,
         height: 25,
         finalEvo: false,
-        ability: "Defensive Priority",
+        ability: "Safety Pot",
         baseStats: {
             hp: 75,
             energy: 43,
@@ -7713,7 +7713,6 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        punishLevitate: true
     },
 
     hornDashi: {
@@ -8629,7 +8628,7 @@ var moves = {
     dissipate: {
         name: "Dissipate",
         power: 0,
-        energy: 50,
+        energy: 30,
         accuracy: "N/A",
         type: "Mind",
         mr: "Support"
@@ -8952,7 +8951,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Woodsman", "Two Face", "Insulated", "Wise", "Malware", "Fanning Flame", "Appetite", "Gummy", "Viscid", "Glutton", "Resentful", "Pitch-Black", "Master", "Reverberate", "Mystic Tone",
                  "Dauntless", "Festive Spirit", "Vicious", "Reaper", "Captivating", "Forge", "Blistering Heat", "Herd Behavior", "Regurgitate", "Wholesome", "Pyro Pro", "Persistence", "One of Many",
                  "Mesmerizing", "Hydrate", "Railgun", "Spine Break", "Sponge", "Burning Rage", "Third-Degree Burn", "Frostbite", "Chilling Passion", "Obsidian Heart", "Luck Of The Sea", "Intern",
-                 "Partnership", "Rush Hour", "Trader"];
+                 "Partnership", "Rush Hour", "Trader", "Safety Pot"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -9133,4 +9132,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Added Atlanthian P2 Loomians. Includes the 6 Soul Bursts, Aranatta Trench Loomians, and Fentern line. Still need to make Hydrolen's Adaptive Assault work correctly but I worked on this up to 4 AM..";
+var changelog = "Hydrolen AA works correctly. Slap Down-Soul Burst interaction corrected (for now). Teamwork button and Safety Pot added.";
