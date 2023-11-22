@@ -1116,10 +1116,7 @@ var loomians = {
 
     'waka-laka': {
         name: "Waka-Laka",
-        number: 150,
         types: ["Plant", "Mind"],
-        abilities: ["Communication", "Expertise"],
-        sAbility: ["Enchanted Coat"],
         weight: 111,
         height: 74,
         baseStats: {
@@ -1526,10 +1523,7 @@ var loomians = {
 
     festifir: {
         name: "Festifir",
-        number: 151,
         types: ["Ice", "Plant"],
-        abilities: ["Parting Gift", "Chill"],
-        sAbility: ["Regift"],
         weight: 68,
         height: 81,
         baseStats: {
@@ -4512,6 +4506,71 @@ var loomians = {
             speed: 59
         }
     },
+
+    mirrami: {
+        name: "Mirrami",
+        types: ["Spirit", "Metal"],
+        weight: 1,
+        height: 20,
+        finalEvo: false,
+        baseStats: {
+            hp: 10,
+            energy: 56,
+            attack: 85,
+            defense: 31,
+            attackR: 85,
+            defenseR: 56,
+            speed: 24
+        }
+    },
+
+    mirraith: {
+        name: "Mirraith",
+        types: ["Spirit", "Metal"],
+        weight: 24,
+        height: 71,
+        baseStats: {
+            hp: 50,
+            energy: 84,
+            attack: 125,
+            defense: 62,
+            attackR: 125,
+            defenseR: 105,
+            speed: 44
+        }
+    },
+
+    thawmin: {
+        name: "Thawmin",
+        types: ["Ice", "Mind"],
+        weight: 34,
+        height: 59,
+        baseStats: {
+            hp: 77,
+            energy: 85,
+            attack: 23,
+            defense: 53,
+            attackR: 108,
+            defenseR: 87,
+            speed: 99
+        }
+    },
+
+    leshent: {
+        name: "Leshent",
+        types: ["Plant", "Dark"],
+        weight: 106,
+        height: 77,
+        baseStats: {
+            hp: 96,
+            energy: 82,
+            attack: 103,
+            defense: 88,
+            attackR: 25,
+            defenseR: 74,
+            speed: 64
+        }
+    },
  
     duskit: {
         name: "Duskit",
@@ -4734,10 +4793,7 @@ var loomians = {
 
     metronette: {
         name: "Metronette",
-        number: 204,
         types: ["Dark", "Mind"],
-        abilities: ["Magical Cloak"],
-        sAbility: ["Applied Frustration"],
         weight: 31,
         height: 38,
         baseStats: {
@@ -4849,8 +4905,6 @@ var loomians = {
     nevermare: {
         name: "Nevermare",
         types: ["Plant", "Spirit"],
-        abilities: ["Razor Sharp"],
-        sAbility: ["Frenzy"],
         weight: 221,
         height: 86,
         baseStats: {
@@ -4970,6 +5024,22 @@ var loomians = {
             attackR: 103,
             defenseR: 79,
             speed: 91
+        }
+    },
+
+    odoyaga: {
+        name: "Odoyaga",
+        types: ["Mind", "Air"],
+        weight: 191,
+        height: 74,
+        baseStats: {
+            hp: 83,
+            energy: 90,
+            attack: 93,
+            defense: 109,
+            attackR: 131,
+            defenseR: 73,
+            speed: 71
         }
     },
 
@@ -5764,6 +5834,18 @@ var moves = {
         secondaryEffect: true
     },
 
+    shatter: {
+        name: "Shatter",
+        power: 70,
+        energy: 50,
+        accuracy: 90,
+        type: "Spirit",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+    },
+
     brainwash: {
         name: "Brainwash",
         power: 50,
@@ -6105,6 +6187,19 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true
+    },
+
+    boilingPress: {
+        name: "Boiling Press",
+        power: 75,
+        energy: 40,
+        accuracy: 100,
+        type: "Fire",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        typeModifier: { type: "Water", modifier: 4 }
     },
 
     yetisWrath: {
@@ -8951,7 +9046,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Woodsman", "Two Face", "Insulated", "Wise", "Malware", "Fanning Flame", "Appetite", "Gummy", "Viscid", "Glutton", "Resentful", "Pitch-Black", "Master", "Reverberate", "Mystic Tone",
                  "Dauntless", "Festive Spirit", "Vicious", "Reaper", "Captivating", "Forge", "Blistering Heat", "Herd Behavior", "Regurgitate", "Wholesome", "Pyro Pro", "Persistence", "One of Many",
                  "Mesmerizing", "Hydrate", "Railgun", "Spine Break", "Sponge", "Burning Rage", "Third-Degree Burn", "Frostbite", "Chilling Passion", "Obsidian Heart", "Luck Of The Sea", "Intern",
-                 "Partnership", "Rush Hour", "Trader", "Safety Pot"];
+                 "Partnership", "Rush Hour", "Trader", "Safety Pot", "Gloomy", "Mimic", "Reflective", "Hag", "Foresight"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -8968,6 +9063,12 @@ var typeModAbilities = {
     
     prismatic: {
         name: "Prismatic",
+        typeModifier: { type: "Light", modifier: 0 },
+        powerMod: false
+    },
+
+    reflective: {
+        name: "Reflective",
         typeModifier: { type: "Light", modifier: 0 },
         powerMod: false
     },
@@ -9132,4 +9233,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Hydrolen AA works correctly. Slap Down-Soul Burst interaction corrected (for now). Teamwork button and Safety Pot added.";
+var changelog = "Haunted Village Loomians added.";

@@ -211,6 +211,9 @@ let enteredBtl2 = document.getElementById("enteredBtl2");
 let status1 = document.getElementById("status1");
 let status2 = document.getElementById("status2");
 
+let diseased1 = document.getElementById("diseased1");
+let diseased2 = document.getElementById("diseased2");
+
 let gender1 = document.getElementById("gender1");
 let gender2 = document.getElementById("gender2");
 
@@ -382,11 +385,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -448,8 +451,8 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
@@ -595,6 +598,19 @@ function update(updatePower = false, updateBaseStats = false) {
     else {
         immuneAbilityBoost2.style.visibility = "hidden";
         immuneAbilityBoost2.checked = false;
+    }
+
+    if (status1.value == "diseased") {
+        diseased1.style.visibility = "visible";
+    } else {
+        diseased1.style.visibility = "hidden";
+        diseased1.value = "1/16";
+    }
+    if (status2.value == "diseased") {
+        diseased2.style.visibility = "visible";
+    } else {
+        diseased2.style.visibility = "hidden";
+        diseased2.value = "1/16";
     }
 }
 
@@ -1147,7 +1163,7 @@ function loadStats() {
     let multi = 1;
 
     statHP1.innerHTML = hp1;
-    statEnergy1.innerHTML = energy1;
+    statEnergy1.innerHTML = energy1; //+ " (+" + Math.round(energy1 / 20) + ")";
     statAtk1.innerHTML = Math.floor(atk1 * multi);
     multi = 1;
     if (ability1 == "Trash Armor" || ability1 == "Hard Candy" || ability1 == "Safety Pot") multi *= 1.5;
@@ -1174,7 +1190,7 @@ function loadStats() {
     multi = 1;
 
     statHP2.innerHTML = hp2;
-    statEnergy2.innerHTML = energy2;
+    statEnergy2.innerHTML = energy2; //+ " (+" + Math.round(energy2 / 20) + ")";
     statAtk2.innerHTML = Math.floor(atk2 * multi);
     multi = 1;
     if (ability2 == "Trash Armor" || ability2 == "Hard Candy" || ability2 == "Safety Pot") multi *= 1.5;
@@ -1445,6 +1461,13 @@ function checkEnergy(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTw
             }
         }
     }
+    else if (ability1 == "Hag") {
+        for (let i = 0; i < 4; i++) {
+            if (moves1[i].type == "Mind") {
+                movesEnergy1[i] = movesEnergy1[i] * 0.75;
+            }
+        }
+    }
     else if (ability1 == "Pyro") {
         for (let i = 0; i < 4; i++) {
             if (moves1[i].type == "Fire" && moves1[i].mr != "Support") {
@@ -1493,6 +1516,13 @@ function checkEnergy(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTw
     else if (ability2 == "Virtuoso") {
         for (let i = 0; i < 4; i++) {
             if (moves2[i].sound) {
+                movesEnergy2[i] = movesEnergy2[i] * 0.75;
+            }
+        }
+    }
+    else if (ability2 == "Hag") {
+        for (let i = 0; i < 4; i++) {
+            if (moves2[i].type == "Mind") {
                 movesEnergy2[i] = movesEnergy2[i] * 0.75;
             }
         }
@@ -1553,6 +1583,8 @@ function calculateDamage(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, mo
 
     let ability1 = abilities.find((x) => x == abilityDropdown1.value);
     let ability2 = abilities.find((x) => x == abilityDropdown2.value);
+    if (fog.checked && !firstLoom.types.includes("Spirit") && ability1 != "Gloomy") ability1 = "None";
+    if (fog.checked && !secondLoom.types.includes("Spirit") && ability2 != "Gloomy") ability2 = "None";
     if ((tempAbility1 != ability1 && (tempAbility1 == "Idiosyncratic" || ability1 == "Idiosyncratic"))) {
         loadBaseStats(1);
         loadStats();
@@ -2028,6 +2060,7 @@ function detailedReport() {
         possibleDmg2 = possibleDmg2 + foulDamage[0];
         possibleDmg3 = possibleDmg3 + foulDamage[15];
     }
+    let turnCount = 0;
     let lowerPercent = (possibleDmg2 / hp * 100).toFixed(1);
     let upperPercent = (possibleDmg3 / hp * 100).toFixed(1);
     let stuffUsed = possibleDmg[16];
@@ -2037,7 +2070,7 @@ function detailedReport() {
     let str = tempAtk + " " + stuffUsed.item1 + " " + stuffUsed.ability1 + " " + firstLoom.name + " " + critStr + move.name + stuffUsed.extra1 + " vs. " + (!second ? hpEV2.value : hpEV1.value) + " HP / " +
         tempDef + " " + stuffUsed.item2 + " " + stuffUsed.ability2 + " " + secondLoom.name + stuffUsed.weather + ": " + possibleDmg2 + "-" + possibleDmg3 + " (" + lowerPercent + " - " + upperPercent + "%) -- ";
 
-    let hazardStr = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second, true)[1];
+    let hazardStr = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second, turnCount, true)[1];
 
     document.getElementById("possibleDmg").innerHTML = possibleDmgStr;
 
@@ -2078,9 +2111,9 @@ function detailedReport() {
         }
     }
 
-    let tickDamage = adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second, "OHKO")[0];
+    let tickDamage = adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second, turnCount, "OHKO")[0];
     tickDamage = tickDamage + Math.floor(maxHP * addedDmg / 100);
-    hazardStr = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second, "OHKO")[1];
+    hazardStr = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second, turnCount, "OHKO")[1];
     
     let OHKOs = [];
     let tickOHKOs = [];
@@ -2150,8 +2183,9 @@ function detailedReport() {
         }
     }
 
-    hp = hp - adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second)[0];
-    hazardStr = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second)[1];
+    turnCount = 1;
+    hp = hp - adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second, turnCount)[0];
+    hazardStr = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second, turnCount)[1];
 
     for (let i = 0; i < possibleDmg.length; i++) {
         for (let j = 0; j < possibleDmg2.length; j++) {
@@ -2172,7 +2206,8 @@ function detailedReport() {
         return;
     }
 
-    hp = hp - adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second)[0];
+    turnCount = 2;
+    hp = hp - adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second, turnCount)[0];
 
     for (let i = 0; i < possibleDmg.length; i++) {
         for (let j = 0; j < possibleDmg2.length; j++) {
@@ -2195,7 +2230,8 @@ function detailedReport() {
         return;
     }
 
-    hp = hp - adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second)[0];
+    turnCount = 3;
+    hp = hp - adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second, turnCount)[0];
 
     if (possibleDmg[15] * 4 >= hp) {
         let FHKO = "possible 4HKO";
@@ -2205,7 +2241,8 @@ function detailedReport() {
         return;
     }
 
-    hp = hp - adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second)[0];
+    turnCount = 4;
+    hp = hp - adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second, turnCount)[0];
 
     if (possibleDmg[15] * 5 >= hp) {
         let FIHKO = "possible 5HKO";
@@ -2361,8 +2398,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
 
     if (fog.checked) {
-        if (!loom1.types.includes("Spirit")) ability1 = "None";
-        if (!loom2.types.includes("Spirit")) ability2 = "None";
+        if (!loom1.types.includes("Spirit") && ability1 != "Gloomy") ability1 = "None";
+        if (!loom2.types.includes("Spirit") && ability2 != "Gloomy") ability2 = "None";
         stuffUsed.weather += " in Dense Fog";
     }
 
@@ -2445,7 +2482,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     if ((ability1 == "Sharp Claws" && move.contact == true) || 
        (ability1 == "Brute Force" && move.secondaryEffect == true) ||
        (ability1 == "Overcharged" && tempType == "Electric") ||
-       (ability1 == "Watcher" && (stats1.spd < stats2.spd || btl1 && withoutSlapDown))) {
+       (ability1 == "Watcher" && (stats1.spd < stats2.spd || btl1 && withoutSlapDown)) ||
+       (ability1 == "Gloomy" && fog.checked)) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
@@ -2459,7 +2497,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
 
     if ((ability1 == "Bloodsucker" && move.drain) ||
-       (gen1 == gen2 && ability1 == "Territorial")) {
+       (gen1 == gen2 && ability1 == "Territorial") ||
+       (ability1 == "Hag" && tempType == "Mind")) {
         multi *= 1.25;
         stuffUsed.ability1 = ability1;
     }
@@ -2469,7 +2508,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         stuffUsed.ability2 = ability2;
     }
 
-    if ((ability1 == "Baneful" && stat2 == "poisoned") ||
+    if ((ability1 == "Baneful" && (stat2 == "poisoned" || stat2 == "diseased")) ||
        (move.sound == true && ability1 == "Tone Deaf") ||
        (move.recoil && ability1 == "Madcap") ||
        (stat2 != "healthy" && ability1 == "Mean Spirited")) {
@@ -2575,7 +2614,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
     if ((ability1 == "Hasty" && move.mr1 == "Melee Attack") ||
        (ability1 == "Vigorous" && stat1 != "healthy" && move.mr1 == "Melee Attack") ||
-       (ability1 == "Vicious" && stat1 == "poisoned") ||
+       (ability1 == "Vicious" && (stat1 == "poisoned" || stat1 == "diseased")) ||
        (dawn && isDouble && move.mr1 == "Melee Attack" && ability1 == "Dusk") ||
        (dawn && isDouble && move.mr1 == "Ranged Attack" && ability1 == "Dawn") ||
        (move.mr1 == "Melee Defense" && ability1 == "Trash Armor")) {
@@ -2693,7 +2732,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
 
     if((ability1 == "Devious") || 
        (ability1 == "Bully" && loom1.height > loom2.height) ||
-       (fog.checked)) {
+       (fog.checked && !loom2.types.includes("Spirit"))) {
         typeModAbility2 = undefined;
     }
 
@@ -2800,7 +2839,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
-    if (ability2 == "Mesmerizing" && move.priority) {
+    if (ability2 == "Mesmerizing" && (move.priority || (ability1 == "Foresight" && tempType == "Mind" && stats1.hpPercent > 49))) {
         multi *= 0;
         stuffUsed.ability2 = ability2;
     }
@@ -3031,7 +3070,7 @@ function displayDamage(damage) {
     return damage[0].join(", ");
 }
 
-function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false, OHKO, onlyIncludeIceTrap = false) {
+function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false, counter, OHKO, onlyIncludeIceTrap = false) {
     let newHP = 0;
     let multi = 1;
     let ice = iceTrap2.checked;
@@ -3045,6 +3084,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     let buzzolen = buzzolen2.checked;
     let hellstorm = hellstorm2.checked;
     let softWater = softWater2.checked;
+    let disease = diseased2.value;
     let hazardString = "";
 
     if (second) {
@@ -3058,7 +3098,9 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         buzzolen = buzzolen1.checked;
         hellstorm = hellstorm1.checked;
         softWater = softWater1.checked;
+        disease = diseased1.value;
     }
+    disease = parseInt(disease);
 
     if (ice && !(loom2.types.includes("Ice"))) {
         if (loom2.types.includes("Fire") || halfIce) {
@@ -3179,6 +3221,10 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         newHP += Math.floor(hp1 * 1 / 8);
         hazardString += "poison damage and ";
     }
+    if (status == "diseased" && !loom2.types.includes("Toxic") && ability != "One of Many") {
+        newHP += Math.floor(hp1 * (disease + counter) / 16);
+        hazardString += "poison damage and ";
+    }
 
     if (status == "asleep" && otherAbility == "Nightmarish" && ability != "One of Many") {
         newHP += Math.floor(hp1 * 1 / 8);
@@ -3193,11 +3239,16 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
 
 function checkIceTrap(move, l, u, hp, energy, item, ability, ability2) {
     if (l == 0 && u == 0) return "";
-    if (move.drain) {
+    if (move.drain || ability == "Demanding") {
+        let drain = move.drain;
+        if (ability == "Demanding") {
+            if (!drain) drain = 1/4;
+            else drain += 1/4;
+        }
         let drainMI = (item == "Drain Orb" ? 1.2 : 1);
         let drainMA = (ability == "Drainage" ? 1.5 : 1); 
-        let drainL = Math.max(Math.floor(l * move.drain * drainMI * drainMA), 1);
-        let drainU = Math.max(Math.floor(u * move.drain * drainMI * drainMA), 1);
+        let drainL = Math.max(Math.floor(l * drain * drainMI * drainMA), 1);
+        let drainU = Math.max(Math.floor(u * drain * drainMI * drainMA), 1);
         if (ability2 == "Ungracious Host") return " (" + (drainL / hp * 100).toFixed(1) + " - " + (drainU / hp * 100).toFixed(1) + "% recoil damage)";
         return " (" + (drainL / hp * 100).toFixed(1) + " - " + (drainU / hp * 100).toFixed(1) + "% recovered)";
     }
