@@ -385,11 +385,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -451,8 +451,8 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
@@ -1163,7 +1163,7 @@ function loadStats() {
     let multi = 1;
 
     statHP1.innerHTML = hp1;
-    statEnergy1.innerHTML = energy1; //+ " (+" + Math.round(energy1 / 20) + ")";
+    statEnergy1.innerHTML = energy1;// + " (+" + Math.round(energy1 / 20) + ")";
     statAtk1.innerHTML = Math.floor(atk1 * multi);
     multi = 1;
     if (ability1 == "Trash Armor" || ability1 == "Hard Candy" || ability1 == "Safety Pot") multi *= 1.5;
@@ -1818,6 +1818,9 @@ function detailedReport() {
         else if (atkDef.attack.posNat == "smart" || atkDef.attack.negNat == "smart") {
             atkPlus = "+";
         }
+        else if (playerAbility == "Festive Spirit" && atkDef.attack.veryNat == "vHyper") {
+            atkPlus = "++";
+        }
         else if (atkDef.attack.veryNat == "vSmart") {
             atkPlus = "++";
         }
@@ -1827,6 +1830,9 @@ function detailedReport() {
         }
         else if (atkDef.attack.posNat == "clumsy" || atkDef.attack.negNat == "clumsy") {
             atkPlus = "-";
+        }
+        else if (playerAbility == "Festive Spirit" && atkDef.attack.veryNat == "vDull") {
+            atkPlus = "--";
         }
         else if (atkDef.attack.veryNat == "vClumsy") {
             atkPlus = "--";
@@ -2482,7 +2488,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     if ((ability1 == "Sharp Claws" && move.contact == true) || 
        (ability1 == "Brute Force" && move.secondaryEffect == true) ||
        (ability1 == "Overcharged" && tempType == "Electric") ||
-       (ability1 == "Watcher" && (stats1.spd < stats2.spd || btl1 && withoutSlapDown)) ||
+       (ability1 == "Watcher" && (stats1.spd < stats2.spd || (btl1 && withoutSlapDown))) ||
        (ability1 == "Gloomy" && fog.checked)) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;

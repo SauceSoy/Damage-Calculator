@@ -4265,7 +4265,7 @@ var loomians = {
             hp: 76,
             energy: 76,
             attack: 37,
-            defense: 50,
+            defense: 70,
             attackR: 83,
             defenseR: 62,
             speed: 86
@@ -4804,6 +4804,25 @@ var loomians = {
             attackR: 127,
             defenseR: 79,
             speed: 105
+        }
+    },
+
+    'metronette-willbound': {
+        name: "Metronette-Willbound",
+        types: ["Dark", "Mind"],
+        weight: 31,
+        height: 38,
+        soulMove: "Sinister Shackle",
+        ability: "Demanding",
+        item: "Metroburst",
+        baseStats: {
+            hp: 53,
+            energy: 98,
+            attack: 114,
+            defense: 119,
+            attackR: 147,
+            defenseR: 54,
+            speed: 115
         }
     },
 
@@ -6335,6 +6354,30 @@ var moves = {
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
+    },
+
+    shadowPulse: {
+        name: "Shadow Pulse",
+        power: 80,
+        energy: 50,
+        accuracy: 100,
+        type: "Dark",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        aoe: true
+    },
+
+    sinisterShackle: {
+        name: "Sinister Shackle",
+        power: 125,
+        energy: 0,
+        accuracy: "N/A",
+        type: "Dark",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        aoe: true
     },
 
     earSlap: {
@@ -9046,7 +9089,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Woodsman", "Two Face", "Insulated", "Wise", "Malware", "Fanning Flame", "Appetite", "Gummy", "Viscid", "Glutton", "Resentful", "Pitch-Black", "Master", "Reverberate", "Mystic Tone",
                  "Dauntless", "Festive Spirit", "Vicious", "Reaper", "Captivating", "Forge", "Blistering Heat", "Herd Behavior", "Regurgitate", "Wholesome", "Pyro Pro", "Persistence", "One of Many",
                  "Mesmerizing", "Hydrate", "Railgun", "Spine Break", "Sponge", "Burning Rage", "Third-Degree Burn", "Frostbite", "Chilling Passion", "Obsidian Heart", "Luck Of The Sea", "Intern",
-                 "Partnership", "Rush Hour", "Trader", "Safety Pot", "Gloomy", "Mimic", "Reflective", "Hag", "Foresight"];
+                 "Partnership", "Rush Hour", "Trader", "Safety Pot", "Gloomy", "Mimic", "Reflective", "Hag", "Foresight", "Demanding"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -9233,4 +9276,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Haunted Village Loomians added.";
+var changelog = "SB Metro added.";
