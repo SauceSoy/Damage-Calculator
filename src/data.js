@@ -4812,7 +4812,7 @@ var loomians = {
         types: ["Dark", "Mind"],
         weight: 31,
         height: 38,
-        soulMove: "Sinister Shackle",
+        soulMove: "Sinister Shackles",
         ability: "Demanding",
         item: "Metroburst",
         baseStats: {
@@ -6368,9 +6368,9 @@ var moves = {
         aoe: true
     },
 
-    sinisterShackle: {
-        name: "Sinister Shackle",
-        power: 125,
+    sinisterShackles: {
+        name: "Sinister Shackles",
+        power: 100,
         energy: 0,
         accuracy: "N/A",
         type: "Dark",
