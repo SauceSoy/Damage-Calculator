@@ -7492,7 +7492,6 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true
     },
 
     timberThrash: {
@@ -8484,7 +8483,7 @@ var moves = {
     battleChime: {
         name: "Battle Chime",
         power: 0,
-        energy: 10,
+        energy: 50,
         accuracy: 100,
         type: "Typeless",
         mr: "Support"
