@@ -385,11 +385,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -451,14 +451,14 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
-        document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
+        document.cookie = "darkMode=true; expires=Mon, 1 Jan 2025 12:00:00 UTC"
     }
     else {
-        document.cookie = "darkMode=false; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+        document.cookie = "darkMode=false; expires=Mon, 1 Jan 2025 12:00:00 UTC";
     }
 }
 
@@ -1167,7 +1167,7 @@ function loadStats() {
     statAtk1.innerHTML = Math.floor(atk1 * multi);
     multi = 1;
     if (ability1 == "Trash Armor" || ability1 == "Hard Candy" || ability1 == "Safety Pot") multi *= 1.5;
-    if (firstItem == "Drop of Youth" && firstLoom.finalEvo == false) multi *= 1.5;
+    if (firstItem == "Drop of Youth" && firstLoom.finalEvo == false) multi *= 1.4;
     if (firstItem == "Heavy Armor") multi *= 1.2;
     statDef1.innerHTML = Math.floor(def1 * multi);
     multi = 1;
@@ -1176,7 +1176,7 @@ function loadStats() {
     multi = 1;
     if (ability1 == "Slick Shell") multi *= 2;
     if (ability1 == "Safety Pot") multi *= 1.5;
-    if (firstItem == "Drop of Youth" && firstLoom.finalEvo == false) multi *= 1.5;
+    if (firstItem == "Drop of Youth" && firstLoom.finalEvo == false) multi *= 1.4;
     if (firstItem == "Heavy Shield") multi *= 1.2;
     statDefR1.innerHTML = Math.floor(defR1 * multi);
     multi = 1;
@@ -1194,7 +1194,7 @@ function loadStats() {
     statAtk2.innerHTML = Math.floor(atk2 * multi);
     multi = 1;
     if (ability2 == "Trash Armor" || ability2 == "Hard Candy" || ability2 == "Safety Pot") multi *= 1.5;
-    if (secondItem == "Drop of Youth" && secondLoom.finalEvo == false) multi *= 1.5;
+    if (secondItem == "Drop of Youth" && secondLoom.finalEvo == false) multi *= 1.4;
     if (secondItem == "Heavy Armor") multi *= 1.2;
     statDef2.innerHTML = Math.floor(def2 * multi);
     multi = 1;
@@ -1203,7 +1203,7 @@ function loadStats() {
     multi = 1;
     if (ability2 == "Slick Shell") multi *= 2;
     if (ability2 == "Safety Pot") multi *= 1.5;
-    if (secondItem == "Drop of Youth" && secondLoom.finalEvo == false) multi *= 1.5;
+    if (secondItem == "Drop of Youth" && secondLoom.finalEvo == false) multi *= 1.4;
     if (secondItem == "Heavy Shield") multi *= 1.2;
     statDefR2.innerHTML = Math.floor(defR2 * multi);
     multi = 1;
@@ -1828,7 +1828,7 @@ function detailedReport() {
         if ((playerAbility == "Festive Spirit" && atkDef.attack.posNat == "dull") || (playerAbility == "Festive Spirit" && atkDef.attack.negNat == "dull")) {
             atkPlus = "-";
         }
-        else if (atkDef.attack.posNat == "clumsy" || atkDef.attack.negNat == "clumsy") {
+        else if ((atkDef.attack.posNat == "clumsy" || atkDef.attack.negNat == "clumsy") && playerAbility != "Festive Spirit") {
             atkPlus = "-";
         }
         else if (playerAbility == "Festive Spirit" && atkDef.attack.veryNat == "vDull") {
@@ -2636,9 +2636,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         multi *= 2;
         stuffUsed.ability1 = ability1
     }
-    if ((itemA == "Mystic Wand" && loom1.name == "Shawchi" && move.mr1 == "Ranged Attack") ||
-        (itemA == "Drop of Youth" && loom1.finalEvo == false && (move.mr1 == "Melee Defense" || move.mr1 == "Ranged Defense"))) {
+    if (itemA == "Mystic Wand" && loom1.name == "Shawchi" && move.mr1 == "Ranged Attack") {
         multi *= 1.5;
+        stuffUsed.item1 = itemA;
+    }
+    if (itemA == "Drop of Youth" && loom1.finalEvo == false && (move.mr1 == "Melee Defense" || move.mr1 == "Ranged Defense")) {
+        multi *= 1.4;
         stuffUsed.item1 = itemA;
     }
 
@@ -2661,7 +2664,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         stuffUsed.item2 = itemB;
     }
     if (itemB == "Drop of Youth" && loom2.finalEvo == false) {
-        multi *= 1.5;
+        multi *= 1.4;
         stuffUsed.item2 = itemB;
     }
     if ((ability2 == "Trash Armor" || ability2 == "Hard Candy") && move.mr2 == "Melee Defense" && adaptive.mr2 != "Ranged Defense") {
@@ -2718,8 +2721,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         multi *= 2;
         stuffUsed.ability1 = ability1;
     }
-    else if (isStab(types1, { type: tempType })) {
+    else if (isStab(types1, { type: tempType }) || ability1 == "Mask Change") {
         multi *= 1.25;
+        if (ability1 == "Mask Change") stuffUsed.ability1 = ability1;
     }
     else if (move.name == "Gloominous Roar" && loom1.name == "Tiklipse" && ability1 != "Circadian") {
         multi *= 1.25;

@@ -3095,12 +3095,10 @@ var loomians = {
 
     spirivii: {
         name: "Spirivii",
-        number: 140,
         types: ["Bug", "Spirit"],
-        abilities: ["Life Force"],
-        sAbility: [],
         weight: 4,
         height: 18,
+        ability: "Life Force",
         finalEvo: false,
         baseStats: {
             hp: 61,
@@ -3115,12 +3113,10 @@ var loomians = {
 
     eidohusk: {
         name: "Eidohusk",
-        number: 141,
         types: ["Bug", "Spirit"],
-        abilities: ["Life Force"],
-        sAbility: [],
         weight: 13,
         height: 43,
+        ability: "Life Force",
         finalEvo: false,
         baseStats: {
             hp: 81,
@@ -3135,12 +3131,10 @@ var loomians = {
 
     harvesect: {
         name: "Harvesect",
-        number: 142,
         types: ["Bug", "Spirit"],
-        abilities: ["Life Force"],
-        sAbility: [],
         weight: 78,
         height: 77,
+        ability: "Life Force",
         baseStats: {
             hp: 116,
             energy: 0,
@@ -3960,12 +3954,10 @@ var loomians = {
 
     mistlebud: {
         name: "Mistlebud",
-        number: 140,
         types: ["Plant"],
-        abilities: ["Festive Spirit"],
-        sAbility: [],
         weight: 1,
         height: 7,
+        ability: "Festive Spirit",
         finalEvo: false,
         baseStats: {
             hp: 25,
@@ -3980,12 +3972,10 @@ var loomians = {
 
     hollibunch: {
         name: "Hollibunch",
-        number: 140,
         types: ["Plant", "Light"],
-        abilities: ["Festive Spirit"],
-        sAbility: [],
         weight: 7,
         height: 25,
+        ability: "Festive Spirit",
         baseStats: {
             hp: 65,
             energy: 110,
@@ -3999,10 +3989,7 @@ var loomians = {
 
     cryocub: {
         name: "Cryocub",
-        number: 140,
         types: ["Ice"],
-        abilities: ["Adorable", "Communication"],
-        sAbility: ["Mysterious Cloak"],
         weight: 10,
         height: 30,
         finalEvo: false,
@@ -4019,10 +4006,7 @@ var loomians = {
 
     barbadger: {
         name: "Barbadger",
-        number: 140,
         types: ["Ice", "Brawler"],
-        abilities: ["Dauntless", "Communication"],
-        sAbility: ["Mysterious Cloak"],
         weight: 74,
         height: 90,
         baseStats: {
@@ -4038,10 +4022,7 @@ var loomians = {
 
     kyeggo: {
         name: "Kyeggo",
-        number: 140,
         types: ["Dark"],
-        abilities: ["Anomaly", "Vivid Sight"],
-        sAbility: ["Vicious"],
         weight: 5,
         height: 18,
         finalEvo: false,
@@ -4058,10 +4039,7 @@ var loomians = {
 
     doreggo: {
         name: "Doreggo",
-        number: 140,
         types: ["Dark", "Air"],
-        abilities: ["Anomaly", "Vivid Sight"],
-        sAbility: ["Vicious"],
         weight: 13,
         height: 35,
         finalEvo: false,
@@ -4078,10 +4056,7 @@ var loomians = {
 
     dreggodyne: {
         name: "Dreggodyne",
-        number: 140,
         types: ["Dark", "Air"],
-        abilities: ["Anomaly", "Vivid Sight"],
-        sAbility: ["Vicious"],
         weight: 146,
         height: 92,
         baseStats: {
@@ -4097,10 +4072,7 @@ var loomians = {
 
     wispur: {
         name: "Wispur",
-        number: 140,
         types: ["Spirit", "Light"],
-        abilities: ["Radiance", "Prismatic"],
-        sAbility: ["Captivating"],
         weight: 1,
         height: 13,
         finalEvo: false,
@@ -4117,10 +4089,7 @@ var loomians = {
 
     lampurge: {
         name: "Lampurge",
-        number: 140,
         types: ["Spirit", "Light"],
-        abilities: ["Radiance", "Prismatic"],
-        sAbility: ["Captivating"],
         weight: 4,
         height: 31,
         finalEvo: false,
@@ -4137,10 +4106,7 @@ var loomians = {
 
     charonyx: {
         name: "Charonyx",
-        number: 140,
         types: ["Spirit", "Light"],
-        abilities: ["Radiance", "Prismatic"],
-        sAbility: ["Reaper"],
         weight: 5,
         height: 49,
         baseStats: {
@@ -4156,10 +4122,7 @@ var loomians = {
 
     smoal: {
         name: "Smoal",
-        number: 140,
         types: ["Fire", "Toxic"],
-        abilities: ["Forge", "Scorching Skin"],
-        sAbility: ["Blistering Heat"],
         weight: 20,
         height: 19,
         finalEvo: false,
@@ -4176,10 +4139,7 @@ var loomians = {
 
     charkiln: {
         name: "Charkiln",
-        number: 140,
         types: ["Fire", "Toxic"],
-        abilities: ["Forge", "Scorching Skin"],
-        sAbility: ["Blistering Heat"],
         weight: 40,
         height: 45,
         finalEvo: false,
@@ -4196,10 +4156,7 @@ var loomians = {
 
     billoforge: {
         name: "Billoforge",
-        number: 140,
         types: ["Fire", "Toxic"],
-        abilities: ["Forge", "Scorching Skin"],
-        sAbility: ["Blistering Heat"],
         weight: 296,
         height: 76,
         baseStats: {
@@ -4569,6 +4526,89 @@ var loomians = {
             attackR: 25,
             defenseR: 74,
             speed: 64
+        }
+    },
+
+    kayute: {
+        name: "Kayute",
+        types: ["Ice", "Dark"],
+        weight: 30,
+        height: 32,
+        finalEvo: false,
+        baseStats: {
+            hp: 40,
+            energy: 61,
+            attack: 58,
+            defense: 54,
+            attackR: 29,
+            defenseR: 49,
+            speed: 69
+        }
+    },
+
+    kayappa: {
+        name: "Kayappa",
+        types: ["Ice", "Dark"],
+        weight: 85,
+        height: 65,
+        finalEvo: false,
+        baseStats: {
+            hp: 52,
+            energy: 78,
+            attack: 79,
+            defense: 75,
+            attackR: 39,
+            defenseR: 70,
+            speed: 81
+        }
+    },
+
+    kramboss: {
+        name: "Kramboss",
+        types: ["Ice", "Dark"],
+        weight: 130,
+        height: 81,
+        baseStats: {
+            hp: 64,
+            energy: 98,
+            attack: 105,
+            defense: 91,
+            attackR: 51,
+            defenseR: 86,
+            speed: 95
+        }
+    },
+
+    leopaw: {
+        name: "Leopaw",
+        types: ["Light", "Ice"],
+        weight: 5,
+        height: 21,
+        finalEvo: false,
+        baseStats: {
+            hp: 56,
+            energy: 78,
+            attack: 54,
+            defense: 48,
+            attackR: 28,
+            defenseR: 39,
+            speed: 71
+        }
+    },
+
+    chienta: {
+        name: "Chienta",
+        types: ["Light", "Ice"],
+        weight: 89,
+        height: 79,
+        baseStats: {
+            hp: 98,
+            energy: 97,
+            attack: 95,
+            defense: 73,
+            attackR: 38,
+            defenseR: 57,
+            speed: 115
         }
     },
  
@@ -5059,6 +5099,22 @@ var loomians = {
             attackR: 131,
             defenseR: 73,
             speed: 71
+        }
+    },
+
+    mimask: {
+        name: "Mimask",
+        types: ["Dark"],
+        weight: 34,
+        height: 59,
+        baseStats: {
+            hp: 90,
+            energy: 113,
+            attack: 117,
+            defense: 55,
+            attackR: 107,
+            defenseR: 55,
+            speed: 113
         }
     },
 
@@ -5948,6 +6004,19 @@ var moves = {
         contact: true
     },
 
+    harrow: {
+        name: "Harrow",
+        power: 90,
+        energy: 50,
+        accuracy: 100,
+        type: "Spirit",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        secondaryEffect: true
+    },
+
     venomChomp: {
         name: "Venom Chomp",
         power: 70,
@@ -6359,7 +6428,7 @@ var moves = {
     shadowPulse: {
         name: "Shadow Pulse",
         power: 80,
-        energy: 50,
+        energy: 40,
         accuracy: 100,
         type: "Dark",
         mr: "Ranged",
@@ -7132,6 +7201,20 @@ var moves = {
         secondaryEffect: true
     },
 
+    viceJaws: {
+        name: "Vice Jaws",
+        power: 80,
+        energy: 40,
+        accuracy: 100,
+        type: "Metal",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        secondaryEffect: true,
+        bite: true
+    },
+
     frostPunch: {
         name: "Frost Punch",
         power: 70,
@@ -7877,6 +7960,30 @@ var moves = {
         contact: true,
     },
 
+    radiantRush: {
+        name: "Radiant Rush",
+        power: 100,
+        energy: 50,
+        accuracy: 90,
+        type: "Light",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+    },
+
+    solarPunch: {
+        name: "Solar Punch",
+        power: 100,
+        energy: 50,
+        accuracy: 100,
+        type: "Light",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+    },
+
     hyperSting: {
         name: "Hyper Sting",
         power: 90,
@@ -8367,6 +8474,15 @@ var moves = {
 
     stare: {
         name: "Stare",
+        power: 0,
+        energy: 10,
+        accuracy: 100,
+        type: "Typeless",
+        mr: "Support"
+    },
+
+    battleChime: {
+        name: "Battle Chime",
         power: 0,
         energy: 10,
         accuracy: 100,
@@ -9089,7 +9205,8 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Woodsman", "Two Face", "Insulated", "Wise", "Malware", "Fanning Flame", "Appetite", "Gummy", "Viscid", "Glutton", "Resentful", "Pitch-Black", "Master", "Reverberate", "Mystic Tone",
                  "Dauntless", "Festive Spirit", "Vicious", "Reaper", "Captivating", "Forge", "Blistering Heat", "Herd Behavior", "Regurgitate", "Wholesome", "Pyro Pro", "Persistence", "One of Many",
                  "Mesmerizing", "Hydrate", "Railgun", "Spine Break", "Sponge", "Burning Rage", "Third-Degree Burn", "Frostbite", "Chilling Passion", "Obsidian Heart", "Luck Of The Sea", "Intern",
-                 "Partnership", "Rush Hour", "Trader", "Safety Pot", "Gloomy", "Mimic", "Reflective", "Hag", "Foresight", "Demanding"];
+                 "Partnership", "Rush Hour", "Trader", "Safety Pot", "Gloomy", "Mimic", "Reflective", "Hag", "Foresight", "Demanding", "Ravenous", "Designated Chompers", "Battle Armor", "Mask Swap",
+                 "Facade"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -9276,4 +9393,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "SB Metro added.";
+var changelog = "Jolly Festival Loomians added.";
