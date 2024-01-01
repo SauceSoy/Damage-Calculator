@@ -2723,7 +2723,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
     else if (isStab(types1, { type: tempType }) || ability1 == "Mask Swap") {
         multi *= 1.25;
-        if (ability1 == "Mask Change") stuffUsed.ability1 = ability1;
+        if (ability1 == "Mask Swap") stuffUsed.ability1 = ability1;
     }
     else if (move.name == "Gloominous Roar" && loom1.name == "Tiklipse" && ability1 != "Circadian") {
         multi *= 1.25;
