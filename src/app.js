@@ -385,11 +385,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -451,8 +451,8 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2025 12:00:00 UTC"
@@ -2354,10 +2354,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         stuffUsed.extra1 += " (" + getTripRootPower(loom2.weight) + " BP)";
     }
 
-    if (move.name == "Tempest") {
+    /*if (move.name == "Tempest") {
         tempPower = getSpeedPower(stats1.spd, stats2.spd);
         stuffUsed.extra1 += " (" + tempPower + " BP)";
-    }
+    }*/
 
     if (move.name == "Outburst") {
         tempPower = Math.max(1, Math.floor(125 * energyValue / 100));
@@ -2643,6 +2643,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     if (itemA == "Drop of Youth" && loom1.finalEvo == false && (move.mr1 == "Melee Defense" || move.mr1 == "Ranged Defense")) {
         multi *= 1.4;
         stuffUsed.item1 = itemA;
+    }
+    if (winds.checked && move.mr1 == "Speed" && loom1.types.includes("Air")) {
+        multi *= 1.1;
+        stuffUsed.weather += " in Strong Gusts";
     }
 
     tempAtk.atk = pokeRound(tempAtk.atk * multi);

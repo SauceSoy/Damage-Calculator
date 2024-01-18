@@ -1695,9 +1695,7 @@ var loomians = {
  
     icigool: {
         name: "Icigool",
-        number: 73,
         types: ["Spirit", "Ice"],
-        abilities: ["Parting Gift"],
         weight: 7,
         height: 43,
         baseStats: {
@@ -1708,6 +1706,25 @@ var loomians = {
             attackR: 10,
             defenseR: 81,
             speed: 39
+        }
+    },
+
+    'icigool-incarnate': {
+        name: "Icigool-Incarnate",
+        types: ["Spirit", "Ice"],
+        soulMove: "Frightful Surprise",
+        ability: "Party Trick",
+        item: "Iciburst",
+        weight: 7,
+        height: 43,
+        baseStats: {
+            hp: 105,
+            energy: 99,
+            attack: 132,
+            defense: 104,
+            attackR: 19,
+            defenseR: 91,
+            speed: 50
         }
     },
  
@@ -5909,6 +5926,18 @@ var moves = {
         secondaryEffect: true
     },
 
+    frightfulSurprise: {
+        name: "Frightful Surprise",
+        power: 100,
+        energy: 0,
+        accuracy: "N/A",
+        type: "Spirit",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+    },
+
     shatter: {
         name: "Shatter",
         power: 70,
@@ -7494,6 +7523,18 @@ var moves = {
         mr2: "Melee Defense",
     },
 
+    iceTremor: {
+        name: "Ice Tremor",
+        power: 90,
+        energy: 50,
+        accuracy: 100,
+        type: "Ice",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        aoe: true
+    },
+
     timberThrash: {
         name: "Timber Thrash",
         power: 120,
@@ -7876,12 +7917,12 @@ var moves = {
 
     tempest: {
         name: "Tempest",
-        power: -1,
+        power: 80,
         energy: 40,
         accuracy: 100,
         type: "Air",
         mr: "Ranged",
-        mr1: "Ranged Attack",
+        mr1: "Speed",
         mr2: "Ranged Defense",
     },
 
@@ -9205,7 +9246,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Dauntless", "Festive Spirit", "Vicious", "Reaper", "Captivating", "Forge", "Blistering Heat", "Herd Behavior", "Regurgitate", "Wholesome", "Pyro Pro", "Persistence", "One of Many",
                  "Mesmerizing", "Hydrate", "Railgun", "Spine Break", "Sponge", "Burning Rage", "Third-Degree Burn", "Frostbite", "Chilling Passion", "Obsidian Heart", "Luck Of The Sea", "Intern",
                  "Partnership", "Rush Hour", "Trader", "Safety Pot", "Gloomy", "Mimic", "Reflective", "Hag", "Foresight", "Demanding", "Ravenous", "Designated Chompers", "Battle Armor", "Mask Swap",
-                 "Facade"];
+                 "Facade", "Party Trick"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -9392,4 +9433,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Jolly Festival Loomians added.";
+var changelog = "SB Icigool added.";
