@@ -7523,8 +7523,8 @@ var moves = {
         mr2: "Melee Defense",
     },
 
-    iceTremor: {
-        name: "Ice Tremor",
+    icicleTremor: {
+        name: "Icicle Tremor",
         power: 90,
         energy: 50,
         accuracy: 100,
