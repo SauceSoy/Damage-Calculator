@@ -2504,7 +2504,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
 
     if ((ability1 == "Bloodsucker" && move.drain) ||
        (gen1 == gen2 && ability1 == "Territorial") ||
-       (ability1 == "Hag" && tempType == "Mind")) {
+       (ability1 == "Hag" && tempType == "Mind") ||
+       (ability1 == "Battle Armor" && tempType == "Metal")) {
         multi *= 1.25;
         stuffUsed.ability1 = ability1;
     }
