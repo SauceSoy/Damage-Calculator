@@ -385,11 +385,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -451,8 +451,8 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2025 12:00:00 UTC"
@@ -2624,7 +2624,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
        (ability1 == "Vicious" && (stat1 == "poisoned" || stat1 == "diseased")) ||
        (dawn && isDouble && move.mr1 == "Melee Attack" && ability1 == "Dusk") ||
        (dawn && isDouble && move.mr1 == "Ranged Attack" && ability1 == "Dawn") ||
-       (move.mr1 == "Melee Defense" && ability1 == "Trash Armor")) {
+       (move.mr1 == "Melee Defense" && ability1 == "Trash Armor") ||
+       ((move.mr1 == "Melee Defense" || move.mr1 == "Ranged Defense") && ability1 == "Safety Pot")) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }   
@@ -2672,7 +2673,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         multi *= 1.4;
         stuffUsed.item2 = itemB;
     }
-    if ((ability2 == "Trash Armor" || ability2 == "Hard Candy") && move.mr2 == "Melee Defense" && adaptive.mr2 != "Ranged Defense") {
+    if ((ability2 == "Trash Armor" || ability2 == "Hard Candy" || ability2 == "Safety Pot") && move.mr2 == "Melee Defense" && adaptive.mr2 != "Ranged Defense") {
+        multi *= 1.5;
+        stuffUsed.ability2 = ability2;
+    }
+    if (ability2 == "Safety Pot" && (move.mr2 == "Ranged Defense" || adaptive.mr2 == "Ranged Defense")) {
         multi *= 1.5;
         stuffUsed.ability2 = ability2;
     }

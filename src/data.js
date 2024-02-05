@@ -4046,10 +4046,10 @@ var loomians = {
         baseStats: {
             hp: 72,
             energy: 62,
-            attack: 41,
-            defense: 44,
+            attack: 26,
+            defense: 54,
             attackR: 66,
-            defenseR: 46,
+            defenseR: 56,
             speed: 44
         }
     },
@@ -4063,11 +4063,11 @@ var loomians = {
         baseStats: {
             hp: 86,
             energy: 78,
-            attack: 56,
-            defense: 56,
+            attack: 42,
+            defense: 66,
             attackR: 102,
-            defenseR: 60,
-            speed: 52
+            defenseR: 70,
+            speed: 56
         }
     },
 
@@ -4079,11 +4079,11 @@ var loomians = {
         baseStats: {
             hp: 96,
             energy: 92,
-            attack: 78,
-            defense: 67,
-            attackR: 125,
-            defenseR: 72,
-            speed: 60
+            attack: 58,
+            defense: 77,
+            attackR: 135,
+            defenseR: 82,
+            speed: 70
         }
     },
 
@@ -7240,7 +7240,6 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        secondaryEffect: true,
         bite: true
     },
 
@@ -9433,4 +9432,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "SB Icigool added.";
+var changelog = "Dreggodyne line stats rebuffed. Energy Totems added.";
