@@ -253,6 +253,9 @@ let dawn2 = document.getElementById("dawn2");
 let guardian1 = document.getElementById("guardian1");
 let guardian2 = document.getElementById("guardian2");
 
+let motivational1 = document.getElementById("motivational1");
+let motivational2 = document.getElementById("motivational2");
+
 let tagTeam1 = document.getElementById("tagTeam1");
 let tagTeam2 = document.getElementById("tagTeam2");
 
@@ -385,11 +388,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -451,8 +454,8 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2025 12:00:00 UTC"
@@ -1506,6 +1509,11 @@ function checkEnergy(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTw
             movesEnergy1[i] = movesEnergy1[i] * 1.15;
         }
     }
+    if (motivational1.checked) {
+        for (let i = 0; i < 4; i++) {
+            movesEnergy1[i] = movesEnergy1[i] * 0.9;
+        }
+    }
 
 //Side 2
     if (ability2 == "Expertise") {
@@ -1563,6 +1571,11 @@ function checkEnergy(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTw
     else if (itemB == "Heavy Armor" || itemB == "Heavy Shield") {
         for (let i = 0; i < 4; i++) {
             movesEnergy2[i] = movesEnergy2[i] * 1.15;
+        }
+    }
+    if (motivational2.checked) {
+        for (let i = 0; i < 4; i++) {
+            movesEnergy2[i] = movesEnergy2[i] * 0.9;
         }
     }
     
@@ -2466,6 +2479,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         stuffUsed.ability1 = ability1;
     }
 
+    if (move.name == "Flare" && (parseInt(stats1.spd) > parseInt(stats2.spd) || btl1)) {
+        multi *= 2;
+        stuffUsed.extra1 += " (" + tempPower * 2 + " BP)";
+    }
+
     if ((ability1 == "Combustible" || ability1 == "Coursing Venom" || ability1 == "Noxious Weeds" || ability1 == "Prismatic") && immuneBoostCheck1) {
         if (tempType == typeModAbility1.typeModifier.type) {
             multi *= 1.5;
@@ -2855,11 +2873,16 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         stuffUsed.weather += " through Far Enchantment";
     }
 
+    if (ability1 == "Do or Die") {
+        multi *= 1.3;
+        stuffUsed.ability1 = ability1;
+    }
+
     if (ability2 == "Tank" && btl1 && withoutSlapDown && !foulHit) {
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
-    if (ability2 == "Mesmerizing" && (move.priority || (ability1 == "Foresight" && tempType == "Mind" && stats1.hpPercent > 49))) {
+    if (ability2 == "Mesmerizing" && (move.priority || (ability1 == "Foresight" && tempType == "Mind" && stats1.hpPercent > 49) || (ability1 == "Wildfire" && tempType == "Fire" && stats1.hpPercent > 49))) {
         multi *= 0;
         stuffUsed.ability2 = ability2;
     }
@@ -3216,6 +3239,10 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         if (loom2.types.includes("Plant") && rain.checked) {
             newHP -= Math.floor(hp1 * 1 / 16);
             hazardString += "rain recovery and ";
+        }
+        if (rain.checked && ability == "Pluvial") {
+            newHP -= Math.floor(hp1 * 1 / 16);
+            hazardString += "pluvial recovery and ";
         }
     }
 
