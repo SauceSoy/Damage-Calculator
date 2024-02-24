@@ -7947,6 +7947,19 @@ var moves = {
         secondaryEffect: true
     },
 
+    venomSlash: {
+        name: "Venom Slash",
+        power: 70,
+        energy: 45,
+        accuracy: 100,
+        type: "Toxic",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        secondaryEffect: true
+    },
+
     thistleSlash: {
         name: "Thistle Slash",
         power: 70,
