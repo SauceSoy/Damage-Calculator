@@ -6881,6 +6881,17 @@ var moves = {
         aoe: true
     },
 
+    energyBreak: {
+        name: "Energy Break",
+        power: 85,
+        energy: 54,
+        accuracy: 100,
+        type: "Ancient",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+    },
+
     blazeChomp: {
         name: "Blaze Chomp",
         power: 70,
