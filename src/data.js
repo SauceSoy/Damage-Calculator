@@ -8108,12 +8108,12 @@ var moves = {
 
     tempest: {
         name: "Tempest",
-        power: 80,
+        power: -1,
         energy: 40,
         accuracy: 100,
         type: "Air",
         mr: "Ranged",
-        mr1: "Speed",
+        mr1: "Ranged Attack",
         mr2: "Ranged Defense",
     },
 

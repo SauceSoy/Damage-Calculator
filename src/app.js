@@ -2367,10 +2367,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
         stuffUsed.extra1 += " (" + getTripRootPower(loom2.weight) + " BP)";
     }
 
-    /*if (move.name == "Tempest") {
+    if (move.name == "Tempest") {
         tempPower = getSpeedPower(stats1.spd, stats2.spd);
         stuffUsed.extra1 += " (" + tempPower + " BP)";
-    }*/
+    }
 
     if (move.name == "Outburst") {
         tempPower = Math.max(1, Math.floor(125 * energyValue / 100));
