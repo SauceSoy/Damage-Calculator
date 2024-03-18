@@ -434,7 +434,7 @@ var loomians = {
     twilat: {
         name: "Twilat",
         number: 22,
-        types: ["Typeless"],
+        types: ["Simple"],
         abilities: ["Territorial", "Confidence"],
         sAbility: ["Neutralize"],
         finalEvo: false,
@@ -454,7 +454,7 @@ var loomians = {
     'twilat-rainbow': {
         name: "Twilat-Rainbow",
         number: 22,
-        types: ["Typeless"],
+        types: ["Simple"],
         abilities: ["Territorial", "Confidence"],
         sAbility: ["Neutralize"],
         weight: 10,
@@ -1599,7 +1599,7 @@ var loomians = {
     'cafnote-female': {
         name: "Cafnote-Female",
         number: 69,
-        types: ["Typeless"],
+        types: ["Simple"],
         abilities: ["Adorable", "Virtuoso"],
         sAbility: ["Tone Deaf"],
         finalEvo: false,
@@ -1619,7 +1619,7 @@ var loomians = {
     'cafnote-male': {
         name: "Cafnote-Male",
         number: 69,
-        types: ["Typeless"],
+        types: ["Simple"],
         abilities: ["Territorial", "Virtuoso"],
         sAbility: ["Brute Force"],
         finalEvo: false,
@@ -1639,7 +1639,7 @@ var loomians = {
     trumbull: {
         name: "Trumbull",
         number: 70,
-        types: ["Typeless"],
+        types: ["Simple"],
         abilities: ["Territorial", "Virtuoso"],
         sAbility: ["Brute Force"],
         weight: 187,
@@ -1658,7 +1658,7 @@ var loomians = {
     mootune: {
         name: "Mootune",
         number: 71,
-        types: ["Typeless"],
+        types: ["Simple"],
         abilities: ["Adorable", "Virtuoso"],
         sAbility: ["Tone Deaf"],
         weight: 146,
@@ -2846,10 +2846,7 @@ var loomians = {
 
     vari: {
         name: "Vari",
-        number: 134,
-        types: ["Typeless"],
-        abilities: ["Guardian", "Apprehension"],
-        sAbility: ["Adorable"],
+        types: ["Simple"],
         weight: 15,
         height: 28,
         finalEvo: false,
@@ -2866,10 +2863,7 @@ var loomians = {
 
     cervolen: {
         name: "Cervolen",
-        number: 135,
-        types: ["Typeless"],
-        abilities: ["Confidence", "Boast"],
-        sAbility: ["Vengeance"],
+        types: ["Simple"],
         weight: 105,
         height: 68,
         baseStats: {
@@ -2885,10 +2879,7 @@ var loomians = {
 
     wendolen: {
         name: "Wendolen",
-        number: 136,
         types: ["Spirit"],
-        abilities: ["Temper", "Sharp Claws"],
-        sAbility: ["Finese"],
         weight: 86,
         height: 83,
         baseStats: {
@@ -2904,10 +2895,7 @@ var loomians = {
 
     kirolen: {
         name: "Kirolen",
-        number: 137,
         types: ["Ancient"],
-        abilities: ["Hasty", "Territorial"],
-        sAbility: ["Devious"],
         weight: 97,
         height: 69,
         baseStats: {
@@ -2923,10 +2911,7 @@ var loomians = {
 
     zepholen: {
         name: "Zepholen",
-        number: 138,
         types: ["Air"],
-        abilities: ["Sharp Focus", "Confidence"],
-        sAbility: ["Turbulent"],
         weight: 91,
         height: 73,
         baseStats: {
@@ -2942,10 +2927,7 @@ var loomians = {
 
     venolen: {
         name: "Venolen",
-        number: 139,
         types: ["Toxic"],
-        abilities: ["Devious", "Acidic Body"],
-        sAbility: ["Baneful"],
         weight: 110,
         height: 77,
         baseStats: {
@@ -2961,10 +2943,7 @@ var loomians = {
 
     wresolen: {
         name: "Wresolen",
-        number: 146,
         types: ["Brawler"],
-        abilities: ["Aggressive", "Ignorant"],
-        sAbility: ["Ace"],
         weight: 156,
         height: 81,
         baseStats: {
@@ -2980,10 +2959,7 @@ var loomians = {
 
     buzzolen: {
         name: "Buzzolen",
-        number: 147,
         types: ["Bug"],
-        abilities: ["Vigorous", "Sniper"],
-        sAbility: ["Sweet Scent"],
         weight: 19,
         height: 38,
         baseStats: {
@@ -2999,10 +2975,7 @@ var loomians = {
 
     tundrolen: {
         name: "Tundrolen",
-        number: 147,
         types: ["Ice"],
-        abilities: ["Insulated", "Mysterious Cloak"],
-        sAbility: ["Resilience"],
         weight: 19,
         height: 38,
         baseStats: {
@@ -3018,16 +2991,13 @@ var loomians = {
 
     pyrolen: {
         name: "Pyrolen",
-        number: 147,
         types: ["Fire"],
-        abilities: ["Fanning Flame", "Volcanic"],
-        sAbility: ["Quick Recovery"],
         weight: 19,
         height: 38,
         baseStats: {
-            hp: 119,
+            hp: 99,
             energy: 91,
-            attack: 24,
+            attack: 44,
             defense: 63,
             attackR: 133,
             defenseR: 79,
@@ -3550,7 +3520,7 @@ var loomians = {
     taoshi: {
         name: "Taoshi",
         number: 140,
-        types: ["Typeless"],
+        types: ["Simple"],
         abilities: ["Enchanted Coat", "Adorable"],
         sAbility: ["Confidence"],
         weight: 4,
@@ -3570,7 +3540,7 @@ var loomians = {
     taoshinu: {
         name: "Taoshinu",
         number: 140,
-        types: ["Typeless"],
+        types: ["Simple"],
         abilities: ["Enchanted Coat", "Guardian"],
         sAbility: ["Confidence"],
         weight: 29,
@@ -3589,7 +3559,7 @@ var loomians = {
     kittone: {
         name: "Kittone",
         number: 140,
-        types: ["Typeless"],
+        types: ["Simple"],
         abilities: ["Tone Deaf", "Adorable"],
         sAbility: ["Shakedown"],
         weight: 2,
@@ -3609,7 +3579,7 @@ var loomians = {
     lyricat: {
         name: "Lyricat",
         number: 140,
-        types: ["Typeless"],
+        types: ["Simple"],
         abilities: ["Tone Deaf", "Burglar"],
         sAbility: ["Shakedown"],
         weight: 22,
@@ -4209,7 +4179,7 @@ var loomians = {
     llamba: {
         name: "Llamba",
         number: 140,
-        types: ["Typeless"],
+        types: ["Simple"],
         abilities: ["Playful", "Regurgitate"],
         sAbility: ["Wholesome"],
         weight: 11,
@@ -4229,7 +4199,7 @@ var loomians = {
     choochew: {
         name: "Choochew",
         number: 140,
-        types: ["Typeless"],
+        types: ["Simple"],
         abilities: ["Playful", "Regurgitate"],
         sAbility: ["Wholesome"],
         weight: 40,
@@ -4249,7 +4219,7 @@ var loomians = {
     loomala: {
         name: "Loomala",
         number: 140,
-        types: ["Typeless"],
+        types: ["Simple"],
         abilities: ["Herd Behavior", "Regurgitate"],
         sAbility: ["Wholesome"],
         weight: 93,
@@ -4267,7 +4237,7 @@ var loomians = {
 
     fentern: {
         name: "Fentern",
-        types: ["Typeless"],
+        types: ["Simple"],
         weight: 8,
         height: 21,
         finalEvo: false,
@@ -4284,7 +4254,7 @@ var loomians = {
 
     weaselin: {
         name: "Weaselin",
-        types: ["Typeless"],
+        types: ["Simple"],
         weight: 39,
         height: 62,
         baseStats: {
@@ -4681,7 +4651,7 @@ var loomians = {
 
     biwarned: {
         name: "Biwarned",
-        types: ["Mind", "Typeless"],
+        types: ["Mind", "Simple"],
         weight: 13,
         height: 47,
         baseStats: {
@@ -5270,7 +5240,7 @@ var loomians = {
     'heavy bag': {
         name: "Heavy Bag",
         number: 9999,
-        types: ["Typeless"],
+        types: ["Simple"],
         abilities: ["Surrogate"],
         sAbility: ["Idiosyncratic"],
         weight: 123,
@@ -5296,7 +5266,7 @@ var moves = {
         power: 40,
         energy: 15,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
@@ -5355,7 +5325,7 @@ var moves = {
         power: 40,
         energy: 15,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
@@ -5401,7 +5371,7 @@ var moves = {
         power: 40,
         energy: 15,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
@@ -5512,7 +5482,7 @@ var moves = {
         power: 60,
         energy: 22,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
@@ -5772,7 +5742,7 @@ var moves = {
         power: 40,
         energy: 25,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
@@ -5785,7 +5755,7 @@ var moves = {
         power: 75,
         energy: 35,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
@@ -5897,7 +5867,7 @@ var moves = {
         power: 40,
         energy: 15,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
@@ -6223,7 +6193,7 @@ var moves = {
         power: 60,
         energy: 25,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
@@ -6393,7 +6363,7 @@ var moves = {
         power: 90,
         energy: 35,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
@@ -6405,7 +6375,7 @@ var moves = {
         power: 75,
         energy: 36,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
@@ -6480,7 +6450,7 @@ var moves = {
         power: 120,
         energy: 62,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
@@ -6627,7 +6597,7 @@ var moves = {
         power: 15,
         energy: 18,
         accuracy: 85,
-        type: "Typeless",
+        type: "Simple",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
@@ -6690,7 +6660,7 @@ var moves = {
         power: 120,
         energy: 62,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
@@ -6964,7 +6934,7 @@ var moves = {
         power: 40,
         energy: 30,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
@@ -7002,7 +6972,7 @@ var moves = {
         power: 90,
         energy: 50,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
@@ -7015,7 +6985,7 @@ var moves = {
         power: 25,
         energy: 25,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
@@ -7028,7 +6998,7 @@ var moves = {
         power: 85,
         energy: 46,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
@@ -7052,7 +7022,7 @@ var moves = {
         power: 60,
         energy: 35,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
@@ -7065,7 +7035,7 @@ var moves = {
         power: 80,
         energy: 40,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
@@ -7353,7 +7323,7 @@ var moves = {
         power: 40,
         energy: 10,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
@@ -7377,7 +7347,7 @@ var moves = {
         power: 60,
         energy: 40,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
@@ -7389,7 +7359,7 @@ var moves = {
         power: 1,
         energy: 55,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
@@ -7742,7 +7712,7 @@ var moves = {
         power: 100,
         energy: 50,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
@@ -7827,7 +7797,7 @@ var moves = {
         power: 75,
         energy: 35,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
@@ -8316,7 +8286,7 @@ var moves = {
         power: 80,
         energy: 40,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
@@ -8329,7 +8299,7 @@ var moves = {
         power: 90,
         energy: 50,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
@@ -8340,7 +8310,7 @@ var moves = {
         power: 50,
         energy: 25,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
@@ -8379,7 +8349,7 @@ var moves = {
         power: 0,
         energy: 0,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Support"
     },
 
@@ -8388,7 +8358,7 @@ var moves = {
         power: 0,
         energy: 25,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Support"
     },
 
@@ -8397,7 +8367,7 @@ var moves = {
         power: 0,
         energy: 0,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Support"
     },
 
@@ -8406,7 +8376,7 @@ var moves = {
         power: 0,
         energy: 25,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Support"
     },
 
@@ -8415,7 +8385,7 @@ var moves = {
         power: 0,
         energy: 10,
         accuracy: "N/A",
-        type: "Typeless",
+        type: "Simple",
         mr: "Support"
     },
 
@@ -8434,7 +8404,7 @@ var moves = {
         power: 0,
         energy: 15,
         accuracy: "N/A",
-        type: "Typeless",
+        type: "Simple",
         mr: "Support"
     },
 
@@ -8470,7 +8440,7 @@ var moves = {
         power: 0,
         energy: 10,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Support"
     },
 
@@ -8497,7 +8467,7 @@ var moves = {
         power: 0,
         energy: 20,
         accuracy: "N/A",
-        type: "Typeless",
+        type: "Simple",
         mr: "Support"
     },
 
@@ -8506,7 +8476,7 @@ var moves = {
         power: 0,
         energy: 25,
         accuracy: "N/A",
-        type: "Typeless",
+        type: "Simple",
         mr: "Support"
     },
 
@@ -8515,7 +8485,7 @@ var moves = {
         power: 0,
         energy: 25,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Support"
     },
 
@@ -8533,7 +8503,7 @@ var moves = {
         power: 0,
         energy: 15,
         accuracy: "N/A",
-        type: "Typeless",
+        type: "Simple",
         mr: "Support"
     },
 
@@ -8551,7 +8521,7 @@ var moves = {
         power: 0,
         energy: 10,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Support",
         sound: true
     },
@@ -8625,7 +8595,7 @@ var moves = {
         power: 0,
         energy: 25,
         accuracy: "N/A",
-        type: "Typeless",
+        type: "Simple",
         mr: "Support"
     },
 
@@ -8661,7 +8631,7 @@ var moves = {
         power: 0,
         energy: 0,
         accuracy: "N/A",
-        type: "Typeless",
+        type: "Simple",
         mr: "Support",
         contact: true
     },
@@ -8698,7 +8668,7 @@ var moves = {
         power: 0,
         energy: 10,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Support",
         sound: true
     },
@@ -8708,7 +8678,7 @@ var moves = {
         power: 0,
         energy: 10,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Support"
     },
 
@@ -8717,7 +8687,7 @@ var moves = {
         power: 0,
         energy: 50,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Support"
     },
 
@@ -8735,7 +8705,7 @@ var moves = {
         power: 0,
         energy: 15,
         accuracy: "N/A",
-        type: "Typeless",
+        type: "Simple",
         mr: "Support"
     },
 
@@ -8861,7 +8831,7 @@ var moves = {
         power: 0,
         energy: 50,
         accuracy: "N/A",
-        type: "Typeless",
+        type: "Simple",
         mr: "Support",
         sound: true
     },
@@ -8871,7 +8841,7 @@ var moves = {
         power: 0,
         energy: 20,
         accuracy: "N/A",
-        type: "Typeless",
+        type: "Simple",
         mr: "Support",
         sound: true
     },
@@ -8935,7 +8905,7 @@ var moves = {
         power: 0,
         energy: 72,
         accuracy: "N/A",
-        type: "Typeless",
+        type: "Simple",
         mr: "Support"
     },
 
@@ -8998,7 +8968,7 @@ var moves = {
         power: 0,
         energy: 50,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Support"
     },
 
@@ -9007,7 +8977,7 @@ var moves = {
         power: 0,
         energy: 40,
         accuracy: 100,
-        type: "Typeless",
+        type: "Simple",
         mr: "Support",
         sound: true
     },
@@ -9089,7 +9059,7 @@ var moves = {
         power: 0,
         energy: 30,
         accuracy: "N/A",
-        type: "Typeless",
+        type: "Simple",
         mr: "Support"
     },
 
@@ -9098,7 +9068,7 @@ var moves = {
         power: 0,
         energy: 25,
         accuracy: "N/A",
-        type: "Typeless",
+        type: "Simple",
         mr: "Support"
     },
 
@@ -9107,7 +9077,7 @@ var moves = {
         power: 0,
         energy: 50,
         accuracy: "N/A",
-        type: "Typeless",
+        type: "Simple",
         mr: "Support"
     },
 
@@ -9170,7 +9140,7 @@ var moves = {
         power: 0,
         energy: 50,
         accuracy: "N/A",
-        type: "Typeless",
+        type: "Simple",
         mr: "Support"
     },
 
@@ -9179,7 +9149,7 @@ var moves = {
         power: 0,
         energy: 20,
         accuracy: "N/A",
-        type: "Typeless",
+        type: "Simple",
         mr: "Support"
     },
 
@@ -9233,7 +9203,7 @@ var moves = {
         power: 0,
         energy: 45,
         accuracy: "N/A",
-        type: "Typeless",
+        type: "Simple",
         mr: "Support"
     },
 
@@ -9242,7 +9212,7 @@ var moves = {
         power: 0,
         energy: 25,
         accuracy: "N/A",
-        type: "Typeless",
+        type: "Simple",
         mr: "Support"
     },
 
@@ -9251,7 +9221,7 @@ var moves = {
         power: 0,
         energy: 50,
         accuracy: "N/A",
-        type: "Typeless",
+        type: "Simple",
         mr: "Support"
     },
 
@@ -9260,7 +9230,7 @@ var moves = {
         power: 0,
         energy: 40,
         accuracy: "N/A",
-        type: "Typeless",
+        type: "Simple",
         mr: "Support"
     },
 
@@ -9313,7 +9283,7 @@ var moves = {
 
 
 var types = {
-    typeless: {
+    simple: {
         weaknesses: ["mind", "brawler"],
         resistances: [],
         immunities: [],
@@ -9350,7 +9320,7 @@ var types = {
 
     ice: {
         weaknesses: ["fire", "metal", "brawler"],
-        resistances: ["ice", "air", "typeless"],
+        resistances: ["ice", "air", "simple"],
         immunities: [],
         otherName: "frost"
     },
@@ -9385,7 +9355,7 @@ var types = {
 
     metal: {
         weaknesses: ["fire", "electric", "earth", "brawler"],
-        resistances: ["air", "bug", "metal", "ancient", "typeless", "ice", "mind"],
+        resistances: ["air", "bug", "metal", "ancient", "simple", "ice", "mind"],
         immunities: [],
         otherName: "metalic"
     },
@@ -9406,7 +9376,7 @@ var types = {
 
     spirit: {
         weaknesses: ["light", "ancient", "spirit"],
-        resistances: ["dark", "toxic", "electric", "typeless"],
+        resistances: ["dark", "toxic", "electric", "simple"],
         immunities: ["brawler"],
         otherName: "spectral"
     },
@@ -9640,4 +9610,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Yokai Loomians added.";
+var changelog = "o7 to Pyrolen. Typeless changed to Simple.";

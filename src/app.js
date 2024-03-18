@@ -388,11 +388,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -454,8 +454,8 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2025 12:00:00 UTC"
@@ -2454,26 +2454,26 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
 
     if (ability1 == "Neutralize") {
-        tempType = "Typeless"
+        tempType = "Simple"
         multi *= 1.2;
         stuffUsed.ability1 = ability1;
     }
-    else if (ability1 == "Overshadow" && tempType == "Typeless") {
+    else if (ability1 == "Overshadow" && tempType == "Simple") {
         tempType = "Dark";
         multi *= 1.2;
         stuffUsed.ability1 = ability1;
     }
-    else if (ability1 == "Illuminate" && tempType == "Typeless") {
+    else if (ability1 == "Illuminate" && tempType == "Simple") {
         tempType = "Light";
         multi *= 1.2;
         stuffUsed.ability1 = ability1;
     }
-    else if (ability1 == "Chill" && tempType == "Typeless") {
+    else if (ability1 == "Chill" && tempType == "Simple") {
         tempType = "Ice";
         multi *= 1.2;
         stuffUsed.ability1 = ability1;
     }
-    else if (ability1 == "Turbulent" && tempType == "Typeless") {
+    else if (ability1 == "Turbulent" && tempType == "Simple") {
         tempType = "Air";
         multi *= 1.2;
         stuffUsed.ability1 = ability1;
