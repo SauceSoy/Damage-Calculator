@@ -8197,8 +8197,8 @@ var moves = {
         contact: true,
     },
 
-    headacheSplit: {
-        name: "Headache Split",
+    splittingHeadache: {
+        name: "Splitting Headache",
         power: 60,
         energy: 40,
         accuracy: 100,

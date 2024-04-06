@@ -12,6 +12,9 @@ var secondaryTypeDropdown2 = document.getElementById("secondaryType2");
 var abilityDropdown1 = document.getElementById("ability1");
 var abilityDropdown2 = document.getElementById("ability2");
 
+let bst1 = document.getElementById("BST1");
+let bst2 = document.getElementById("BST2");
+
 var moveOneDropdown1 = document.getElementById("moveOne1")
 var moveOneDropdown2 = document.getElementById("moveOne2");
 var moveTwoDropdown1 = document.getElementById("moveTwo1")
@@ -576,6 +579,7 @@ function update(updatePower = false, updateBaseStats = false) {
     detailedReport();
 
     updatePercent();
+    addStats();
 
     if (iceTrap1.checked == true) {
         halfIce1.checked = false;
@@ -615,6 +619,13 @@ function update(updatePower = false, updateBaseStats = false) {
         diseased2.style.visibility = "hidden";
         diseased2.value = "1/16";
     }
+}
+
+function addStats() {
+    let baseTotal1 = parseInt(baseHP1.value) + parseInt(baseEnergy1.value) + parseInt(baseAtk1.value) + parseInt(baseDef1.value) + parseInt(baseAtkR1.value) + parseInt(baseDefR1.value) + parseInt(baseSpd1.value);
+    let baseTotal2 = parseInt(baseHP2.value) + parseInt(baseEnergy2.value) + parseInt(baseAtk2.value) + parseInt(baseDef2.value) + parseInt(baseAtkR2.value) + parseInt(baseDefR2.value) + parseInt(baseSpd2.value);
+    bst1.innerHTML = "Total: " + baseTotal1;
+    bst2.innerHTML = "Total: " + baseTotal2;
 }
 
 function updateItem(item) {
@@ -2395,7 +2406,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, level, ul = false, s
     }
 
     if ((move.name == "Oppress" && stat2 != "healthy") ||
-       ((move.name == "Ill Will" || move.name == "Headache Split") && stat1 != "healthy")) {
+       ((move.name == "Ill Will" || move.name == "Splitting Headache") && stat1 != "healthy")) {
         powerCheck *= 2;
         multi *= 2;
         stuffUsed.extra1 += " (" + Math.floor(tempPower * 2) + " BP)";
