@@ -775,6 +775,7 @@ function loadSets(onlyFirst = false, onlySecond = false) {
             baseAtkR1.value = firstLoom.gsbStats.attackR;
             baseDefR1.value = firstLoom.gsbStats.defenseR;
             baseSpd1.value = firstLoom.gsbStats.speed;
+            addStats();
         }
     }
 
@@ -851,10 +852,10 @@ function loadSets(onlyFirst = false, onlySecond = false) {
             baseAtkR2.value = secondLoom.gsbStats.attackR;
             baseDefR2.value = secondLoom.gsbStats.defenseR;
             baseSpd2.value = secondLoom.gsbStats.speed;
+            addStats();
         }
     }
     
-    addStats();
     update(undefined, false);
 }
 
@@ -1070,7 +1071,6 @@ function loadBaseStats(side) {
             }
         }
     }
-    addStats();
 }
 
 function loadMoves(updatePower = false) {
