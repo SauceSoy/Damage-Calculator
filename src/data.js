@@ -55,6 +55,15 @@ var loomians = {
             attackR: 60,
             defenseR: 82,
             speed: 65
+        },
+        gsbStats: {
+            hp: 89,
+            energy: 88,
+            attack: 102,
+            defense: 125,
+            attackR: 71,
+            defenseR: 85,
+            speed: 65
         }
     },
  
@@ -114,6 +123,15 @@ var loomians = {
             attackR: 94,
             defenseR: 83,
             speed: 60
+        },
+        gsbStats: {
+            hp: 105,
+            energy: 88,
+            attack: 94,
+            defense: 95,
+            attackR: 98,
+            defenseR: 85,
+            speed: 60
         }
     },
  
@@ -171,6 +189,15 @@ var loomians = {
             attack: 126,
             defense: 75,
             attackR: 80,
+            defenseR: 65,
+            speed: 104
+        },
+        gsbStats: {
+            hp: 75,
+            energy: 88,
+            attack: 126,
+            defense: 75,
+            attackR: 92,
             defenseR: 65,
             speed: 104
         }
@@ -251,6 +278,15 @@ var loomians = {
             attackR: 125,
             defenseR: 87,
             speed: 75
+        },
+        gsbStats: {
+            hp: 86,
+            energy: 88,
+            attack: 87,
+            defense: 74,
+            attackR: 125,
+            defenseR: 90,
+            speed: 75
         }
     },
  
@@ -308,6 +344,15 @@ var loomians = {
             attack: 110,
             defense: 90,
             attackR: 82,
+            defenseR: 65,
+            speed: 99
+        },
+        gsbStats: {
+            hp: 76,
+            energy: 88,
+            attack: 110,
+            defense: 97,
+            attackR: 90,
             defenseR: 65,
             speed: 99
         }
@@ -369,6 +414,15 @@ var loomians = {
             attackR: 65,
             defenseR: 75,
             speed: 45
+        },
+        gsbStats: {
+            hp: 132,
+            energy: 88,
+            attack: 98,
+            defense: 115,
+            attackR: 72,
+            defenseR: 75,
+            speed: 45
         }
     },
  
@@ -428,6 +482,15 @@ var loomians = {
             attackR: 106,
             defenseR: 74,
             speed: 119
+        },
+        gsbStats: {
+            hp: 78,
+            energy: 88,
+            attack: 92,
+            defense: 60,
+            attackR: 109,
+            defenseR: 79,
+            speed: 119
         }
     },
  
@@ -486,6 +549,15 @@ var loomians = {
             attackR: 51,
             defenseR: 78,
             speed: 71
+        },
+        gsbStats: {
+            hp: 75,
+            energy: 84,
+            attack: 106,
+            defense: 90,
+            attackR: 61,
+            defenseR: 88,
+            speed: 71
         }
     },
  
@@ -505,6 +577,15 @@ var loomians = {
             attackR: 96,
             defenseR: 69,
             speed: 91
+        },
+        gsbStats: {
+            hp: 75,
+            energy: 84,
+            attack: 61,
+            defense: 73,
+            attackR: 106,
+            defenseR: 75,
+            speed: 101
         }
     },
  
@@ -524,6 +605,15 @@ var loomians = {
             attackR: 116,
             defenseR: 83,
             speed: 96
+        },
+        gsbStats: {
+            hp: 75,
+            energy: 84,
+            attack: 106,
+            defense: 90,
+            attackR: 106,
+            defenseR: 75,
+            speed: 89
         }
     },
  
@@ -583,6 +673,15 @@ var loomians = {
             attackR: 92,
             defenseR: 80,
             speed: 83
+        },
+        gsbStats: {
+            hp: 70,
+            energy: 80,
+            attack: 55,
+            defense: 85,
+            attackR: 98,
+            defenseR: 99,
+            speed: 88
         }
     },
 
@@ -602,6 +701,15 @@ var loomians = {
             attackR: 21,
             defenseR: 86,
             speed: 50
+        },
+        gsbStats: {
+            hp: 72,
+            energy: 80,
+            attack: 110,
+            defense: 106,
+            attackR: 51,
+            defenseR: 101,
+            speed: 55
         }
     },
  
@@ -661,6 +769,15 @@ var loomians = {
             attackR: 62,
             defenseR: 63,
             speed: 113
+        },
+        gsbStats: {
+            hp: 79,
+            energy: 85,
+            attack: 100,
+            defense: 78,
+            attackR: 67,
+            defenseR: 63,
+            speed: 113
         }
     },
  
@@ -698,6 +815,15 @@ var loomians = {
             attack: 115,
             defense: 85,
             attackR: 10,
+            defenseR: 65,
+            speed: 65
+        },
+        gsbStats: {
+            hp: 85,
+            energy: 85,
+            attack: 120,
+            defense: 105,
+            attackR: 50,
             defenseR: 65,
             speed: 65
         }
@@ -739,6 +865,15 @@ var loomians = {
             attackR: 65,
             defenseR: 90,
             speed: 35
+        },
+        gsbStats: {
+            hp: 105,
+            energy: 88,
+            attack: 55,
+            defense: 105,
+            attackR: 82,
+            defenseR: 105,
+            speed: 35
         }
     },
 
@@ -758,6 +893,15 @@ var loomians = {
             defense: 100,
             attackR: 25,
             defenseR: 100,
+            speed: 50
+        },
+        gsbStats: {
+            hp: 105,
+            energy: 88,
+            attack: 123,
+            defense: 112,
+            attackR: 55,
+            defenseR: 112,
             speed: 50
         }
     },
@@ -818,6 +962,15 @@ var loomians = {
             attackR: 46,
             defenseR: 60,
             speed: 72
+        },
+        gsbStats: {
+            hp: 75,
+            energy: 85,
+            attack: 112,
+            defense: 87,
+            attackR: 61,
+            defenseR: 60,
+            speed: 95
         }
     },
 
@@ -835,6 +988,15 @@ var loomians = {
             attack: 121,
             defense: 106,
             attackR: 20,
+            defenseR: 54,
+            speed: 43
+        },
+        gsbStats: {
+            hp: 94,
+            energy: 87,
+            attack: 121,
+            defense: 116,
+            attackR: 60,
             defenseR: 54,
             speed: 43
         }
@@ -876,6 +1038,15 @@ var loomians = {
             attackR: 40,
             defenseR: 50,
             speed: 90
+        },
+        gsbStats: {
+            hp: 95,
+            energy: 80,
+            attack: 100,
+            defense: 95,
+            attackR: 60,
+            defenseR: 55,
+            speed: 90
         }
     },
  
@@ -915,6 +1086,15 @@ var loomians = {
             attackR: 40,
             defenseR: 60,
             speed: 68
+        },
+        gsbStats: {
+            hp: 102,
+            energy: 81,
+            attack: 110,
+            defense: 95,
+            attackR: 49,
+            defenseR: 70,
+            speed: 68
         }
     },
  
@@ -952,6 +1132,15 @@ var loomians = {
             attack: 50,
             defense: 85,
             attackR: 80,
+            defenseR: 115,
+            speed: 80
+        },
+        gsbStats: {
+            hp: 80,
+            energy: 80,
+            attack: 55,
+            defense: 85,
+            attackR: 90,
             defenseR: 115,
             speed: 80
         }
@@ -1013,6 +1202,15 @@ var loomians = {
             attackR: 85,
             defenseR: 115,
             speed: 55
+        },
+        gsbStats: {
+            hp: 120,
+            energy: 88,
+            attack: 60,
+            defense: 40,
+            attackR: 92,
+            defenseR: 120,
+            speed: 55
         }
     },
 
@@ -1031,6 +1229,15 @@ var loomians = {
             attack: 60,
             defense: 45,
             attackR: 105,
+            defenseR: 140,
+            speed: 65
+        },
+        gsbStats: {
+            hp: 140,
+            energy: 88,
+            attack: 60,
+            defense: 45,
+            attackR: 107,
             defenseR: 140,
             speed: 65
         }
@@ -1092,6 +1299,15 @@ var loomians = {
             attackR: 49,
             defenseR: 55,
             speed: 47
+        },
+        gsbStats: {
+            hp: 152,
+            energy: 125,
+            attack: 49,
+            defense: 70,
+            attackR: 62,
+            defenseR: 70,
+            speed: 47
         }
     },
  
@@ -1111,6 +1327,15 @@ var loomians = {
             attackR: 103,
             defenseR: 75,
             speed: 62
+        },
+        gsbStats: {
+            hp: 108,
+            energy: 94,
+            attack: 49,
+            defense: 75,
+            attackR: 112,
+            defenseR: 75,
+            speed: 62
         }
     },
 
@@ -1126,6 +1351,15 @@ var loomians = {
             defense: 76,
             attackR: 124,
             defenseR: 101,
+            speed: 41
+        },
+        gsbStats: {
+            hp: 104,
+            energy: 73,
+            attack: 49,
+            defense: 76,
+            attackR: 124,
+            defenseR: 108,
             speed: 41
         }
     },
@@ -1145,6 +1379,15 @@ var loomians = {
             defense: 42,
             attackR: 99,
             defenseR: 64,
+            speed: 89
+        },
+        gsbStats: {
+            hp: 79,
+            energy: 91,
+            attack: 36,
+            defense: 52,
+            attackR: 104,
+            defenseR: 74,
             speed: 89
         }
     },
@@ -1185,6 +1428,15 @@ var loomians = {
             attackR: 47,
             defenseR: 76,
             speed: 54
+        },
+        gsbStats: {
+            hp: 107,
+            energy: 87,
+            attack: 91,
+            defense: 108,
+            attackR: 52,
+            defenseR: 81,
+            speed: 54
         }
     },
  
@@ -1223,6 +1475,15 @@ var loomians = {
             defense: 142,
             attackR: 75,
             defenseR: 53,
+            speed: 48
+        },
+        gsbStats: {
+            hp: 90,
+            energy: 90,
+            attack: 57,
+            defense: 142,
+            attackR: 90,
+            defenseR: 58,
             speed: 48
         }
     },
@@ -1283,6 +1544,15 @@ var loomians = {
             attackR: 30,
             defenseR: 80,
             speed: 75
+        },
+        gsbStats: {
+            hp: 99,
+            energy: 89,
+            attack: 120,
+            defense: 68,
+            attackR: 50,
+            defenseR: 90,
+            speed: 75
         }
     },
 
@@ -1300,6 +1570,15 @@ var loomians = {
             attack: 86,
             defense: 110,
             attackR: 21,
+            defenseR: 88,
+            speed: 55
+        },
+        gsbStats: {
+            hp: 99,
+            energy: 92,
+            attack: 92,
+            defense: 115,
+            attackR: 50,
             defenseR: 88,
             speed: 55
         }
@@ -1340,6 +1619,15 @@ var loomians = {
             defense: 58,
             attackR: 115,
             defenseR: 62,
+            speed: 97
+        },
+        gsbStats: {
+            hp: 65,
+            energy: 89,
+            attack: 105,
+            defense: 63,
+            attackR: 115,
+            defenseR: 67,
             speed: 97
         }
     },
@@ -1400,6 +1688,15 @@ var loomians = {
             attackR: 100,
             defenseR: 84,
             speed: 77
+        },
+        gsbStats: {
+            hp: 81,
+            energy: 90,
+            attack: 94,
+            defense: 74,
+            attackR: 105,
+            defenseR: 89,
+            speed: 77
         }
     },
 
@@ -1419,6 +1716,15 @@ var loomians = {
             defense: 89,
             attackR: 127,
             defenseR: 89,
+            speed: 80
+        },
+        gsbStats: {
+            hp: 81,
+            energy: 90,
+            attack: 104,
+            defense: 89,
+            attackR: 127,
+            defenseR: 94,
             speed: 80
         }
     },
@@ -1479,6 +1785,15 @@ var loomians = {
             attackR: 81,
             defenseR: 94,
             speed: 22
+        },
+        gsbStats: {
+            hp: 95,
+            energy: 125,
+            attack: 48,
+            defense: 95,
+            attackR: 91,
+            defenseR: 99,
+            speed: 22
         }
     },
 
@@ -1499,6 +1814,15 @@ var loomians = {
             attackR: 121,
             defenseR: 104,
             speed: 12
+        },
+        gsbStats: {
+            hp: 115,
+            energy: 125,
+            attack: 53,
+            defense: 105,
+            attackR: 126,
+            defenseR: 109,
+            speed: 12
         }
     },
  
@@ -1518,6 +1842,15 @@ var loomians = {
             attackR: 20,
             defenseR: 64,
             speed: 102
+        },
+        gsbStats: {
+            hp: 81,
+            energy: 90,
+            attack: 110,
+            defense: 74,
+            attackR: 54,
+            defenseR: 64,
+            speed: 102
         }
     },
 
@@ -1533,6 +1866,15 @@ var loomians = {
             defense: 56,
             attackR: 44,
             defenseR: 88,
+            speed: 22
+        },
+        gsbStats: {
+            hp: 118,
+            energy: 101,
+            attack: 119,
+            defense: 71,
+            attackR: 46,
+            defenseR: 98,
             speed: 22
         }
     },
@@ -1591,6 +1933,15 @@ var loomians = {
             attack: 90,
             defense: 124,
             attackR: 67,
+            defenseR: 65,
+            speed: 65
+        },
+        gsbStats: {
+            hp: 99,
+            energy: 100,
+            attack: 100,
+            defense: 124,
+            attackR: 72,
             defenseR: 65,
             speed: 65
         }
@@ -1652,6 +2003,15 @@ var loomians = {
             attackR: 42,
             defenseR: 62,
             speed: 73
+        },
+        gsbStats: {
+            hp: 92,
+            energy: 79,
+            attack: 134,
+            defense: 102,
+            attackR: 52,
+            defenseR: 68,
+            speed: 73
         }
     },
  
@@ -1668,6 +2028,15 @@ var loomians = {
             energy: 75,
             attack: 42,
             defense: 73,
+            attackR: 134,
+            defenseR: 102,
+            speed: 62
+        },
+        gsbStats: {
+            hp: 92,
+            energy: 79,
+            attack: 52,
+            defense: 79,
             attackR: 134,
             defenseR: 102,
             speed: 62
@@ -1690,6 +2059,15 @@ var loomians = {
             attackR: 88,
             defenseR: 64,
             speed: 123
+        },
+        gsbStats: {
+            hp: 70,
+            energy: 80,
+            attack: 35,
+            defense: 60,
+            attackR: 93,
+            defenseR: 64,
+            speed: 123
         }
     },
  
@@ -1704,6 +2082,15 @@ var loomians = {
             attack: 112,
             defense: 94,
             attackR: 10,
+            defenseR: 81,
+            speed: 39
+        },
+        gsbStats: {
+            hp: 95,
+            energy: 69,
+            attack: 112,
+            defense: 94,
+            attackR: 35,
             defenseR: 81,
             speed: 39
         }
@@ -1723,6 +2110,15 @@ var loomians = {
             attack: 132,
             defense: 104,
             attackR: 19,
+            defenseR: 91,
+            speed: 50
+        },
+        gsbStats: {
+            hp: 105,
+            energy: 99,
+            attack: 132,
+            defense: 104,
+            attackR: 44,
             defenseR: 91,
             speed: 50
         }
@@ -1761,6 +2157,15 @@ var loomians = {
             energy: 95,
             attack: 50,
             defense: 50,
+            attackR: 120,
+            defenseR: 101,
+            speed: 106
+        },
+        gsbStats: {
+            hp: 88,
+            energy: 100,
+            attack: 55,
+            defense: 55,
             attackR: 120,
             defenseR: 101,
             speed: 106
@@ -1803,6 +2208,15 @@ var loomians = {
             attackR: 54,
             defenseR: 64,
             speed: 104
+        },
+        gsbStats: {
+            hp: 55,
+            energy: 76,
+            attack: 97,
+            defense: 115,
+            attackR: 54,
+            defenseR: 74,
+            speed: 104
         }
     },
  
@@ -1842,6 +2256,15 @@ var loomians = {
             attackR: 105,
             defenseR: 108,
             speed: 81
+        },
+        gsbStats: {
+            hp: 100,
+            energy: 80,
+            attack: 49,
+            defense: 77,
+            attackR: 105,
+            defenseR: 108,
+            speed: 81
         }
     },
 
@@ -1858,6 +2281,15 @@ var loomians = {
             hp: 95,
             energy: 100,
             attack: 56,
+            defense: 67,
+            attackR: 135,
+            defenseR: 78,
+            speed: 119
+        },
+        gsbStats: {
+            hp: 100,
+            energy: 100,
+            attack: 66,
             defense: 67,
             attackR: 135,
             defenseR: 78,
@@ -1900,6 +2332,15 @@ var loomians = {
             defense: 78,
             attackR: 88,
             defenseR: 82,
+            speed: 68
+        },
+        gsbStats: {
+            hp: 78,
+            energy: 86,
+            attack: 97,
+            defense: 83,
+            attackR: 93,
+            defenseR: 87,
             speed: 68
         }
     },
@@ -1960,6 +2401,15 @@ var loomians = {
             attackR: 62,
             defenseR: 83,
             speed: 74
+        },
+        gsbStats: {
+            hp: 89,
+            energy: 94,
+            attack: 111,
+            defense: 102,
+            attackR: 72,
+            defenseR: 83,
+            speed: 74
         }
     },
  
@@ -1997,6 +2447,15 @@ var loomians = {
             attack: 94,
             defense: 113,
             attackR: 42,
+            defenseR: 78,
+            speed: 66
+        },
+        gsbStats: {
+            hp: 94,
+            energy: 79,
+            attack: 104,
+            defense: 113,
+            attackR: 52,
             defenseR: 78,
             speed: 66
         }
@@ -2058,6 +2517,15 @@ var loomians = {
             attackR: 132,
             defenseR: 119,
             speed: 61
+        },
+        gsbStats: {
+            hp: 74,
+            energy: 82,
+            attack: 54,
+            defense: 73,
+            attackR: 132,
+            defenseR: 119,
+            speed: 61
         }
     },
  
@@ -2095,6 +2563,15 @@ var loomians = {
             attack: 94,
             defense: 83,
             attackR: 43,
+            defenseR: 69,
+            speed: 116
+        },
+        gsbStats: {
+            hp: 78,
+            energy: 84,
+            attack: 94,
+            defense: 83,
+            attackR: 63,
             defenseR: 69,
             speed: 116
         }
@@ -2136,6 +2613,15 @@ var loomians = {
             attackR: 99,
             defenseR: 74,
             speed: 105
+        },
+        gsbStats: {
+            hp: 95,
+            energy: 79,
+            attack: 51,
+            defense: 84,
+            attackR: 104,
+            defenseR: 84,
+            speed: 105
         }
     },
 
@@ -2175,6 +2661,15 @@ var loomians = {
             attackR: 45,
             defenseR: 68,
             speed: 87
+        },
+        gsbStats: {
+            hp: 89,
+            energy: 100 ,
+            attack: 104,
+            defense: 82,
+            attackR: 55,
+            defenseR: 73,
+            speed: 87
         }
     },
 
@@ -2212,6 +2707,15 @@ var loomians = {
             attack: 126,
             defense: 87,
             attackR: 36,
+            defenseR: 84,
+            speed: 69
+        },
+        gsbStats: {
+            hp: 94,
+            energy: 89 ,
+            attack: 126,
+            defense: 87,
+            attackR: 56,
             defenseR: 84,
             speed: 69
         }
@@ -2253,6 +2757,15 @@ var loomians = {
             attackR: 110,
             defenseR: 107,
             speed: 89
+        },
+        gsbStats: {
+            hp: 84,
+            energy: 95 ,
+            attack: 57,
+            defense: 58,
+            attackR: 110,
+            defenseR: 117,
+            speed: 89
         }
     },
 
@@ -2290,6 +2803,15 @@ var loomians = {
             attack: 85,
             defense: 72,
             attackR: 81,
+            defenseR: 69,
+            speed: 116
+        },
+        gsbStats: {
+            hp: 66,
+            energy: 86 ,
+            attack: 86,
+            defense: 72,
+            attackR: 90,
             defenseR: 69,
             speed: 116
         }
@@ -2330,6 +2852,15 @@ var loomians = {
             defense: 87,
             attackR: 89,
             defenseR: 84,
+            speed: 41
+        },
+        gsbStats: {
+            hp: 119,
+            energy: 83 ,
+            attack: 97,
+            defense: 92,
+            attackR: 94,
+            defenseR: 89,
             speed: 41
         }
     },
@@ -2390,6 +2921,15 @@ var loomians = {
             attackR: 99,
             defenseR: 91,
             speed: 43
+        },
+        gsbStats: {
+            hp: 99,
+            energy: 86 ,
+            attack: 95,
+            defense: 92,
+            attackR: 99,
+            defenseR: 96,
+            speed: 43
         }
     },
 
@@ -2429,6 +2969,15 @@ var loomians = {
             attackR: 57,
             defenseR: 73,
             speed: 82
+        },
+        gsbStats: {
+            hp: 93,
+            energy: 80 ,
+            attack: 109,
+            defense: 91,
+            attackR: 57,
+            defenseR: 73,
+            speed: 82
         }
     },
 
@@ -2447,6 +2996,15 @@ var loomians = {
             defense: 102,
             attackR: 89,
             defenseR: 93,
+            speed: 37
+        },
+        gsbStats: {
+            hp: 96,
+            energy: 88 ,
+            attack: 72,
+            defense: 107,
+            attackR: 89,
+            defenseR: 88,
             speed: 37
         }
     },
@@ -2505,6 +3063,15 @@ var loomians = {
             attack: 100,
             defense: 79,
             attackR: 53,
+            defenseR: 72,
+            speed: 100
+        },
+        gsbStats: {
+            hp: 87,
+            energy: 89,
+            attack: 100,
+            defense: 84,
+            attackR: 63,
             defenseR: 72,
             speed: 100
         }
@@ -2566,6 +3133,15 @@ var loomians = {
             attackR: 122,
             defenseR: 62,
             speed: 94
+        },
+        gsbStats: {
+            hp: 60,
+            energy: 85,
+            attack: 114,
+            defense: 58,
+            attackR: 122,
+            defenseR: 67,
+            speed: 94
         }
     },
 
@@ -2625,6 +3201,15 @@ var loomians = {
             attackR: 55,
             defenseR: 67,
             speed: 54
+        },
+        gsbStats: {
+            hp: 103,
+            energy: 96,
+            attack: 124,
+            defense: 111,
+            attackR: 70,
+            defenseR: 67,
+            speed: 54
         }
     },
 
@@ -2663,6 +3248,15 @@ var loomians = {
             defense: 85,
             attackR: 42,
             defenseR: 99,
+            speed: 41
+        },
+        gsbStats: {
+            hp: 84,
+            energy: 88,
+            attack: 109,
+            defense: 90,
+            attackR: 57,
+            defenseR: 109,
             speed: 41
         }
     },
@@ -2719,6 +3313,15 @@ var loomians = {
             hp: 71,
             energy: 90,
             attack: 37,
+            defense: 102,
+            attackR: 120,
+            defenseR: 93,
+            speed: 67
+        },
+        gsbStats: {
+            hp: 71,
+            energy: 90,
+            attack: 72,
             defense: 102,
             attackR: 120,
             defenseR: 93,
@@ -2782,6 +3385,15 @@ var loomians = {
             attackR: 79,
             defenseR: 76,
             speed: 93
+        },
+        gsbStats: {
+            hp: 72,
+            energy: 95,
+            attack: 46,
+            defense: 103,
+            attackR: 94,
+            defenseR: 76,
+            speed: 93
         }
     },
 
@@ -2841,6 +3453,15 @@ var loomians = {
             attackR: 100,
             defenseR: 71,
             speed: 89
+        },
+        gsbStats: {
+            hp: 72,
+            energy: 90,
+            attack: 53,
+            defense: 115,
+            attackR: 110,
+            defenseR: 71,
+            speed: 89
         }
     },
 
@@ -2874,6 +3495,15 @@ var loomians = {
             attackR: 52,
             defenseR: 72,
             speed: 89
+        },
+        gsbStats: {
+            hp: 92,
+            energy: 85,
+            attack: 110,
+            defense: 85,
+            attackR: 52,
+            defenseR: 72,
+            speed: 89
         }
     },
 
@@ -2888,6 +3518,15 @@ var loomians = {
             attack: 119,
             defense: 55,
             attackR: 93,
+            defenseR: 75,
+            speed: 103
+        },
+        gsbStats: {
+            hp: 50,
+            energy: 80,
+            attack: 119,
+            defense: 60,
+            attackR: 98,
             defenseR: 75,
             speed: 103
         }
@@ -2906,6 +3545,15 @@ var loomians = {
             attackR: 73,
             defenseR: 53,
             speed: 82
+        },
+        gsbStats: {
+            hp: 78,
+            energy: 83,
+            attack: 137,
+            defense: 69,
+            attackR: 73,
+            defenseR: 63,
+            speed: 82
         }
     },
 
@@ -2922,6 +3570,15 @@ var loomians = {
             attackR: 123,
             defenseR: 61,
             speed: 87
+        },
+        gsbStats: {
+            hp: 70,
+            energy: 92,
+            attack: 57,
+            defense: 90,
+            attackR: 123,
+            defenseR: 66,
+            speed: 87
         }
     },
 
@@ -2935,6 +3592,15 @@ var loomians = {
             energy: 90,
             attack: 56,
             defense: 62,
+            attackR: 101,
+            defenseR: 122,
+            speed: 61
+        },
+        gsbStats: {
+            hp: 83,
+            energy: 90,
+            attack: 61,
+            defense: 67,
             attackR: 101,
             defenseR: 122,
             speed: 61
@@ -2954,6 +3620,15 @@ var loomians = {
             attackR: 17,
             defenseR: 79,
             speed: 78
+        },
+        gsbStats: {
+            hp: 104,
+            energy: 79,
+            attack: 120,
+            defense: 88,
+            attackR: 37,
+            defenseR: 79,
+            speed: 78
         }
     },
 
@@ -2968,6 +3643,15 @@ var loomians = {
             attack: 99,
             defense: 75,
             attackR: 35,
+            defenseR: 96,
+            speed: 101
+        },
+        gsbStats: {
+            hp: 69,
+            energy: 100,
+            attack: 99,
+            defense: 75,
+            attackR: 45,
             defenseR: 96,
             speed: 101
         }
@@ -2986,6 +3670,15 @@ var loomians = {
             attackR: 61,
             defenseR: 66,
             speed: 50
+        },
+        gsbStats: {
+            hp: 91,
+            energy: 86,
+            attack: 91,
+            defense: 130,
+            attackR: 71,
+            defenseR: 66,
+            speed: 50
         }
     },
 
@@ -2998,6 +3691,15 @@ var loomians = {
             hp: 99,
             energy: 91,
             attack: 44,
+            defense: 63,
+            attackR: 133,
+            defenseR: 79,
+            speed: 66
+        },
+        gsbStats: {
+            hp: 104,
+            energy: 86,
+            attack: 54,
             defense: 63,
             attackR: 133,
             defenseR: 79,
@@ -3015,6 +3717,15 @@ var loomians = {
             energy: 85,
             attack: 97,
             defense: 49,
+            attackR: 97,
+            defenseR: 60,
+            speed: 107
+        },
+        gsbStats: {
+            hp: 80,
+            energy: 85,
+            attack: 97,
+            defense: 59,
             attackR: 97,
             defenseR: 60,
             speed: 107
@@ -3077,6 +3788,15 @@ var loomians = {
             attackR: 38,
             defenseR: 76,
             speed: 63
+        },
+        gsbStats: {
+            hp: 87,
+            energy: 90,
+            attack: 123,
+            defense: 113,
+            attackR: 63,
+            defenseR: 76,
+            speed: 63
         }
     },
 
@@ -3128,6 +3848,15 @@ var loomians = {
             attack: 100,
             defense: 119,
             attackR: 34,
+            defenseR: 77,
+            speed: 56
+        },
+        gsbStats: {
+            hp: 116,
+            energy: 0,
+            attack: 100,
+            defense: 119,
+            attackR: 57,
             defenseR: 77,
             speed: 56
         }
@@ -3185,6 +3914,15 @@ var loomians = {
             hp: 66,
             energy: 92,
             attack: 58,
+            defense: 81,
+            attackR: 114,
+            defenseR: 85,
+            speed: 94
+        },
+        gsbStats: {
+            hp: 71,
+            energy: 92,
+            attack: 63,
             defense: 81,
             attackR: 114,
             defenseR: 85,
@@ -3248,6 +3986,15 @@ var loomians = {
             attackR: 121,
             defenseR: 89,
             speed: 108
+        },
+        gsbStats: {
+            hp: 50,
+            energy: 89,
+            attack: 68,
+            defense: 77,
+            attackR: 121,
+            defenseR: 94,
+            speed: 108
         }
     },
 
@@ -3307,6 +4054,15 @@ var loomians = {
             attackR: 111,
             defenseR: 77,
             speed: 34
+        },
+        gsbStats: {
+            hp: 91,
+            energy: 95,
+            attack: 52,
+            defense: 120,
+            attackR: 116,
+            defenseR: 77,
+            speed: 34
         }
     },
 
@@ -3347,6 +4103,15 @@ var loomians = {
             attackR: 98,
             defenseR: 66,
             speed: 109
+        },
+        gsbStats: {
+            hp: 72,
+            energy: 79,
+            attack: 58,
+            defense: 97,
+            attackR: 103,
+            defenseR: 71,
+            speed: 109
         }
     },
 
@@ -3384,6 +4149,15 @@ var loomians = {
             attack: 125,
             defense: 103,
             attackR: 9,
+            defenseR: 73,
+            speed: 80
+        },
+        gsbStats: {
+            hp: 68,
+            energy: 97,
+            attack: 125,
+            defense: 103,
+            attackR: 39,
             defenseR: 73,
             speed: 80
         }
@@ -3425,6 +4199,15 @@ var loomians = {
             attackR: 33,
             defenseR: 59,
             speed: 80
+        },
+        gsbStats: {
+            hp: 120,
+            energy: 87,
+            attack: 117,
+            defense: 82,
+            attackR: 58,
+            defenseR: 64,
+            speed: 80
         }
     },
 
@@ -3463,6 +4246,15 @@ var loomians = {
             defense: 86,
             attackR: 52,
             defenseR: 81,
+            speed: 15
+        },
+        gsbStats: {
+            hp: 100,
+            energy: 100,
+            attack: 99,
+            defense: 106,
+            attackR: 62,
+            defenseR: 96,
             speed: 15
         }
     },
@@ -3514,6 +4306,15 @@ var loomians = {
             attackR: 95,
             defenseR: 110,
             speed: 92
+        },
+        gsbStats: {
+            hp: 100,
+            energy: 99,
+            attack: 58,
+            defense: 66,
+            attackR: 95,
+            defenseR: 100,
+            speed: 92
         }
     },
 
@@ -3551,6 +4352,15 @@ var loomians = {
             attack: 93,
             defense: 94,
             attackR: 18,
+            defenseR: 89,
+            speed: 62
+        },
+        gsbStats: {
+            hp: 110,
+            energy: 90,
+            attack: 93,
+            defense: 94,
+            attackR: 48,
             defenseR: 89,
             speed: 62
         }
@@ -3591,6 +4401,15 @@ var loomians = {
             defense: 57,
             attackR: 97,
             defenseR: 59,
+            speed: 101
+        },
+        gsbStats: {
+            hp: 90,
+            energy: 93,
+            attack: 69,
+            defense: 62,
+            attackR: 107,
+            defenseR: 64,
             speed: 101
         }
     },
@@ -3642,6 +4461,15 @@ var loomians = {
             attackR: 95,
             defenseR: 127,
             speed: 70
+        },
+        gsbStats: {
+            hp: 97,
+            energy: 91,
+            attack: 44,
+            defense: 66,
+            attackR: 95,
+            defenseR: 127,
+            speed: 70
         }
     },
 
@@ -3681,6 +4509,15 @@ var loomians = {
             attackR: 110,
             defenseR: 81,
             speed: 77
+        },
+        gsbStats: {
+            hp: 112,
+            energy: 99,
+            attack: 55,
+            defense: 71,
+            attackR: 115,
+            defenseR: 86,
+            speed: 77
         }
     },
 
@@ -3699,6 +4536,15 @@ var loomians = {
             defense: 60,
             attackR: 60,
             defenseR: 60,
+            speed: 100
+        },
+        gsbStats: {
+            hp: 65,
+            energy: 100,
+            attack: 65,
+            defense: 65,
+            attackR: 65,
+            defenseR: 65,
             speed: 100
         }
     },
@@ -3735,6 +4581,15 @@ var loomians = {
             hp: 69,
             energy: 88,
             attack: 23,
+            defense: 87,
+            attackR: 113,
+            defenseR: 110,
+            speed: 79
+        },
+        gsbStats: {
+            hp: 79,
+            energy: 88,
+            attack: 43,
             defense: 87,
             attackR: 113,
             defenseR: 110,
@@ -3776,6 +4631,15 @@ var loomians = {
             attack: 48,
             defense: 67,
             attackR: 92,
+            defenseR: 80,
+            speed: 102
+        },
+        gsbStats: {
+            hp: 77,
+            energy: 94,
+            attack: 73,
+            defense: 72,
+            attackR: 102,
             defenseR: 80,
             speed: 102
         }
@@ -3838,6 +4702,15 @@ var loomians = {
             attackR: 92,
             defenseR: 66,
             speed: 83
+        },
+        gsbStats: {
+            hp: 81,
+            energy: 89,
+            attack: 120,
+            defense: 89,
+            attackR: 97,
+            defenseR: 66,
+            speed: 83
         }
     },
 
@@ -3875,6 +4748,15 @@ var loomians = {
             attack: 130,
             defense: 71,
             attackR: 26,
+            defenseR: 60,
+            speed: 85
+        },
+        gsbStats: {
+            hp: 123,
+            energy: 95,
+            attack: 130,
+            defense: 71,
+            attackR: 51,
             defenseR: 60,
             speed: 85
         }
@@ -3936,6 +4818,15 @@ var loomians = {
             attackR: 115,
             defenseR: 52,
             speed: 100
+        },
+        gsbStats: {
+            hp: 97,
+            energy: 91,
+            attack: 93,
+            defense: 62,
+            attackR: 115,
+            defenseR: 57,
+            speed: 100
         }
     },
 
@@ -3967,6 +4858,15 @@ var loomians = {
             hp: 65,
             energy: 110,
             attack: 26,
+            defense: 130,
+            attackR: 0,
+            defenseR: 130,
+            speed: 39
+        },
+        gsbStats: {
+            hp: 65,
+            energy: 110,
+            attack: 51,
             defense: 130,
             attackR: 0,
             defenseR: 130,
@@ -4003,6 +4903,15 @@ var loomians = {
             defense: 101,
             attackR: 42,
             defenseR: 67,
+            speed: 82
+        },
+        gsbStats: {
+            hp: 78,
+            energy: 93,
+            attack: 115,
+            defense: 106,
+            attackR: 57,
+            defenseR: 72,
             speed: 82
         }
     },
@@ -4050,6 +4959,15 @@ var loomians = {
             hp: 96,
             energy: 92,
             attack: 58,
+            defense: 77,
+            attackR: 135,
+            defenseR: 82,
+            speed: 70
+        },
+        gsbStats: {
+            hp: 96,
+            energy: 92,
+            attack: 73,
             defense: 77,
             attackR: 135,
             defenseR: 82,
@@ -4104,6 +5022,15 @@ var loomians = {
             attackR: 122,
             defenseR: 106,
             speed: 51
+        },
+        gsbStats: {
+            hp: 56,
+            energy: 101,
+            attack: 68,
+            defense: 96,
+            attackR: 122,
+            defenseR: 106,
+            speed: 51
         }
     },
 
@@ -4154,6 +5081,15 @@ var loomians = {
             attackR: 112,
             defenseR: 61,
             speed: 24
+        },
+        gsbStats: {
+            hp: 80,
+            energy: 87,
+            attack: 117,
+            defense: 104,
+            attackR: 117,
+            defenseR: 71,
+            speed: 24
         }
     },
 
@@ -4172,6 +5108,15 @@ var loomians = {
             defense: 97,
             attackR: 94,
             defenseR: 57,
+            speed: 76
+        },
+        gsbStats: {
+            hp: 69,
+            energy: 85,
+            attack: 42,
+            defense: 97,
+            attackR: 94,
+            defenseR: 62,
             speed: 76
         }
     },
@@ -4232,6 +5177,15 @@ var loomians = {
             attackR: 95,
             defenseR: 80,
             speed: 111
+        },
+        gsbStats: {
+            hp: 92,
+            energy: 98,
+            attack: 60,
+            defense: 89,
+            attackR: 95,
+            defenseR: 80,
+            speed: 111
         }
     },
 
@@ -4264,6 +5218,15 @@ var loomians = {
             defense: 66,
             attackR: 36,
             defenseR: 61,
+            speed: 90
+        },
+        gsbStats: {
+            hp: 75,
+            energy: 150,
+            attack: 72,
+            defense: 71,
+            attackR: 56,
+            defenseR: 66,
             speed: 90
         }
     },
@@ -4300,6 +5263,15 @@ var loomians = {
             attackR: 121,
             defenseR: 76,
             speed: 35
+        },
+        gsbStats: {
+            hp: 105,
+            energy: 83,
+            attack: 86,
+            defense: 104,
+            attackR: 121,
+            defenseR: 81,
+            speed: 35
         }
     },
 
@@ -4331,6 +5303,15 @@ var loomians = {
             attack: 100,
             defense: 117,
             attackR: 9,
+            defenseR: 79,
+            speed: 100
+        },
+        gsbStats: {
+            hp: 60,
+            energy: 90,
+            attack: 100,
+            defense: 117,
+            attackR: 39,
             defenseR: 79,
             speed: 100
         }
@@ -4366,6 +5347,15 @@ var loomians = {
             attackR: 20,
             defenseR: 73,
             speed: 70
+        },
+        gsbStats: {
+            hp: 115,
+            energy: 90,
+            attack: 112,
+            defense: 105,
+            attackR: 45,
+            defenseR: 73,
+            speed: 70
         }
     },
 
@@ -4399,6 +5389,15 @@ var loomians = {
             attackR: 130,
             defenseR: 67,
             speed: 92
+        },
+        gsbStats: {
+            hp: 50,
+            energy: 100,
+            attack: 54,
+            defense: 82,
+            attackR: 130,
+            defenseR: 72,
+            speed: 92
         }
     },
 
@@ -4414,6 +5413,15 @@ var loomians = {
             defense: 97,
             attackR: 14,
             defenseR: 67,
+            speed: 72
+        },
+        gsbStats: {
+            hp: 50,
+            energy: 100,
+            attack: 130,
+            defense: 102,
+            attackR: 54,
+            defenseR: 72,
             speed: 72
         }
     },
@@ -4446,6 +5454,15 @@ var loomians = {
             attack: 101,
             defense: 96,
             attackR: 40,
+            defenseR: 70,
+            speed: 59
+        },
+        gsbStats: {
+            hp: 88,
+            energy: 101,
+            attack: 101,
+            defense: 96,
+            attackR: 60,
             defenseR: 70,
             speed: 59
         }
@@ -4481,6 +5498,15 @@ var loomians = {
             attackR: 125,
             defenseR: 105,
             speed: 44
+        },
+        gsbStats: {
+            hp: 50,
+            energy: 84,
+            attack: 125,
+            defense: 72,
+            attackR: 125,
+            defenseR: 105,
+            speed: 44
         }
     },
 
@@ -4497,6 +5523,15 @@ var loomians = {
             attackR: 108,
             defenseR: 87,
             speed: 99
+        },
+        gsbStats: {
+            hp: 77,
+            energy: 92,
+            attack: 49,
+            defense: 58,
+            attackR: 108,
+            defenseR: 92,
+            speed: 99
         }
     },
 
@@ -4512,6 +5547,15 @@ var loomians = {
             defense: 88,
             attackR: 25,
             defenseR: 74,
+            speed: 64
+        },
+        gsbStats: {
+            hp: 104,
+            energy: 86,
+            attack: 103,
+            defense: 93,
+            attackR: 46,
+            defenseR: 79,
             speed: 64
         }
     },
@@ -4563,6 +5607,15 @@ var loomians = {
             attackR: 51,
             defenseR: 86,
             speed: 95
+        },
+        gsbStats: {
+            hp: 79,
+            energy: 98,
+            attack: 110,
+            defense: 91,
+            attackR: 66,
+            defenseR: 86,
+            speed: 95
         }
     },
 
@@ -4594,6 +5647,15 @@ var loomians = {
             attack: 95,
             defense: 73,
             attackR: 38,
+            defenseR: 57,
+            speed: 115
+        },
+        gsbStats: {
+            hp: 98,
+            energy: 97,
+            attack: 95,
+            defense: 73,
+            attackR: 73,
             defenseR: 57,
             speed: 115
         }
@@ -4629,6 +5691,15 @@ var loomians = {
             attackR: 54,
             defenseR: 71,
             speed: 74
+        },
+        gsbStats: {
+            hp: 91,
+            energy: 80,
+            attack: 113,
+            defense: 92,
+            attackR: 64,
+            defenseR: 71,
+            speed: 74
         }
     },
 
@@ -4661,6 +5732,15 @@ var loomians = {
             defense: 92,
             attackR: 98,
             defenseR: 92,
+            speed: 56
+        },
+        gsbStats: {
+            hp: 113,
+            energy: 80,
+            attack: 44,
+            defense: 97,
+            attackR: 98,
+            defenseR: 97,
             speed: 56
         }
     },
@@ -4695,6 +5775,15 @@ var loomians = {
             attackR: 113,
             defenseR: 66,
             speed: 93
+        },
+        gsbStats: {
+            hp: 68,
+            energy: 80,
+            attack: 98,
+            defense: 62,
+            attackR: 113,
+            defenseR: 71,
+            speed: 93
         }
     },
 
@@ -4728,6 +5817,15 @@ var loomians = {
             attackR: 99,
             defenseR: 92,
             speed: 113
+        },
+        gsbStats: {
+            hp: 93,
+            energy: 80,
+            attack: 49,
+            defense: 59,
+            attackR: 99,
+            defenseR: 92,
+            speed: 113
         }
     },
  
@@ -4746,6 +5844,15 @@ var loomians = {
             defense: 81,
             attackR: 105,
             defenseR: 81,
+            speed: 109
+        },
+        gsbStats: {
+            hp: 74,
+            energy: 100,
+            attack: 100,
+            defense: 81,
+            attackR: 132,
+            defenseR: 104,
             speed: 109
         }
     },
@@ -4766,6 +5873,15 @@ var loomians = {
             attackR: 139,
             defenseR: 73,
             speed: 94
+        },
+        gsbStats: {
+            hp: 72,
+            energy: 115,
+            attack: 119,
+            defense: 62,
+            attackR: 149,
+            defenseR: 89,
+            speed: 94
         }
     },
  
@@ -4785,6 +5901,15 @@ var loomians = {
             attackR: 111,
             defenseR: 96,
             speed: 121
+        },
+        gsbStats: {
+            hp: 58,
+            energy: 118,
+            attack: 82,
+            defense: 99,
+            attackR: 121,
+            defenseR: 101,
+            speed: 121
         }
     },
 
@@ -4800,6 +5925,15 @@ var loomians = {
             defense: 76,
             attackR: 90,
             defenseR: 72,
+            speed: 97
+        },
+        gsbStats: {
+            hp: 99,
+            energy: 119,
+            attack: 127,
+            defense: 86,
+            attackR: 95,
+            defenseR: 77,
             speed: 97
         }
     },
@@ -4819,6 +5953,15 @@ var loomians = {
             defense: 86,
             attackR: 152,
             defenseR: 82,
+            speed: 77
+        },
+        gsbStats: {
+            hp: 119,
+            energy: 119,
+            attack: 95,
+            defense: 96,
+            attackR: 157,
+            defenseR: 87,
             speed: 77
         }
     },
@@ -4840,6 +5983,15 @@ var loomians = {
             attackR: 78,
             defenseR: 63,
             speed: 71
+        },
+        gsbStats: {
+            hp: 97,
+            energy: 133,
+            attack: 114,
+            defense: 119,
+            attackR: 98,
+            defenseR: 68,
+            speed: 71
         }
     },
 
@@ -4858,6 +6010,15 @@ var loomians = {
             defense: 64,
             attackR: 119,
             defenseR: 69,
+            speed: 52
+        },
+        gsbStats: {
+            hp: 164,
+            energy: 116,
+            attack: 96,
+            defense: 69,
+            attackR: 129,
+            defenseR: 74,
             speed: 52
         }
     },
@@ -4882,6 +6043,34 @@ var loomians = {
         }
     },
 
+    phagenaut: {
+        name: "Phagenaut",
+        number: 140,
+        types: ["Electric"],
+        abilities: ["Malware"],
+        sAbility: ["Overcharged"],
+        weight: 114,
+        height: 107,
+        baseStats: {
+            hp: 105,
+            energy: 100,
+            attack: 55,
+            defense: 100,
+            attackR: 140,
+            defenseR: 55,
+            speed: 95
+        },
+        gsbStats: {
+            hp: 105,
+            energy: 105,
+            attack: 75,
+            defense: 120,
+            attackR: 145,
+            defenseR: 55,
+            speed: 95
+        }
+    },
+
     arceros: {
         name: "Arceros",
         types: ["Fire", "Ancient"],
@@ -4894,6 +6083,15 @@ var loomians = {
             defense: 112,
             attackR: 63,
             defenseR: 59,
+            speed: 91
+        },
+        gsbStats: {
+            hp: 96,
+            energy: 115,
+            attack: 119,
+            defense: 112,
+            attackR: 88,
+            defenseR: 79,
             speed: 91
         }
     },
@@ -4910,6 +6108,15 @@ var loomians = {
             defense: 59,
             attackR: 119,
             defenseR: 92,
+            speed: 111
+        },
+        gsbStats: {
+            hp: 96,
+            energy: 115,
+            attack: 88,
+            defense: 69,
+            attackR: 119,
+            defenseR: 102,
             speed: 111
         }
     },
@@ -4928,25 +6135,15 @@ var loomians = {
             attackR: 129,
             defenseR: 75,
             speed: 101
-        }
-    },
-
-    phagenaut: {
-        name: "Phagenaut",
-        number: 140,
-        types: ["Electric"],
-        abilities: ["Malware"],
-        sAbility: ["Overcharged"],
-        weight: 114,
-        height: 107,
-        baseStats: {
-            hp: 105,
-            energy: 100,
-            attack: 55,
-            defense: 100,
-            attackR: 140,
-            defenseR: 55,
-            speed: 95
+        },
+        gsbStats: {
+            hp: 96,
+            energy: 115,
+            attack: 134,
+            defense: 90,
+            attackR: 134,
+            defenseR: 80,
+            speed: 101
         }
     },
 
@@ -4959,6 +6156,15 @@ var loomians = {
             hp: 83,
             energy: 118,
             attack: 69,
+            defense: 69,
+            attackR: 127,
+            defenseR: 79,
+            speed: 105
+        },
+        gsbStats: {
+            hp: 83,
+            energy: 128,
+            attack: 84,
             defense: 69,
             attackR: 127,
             defenseR: 79,
@@ -4982,6 +6188,15 @@ var loomians = {
             attackR: 147,
             defenseR: 54,
             speed: 115
+        },
+        gsbStats: {
+            hp: 53,
+            energy: 118,
+            attack: 119,
+            defense: 119,
+            attackR: 147,
+            defenseR: 54,
+            speed: 115
         }
     },
 
@@ -5001,6 +6216,15 @@ var loomians = {
             attackR: 112,
             defenseR: 93,
             speed: 69
+        },
+        gsbStats: {
+            hp: 106,
+            energy: 103,
+            attack: 99,
+            defense: 88,
+            attackR: 112,
+            defenseR: 98,
+            speed: 69
         }
     },
 
@@ -5016,6 +6240,15 @@ var loomians = {
             hp: 71,
             energy: 115,
             attack: 46,
+            defense: 77,
+            attackR: 119,
+            defenseR: 122,
+            speed: 100
+        },
+        gsbStats: {
+            hp: 76,
+            energy: 115,
+            attack: 66,
             defense: 77,
             attackR: 119,
             defenseR: 122,
@@ -5039,6 +6272,15 @@ var loomians = {
             attackR: 84,
             defenseR: 98,
             speed: 46
+        },
+        gsbStats: {
+            hp: 99,
+            energy: 145,
+            attack: 68,
+            defense: 135,
+            attackR: 84,
+            defenseR: 98,
+            speed: 46
         }
     },
 
@@ -5054,6 +6296,15 @@ var loomians = {
             hp: 99,
             energy: 115,
             attack: 43,
+            defense: 115,
+            attackR: 124,
+            defenseR: 78,
+            speed: 76
+        },
+        gsbStats: {
+            hp: 99,
+            energy: 115,
+            attack: 68,
             defense: 115,
             attackR: 124,
             defenseR: 78,
@@ -5077,6 +6328,15 @@ var loomians = {
             attackR: 43,
             defenseR: 68,
             speed: 96
+        },
+        gsbStats: {
+            hp: 99,
+            energy: 105,
+            attack: 134,
+            defense: 105,
+            attackR: 68,
+            defenseR: 68,
+            speed: 96
         }
     },
 
@@ -5091,6 +6351,15 @@ var loomians = {
             attack: 113,
             defense: 89,
             attackR: 46,
+            defenseR: 110,
+            speed: 111
+        },
+        gsbStats: {
+            hp: 66,
+            energy: 120,
+            attack: 113,
+            defense: 89,
+            attackR: 66,
             defenseR: 110,
             speed: 111
         }
@@ -5111,6 +6380,15 @@ var loomians = {
             attackR: 63,
             defenseR: 86,
             speed: 84
+        },
+        gsbStats: {
+            hp: 116,
+            energy: 94,
+            attack: 120,
+            defense: 97,
+            attackR: 73,
+            defenseR: 91,
+            speed: 84
         }
     },
 
@@ -5129,6 +6407,15 @@ var loomians = {
             attackR: 115,
             defenseR: 80,
             speed: 105
+        },
+        gsbStats: {
+            hp: 55,
+            energy: 105,
+            attack: 120,
+            defense: 85,
+            attackR: 120,
+            defenseR: 85,
+            speed: 105
         }
     },
 
@@ -5145,6 +6432,15 @@ var loomians = {
             attack: 155,
             defense: 40,
             attackR: 155,
+            defenseR: 40,
+            speed: 105
+        },
+        gsbStats: {
+            hp: 55,
+            energy: 105,
+            attack: 165,
+            defense: 40,
+            attackR: 165,
             defenseR: 40,
             speed: 105
         }
@@ -5165,6 +6461,15 @@ var loomians = {
             attackR: 60,
             defenseR: 155,
             speed: 65
+        },
+        gsbStats: {
+            hp: 55,
+            energy: 105,
+            attack: 60,
+            defense: 165,
+            attackR: 60,
+            defenseR: 165,
+            speed: 65
         }
     },
 
@@ -5183,6 +6488,15 @@ var loomians = {
             attackR: 85,
             defenseR: 85,
             speed: 155
+        },
+        gsbStats: {
+            hp: 55,
+            energy: 105,
+            attack: 90,
+            defense: 85,
+            attackR: 90,
+            defenseR: 85,
+            speed: 165
         }
     },
 
@@ -5202,6 +6516,15 @@ var loomians = {
             attackR: 103,
             defenseR: 79,
             speed: 91
+        },
+        gsbStats: {
+            hp: 125,
+            energy: 125,
+            attack: 63,
+            defense: 79,
+            attackR: 108,
+            defenseR: 84,
+            speed: 91
         }
     },
 
@@ -5214,6 +6537,15 @@ var loomians = {
             hp: 83,
             energy: 90,
             attack: 93,
+            defense: 109,
+            attackR: 131,
+            defenseR: 73,
+            speed: 71
+        },
+        gsbStats: {
+            hp: 93,
+            energy: 95,
+            attack: 103,
             defense: 109,
             attackR: 131,
             defenseR: 73,
@@ -5233,6 +6565,15 @@ var loomians = {
             defense: 55,
             attackR: 107,
             defenseR: 55,
+            speed: 113
+        },
+        gsbStats: {
+            hp: 95,
+            energy: 113,
+            attack: 117,
+            defense: 65,
+            attackR: 107,
+            defenseR: 65,
             speed: 113
         }
     },
@@ -5257,8 +6598,7 @@ var loomians = {
     },
 
 };
-
-
+ 
 
 var moves = {
     pounce: {
@@ -9610,4 +10950,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "o7 to Pyrolen. Typeless changed to Simple.";
+var changelog = "Added a button to display PvP 2.0 stats if applicable.";

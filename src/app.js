@@ -282,6 +282,7 @@ let percentNRG2 = document.getElementById("percentNRG2");
 
 let singleDouble = document.getElementById("singleDouble");
 let levelCheck = document.getElementById("levelCheck");
+let gsbCheck = document.getElementById("gsbCheck");
 
 let firstLoomian;
 let hp1;
@@ -391,11 +392,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -457,8 +458,8 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2025 12:00:00 UTC"
@@ -766,6 +767,16 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         baseAtkR1.value = firstLoom.baseStats.attackR;
         baseDefR1.value = firstLoom.baseStats.defenseR;
         baseSpd1.value = firstLoom.baseStats.speed;
+        if (gsbCheck.checked && firstLoom.gsbStats) {
+            baseHP1.value = firstLoom.gsbStats.hp;
+            baseEnergy1.value = firstLoom.gsbStats.energy;
+            baseAtk1.value = firstLoom.gsbStats.attack;
+            baseDef1.value = firstLoom.gsbStats.defense;
+            baseAtkR1.value = firstLoom.gsbStats.attackR;
+            baseDefR1.value = firstLoom.gsbStats.defenseR;
+            baseSpd1.value = firstLoom.gsbStats.speed;
+            addStats();
+        }
     }
 
     if (onlySecond || (!onlyFirst && !onlySecond)) {
@@ -833,6 +844,16 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         baseAtkR2.value = secondLoom.baseStats.attackR;
         baseDefR2.value = secondLoom.baseStats.defenseR;
         baseSpd2.value = secondLoom.baseStats.speed;
+        if (gsbCheck.checked && secondLoom.gsbStats) {
+            baseHP2.value = secondLoom.gsbStats.hp;
+            baseEnergy2.value = secondLoom.gsbStats.energy;
+            baseAtk2.value = secondLoom.gsbStats.attack;
+            baseDef2.value = secondLoom.gsbStats.defense;
+            baseAtkR2.value = secondLoom.gsbStats.attackR;
+            baseDefR2.value = secondLoom.gsbStats.defenseR;
+            baseSpd2.value = secondLoom.gsbStats.speed;
+            addStats();
+        }
     }
     
     update(undefined, false);
@@ -1004,6 +1025,21 @@ function loadBaseStats(side) {
             baseAtkR1.value = firstLoom.baseStats.attack;
             baseDefR1.value = firstLoom.baseStats.defense;
         }
+        if (gsbCheck.checked && firstLoom.gsbStats) {
+            baseHP1.value = firstLoom.gsbStats.hp;
+            baseEnergy1.value = firstLoom.gsbStats.energy;
+            baseAtk1.value = firstLoom.gsbStats.attack;
+            baseDef1.value = firstLoom.gsbStats.defense;
+            baseAtkR1.value = firstLoom.gsbStats.attackR;
+            baseDefR1.value = firstLoom.gsbStats.defenseR;
+            baseSpd1.value = firstLoom.gsbStats.speed;
+            if (ability1 == "Idiosyncratic") {
+                baseAtk1.value = firstLoom.gsbStats.attackR;
+                baseDef1.value = firstLoom.gsbStats.defenseR;
+                baseAtkR1.value = firstLoom.gsbStats.attack;
+                baseDefR1.value = firstLoom.gsbStats.defense;
+            }
+        }
     }
     if (side == 2 || side == undefined) {
         baseHP2.value = secondLoom.baseStats.hp;
@@ -1018,6 +1054,21 @@ function loadBaseStats(side) {
             baseDef2.value = secondLoom.baseStats.defenseR;
             baseAtkR2.value = secondLoom.baseStats.attack;
             baseDefR2.value = secondLoom.baseStats.defense;
+        }
+        if (gsbCheck.checked && secondLoom.gsbStats) {
+            baseHP2.value = secondLoom.gsbStats.hp;
+            baseEnergy2.value = secondLoom.gsbStats.energy;
+            baseAtk2.value = secondLoom.gsbStats.attack;
+            baseDef2.value = secondLoom.gsbStats.defense;
+            baseAtkR2.value = secondLoom.gsbStats.attackR;
+            baseDefR2.value = secondLoom.gsbStats.defenseR;
+            baseSpd2.value = secondLoom.gsbStats.speed;
+            if (ability2 == "Idiosyncratic") {
+                baseAtk2.value = secondLoom.gsbStats.attackR;
+                baseDef2.value = secondLoom.gsbStats.defenseR;
+                baseAtkR2.value = secondLoom.gsbStats.attack;
+                baseDefR2.value = secondLoom.gsbStats.defense;
+            }
         }
     }
 }
