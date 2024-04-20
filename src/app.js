@@ -709,7 +709,7 @@ $(".dmg").change(function() {
         let moveHits = (doodle.find(".trait").val() == "Capoeira") ? 5 : 3;
         moveGroupObj.children(".move-hits").val(moveHits + " hits");
         if (move.name == "Double Bite" || move.name == "Quad Strike") moveGroupObj.children(".move-hits").hide();
-    } else if (move.name == "Ancient Blow") {
+    } else if (move.name == "Expert Onslaught") {
         moveGroupObj.children(".move-hits").hide();
         moveGroupObj.children(".swarm").show();
         moveGroupObj.children(".snowball").hide();
@@ -1160,21 +1160,21 @@ function loadMoves(updatePower = false) {
 
     if (firstSoul) {
         soulMove1 = findMove(firstSoul);
-        soulMoveLbl1.style.visibility = "visible";
-        soulMoveDmg1.style.visibility = "visible";
+        soulMoveLbl1.style.display = "inline-block";
+        soulMoveDmg1.style.display = "inline";
     } else {
         soulMove1 = findMove("(No Move)");
-        soulMoveLbl1.style.visibility = "hidden";
-        soulMoveDmg1.style.visibility = "hidden";
+        soulMoveLbl1.style.display = "none";
+        soulMoveDmg1.style.display = "none";
     }
     if (secondSoul) {
         soulMove2 = findMove(secondSoul);
-        soulMoveLbl2.style.visibility = "visible";
-        soulMoveDmg2.style.visibility = "visible";
+        soulMoveLbl2.style.display = "inline-block";
+        soulMoveDmg2.style.display = "inline";
     } else {
         soulMove2 = findMove("(No Move)");
-        soulMoveLbl2.style.visibility = "hidden";
-        soulMoveDmg2.style.visibility = "hidden";
+        soulMoveLbl2.style.display = "none";
+        soulMoveDmg2.style.display = "none";
     }
 
     if (updatePower) {
@@ -2049,11 +2049,17 @@ function detailedReport() {
     let adaptiveResult;
     let atkDef;
     if (move.name == "Adaptive Assault" && (firstLoom.baseStats.attackR > firstLoom.baseStats.attack) || (firstLoom.name == "Hydrolen" && atks.ranged > atks.melee) ||
-       (move.name == "Ancient Blow" && atks.ranged > atks.melee)) {
+       (move.name == "Expert Onslaught" && atks.ranged > atks.melee) ) {
         adaptive.mr = "Ranged";
         adaptive.mr1 = "Ranged Attack";
         adaptive.mr2 = "Ranged Defense";
         adaptiveResult = "ranged";
+        atkDef = getTempAtkDef(second, adaptive);
+    } else if (move.name == "Expert Onslaught" && atks.melee >= atks.ranged){
+        adaptive.mr = "Melee";
+        adaptive.mr1 = "Melee Attack";
+        adaptive.mr2 = "Melee Defense";
+        adaptiveResult = "melee";
         atkDef = getTempAtkDef(second, adaptive);
     } else atkDef = getTempAtkDef(second, move);
     if (move.mr == "Melee" && myStatus == "burned" && !firstLoom.types.includes("Fire") && !(adaptiveResult && adaptiveResult == "ranged")) statStr = myStatus.charAt(0).toUpperCase() + myStatus.slice(1);
@@ -2071,7 +2077,7 @@ function detailedReport() {
     }
 
     //tempAtk
-    if (move.mr1 == "Ranged Attack" || (adaptiveResult == "ranged")) {
+    if ((move.mr1 == "Ranged Attack" && move.name != "Expert Onslaught") || (adaptiveResult == "ranged")) {
         if ((playerAbility == "Festive Spirit" && atkDef.attack.posNat == "hyper") || (playerAbility == "Festive Spirit" && atkDef.attack.negNat == "hyper")) {
             atkPlus = "+";
         }
@@ -2108,7 +2114,7 @@ function detailedReport() {
             else tempAtk = tempAtk + atkREV1.value + " " + atkPlus + "AtkR";
         }
     }
-    else if (move.mr1 == "Melee Attack") {
+    else if (move.mr1 == "Melee Attack" || adaptiveResult == "melee") {
         if (atkDef.attack.posNat == "brawny" || atkDef.attack.negNat == "brawny") {
             atkPlus = "+";
         }
@@ -2242,7 +2248,7 @@ function detailedReport() {
             tempDef = tempDef + atkEV2.value + " " + defPlus + "AtkM";           
         } 
     }
-    else if (move.mr2 == "Ranged Defense" || (adaptiveResult == "ranged")) {
+    else if ((move.mr2 == "Ranged Defense" && move.name != "Expert Onslaught") || (adaptiveResult == "ranged")) {
         if (atkDef.defense.posNat == "clever" || atkDef.defense.negNat == "clever") {
             defPlus = "+";
         }
@@ -2264,7 +2270,7 @@ function detailedReport() {
             tempDef = tempDef + defREV2.value + " " + defPlus + "DefR";           
         } 
     }
-    else if (move.mr2 == "Melee Defense") {
+    else if (move.mr2 == "Melee Defense" || adaptiveResult == "melee") {
         if (atkDef.defense.posNat == "robust" || atkDef.defense.negNat == "robust") {
             defPlus = "+";
         }
@@ -2605,7 +2611,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, hits, swarm, snowbal
         }
         tempStats = getTempAtkDef(second, adaptive);
         stuffUsed.extra1 += " (" + adaptive.mr + " " + tempType + ")";
-    } else if (move.name == "Ancient Blow") {
+    } else if (move.name == "Expert Onslaught") {
         tempType = types1.primary;
         swarm = parseInt(swarm.charAt(0));
         tempPower = Number(tempPower) + 25 * swarm;
