@@ -31,14 +31,15 @@ var builtInSets = [
 	    veryNature: "none",
 	    ability: "Tank",
 	    item: "Health Amulet",
-	    level: 50
+	    level: 50,
+	    builtIn: true
 	},
 	{
 	    name: "Ikazune",
-	    setName: "[P7] RAtk Wallbreaker",
+	    setName: "[P7] RAtk Boots",
 	    evs: {
-	        hp: 32,
-	        energy: 68,
+	        hp: 96,
+	        energy: 4,
 	        attack: 0,
 	        defense: 0,
 	        attackR: 200,
@@ -55,8 +56,8 @@ var builtInSets = [
 	        speed: 40
 	    },
 	    moves: {
-	        move1: "Magnify",
-	        move2: "Energy Surge",
+	        move1: "Zip-Zap",
+	        move2: "Flash 'n Flee",
 	        move3: "Fire Breath",
 	        move4: "Thunderstrike"
 	    },
@@ -64,8 +65,9 @@ var builtInSets = [
 	    negNature: "smart",
 	    veryNature: "none",
 	    ability: "Rechargeable",
-	    item: "Power Cuffs",
-	    level: 50
+	    item: "Specialty Boots",
+	    level: 50,
+	    builtIn: true
 	},
 	{
 	    name: "Hunder",
@@ -99,7 +101,8 @@ var builtInSets = [
 	    veryNature: "vClumsy",
 	    ability: "Power Jaw",
 	    item: "Power Cuffs",
-	    level: 50
+	    level: 50,
+	    builtIn: true
 	},
 	{
 	    name: "Nevermare",
@@ -133,7 +136,8 @@ var builtInSets = [
 	    veryNature: "none",
 	    ability: "Razor Sharp",
 	    item: "Power Cuffs",
-	    level: 50
+	    level: 50,
+	    builtIn: true
 	},
 	{
 	    name: "Tundrolen",
@@ -167,7 +171,8 @@ var builtInSets = [
 	    veryNature: "vRobust",
 	    ability: "Resilience",
 	    item: "Mysterious Dust",
-	    level: 50
+	    level: 50,
+	    builtIn: true
 	},
 	{
 	    name: "Eleguana",
@@ -201,7 +206,8 @@ var builtInSets = [
 	    veryNature: "vClever",
 	    ability: "Prismatic",
 	    item: "Heavy Shield",
-	    level: 50
+	    level: 50,
+	    builtIn: true
 	},
 	{
 	    name: "Barblast",
@@ -235,7 +241,8 @@ var builtInSets = [
 	    veryNature: "vRobust",
 	    ability: "High Explosive",
 	    item: "Heavy Armor",
-	    level: 50
+	    level: 50,
+	    builtIn: true
 	},
 	{
 	    name: "Zuelong",
@@ -269,7 +276,8 @@ var builtInSets = [
 	    veryNature: "vFrail",
 	    ability: "Brute Force",
 	    item: "Ancient Essence",
-	    level: 50
+	    level: 50,
+	    builtIn: true
 	},
 	{
 	    name: "Whippledriff",
@@ -303,7 +311,8 @@ var builtInSets = [
 	    veryNature: "vFrail",
 	    ability: "Glide",
 	    item: "Air Essence",
-	    level: 50
+	    level: 50,
+	    builtIn: true
 	},
 	{
 	    name: "Mootune",
@@ -337,7 +346,8 @@ var builtInSets = [
 	    veryNature: "vSmart",
 	    ability: "Tone Deaf",
 	    item: "Typeless Essence",
-	    level: 50
+	    level: 50,
+	    builtIn: true
 	},
 	{
 	    name: "Cosmiore-Cracked",
@@ -371,7 +381,8 @@ var builtInSets = [
 	    veryNature: "none",
 	    ability: "Enchanted Coat",
 	    item: "Shade Pearl",
-	    level: 50
+	    level: 50,
+	    builtIn: true
 	},
 	{
 	    name: "Snagoop",
@@ -405,7 +416,8 @@ var builtInSets = [
 	    veryNature: "vFrail",
 	    ability: "Immunized",
 	    item: "Volcanic Ash",
-	    level: 50
+	    level: 50,
+	    builtIn: true
 	},
 	{
 	    name: "Boonary",
@@ -439,6 +451,7 @@ var builtInSets = [
 	    veryNature: "none",
 	    ability: "Two Face",
 	    item: "Specialty Boots",
-	    level: 50
+	    level: 50,
+	    builtIn: true
 	},
 ];
