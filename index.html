@@ -17,7 +17,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/nodeca/pako@7abdb13e/dist/pako.min.js"></script>
 
-<body onunload="saveCookie()" style="min-width:103em; min-height:50em;">
+<body onunload="saveCookie()" style="min-width:116em; min-height:50em;">
     <h1 id="title">Loomian Legacy Damage Calculator</h1>
     <div class="wrap">
         <div class="results">
@@ -120,7 +120,7 @@
 
         </div>
 
-        <div class="panel">
+        <div class="panel loomian-info">
             <fieldset>
 
                 <legend align="center">
@@ -129,8 +129,6 @@
 
                 <select class="pokeselect" id="pokes1" onchange="loadSets(true)">
                 </select>
-                <br id="lineBreak1" style="display: none;">
-                <button id="deleteSet1" style="display: none;" onclick="deleteSet()">Delete This Set</button>
 
                 <div class="infogroup">
 
@@ -140,6 +138,7 @@
                         <select id="secondaryType1" onchange="update()">
                             <option>None</option>
                         </select>
+                        <button id="deleteSet1" style="visibility: hidden;" onclick="deleteSet()">Delete This Set</button>
                     </div>
 
                     <div>
@@ -474,7 +473,7 @@
 
                     <div>
                         <label class="divAlign">Ability: </label>
-                        <select id="ability1" onchange="updateAbility('ability1')">
+                        <select class="trait" id="ability1" onchange="updateAbility('ability1')">
                             <option>None</option>
                         </select>
                         <input type="checkbox" id="immuneBoost1" style="width: 1em; vertical-align: middle; visibility: hidden;" onchange="update()">
@@ -543,7 +542,7 @@
                 <div class="infogroup">
 
                     <div>
-                        <select class="moveSelect" id="moveOne1" onchange="update(true)">
+                        <select class="moveSelect dmg" id="moveOne1" onchange="update(true)">
                         </select>
                         <input id="moveOnePower1" value=0 type=number min=0 max=999
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
@@ -553,10 +552,27 @@
                         <input class="moveslbl" id="moveOneMR1" readonly>
                         <input type="checkbox" class="hiddenToUser" id="moveOneCrit1" onchange="update()">
                         <label class="radiolbl critlbl" for="moveOneCrit1">Crit</label>
+                        <select class="move-hits" id="moveOneHits1" style="display: none;" onchange="update()">
+                            <option>2 hits</option>
+                            <option>3 hits</option>
+                            <option class="fury">4 hits</option>
+                            <option class="fury">5 hits</option>
+                        </select>
+                        <select class="swarm" id="moveOneSwarm1" style="display: none;" onchange="update()">
+                            <option>0 looms</option>
+                            <option>1 loom</option>
+                            <option>2 looms</option>
+                            <option>3 looms</option>
+                            <option>4 looms</option>
+                            <option>5 looms</option>
+                        </select>   
+                        <input class="snowball" id="moveOneSnowball1" style="display:  none;" value=1 type=number min=1 max=5
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()"> 
                     </div>
 
                     <div>
-                        <select class="moveSelect" id="moveTwo1" onchange="update(true)">
+                        <select class="moveSelect dmg" id="moveTwo1" onchange="update(true)">
                         </select>
                         <input id="moveTwoPower1" value=0 type=number min=0 max=999
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
@@ -566,10 +582,27 @@
                         <input class="moveslbl" id="moveTwoMR1" readonly>
                         <input type="checkbox" class="hiddenToUser" id="moveTwoCrit1" onchange="update()">
                         <label class="radiolbl critlbl" for="moveTwoCrit1">Crit</label>
+                        <select class="move-hits" id="moveTwoHits1" style="display: none;" onchange="update()">
+                            <option>2 hits</option>
+                            <option>3 hits</option>
+                            <option class="fury">4 hits</option>
+                            <option class="fury">5 hits</option>
+                        </select>
+                        <select class="swarm" id="moveTwoSwarm1" style="display: none;" onchange="update()">
+                            <option>0 looms</option>
+                            <option>1 loom</option>
+                            <option>2 looms</option>
+                            <option>3 looms</option>
+                            <option>4 looms</option>
+                            <option>5 looms</option>
+                        </select>   
+                        <input class="snowball" id="moveTwoSnowball1" style="display:  none;" value=1 type=number min=1 max=5
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()"> 
                     </div>
 
                     <div>
-                        <select class="moveSelect" id="moveThree1" onchange="update(true)">
+                        <select class="moveSelect dmg" id="moveThree1" onchange="update(true)">
                         </select>
                         <input id="moveThreePower1" value=0 type=number min=0 max=999
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
@@ -579,10 +612,27 @@
                         <input class="moveslbl" id="moveThreeMR1" readonly>
                         <input type="checkbox" class="hiddenToUser" id="moveThreeCrit1" onchange="update()">
                         <label class="radiolbl critlbl" for="moveThreeCrit1">Crit</label>
+                        <select class="move-hits" id="moveThreeHits1" style="display: none;" onchange="update()">
+                            <option>2 hits</option>
+                            <option>3 hits</option>
+                            <option class="fury">4 hits</option>
+                            <option class="fury">5 hits</option>
+                        </select>
+                        <select class="swarm" id="moveThreeSwarm1" style="display: none;" onchange="update()">
+                            <option>0 looms</option>
+                            <option>1 loom</option>
+                            <option>2 looms</option>
+                            <option>3 looms</option>
+                            <option>4 looms</option>
+                            <option>5 looms</option>
+                        </select>   
+                        <input class="snowball" id="moveThreeSnowball1" style="display:  none;" value=1 type=number min=1 max=5
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()"> 
                     </div>
 
                     <div>
-                        <select class="moveSelect" id="moveFour1" onchange="update(true)">
+                        <select class="moveSelect dmg" id="moveFour1" onchange="update(true)">
                         </select>
                         <input id="moveFourPower1" value=0 type=number min=0 max=999
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
@@ -592,6 +642,23 @@
                         <input class="moveslbl" id="moveFourMR1" readonly>
                         <input type="checkbox" class="hiddenToUser" id="moveFourCrit1" onchange="update()">
                         <label class="radiolbl critlbl" for="moveFourCrit1">Crit</label>
+                        <select class="move-hits" id="moveFourHits1" style="display: none;" onchange="update()">
+                            <option>2 hits</option>
+                            <option>3 hits</option>
+                            <option class="fury">4 hits</option>
+                            <option class="fury">5 hits</option>
+                        </select>
+                        <select class="swarm" id="moveFourSwarm1" style="display: none;" onchange="update()">
+                            <option>0 looms</option>
+                            <option>1 loom</option>
+                            <option>2 looms</option>
+                            <option>3 looms</option>
+                            <option>4 looms</option>
+                            <option>5 looms</option>
+                        </select>   
+                        <input class="snowball" id="moveFourSnowball1" style="display:  none;" value=1 type=number min=1 max=5
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()"> 
                     </div>  
 
                 </div>
@@ -866,15 +933,13 @@
             </fieldset>
 
         </div>
-        <div class="panel">
+        <div class="panel loomian-info">
             <fieldset>
                 <legend align="center">
                     Loomian 2
                 </legend>
                 <select class="pokeselect" id="pokes2" onchange="loadSets(undefined, true)"></select>
 
-                <br id="lineBreak2" style="display: none;">
-                <button id="deleteSet2" style="display: none;" onclick="deleteSet(true)">Delete This Set</button>
 
                 <div class="infogroup">
 
@@ -884,6 +949,7 @@
                         <select id="secondaryType2" onchange="update()">
                             <option>None</option>
                         </select>
+                        <button id="deleteSet2" style="visibility: hidden;" onclick="deleteSet(true)">Delete This Set</button>
                     </div>
 
                     <div>
@@ -1217,7 +1283,7 @@
 
                     <div>
                         <label class="divAlign">Ability: </label>
-                        <select id="ability2" onchange="updateAbility('ability2')">
+                        <select class="trait" id="ability2" onchange="updateAbility('ability2')">
                             <option>None</option>
                         </select>
                         <input type="checkbox" id="immuneBoost2" style="width: 1em; vertical-align: middle; visibility: hidden;" onchange="update()">
@@ -1287,7 +1353,7 @@
                 <div class="infogroup">
 
                     <div>
-                        <select class="moveSelect" id="moveOne2" onchange="update(true)">
+                        <select class="moveSelect dmg" id="moveOne2" onchange="update(true)">
                         </select>
                         <input id="moveOnePower2" value=0 type=number min=0 max=999
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
@@ -1297,10 +1363,27 @@
                         <input class="moveslbl" id="moveOneMR2" readonly>
                         <input type="checkbox" class="hiddenToUser" id="moveOneCrit2" onchange="update()">
                         <label class="radiolbl critlbl" for="moveOneCrit2">Crit</label>
+                        <select class="move-hits" id="moveOneHits2" style="display: none;" onchange="update()">
+                            <option>2 hits</option>
+                            <option>3 hits</option>
+                            <option class="fury">4 hits</option>
+                            <option class="fury">5 hits</option>
+                        </select>
+                        <select class="swarm" id="moveOneSwarm2" style="display: none;" onchange="update()">
+                            <option>0 looms</option>
+                            <option>1 loom</option>
+                            <option>2 looms</option>
+                            <option>3 looms</option>
+                            <option>4 looms</option>
+                            <option>5 looms</option>
+                        </select>   
+                        <input class="snowball" id="moveOneSnowball2" style="display:  none;" value=1 type=number min=1 max=5
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()"> 
                     </div>
 
                     <div>
-                        <select class="moveSelect" id="moveTwo2" onchange="update(true)">
+                        <select class="moveSelect dmg" id="moveTwo2" onchange="update(true)">
                         </select>
                         <input id="moveTwoPower2" value=0 type=number min=0 max=999
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
@@ -1310,10 +1393,27 @@
                         <input class="moveslbl" id="moveTwoMR2" readonly>
                         <input type="checkbox" class="hiddenToUser" id="moveTwoCrit2" onchange="update()">
                         <label class="radiolbl critlbl" for="moveTwoCrit2">Crit</label>
+                        <select class="move-hits" id="moveTwoHits2" style="display: none;" onchange="update()">
+                            <option>2 hits</option>
+                            <option>3 hits</option>
+                            <option class="fury">4 hits</option>
+                            <option class="fury">5 hits</option>
+                        </select>
+                        <select class="swarm" id="moveTwoSwarm2" style="display: none;" onchange="update()">
+                            <option>0 looms</option>
+                            <option>1 loom</option>
+                            <option>2 looms</option>
+                            <option>3 looms</option>
+                            <option>4 looms</option>
+                            <option>5 looms</option>
+                        </select>   
+                        <input class="snowball" id="moveTwoSnowball2" style="display:  none;" value=1 type=number min=1 max=5
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()"> 
                     </div>
 
                     <div>
-                        <select class="moveSelect" id="moveThree2" onchange="update(true)">
+                        <select class="moveSelect dmg" id="moveThree2" onchange="update(true)">
                         </select>
                         <input id="moveThreePower2" value=0 type=number min=0 max=999
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
@@ -1323,10 +1423,27 @@
                         <input class="moveslbl" id="moveThreeMR2" readonly>
                         <input type="checkbox" class="hiddenToUser" id="moveThreeCrit2" onchange="update()">
                         <label class="radiolbl critlbl" for="moveThreeCrit2">Crit</label>
+                        <select class="move-hits" id="moveThreeHits2" style="display: none;" onchange="update()">
+                            <option>2 hits</option>
+                            <option>3 hits</option>
+                            <option class="fury">4 hits</option>
+                            <option class="fury">5 hits</option>
+                        </select>
+                        <select class="swarm" id="moveThreeSwarm2" style="display: none;" onchange="update()">
+                            <option>0 looms</option>
+                            <option>1 loom</option>
+                            <option>2 looms</option>
+                            <option>3 looms</option>
+                            <option>4 looms</option>
+                            <option>5 looms</option>
+                        </select>   
+                        <input class="snowball" id="moveThreeSnowball2" style="display:  none;" value=1 type=number min=1 max=5
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()"> 
                     </div>
 
                     <div>
-                        <select class="moveSelect" id="moveFour2" onchange="update(true)">
+                        <select class="moveSelect dmg" id="moveFour2" onchange="update(true)">
                         </select>
                         <input id="moveFourPower2" value=0 type=number min=0 max=999
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
@@ -1336,6 +1453,23 @@
                         <input class="moveslbl" id="moveFourMR2" readonly>
                         <input type="checkbox" class="hiddenToUser" id="moveFourCrit2" onchange="update()">
                         <label class="radiolbl critlbl" for="moveFourCrit2">Crit</label>
+                        <select class="move-hits" id="moveFourHits2" style="display: none;" onchange="update()">
+                            <option>2 hits</option>
+                            <option>3 hits</option>
+                            <option class="fury">4 hits</option>
+                            <option class="fury">5 hits</option>
+                        </select>
+                        <select class="swarm" id="moveFourSwarm2" style="display: none;" onchange="update()">
+                            <option>0 looms</option>
+                            <option>1 loom</option>
+                            <option>2 looms</option>
+                            <option>3 looms</option>
+                            <option>4 looms</option>
+                            <option>5 looms</option>
+                        </select>   
+                        <input class="snowball" id="moveFourSnowball2" style="display:  none;" value=1 type=number min=1 max=5
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()"> 
                     </div> 
 
                 </div>
@@ -1346,7 +1480,50 @@
             </fieldset>
 
         </div>
+          
+        <div class="breakpoint" style="display: none">
+            <fieldset>
+                <legend align="center" style="font-size: 1.5em; font-weight: bold;">
+                    Energy Breakpoint Calculator
+                </legend>
+                <div>
+                    <label style="width: 240px;" align="right" class="divAlign">Ability: </label>
+                    <select class="moveSelect" id="abilityBPDropdown" onchange="loadMoves()">
+                        <option>None</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label style="width: 240px;" align="right" class="divAlign">Item: </label>
+                    <select class="moveSelect" id="itemBP" onchange="loadMoves()">
+                         <option>None</option>
+                    </select>
+                 </div>
+                 <div align="center" style="padding-top: 1px;">
+                    <input type="checkbox" class="hiddenToUser" id="motivational3" onchange="loadMoves()">
+                    <label class="radiolbl fieldlbl entered" for="motivational3">Ally Has Motivational</label>
+                </div>
+                <table>
+                    <thead>
+                        <span style="padding-right: 95px; padding-left: 120px;">Move:</span>
+                        <span style="padding-right: 15px">Cost:</span>
+                        <span style="padding-right: 10px"># of Uses:</span>
+                        <span>Breakpoint:</span>
+                    </thead>
+                </table>    
+                <div style="padding-left:120px">
+                    <select class="moveSelect" id="moveBPDropdown" onchange="loadMoves()">
+                    </select>
+                    <input id="moveBPEnergy" value="0" readonly>
+                    <input class="moveslbl" id="moveBPTimes" value=5 type=number min=1 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="loadMoves()">
+                    <span id="moveBPResult">300</span>
+                </div>
+            </fieldset>
+        </div>   
     </div>
+
     <div class="contributors">
         <input type="checkbox" class="hiddenToUser" id="darkMode" onchange="toggleDarkMode()">
         <label class="radiolbl fieldlbl entered" for="darkMode">Dark Mode</label>
