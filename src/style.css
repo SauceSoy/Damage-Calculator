@@ -225,6 +225,14 @@ hr {
   float: left;
 }
 
+.breakpoint {
+  padding-left: 308px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  width: 616px;
+  display: block;
+}
+
 .infoBar {
   font-weight: 700;
   font-size: 0.8em;

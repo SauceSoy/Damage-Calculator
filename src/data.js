@@ -2649,8 +2649,6 @@ var loomians = {
         name: "Skelic",
         number: 96,
         types: ["Ancient", "Water"],
-        abilities: ["Bitter Touch", "Combative"],
-        sAbility: ["Contact Curse"],
         weight: 34,
         height: 76,
         baseStats: {
@@ -2671,6 +2669,26 @@ var loomians = {
             defenseR: 73,
             speed: 87
         }
+    },
+
+    'skelic-seascourge': {
+        name: "Skelic-Seascourge",
+        number: 96,
+        types: ["Ancient", "Water"],
+        soulMove: "Heedless Rush",
+        ability: "Rain Rush",
+        item: "Skeliburst",
+        weight: 34,
+        height: 76,
+        baseStats: {
+            hp: 109,
+            energy: 100 ,
+            attack: 134,
+            defense: 92,
+            attackR: 55,
+            defenseR: 78,
+            speed: 77
+        },
     },
 
     zaleo: {
@@ -4523,10 +4541,8 @@ var loomians = {
 
     swirelle: {
         name: "Swirelle",
-        number: 140,
         types: ["Air"],
-        abilities: ["Appetite"],
-        sAbility: [],
+        ability: "Appetite",
         weight: 9,
         height: 34,
         baseStats: {
@@ -5828,6 +5844,155 @@ var loomians = {
             speed: 113
         }
     },
+
+    nautling: {
+        name: "Nautling",
+        types: ["Ancient", "Simple"],
+        weight: 4,
+        height: 14,
+        finalEvo: false,
+        baseStats: {
+            hp: 53,
+            energy: 46,
+            attack: 27,
+            defense: 15,
+            attackR: 27,
+            defenseR: 15,
+            speed: 17
+        }
+    },
+
+    nautillect: {
+        name: "Nautillect",
+        types: ["Ancient", "Mind"],
+        weight: 54,
+        height: 51,
+        baseStats: {
+            hp: 106,
+            energy: 82,
+            attack: 54,
+            defense: 74,
+            attackR: 105,
+            defenseR: 115,
+            speed: 34
+        }
+    },
+
+    naukout: {
+        name: "Naukout",
+        types: ["Ancient", "Brawler"],
+        weight: 45,
+        height: 53,
+        baseStats: {
+            hp: 106,
+            energy: 82,
+            attack: 105,
+            defense: 115,
+            attackR: 54,
+            defenseR: 74,
+            speed: 34
+        }
+    },
+
+    yutiny: {
+        name: "Yutiny",
+        types: ["Ancient", "Air"],
+        weight: 26,
+        height: 26,
+        finalEvo: false,
+        baseStats: {
+            hp: 47,
+            energy: 57,
+            attack: 61,
+            defense: 31,
+            attackR: 24,
+            defenseR: 53,
+            speed: 59
+        }
+    },
+
+    yuteen: {
+        name: "Yuteen",
+        types: ["Ancient", "Air"],
+        weight: 62,
+        height: 56,
+        finalEvo: false,
+        baseStats: {
+            hp: 61,
+            energy: 69,
+            attack: 80,
+            defense: 42,
+            attackR: 37,
+            defenseR: 72,
+            speed: 73
+        }
+    },
+
+    yutyphoon: {
+        name: "Yutyphoon",
+        types: ["Ancient", "Air"],
+        weight: 252,
+        height: 110,
+        baseStats: {
+            hp: 82,
+            energy: 87,
+            attack: 115,
+            defense: 56,
+            attackR: 51,
+            defenseR: 95,
+            speed: 104
+        }
+    },
+
+    venile: {
+        name: "Venile",
+        types: ["Ancient", "Toxic"],
+        weight: 25,
+        height: 26,
+        finalEvo: false,
+        baseStats: {
+            hp: 47,
+            energy: 57,
+            attack: 61,
+            defense: 53,
+            attackR: 24,
+            defenseR: 31,
+            speed: 59
+        }
+    },
+
+    verinox: {
+        name: "Verinox",
+        types: ["Ancient", "Toxic"],
+        weight: 60,
+        height: 64,
+        finalEvo: false,
+        baseStats: {
+            hp: 61,
+            energy: 69,
+            attack: 80,
+            defense: 72,
+            attackR: 37,
+            defenseR: 42,
+            speed: 73
+        }
+    },
+
+    verinosaur: {
+        name: "Verinosaur",
+        types: ["Ancient", "Toxic"],
+        weight: 289,
+        height: 116,
+        baseStats: {
+            hp: 82,
+            energy: 87,
+            attack: 115,
+            defense: 95,
+            attackR: 51,
+            defenseR: 56,
+            speed: 104
+        }
+    },
  
     duskit: {
         name: "Duskit",
@@ -6145,6 +6310,54 @@ var loomians = {
             defenseR: 80,
             speed: 101
         }
+    },
+
+    morphezu: {
+        name: "Morphezu",
+        types: ["Air"],
+        weight: 198,
+        height: 116,
+        baseStats: {
+            hp: 115,
+            energy: 90,
+            attack: 55,
+            defense: 55,
+            attackR: 150,
+            defenseR: 100,
+            speed: 85
+        },
+    },
+
+    behemoroth: {
+        name: "Behemoroth",
+        types: ["Earth"],
+        weight: 198,
+        height: 116,
+        baseStats: {
+            hp: 115,
+            energy: 90,
+            attack: 150,
+            defense: 100,
+            attackR: 55,
+            defenseR: 55,
+            speed: 85
+        },
+    },
+
+    leviatross: {
+        name: "Leviatross",
+        types: ["Water"],
+        weight: 198,
+        height: 116,
+        baseStats: {
+            hp: 115,
+            energy: 90,
+            attack: 100,
+            defense: 55,
+            attackR: 85,
+            defenseR: 55,
+            speed: 150
+        },
     },
 
     metronette: {
@@ -6946,6 +7159,18 @@ var moves = {
         power: 75,
         energy: 38,
         accuracy: 100,
+        type: "Water",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
+    },
+
+    heedlessRush: {
+        name: "Heedless Rush",
+        power: 100,
+        energy: 0,
+        accuracy: "N/A",
         type: "Water",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -8176,6 +8401,17 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true
+    },
+
+    expertOnslaught: {
+        name: "Expert Onslaught",
+        power: 50,
+        energy: 40,
+        accuracy: 100,
+        type: "Simple",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
     },
 
     goopSpout: {
@@ -9893,6 +10129,15 @@ var moves = {
         mr: "Support"
     },
 
+    brainExercise: {
+        name: "Brain Exercise",
+        power: 0,
+        energy: 25,
+        accuracy: "N/A",
+        type: "Mind",
+        mr: "Support"
+    },
+
     perch: {
         name: "Perch",
         power: 0,
@@ -9911,6 +10156,23 @@ var moves = {
         mr: "Support"
     },
 
+    ruffledFeathers: {
+        name: "Ruffled Feathers",
+        power: 0,
+        energy: 35,
+        accuracy: "N/A",
+        type: "Air",
+        mr: "Support"
+    },
+
+    barbTrap: {
+        name: "Barb Trap",
+        power: 0,
+        energy: 35,
+        accuracy: "N/A",
+        type: "Toxic",
+        mr: "Support"
+    },
 
     poison: {
         name: "Poison",
@@ -10385,6 +10647,16 @@ var moves = {
         mr: "Support"
     },
 
+    shadowbox: {
+        name: "Shadowbox",
+        power: 0,
+        energy: 25,
+        accuracy: "N/A",
+        type: "Brawler",
+        mr: "Support"
+    },
+
+
     talentTrade: {
         name: "Talent Trade",
         power: 0,
@@ -10757,7 +11029,8 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Dauntless", "Festive Spirit", "Vicious", "Reaper", "Captivating", "Forge", "Blistering Heat", "Herd Behavior", "Regurgitate", "Wholesome", "Pyro Pro", "Persistence", "One of Many",
                  "Mesmerizing", "Hydrate", "Railgun", "Spine Break", "Sponge", "Burning Rage", "Third-Degree Burn", "Frostbite", "Chilling Passion", "Obsidian Heart", "Luck Of The Sea", "Intern",
                  "Partnership", "Rush Hour", "Trader", "Safety Pot", "Gloomy", "Mimic", "Reflective", "Hag", "Foresight", "Demanding", "Ravenous", "Designated Chompers", "Battle Armor", "Mask Swap",
-                 "Facade", "Party Trick", "Do or Die", "Wildfire", "Sendoff", "Hydro Vortex", "Motivational", "Soul Siphon", "Pluvial"];
+                 "Facade", "Party Trick", "Do or Die", "Wildfire", "Sendoff", "Hydro Vortex", "Motivational", "Soul Siphon", "Pluvial", "Petrifying", "Tumultuous", "Venomous", "Brutal Wrath",
+                 "Sky-Borne", "Land-Borne", "Depths-Borne", "All Seeing", "Rain Rush", "Triumph"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -10933,6 +11206,24 @@ var typeModAbilities = {
         typeModifier: { type: "Ancient", modifier: 1.5},
         powerMod: true
     },
+
+    'sky-borne': {
+        name: "Sky-Borne",
+        typeModifier: { type: "Air", modifier: 1.25},
+        powerMod: true
+    },
+
+    'land-borne': {
+        name: "Land-Borne",
+        typeModifier: { type: "Earth", modifier: 1.25},
+        powerMod: true
+    },
+
+    'depths-borne': {
+        name: "Depths-Borne",
+        typeModifier: { type: "Water", modifier: 1.25},
+        powerMod: true
+    },
 }
 
 var items = ["Heavy Shield", "Heavy Armor", "Power Cuffs", "Health Amulet", "Drain Orb", "Mystic Wand", "Drop of Youth", "Energy Orb", "Chocolate Bar", "Mysterious Dust", "Heavy Shackles", "Thunder Orb",
@@ -10950,4 +11241,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Added a button to display PvP 2.0 stats if applicable.";
+var changelog = "UMV Update added. Added QoL to multi hit calcing. Height/Weight for the 3 UMV roamers are not accurate yet.";
