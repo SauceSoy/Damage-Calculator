@@ -9833,6 +9833,20 @@ var moves = {
         regen: 1/5
     },
 
+    vitalJab: {
+        name: "Vital Jab",
+        power: 80,
+        energy: 55,
+        accuracy: 100,
+        type: "Brawler",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        punch: true,
+        drain: 1/2
+    },
+
     powerDraw: {
         name: "Power Draw",
         power: 80,
