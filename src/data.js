@@ -9579,6 +9579,19 @@ var moves = {
         secondaryEffect: true
     },
 
+    frostBreath: {
+        name: "Frost Breath",
+        power: 60,
+        energy: 38,
+        accuracy: 100,
+        type: "Ice",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true,
+        aoe: true
+    },
+
      bodyCrash: {
         name: "Body Crash",
         power: 80,
@@ -11255,4 +11268,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "UMV Update added. Added QoL to multi hit calcing. Height/Weight for the 3 UMV roamers are not accurate yet.";
+var changelog = "Doubles spread damge multiplier removed. Frost Breath added.";

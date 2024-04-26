@@ -430,11 +430,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -496,8 +496,8 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2025 12:00:00 UTC"
@@ -2958,8 +2958,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, hits, swarm, snowbal
         tempDef.def = calculateStat(tempDef.base, tempDef.iv.value, tempDef.ev.value, tempDef.level, undefined, tempDef.posNat, tempDef.negNat, tempDef.veryNat, tempDef.name, tempDef.rest);
         stuffUsed.ability1 = ability1;
     }
-    if ((itemB == "Heavy Shield" && (move.mr2 == "Ranged Defense" || adaptive.mr2 == "Ranged Defense")) ||
-       (itemB == "Heavy Armor" && move.mr2 == "Melee Defense" & adaptive.mr2 != "Ranged Defense")) {
+    if ((itemB == "Heavy Shield" && ((move.mr2 == "Ranged Defense" && adaptive.mr2 != "Melee Defense") || adaptive.mr2 == "Ranged Defense")) ||
+       (itemB == "Heavy Armor" && ((move.mr2 == "Melee Defense" && adaptive.mr2 != "Ranged Defense") || adaptive.mr2 == "Melee Defense"))) {
         multi *= 1.2;
         stuffUsed.item2 = itemB;
     }
@@ -2967,15 +2967,15 @@ function getMultiplier(loom1, loom2, move, movePower, crit, hits, swarm, snowbal
         multi *= 1.4;
         stuffUsed.item2 = itemB;
     }
-    if ((ability2 == "Trash Armor" || ability2 == "Hard Candy" || ability2 == "Safety Pot") && move.mr2 == "Melee Defense" && adaptive.mr2 != "Ranged Defense") {
+    if ((ability2 == "Trash Armor" || ability2 == "Hard Candy" || ability2 == "Safety Pot") && ((move.mr2 == "Melee Defense" && adaptive.mr2 != "Ranged Defense") || adaptive.mr2 == "Melee Defense")) {
         multi *= 1.5;
         stuffUsed.ability2 = ability2;
     }
-    if (ability2 == "Safety Pot" && (move.mr2 == "Ranged Defense" || adaptive.mr2 == "Ranged Defense")) {
+    if (ability2 == "Safety Pot" && ((move.mr2 == "Ranged Defense" && adaptive.mr2 != "Melee Defense") || adaptive.mr2 == "Ranged Defense")) {
         multi *= 1.5;
         stuffUsed.ability2 = ability2;
     }
-    if (ability2 == "Slick Shell" && (move.mr2 == "Ranged Defense" || adaptive.mr2 == "Ranged Defense")) {
+    if (ability2 == "Slick Shell" && ((move.mr2 == "Ranged Defense" && adaptive.mr2 != "Melee Defense") || adaptive.mr2 == "Ranged Defense")) {
         multi *= 2;
         stuffUsed.ability2 = ability2;
     }
@@ -2985,9 +2985,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, hits, swarm, snowbal
 
     dmg = Math.floor(Math.floor(dmg * tempAtk.atk / tempDef.def * tempPower) / 50) + 2;
 
-    if (isDouble && move.aoe == true) {
+    /*if (isDouble && move.aoe == true) {
         multi *= 0.75;
-    }
+    }*/
 
     dmg = Math.floor(dmg * multi);
     multi = 1;
@@ -2995,7 +2995,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, hits, swarm, snowbal
     //Crit and Random -----------------------------
 
     if (crit || (ability1 == "Brutal Wrath" && (stat2 == "poisoned" || stat2 == "diseased"))) {
-        if (ability1 == "Brutal Wrath" && (stat2 == "poisoned" || stat2 == "diseased")) stuffUsed.ability1 = ability1
+        if (ability1 == "Brutal Wrath" && (stat2 == "poisoned" || stat2 == "diseased")) stuffUsed.ability1 = ability1;
         if (ability1 == "Marksman") {
             multi *= 2.25;
             stuffUsed.ability1 = ability1;
