@@ -476,6 +476,9 @@
                         <select class="trait" id="ability1" onchange="updateAbility('ability1')">
                             <option>None</option>
                         </select>
+                        <input class="repeating" id="repeating1" style="display:  none;" value=1 type=number min=1 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
                         <input type="checkbox" id="immuneBoost1" style="width: 1em; vertical-align: middle; visibility: hidden;" onchange="update()">
                     </div>
 
@@ -526,6 +529,7 @@
                     <input id="currentNRG1" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updatePercent()">/
                     <label id="totalNRG1">321</label>
                     <input id="percentNRG1" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updateNumber()">%
+                    <button class="right radiolbl fieldlbl entered" id="break1" style="display: none;" onclick="loadBreakCalc('left')">Check Breakpoint</button>
                     <br>
                     <br>
 
@@ -699,7 +703,9 @@
                     <input type="radio" class="hiddenToUser" name="weather" value="3" id="fog" onchange="update()">
                     <label class="radiolbl fieldlbl btn-mid" for="fog" title="Select the current weather condition">Fog</label>
                     <input type="radio" class="hiddenToUser" name="weather" value="3" id="heat" onchange="update()">
-                    <label class="radiolbl fieldlbl btn-right" for="heat" title="Select the current weather condition">Heat Wave</label>
+                    <label class="radiolbl fieldlbl btn-mid" for="heat" title="Select the current weather condition">Heat Wave</label>
+                    <input type="radio" class="hiddenToUser" name="weather" value="4" id="storm" onchange="update()">
+                    <label class="radiolbl fieldlbl btn-right" for="storm" title="Select the current weather condition">Thunderstorm</label>
                 </div>
                 <hr>
                 <div class="fieldTraps">
@@ -716,16 +722,16 @@
                     </div>                    
                     <div>
                         <div class="left">
-                            <input type="checkbox" class="hiddenToUser" id="iceTrap1" onchange="update()">
+                            <input type="checkbox" class="hiddenToUser" id="iceTrap1" onchange="changeButton(this)">
                             <label class="radiolbl fieldlbl icetrap btn-left" for="iceTrap1" title="Is this side affected by Icicle Trap">Icicle Trap</label>
-                            <input type="checkbox" class="hiddenToUser" id="halfIce1" onchange="update()">
+                            <input type="checkbox" class="hiddenToUser" id="halfIce1" onchange="changeButton(this)">
                             <label class="radiolbl fieldlbl btn-right" id="halfStyle1" style="width: 3em;" for="halfIce1" title="Are Icicle Traps halved">Halved</label>
                         </div>
 
                         <div class="right">
-                            <input type="checkbox" class="hiddenToUser" id="halfIce2" onchange="update()">
+                            <input type="checkbox" class="hiddenToUser" id="halfIce2" onchange="changeButton(this)">
                             <label class="radiolbl fieldlbl btn-left" id="halfStyle2" style="width: 3em;" for="halfIce2" title="Are Icicle Traps halved">Halved</label>
-                            <input type="checkbox" class="hiddenToUser" id="iceTrap2" onchange="update()">
+                            <input type="checkbox" class="hiddenToUser" id="iceTrap2" onchange="changeButton(this)">
                             <label class="radiolbl fieldlbl icetrap btn-right" for="iceTrap2" title="Is this side affected by Icicle Trap">Icicle Trap</label>
                         </div>
                     </div>
@@ -1286,6 +1292,9 @@
                         <select class="trait" id="ability2" onchange="updateAbility('ability2')">
                             <option>None</option>
                         </select>
+                        <input class="repeating" id="repeating2" style="display:  none;" value=1 type=number min=1 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
                         <input type="checkbox" id="immuneBoost2" style="width: 1em; vertical-align: middle; visibility: hidden;" onchange="update()">
                     </div>
 
@@ -1336,6 +1345,7 @@
                     <input id="currentNRG2" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updatePercent()">/
                     <label id="totalNRG2">321</label>
                     <input id="percentNRG2" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updateNumber()">%
+                    <button class="right radiolbl fieldlbl entered" id="break2" style="display: none;" onclick="loadBreakCalc('right')">Check Breakpoint</button>
                     <br>
                     <br>
 
@@ -1515,10 +1525,34 @@
                     <select class="moveSelect" id="moveBPDropdown" onchange="loadMoves()">
                     </select>
                     <input id="moveBPEnergy" value="0" readonly>
-                    <input class="moveslbl" id="moveBPTimes" value=5 type=number min=1 max=999
+                    <input class="moveslbl" id="moveBPTimes" value=1 type=number min=0 max=999
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
                         onchange="loadMoves()">
                     <span id="moveBPResult">300</span>
+                </div>
+                <div style="padding-left:120px">
+                    <select class="moveSelect" id="moveBPDropdown2" onchange="loadMoves()">
+                    </select>
+                    <input id="moveBPEnergy2" value="0" readonly>
+                    <input class="moveslbl" id="moveBPTimes2" value=1 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="loadMoves()">
+                </div>
+                <div style="padding-left:120px">
+                    <select class="moveSelect" id="moveBPDropdown3" onchange="loadMoves()">
+                    </select>
+                    <input id="moveBPEnergy3" value="0" readonly>
+                    <input class="moveslbl" id="moveBPTimes3" value=1 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="loadMoves()">
+                </div>
+                <div style="padding-left:120px">
+                    <select class="moveSelect" id="moveBPDropdown4" onchange="loadMoves()">
+                    </select>
+                    <input id="moveBPEnergy4" value="0" readonly>
+                    <input class="moveslbl" id="moveBPTimes4" value=1 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="loadMoves()">
                 </div>
             </fieldset>
         </div>   
