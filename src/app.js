@@ -3027,7 +3027,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
        (dawn && isDouble && move.mr1 == "Melee Attack" && ability1 == "Dusk") ||
        (dawn && isDouble && move.mr1 == "Ranged Attack" && ability1 == "Dawn") ||
        (move.mr1 == "Melee Defense" && ability1 == "Trash Armor") ||
-       ((move.mr1 == "Melee Defense" || move.mr1 == "Ranged Defense") && ability1 == "Safety Pot")) {
+       ((move.mr1 == "Melee Defense" || move.mr1 == "Ranged Defense") && ability1 == "Safety Pot") ||
+       (ability1 == "Inferno" && heat.checked && move.mr1 == "Ranged Attack")) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }   
