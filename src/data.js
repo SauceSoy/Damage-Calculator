@@ -9339,7 +9339,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         secondaryEffect: true,
-        contact: true
+        contact: true,
+        bite: true
     },
 
     eggLob: {
