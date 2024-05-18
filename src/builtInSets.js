@@ -345,7 +345,7 @@ var builtInSets = [
 	    negNature: "frail",
 	    veryNature: "vSmart",
 	    ability: "Tone Deaf",
-	    item: "Typeless Essence",
+	    item: "Simple Essence",
 	    level: 50,
 	    builtIn: true
 	},

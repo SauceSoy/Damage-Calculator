@@ -1802,7 +1802,7 @@ var loomians = {
         number: 64,
         types: ["Fire", "Spirit"],
         soulMove: "Eruption",
-        ability: "Applied Frustration",
+        ability: "Heat Summon",
         item: "Krakaburst",
         weight: 155,
         height: 81,
@@ -2695,8 +2695,6 @@ var loomians = {
         name: "Zaleo",
         number: 97,
         types: ["Ancient", "Electric"],
-        abilities: ["Adorable", "Driven"],
-        sAbility: ["Overcharged"],
         finalEvo: false,
         weight: 6,
         height: 20,
@@ -2715,8 +2713,6 @@ var loomians = {
         name: "Joltooth",
         number: 98,
         types: ["Ancient", "Electric"],
-        abilities: ["Ambush", "Driven"],
-        sAbility: ["Overcharged"],
         weight: 62,
         height: 61,
         baseStats: {
@@ -2736,6 +2732,26 @@ var loomians = {
             attackR: 56,
             defenseR: 84,
             speed: 69
+        }
+    },
+
+    'joltooth-thunderking': {
+        name: "Joltooth-Thunderking",
+        number: 98,
+        types: ["Ancient", "Electric"],
+        soulMove: "Fulgur Fangs",
+        ability: "Royal Decree",
+        item: "Joltburst",
+        weight: 62,
+        height: 61,
+        baseStats: {
+            hp: 94,
+            energy: 89 ,
+            attack: 136,
+            defense: 87,
+            attackR: 51,
+            defenseR: 84,
+            speed: 109
         }
     },
 
@@ -5993,13 +6009,60 @@ var loomians = {
             speed: 104
         }
     },
+
+    nymvolt: {
+        name: "Nymvolt",
+        types: ["Electric", "Bug"],
+        weight: 5,
+        height: 37,
+        finalEvo: false,
+        baseStats: {
+            hp: 43,
+            energy: 60,
+            attack: 29,
+            defense: 30,
+            attackR: 40,
+            defenseR: 59,
+            speed: 70
+        }
+    },
+
+    ohmbolt: {
+        name: "Ohmbolt",
+        types: ["Electric", "Bug"],
+        weight: 12,
+        height: 39,
+        finalEvo: false,
+        baseStats: {
+            hp: 66,
+            energy: 93,
+            attack: 29,
+            defense: 54,
+            attackR: 51,
+            defenseR: 77,
+            speed: 70
+        }
+    },
+
+    plasmoth: {
+        name: "Plasmoth",
+        types: ["Electric", "Bug"],
+        weight: 48,
+        height: 69,
+        baseStats: {
+            hp: 86,
+            energy: 93,
+            attack: 39,
+            defense: 67,
+            attackR: 74,
+            defenseR: 109,
+            speed: 112
+        }
+    },
  
     duskit: {
         name: "Duskit",
-        number: 192,
         types: ["Mind", "Spirit"],
-        abilities: ["Harmonize"],
-        sAbility: ["Mean Spirited"],
         weight: 16,
         height: 37,
         baseStats: {
@@ -6024,10 +6087,7 @@ var loomians = {
  
     ikazune: {
         name: "Ikazune",
-        number: 193,
         types: ["Fire", "Electric"],
-        abilities: ["Raging Fire"],
-        sAbility: ["Rechargeable"],
         weight: 38,
         height: 69,
         baseStats: {
@@ -6052,10 +6112,7 @@ var loomians = {
  
     protogon: {
         name: "Protogon",
-        number: 194,
         types: ["Metal"],
-        abilities: ["Analyze"],
-        sAbility: ["Replicate"],
         weight: 135,
         height: 103,
         baseStats: {
@@ -6131,13 +6188,27 @@ var loomians = {
         }
     },
 
+    cosmeleon: {
+        name: "Cosmeleon",
+        types: ["Simple"],
+        ability: "Adaptable",
+        weight: 8,
+        height: 66,
+        baseStats: {
+            hp: 100,
+            energy: 100,
+            attack: 100,
+            defense: 100,
+            attackR: 100,
+            defenseR: 100,
+            speed: 100
+        }
+    },
+
 
     mutagon: {
         name: "Mutagon",
-        number: 203,
         types: ["Mind", "Brawler"],
-        abilities: ["Tank"],
-        sAbility: ["Heavy Fists"],
         weight: 125,
         height: 92,
         baseStats: {
@@ -6162,10 +6233,7 @@ var loomians = {
 
     cephalops: {
         name: "Cephalops",
-        number: 205,
         types: ["Water", "Dark"],
-        abilities: ["Bloodsucker"],
-        sAbility: ["Nightmarish"],
         weight: 141,
         height: 99,
         baseStats: {
@@ -6190,10 +6258,7 @@ var loomians = {
 
     elephage: {
         name: "Elephage",
-        number: 140,
         types: ["Electric"],
-        abilities: ["Malware"],
-        sAbility: ["Replicate"],
         weight: 10,
         height: 35,
         finalEvo: false,
@@ -6210,10 +6275,7 @@ var loomians = {
 
     phagenaut: {
         name: "Phagenaut",
-        number: 140,
         types: ["Electric"],
-        abilities: ["Malware"],
-        sAbility: ["Overcharged"],
         weight: 114,
         height: 107,
         baseStats: {
@@ -7403,6 +7465,18 @@ var moves = {
         secondaryEffect: true
     },
 
+    pepperBurst: {
+        name: "Rapid Fire",
+        power: 35,
+        energy: 40,
+        accuracy: 100,
+        type: "Fire",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        hits: 2,
+    },
+
     waterBomb: {
         name: "Water Bomb",
         power: 60,
@@ -7461,6 +7535,17 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         aoe: true
+    },
+
+    airShot: {
+        name: "Air Shot",
+        power: 40,
+        energy: 20,
+        accuracy: 100,
+        type: "Air",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
     },
 
     gloomFangs: {
@@ -7686,6 +7771,18 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         secondaryEffect: true
+    },
+
+    phantomBlast: {
+        name: "Phantom Blast",
+        power: 110,
+        energy: 60,
+        accuracy: 80,
+        type: "Spirit",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        aoe: true
     },
 
     phantomSlash: {
@@ -8505,6 +8602,18 @@ var moves = {
         aoe: true
     },
 
+    thunderBlast: {
+        name: "Thunder Blast",
+        power: 110,
+        energy: 60,
+        accuracy: 80,
+        type: "Electric",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true,
+    },
+
     chaseDown: {
         name: "Chase Down",
         power: 40,
@@ -8554,6 +8663,17 @@ var moves = {
         mr2: "Ranged Defense",
         sound: true,
         secondaryEffect: true
+    },
+
+    climateCannon: {
+        name: "Climate Cannon",
+        power: 90,
+        energy: 45,
+        accuracy: 100,
+        type: "Simple",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
     },
 
     repeatingTune: {
@@ -9062,6 +9182,18 @@ var moves = {
         secondaryEffect: true
     },
 
+    flareBlast: {
+        name: "Flare Blast",
+        power: 110,
+        energy: 60,
+        accuracy: 80,
+        type: "Fire",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
+    },
+
     clampClaw: {
         name: "Clamp Claw",
         power: 85,
@@ -9085,6 +9217,18 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         aoe: true
+    },
+
+    hydroBlast: {
+        name: "Hydro Blast",
+        power: 110,
+        energy: 60,
+        accuracy: 80,
+        type: "Water",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
     },
 
     soulDrain: {
@@ -9177,6 +9321,19 @@ var moves = {
         power: 80,
         energy: 45,
         accuracy: 100,
+        type: "Electric",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        secondaryEffect: true,
+        contact: true
+    },
+
+    fulgurFangs: {
+        name: "Fulgur Fangs",
+        power: 100,
+        energy: 0,
+        accuracy: "N/A",
         type: "Electric",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -9676,6 +9833,18 @@ var moves = {
         mr2: "Ranged Defense",
     },
 
+    typhoon: {
+        name: "Typhoon",
+        power: 110,
+        energy: 60,
+        accuracy: 80,
+        type: "Air",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        aoe: true
+    },
+
     counterStance: {
         name: "Counter Stance",
         power: 70,
@@ -9724,6 +9893,20 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
+    },
+
+    preemptiveStrike: {
+        name: "Preemptive Strike",
+        power: 40,
+        energy: 25,
+        accuracy: 100,
+        type: "Brawler",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        priority: true,
+        secondaryEffect: true
     },
 
     hornDashi: {
@@ -9870,6 +10053,19 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         regen: 1/5
+    },
+
+    powerSurge: {
+        name: "Power Surge",
+        power: 80,
+        energy: 50,
+        accuracy: 100,
+        type: "Electric",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        aoe: true,
+        secondaryEffect: true
     },
 
     megaKick: {
@@ -10094,6 +10290,15 @@ var moves = {
 
     energize: {
         name: "Energize",
+        power: 0,
+        energy: 25,
+        accuracy: "N/A",
+        type: "Electric",
+        mr: "Support"
+    },
+
+    thunderstorm: {
+        name: "Thunderstorm",
         power: 0,
         energy: 25,
         accuracy: "N/A",
@@ -11057,7 +11262,8 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Mesmerizing", "Hydrate", "Railgun", "Spine Break", "Sponge", "Burning Rage", "Third-Degree Burn", "Frostbite", "Chilling Passion", "Obsidian Heart", "Luck Of The Sea", "Intern",
                  "Partnership", "Rush Hour", "Trader", "Safety Pot", "Gloomy", "Mimic", "Reflective", "Hag", "Foresight", "Demanding", "Ravenous", "Designated Chompers", "Battle Armor", "Mask Swap",
                  "Facade", "Party Trick", "Do or Die", "Wildfire", "Sendoff", "Hydro Vortex", "Motivational", "Soul Siphon", "Pluvial", "Petrifying", "Tumultuous", "Venomous", "Brutal Wrath",
-                 "Sky-Borne", "Land-Borne", "Depths-Borne", "All Seeing", "Rain Rush", "Triumph"];
+                 "Sky-Borne", "Land-Borne", "Depths-Borne", "All Seeing", "Rain Rush", "Triumph", "Royal Decree", "Thunder Summon", "Recurrent", "Charged Arc","Adaptable", "Heat Summon",
+                 "Rain Summon", "Fog Summon", "Wind Summon", "Inferno", "Cosmic Pressure"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -11268,4 +11474,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Doubles spread damge multiplier removed. Frost Breath added.";
+var changelog = "Thunderstorm updated added.";
