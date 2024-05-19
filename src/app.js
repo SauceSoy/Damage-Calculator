@@ -2853,7 +2853,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
 
-    if (ability1 == "Recurrent") {
+    if (ability1 == "Recurrent" && tempType == "Electric") {
         let chanting = Math.min((1 + 0.2 * (repeat - 1)), 2);
         multi *= chanting;
         stuffUsed.ability1 = ability1;
