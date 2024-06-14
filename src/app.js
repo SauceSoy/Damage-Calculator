@@ -444,11 +444,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -510,8 +510,8 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2025 12:00:00 UTC"
@@ -659,13 +659,13 @@ function update(updatePower = false, updateBaseStats = false) {
     if (abilityDropdown1.value == "Recurrent") repeating1.style.display = "inline";
     else {
         repeating1.style.display = "none";
-        repeating1.value = 1;
+        repeating1.value = 0;
     }
 
     if (abilityDropdown2.value == "Recurrent") repeating2.style.display = "inline";
     else {
         repeating2.style.display = "none";
-        repeating2.value = 1;
+        repeating2.value = 0;
     }
 
     if (status1.value == "diseased") {
@@ -729,10 +729,10 @@ $(".dmg").change(function() {
         if (move.name == "Dart Burst" || move.name == "Winter's Fury") {
             moveGroupObj.children(".move-hits").children(".fury").hide();
         } else moveGroupObj.children(".move-hits").children(".fury").show();
-        let doodle = $(this).closest(".loomian-info");
-        let moveHits = (doodle.find(".trait").val() == "Capoeira") ? 5 : 3;
+        let loomi = $(this).closest(".loomian-info");
+        let moveHits = (loomi.find(".trait").val() == "Capoeira") ? 5 : 3;
         moveGroupObj.children(".move-hits").val(moveHits + " hits");
-        if (move.name == "Double Bite" || move.name == "Quad Strike") moveGroupObj.children(".move-hits").hide();
+        if (move.name == "Pepper Burst" || move.name == "Double Beat" || move.name == "Rapid Fire") moveGroupObj.children(".move-hits").hide();
     } else if (move.name == "Expert Onslaught") {
         moveGroupObj.children(".move-hits").hide();
         moveGroupObj.children(".swarm").show();
@@ -1356,7 +1356,7 @@ function loadStats() {
     multi = 1;
     if (firstItem == "Specialty Boots") multi *= 1.5;
     if (status1.value == "paralasis" && !firstLoom.types.includes("Electric") && ability1 != "Thriving Pace") multi *= 0.5;
-    if (firstLoom.types.includes("Air") && winds.checked) multi *= 1.1;
+    if ((firstLoom.types.includes("Air") || ability1 == "Adaptable") && winds.checked) multi *= 1.1;
     if ((ability1 == "Thriving Pace" && status1.value != "healthy") || ability1 == "Rush Hour") multi *= 1.5;
     if ((ability1 == "Sugar Rush" && firstItem == "None") || (ability1 == "Rain Rush" && rain.checked)) multi *= 2;
     if (ability1 == "Safety Pot") multi *= 2/3;
@@ -1384,7 +1384,7 @@ function loadStats() {
     multi = 1;
     if (secondItem == "Specialty Boots") multi *= 1.5;
     if (status2.value == "paralasis" && !secondLoom.types.includes("Electric") && ability2 != "Thriving Pace") multi *= 0.5;
-    if (secondLoom.types.includes("Air") && winds.checked) multi *= 1.1;
+    if ((secondLoom.types.includes("Air" || ability2 == "Adaptable")) && winds.checked) multi *= 1.1;
     if ((ability2 == "Thriving Pace" && status2.value != "healthy") || ability2 == "Rush Hour") multi *= 1.5;
     if ((ability2 == "Sugar Rush" && secondItem == "None") || (ability2 == "Rain Rush" && rain.checked)) multi *= 2;
     if (ability2 == "Safety Pot") multi *= 2/3;
@@ -2769,7 +2769,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     if (fog.checked) {
         if (!loom1.types.includes("Spirit") && ability1 != "Gloomy" && ability1 != "Adaptable") ability1 = "None";
         if (!loom2.types.includes("Spirit") && ability2 != "Gloomy" && ability2 != "Adaptable") ability2 = "None";
-        stuffUsed.weather += " in Dense Fog";
     }
 
     if (ability1 == "Royal Decree" && loom2.types.includes("Earth")) stuffUsed.ability1 = ability1;
@@ -2842,6 +2841,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         multi *= 1.2;
         stuffUsed.ability1 = ability1;
     }
+    else if (ability1 == "Metamorphosis" && tempType == "Simple") {
+        tempType = "Bug";
+        multi *= 1.2;
+        stuffUsed.ability1 = ability1;
+    }
 
     if (move.name == "Flare" && (parseInt(stats1.spd) > parseInt(stats2.spd) || btl1)) {
         multi *= 2;
@@ -2854,7 +2858,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     }
 
     if (ability1 == "Recurrent" && tempType == "Electric") {
-        let chanting = Math.min((1 + 0.2 * (repeat - 1)), 2);
+        let chanting = Math.min((1 + 0.2 * (repeat)), 2);
         multi *= chanting;
         stuffUsed.ability1 = ability1;
         stuffUsed.extra1 += " (" + Math.round(tempPower * chanting) + " BP)";
@@ -2977,31 +2981,24 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         stuffUsed.extra1 += " (Teamwork)"
     }
 
+    if ((rain.checked && tempType == "Water") || (heat.checked && tempType == "Fire") || (storm.checked && tempType == "Electric")) {
+        multi *= 1.25;
+    }
+
+    if ((rain.checked && tempType == "Fire") || (heat.checked && tempType == "Water")) {
+        multi *= 0.75;
+    }
+
     if (rain.checked) {
-        if (tempType == "Water") {
-            multi *= 1.25;
-            stuffUsed.weather += " in Heavy Rainfall";
-        } else if (tempType == "Fire") {
-            multi *= 0.75;
-            stuffUsed.weather += " in Heavy Rainfall";
-        }
-    }
-
-    if (heat.checked) {
-        if (tempType == "Fire") {
-            multi *= 1.25;
-            stuffUsed.weather += " in Smoldering Heat";
-        } else if (tempType == "Water") {
-            multi *= 0.75;
-            stuffUsed.weather += " in Smoldering Heat";
-        }
-    }
-
-    if (storm.checked) {
-        if (tempType == "Electric") {
-            multi *= 1.25;
-            stuffUsed.weather += " in Severe Thunderstorms";
-        }
+        stuffUsed.weather += " in Heavy Rainfall";
+    } else if (winds.checked) {
+        stuffUsed.weather += " in Strong Gusts";
+    } else if (heat.checked) {
+        stuffUsed.weather += " in Smoldering Heat";
+    } else if (fog.checked) {
+        stuffUsed.weather += " in Dense Fog";
+    } else if (storm.checked) {
+        stuffUsed.weather += " in Severe Thunderstorms";
     }
 
     tempPower = pokeRound(tempPower * multi);
@@ -3051,7 +3048,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     }
     if (winds.checked && move.mr1 == "Speed" && loom1.types.includes("Air")) {
         multi *= 1.1;
-        stuffUsed.weather += " in Strong Gusts";
     }
 
     tempAtk.atk = pokeRound(tempAtk.atk * multi);
@@ -3279,7 +3275,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     let multiDmg = 0;
     if (move.hits && !hitConfirmer) {
         hits = hits.charAt(0);
-        if (move.name == "Pepper Burst") hits = 2;
+        if (move.name == "Pepper Burst" || move.name == "Double Beat") hits = 2;
         if (move.name == "Rapid Fire") hits = 3;
         for (let i = 0; i < hits - 1; i++) {
             multiDmg = multiDmg + getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm, snowball, true, level, ul, second, detailed, false);
@@ -3291,7 +3287,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         let numb;
         let multiHits = 1;
         if (move.hits) {
-            if (move.name == "Pepper Burst") hits = 2;
+            if (move.name == "Pepper Burst" || move.name == "Double Beat") hits = 2;
             if (move.name == "Rapid Fire") hits = 3;
             multiDmg = multiDmg / (hits - 1);
             multiHits = hits - 1;

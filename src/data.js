@@ -3658,9 +3658,9 @@ var loomians = {
         gsbStats: {
             hp: 104,
             energy: 79,
-            attack: 120,
+            attack: 130,
             defense: 88,
-            attackR: 37,
+            attackR: 27,
             defenseR: 79,
             speed: 78
         }
@@ -3898,10 +3898,7 @@ var loomians = {
 
     snowl: {
         name: "Snowl",
-        number: 143,
         types: ["Ice"],
-        abilities: ["Wise", "Chill"],
-        sAbility: ["Glide"],
         weight: 4,
         height: 18,
         finalEvo: false,
@@ -3918,10 +3915,7 @@ var loomians = {
 
     stricicle: {
         name: "Stricicle",
-        number: 143,
         types: ["Ice", "Air"],
-        abilities: ["Wise", "Chill"],
-        sAbility: ["Glide"],
         weight: 4,
         height: 18,
         finalEvo: false,
@@ -3938,10 +3932,7 @@ var loomians = {
 
     wintrix: {
         name: "Wintrix",
-        number: 143,
         types: ["Ice", "Air"],
-        abilities: ["Wise", "Chill"],
-        sAbility: ["Glide"],
         weight: 4,
         height: 18,
         baseStats: {
@@ -3966,10 +3957,7 @@ var loomians = {
 
     snagull: {
         name: "Snagull",
-        number: 140,
         types: ["Air"],
-        abilities: ["Clingy", "Immunized"],
-        sAbility: ["Marksman"],
         weight: 5,
         height: 23,
         finalEvo: false,
@@ -3986,10 +3974,7 @@ var loomians = {
 
     snagulp: {
         name: "Snagulp",
-        number: 140,
         types: ["Air", "Toxic"],
-        abilities: ["Clingy", "Immunized"],
-        sAbility: ["Marksman"],
         weight: 10,
         height: 27,
         finalEvo: false,
@@ -4006,10 +3991,7 @@ var loomians = {
 
     snagoop: {
         name: "Snagoop",
-        number: 140,
         types: ["Air", "Toxic"],
-        abilities: ["Clingy", "Immunized"],
-        sAbility: ["Marksman"],
         weight: 21,
         height: 66,
         baseStats: {
@@ -4034,10 +4016,7 @@ var loomians = {
 
     makame: {
         name: "Makame",
-        number: 140,
         types: ["Water"],
-        abilities: ["Tone Deaf", "Frail Armor"],
-        sAbility: ["Quick Recovery"],
         weight: 8,
         height: 17,
         finalEvo: false,
@@ -4054,10 +4033,7 @@ var loomians = {
 
     makoro: {
         name: "Makoro",
-        number: 140,
         types: ["Water"],
-        abilities: ["Tone Deaf", "Frail Armor"],
-        sAbility: ["Quick Recovery"],
         weight: 22,
         height: 40,
         finalEvo: false,
@@ -4074,10 +4050,7 @@ var loomians = {
 
     tsukame: {
         name: "Tsukame",
-        number: 140,
         types: ["Water"],
-        abilities: ["Tone Deaf", "Frail Armor"],
-        sAbility: ["Quick Recovery"],
         weight: 135,
         height: 78,
         baseStats: {
@@ -4102,10 +4075,7 @@ var loomians = {
 
     cavenish: {
         name: "Cavenish",
-        number: 140,
         types: ["Water", "Plant"],
-        abilities: ["Bully", "Conspire"],
-        sAbility: ["Sly"],
         weight: 3,
         height: 13,
         finalEvo: false,
@@ -4122,10 +4092,7 @@ var loomians = {
 
     banfino: {
         name: "Banfino",
-        number: 140,
         types: ["Water", "Plant"],
-        abilities: ["Bully", "Conspire"],
-        sAbility: ["Sly"],
         weight: 83,
         height: 87,
         finalEvo: false,
@@ -4151,10 +4118,7 @@ var loomians = {
 
     kanki: {
         name: "Kanki",
-        number: 140,
         types: ["Water", "Brawler"],
-        abilities: ["Madcap", "Aggressive"],
-        sAbility: ["Ambush"],
         weight: 7,
         height: 17,
         finalEvo: false,
@@ -4171,10 +4135,7 @@ var loomians = {
 
     kanibo: {
         name: "Kanibo",
-        number: 140,
         types: ["Water", "Brawler"],
-        abilities: ["Madcap", "Aggressive"],
-        sAbility: ["Ambush"],
         weight: 47,
         height: 51,
         baseStats: {
@@ -4199,10 +4160,7 @@ var loomians = {
 
     sharpod: {
         name: "Sharpod",
-        number: 140,
         types: ["Water", "Metal"],
-        abilities: ["Rev Up", "Terrifying"],
-        sAbility: ["Frenzy"],
         weight: 52,
         height: 28,
         finalEvo: false,
@@ -4219,10 +4177,7 @@ var loomians = {
 
     samarine: {
         name: "Samarine",
-        number: 140,
         types: ["Water", "Metal"],
-        abilities: ["Rev Up", "Terrifying"],
-        sAbility: ["Frenzy"],
         weight: 290,
         height: 66,
         baseStats: {
@@ -4247,10 +4202,7 @@ var loomians = {
 
     lumica: {
         name: "Lumica",
-        number: 140,
         types: ["Water"],
-        abilities: ["Sharp Edges", "Premonition"],
-        sAbility: ["Repugnant"],
         weight: 4,
         height: 10,
         finalEvo: false,
@@ -4267,10 +4219,7 @@ var loomians = {
 
     lumello: {
         name: "Lumello",
-        number: 140,
         types: ["Water"],
-        abilities: ["Sharp Edges", "Premonition"],
-        sAbility: ["Repugnant"],
         weight: 17,
         height: 14,
         baseStats: {
@@ -6057,6 +6006,81 @@ var loomians = {
             attackR: 74,
             defenseR: 109,
             speed: 112
+        },
+        gsbStats: {
+            hp: 86,
+            energy: 93,
+            attack: 49,
+            defense: 67,
+            attackR: 84,
+            defenseR: 109,
+            speed: 112
+        }
+    },
+
+    cicalute: {
+        name: "Cicalute",
+        types: ["Bug", "Mind"],
+        weight: 4,
+        height: 15,
+        finalEvo: false,
+        baseStats: {
+            hp: 43,
+            energy: 64,
+            attack: 29,
+            defense: 65,
+            attackR: 29,
+            defenseR: 53,
+            speed: 40
+        }
+    },
+
+    '[redacted]': {
+        name: "[REDACTED]",
+        types: ["Bug", "Mind"],
+        weight: 13,
+        height: 32,
+        baseStats: {
+            hp: 68,
+            energy: 97,
+            attack: 43,
+            defense: 116,
+            attackR: 89,
+            defenseR: 112,
+            speed: 61
+        }
+    },
+
+    goswing: {
+        name: "Goswing",
+        types: ["Air", "Simple"],
+        weight: 3,
+        height: 13,
+        finalEvo: false,
+        baseStats: {
+            hp: 50,
+            energy: 92,
+            attack: 59,
+            defense: 43,
+            attackR: 34,
+            defenseR: 41,
+            speed: 66
+        }
+    },
+
+    ganderveil: {
+        name: "Ganderveil",
+        types: ["Air", "Simple"],
+        weight: 15,
+        height: 40,
+        baseStats: {
+            hp: 86,
+            energy: 107,
+            attack: 109,
+            defense: 71,
+            attackR: 56,
+            defenseR: 68,
+            speed: 93
         }
     },
  
@@ -7168,6 +7192,18 @@ var moves = {
         mr2: "Ranged Defense"
     },
 
+    discordance: {
+        name: "Discordance",
+        power: 90,
+        energy: 50,
+        accuracy: 100,
+        type: "Bug",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
+    },
+
     bloodDrain: {
         name: "Blood Drain",
         power: 20,
@@ -7214,6 +7250,19 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true
+    },
+
+    doubleBeat: {
+        name: "Double Beat",
+        power: 40,
+        energy: 40,
+        accuracy: 90,
+        type: "Air",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        hits: 2
     },
 
     submerge: {
@@ -7466,7 +7515,7 @@ var moves = {
     },
 
     pepperBurst: {
-        name: "Rapid Fire",
+        name: "Pepper Burst",
         power: 35,
         energy: 40,
         accuracy: 100,
@@ -11264,7 +11313,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Partnership", "Rush Hour", "Trader", "Safety Pot", "Gloomy", "Mimic", "Reflective", "Hag", "Foresight", "Demanding", "Ravenous", "Designated Chompers", "Battle Armor", "Mask Swap",
                  "Facade", "Party Trick", "Do or Die", "Wildfire", "Sendoff", "Hydro Vortex", "Motivational", "Soul Siphon", "Pluvial", "Petrifying", "Tumultuous", "Venomous", "Brutal Wrath",
                  "Sky-Borne", "Land-Borne", "Depths-Borne", "All Seeing", "Rain Rush", "Triumph", "Royal Decree", "Thunder Summon", "Recurrent", "Charged Arc","Adaptable", "Heat Summon",
-                 "Rain Summon", "Fog Summon", "Wind Summon", "Inferno", "Cosmic Pressure"];
+                 "Rain Summon", "Fog Summon", "Wind Summon", "Inferno", "Cosmic Pressure", "Conspire", "Metamorphosis"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -11475,4 +11524,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Thunderstorm updated added.";
+var changelog = "Loomunity Loomians added.";
