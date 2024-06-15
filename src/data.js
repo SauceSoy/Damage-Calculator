@@ -6035,8 +6035,8 @@ var loomians = {
         }
     },
 
-    '[redacted]': {
-        name: "[REDACTED]",
+    violana: {
+        name: "Violana",
         types: ["Bug", "Mind"],
         weight: 13,
         height: 32,
