@@ -3722,15 +3722,15 @@ var loomians = {
         weight: 19,
         height: 38,
         baseStats: {
-            hp: 99,
+            hp: 119,
             energy: 91,
-            attack: 44,
+            attack: 24,
             defense: 63,
             attackR: 133,
             defenseR: 79,
             speed: 66
         },
-        gsbStats: {
+        /*gsbStats: {
             hp: 104,
             energy: 86,
             attack: 54,
@@ -3738,7 +3738,7 @@ var loomians = {
             attackR: 133,
             defenseR: 79,
             speed: 66
-        }
+        }*/
     },
 
     hydrolen: {
