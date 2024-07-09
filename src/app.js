@@ -3090,9 +3090,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
 
     dmg = Math.floor(Math.floor(dmg * tempAtk.atk / tempDef.def * tempPower) / 50) + 2;
 
-    /*if (isDouble && move.aoe == true) {
+    if (isDouble && move.aoe == true) {
         multi *= 0.75;
-    }*/
+    }
 
     dmg = Math.floor(dmg * multi);
     multi = 1;
