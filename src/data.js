@@ -6236,20 +6236,20 @@ var loomians = {
         weight: 125,
         height: 92,
         baseStats: {
-            hp: 97,
+            hp: 107,
             energy: 123,
             attack: 104,
-            defense: 114,
-            attackR: 78,
+            defense: 134,
+            attackR: 48,
             defenseR: 63,
             speed: 71
         },
         gsbStats: {
-            hp: 97,
-            energy: 133,
+            hp: 107,
+            energy: 123,
             attack: 114,
-            defense: 119,
-            attackR: 98,
+            defense: 139,
+            attackR: 78,
             defenseR: 68,
             speed: 71
         }
