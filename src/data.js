@@ -222,25 +222,6 @@ var loomians = {
             speed: 60
         }
     },
-
-    'eaglit-armenti': {
-        name: "Eaglit-Armenti",
-        number: 10,
-        types: ["Light"],
-        abilities: ["Awakening"],
-        sAbility: ["Applied Frustration"],
-        weight: 17,
-        heigth: 29,
-        baseStats: {
-            hp: 84,
-            energy: 88,
-            attack: 80,
-            defense: 71,
-            attackR: 125,
-            defenseR: 87,
-            speed: 75
-        }
-    },
  
     torprey: {
         name: "Torprey",
@@ -511,25 +492,6 @@ var loomians = {
             attackR: 42,
             defenseR: 38,
             speed: 40
-        }
-    },
-
-    'twilat-rainbow': {
-        name: "Twilat-Rainbow",
-        number: 22,
-        types: ["Simple"],
-        abilities: ["Territorial", "Confidence"],
-        sAbility: ["Neutralize"],
-        weight: 10,
-        height: 14,
-        baseStats: {
-            hp: 85,
-            energy: 80,
-            attack: 51,
-            defense: 84,
-            attackR: 116,
-            defenseR: 83,
-            speed: 96
         }
     },
  
@@ -9060,7 +9022,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        secondaryEffect: true
+        secondaryEffect: true,
+        slap: true
     },
 
     tailSlap: {
@@ -9101,8 +9064,8 @@ var moves = {
 
     stampede: {
         name: "Stampede",
-        power: 1,
-        energy: 55,
+        power: 120,
+        energy: 65,
         accuracy: 100,
         type: "Simple",
         mr: "Melee",
@@ -10005,6 +9968,7 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
+        punch: true
     },
 
     hyperSting: {
