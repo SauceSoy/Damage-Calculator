@@ -111,7 +111,8 @@
         <div class="detailedReport">
 
             <div class="big">
-                <span id="detailedResult"></span>
+                <span id="detailedResult" title="Click to copy."></span>
+                <div id="tooltipText" style="visibility: hidden;">Copied</div>
             </div>
 
             <div class="small">
@@ -498,6 +499,7 @@
                             <option value="poisoned">Poisoned</option>
                             <option value="diseased">Badly Poisoned</option>
                             <option value="asleep">Asleep</option>
+                            <option value="frozen">Frozen</option>
                         </select>
                         <select id="diseased1" style="visibility: hidden;" onchange="update()">
                             <option>1/16</option>
@@ -679,7 +681,7 @@
                 </legend>
 
                 <div align="center">
-                    <select id="singleDouble" onchange="update()">
+                    <select id="singleDouble" onchange="updateFormat()">
                         <option value="singles">Singles</option>
                         <option value="doubles">Doubles</option>
                     </select>
@@ -867,50 +869,59 @@
                             <label class="radiolbl fieldlbl icetrap" for="softWater2" title="Is this side affected by Soft Water?">Soft Water</label>
                         </div>
                     </div>
-
                     <div>
                         <div class="left">
                             <input type="checkbox" class="hiddenToUser" id="teamwork1" onchange="update()">
-                            <label class="radiolbl fieldlbl icetrap" for="teamwork1" title="Is this attack boosted by Teamwork?">Teamwork</label>
+                            <label class="radiolbl fieldlbl icetrap doubles" style="display:none;" for="teamwork1" title="Is this attack boosted by Teamwork?">Teamwork</label>
                         </div>
 
                         <div class="right">
                             <input type="checkbox" class="hiddenToUser" id="teamwork2" onchange="update()">
-                            <label class="radiolbl fieldlbl icetrap" for="teamwork2" title="Is this attack boosted by Teamwork??">Teamwork</label>
+                            <label class="radiolbl fieldlbl icetrap doubles" style="display:none;" for="teamwork2" title="Is this attack boosted by Teamwork?">Teamwork</label>
                         </div>
                     </div>
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="overcharged1" onchange="update()">
+                            <label class="radiolbl fieldlbl entered doubles" style="display:none;" for="overcharged1" title="Does the ally have Overcharged?">Ally Overcharge</label>
+                        </div>
 
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="overcharged2" onchange="update()">
+                            <label class="radiolbl fieldlbl entered doubles" style="display:none;" for="overcharged2" title="Does the ally have Overcharged?">Ally Overcharge</label>
+                        </div>
+                    </div>
                     <div>
                         <div class="left">
                             <input type="checkbox" class="hiddenToUser" id="tagTeam1" onchange="update()">
-                            <label class="radiolbl fieldlbl entered" for="tagTeam1">Team Has Conspire</label>
+                            <label class="radiolbl fieldlbl entered doubles" style="display:none;" for="tagTeam1">Team Has Conspire</label>
                         </div>
 
                         <div class="right">
                             <input type="checkbox" class="hiddenToUser" id="tagTeam2" onchange="update()">
-                            <label class="radiolbl fieldlbl entered" for="tagTeam2">Team Has Conspire</label>
+                            <label class="radiolbl fieldlbl entered doubles" style="display:none;" for="tagTeam2">Team Has Conspire</label>
                         </div>
                     </div>
                     <div>
                         <div class="left">
                             <input type="checkbox" class="hiddenToUser" id="dawn1" onchange="update()">
-                            <label class="radiolbl fieldlbl entered" for="dawn1">Ally Has Dusk/Dawn</label>
+                            <label class="radiolbl fieldlbl entered doubles" style="display:none;" for="dawn1">Ally Has Dusk/Dawn</label>
                         </div>
 
                         <div class="right">
                             <input type="checkbox" class="hiddenToUser" id="dawn2" onchange="update()">
-                            <label class="radiolbl fieldlbl entered" for="dawn2">Ally Has Dusk/Dawn</label>
+                            <label class="radiolbl fieldlbl entered doubles" style="display:none;" for="dawn2">Ally Has Dusk/Dawn</label>
                         </div>
                     </div>
                     <div>
                         <div class="left">
                             <input type="checkbox" class="hiddenToUser" id="guardian1" onchange="update()">
-                            <label class="radiolbl fieldlbl entered" for="guardian1">Ally Has Guardian</label>
+                            <label class="radiolbl fieldlbl entered doubles" style="display:none;" for="guardian1">Ally Has Guardian</label>
                         </div>
 
                         <div class="right">
                             <input type="checkbox" class="hiddenToUser" id="guardian2" onchange="update()">
-                            <label class="radiolbl fieldlbl entered" for="guardian2">Ally Has Guardian</label>
+                            <label class="radiolbl fieldlbl entered doubles" style="display:none;" for="guardian2">Ally Has Guardian</label>
                         </div>
                     </div>
                     <div>
