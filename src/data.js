@@ -7063,7 +7063,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true
+        contact: true,
+        stat: {amount: -1, battle: "Offense", stat: "AttackM"}
     },
 
     staticShock: {
@@ -7969,6 +7970,7 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
+        punch: true,
         hits: 3
     },
 
@@ -9276,6 +9278,7 @@ var moves = {
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
+        stat: {amount: -2, battle: "Offense", stat: "AttackR"}
     },
 
     piercingDrive: {
@@ -9325,7 +9328,8 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true,
-        bite: true
+        bite: true,
+        stat: {amount: -1, battle: "Defense", stat: "DefenseM"}
     },
 
     thunderClap: {
@@ -9378,7 +9382,8 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         aoe: true,
-        secondaryEffect: true
+        secondaryEffect: true,
+        stat: {amount: -1, battle: "Defense", stat: "DefenseR"}
     },
 
     psychalSlap: {
@@ -9795,7 +9800,8 @@ var moves = {
         type: "Toxic",
         mr: "Ranged",
         mr1: "Ranged Attack",
-        mr2: "Ranged Defense"
+        mr2: "Ranged Defense",
+        stat: {amount: -1, battle: "Offense", stat: "AttackR"}
     },
 
     plunge: {
@@ -9968,7 +9974,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        punch: true
+        punch: true,
+        stat: {amount: 1, battle: "Offense", stat: "AttackM", first: true}
     },
 
     hyperSting: {
@@ -10127,7 +10134,8 @@ var moves = {
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        secondaryEffect: true
+        secondaryEffect: true,
+        stat: {amount: -1, battle: "Defense", stat: "DefenseR"}
     },
 
     jolt: {
@@ -11488,4 +11496,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Loomunity Loomians added.";
+var changelog = "Clicking the detailed result of the calc will copy it to your clipboard. Added compatability for multiple moves and abilities that always change stats when used. Gave Kindled Rage, Revolution, and Reflection Burst double power when slower than the target.";
