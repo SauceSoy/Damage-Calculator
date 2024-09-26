@@ -1682,7 +1682,7 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
     }
 
     //Checking for attack increasing abilities that are manually checked and adjusts subsequent hits' offensive stat
-    if ((ability1 == "Dauntless" || ability1 == "Boast") && abilityCheck1) {
+    if (((ability1 == "Dauntless" || ability1 == "Boast") && abilityCheck1) && atk.name == "AttackM" && move.mr1 == "Melee Attack") {
         if (ability1 == "Dauntless" && move.mr1 == "Melee Attack" && atk.name == "AttackM") moveMod = 1;
         if (ability1 == "Boast" && move.mr1 == "Melee Attack" && atk.name == "AttackM") moveMod = (atk.atk > boastAttack ? 1 : -1);
 
