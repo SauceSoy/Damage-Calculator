@@ -662,7 +662,7 @@
                             <option>4 looms</option>
                             <option>5 looms</option>
                         </select>   
-                        <input class="snowball" id="moveFourSnowball1" style="display:  none;" value=1 type=number min=1 max=5
+                        <input class="snowball" id="moveFourSnowball1" style="display: none;" value=1 type=number min=1 max=5
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
                         onchange="update()"> 
                     </div>  
@@ -1502,11 +1502,15 @@
 
         </div>
           
-        <div class="breakpoint" style="display: none">
+        <div class="breakpoint" style="display: none;">
             <fieldset>
                 <legend align="center" style="font-size: 1.5em; font-weight: bold;">
                     Energy Breakpoint Calculator
                 </legend>
+                <div>
+                    <label style="width: 240px;" align="right" class="divAlign">Type: </label>
+                    <select class="moveSelect" id="bpType" onchange="loadMoves()"></select>
+                 </div>
                 <div>
                     <label style="width: 240px;" align="right" class="divAlign">Ability: </label>
                     <select class="moveSelect" id="abilityBPDropdown" onchange="loadMoves()">
