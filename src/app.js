@@ -3348,7 +3348,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         tempItem = (second == false ? item2.value : item1.value);
         if (tempItem != "None" && withoutSlapDown) {
             multi *= 1.5;
-            stuffUsed.item2 += tempItem;
+            stuffUsed.item2 = tempItem;
         }
     }
     if (tempType != "Null" && itemA.includes(types[tempType.toLowerCase()].otherName.charAt(0).toUpperCase() + types[tempType.toLowerCase()].otherName.slice(1)) && itemA.includes("Shell") && withoutSlapDown && !foulHit) {
@@ -3448,7 +3448,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
        (move.mr1 == "Melee Defense" && ability1 == "Trash Armor") ||
        ((move.mr1 == "Melee Defense" || move.mr1 == "Ranged Defense") && ability1 == "Safety Pot") ||
        (ability1 == "Inferno" && heat.checked && move.mr1 == "Ranged Attack") ||
-       (ability1 == "Monkey Madness" && ((move.mr == "Melee" && adaptive.mr != "Ranged") || adaptive.mr == "Melee"))) {
+       (ability1 == "Berserk" && ((move.mr == "Melee" && adaptive.mr != "Ranged") || adaptive.mr == "Melee"))) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }   
@@ -3585,16 +3585,16 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     if (types2.secondary != "None" && types[types2.secondary.toLowerCase()].weaknesses.includes(tempType.toLowerCase())) {
         multi *= 2;
     }
-    if (types[types2.primary.toLowerCase()].resistances.includes(tempType.toLowerCase()) && !(ability1 == "Scrappy" && tempType == "Simple" && types2.primary == "Spirit")) {
+    if (types[types2.primary.toLowerCase()].resistances.includes(tempType.toLowerCase())) {
         multi *= 0.5;
     }
-    if (types2.secondary != "None" && types[types2.secondary.toLowerCase()].resistances.includes(tempType.toLowerCase()) && !(ability1 == "Scrappy" && tempType == "Simple" && types2.secondary == "Spirit")) {
+    if (types2.secondary != "None" && types[types2.secondary.toLowerCase()].resistances.includes(tempType.toLowerCase())) {
         multi *= 0.5;
     }
-    if (types[types2.primary.toLowerCase()].immunities.includes(tempType.toLowerCase()) && !((ability1 == "Royal Decree" && tempType == "Electric")/* || (storm.checked && tempType == "Earth")*/) && !(ability1 == "Scrappy" && tempType == "Brawler" && types2.primary == "Spirit") && move.name != "Rock Slide") {
+    if (types[types2.primary.toLowerCase()].immunities.includes(tempType.toLowerCase()) && !((ability1 == "Royal Decree" && tempType == "Electric")/* || (storm.checked && tempType == "Earth")*/) && !(ability1 == "Assertive" && tempType == "Brawler" && types2.primary == "Spirit") && move.name != "Rock Slide") {
         multi *= 0;
     }
-    if (types2.secondary != "None" && types[types2.secondary.toLowerCase()].immunities.includes(tempType.toLowerCase()) && !((ability1 == "Royal Decree" && tempType == "Electric")/* || (storm.checked && tempType == "Earth")*/) && !(ability1 == "Scrappy" && tempType == "Brawler" && types2.secondary == "Spirit") && move.name != "Rock Slide") {
+    if (types2.secondary != "None" && types[types2.secondary.toLowerCase()].immunities.includes(tempType.toLowerCase()) && !((ability1 == "Royal Decree" && tempType == "Electric")/* || (storm.checked && tempType == "Earth")*/) && !(ability1 == "Assertive" && tempType == "Brawler" && types2.secondary == "Spirit") && move.name != "Rock Slide") {
         multi *= 0;
     }
     if (move.typeModifier != undefined && (types2.primary == move.typeModifier.type || types2.secondary == move.typeModifier.type)) {
@@ -3684,7 +3684,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         multi *= 0.75;
     }
 
-    stuffUsed.item2 += (itemB == "Health Amulet" ? itemB : "");
+    stuffUsed.item2 = (itemB == "Health Amulet" ? itemB : "");
 
     if (ability1 == "Double Strike" && !foulHit && !(isDouble && move.aoe == true) && !move.hits) {
         if (detailed) {
