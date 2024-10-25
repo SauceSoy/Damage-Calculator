@@ -3169,7 +3169,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     }*/
 
     if (ability1 == "Royal Decree" && tempType == "Electric" && loom2.types.includes("Earth")) stuffUsed.ability1 = ability1;
-    if (ability1 == "Scrappy" && (tempType == "Simple" || tempType == "Brawler") && loom2.types.includes("Spirit")) stuffUsed.ability1 = ability1;
+    if (ability1 == "Assertive" && tempType == "Brawler" && loom2.types.includes("Spirit")) stuffUsed.ability1 = ability1;
 
     if (ability1 == "Sly") {
         itemB = "None";
@@ -3684,7 +3684,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         multi *= 0.75;
     }
 
-    stuffUsed.item2 = (itemB == "Health Amulet" ? itemB : "");
+    if (itemB == "Health Amulet") stuffUsed.item2 = itemB;
 
     if (ability1 == "Double Strike" && !foulHit && !(isDouble && move.aoe == true) && !move.hits) {
         if (detailed) {
