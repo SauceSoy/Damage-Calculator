@@ -3340,7 +3340,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     }
 
     if ((itemB.includes("burst") && move.knockOff) || (itemB != "None" && move.knockOff == true && (withoutSlapDown || ability2 == "Clingy"))) {
-        multi *= 1.5;
+        if (move.name == "Slap Down") multi *= 1.5;
         stuffUsed.item2 = itemB;
         stuffUsed.ability2 += (ability2 == "Clingy" ? ability2 : stuffUsed.ability2);
     }
