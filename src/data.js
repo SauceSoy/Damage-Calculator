@@ -3075,10 +3075,7 @@ var loomians = {
 
     hydrini: {
         name: "Hydrini",
-        number: 114,
         types: ["Bug", "Water"],
-        abilities: ["Shakedown", "Vivid Sight"],
-        sAbility: ["Aqua Body"],
         weight: 5,
         height: 14,
         finalEvo: false,
@@ -3095,10 +3092,7 @@ var loomians = {
 
     bezeldew: {
         name: "Bezeldew",
-        number: 115,
         types: ["Bug", "Water"],
-        abilities: ["Shakedown", "Vivid Sight"],
-        sAbility: ["Aqua Body"],
         weight: 26,
         height: 28,
         finalEvo: false,
@@ -3115,10 +3109,7 @@ var loomians = {
 
     deludrix: {
         name: "Deludrix",
-        number: 116,
         types: ["Bug", "Water"],
-        abilities: ["Shakedown", "Vivid Sight"],
-        sAbility: ["Aqua Body"],
         weight: 57,
         height: 55,
         baseStats: {
@@ -3143,10 +3134,7 @@ var loomians = {
 
     ceratot: {
         name: "Ceratot",
-        number: 117,
         types: ["Ancient", "Plant"],
-        abilities: ["Staunch", "Frail Armor"],
-        sAbility: ["Vigorous"],
         finalEvo: false,
         weight: 29,
         height: 17,
@@ -3163,10 +3151,7 @@ var loomians = {
 
     trepodon: {
         name: "Trepodon",
-        number: 118,
         types: ["Ancient", "Plant"],
-        abilities: ["Staunch", "Frail Armor"],
-        sAbility: ["Vigorous"],
         weight: 147,
         height: 38,
         finalEvo: false,
@@ -3183,10 +3168,7 @@ var loomians = {
 
     colossotrops: {
         name: "Colossotrops",
-        number: 119,
         types: ["Ancient", "Plant"],
-        abilities: ["Staunch", "Frail Armor"],
-        sAbility: ["Vigorous"],
         weight: 348,
         height: 68,
         baseStats: {
@@ -3211,10 +3193,7 @@ var loomians = {
 
     cupoink: {
         name: "Cupoink",
-        number: 121,
         types: ["Fire"],
-        abilities: ["Caddie", "Madcap"],
-        sAbility: ["Sweet Touch"],
         weight: 7,
         height: 16,
         finalEvo: false,
@@ -3231,10 +3210,7 @@ var loomians = {
 
     hoganosh: {
         name: "Hoganosh",
-        number: 122,
         types: ["Fire"],
-        abilities: ["Caddie", "Madcap"],
-        sAbility: ["Sweet Touch"],
         weight: 40,
         height: 51,
         baseStats: {
@@ -3254,6 +3230,25 @@ var loomians = {
             attackR: 57,
             defenseR: 109,
             speed: 41
+        }
+    },
+
+    'hoganosh-atomic': {
+        name: "Hoganosh-Atomic",
+        types: ["Fire"],
+        soulMove: "Meltdown",
+        ability: "Gorge",
+        item: "Noshburst",
+        weight: 40,
+        height: 51,
+        baseStats: {
+            hp: 89,
+            energy: 93,
+            attack: 129,
+            defense: 95,
+            attackR: 67,
+            defenseR: 114,
+            speed: 61
         }
     },
 
@@ -7017,6 +7012,18 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         aoe: true
+    },
+
+    meltdown: {
+        name: "Meltdown",
+        power: 100,
+        energy: 0,
+        accuracy: "N/A",
+        type: "Fire",
+        mr: "Ranged",
+        mr1: "Melee Attack",
+        mr2: "Ranged Defense",
+        knockOff: true
     },
 
     spray: {
@@ -11468,7 +11475,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Partnership", "Rush Hour", "Trader", "Safety Pot", "Gloomy", "Mimic", "Reflective", "Hag", "Foresight", "Demanding", "Ravenous", "Designated Chompers", "Battle Armor", "Mask Swap",
                  "Facade", "Party Trick", "Do or Die", "Wildfire", "Sendoff", "Hydro Vortex", "Motivational", "Soul Siphon", "Pluvial", "Petrifying", "Tumultuous", "Venomous", "Brutal Wrath",
                  "Sky-Borne", "Land-Borne", "Depths-Borne", "All Seeing", "Rain Rush", "Triumph", "Royal Decree", "Thunder Summon", "Recurrent", "Charged Arc","Adaptable", "Heat Summon",
-                 "Rain Summon", "Fog Summon", "Wind Summon", "Inferno", "Cosmic Pressure", "Conspire", "Metamorphosis", "Sob", "Wail", "Seize", "Assertive", "Berserk", "Disenchant", "Impose"];
+                 "Rain Summon", "Fog Summon", "Wind Summon", "Inferno", "Cosmic Pressure", "Conspire", "Metamorphosis", "Sob", "Wail", "Seize", "Assertive", "Berserk", "Disenchant", "Impose", "Gorge"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -11679,4 +11686,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Added Trick Retreat Loomians and Specialty Gloves/Goggles.";
+var changelog = "Added Atomic Hoganosh.";
