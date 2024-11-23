@@ -1831,7 +1831,7 @@ var loomians = {
             speed: 22
         },
         gsbStats: {
-            hp: 118,
+            hp: 128,
             energy: 101,
             attack: 119,
             defense: 71,
