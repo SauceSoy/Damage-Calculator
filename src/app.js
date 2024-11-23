@@ -453,11 +453,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -519,8 +519,8 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2025 12:00:00 UTC"
@@ -1671,7 +1671,7 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
             moveMod = 0;
             stuffUsed.ability1 = ability1;
         }
-        if (move.stat.first && firstHit) moveAdjustmentCount = 1;
+        if (move.stat.first) moveAdjustmentCount += 1;
 
         atkStage = (moveMod < 0 ? Math.max(atkStage + moveAdjustmentCount * moveMod, -6) : Math.min(atkStage + moveAdjustmentCount * moveMod, 6));
 
@@ -3342,7 +3342,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     if ((itemB.includes("burst") && move.knockOff) || (itemB != "None" && move.knockOff == true && (withoutSlapDown || ability2 == "Clingy"))) {
         if (move.name == "Slap Down") multi *= 1.5;
         stuffUsed.item2 = itemB;
-        stuffUsed.ability2 += (ability2 == "Clingy" ? ability2 : stuffUsed.ability2);
+        stuffUsed.ability2 = (ability2 == "Clingy" ? ability2 : stuffUsed.ability2);
     }
     else if (ability1 == "Sly" && move.knockOff == true) {
         tempItem = (second == false ? item2.value : item1.value);
