@@ -2148,7 +2148,7 @@ var loomians = {
         weight: 34,
         height: 76,
         baseStats: {
-            hhp: 109,
+            hp: 109,
             energy: 100 ,
             attack: 134,
             defense: 92,
@@ -2320,7 +2320,7 @@ var loomians = {
         weight: 102,
         height: 103,
         baseStats: {
-            hhp: 119,
+            hp: 119,
             energy: 83 ,
             attack: 97,
             defense: 92,
@@ -2938,7 +2938,7 @@ var loomians = {
         weight: 156,
         height: 81,
         baseStats: {
-            hhp: 104,
+            hp: 104,
             energy: 79,
             attack: 130,
             defense: 88,
@@ -2986,7 +2986,7 @@ var loomians = {
         weight: 19,
         height: 38,
         baseStats: {
-            hhp: 119,
+            hp: 119,
             energy: 91,
             attack: 34,
             defense: 63,
@@ -3114,7 +3114,7 @@ var loomians = {
         height: 77,
         ability: "Life Force",
         baseStats: {
-            hhp: 116,
+            hp: 116,
             energy: 0,
             attack: 100,
             defense: 119,
@@ -3364,7 +3364,7 @@ var loomians = {
         weight: 290,
         height: 66,
         baseStats: {
-            hhp: 120,
+            hp: 120,
             energy: 87,
             attack: 117,
             defense: 82,
@@ -3447,7 +3447,7 @@ var loomians = {
         weight: 30,
         height: 57,
         baseStats: {
-            hhp: 100,
+            hp: 100,
             energy: 99,
             attack: 58,
             defense: 66,
@@ -3486,7 +3486,7 @@ var loomians = {
         weight: 29,
         height: 50,
         baseStats: {
-            hhp: 110,
+            hp: 110,
             energy: 90,
             attack: 93,
             defense: 94,
@@ -3614,7 +3614,7 @@ var loomians = {
         weight: 110,
         height: 70,
         baseStats: {
-            hhp: 112,
+            hp: 112,
             energy: 99,
             attack: 55,
             defense: 71,
@@ -3808,7 +3808,7 @@ var loomians = {
         weight: 144,
         height: 86,
         baseStats: {
-            hhp: 123,
+            hp: 123,
             energy: 95,
             attack: 130,
             defense: 71,
@@ -4231,7 +4231,7 @@ var loomians = {
         height: 79,
         ability: "One of Many",
         baseStats: {
-            hhp: 105,
+            hp: 105,
             energy: 83,
             attack: 86,
             defense: 104,
@@ -4297,7 +4297,7 @@ var loomians = {
         weight: 34,
         height: 50,
         baseStats: {
-            hhp: 115,
+            hp: 115,
             energy: 90,
             attack: 112,
             defense: 105,
@@ -4593,7 +4593,7 @@ var loomians = {
         weight: 13,
         height: 47,
         baseStats: {
-            hhp: 113,
+            hp: 113,
             energy: 80,
             attack: 44,
             defense: 97,
@@ -5106,7 +5106,7 @@ var loomians = {
         weight: 135,
         height: 86,
         baseStats: {
-            hhp: 119,
+            hp: 119,
             energy: 119,
             attack: 95,
             defense: 96,
@@ -5140,7 +5140,7 @@ var loomians = {
         weight: 125,
         height: 92,
         baseStats: {
-            hhp: 107,
+            hp: 107,
             energy: 123,
             attack: 114,
             defense: 139,
@@ -5156,7 +5156,7 @@ var loomians = {
         weight: 141,
         height: 99,
         baseStats: {
-            hhp: 164,
+            hp: 164,
             energy: 116,
             attack: 96,
             defense: 69,
@@ -5189,7 +5189,7 @@ var loomians = {
         weight: 114,
         height: 107,
         baseStats: {
-            hhp: 105,
+            hp: 105,
             energy: 105,
             attack: 75,
             defense: 120,
@@ -5451,7 +5451,7 @@ var loomians = {
         weight: 221,
         height: 86,
         baseStats: {
-            hhp: 116,
+            hp: 116,
             energy: 94,
             attack: 120,
             defense: 97,
