@@ -5032,6 +5032,72 @@ var loomians = {
             speed: 60
         }
     },
+
+    jimby: {
+        name: "Jimby",
+        types: ["Simple"],
+        weight: 4,
+        height: 13,
+        finalEvo: false,
+        baseStats: {
+            hp: 40,
+            energy: 58,
+            attack: 28,
+            defense: 27,
+            attackR: 81,
+            defenseR: 100,
+            speed: 90
+        }
+    },
+
+    piccolio: {
+        name: "Piccolio",
+        types: ["Simple"],
+        weight: 11,
+        height: 32,
+        baseStats: {
+            hp: 80,
+            energy: 79,
+            attack: 48,
+            defense: 47,
+            attackR: 111,
+            defenseR: 120,
+            speed: 90
+        }
+    },
+
+    wassel: {
+        name: "Wassel",
+        types: ["Ice"],
+        weight: 7,
+        height: 15,
+        finalEvo: false,
+        baseStats: {
+            hp: 29,
+            energy: 35,
+            attack: 38,
+            defense: 10,
+            attackR: 14,
+            defenseR: 21,
+            speed: 53
+        }
+    },
+
+    borealisk: {
+        name: "Borealisk",
+        types: ["Ice"],
+        weight: 85,
+        height: 113,
+        baseStats: {
+            hp: 98,
+            energy: 70,
+            attack: 118,
+            defense: 57,
+            attackR: 68,
+            defenseR: 101,
+            speed: 103
+        }
+    },
  
     duskit: {
         name: "Duskit",
@@ -5296,89 +5362,6 @@ var loomians = {
         },
     },
 
-    metronette: {
-        name: "Metronette",
-        types: ["Dark", "Mind"],
-        weight: 31,
-        height: 38,
-        baseStats: {
-            hp: 83,
-            energy: 128,
-            attack: 84,
-            defense: 69,
-            attackR: 127,
-            defenseR: 79,
-            speed: 105
-        }
-    },
-
-    'metronette-willbound': {
-        name: "Metronette-Willbound",
-        types: ["Dark", "Mind"],
-        weight: 31,
-        height: 38,
-        soulMove: "Sinister Shackles",
-        ability: "Demanding",
-        item: "Metroburst",
-        baseStats: {
-            hp: 53,
-            energy: 118,
-            attack: 119,
-            defense: 119,
-            attackR: 147,
-            defenseR: 54,
-            speed: 115
-        }
-    },
-
-    wabalisc: {
-        name: "Wabalisc",
-        types: ["Ice"],
-        weight: 131,
-        height: 86,
-        baseStats: {
-            hp: 106,
-            energy: 103,
-            attack: 99,
-            defense: 88,
-            attackR: 112,
-            defenseR: 98,
-            speed: 69
-        }
-    },
-
-    nymaurae: {
-        name: "Nymaurae",
-        types: ["Light", "Air"],
-        weight: 10,
-        height: 27,
-        baseStats: {
-            hp: 76,
-            energy: 115,
-            attack: 66,
-            defense: 77,
-            attackR: 119,
-            defenseR: 122,
-            speed: 100
-        }
-    },
-
-    nymesis: {
-        name: "Nymesis",
-        types: ["Dark", "Air"],
-        weight: 10,
-        height: 27,
-        baseStats: {
-            hp: 76,
-            energy: 115,
-            attack: 66,
-            defense: 77,
-            attackR: 119,
-            defenseR: 122,
-            speed: 100
-        }
-    },
-
     'cosmiore-encased': {
         name: "Cosmiore-Encased",
         types: ["Ancient", "Mind"],
@@ -5427,6 +5410,73 @@ var loomians = {
         }
     },
 
+    nymaurae: {
+        name: "Nymaurae",
+        types: ["Light", "Air"],
+        weight: 10,
+        height: 27,
+        baseStats: {
+            hp: 76,
+            energy: 115,
+            attack: 66,
+            defense: 77,
+            attackR: 119,
+            defenseR: 122,
+            speed: 100
+        }
+    },
+
+    nymesis: {
+        name: "Nymesis",
+        types: ["Dark", "Air"],
+        weight: 10,
+        height: 27,
+        baseStats: {
+            hp: 76,
+            energy: 115,
+            attack: 66,
+            defense: 77,
+            attackR: 119,
+            defenseR: 122,
+            speed: 100
+        }
+    },
+
+    metronette: {
+        name: "Metronette",
+        types: ["Dark", "Mind"],
+        weight: 31,
+        height: 38,
+        baseStats: {
+            hp: 83,
+            energy: 128,
+            attack: 84,
+            defense: 69,
+            attackR: 127,
+            defenseR: 79,
+            speed: 105
+        }
+    },
+
+    'metronette-willbound': {
+        name: "Metronette-Willbound",
+        types: ["Dark", "Mind"],
+        weight: 31,
+        height: 38,
+        soulMove: "Sinister Shackles",
+        ability: "Demanding",
+        item: "Metroburst",
+        baseStats: {
+            hp: 53,
+            energy: 118,
+            attack: 119,
+            defense: 119,
+            attackR: 147,
+            defenseR: 54,
+            speed: 115
+        }
+    },
+
     nevermare: {
         name: "Nevermare",
         types: ["Plant", "Spirit"],
@@ -5440,24 +5490,6 @@ var loomians = {
             attackR: 66,
             defenseR: 110,
             speed: 111
-        }
-    },
-
-    akhalos: {
-        name: "Akhalos",
-        types: ["Ice", "Water"],
-        abilities: ["Aqua Body"],
-        sAbility: ["Aggressive"],
-        weight: 221,
-        height: 86,
-        baseStats: {
-            hp: 116,
-            energy: 94,
-            attack: 120,
-            defense: 97,
-            attackR: 73,
-            defenseR: 91,
-            speed: 84
         }
     },
 
@@ -5533,25 +5565,6 @@ var loomians = {
         }
     },
 
-    celesting: {
-        name: "Celesting",
-        number: 140,
-        types: ["Metal", "Light"],
-        abilities: ["Reverberate"],
-        sAbility: ["Mystic Tone"],
-        weight: 21,
-        height: 33,
-        baseStats: {
-            hp: 125,
-            energy: 125,
-            attack: 63,
-            defense: 79,
-            attackR: 108,
-            defenseR: 84,
-            speed: 91
-        }
-    },
-
     odoyaga: {
         name: "Odoyaga",
         types: ["Mind", "Air"],
@@ -5565,6 +5578,54 @@ var loomians = {
             attackR: 131,
             defenseR: 73,
             speed: 71
+        }
+    },
+
+    wabalisc: {
+        name: "Wabalisc",
+        types: ["Ice"],
+        weight: 131,
+        height: 86,
+        baseStats: {
+            hp: 106,
+            energy: 103,
+            attack: 99,
+            defense: 88,
+            attackR: 112,
+            defenseR: 98,
+            speed: 69
+        }
+    },
+
+    akhalos: {
+        name: "Akhalos",
+        types: ["Ice", "Water"],
+        weight: 221,
+        height: 86,
+        baseStats: {
+            hp: 116,
+            energy: 94,
+            attack: 120,
+            defense: 97,
+            attackR: 73,
+            defenseR: 91,
+            speed: 84
+        }
+    },
+
+    celesting: {
+        name: "Celesting",
+        types: ["Metal", "Light"],
+        weight: 21,
+        height: 33,
+        baseStats: {
+            hp: 125,
+            energy: 125,
+            attack: 63,
+            defense: 79,
+            attackR: 108,
+            defenseR: 84,
+            speed: 91
         }
     },
 
@@ -5591,6 +5652,22 @@ var loomians = {
             defenseR: 65,
             speed: 113
         }*/
+    },
+
+    grimyuline: {
+        name: "Grimyuline",
+        types: ["Dark", "Brawler"],
+        weight: 106,
+        height: 98,
+        baseStats: {
+            hp: 101,
+            energy: 78,
+            attack: 107,
+            defense: 110,
+            attackR: 84,
+            defenseR: 97,
+            speed: 98
+        }
     },
 
     'heavy bag': {
@@ -7835,6 +7912,18 @@ var moves = {
         slap: true
     },
 
+    undermine: {
+        name: "Undermine",
+        power: 70,
+        energy: 35,
+        accuracy: 100,
+        type: "Earth",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+    },
+
     tailSlap: {
         name: "Tail Slap",
         power: 40,
@@ -7960,10 +8049,21 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true,
         aoe: true,
         slap: true,
         secondaryEffect: true
+    },
+
+    psychalChomp: {
+        name: "Psychal Chomp",
+        power: 80,
+        energy: 40,
+        accuracy: 100,
+        type: "Mind",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        bite: true,
     },
 
     chop: {
@@ -8285,6 +8385,18 @@ var moves = {
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
+    },
+
+    hullabaloo: {
+        name: "Hullabaloo",
+        power: 75,
+        energy: 40,
+        accuracy: 100,
+        type: "Simple",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
     },
 
     twirlyWhirl: {
@@ -9192,6 +9304,15 @@ var moves = {
         power: 0,
         energy: 45,
         accuracy: "N/A",
+        type: "Ice",
+        mr: "Support"
+    },
+
+    bitterCold: {
+        name: "Bitter Cold",
+        power: 0,
+        energy: 35,
+        accuracy: 90,
         type: "Ice",
         mr: "Support"
     },
@@ -10125,7 +10246,8 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Partnership", "Rush Hour", "Trader", "Safety Pot", "Gloomy", "Mimic", "Reflective", "Hag", "Foresight", "Demanding", "Ravenous", "Designated Chompers", "Battle Armor", "Mask Swap",
                  "Facade", "Party Trick", "Do or Die", "Wildfire", "Sendoff", "Hydro Vortex", "Motivational", "Soul Siphon", "Pluvial", "Petrifying", "Tumultuous", "Venomous", "Brutal Wrath",
                  "Sky-Borne", "Land-Borne", "Depths-Borne", "All Seeing", "Rain Rush", "Triumph", "Royal Decree", "Thunder Summon", "Recurrent", "Charged Arc","Adaptable", "Heat Summon",
-                 "Rain Summon", "Fog Summon", "Wind Summon", "Inferno", "Cosmic Pressure", "Conspire", "Metamorphosis", "Sob", "Wail", "Seize", "Assertive", "Berserk", "Disenchant", "Impose", "Gorge"];
+                 "Rain Summon", "Fog Summon", "Wind Summon", "Inferno", "Cosmic Pressure", "Conspire", "Metamorphosis", "Sob", "Wail", "Seize", "Assertive", "Berserk", "Disenchant", "Impose", "Gorge",
+                 "Carol", "Fortissimo", "Elusive", "Upper Hand"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -10336,4 +10458,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "2.0 stats are now default stats.";
+var changelog = "Jolly Village Loomians added.";

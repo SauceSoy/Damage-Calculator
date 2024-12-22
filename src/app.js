@@ -453,11 +453,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -519,14 +519,14 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
-        document.cookie = "darkMode=true; expires=Mon, 1 Jan 2025 12:00:00 UTC"
+        document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
     }
     else {
-        document.cookie = "darkMode=false; expires=Mon, 1 Jan 2025 12:00:00 UTC";
+        document.cookie = "darkMode=false; expires=Mon, 1 Jan 2026 12:00:00 UTC";
     }
 }
 
@@ -3256,6 +3256,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
 
+    if (move.name == "Undermine" && btl2 && withoutSlapDown) {
+        powerCheck *= 2;
+        multi *= 2;
+        stuffUsed.extra1 += " (" + Math.floor(tempPower * 2) + " BP)";
+    }
+
     if (ability1 == "Recurrent" && tempType == "Electric") {
         let chanting = Math.min((1 + 0.2 * (repeat)), 2);
         multi *= chanting;
@@ -3294,7 +3300,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
        (ability1 == "Overcharged" && tempType == "Electric") ||
        (ability1 == "Watcher" && (stats1.spd < stats2.spd || (btl1 && withoutSlapDown))) ||
        (ability1 == "Gloomy" && fog.checked) ||
-       (ability1 == "Tumultuous" && winds.checked)) {
+       (ability1 == "Tumultuous" && winds.checked) ||
+       (ability1 == "Upper Hand" && stats1.spd > stats2.spd)) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
@@ -3663,11 +3670,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
-    if (ability2 == "Mesmerizing" && (move.priority || (ability1 == "Foresight" && tempType == "Mind" && stats1.hpPercent > 49) || (ability1 == "Wildfire" && tempType == "Fire" && stats1.hpPercent > 49))) {
-        multi *= 0;
-        stuffUsed.ability2 = ability2;
-    }
-    if (ability2 == "Seize" && move.pivot) {
+    if ((ability2 == "Seize" && move.pivot) ||
+        (ability2 == "Mesmerizing" && (move.priority || (ability1 == "Foresight" && tempType == "Mind" && stats1.hpPercent > 49) || (ability1 == "Wildfire" && tempType == "Fire" && stats1.hpPercent > 49))) ||
+        (ability2 == "Fortissimo" && move.sound)) {
         multi *= 0;
         stuffUsed.ability2 = ability2;
     }
