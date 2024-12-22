@@ -3666,7 +3666,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         stuffUsed.ability1 = ability1;
     }
 
-    if (ability2 == "Tank" && btl1 && withoutSlapDown && !(icicle && !loom2.types.includes("Ice")) && !(icicleH && !loom2.types.includes("Ice")) && (barbH == 0 || loom2.types.includes("Air")) && !foulHit) {
+    if ((ability2 == "Tank" && btl1 && withoutSlapDown && !(icicle && !loom2.types.includes("Ice")) && !(icicleH && !loom2.types.includes("Ice")) && (barbH == 0 || loom2.types.includes("Air")) && !foulHit) ||
+        (ability2 == "Elusive" && stat1 != "healthy")) {
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
