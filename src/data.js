@@ -10458,4 +10458,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Jolly Village Loomians added.";
+var changelog = "Began the process of adding premade sets to the calculator. All sets shown were made by the Free Sets discord.";
