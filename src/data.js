@@ -1348,10 +1348,7 @@ var loomians = {
  
     eruptidon: {
         name: "Eruptidon",
-        number: 62,
         types: ["Fire"],
-        abilities: ["Combustible", "Scorching Skin"],
-        sAbility: ["Pyro"],
         weight: 102,
         height: 105,
         baseStats: {
@@ -1367,7 +1364,6 @@ var loomians = {
 
     'eruptidon-magmadire': {
         name: "Eruptidon-Magmadire",
-        number: 62,
         types: ["Fire", "Earth"],
         weight: 102,
         height: 105,
@@ -1387,10 +1383,7 @@ var loomians = {
  
     craytal: {
         name: "Craytal",
-        number: 63,
         types: ["Fire"],
-        abilities: ["Volcanic", "Territorial"],
-        sAbility: ["Combustible"],
         finalEvo: false,
         weight: 11,
         height: 32,
@@ -1407,10 +1400,7 @@ var loomians = {
 
     'craytal-winter': {
         name: "Craytal-Winter",
-        number: 63,
         types: ["Ice", "Plant"],
-        abilities: ["Parting Gift", "Chill"],
-        sAbility: ["Regift"],
         finalEvo: false,
         weight: 11,
         height: 32,
@@ -1427,10 +1417,7 @@ var loomians = {
  
     krakaloa: {
         name: "Krakaloa",
-        number: 64,
         types: ["Fire"],
-        abilities: ["Volcanic", "Territorial"],
-        sAbility: ["Combustible"],
         weight: 155,
         height: 81,
         baseStats: {
@@ -5629,6 +5616,25 @@ var loomians = {
         }
     },
 
+    'celesting-stellarchime': {
+        name: "Celesting-Stellarchime",
+        types: ["Metal", "Light"],
+        soulMove: "Miracle Beam",
+        ability: "Effulgent",
+        item: "Celeburst",
+        weight: 21,
+        height: 33,
+        baseStats: {
+            hp: 150,
+            energy: 111,
+            attack: 82,
+            defense: 19,
+            attackR: 128,
+            defenseR: 114,
+            speed: 121
+        }
+    },
+
     mimask: {
         name: "Mimask",
         types: ["Dark"],
@@ -5781,6 +5787,17 @@ var moves = {
         power: 40,
         energy: 20,
         accuracy: 100,
+        type: "Light",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
+    },
+
+    miracleBeam: {
+        name: "Miracle Beam",
+        power: 100,
+        energy: 0,
+        accuracy: "N/A",
         type: "Light",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -10247,7 +10264,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Facade", "Party Trick", "Do or Die", "Wildfire", "Sendoff", "Hydro Vortex", "Motivational", "Soul Siphon", "Pluvial", "Petrifying", "Tumultuous", "Venomous", "Brutal Wrath",
                  "Sky-Borne", "Land-Borne", "Depths-Borne", "All Seeing", "Rain Rush", "Triumph", "Royal Decree", "Thunder Summon", "Recurrent", "Charged Arc","Adaptable", "Heat Summon",
                  "Rain Summon", "Fog Summon", "Wind Summon", "Inferno", "Cosmic Pressure", "Conspire", "Metamorphosis", "Sob", "Wail", "Seize", "Assertive", "Berserk", "Disenchant", "Impose", "Gorge",
-                 "Carol", "Fortissimo", "Elusive", "Upper Hand"];
+                 "Carol", "Fortissimo", "Elusive", "Upper Hand", "Effulgent"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -10458,4 +10475,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Began the process of adding premade sets to the calculator. All sets shown were made by the Free Sets discord.";
+var changelog = "Added SB Celesting.";

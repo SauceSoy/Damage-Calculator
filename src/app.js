@@ -453,11 +453,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -519,8 +519,8 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -746,7 +746,7 @@ $(".dmg").change(function() {
         let loomi = $(this).closest(".loomian-info");
         let moveHits = (loomi.find(".trait").val() == "Capoeira") ? 5 : 3;
         moveGroupObj.children(".move-hits").val(moveHits + " hits");
-        if (move.name == "Pepper Burst" || move.name == "Double Beat" || move.name == "Rapid Fire") moveGroupObj.children(".move-hits").hide();
+        if (move.name == "Pepper Burst" || move.name == "Double Beat" || move.name == "Rapid Fire" || move.name == "Double Whack") moveGroupObj.children(".move-hits").hide();
     } else if (move.name == "Expert Onslaught") {
         moveGroupObj.children(".move-hits").hide();
         moveGroupObj.children(".swarm").show();
@@ -3149,8 +3149,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         stuffUsed.extra1 += " (" + tempType + ")";
     }
 
-    if (ability1 == "Idiosyncratic") stuffUsed.ability1 = ability1;
-    if (ability2 == "Idiosyncratic") stuffUsed.ability2 = ability2;
+    if (ability1 == "Idiosyncratic" || ability1 == "Effulgent") stuffUsed.ability1 = ability1;
+    if (ability2 == "Idiosyncratic" || ability2 == "Effulgent") stuffUsed.ability2 = ability2;
 
     if ((ability1 == "Devious") || 
        (ability1 == "Bully" && loom1.height > loom2.height)) {
@@ -3358,7 +3358,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
             stuffUsed.item2 = tempItem;
         }
     }
-    if (tempType != "Null" && itemA.includes(types[tempType.toLowerCase()].otherName.charAt(0).toUpperCase() + types[tempType.toLowerCase()].otherName.slice(1)) && itemA.includes("Shell") && withoutSlapDown && !foulHit) {
+    if (tempType != "Null" && itemA.includes(types[tempType.toLowerCase()].otherName.charAt(0).toUpperCase() + types[tempType.toLowerCase()].otherName.slice(1)) && itemA.includes("Shell") && withoutSlapDown && !foulHit && ability2 != "Effulgent") {
         multi *= 1.5;
         stuffUsed.item1 = itemA;
     }
@@ -3677,7 +3677,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         multi *= 0;
         stuffUsed.ability2 = ability2;
     }
-    if (tempType != "Null" && itemB.includes(types[tempType.toLowerCase()].otherName.charAt(0).toUpperCase() + types[tempType.toLowerCase()].otherName.slice(1)) && itemB.includes("Pearl") && withoutSlapDown && !foulHit) {
+    if (tempType != "Null" && itemB.includes(types[tempType.toLowerCase()].otherName.charAt(0).toUpperCase() + types[tempType.toLowerCase()].otherName.slice(1)) && itemB.includes("Pearl") && withoutSlapDown && !foulHit && ability1 != "Effulgent") {
         multi *= 0.5;
         stuffUsed.item2 = itemB;
     }
@@ -3719,7 +3719,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     let multiDmg = 0;
     if (move.hits && !hitConfirmer) {
         hits = hits.charAt(0);
-        if (move.name == "Pepper Burst" || move.name == "Double Beat") hits = 2;
+        if (move.name == "Pepper Burst" || move.name == "Double Beat" || move.name == "Double Whack") hits = 2;
         if (move.name == "Rapid Fire") hits = 3;
         for (let i = 0; i < hits - 1; i++) {
             multiHits.push(getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm, snowball, true, level, ul, second, detailed, false));
@@ -3731,7 +3731,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     if (detailed && !hitConfirmer) {
         let numb;
         if (move.hits) {
-            if (move.name == "Pepper Burst" || move.name == "Double Beat") hits = 2;
+            if (move.name == "Pepper Burst" || move.name == "Double Beat" || move.name == "Double Whack") hits = 2;
             if (move.name == "Rapid Fire") hits = 3;
         }
         for (let i = 0.85; i <= 1; i += 0.01) {
