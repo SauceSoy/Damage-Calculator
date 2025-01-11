@@ -7866,6 +7866,18 @@ var moves = {
         mr2: "Ranged Defense"
     },
 
+    cosmicChime: {
+        name: "Cosmic Chime",
+        power: 100,
+        energy: 58,
+        accuracy: 100,
+        type: "Metal",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        sound: true
+    },
+
     reflectionBurst: {
         name: "Reflection Burst",
         power: 60,

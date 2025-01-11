@@ -3149,8 +3149,13 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         stuffUsed.extra1 += " (" + tempType + ")";
     }
 
-    if (ability1 == "Idiosyncratic" || ability1 == "Effulgent") stuffUsed.ability1 = ability1;
-    if (ability2 == "Idiosyncratic" || ability2 == "Effulgent") stuffUsed.ability2 = ability2;
+    if (ability1 == "Idiosyncratic") stuffUsed.ability1 = ability1;
+    if (ability2 == "Idiosyncratic") stuffUsed.ability2 = ability2;
+
+    if (move.name == "Cosmic Chime") ability2 = "None";
+
+    if (ability1 == "Effulgent") stuffUsed.ability1 = ability1;
+    if (ability2 == "Effulgent") stuffUsed.ability2 = ability2;
 
     if ((ability1 == "Devious") || 
        (ability1 == "Bully" && loom1.height > loom2.height)) {
