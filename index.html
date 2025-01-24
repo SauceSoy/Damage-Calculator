@@ -688,8 +688,11 @@
                 </div>
                 <br>
                 <div align="center">
-                    <input type="checkbox" class="hiddenToUser" id="levelCheck" onchange="updateLevel()">
-                    <label class="radiolbl" style="padding: 8px 8px;" for="levelCheck" title="Default to level 100?">Level 100</label>
+                    <select id="levelCheck" onchange="updateLevel()">
+                        <option>Level 5</option>
+                        <option>Level 50</option>
+                        <option>Level 100</option>
+                    </select>
                     <input type="checkbox" class="hiddenToUser" id="gsbCheck" onchange="update(undefined, true)">
                     <label class="radiolbl btn-right" style="padding: 8px 8px; display: none" for="gsbCheck" title="Provide post PvP 2.0 stats">2.0 Stats</label>
                 </div>
@@ -708,6 +711,11 @@
                     <label class="radiolbl fieldlbl btn-mid" for="heat" title="Select the current weather condition">Heat Wave</label>
                     <input type="radio" class="hiddenToUser" name="weather" value="4" id="storm" onchange="update()">
                     <label class="radiolbl fieldlbl btn-right" for="storm" title="Select the current weather condition">Thunderstorm</label>
+                </div>
+                <hr>
+                <div align="center">
+                    <input type="checkbox" class="hiddenToUser" id="fungus" onchange="update()">
+                    <label class="radiolbl fieldlbl" for="fungus" title="Is Fungus Curse currently active?">Fungus Curse</label>
                 </div>
                 <hr>
                 <div class="fieldTraps">
