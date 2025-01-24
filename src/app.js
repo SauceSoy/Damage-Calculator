@@ -233,6 +233,8 @@ let fog = document.getElementById("fog");
 let heat = document.getElementById("heat");
 let storm = document.getElementById("storm");
 
+let fungus = document.getElementById("fungus");
+
 let iceTrap1 = document.getElementById("iceTrap1");
 let iceTrap2 = document.getElementById("iceTrap2");
 
@@ -337,6 +339,7 @@ let percentNRG2 = document.getElementById("percentNRG2");
 let singleDouble = document.getElementById("singleDouble");
 let levelCheck = document.getElementById("levelCheck");
 let gsbCheck = document.getElementById("gsbCheck");
+levelCheck.value = "Level 50";
 
 let energyRegen1 = document.getElementById("energyRegen1");
 let energyRegen2 = document.getElementById("energyRegen2");
@@ -728,6 +731,7 @@ function updateAbility(ability) {
     if (ability1 == "Fog Summon" || ability2 == "Fog Summon") fog.checked = true;
     if (ability1 == "Thunder Summon" || ability2 == "Thunder Summon") storm.checked = true;
     if (ability1 == "Cosmic Pressure" || ability2 == "Cosmic Pressure") noWeather.checked = true;
+    if (ability1 == "Fungus Setter" || ability2 == "Fungus Setter") fungus.checked = true;
 
     update();
 }
@@ -775,12 +779,15 @@ $("#detailedResult").click(function () {
 });
 
 function updateLevel() {
-    if (levelCheck.checked) {
-        level1.value = 100;
-        level2.value = 100;
-    } else {
+    if (levelCheck.value == "Level 5") {
+        level1.value = 5;
+        level2.value = 5;
+    } else if (levelCheck.value == "Level 50") {
         level1.value = 50;
         level2.value = 50;
+    } else {
+        level1.value = 100;
+        level2.value = 100;
     }
     update();
 }
@@ -869,8 +876,7 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         defRIV1.value = set1.ivs.defenseR;
         spdIV1.value = set1.ivs.speed;
 
-        level1.value = set1.level;
-        if (levelCheck.checked) level1.value = 100;
+        level1.value = levelCheck.value.split(' ')[1];
 
         $("#moveOne1").val(set1.moves.move1);
         $("#moveOne1").select2().trigger('change');
@@ -944,8 +950,7 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         defRIV2.value = set2.ivs.defenseR;
         spdIV2.value = set2.ivs.speed;
 
-        level2.value = set2.level;
-        if (levelCheck.checked) level2.value = 100;
+        level2.value = levelCheck.value.split(' ')[1];
 
         $("#moveOne2").val(set2.moves.move1);
         $("#moveOne2").select2().trigger('change');
@@ -1651,9 +1656,11 @@ function checkStages() {
     }
 }
 
-function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastAttack, tempType, abilityCheck1, abilityCheck2, crit, firstHit, hitConfirm, foulHit) {
+function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastAttack, tempType, abilityCheck1, abilityCheck2, crit, firstHit, hitConfirm, foulHit, energyCurrent) {
     //Grabbing unboosted stats and what boosts are currently in the calc.
-    let baseAttack = calculateStat(atk.base, atk.iv.value, atk.ev.value, atk.level, undefined, atk.posNat, atk.negNat, atk.veryNat, atk.name);
+    let baseAttack;
+    if (ability1 == "Festive Spirit" && atk.name == "AttackR" && move.mr1 == "Ranged Attack") baseAttack = energyCurrent;
+    else baseAttack = calculateStat(atk.base, atk.iv.value, atk.ev.value, atk.level, undefined, atk.posNat, atk.negNat, atk.veryNat, atk.name);
     let baseDefense = calculateStat(def.base, def.iv.value, def.ev.value, def.level, undefined, def.posNat, def.negNat, def.veryNat, def.name);
     let atkStage = (!atk.stage ? 0 : atk.stage);
     let defStage = (!def.stage ? 0 : def.stage);
@@ -3431,23 +3438,26 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     } else if (storm.checked) {
         stuffUsed.weather += " in Severe Thunderstorms";
     }
+    if (fungus.checked) {
+        stuffUsed.weather += " in Fungus Curse";
+    }
 
     tempPower = pokeRound(tempPower * multi);
     multi = 1;
 
-    battleAdjustments(move, ability1, ability2, stuffUsed, tempAtk, tempDef, boastAttack, tempType, immuneBoostCheck1, immuneBoostCheck2, crit, withoutSlapDown, hitConfirmer, foulHit);
+    battleAdjustments(move, ability1, ability2, stuffUsed, tempAtk, tempDef, boastAttack, tempType, immuneBoostCheck1, immuneBoostCheck2, crit, withoutSlapDown, hitConfirmer, foulHit, currentEnergy1);
 
     //Attack -------------------------------------------
 
     if ((((crit || (ability1 == "Brutal Wrath" && (stat2 == "poisoned" || stat2 == "diseased"))) && ability2 != "Protective Shell") && tempAtk.stage < 0)) {
-        if (ability1 == "Festive Spirit") {
+        if (ability1 == "Festive Spirit" && move.mr1 == "Ranged Attack") {
             tempAtk.atk = currentEnergy1;
         } else tempAtk.atk = calculateStat(tempAtk.base, tempAtk.iv.value, tempAtk.ev.value, tempAtk.level, undefined, tempAtk.posNat, tempAtk.negNat, tempAtk.veryNat, tempAtk.name);
     }
 
     if ((ability2 == "Ignorant") ||
         (ability2 == "Sob" && immuneBoostCheck2)) {
-        if (ability1 == "Festive Spirit") {
+        if (ability1 == "Festive Spirit" && move.mr1 == "Ranged Attack") {
             tempAtk.atk = currentEnergy1;
         } else tempAtk.atk = calculateStat(tempAtk.base, tempAtk.iv.value, tempAtk.ev.value, tempAtk.level, undefined, tempAtk.posNat, tempAtk.negNat, tempAtk.veryNat, tempAtk.name);
         stuffUsed.ability2 = ability2;
@@ -3591,10 +3601,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         stuffUsed.ability2 = ability2;
     }
 
-    if (types[types2.primary.toLowerCase()].weaknesses.includes(tempType.toLowerCase())) {
+    if ((types[types2.primary.toLowerCase()].weaknesses.includes(tempType.toLowerCase())) ||
+        (fungus.checked && types[types2.primary.toLowerCase()].fungusWeaknesses && types[types2.primary.toLowerCase()].fungusWeaknesses.includes(tempType.toLowerCase()))) {
         multi *= 2;
     }
-    if (types2.secondary != "None" && types[types2.secondary.toLowerCase()].weaknesses.includes(tempType.toLowerCase())) {
+    if ((types2.secondary != "None" && types[types2.secondary.toLowerCase()].weaknesses.includes(tempType.toLowerCase())) ||
+        (fungus.checked && types2.secondary != "None" && types[types2.secondary.toLowerCase()].fungusWeaknesses && types[types2.secondary.toLowerCase()].fungusWeaknesses.includes(tempType.toLowerCase()))) {
         multi *= 2;
     }
     if (types[types2.primary.toLowerCase()].resistances.includes(tempType.toLowerCase())) {
@@ -3603,10 +3615,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     if (types2.secondary != "None" && types[types2.secondary.toLowerCase()].resistances.includes(tempType.toLowerCase())) {
         multi *= 0.5;
     }
-    if (types[types2.primary.toLowerCase()].immunities.includes(tempType.toLowerCase()) && !((ability1 == "Royal Decree" && tempType == "Electric")/* || (storm.checked && tempType == "Earth")*/) && !(ability1 == "Assertive" && tempType == "Brawler" && types2.primary == "Spirit") && move.name != "Rock Slide") {
+    if ((types[types2.primary.toLowerCase()].immunities.includes(tempType.toLowerCase()) && !((ability1 == "Royal Decree" && tempType == "Electric")/* || (storm.checked && tempType == "Earth")*/) && !(fungus.checked && types[types2.primary.toLowerCase()].fungusWeaknesses && types[types2.primary.toLowerCase()].fungusWeaknesses.includes(tempType.toLowerCase())) && !(ability1 == "Assertive" && tempType == "Brawler" && types2.primary == "Spirit") && move.name != "Rock Slide") ||
+        (fungus.checked && types[types2.primary.toLowerCase()].fungusImmunities && types[types2.primary.toLowerCase()].fungusImmunities.includes(tempType.toLowerCase()))) {
         multi *= 0;
     }
-    if (types2.secondary != "None" && types[types2.secondary.toLowerCase()].immunities.includes(tempType.toLowerCase()) && !((ability1 == "Royal Decree" && tempType == "Electric")/* || (storm.checked && tempType == "Earth")*/) && !(ability1 == "Assertive" && tempType == "Brawler" && types2.secondary == "Spirit") && move.name != "Rock Slide") {
+    if ((types2.secondary != "None" && types[types2.secondary.toLowerCase()].immunities.includes(tempType.toLowerCase()) && !((ability1 == "Royal Decree" && tempType == "Electric")/* || (storm.checked && tempType == "Earth")*/) && !(fungus.checked && types[types2.secondary.toLowerCase()].fungusWeaknesses && types[types2.secondary.toLowerCase()].fungusWeaknesses.includes(tempType.toLowerCase())) && !(ability1 == "Assertive" && tempType == "Brawler" && types2.secondary == "Spirit") && move.name != "Rock Slide") ||
+        (fungus.checked && types2.secondary != "None" && types[types2.secondary.toLowerCase()].fungusImmunities && types[types2.secondary.toLowerCase()].fungusImmunities.includes(tempType.toLowerCase()))) {
         multi *= 0;
     }
     if (move.typeModifier != undefined && (types2.primary == move.typeModifier.type || types2.secondary == move.typeModifier.type)) {

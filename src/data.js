@@ -10162,9 +10162,11 @@ var types = {
 
     plant: {
         weaknesses: ["fire", "ice", "dark", "bug", "toxic"],
-        resistances: ["plant", "water", "earth", "electric", "light"],
+        resistances: ["plant", "water", "earth", "electric"],
         immunities: ["light"],
-        otherName: "blossom"
+        otherName: "blossom",
+        fungusWeaknesses:["fire", "ice", "light", "bug", "toxic"],
+        fungusImmunities: ["dark"]
     },
 
     electric: {
@@ -10487,4 +10489,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Added SB Celesting.";
+var changelog = "Added a Level dropdown for levels 5, 50, and 100. Added a Fungus Curse button.";
