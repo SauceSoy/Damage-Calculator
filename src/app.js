@@ -456,11 +456,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -522,8 +522,8 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -897,6 +897,7 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         }
         item1.value = (set1.item == undefined ? "none" : set1.item);
         if (firstLoom.item) item1.value = firstLoom.item;
+        updateItem('item1');
 
         primaryTypeDropdown1.value = loomians[pokeDropdown1.value.toLowerCase()].types[0];
         secondaryTypeDropdown1.value = (loomians[pokeDropdown1.value.toLowerCase()].types[1] != undefined ? loomians[pokeDropdown1.value.toLowerCase()].types[1] : "None");
@@ -971,6 +972,7 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         }    
         item2.value = (set2.item == undefined ? "none" : set2.item);
         if (secondLoom.item) item2.value = secondLoom.item;
+        updateItem('item2');
 
         primaryTypeDropdown2.value = loomians[pokeDropdown2.value.toLowerCase()].types[0];
         secondaryTypeDropdown2.value = (loomians[pokeDropdown2.value.toLowerCase()].types[1] != undefined ? loomians[pokeDropdown2.value.toLowerCase()].types[1] : "None");
@@ -3645,9 +3647,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     if (ability2 == "Gummy" && move.bomb) {
         multi *= 0;
         stuffUsed.ability2 = ability2;
-    }
-    if (loom2.name == "Heavy Bag" && tempType == "Mind") {
-        multi *= 0.5;
     }
 
     effectiveness = multi;
