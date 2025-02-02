@@ -5085,6 +5085,39 @@ var loomians = {
             speed: 103
         }
     },
+
+    snicle: {
+        name: "Snicle",
+        types: ["Ice", "Dark"],
+        weight: 11,
+        height: 37,
+        finalEvo: false,
+        baseStats: {
+            hp: 30,
+            energy: 30,
+            attack: 53,
+            defense: 49,
+            attackR: 34,
+            defenseR: 29,
+            speed: 47
+        }
+    },
+
+    slivyce: {
+        name: "Slivyce",
+        types: ["Ice", "Dark"],
+        weight: 25,
+        height: 86,
+        baseStats: {
+            hp: 83,
+            energy: 83,
+            attack: 102,
+            defense: 103,
+            attackR: 73,
+            defenseR: 61,
+            speed: 88
+        }
+    },
  
     duskit: {
         name: "Duskit",
@@ -6297,6 +6330,31 @@ var moves = {
         contact: true,
         secondaryEffect: true,
         bite: true
+    },
+
+    icicleFangs: {
+        name: "Icicle Fangs",
+        power: 80,
+        energy: 40,
+        accuracy: 100,
+        type: "Ice",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        bite: true
+    },
+
+    spikeRush: {
+        name: "Spike Rush",
+        power: 40,
+        energy: 25,
+        accuracy: 100,
+        type: "Ice",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        priority: true,
     },
 
     naturesRage: {
@@ -10283,7 +10341,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Facade", "Party Trick", "Do or Die", "Wildfire", "Sendoff", "Hydro Vortex", "Motivational", "Soul Siphon", "Pluvial", "Petrifying", "Tumultuous", "Venomous", "Brutal Wrath",
                  "Sky-Borne", "Land-Borne", "Depths-Borne", "All Seeing", "Rain Rush", "Triumph", "Royal Decree", "Thunder Summon", "Recurrent", "Charged Arc","Adaptable", "Heat Summon",
                  "Rain Summon", "Fog Summon", "Wind Summon", "Inferno", "Cosmic Pressure", "Conspire", "Metamorphosis", "Sob", "Wail", "Seize", "Assertive", "Berserk", "Disenchant", "Impose", "Gorge",
-                 "Carol", "Fortissimo", "Elusive", "Upper Hand", "Effulgent", "Dummy"];
+                 "Carol", "Fortissimo", "Elusive", "Upper Hand", "Effulgent", "Dummy", "Puncture", "Toxic Sac"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -10496,4 +10554,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Added a Level dropdown for levels 5, 50, and 100. Added a Fungus Curse button.";
+var changelog = "Added Snicle line.";
