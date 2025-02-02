@@ -3510,7 +3510,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     if ((ability1 == "Ignorant") || 
        (ability1 == "Bully" && loom1.height > loom2.height && tempDef.stage >= 1) ||
         (ability1 == "Sob" && immuneBoostCheck1) ||
-        (ability1 == "Puncture" && move.bite)) {
+        (ability1 == "Puncture" && move.bite && tempDef.stage >= 1)) {
         tempDef.def = calculateStat(tempDef.base, tempDef.iv.value, tempDef.ev.value, tempDef.level, undefined, tempDef.posNat, tempDef.negNat, tempDef.veryNat, tempDef.name, tempDef.rest);
         stuffUsed.ability1 = ability1;
     }
