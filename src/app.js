@@ -3163,7 +3163,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
 
     if (move.name == "Cosmic Chime") ability2 = "None";
 
-    if (ability1 == "Effulgent") stuffUsed.ability1 = ability1;
+    if (ability1 == "Effulgent" || (ability1 == "Puncture" && move.bite)) stuffUsed.ability1 = ability1;
     if (ability2 == "Effulgent") stuffUsed.ability2 = ability2;
 
     if ((ability1 == "Devious") || 
@@ -3515,23 +3515,23 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         stuffUsed.ability1 = ability1;
     }
     if ((itemB == "Heavy Shield" && ((move.mr2 == "Ranged Defense" && adaptive.mr2 != "Melee Defense") || adaptive.mr2 == "Ranged Defense")) ||
-       (itemB == "Heavy Armor" && ((move.mr2 == "Melee Defense" && adaptive.mr2 != "Ranged Defense") || adaptive.mr2 == "Melee Defense"))) {
+       (itemB == "Heavy Armor" && ((move.mr2 == "Melee Defense" && adaptive.mr2 != "Ranged Defense") || adaptive.mr2 == "Melee Defense")) && !(ability1 == "Puncture" & move.bite)) {
         multi *= 1.2;
         stuffUsed.item2 = itemB;
     }
-    if (itemB == "Drop of Youth" && loom2.finalEvo == false) {
+    if (itemB == "Drop of Youth" && loom2.finalEvo == false && !(ability1 == "Puncture" & move.bite)) {
         multi *= 1.4;
         stuffUsed.item2 = itemB;
     }
-    if ((ability2 == "Trash Armor" || ability2 == "Hard Candy" || ability2 == "Safety Pot") && ((move.mr2 == "Melee Defense" && adaptive.mr2 != "Ranged Defense") || adaptive.mr2 == "Melee Defense")) {
+    if ((ability2 == "Trash Armor" || ability2 == "Hard Candy" || ability2 == "Safety Pot") && ((move.mr2 == "Melee Defense" && adaptive.mr2 != "Ranged Defense") || adaptive.mr2 == "Melee Defense") && !(ability1 == "Puncture" & move.bite)) {
         multi *= 1.5;
         stuffUsed.ability2 = ability2;
     }
-    if (ability2 == "Safety Pot" && ((move.mr2 == "Ranged Defense" && adaptive.mr2 != "Melee Defense") || adaptive.mr2 == "Ranged Defense")) {
+    if (ability2 == "Safety Pot" && ((move.mr2 == "Ranged Defense" && adaptive.mr2 != "Melee Defense") || adaptive.mr2 == "Ranged Defense") && !(ability1 == "Puncture" & move.bite)) {
         multi *= 1.5;
         stuffUsed.ability2 = ability2;
     }
-    if (ability2 == "Slick Shell" && ((move.mr2 == "Ranged Defense" && adaptive.mr2 != "Melee Defense") || adaptive.mr2 == "Ranged Defense")) {
+    if (ability2 == "Slick Shell" && ((move.mr2 == "Ranged Defense" && adaptive.mr2 != "Melee Defense") || adaptive.mr2 == "Ranged Defense") && !(ability1 == "Puncture" & move.bite)) {
         multi *= 2;
         stuffUsed.ability2 = ability2;
     }
@@ -3685,7 +3685,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         stuffUsed.ability1 = ability1;
     }
 
-    if ((ability2 == "Tank" && btl1 && withoutSlapDown && !(icicle && !loom2.types.includes("Ice")) && !(icicleH && !loom2.types.includes("Ice")) && (barbH == 0 || loom2.types.includes("Air")) && !foulHit) ||
+    if ((ability2 == "Tank" && btl1 && withoutSlapDown && !(icicle && !loom2.types.includes("Ice")) && !(icicleH && !loom2.types.includes("Ice")) && (barbH == 0 || loom2.types.includes("Air")) && !foulHit && !(ability1 == "Puncture" & move.bite)) ||
         (ability2 == "Elusive" && stat1 != "healthy")) {
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
@@ -3696,7 +3696,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         multi *= 0;
         stuffUsed.ability2 = ability2;
     }
-    if (tempType != "Null" && itemB.includes(types[tempType.toLowerCase()].otherName.charAt(0).toUpperCase() + types[tempType.toLowerCase()].otherName.slice(1)) && itemB.includes("Pearl") && withoutSlapDown && !foulHit && ability1 != "Effulgent") {
+    if (tempType != "Null" && itemB.includes(types[tempType.toLowerCase()].otherName.charAt(0).toUpperCase() + types[tempType.toLowerCase()].otherName.slice(1)) && itemB.includes("Pearl") && withoutSlapDown && !foulHit && ability1 != "Effulgent" && !(ability1 == "Puncture" & move.bite)) {
         multi *= 0.5;
         stuffUsed.item2 = itemB;
     }
