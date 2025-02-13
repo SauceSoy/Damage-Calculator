@@ -3858,7 +3858,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         for (let i = 0; i < hits - 1; i++) {
             multiHits.push(getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm, snowball, true, level, ul, second, detailed, false));
         }
-        stuffUsed.extra1 += " (" + hits + " hits)";
+        if (hits > 1) stuffUsed.extra1 += " (" + hits + " hits)";
+        else stuffUsed.extra1 += " (" + hits + " hit)";
         multiHits.forEach(num => multiDmg += num);
     }
 
