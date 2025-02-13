@@ -3667,7 +3667,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
 
     if ((crit || (ability1 == "Brutal Wrath" && (stat2 == "poisoned" || stat2 == "diseased"))) && ability2 != "Protective Shell") {
         if (ability1 == "Brutal Wrath" && (stat2 == "poisoned" || stat2 == "diseased")) stuffUsed.ability1 = ability1;
-        if (ability1 == "Marksman") {
+        if (ability1 == "Marksman" || ability1 == "Luck Of The Sea") {
             multi *= 2.25;
             stuffUsed.ability1 = ability1;
         }
