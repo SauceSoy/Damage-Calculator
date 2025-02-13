@@ -531,7 +531,7 @@
                     <input id="currentNRG1" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updatePercent()">/
                     <label id="totalNRG1">321</label>
                     <input id="percentNRG1" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updateNumber()">%
-                    <button class="right radiolbl fieldlbl entered" id="break1" style="display: none;" onclick="loadBreakCalc('left')">Check Breakpoint</button>
+                    <button class="right radiolbl fieldlbl entered" id="break1" onclick="loadBreakCalc('left')">Check Breakpoint</button>
                     <br>
                     <br>
 
@@ -563,9 +563,13 @@
                             <option>3 hits</option>
                             <option class="fury">4 hits</option>
                             <option class="fury">5 hits</option>
+                            <option class="fury dart">6 hits</option>
+                            <option class="fury dart">7 hits</option>
+                            <option class="fury dart">8 hits</option>
+                            <option class="fury dart">9 hits</option>
+                            <option class="fury dart">10 hits</option>
                         </select>
                         <select class="swarm" id="moveOneSwarm1" style="display: none;" onchange="update()">
-                            <option>0 looms</option>
                             <option>1 loom</option>
                             <option>2 looms</option>
                             <option>3 looms</option>
@@ -593,9 +597,13 @@
                             <option>3 hits</option>
                             <option class="fury">4 hits</option>
                             <option class="fury">5 hits</option>
+                            <option class="fury dart">6 hits</option>
+                            <option class="fury dart">7 hits</option>
+                            <option class="fury dart">8 hits</option>
+                            <option class="fury dart">9 hits</option>
+                            <option class="fury dart">10 hits</option>
                         </select>
                         <select class="swarm" id="moveTwoSwarm1" style="display: none;" onchange="update()">
-                            <option>0 looms</option>
                             <option>1 loom</option>
                             <option>2 looms</option>
                             <option>3 looms</option>
@@ -623,9 +631,13 @@
                             <option>3 hits</option>
                             <option class="fury">4 hits</option>
                             <option class="fury">5 hits</option>
+                            <option class="fury dart">6 hits</option>
+                            <option class="fury dart">7 hits</option>
+                            <option class="fury dart">8 hits</option>
+                            <option class="fury dart">9 hits</option>
+                            <option class="fury dart">10 hits</option>
                         </select>
                         <select class="swarm" id="moveThreeSwarm1" style="display: none;" onchange="update()">
-                            <option>0 looms</option>
                             <option>1 loom</option>
                             <option>2 looms</option>
                             <option>3 looms</option>
@@ -653,9 +665,13 @@
                             <option>3 hits</option>
                             <option class="fury">4 hits</option>
                             <option class="fury">5 hits</option>
+                            <option class="fury dart">6 hits</option>
+                            <option class="fury dart">7 hits</option>
+                            <option class="fury dart">8 hits</option>
+                            <option class="fury dart">9 hits</option>
+                            <option class="fury dart">10 hits</option>
                         </select>
                         <select class="swarm" id="moveFourSwarm1" style="display: none;" onchange="update()">
-                            <option>0 looms</option>
                             <option>1 loom</option>
                             <option>2 looms</option>
                             <option>3 looms</option>
@@ -701,21 +717,23 @@
                 <div align="center">
                     <input type="radio" class="hiddenToUser" name="weather" value="0" id="noWeather" checked="checked" onchange="update()">
                     <label class="radiolbl fieldlbl btn-left" for="noWeather" title="Select the current weather condition">None</label>
-                    <input type="radio" class="hiddenToUser" name="weather" value="1" id="rain" onchange="update()">
+                    <input type="radio" class="hiddenToUser" name="weather" value="1" id="rain" onchange="updateWeather()">
                     <label class="radiolbl fieldlbl btn-mid" for="rain" title="Select the current weather condition">Rainfall</label>
-                    <input type="radio" class="hiddenToUser" name="weather" value="2" id="winds" onchange="update()">
+                    <input type="radio" class="hiddenToUser" name="weather" value="2" id="winds" onchange="updateWeather()">
                     <label class="radiolbl fieldlbl btn-mid" for="winds" title="Select the current weather condition">Strong Gusts</label>
-                    <input type="radio" class="hiddenToUser" name="weather" value="3" id="fog" onchange="update()">
+                    <input type="radio" class="hiddenToUser" name="weather" value="3" id="fog" onchange="updateWeather()">
                     <label class="radiolbl fieldlbl btn-mid" for="fog" title="Select the current weather condition">Fog</label>
-                    <input type="radio" class="hiddenToUser" name="weather" value="3" id="heat" onchange="update()">
+                    <input type="radio" class="hiddenToUser" name="weather" value="3" id="heat" onchange="updateWeather()">
                     <label class="radiolbl fieldlbl btn-mid" for="heat" title="Select the current weather condition">Heat Wave</label>
-                    <input type="radio" class="hiddenToUser" name="weather" value="4" id="storm" onchange="update()">
+                    <input type="radio" class="hiddenToUser" name="weather" value="4" id="storm" onchange="updateWeather()">
                     <label class="radiolbl fieldlbl btn-right" for="storm" title="Select the current weather condition">Thunderstorm</label>
                 </div>
                 <hr>
                 <div align="center">
                     <input type="checkbox" class="hiddenToUser" id="fungus" onchange="update()">
-                    <label class="radiolbl fieldlbl" for="fungus" title="Is Fungus Curse currently active?">Fungus Curse</label>
+                    <label class="radiolbl fieldlbl btn-left" for="fungus" title="Is Fungus Curse currently active?">Fungus Curse</label>
+                    <input type="checkbox" class="hiddenToUser" id="cosmic" onchange="updateAbility()">
+                    <label class="radiolbl fieldlbl btn-right" for="cosmic" title="Is Cosmic Pressure currently active?">Cosmic Pressure</label>
                 </div>
                 <hr>
                 <div class="fieldTraps">
@@ -747,24 +765,24 @@
                     </div>
                     <div>
                         <div class="left">
-                            <input type="radio" class="hiddenToUser" name="barbsL" value="0" id="leftBarb0" checked="checked" onchange="update()">
+                            <input type="radio" class="hiddenToUser" name="barbsL" value="0" id="leftBarb0" checked="checked" onchange="updateHazards('barbs', 1)">
                             <label class="radiolbl fieldlbl btn-left" style="width: 1em;" for="leftBarb0">0</label>
-                            <input type="radio" class="hiddenToUser" name="barbsL" value="1" id="leftBarb1" onchange="update()">
+                            <input type="radio" class="hiddenToUser" name="barbsL" value="1" id="leftBarb1" onchange="updateHazards('barbs', 1)">
                             <label class="radiolbl fieldlbl btn-mid" style="width: 1em;" for="leftBarb1" title="1 layer of barbs.">1</label>
-                            <input type="radio" class="hiddenToUser" name="barbsL" value="2" id="leftBarb2" onchange="update()">
+                            <input type="radio" class="hiddenToUser" name="barbsL" value="2" id="leftBarb2" onchange="updateHazards('barbs', 1)">
                             <label class="radiolbl fieldlbl btn-mid" style="width: 1em;" for="leftBarb2" title="2 layers of barbs.">2</label>
-                            <input type="radio" class="hiddenToUser" name="barbsL" value="3" id="leftBarb3" onchange="update()">
+                            <input type="radio" class="hiddenToUser" name="barbsL" value="3" id="leftBarb3" onchange="updateHazards('barbs', 1)">
                             <label class="radiolbl fieldlbl btn-right" style="width: 4em;" for="leftBarb3" title="3 layers of barbs.">3 Barbs</label>
                         </div>
 
                         <div class="right">
-                            <input type="radio" class="hiddenToUser" name="barbsR" value="3" id="rightBarb3" onchange="update()">
+                            <input type="radio" class="hiddenToUser" name="barbsR" value="3" id="rightBarb3" onchange="updateHazards('barbs', 2)">
                             <label class="radiolbl fieldlbl btn-left" style="width: 4em;" for="rightBarb3" title="3 layers of barbs.">3 Barbs</label>
-                            <input type="radio" class="hiddenToUser" name="barbsR" value="2" id="rightBarb2" onchange="update()">
+                            <input type="radio" class="hiddenToUser" name="barbsR" value="2" id="rightBarb2" onchange="updateHazards('barbs', 2)">
                             <label class="radiolbl fieldlbl btn-mid" style="width: 1em;" for="rightBarb2" title="2 layers of barbs.">2</label>
-                            <input type="radio" class="hiddenToUser" name="barbsR" value="1" id="rightBarb1" onchange="update()">
+                            <input type="radio" class="hiddenToUser" name="barbsR" value="1" id="rightBarb1" onchange="updateHazards('barbs', 2)">
                             <label class="radiolbl fieldlbl btn-mid" style="width: 1em;" for="rightBarb1" title="1 layer of barbs.">1</label>
-                            <input type="radio" class="hiddenToUser" name="barbsR" value="0" id="rightBarb0" checked="checked" onchange="update()">
+                            <input type="radio" class="hiddenToUser" name="barbsR" value="0" id="rightBarb0" checked="checked" onchange="updateHazards('barbs', 2)">
                             <label class="radiolbl fieldlbl btn-right" style="width: 1em;" for="rightBarb0">0</label>
                         </div>
                     </div>
@@ -930,6 +948,17 @@
                         <div class="right">
                             <input type="checkbox" class="hiddenToUser" id="guardian2" onchange="update()">
                             <label class="radiolbl fieldlbl entered doubles" style="display:none;" for="guardian2">Ally Has Guardian</label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="coerce1" onchange="update()">
+                            <label class="radiolbl fieldlbl entered doubles" style="display:none;" for="coerce1">Enemy Has Reign</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="coerce2" onchange="update()">
+                            <label class="radiolbl fieldlbl entered doubles" style="display:none;" for="coerce2">Enemy Has Reign</label>
                         </div>
                     </div>
                     <div>
@@ -1365,7 +1394,7 @@
                     <input id="currentNRG2" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updatePercent()">/
                     <label id="totalNRG2">321</label>
                     <input id="percentNRG2" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updateNumber()">%
-                    <button class="right radiolbl fieldlbl entered" id="break2" style="display: none;" onclick="loadBreakCalc('right')">Check Breakpoint</button>
+                    <button class="right radiolbl fieldlbl entered" id="break2" onclick="loadBreakCalc('right')">Check Breakpoint</button>
                     <br>
                     <br>
 
@@ -1398,9 +1427,13 @@
                             <option>3 hits</option>
                             <option class="fury">4 hits</option>
                             <option class="fury">5 hits</option>
+                            <option class="fury dart">6 hits</option>
+                            <option class="fury dart">7 hits</option>
+                            <option class="fury dart">8 hits</option>
+                            <option class="fury dart">9 hits</option>
+                            <option class="fury dart">10 hits</option>
                         </select>
                         <select class="swarm" id="moveOneSwarm2" style="display: none;" onchange="update()">
-                            <option>0 looms</option>
                             <option>1 loom</option>
                             <option>2 looms</option>
                             <option>3 looms</option>
@@ -1428,9 +1461,13 @@
                             <option>3 hits</option>
                             <option class="fury">4 hits</option>
                             <option class="fury">5 hits</option>
+                            <option class="fury dart">6 hits</option>
+                            <option class="fury dart">7 hits</option>
+                            <option class="fury dart">8 hits</option>
+                            <option class="fury dart">9 hits</option>
+                            <option class="fury dart">10 hits</option>
                         </select>
                         <select class="swarm" id="moveTwoSwarm2" style="display: none;" onchange="update()">
-                            <option>0 looms</option>
                             <option>1 loom</option>
                             <option>2 looms</option>
                             <option>3 looms</option>
@@ -1458,9 +1495,13 @@
                             <option>3 hits</option>
                             <option class="fury">4 hits</option>
                             <option class="fury">5 hits</option>
+                            <option class="fury dart">6 hits</option>
+                            <option class="fury dart">7 hits</option>
+                            <option class="fury dart">8 hits</option>
+                            <option class="fury dart">9 hits</option>
+                            <option class="fury dart">10 hits</option>
                         </select>
                         <select class="swarm" id="moveThreeSwarm2" style="display: none;" onchange="update()">
-                            <option>0 looms</option>
                             <option>1 loom</option>
                             <option>2 looms</option>
                             <option>3 looms</option>
@@ -1488,9 +1529,13 @@
                             <option>3 hits</option>
                             <option class="fury">4 hits</option>
                             <option class="fury">5 hits</option>
+                            <option class="fury dart">6 hits</option>
+                            <option class="fury dart">7 hits</option>
+                            <option class="fury dart">8 hits</option>
+                            <option class="fury dart">9 hits</option>
+                            <option class="fury dart">10 hits</option>
                         </select>
                         <select class="swarm" id="moveFourSwarm2" style="display: none;" onchange="update()">
-                            <option>0 looms</option>
                             <option>1 loom</option>
                             <option>2 looms</option>
                             <option>3 looms</option>
@@ -1511,7 +1556,7 @@
 
         </div>
           
-        <div class="breakpoint" style="display: none;">
+        <div class="breakpoint">
             <fieldset>
                 <legend align="center" style="font-size: 1.5em; font-weight: bold;">
                     Energy Breakpoint Calculator
@@ -1537,6 +1582,10 @@
                     <input type="checkbox" class="hiddenToUser" id="motivational3" onchange="loadMoves()">
                     <label class="radiolbl fieldlbl entered" for="motivational3">Ally Has Motivational</label>
                 </div>
+                <div align="center" style="padding-top: 1px;">
+                    <input type="checkbox" class="hiddenToUser" id="coerce3" onchange="loadMoves()">
+                    <label class="radiolbl fieldlbl entered" for="coerce3">Enemy Has Reign</label>
+                </div>
                 <table>
                     <thead>
                         <span style="padding-right: 95px; padding-left: 120px;">Move:</span>
@@ -1549,7 +1598,7 @@
                     <select class="moveSelect" id="moveBPDropdown" onchange="loadMoves()">
                     </select>
                     <input id="moveBPEnergy" value="0" readonly>
-                    <input class="moveslbl" id="moveBPTimes" value=0 type=number min=0 max=999
+                    <input class="moveslbl" id="moveBPTimes" value=1 type=number min=0 max=999
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
                         onchange="loadMoves()">
                     <span id="moveBPResult">300</span>
@@ -1558,7 +1607,7 @@
                     <select class="moveSelect" id="moveBPDropdown2" onchange="loadMoves()">
                     </select>
                     <input id="moveBPEnergy2" value="0" readonly>
-                    <input class="moveslbl" id="moveBPTimes2" value=0 type=number min=0 max=999
+                    <input class="moveslbl" id="moveBPTimes2" value=1 type=number min=0 max=999
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
                         onchange="loadMoves()">
                 </div>
@@ -1566,7 +1615,7 @@
                     <select class="moveSelect" id="moveBPDropdown3" onchange="loadMoves()">
                     </select>
                     <input id="moveBPEnergy3" value="0" readonly>
-                    <input class="moveslbl" id="moveBPTimes3" value=0 type=number min=0 max=999
+                    <input class="moveslbl" id="moveBPTimes3" value=1 type=number min=0 max=999
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
                         onchange="loadMoves()">
                 </div>
@@ -1574,7 +1623,7 @@
                     <select class="moveSelect" id="moveBPDropdown4" onchange="loadMoves()">
                     </select>
                     <input id="moveBPEnergy4" value="0" readonly>
-                    <input class="moveslbl" id="moveBPTimes4" value=0 type=number min=0 max=999
+                    <input class="moveslbl" id="moveBPTimes4" value=1 type=number min=0 max=999
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
                         onchange="loadMoves()">
                 </div>
