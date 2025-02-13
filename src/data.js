@@ -8656,7 +8656,7 @@ var moves = {
 
     outburst: {
         name: "Outburst",
-        power: 1,
+        power: 125,
         energy: 60,
         accuracy: 100,
         type: "Ancient",
