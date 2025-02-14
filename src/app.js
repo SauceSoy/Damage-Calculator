@@ -939,10 +939,10 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         abilityDropdown1.value = (set1.ability == undefined ? "none" : set1.ability);
         if (firstLoom.ability) {
             abilityDropdown1.value = firstLoom.ability;
-            updateAbility(firstLoom.ability);
         }
         item1.value = (set1.item == undefined ? "none" : set1.item);
         if (firstLoom.item) item1.value = firstLoom.item;
+        updateAbility(abilityDropdown1.value);
         updateItem('item1');
 
         primaryTypeDropdown1.value = loomians[pokeDropdown1.value.toLowerCase()].types[0];
@@ -1014,10 +1014,10 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         abilityDropdown2.value = (set2.ability == undefined ? "none" : set2.ability);
         if (secondLoom.ability) {
             abilityDropdown2.value = secondLoom.ability;
-            updateAbility(secondLoom.ability);
         }    
         item2.value = (set2.item == undefined ? "none" : set2.item);
         if (secondLoom.item) item2.value = secondLoom.item;
+        updateAbility(abilityDropdown2.value);
         updateItem('item2');
 
         primaryTypeDropdown2.value = loomians[pokeDropdown2.value.toLowerCase()].types[0];
@@ -3144,8 +3144,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     let currentEnergy2 = (second == false ? currentNRG2.value : currentNRG1.value);
     let ability1 = (second == false ? abilities.find((x) => x == abilityDropdown1.value) : abilities.find((x) => x == abilityDropdown2.value));
     let ability2 = (second == false ? abilities.find((x) => x == abilityDropdown2.value) : abilities.find((x) => x == abilityDropdown1.value));
-    let typeModAbility1 = findTypeModAbility(ability1);
-    let typeModAbility2 = findTypeModAbility(ability2);
     let btl1 = (second == false ? enteredBtl2.checked : enteredBtl1.checked);
     let btl2 = (second == false ? enteredBtl1.checked : enteredBtl2.checked);
     let wall = (second == false ? wall2.checked : wall1.checked);
@@ -3269,6 +3267,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         stuffUsed.extra1 += " (" + tempType + ")";
     }
 
+    if (ability2 == "Malware" && move.contact) {
+        if (!withoutSlapDown) ability1 = "None";
+        stuffUsed.ability2 = ability2;
+    }
+
     if (ability1 == "Idiosyncratic") stuffUsed.ability1 = ability1;
     if (ability2 == "Idiosyncratic") stuffUsed.ability2 = ability2;
 
@@ -3333,6 +3336,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     dmg = Math.floor(2 * level / 5) + 2;
 
     //Power ----------------------------------------
+    let typeModAbility1 = findTypeModAbility(ability1);
+    let typeModAbility2 = findTypeModAbility(ability2);
 
     if (typeModAbility1 != undefined && tempType == typeModAbility1.typeModifier.type && typeModAbility1.powerMod == true) {
         multi *= typeModAbility1.typeModifier.modifier;
@@ -3600,8 +3605,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         stuffUsed.ability1 = ability1
     }
     if ((itemA == "Mystic Wand" && loom1.name == "Shawchi" && move.mr1 == "Ranged Attack") ||
-        (itemA == "Specialty Goggles" && ((move.mr == "Ranged" && adaptive.mr != "Melee") || adaptive.mr == "Ranged") && specializationCount(second) == 0) ||
-        (itemA == "Specialty Gloves" && ((move.mr == "Melee" && adaptive.mr != "Ranged") || adaptive.mr == "Melee") && specializationCount(second) == 0)) {
+        (itemA == "Specialty Goggles" && ((move.mr == "Ranged" && adaptive.mr != "Melee") || adaptive.mr == "Ranged")) ||
+        (itemA == "Specialty Gloves" && ((move.mr == "Melee" && adaptive.mr != "Ranged") || adaptive.mr == "Melee"))) {
         multi *= 1.5;
         stuffUsed.item1 = itemA;
     }
@@ -3845,8 +3850,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     dmg = (dmg * multi);
     multi = 1;
 
-    if (!ability1) stuffUsed.ability1 = "";
-    if (!ability2) stuffUsed.ability2 = "";
+    if (!ability1 || ability1 == "None") stuffUsed.ability1 = "";
+    if (!ability2 || ability2 == "None") stuffUsed.ability2 = "";
     if (itemA == "None") stuffUsed.item1 = "";
     if (itemB == "None") stuffUsed.item2 = "";
 
