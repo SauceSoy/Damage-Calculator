@@ -2593,11 +2593,11 @@ function detailedReport() {
         atkDef = getTempAtkDef(second, adaptive);
     } else atkDef = getTempAtkDef(second, move);
     if (move.mr == "Melee" && myStatus == "burned" && !firstLoom.types.includes("Fire") && !(adaptiveResult && adaptiveResult == "ranged")) statStr = " " + myStatus.charAt(0).toUpperCase() + myStatus.slice(1);
-    else if (move.mr == "Ranged" && myStatus == "freezing" && !firstLoom.types.includes("Ice") && !(adaptiveResult && adaptiveResult == "melee")) statStr = " " + myStatus.charAt(0).toUpperCase() + myStatus.slice(1);
-    if (statStr2 == " Healthy" || (statStr2 == " Burned" && secondLoom.types.includes("Fire")) || (statStr2 == " Paralasis" && secondLoom.types.includes("Electric")) || ((statStr2 == " Poisoned" || statStr2 == " Diseased") && secondLoom.types.includes("Toxic")) || (statStr2 == " Frozen" && secondLoom.types.includes("Ice"))) statStr2 = "";
+    else if (move.mr == "Ranged" && myStatus == "freezing" && !firstLoom.types.includes("Ice") && !(adaptiveResult && adaptiveResult == "melee")) statStr = " Frostbitten";
+    if (statStr2 == " Healthy" || (statStr2 == " Burned" && secondLoom.types.includes("Fire")) || (statStr2 == " Paralasis" && secondLoom.types.includes("Electric")) || ((statStr2 == " Poisoned" || statStr2 == " Diseased") && secondLoom.types.includes("Toxic")) || (statStr2 == " Freezing" && secondLoom.types.includes("Ice"))) statStr2 = "";
     else if (statStr2 == " Paralasis") statStr2 = " Paralyzed";
     else if (statStr2 == " Diseased") statStr2 = " Badly Poisoned";
-    else if (statStr2 == " Frozen") statStr2 = " Shivering";
+    else if (statStr2 == " Freezing") statStr2 = " Frostbitten";
     let atkPlus = "";
     let defPlus = "";
 
@@ -4303,9 +4303,9 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     }
 
     if (status == "freezing" && !loom2.types.includes("Ice") && ability != "One of Many") {
-        if (otherAbility == "Frostbite") newHP += Math.floor(hp1 * 1 / 8);
+        if (otherAbility == "Garbantis") newHP += Math.floor(hp1 * 1 / 8);
         else newHP += Math.floor(hp1 * 1 / 16);
-        hazardString += "freeze damage and ";
+        hazardString += "frostbite damage and ";
     }
 
     if (status == "poisoned" && !loom2.types.includes("Toxic") && ability != "One of Many") {
