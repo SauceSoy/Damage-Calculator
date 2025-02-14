@@ -4125,18 +4125,18 @@ function energyBreakpoint(EC, EC2, EC3, EC4) {
         if (cost[i] > 0) total += cost[i] * times[i];
     }
     if (total == 0) return 0;
-    let regen = Math.max(Math.floor(total / 20), 1); //Starting point to figure out breakpoint
+    let regen = Math.max(Math.floor(total / 40), 1); //Starting point to figure out breakpoint
     let breakpoint = 0; //Functions end goal
     let breakBase = 0; //General regen point
     let breakMath = 0; //Used to find exact needed Energy
     let numb;
     for (i = regen; i > 0; i--) { //starts with energy regen given at the total cost of the move combo, then works its way down until a match is found
         breakpoint = total - i * (timesT - 1);
-        breakBase = Math.max(Math.floor(breakpoint / 20), 1);
+        breakBase = Math.max(Math.floor(breakpoint / 40), 1);
         if (breakBase >= i) {
             if (breakBase > i) { //if match is found with leftovers, bring down breakpoint until smallest possible leftover is left
-                for (j = (breakpoint / 20); j >= i; j -= 0.05) {
-                    breakMath = breakpoint - total + (timesT - 1) * Math.floor(breakpoint / 20);
+                for (j = (breakpoint / 40); j >= i; j -= 0.05) {
+                    breakMath = breakpoint - total + (timesT - 1) * Math.floor(breakpoint / 40);
                     if (breakMath == 0) return breakpoint;
                     else if (breakMath < 0) return (breakpoint + 1)
                     breakpoint -= 1;
@@ -4258,11 +4258,6 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         hazardString += "appetite damage and ";
     }
 
-    if (loom2.types.includes("Ice") && heat.checked) {
-        newHP += Math.floor(hp1 * 1 / 16);
-        hazardString += "smoldering heat damage and ";
-    }
-
     if (!OHKO) {
         if (!loom1.types.includes("Plant") && sap.attacker == true) {
             newHP -= Math.floor(hp2 * 1 / 8 * multi);
@@ -4303,7 +4298,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     }
 
     if (status == "freezing" && !loom2.types.includes("Ice") && ability != "One of Many") {
-        if (otherAbility == "Garbantis") newHP += Math.floor(hp1 * 1 / 8);
+        if (otherAbility == "Frostbite") newHP += Math.floor(hp1 * 1 / 8);
         else newHP += Math.floor(hp1 * 1 / 16);
         hazardString += "frostbite damage and ";
     }
