@@ -3549,7 +3549,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         stuffUsed.weather += " under Cosmic Pressure";
     } else if (rain.checked && (tempType == "Water" || tempType == "Fire")) {
         stuffUsed.weather += " in Heavy Rainfall";
-    } else if (winds.checked && (tempType == "Toxic") || (loom1.types.includes("Air") && move.mr1 == "Speed")) {
+    } else if (winds.checked && ((tempType == "Toxic") || (loom1.types.includes("Air") && move.mr1 == "Speed") || ability1 == "Tumultuous")) {
         stuffUsed.weather += " in Strong Gusts";
     } else if (heat.checked && (tempType == "Fire" || tempType == "Water")) {
         stuffUsed.weather += " in Smoldering Heat";
@@ -4125,18 +4125,18 @@ function energyBreakpoint(EC, EC2, EC3, EC4) {
         if (cost[i] > 0) total += cost[i] * times[i];
     }
     if (total == 0) return 0;
-    let regen = Math.max(Math.floor(total / 40), 1); //Starting point to figure out breakpoint
+    let regen = Math.max(Math.floor(total / 20), 1); //Starting point to figure out breakpoint
     let breakpoint = 0; //Functions end goal
     let breakBase = 0; //General regen point
     let breakMath = 0; //Used to find exact needed Energy
     let numb;
     for (i = regen; i > 0; i--) { //starts with energy regen given at the total cost of the move combo, then works its way down until a match is found
         breakpoint = total - i * (timesT - 1);
-        breakBase = Math.max(Math.floor(breakpoint / 40), 1);
+        breakBase = Math.max(Math.floor(breakpoint / 20), 1);
         if (breakBase >= i) {
             if (breakBase > i) { //if match is found with leftovers, bring down breakpoint until smallest possible leftover is left
-                for (j = (breakpoint / 40); j >= i; j -= 0.05) {
-                    breakMath = breakpoint - total + (timesT - 1) * Math.floor(breakpoint / 40);
+                for (j = (breakpoint / 20); j >= i; j -= 0.05) {
+                    breakMath = breakpoint - total + (timesT - 1) * Math.floor(breakpoint / 20);
                     if (breakMath == 0) return breakpoint;
                     else if (breakMath < 0) return (breakpoint + 1)
                     breakpoint -= 1;
