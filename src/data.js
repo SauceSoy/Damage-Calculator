@@ -9296,7 +9296,8 @@ var moves = {
         accuracy: 100,
         type: "Ancient",
         mr: "Support",
-        sound: true
+        sound: true,
+        pivot: true
     },
 
     brace: {
@@ -9956,7 +9957,8 @@ var moves = {
         energy: 50,
         accuracy: 100,
         type: "Dark",
-        mr: "Support"
+        mr: "Support",
+        pivot: true
     },
 
     phoenixFlame: {
@@ -10056,7 +10058,8 @@ var moves = {
         energy: 45,
         accuracy: "N/A",
         type: "Mind",
-        mr: "Support"
+        mr: "Support",
+        pivot: true
     },
 
     nearEnchantment: {
@@ -10617,4 +10620,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Season 1 Balance Patch added. Also added the Energy Breakpoint Calculator. With Loomians now regenerating energy every turn, this helps you figure out what energy stat you need to hit to use a certain amount of moves.";
+var changelog = "Adjusted energy calc so pivot moves account for the extra turn needed to come back in.";

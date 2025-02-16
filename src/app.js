@@ -465,11 +465,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -531,8 +531,8 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -2286,7 +2286,7 @@ function checkEnergy(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTw
     moveBPEnergy2.value = (Math.round(movesBPEnergy[1])).toString();
     moveBPEnergy3.value = (Math.round(movesBPEnergy[2])).toString();
     moveBPEnergy4.value = (Math.round(movesBPEnergy[3])).toString();
-    moveBPResult.innerHTML = energyBreakpoint(moveBPEnergy.value, moveBPEnergy2.value, moveBPEnergy3.value, moveBPEnergy4.value);
+    moveBPResult.innerHTML = energyBreakpoint(moveBPEnergy.value, moveBPEnergy2.value, moveBPEnergy3.value, moveBPEnergy4.value, moves3);
 }
 
 
@@ -2911,7 +2911,7 @@ function detailedReport() {
 
     }
 
-    if (barb > 0 && !secondLoom.types.includes("Air") && !(ability == "Flutter" || ability == "Mysterious Cloak")) {
+    if (barb > 0 && !secondLoom.types.includes("Air") && !(ability == "Flutter" || ability == "Mysterious Cloak" || ability == "Hover")) {
         if (barb == 1) {
             addedDmg += 12.5;
         } else if (barb == 2) {
@@ -3606,7 +3606,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     }
     if ((itemA == "Mystic Wand" && loom1.name == "Shawchi" && move.mr1 == "Ranged Attack") ||
         (itemA == "Specialty Goggles" && ((move.mr == "Ranged" && adaptive.mr != "Melee") || adaptive.mr == "Ranged")) ||
-        (itemA == "Specialty Gloves" && ((move.mr == "Melee" && adaptive.mr != "Ranged") || adaptive.mr == "Melee"))) {
+        (itemA == "Specialty Gloves" && ((move.mr == "Melee" && adaptive.mr != "Ranged") || adaptive.mr == "Melee")) ||
+        (itemA == "Specialty Boots" && move.mr1 == "Speed")) {
         multi *= 1.5;
         stuffUsed.item1 = itemA;
     }
@@ -4116,27 +4117,30 @@ function loadBreakCalc(side) {
     loadMoves();
 }
 
-function energyBreakpoint(EC, EC2, EC3, EC4) {
+function energyBreakpoint(EC, EC2, EC3, EC4, moves) {
     let cost = [parseInt(EC), parseInt(EC2), parseInt(EC3), parseInt(EC4)]; //Read Energy Costs of 4 moves
     let times = [cost[0] == 0 ? 0 : moveBPTimes.value, cost[1] == 0 ? 0 : moveBPTimes2.value, cost[2] == 0 ? 0 : moveBPTimes3.value, cost[3] == 0 ? 0 : moveBPTimes4.value]; //Read Times used for each move. If no move, then ignore.
     let timesT = parseInt(times[0]) + parseInt(times[1]) + parseInt(times[2]) + parseInt(times[3]); //Sloppy way of adding all the times above.
+    let timesP = 0;
     let total = 0;
     for (i = 0; i < 4; i++) {
         if (cost[i] > 0) total += cost[i] * times[i];
+        if (moves[i].pivot) timesP += parseInt(times[i]);
     }
     if (total == 0) return 0;
+    if (timesP > 0) timesP -= 1;
     let regen = Math.max(Math.floor(total / 20), 1); //Starting point to figure out breakpoint
     let breakpoint = 0; //Functions end goal
     let breakBase = 0; //General regen point
     let breakMath = 0; //Used to find exact needed Energy
     let numb;
     for (i = regen; i > 0; i--) { //starts with energy regen given at the total cost of the move combo, then works its way down until a match is found
-        breakpoint = total - i * (timesT - 1);
+        breakpoint = total - i * (timesT + timesP - 1);
         breakBase = Math.max(Math.floor(breakpoint / 20), 1);
         if (breakBase >= i) {
             if (breakBase > i) { //if match is found with leftovers, bring down breakpoint until smallest possible leftover is left
                 for (j = (breakpoint / 20); j >= i; j -= 0.05) {
-                    breakMath = breakpoint - total + (timesT - 1) * Math.floor(breakpoint / 20);
+                    breakMath = breakpoint - total + (timesT + timesP - 1) * Math.floor(breakpoint / 20);
                     if (breakMath == 0) return breakpoint;
                     else if (breakMath < 0) return (breakpoint + 1)
                     breakpoint -= 1;
@@ -4206,7 +4210,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         }
     }
 
-    if (barb > 0  && !loom2.types.includes("Air") && !(ability == "Flutter" || ability == "Mysterious Cloak")) {
+    if (barb > 0  && !loom2.types.includes("Air") && !(ability == "Flutter" || ability == "Mysterious Cloak" || ability == "Hover")) {
         if (barb == 1) {
             hazardString += "1 layer of barbs and ";
         } else if (barb == 2) {
