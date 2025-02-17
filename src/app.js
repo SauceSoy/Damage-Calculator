@@ -3606,8 +3606,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         stuffUsed.ability1 = ability1
     }
     if ((itemA == "Mystic Wand" && loom1.name == "Shawchi" && move.mr1 == "Ranged Attack") ||
-        (itemA == "Specialty Goggles" && ((move.mr1 == "Ranged" && adaptive.mr1 != "Melee") || adaptive.mr1 == "Ranged")) ||
-        (itemA == "Specialty Gloves" && ((move.mr1 == "Melee" && adaptive.mr1 != "Ranged") || adaptive.mr1 == "Melee")) ||
+        (itemA == "Specialty Goggles" && ((move.mr1 == "Ranged Attack" && adaptive.mr1 != "Melee Attack") || adaptive.mr1 == "Ranged Attack")) ||
+        (itemA == "Specialty Gloves" && ((move.mr1 == "Melee Attack" && adaptive.mr1 != "Ranged Attack") || adaptive.mr1 == "Melee Attack")) ||
         (itemA == "Specialty Boots" && move.mr1 == "Speed")) {
         multi *= 1.5;
         stuffUsed.item1 = itemA;
