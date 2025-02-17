@@ -2594,6 +2594,7 @@ function detailedReport() {
     } else atkDef = getTempAtkDef(second, move);
     if (move.mr == "Melee" && myStatus == "burned" && !firstLoom.types.includes("Fire") && !(adaptiveResult && adaptiveResult == "ranged")) statStr = " " + myStatus.charAt(0).toUpperCase() + myStatus.slice(1);
     else if (move.mr == "Ranged" && myStatus == "freezing" && !firstLoom.types.includes("Ice") && !(adaptiveResult && adaptiveResult == "melee")) statStr = " Frostbitten";
+    else if (move.mr1 == "Speed" && myStatus == "paralasis" && !firstLoom.types.includes("Electric")) statStr = " Paralyzed";
     if (statStr2 == " Healthy" || (statStr2 == " Burned" && secondLoom.types.includes("Fire")) || (statStr2 == " Paralasis" && secondLoom.types.includes("Electric")) || ((statStr2 == " Poisoned" || statStr2 == " Diseased") && secondLoom.types.includes("Toxic")) || (statStr2 == " Freezing" && secondLoom.types.includes("Ice"))) statStr2 = "";
     else if (statStr2 == " Paralasis") statStr2 = " Paralyzed";
     else if (statStr2 == " Diseased") statStr2 = " Badly Poisoned";
@@ -3605,8 +3606,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         stuffUsed.ability1 = ability1
     }
     if ((itemA == "Mystic Wand" && loom1.name == "Shawchi" && move.mr1 == "Ranged Attack") ||
-        (itemA == "Specialty Goggles" && ((move.mr == "Ranged" && adaptive.mr != "Melee") || adaptive.mr == "Ranged")) ||
-        (itemA == "Specialty Gloves" && ((move.mr == "Melee" && adaptive.mr != "Ranged") || adaptive.mr == "Melee")) ||
+        (itemA == "Specialty Goggles" && ((move.mr1 == "Ranged" && adaptive.mr1 != "Melee") || adaptive.mr1 == "Ranged")) ||
+        (itemA == "Specialty Gloves" && ((move.mr1 == "Melee" && adaptive.mr1 != "Ranged") || adaptive.mr1 == "Melee")) ||
         (itemA == "Specialty Boots" && move.mr1 == "Speed")) {
         multi *= 1.5;
         stuffUsed.item1 = itemA;
@@ -3617,6 +3618,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     }
     if (winds.checked && move.mr1 == "Speed" && loom1.types.includes("Air")) {
         multi *= 1.1;
+    }
+    if (move.mr1 == "Speed" && stat1 == "paralasis") {
+        multi *= 0.5;
     }
 
     tempAtk.atk = pokeRound(tempAtk.atk * multi);
