@@ -733,21 +733,35 @@ function updateItem(item) {
 function updateAbility(ability) {
     let ability1 = abilities.find((x) => x == abilityDropdown1.value);
     let ability2 = abilities.find((x) => x == abilityDropdown2.value);
+    let weatherAbility = false;
 
-    if (ability1 == "Rain Summon" || ability2 == "Rain Summon") rain.checked = true;
-    if (ability1 == "Heat Summon" || ability2 == "Heat Summon") heat.checked = true;
-    if (ability1 == "Wind Summon" || ability2 == "Wind Summon") winds.checked = true;
-    if (ability1 == "Fog Summon" || ability2 == "Fog Summon") fog.checked = true;
-    if (ability1 == "Thunder Summon" || ability2 == "Thunder Summon") storm.checked = true;
-    if (ability1 == "Cosmic Pressure" || ability2 == "Cosmic Pressure") cosmic.checked = true;
-    if (cosmic.checked) noWeather.checked = true;
+    if (ability1 == "Rain Summon" || ability2 == "Rain Summon") {
+        rain.checked = true;
+        weatherAbility = true;
+    }    
+    if (ability1 == "Heat Summon" || ability2 == "Heat Summon") {
+        heat.checked = true;
+        weatherAbility = true;
+    }    
+    if (ability1 == "Wind Summon" || ability2 == "Wind Summon") {
+        winds.checked = true;
+        weatherAbility = true;
+    }    
+    if (ability1 == "Fog Summon" || ability2 == "Fog Summon") {
+        fog.checked = true;
+        weatherAbility = true;
+    }    
+    if (ability1 == "Thunder Summon" || ability2 == "Thunder Summon") {
+        storm.checked = true;
+        weatherAbility = true;
+    }    
+    if (ability1 == "Cosmic Pressure" || ability2 == "Cosmic Pressure") {
+        cosmic.checked = true;
+        noWeather.checked = true;
+    }
+    if (cosmic.checked && !(ability1 == "Cosmic Pressure" || ability2 == "Cosmic Pressure") && weatherAbility) cosmic.checked = false;
+    else if (cosmic.checked && !(ability1 == "Cosmic Pressure" || ability2 == "Cosmic Pressure") && !weatherAbility) noWeather.checked = true;
     if (ability1 == "Mycotic" || ability2 == "Mycotic") fungus.checked = true;
-
-    update();
-}
-
-function updateWeather() {
-    if (cosmic.checked) noWeather.checked = true;
 
     update();
 }
@@ -3548,15 +3562,15 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
 
     if (cosmic.checked && tempType == "Ancient") {
         stuffUsed.weather += " under Cosmic Pressure";
-    } else if (rain.checked && (tempType == "Water" || tempType == "Fire")) {
+    } else if (rain.checked && ((tempType == "Water" || tempType == "Fire") || ability1 == "Rain Rush")) {
         stuffUsed.weather += " in Heavy Rainfall";
     } else if (winds.checked && ((tempType == "Toxic") || (loom1.types.includes("Air") && move.mr1 == "Speed") || ability1 == "Tumultuous")) {
         stuffUsed.weather += " in Strong Gusts";
-    } else if (heat.checked && (tempType == "Fire" || tempType == "Water")) {
+    } else if (heat.checked && ((tempType == "Fire" || tempType == "Water") || (ability1 == "Inferno" && move.mr1 == "Ranged Attack") || ability1 == "Hotfoot")) {
         stuffUsed.weather += " in Smoldering Heat";
-    } else if (fog.checked && ((!(loom1.types.includes("Spirit") || loom1.types.includes("Light")) && loom2.types.includes("Spirit")) || (loom1.types.includes("Spirit") && !(loom2.types.includes("Spirit") || loom2.types.includes("Light"))))) {
+    } else if (fog.checked && ((!(loom1.types.includes("Spirit") || loom1.types.includes("Light")) && loom2.types.includes("Spirit")) || (loom1.types.includes("Spirit") && !(loom2.types.includes("Spirit") || loom2.types.includes("Light"))) || ability1 == "Gloomy" || ability1 == "Prowler")) {
         stuffUsed.weather += " in Dense Fog";
-    } else if (storm.checked && (tempType == "Electric" || (tempType == "Earth" && loom2.types.includes("Air")))) {
+    } else if (storm.checked && (tempType == "Electric" || (tempType == "Earth" && loom2.types.includes("Air")) || ability1 == "Overclock")) {
         stuffUsed.weather += " in Severe Thunderstorms";
     }
     if (fungus.checked && (tempType == "Light" || tempType == "Dark") && loom2.types.includes("Plant")) {
@@ -4133,18 +4147,18 @@ function energyBreakpoint(EC, EC2, EC3, EC4, moves) {
     }
     if (total == 0) return 0;
     if (timesP > 0) timesP -= 1;
-    let regen = Math.max(Math.floor(total / 20), 1); //Starting point to figure out breakpoint
+    let regen = Math.max(Math.floor(total / 40), 1); //Starting point to figure out breakpoint
     let breakpoint = 0; //Functions end goal
     let breakBase = 0; //General regen point
     let breakMath = 0; //Used to find exact needed Energy
     let numb;
     for (i = regen; i > 0; i--) { //starts with energy regen given at the total cost of the move combo, then works its way down until a match is found
         breakpoint = total - i * (timesT + timesP - 1);
-        breakBase = Math.max(Math.floor(breakpoint / 20), 1);
+        breakBase = Math.max(Math.floor(breakpoint / 40), 1);
         if (breakBase >= i) {
             if (breakBase > i) { //if match is found with leftovers, bring down breakpoint until smallest possible leftover is left
-                for (j = (breakpoint / 20); j >= i; j -= 0.05) {
-                    breakMath = breakpoint - total + (timesT + timesP - 1) * Math.floor(breakpoint / 20);
+                for (j = (breakpoint / 40); j >= i; j -= 0.025) {
+                    breakMath = breakpoint - total + (timesT + timesP - 1) * Math.floor(breakpoint / 40);
                     if (breakMath == 0) return breakpoint;
                     else if (breakMath < 0) return (breakpoint + 1)
                     breakpoint -= 1;
