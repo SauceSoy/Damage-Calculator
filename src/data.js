@@ -3982,6 +3982,25 @@ var loomians = {
         }
     },
 
+    'dreggodyne-tempereign': {
+        name: "Dreggodyne-Tempereign",
+        types: ["Dark", "Air"],
+        soulMove: "Egg Onslaught",
+        ability: "Remorseless",
+        item: "Dreggoburst",
+        weight: 146,
+        height: 92,
+        baseStats: {
+            hp: 96,
+            energy: 92,
+            attack: 93,
+            defense: 77,
+            attackR: 145,
+            defenseR: 82,
+            speed: 95
+        }
+    },
+
     wispur: {
         name: "Wispur",
         types: ["Spirit", "Light"],
@@ -6573,6 +6592,18 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         secondaryEffect: true,
+        aoe: true
+    },
+
+    eggOnslaught: {
+        name: "Egg Onslaught",
+        power: 125,
+        energy: 0,
+        accuracy: "N/A",
+        type: "Dark",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         aoe: true
     },
 
@@ -10402,7 +10433,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Facade", "Party Trick", "Do or Die", "Wildfire", "Sendoff", "Hydro Vortex", "Motivational", "Soul Siphon", "Pluvial", "Petrifying", "Tumultuous", "Venomous", "Brutal Wrath",
                  "Sky-Borne", "Land-Borne", "Depths-Borne", "All Seeing", "Rain Rush", "Triumph", "Royal Decree", "Thunder Summon", "Recurrent", "Charged Arc","Adaptable", "Heat Summon",
                  "Rain Summon", "Fog Summon", "Wind Summon", "Inferno", "Cosmic Pressure", "Conspire", "Metamorphosis", "Sob", "Wail", "Seize", "Assertive", "Berserk", "Disenchant", "Impose", "Gorge",
-                 "Carol", "Fortissimo", "Elusive", "Upper Hand", "Effulgent", "Dummy", "Puncture", "Toxic Sac", "Hover", "Eager", "Reign", "Overclock", "Prowler", "Hotfoot", "Mycotic"];
+                 "Carol", "Fortissimo", "Elusive", "Upper Hand", "Effulgent", "Dummy", "Puncture", "Toxic Sac", "Hover", "Eager", "Reign", "Overclock", "Prowler", "Hotfoot", "Mycotic", "Remorseless"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -10621,4 +10652,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Adjusted energy calc so pivot moves account for the extra turn needed to come back in.";
+var changelog = "Added SB Dreggodyne + altered/removed some sets after adjusting to energy regen.";
