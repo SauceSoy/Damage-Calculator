@@ -465,11 +465,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -531,8 +531,8 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -721,10 +721,14 @@ function updateItem(item) {
     if (item == "item1") {
         if (item1.value == "Thunder Orb" && !firstLoom.types.includes("Electric")) status1.value = "paralasis";
         else if (item1.value == "Volcanic Ash" && !firstLoom.types.includes("Fire")) status1.value = "burned";
+        else if (item1.value == "Dry Ice" && !firstLoom.types.includes("Ice")) status1.value = "freezing";
+        else if (item1.value == "Virulent Fang" && !firstLoom.types.includes("Toxic")) status1.value = "diseased";
         else status1.value = "healthy";
     } else if (item == "item2") {
         if (item2.value == "Thunder Orb" && !secondLoom.types.includes("Electric")) status2.value = "paralasis";
         else if (item2.value == "Volcanic Ash" && !secondLoom.types.includes("Fire")) status2.value = "burned";
+        else if (item2.value == "Dry Ice" && !secondLoom.types.includes("Ice")) status2.value = "freezing";
+        else if (item2.value == "Virulent Fang" && !secondLoom.types.includes("Toxic")) status2.value = "diseased";
         else status2.value = "healthy";
     }
     update();
@@ -1446,6 +1450,7 @@ function loadStats() {
     statAtk1.innerHTML = Math.floor(atk1 * multi);
     multi = 1;
     if (ability1 == "Trash Armor" || ability1 == "Hard Candy" || ability1 == "Safety Pot") multi *= 1.5;
+    if (firstItem == "Restrictive Armor") multi *= 1.5; 
     if (firstItem == "Drop of Youth" && firstLoom.finalEvo == false) multi *= 1.4;
     if (firstItem == "Heavy Armor") multi *= 1.2;
     statDef1.innerHTML = Math.floor(def1 * multi);
@@ -1455,6 +1460,7 @@ function loadStats() {
     multi = 1;
     if (ability1 == "Slick Shell") multi *= 2;
     if (ability1 == "Safety Pot") multi *= 1.5;
+    if (firstItem == "Restrictive Shield") multi *= 1.5;
     if (firstItem == "Drop of Youth" && firstLoom.finalEvo == false) multi *= 1.4;
     if (firstItem == "Heavy Shield") multi *= 1.2;
     statDefR1.innerHTML = Math.floor(defR1 * multi);
@@ -1474,6 +1480,7 @@ function loadStats() {
     statAtk2.innerHTML = Math.floor(atk2 * multi);
     multi = 1;
     if (ability2 == "Trash Armor" || ability2 == "Hard Candy" || ability2 == "Safety Pot") multi *= 1.5;
+    if (secondItem == "Restrictive Armor") multi *= 1.5;
     if (secondItem == "Drop of Youth" && secondLoom.finalEvo == false) multi *= 1.4;
     if (secondItem == "Heavy Armor") multi *= 1.2;
     statDef2.innerHTML = Math.floor(def2 * multi);
@@ -1483,6 +1490,7 @@ function loadStats() {
     multi = 1;
     if (ability2 == "Slick Shell") multi *= 2;
     if (ability2 == "Safety Pot") multi *= 1.5;
+    if (secondItem == "Restrictive Shield") multi *= 1.5;
     if (secondItem == "Drop of Youth" && secondLoom.finalEvo == false) multi *= 1.4;
     if (secondItem == "Heavy Shield") multi *= 1.2;
     statDefR2.innerHTML = Math.floor(defR2 * multi);
@@ -3622,7 +3630,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     if ((itemA == "Mystic Wand" && loom1.name == "Shawchi" && move.mr1 == "Ranged Attack") ||
         (itemA == "Specialty Goggles" && ((move.mr1 == "Ranged Attack" && adaptive.mr1 != "Melee Attack") || adaptive.mr1 == "Ranged Attack")) ||
         (itemA == "Specialty Gloves" && ((move.mr1 == "Melee Attack" && adaptive.mr1 != "Ranged Attack") || adaptive.mr1 == "Melee Attack")) ||
-        (itemA == "Specialty Boots" && move.mr1 == "Speed")) {
+        (itemA == "Specialty Boots" && move.mr1 == "Speed") ||
+        (itemA == "Restrictive Armor" && move.mr1 == "Melee Defense") ||
+        (itemA == "Restrictive Shield" && move.mr1 == "Ranged Defense")) {
         multi *= 1.5;
         stuffUsed.item1 = itemA;
     }
@@ -3659,6 +3669,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     }
     if (itemB == "Drop of Youth" && loom2.finalEvo == false && !(ability1 == "Puncture" & move.bite)) {
         multi *= 1.4;
+        stuffUsed.item2 = itemB;
+    }
+    if ((itemB == "Restrictive Shield" && ((move.mr2 == "Ranged Defense" && adaptive.mr2 != "Melee Defense") || adaptive.mr2 == "Ranged Defense")) ||
+        (itemB == "Restrictive Armor" && ((move.mr2 == "Melee Defense" && adaptive.mr2 != "Ranged Defense") || adaptive.mr2 == "Melee Defense")) && !(ability1 == "Puncture" & move.bite)) {
+        multi *= 1.5;
         stuffUsed.item2 = itemB;
     }
     if ((ability2 == "Trash Armor" || ability2 == "Hard Candy" || ability2 == "Safety Pot") && ((move.mr2 == "Melee Defense" && adaptive.mr2 != "Ranged Defense") || adaptive.mr2 == "Melee Defense") && !(ability1 == "Puncture" & move.bite)) {

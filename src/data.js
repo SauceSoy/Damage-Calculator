@@ -10636,7 +10636,8 @@ var typeModAbilities = {
 }
 
 var items = ["Heavy Shield", "Heavy Armor", "Power Cuffs", "Health Amulet", "Drain Orb", "Mystic Wand", "Drop of Youth", "Energy Orb", "Chocolate Bar", "Mysterious Dust", "Heavy Shackles", "Thunder Orb",
-             "Volcanic Ash", "Rageful Plushie", "Clutch Plushie", "Specialty Boots", "Milkshake", "Kabunga Coffee", "Specialty Goggles", "Specialty Gloves"];
+             "Volcanic Ash", "Rageful Plushie", "Clutch Plushie", "Specialty Boots", "Milkshake", "Kabunga Coffee", "Specialty Goggles", "Specialty Gloves", "Restrictive Armor", "Restrictive Shield",
+             "Dry Ice", "Virulent Fang"];
 
 for (let ty in types) {
     if (types[ty].otherName != "heavybag") {
@@ -10652,4 +10653,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Added SB Dreggodyne + altered/removed some sets after adjusting to energy regen.";
+var changelog = "Added Restrictive items and Dry Ice/Virulent Fang.";
