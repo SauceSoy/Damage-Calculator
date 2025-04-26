@@ -871,10 +871,10 @@ var loomians = {
         height: 49,
         baseStats: {
             hp: 102,
-            energy: 81,
+            energy: 71,
             attack: 110,
             defense: 95,
-            attackR: 49,
+            attackR: 59,
             defenseR: 70,
             speed: 68
         }
@@ -4337,11 +4337,11 @@ var loomians = {
         height: 33,
         baseStats: {
             hp: 50,
-            energy: 100,
+            energy: 82,
             attack: 44,
-            defense: 97,
+            defense: 107,
             attackR: 130,
-            defenseR: 67,
+            defenseR: 77,
             speed: 92
         }
     },
@@ -4353,11 +4353,11 @@ var loomians = {
         height: 37,
         baseStats: {
             hp: 50,
-            energy: 100,
+            energy: 82,
             attack: 130,
-            defense: 107,
+            defense: 117,
             attackR: 44,
-            defenseR: 77,
+            defenseR: 87,
             speed: 72
         }
     },
@@ -5506,12 +5506,12 @@ var loomians = {
         ability: "Demanding",
         item: "Metroburst",
         baseStats: {
-            hp: 53,
-            energy: 118,
-            attack: 119,
-            defense: 119,
+            hp: 83,
+            energy: 98,
+            attack: 134,
+            defense: 69,
             attackR: 147,
-            defenseR: 54,
+            defenseR: 79,
             speed: 115
         }
     },
@@ -6647,6 +6647,17 @@ var moves = {
         slap: true
     },
 
+    spite: {
+        name: "Spite",
+        power: 0,
+        energy: 40,
+        accuracy: 90,
+        type: "Spirit",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+    },
+
     startle: {
         name: "Startle",
         power: 30,
@@ -7499,7 +7510,7 @@ var moves = {
 
     expertOnslaught: {
         name: "Expert Onslaught",
-        power: 50,
+        power: 75,
         energy: 40,
         accuracy: 100,
         type: "Simple",
@@ -7896,7 +7907,7 @@ var moves = {
         name: "Dart Burst",
         power: 15,
         energy: 40,
-        accuracy: 90,
+        accuracy: 85,
         type: "Metal",
         mr: "Ranged",
         mr1: "Ranged Attack",
@@ -8467,6 +8478,18 @@ var moves = {
         slap: true
     },
 
+    judgement: {
+        name: "Judgement",
+        power: 85,
+        energy: 45,
+        accuracy: 100,
+        type: "Mind",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        secondaryEffect: true
+    },
+
     viciousSnap: {
         name: "Vicious Snap",
         power: 75,
@@ -8514,6 +8537,19 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         recoil: 1/3
+    },
+
+    vineLash: {
+        name: "Vine Lash",
+        power: 90,
+        energy: 50,
+        accuracy: 100,
+        type: "Plant",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        secondaryEffect: true
     },
 
     douse: {
@@ -8585,6 +8621,33 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         recoil: 1/4,
+        secondaryEffect: true
+    },
+
+    charredClaws: {
+        name: "Charred Claws",
+        power: 90,
+        energy: 50,
+        accuracy: 100,
+        type: "Fire",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        secondaryEffect: true
+    },
+
+    blazeOfGlory: {
+        name: "Blaze of Glory",
+        power: 120,
+        energy: 60,
+        accuracy: 100,
+        type: "Fire",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        recoil: 1/3,
         secondaryEffect: true
     },
 
@@ -8695,7 +8758,6 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        regen: 1/5
     },
 
     blazePunch: {
@@ -8709,6 +8771,19 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         punch: true,
+        secondaryEffect: true
+    },
+
+    blazeRush: {
+        name: "Blaze Rush",
+        power: 60,
+        energy: 45,
+        accuracy: 100,
+        type: "Fire",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
         secondaryEffect: true
     },
 
@@ -8833,7 +8908,6 @@ var moves = {
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        secondaryEffect: true,
         typeModifier: { type: "Water", modifier: 4 }
     },
 
@@ -8860,6 +8934,18 @@ var moves = {
         mr2: "Ranged Defense",
         secondaryEffect: true,
         aoe: true
+    },
+
+    frostBlast: {
+        name: "Frost Blast",
+        power: 110,
+        energy: 60,
+        accuracy: 80,
+        type: "Ice",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true,
     },
 
      bodyCrash: {
@@ -9101,8 +9187,8 @@ var moves = {
 
     mudslide: {
         name: "Mudslide",
-        power: 70,
-        energy: 40,
+        power: 30,
+        energy: 35,
         accuracy: 100,
         type: "Earth",
         mr: "Ranged",
@@ -9526,7 +9612,7 @@ var moves = {
     gust: {
         name: "Gust",
         power: 0,
-        energy: 25,
+        energy: 40,
         accuracy: 100,
         type: "Air",
         mr: "Support"
@@ -9793,7 +9879,7 @@ var moves = {
     burnUp: {
         name: "Burn Up",
         power: 0,
-        energy: 25,
+        energy: 40,
         accuracy: "N/A",
         type: "Fire",
         mr: "Support"
@@ -10211,6 +10297,15 @@ var moves = {
         mr: "Support"
     },
 
+    hasten: {
+        name: "Hasten",
+        power: 0,
+        energy: 25,
+        accuracy: "N/A",
+        type: "Simple",
+        mr: "Support"
+    },
+
     tribute: {
         name: "Tribute",
         power: 0,
@@ -10271,15 +10366,6 @@ var moves = {
         energy: 25,
         accuracy: "N/A",
         type: "Air",
-        mr: "Support"
-    },
-
-    spite: {
-        name: "Spite",
-        power: 0,
-        energy: 40,
-        accuracy: 90,
-        type: "Dark",
         mr: "Support"
     },
 
@@ -10486,13 +10572,13 @@ var typeModAbilities = {
     
     pyro: {
         name: "Pyro",
-        typeModifier: { type: "Fire", modifier: 1.5 },
+        typeModifier: { type: "Fire", modifier: 1.25 },
         powerMod: true
     },
 
     pyroPro: {
         name: "Pyro Pro",
-        typeModifier: { type: "Fire", modifier: 1.5 },
+        typeModifier: { type: "Fire", modifier: 1.25 },
         powerMod: true
     },
     
@@ -10540,13 +10626,13 @@ var typeModAbilities = {
 
     incandescent: {
         name: "Incandescent",
-        typeModifier: { type: "Light", modifier: 1.5},
+        typeModifier: { type: "Light", modifier: 1.25},
         powerMod: true
     },
 
     'pitch-black': {
         name: "Pitch-Black",
-        typeModifier: { type: "Dark", modifier: 1.5},
+        typeModifier: { type: "Dark", modifier: 1.25},
         powerMod: true
     },
 
@@ -10600,13 +10686,13 @@ var typeModAbilities = {
 
     burningRage: {
         name: "Burning Rage",
-        typeModifier: { type: "Fire", modifier: 1.5},
+        typeModifier: { type: "Fire", modifier: 1.25},
         powerMod: true
     },
 
     chillingPassion: {
         name: "Chilling Passion",
-        typeModifier: { type: "Ice", modifier: 1.5},
+        typeModifier: { type: "Ice", modifier: 1.25},
         powerMod: true
     },
 
@@ -10653,4 +10739,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Added Restrictive items and Dry Ice/Virulent Fang.";
+var changelog = "Season 2 changes added.";

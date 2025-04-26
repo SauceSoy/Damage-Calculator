@@ -465,11 +465,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -531,8 +531,8 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -797,6 +797,13 @@ $(".dmg").change(function() {
         moveGroupObj.children(".swarm").show();
         moveGroupObj.children(".snowball").hide();
         moveGroupObj.children(".swarm").val(1 + " loom");
+        if (move.name == "Expert Onslaught") {
+            moveGroupObj.children(".swarm").children(".onslaught").show();
+            moveGroupObj.children(".swarm").children(".stampede").hide();
+        } else {
+            moveGroupObj.children(".swarm").children(".onslaught").hide();
+            moveGroupObj.children(".swarm").children(".stampede").show();
+        }    
     } else if (move.name == "Snowdozer") {
         moveGroupObj.children(".move-hits").hide();
         moveGroupObj.children(".swarm").hide();
@@ -1450,7 +1457,6 @@ function loadStats() {
     statAtk1.innerHTML = Math.floor(atk1 * multi);
     multi = 1;
     if (ability1 == "Trash Armor" || ability1 == "Hard Candy" || ability1 == "Safety Pot") multi *= 1.5;
-    if (firstItem == "Restrictive Armor") multi *= 1.5; 
     if (firstItem == "Drop of Youth" && firstLoom.finalEvo == false) multi *= 1.4;
     if (firstItem == "Heavy Armor") multi *= 1.2;
     statDef1.innerHTML = Math.floor(def1 * multi);
@@ -1460,7 +1466,6 @@ function loadStats() {
     multi = 1;
     if (ability1 == "Slick Shell") multi *= 2;
     if (ability1 == "Safety Pot") multi *= 1.5;
-    if (firstItem == "Restrictive Shield") multi *= 1.5;
     if (firstItem == "Drop of Youth" && firstLoom.finalEvo == false) multi *= 1.4;
     if (firstItem == "Heavy Shield") multi *= 1.2;
     statDefR1.innerHTML = Math.floor(defR1 * multi);
@@ -1480,7 +1485,6 @@ function loadStats() {
     statAtk2.innerHTML = Math.floor(atk2 * multi);
     multi = 1;
     if (ability2 == "Trash Armor" || ability2 == "Hard Candy" || ability2 == "Safety Pot") multi *= 1.5;
-    if (secondItem == "Restrictive Armor") multi *= 1.5;
     if (secondItem == "Drop of Youth" && secondLoom.finalEvo == false) multi *= 1.4;
     if (secondItem == "Heavy Armor") multi *= 1.2;
     statDef2.innerHTML = Math.floor(def2 * multi);
@@ -1490,7 +1494,6 @@ function loadStats() {
     multi = 1;
     if (ability2 == "Slick Shell") multi *= 2;
     if (ability2 == "Safety Pot") multi *= 1.5;
-    if (secondItem == "Restrictive Shield") multi *= 1.5;
     if (secondItem == "Drop of Youth" && secondLoom.finalEvo == false) multi *= 1.4;
     if (secondItem == "Heavy Shield") multi *= 1.2;
     statDefR2.innerHTML = Math.floor(defR2 * multi);
@@ -1908,19 +1911,19 @@ function checkEnergy(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTw
             }
         }
     }
-    else if (ability1 == "Hag") {
+    /*else if (ability1 == "Hag") {
         for (let i = 0; i < 4; i++) {
             if (moves1[i].type == "Mind") {
                 movesEnergy1[i] = movesEnergy1[i] * 0.75;
             }
         }
-    }
+    }*/
     else if (ability1 == "Reign") {
         for (let i = 0; i < 4; i++) {
            movesEnergy1[i] = movesEnergy1[i] * 0.9;
        }
     }
-    else if (ability1 == "Pyro" || ability1 == "Burning Rage") {
+    /*else if (ability1 == "Pyro" || ability1 == "Burning Rage") {
         for (let i = 0; i < 4; i++) {
             if (moves1[i].type == "Fire" && moves1[i].mr != "Support") {
                 movesEnergy1[i] = movesEnergy1[i] * 1.25;
@@ -1947,11 +1950,11 @@ function checkEnergy(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTw
                 movesEnergy1[i] = movesEnergy1[i] * 1.25;
             }
         }
-    }
+    }*/
     else if (ability1 == "Pyro Pro") {
         for (let i = 0; i < 4; i++) {
             if (moves1[i].type == "Fire" && moves1[i].mr != "Support") {
-                movesEnergy1[i] = movesEnergy1[i] * 1.1;
+                movesEnergy1[i] = movesEnergy1[i] * 0.9;
             }
         }
     }
@@ -2041,19 +2044,19 @@ function checkEnergy(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTw
             }
         }
     }
-    else if (ability2 == "Hag") {
+    /*else if (ability2 == "Hag") {
         for (let i = 0; i < 4; i++) {
             if (moves2[i].type == "Mind") {
                 movesEnergy2[i] = movesEnergy2[i] * 0.75;
             }
         }
-    }
+    }*/
     if (ability2 == "Reign") {
        for (let i = 0; i < 4; i++) {
            movesEnergy2[i] = movesEnergy2[i] * 0.9;
        }
     }
-    else if (ability2 == "Pyro" || ability2 == "Burning Rage") {
+    /*else if (ability2 == "Pyro" || ability2 == "Burning Rage") {
         for (let i = 0; i < 4; i++) {
             if (moves2[i].type == "Fire" && moves2[i].mr != "Support") {
                 movesEnergy2[i] = movesEnergy2[i] * 1.25;
@@ -2080,11 +2083,11 @@ function checkEnergy(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTw
                 movesEnergy2[i] = movesEnergy2[i] * 1.25;
             }
         }
-    }
+    }*/
     else if (ability2 == "Pyro Pro") {
         for (let i = 0; i < 4; i++) {
             if (moves2[i].type == "Fire" && moves2[i].mr != "Support") {
-                movesEnergy2[i] = movesEnergy2[i] * 1.1;
+                movesEnergy2[i] = movesEnergy2[i] * 0.9;
             }
         }
     }
@@ -2180,19 +2183,19 @@ function checkEnergy(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTw
             }
         }
     }
-    else if (abilityBP == "Hag") {
+    /*else if (abilityBP == "Hag") {
         for (let i = 0; i < 4; i++) {
             if (moves3[i].type == "Mind") {
                 movesBPEnergy[i] = movesBPEnergy[i] * 0.75;
             }
         }
-    }
+    }*/
     else if (abilityBP == "Reign") {
        for (let i = 0; i < 4; i++) {
            movesBPEnergy[i] = movesBPEnergy[i] * 0.9;
        }
     }
-    else if (abilityBP == "Pyro" || abilityBP == "Burning Rage") {
+    /*else if (abilityBP == "Pyro" || abilityBP == "Burning Rage") {
         for (let i = 0; i < 4; i++) {
             if (moves3[i].type == "Fire" && moves3[i].mr != "Support") {
                 movesBPEnergy[i] = movesBPEnergy[i] * 1.25;
@@ -2219,11 +2222,11 @@ function checkEnergy(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTw
                 movesBPEnergy[i] = movesBPEnergy[i] * 1.25;
             }
         }
-    }
+    }*/
     else if (abilityBP == "Pyro Pro") {
         for (let i = 0; i < 4; i++) {
             if (moves3[i].type == "Fire" && moves3[i].mr != "Support") {
-                movesBPEnergy[i] = movesBPEnergy[i] * 1.1;
+                movesBPEnergy[i] = movesBPEnergy[i] * 0.9;
             }
         }
     }
@@ -3367,6 +3370,17 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         stuffUsed.ability1 = ability1;
     }
 
+    if (ability1 == "Berserk" || ability1 == "Eager") {
+        multi *= 1.5;
+        itemA = "None";
+        stuffUsed.ability1 = ability1;
+    }
+
+    if (ability2 == "Berserk" || ability2 == "Eager") {
+        itemB = "None";
+        stuffUsed.ability2 = ability2;
+    }
+
     if (ability1 == "Neutralize") {
         tempType = "Simple"
         multi *= 1.2;
@@ -3442,7 +3456,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         }
     }
 
-    if ((ability1 == "Vengeance" && btl2 && withoutSlapDown)) {
+    if ((ability1 == "Vengeance" && btl2 && withoutSlapDown) ||
+       (ability1 == "Ambush" && btl1 && withoutSlapDown && move.name != "Chase Down")) {
         multi *= 2;
         stuffUsed.ability1 = ability1;
     }
@@ -3461,8 +3476,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     if ((ability1 == "Power Jaw" && move.bite == true) ||
        (ability1 == "Heavy Fists" && (move.punch == true || move.slap == true)) ||
        (ability1 == "Guru" && tempPower <= 70 && powerCheck <= 70) ||
-       (ability1 == "High Explosive" && move.bomb == true) ||
-       (ability1 == "Ambush" && btl1 && withoutSlapDown && move.name != "Chase Down")) {
+       (ability1 == "High Explosive" && move.bomb == true)) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
@@ -3612,9 +3626,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
        (dawn && isDouble && move.mr1 == "Ranged Attack" && ability1 == "Dawn") ||
        (move.mr1 == "Melee Defense" && ability1 == "Trash Armor") ||
        ((move.mr1 == "Melee Defense" || move.mr1 == "Ranged Defense") && ability1 == "Safety Pot") ||
-       (ability1 == "Inferno" && heat.checked && move.mr1 == "Ranged Attack") ||
-       (ability1 == "Berserk" && ((move.mr == "Melee" && adaptive.mr != "Ranged") || adaptive.mr == "Melee")) ||
-       (ability1 == "Eager" && ((move.mr == "Ranged" && adaptive.mr != "Melee") || adaptive.mr == "Ranged"))) {
+       (ability1 == "Inferno" && heat.checked && move.mr1 == "Ranged Attack")) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }   
@@ -3630,9 +3642,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     if ((itemA == "Mystic Wand" && loom1.name == "Shawchi" && move.mr1 == "Ranged Attack") ||
         (itemA == "Specialty Goggles" && ((move.mr1 == "Ranged Attack" && adaptive.mr1 != "Melee Attack") || adaptive.mr1 == "Ranged Attack")) ||
         (itemA == "Specialty Gloves" && ((move.mr1 == "Melee Attack" && adaptive.mr1 != "Ranged Attack") || adaptive.mr1 == "Melee Attack")) ||
-        (itemA == "Specialty Boots" && move.mr1 == "Speed") ||
-        (itemA == "Restrictive Armor" && move.mr1 == "Melee Defense") ||
-        (itemA == "Restrictive Shield" && move.mr1 == "Ranged Defense")) {
+        (itemA == "Specialty Boots" && move.mr1 == "Speed")) {
         multi *= 1.5;
         stuffUsed.item1 = itemA;
     }
@@ -3641,7 +3651,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         stuffUsed.item1 = itemA;
     }
     if (winds.checked && move.mr1 == "Speed" && loom1.types.includes("Air")) {
-        multi *= 1.1;
+        multi *= 1.25;
     }
     if (move.mr1 == "Speed" && stat1 == "paralasis") {
         multi *= 0.5;
