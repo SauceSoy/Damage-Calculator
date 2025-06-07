@@ -303,6 +303,9 @@ let teamwork2 = document.getElementById("teamwork2");
 let overcharged1 = document.getElementById("overcharged1");
 let overcharged2 = document.getElementById("overcharged2");
 
+let nightLight1 = document.getElementById("nightLight1");
+let nightLight2 = document.getElementById("nightLight2");
+
 let dusk1 = document.getElementById("dusk1");
 let dusk2 = document.getElementById("dusk2");
 
@@ -465,11 +468,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -531,8 +534,8 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -791,7 +794,7 @@ $(".dmg").change(function() {
         let loomi = $(this).closest(".loomian-info");
         let moveHits = (loomi.find(".trait").val() == "Capoeira") ? 5 : 3;
         moveGroupObj.children(".move-hits").val(moveHits + " hits");
-        if (move.name == "Pepper Burst" || move.name == "Double Beat" || move.name == "Rapid Fire" || move.name == "Double Whack") moveGroupObj.children(".move-hits").hide();
+        if (move.name == "Pepper Burst" || move.name == "Double Beat" || move.name == "Rapid Fire" || move.name == "Double Whack" || move.name == "Double Sting") moveGroupObj.children(".move-hits").hide();
     } else if (move.name == "Expert Onslaught" || move.name == "Stampede") {
         moveGroupObj.children(".move-hits").hide();
         moveGroupObj.children(".swarm").show();
@@ -856,8 +859,8 @@ function updateFormat() {
         for (let i = 0; i < collection.length; i++) {
             collection[i].style.display = 'inline-block';
         }
-        field.style.height = "700px";
-        fieldTraps.style.height = "66%";
+        field.style.height = "730px";
+        fieldTraps.style.height = "67%";
     }
 
     update();
@@ -3196,6 +3199,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     let immuneBoostCheck2 = (second == false ? immuneAbilityBoost2.checked : immuneAbilityBoost1.checked);
     let ovrCharged1 = (second ? overcharged2.checked : overcharged1.checked);
     let ovrCharged2 = (second ? overcharged1.checked : overcharged2.checked);
+    let nightLite1 = (second ? nightLight2.checked : nightLight1.checked);
+    let nightLite2 = (second ? nightLight1.checked : nightLight2.checked);
     let icicle = (second ? iceTrap1.checked : iceTrap2.checked);
     let icicleH = (second ? halfIce1.checked : halfIce2.checked);
     barbs = [~~$("input:radio[name='barbsL']:checked").val(), ~~$("input:radio[name='barbsR']:checked").val()];
@@ -3501,9 +3506,15 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         multi *= 1.2;
         stuffUsed.ability1 = ability1;
     }
-    if (gen1 != gen2 && ability1 == "Territorial") {
+    if ((gen1 != gen2 && ability1 == "Territorial") ||
+        (ability1 == "Night Light" && tempType == "Dark")) {
         multi *= 0.75;
         stuffUsed.ability1 = ability1;
+    }
+
+    if (ability2 == "Night Light" && tempType == "Dark") {
+        multi *= 0.75;
+        stuffUsed.ability2 = ability2;
     }
 
     if (((move.name == "Gloominous Roar" || move.name == "Gloominous Fangs") && loom1.name == "Tiklipse" && ability1 != "Circadian" && itemA.includes("Light")) ||
@@ -3568,6 +3579,14 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     if (ovrCharged2 && tempType == "Electric" && isDouble) {
         multi *= 1.3;
         stuffUsed.extra1 += " (Enemy Overcharge)";
+    }
+    if (nightLite1 && tempType == "Dark" && isDouble) {
+        multi *= 0.75;
+        stuffUsed.extra1 += " (Ally Night Light)";
+    }
+    if (nightLite2 && tempType == "Dark" && isDouble) {
+        multi *= 0.75;
+        stuffUsed.extra1 += " (Enemy Night Light)";
     }
 
     if ((rain.checked && tempType == "Water") || (heat.checked && tempType == "Fire")) {
@@ -3902,7 +3921,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     let multiHits = [];
     let multiDmg = 0;
     if (move.hits && !hitConfirmer) {
-        if (move.name == "Pepper Burst" || move.name == "Double Beat" || move.name == "Double Whack") hits = 2;
+        if (move.name == "Pepper Burst" || move.name == "Double Beat" || move.name == "Double Whack" || move.name == "Double Sting") hits = 2;
         if (move.name == "Rapid Fire") hits = 3;
         for (let i = 0; i < hits - 1; i++) {
             multiHits.push(getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm, snowball, true, level, ul, second, detailed, false));
@@ -3915,7 +3934,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     if (detailed && !hitConfirmer) {
         let numb;
         if (move.hits) {
-            if (move.name == "Pepper Burst" || move.name == "Double Beat" || move.name == "Double Whack") hits = 2;
+            if (move.name == "Pepper Burst" || move.name == "Double Beat" || move.name == "Double Whack" || move.name == "Double Sting") hits = 2;
             if (move.name == "Rapid Fire") hits = 3;
         }
         for (let i = 0.85; i <= 1; i += 0.01) {

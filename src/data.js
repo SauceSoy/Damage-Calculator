@@ -5137,6 +5137,40 @@ var loomians = {
             speed: 88
         }
     },
+
+    nukichi: {
+        name: "Nukichi",
+        types: ["Simple"],
+        weight: 6,
+        height: 21,
+        finalEvo: false,
+        baseStats: {
+            hp: 54,
+            energy: 75,
+            attack: 89,
+            defense: 45,
+            attackR: 53,
+            defenseR: 37,
+            speed: 96
+        }
+    },
+
+    dainuki: {
+        name: "Dainuki",
+        types: ["Simple"],
+        weight: 31,
+        height: 42,
+        baseStats: {
+            hp: 108,
+            energy: 96,
+            attack: 89,
+            defense: 93,
+            attackR: 53,
+            defenseR: 61,
+            speed: 96
+        }
+    },
+
  
     duskit: {
         name: "Duskit",
@@ -5446,6 +5480,22 @@ var loomians = {
             attackR: 68,
             defenseR: 68,
             speed: 96
+        }
+    },
+
+    solnecta: {
+        name: "Solnecta",
+        types: ["Bug", "Light"],
+        weight: 13,
+        height: 40,
+        baseStats: {
+            hp: 111,
+            energy: 81,
+            attack: 96,
+            defense: 80,
+            attackR: 129,
+            defenseR: 92,
+            speed: 86
         }
     },
 
@@ -6841,6 +6891,32 @@ var moves = {
         contact: true,
         bite: true,
         drain: 1/2
+    },
+
+    counterPoise: {
+        name: "Counter Poise",
+        power: 70,
+        energy: 45,
+        accuracy: 100,
+        type: "Bug",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        priority: true,
+    },
+
+    lunge: {
+        name: "Lunge",
+        power: 90,
+        energy: 50,
+        accuracy: 100,
+        type: "Bug",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        secondaryEffect: true,
     },
 
     headbutt: {
@@ -10324,6 +10400,15 @@ var moves = {
         mr: "Support"
     },
 
+    hoodwink: {
+        name: "Hoodwink",
+        power: 0,
+        energy: 35,
+        accuracy: "N/A",
+        type: "Simple",
+        mr: "Support"
+    },
+
     bananaSplit: {
         name: "Banana Split",
         power: 0,
@@ -10519,7 +10604,8 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Facade", "Party Trick", "Do or Die", "Wildfire", "Sendoff", "Hydro Vortex", "Motivational", "Soul Siphon", "Pluvial", "Petrifying", "Tumultuous", "Venomous", "Brutal Wrath",
                  "Sky-Borne", "Land-Borne", "Depths-Borne", "All Seeing", "Rain Rush", "Triumph", "Royal Decree", "Thunder Summon", "Recurrent", "Charged Arc","Adaptable", "Heat Summon",
                  "Rain Summon", "Fog Summon", "Wind Summon", "Inferno", "Cosmic Pressure", "Conspire", "Metamorphosis", "Sob", "Wail", "Seize", "Assertive", "Berserk", "Disenchant", "Impose", "Gorge",
-                 "Carol", "Fortissimo", "Elusive", "Upper Hand", "Effulgent", "Dummy", "Puncture", "Toxic Sac", "Hover", "Eager", "Reign", "Overclock", "Prowler", "Hotfoot", "Mycotic", "Remorseless"];
+                 "Carol", "Fortissimo", "Elusive", "Upper Hand", "Effulgent", "Dummy", "Puncture", "Toxic Sac", "Hover", "Eager", "Reign", "Overclock", "Prowler", "Hotfoot", "Mycotic", "Remorseless",
+                 "Night Light", "Intensify"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -10739,4 +10825,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Season 2 changes added.";
+var changelog = "Nukichi line + Solnecta added.";
