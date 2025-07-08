@@ -5977,6 +5977,7 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true,
+        slash: true
     },
 
     flurry: {
@@ -6048,7 +6049,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true
+        contact: true,
+        slash: true
     },
 
     bugBite: {
@@ -6234,7 +6236,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        secondaryEffect: true
+        secondaryEffect: true,
+        slash: true
     },
 
     mudSpatter: {
@@ -6795,13 +6798,14 @@ var moves = {
 
     oppress: {
         name: "Oppress",
-        power: 70,
+        power: 60,
         energy: 44,
         accuracy: 100,
         type: "Spirit",
         mr: "Ranged",
         mr1: "Ranged Attack",
-        mr2: "Ranged Defense"
+        mr2: "Ranged Defense",
+        secondaryEffect: true
     },
 
     spectralBurst: {
@@ -6837,7 +6841,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true
+        contact: true,
+        slash: true
     },
 
     harrow: {
@@ -6992,6 +6997,18 @@ var moves = {
         drain: 1/2
     },
 
+    mindDrain: {
+        name: "Mind Drain",
+        power: 75,
+        energy: 48,
+        accuracy: 100,
+        type: "Mind",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        drain: 1/2
+    },
+
     snowdozer: {
         name: "Snowdozer",
         power: 30,
@@ -7112,7 +7129,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true
+        contact: true,
+        slash: true
     },
 
     nosedive: {
@@ -7263,7 +7281,7 @@ var moves = {
         type: "Air",
         mr: "Ranged",
         mr1: "Ranged Attack",
-        mr2: "Ranged Defense"
+        mr2: "Ranged Defense",
     },
 
     boulderBlast: {
@@ -7533,14 +7551,15 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true
+        contact: true,
+        slash: true
     },
 
     shellBash: {
         name: "Shell Bash",
-        power: 0,
-        energy: 40,
-        accuracy: "N/A",
+        power: 110,
+        energy: 56,
+        accuracy: 100,
         type: "Water",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -7593,9 +7612,7 @@ var moves = {
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-    },
-
-    goopSpout: {
+    },goopSpout: {
         name: "Goop Spout",
         power: 50,
         energy: 35,
@@ -7642,7 +7659,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true
+        contact: true,
+        slash: true
     },
 
     coconutBomb: {
@@ -7670,7 +7688,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        secondaryEffect: true
+        secondaryEffect: true,
+        slash: true
     },
 
     electroburst: {
@@ -7867,7 +7886,8 @@ var moves = {
         type: "Mind",
         mr: "Melee",
         mr1: "Melee Attack",
-        mr2: "Melee Defense"
+        mr2: "Melee Defense",
+        slash: true
     },
 
     flashNFlee: {
@@ -7964,6 +7984,7 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
+        slash: true,
         hits: 2
     },
 
@@ -8378,7 +8399,7 @@ var moves = {
 
     seaSong: {
         name: "Sea Song",
-        power: 80,
+        power: 60,
         energy: 60,
         accuracy: 100,
         type: "Water",
@@ -8459,7 +8480,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        secondaryEffect: true
+        secondaryEffect: true,
+        slash: true
     },
 
     shrewdBlast: {
@@ -8710,7 +8732,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        secondaryEffect: true
+        secondaryEffect: true,
+        slash: true
     },
 
     blazeOfGlory: {
@@ -8924,7 +8947,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        secondaryEffect: true
+        secondaryEffect: true,
+        slash: true
     },
 
     thistleSlash: {
@@ -8936,7 +8960,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true
+        contact: true,
+        slash: true
     },
 
     soulHarvest: {
@@ -9100,12 +9125,12 @@ var moves = {
 
     tempest: {
         name: "Tempest",
-        power: 80,
+        power: -1,
         energy: 40,
         accuracy: 100,
         type: "Air",
         mr: "Ranged",
-        mr1: "Speed",
+        mr1: "Ranged Attack",
         mr2: "Ranged Defense",
     },
 
@@ -9175,7 +9200,7 @@ var moves = {
 
     preemptiveStrike: {
         name: "Preemptive Strike",
-        power: 40,
+        power: 20,
         energy: 25,
         accuracy: 100,
         type: "Brawler",
@@ -9263,13 +9288,14 @@ var moves = {
 
     mudslide: {
         name: "Mudslide",
-        power: 30,
+        power: 50,
         energy: 35,
         accuracy: 100,
         type: "Earth",
         mr: "Ranged",
         mr1: "Ranged Attack",
-        mr2: "Ranged Defense"
+        mr2: "Ranged Defense",
+        secondaryEffect: true
     },
 
     rockSlide: {
@@ -9594,6 +9620,15 @@ var moves = {
         mr: "Support"
     },
 
+    stun: {
+        name: "Stun",
+        power: 0,
+        energy: 35,
+        accuracy: 90,
+        type: "Electric",
+        mr: "Support"
+    },
+
     thunderstorm: {
         name: "Thunderstorm",
         power: 0,
@@ -9721,6 +9756,16 @@ var moves = {
         accuracy: 90,
         type: "Toxic",
         mr: "Support"
+    },
+
+    goopSpout: {
+        name: "Goop Spout",
+        power: 0,
+        energy: 35,
+        accuracy: 90,
+        type: "Ancient",
+        mr: "Support",
+        aoe: true
     },
 
     poisonBarbs: {
@@ -9851,10 +9896,28 @@ var moves = {
         mr: "Support"
     },
 
+    safeguard: {
+        name: "Safeguard",
+        power: 0,
+        energy: 35,
+        accuracy: "N/A",
+        type: "Simple",
+        mr: "Support"
+    },
+
     takeRoot: {
         name: "Take Root",
         power: 0,
         energy: 40,
+        accuracy: "N/A",
+        type: "Plant",
+        mr: "Support"
+    },
+
+    herbalRememdy: {
+        name: "Herbal Remedy",
+        power: 0,
+        energy: 70,
         accuracy: "N/A",
         type: "Plant",
         mr: "Support"
@@ -10340,7 +10403,7 @@ var moves = {
     cleanUp: {
         name: "Clean Up",
         power: 0,
-        energy: 72,
+        energy: 50,
         accuracy: "N/A",
         type: "Metal",
         mr: "Support"
@@ -10605,7 +10668,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Sky-Borne", "Land-Borne", "Depths-Borne", "All Seeing", "Rain Rush", "Triumph", "Royal Decree", "Thunder Summon", "Recurrent", "Charged Arc","Adaptable", "Heat Summon",
                  "Rain Summon", "Fog Summon", "Wind Summon", "Inferno", "Cosmic Pressure", "Conspire", "Metamorphosis", "Sob", "Wail", "Seize", "Assertive", "Berserk", "Disenchant", "Impose", "Gorge",
                  "Carol", "Fortissimo", "Elusive", "Upper Hand", "Effulgent", "Dummy", "Puncture", "Toxic Sac", "Hover", "Eager", "Reign", "Overclock", "Prowler", "Hotfoot", "Mycotic", "Remorseless",
-                 "Night Light", "Intensify"];
+                 "Night Light", "Intensify", "Power Claw"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -10825,4 +10888,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Nukichi line + Solnecta added.";
+var changelog = "Season 3 changes added.";

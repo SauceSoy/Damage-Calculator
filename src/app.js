@@ -468,11 +468,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -534,8 +534,8 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -1469,6 +1469,7 @@ function loadStats() {
     multi = 1;
     if (ability1 == "Slick Shell") multi *= 2;
     if (ability1 == "Safety Pot") multi *= 1.5;
+    if (firstLoom.name == "Shawchi" && firstItem == "Mystic Wand") multi *= 1.5;
     if (firstItem == "Drop of Youth" && firstLoom.finalEvo == false) multi *= 1.4;
     if (firstItem == "Heavy Shield") multi *= 1.2;
     statDefR1.innerHTML = Math.floor(defR1 * multi);
@@ -1497,6 +1498,7 @@ function loadStats() {
     multi = 1;
     if (ability2 == "Slick Shell") multi *= 2;
     if (ability2 == "Safety Pot") multi *= 1.5;
+    if (secondLoom.name == "Shawchi" && secondItem == "Mystic Wand") multi *= 1.5;
     if (secondItem == "Drop of Youth" && secondLoom.finalEvo == false) multi *= 1.4;
     if (secondItem == "Heavy Shield") multi *= 1.2;
     statDefR2.innerHTML = Math.floor(defR2 * multi);
@@ -1808,12 +1810,12 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
     }
 
     //Checking for Glide boosting speed which affects Tempest damage
-    if (ability1 == "Glide" && tempType == "Air" && move.mr1 == atk.name) {
+    /*if (ability1 == "Glide" && tempType == "Air" && move.mr1 == atk.name) {
         atkStage = Math.min(atkStage + adjustmentCount, 6);
         atk.atk = (atkStage < 0 ? Math.floor(baseAttack * (2 / (2 - atkStage))) : Math.floor(baseAttack * ((2 + atkStage) / 2)));
         if (crit && atkStage < 0 && ability2 != "Protective Shell") atk.atk = baseAttack;
         if (firstHit) stuffUsed.ability1 = ability1;
-    }
+    }*/
 
     //Checks for moves that affect the currently used defensive stat and adjusts subsequent hits' defensive stat
     if (move.stat && move.stat.battle == "Defense" && move.stat.stat == def.name && !(move.secondaryEffect && ability1 == "Brute Force")) {
@@ -1985,6 +1987,11 @@ function checkEnergy(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTw
             if (moves1[i].bite) movesEnergy1[i] = movesEnergy1[i] * 1.1;
         }
     }
+    else if (ability1 == "Power Claw") {
+        for (let i = 0; i < 4; i++) {
+            if (moves1[i].slash) movesEnergy1[i] = movesEnergy1[i] * 1.1;
+        }
+    }
     else if (ability1 == "Sharp Focus") {
         for (let i = 0; i < 4; i++) {
             if (moves1[i].accuracy != 100 && moves1[i].accuracy != "N/A") {
@@ -2116,6 +2123,11 @@ function checkEnergy(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTw
     else if (ability2 == "Power Jaw") {
         for (let i = 0; i < 4; i++) {
             if (moves2[i].bite) movesEnergy2[i] = movesEnergy2[i] * 1.1;
+        }
+    }
+    else if (ability2 == "Power Claw") {
+        for (let i = 0; i < 4; i++) {
+            if (moves2[i].slash) movesEnergy2[i] = movesEnergy2[i] * 1.1;
         }
     }
     else if (ability2 == "Sharp Focus") {
@@ -2255,6 +2267,11 @@ function checkEnergy(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTw
     else if (abilityBP == "Power Jaw") {
         for (let i = 0; i < 4; i++) {
             if (moves3[i].bite) movesBPEnergy[i] = movesBPEnergy[i] * 1.1;
+        }
+    }
+    else if (abilityBP == "Power Claw") {
+        for (let i = 0; i < 4; i++) {
+            if (moves3[i].slash) movesBPEnergy[i] = movesBPEnergy[i] * 1.1;
         }
     }
     else if (abilityBP == "Sharp Focus") {
@@ -3163,11 +3180,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     let stats1;
     let stats2;
     if (second) {
-        stats1 = {atk: atk2, def: def2, atkR: atkR2, defR: defR2, spd: spd2};
-        stats2 = {atk: atk1, def: def1, atkR: atkR1, defR: defR1, spd: spd1};
+        stats1 = {atk: atk2, def: def2, atkR: atkR2, defR: defR2, spd: statSpd2.innerHTML};
+        stats2 = {atk: atk1, def: def1, atkR: atkR1, defR: defR1, spd: statSpd1.innerHTML};
     } else {
-        stats1 = {atk: atk1, def: def1, atkR: atkR1, defR: defR1, spd: spd1};
-        stats2 = {atk: atk2, def: def2, atkR: atkR2, defR: defR2, spd: spd2};
+        stats1 = {atk: atk1, def: def1, atkR: atkR1, defR: defR1, spd: statSpd1.innerHTML};
+        stats2 = {atk: atk2, def: def2, atkR: atkR2, defR: defR2, spd: statSpd2.innerHTML};
     }
     let currentEnergy1 = (second == false ? currentNRG1.value : currentNRG2.value);
     let currentEnergy2 = (second == false ? currentNRG2.value : currentNRG1.value);
@@ -3252,10 +3269,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
 
-    /*if (move.name == "Tempest") {
+    if (move.name == "Tempest") {
         tempPower = getSpeedPower(stats1.spd, stats2.spd);
         stuffUsed.extra1 += " (" + tempPower + " BP)";
-    }*/
+    }
 
     if (move.name == "Outburst") {
         tempPower = Math.max(1, Math.floor(125 * energyValue / 100));
@@ -3479,6 +3496,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     }
 
     if ((ability1 == "Power Jaw" && move.bite == true) ||
+       (ability1 == "Power Claw" && move.slash) ||
        (ability1 == "Heavy Fists" && (move.punch == true || move.slap == true)) ||
        (ability1 == "Guru" && tempPower <= 70 && powerCheck <= 70) ||
        (ability1 == "High Explosive" && move.bomb == true)) {
@@ -3549,10 +3567,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         if (count != 0) stuffUsed.ability1 = ability1 + " (" + Math.abs(count - 4) + ")";
     }
 
-    if(move.name == "Chase Down" && btl1) {
+    /*if(move.name == "Chase Down" && btl1) {
         multi *= 1.5;
         stuffUsed.extra1 += " (" + Math.floor(tempPower * 1.5) + " BP)";
-    }
+    }*/
 
     if (ability2 == "Repugnant" && move.bite == true) {
         multi *= 0.5;
@@ -3605,7 +3623,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         stuffUsed.weather += " under Cosmic Pressure";
     } else if (rain.checked && ((tempType == "Water" || tempType == "Fire") || ability1 == "Rain Rush")) {
         stuffUsed.weather += " in Heavy Rainfall";
-    } else if (winds.checked && ((tempType == "Toxic") || (loom1.types.includes("Air") && move.mr1 == "Speed") || ability1 == "Tumultuous")) {
+    } else if (winds.checked && ((tempType == "Toxic") || (loom1.types.includes("Air") && move.name == "Tempest") || ability1 == "Tumultuous")) {
         stuffUsed.weather += " in Strong Gusts";
     } else if (heat.checked && ((tempType == "Fire" || tempType == "Water") || (ability1 == "Inferno" && move.mr1 == "Ranged Attack") || ability1 == "Hotfoot")) {
         stuffUsed.weather += " in Smoldering Heat";
@@ -3701,7 +3719,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         stuffUsed.item2 = itemB;
     }
     if ((itemB == "Restrictive Shield" && ((move.mr2 == "Ranged Defense" && adaptive.mr2 != "Melee Defense") || adaptive.mr2 == "Ranged Defense")) ||
-        (itemB == "Restrictive Armor" && ((move.mr2 == "Melee Defense" && adaptive.mr2 != "Ranged Defense") || adaptive.mr2 == "Melee Defense")) && !(ability1 == "Puncture" & move.bite)) {
+        (itemB == "Restrictive Armor" && ((move.mr2 == "Melee Defense" && adaptive.mr2 != "Ranged Defense") || adaptive.mr2 == "Melee Defense")) && !(ability1 == "Puncture" & move.bite) ||
+        (itemB == "Mystic Wand" && loom2.name == "Shawchi" && ((move.mr2 == "Ranged Defense" && adaptive.mr2 != "Melee Defense") || adaptive.mr2 == "Ranged Defense"))) {
         multi *= 1.5;
         stuffUsed.item2 = itemB;
     }
@@ -3870,7 +3889,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     }
 
     if ((ability2 == "Tank" && btl1 && withoutSlapDown && !(icicle && !loom2.types.includes("Ice")) && !(icicleH && !loom2.types.includes("Ice")) && (barbH == 0 || loom2.types.includes("Air")) && !foulHit && !(ability1 == "Puncture" & move.bite)) ||
-        (ability2 == "Elusive" && stat1 != "healthy")) {
+        (ability2 == "Elusive" && stat2 != "healthy")) {
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
@@ -4101,11 +4120,11 @@ function getTripRootPower(weight) {
 }
 
 function getSpeedPower(spd1, spd2) {
-    if (spd2 > spd1 || spd2 == 0) return 40;
-    if (spd1 / spd2 >= 1 && spd1 / spd2 < 2) return 60;
-    if (spd1 / spd2 >= 2 && spd1 / spd2 < 3) return 80;
-    if (spd1 / spd2 >= 3 && spd1 / spd2 < 4) return 120;
-    return 150;
+    if (spd1 / spd2 < 0.5) return 40;
+    if (spd1 / spd2 < 1 && spd1 / spd2 >= 0.5) return 60;
+    if (spd1 / spd2 < 1.5 && spd1 / spd2 >= 1) return 80;
+    if (spd1 / spd2 < 2 && spd1 / spd2 >= 1.5) return 100;
+    return 120;
 }
 
 function specializationCount(second) {
