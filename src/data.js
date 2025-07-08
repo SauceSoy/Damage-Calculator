@@ -6799,7 +6799,7 @@ var moves = {
     oppress: {
         name: "Oppress",
         power: 60,
-        energy: 44,
+        energy: 45,
         accuracy: 100,
         type: "Spirit",
         mr: "Ranged",
