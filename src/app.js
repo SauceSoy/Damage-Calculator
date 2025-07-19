@@ -468,11 +468,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -534,8 +534,8 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -1461,6 +1461,7 @@ function loadStats() {
     multi = 1;
     if (ability1 == "Trash Armor" || ability1 == "Hard Candy" || ability1 == "Safety Pot") multi *= 1.5;
     if (firstItem == "Drop of Youth" && firstLoom.finalEvo == false) multi *= 1.4;
+    if (firstItem == "Scrap Metal" && (firstLoom.name == "Scorb" || firstLoom.name == "Veylens")) multi *= 1.4;
     if (firstItem == "Heavy Armor") multi *= 1.2;
     statDef1.innerHTML = Math.floor(def1 * multi);
     multi = 1;
@@ -1471,6 +1472,7 @@ function loadStats() {
     if (ability1 == "Safety Pot") multi *= 1.5;
     if (firstLoom.name == "Shawchi" && firstItem == "Mystic Wand") multi *= 1.5;
     if (firstItem == "Drop of Youth" && firstLoom.finalEvo == false) multi *= 1.4;
+    if (firstItem == "Scrap Metal" && (firstLoom.name == "Scorb" || firstLoom.name == "Veylens")) multi *= 1.4;
     if (firstItem == "Heavy Shield") multi *= 1.2;
     statDefR1.innerHTML = Math.floor(defR1 * multi);
     multi = 1;
@@ -1490,6 +1492,7 @@ function loadStats() {
     multi = 1;
     if (ability2 == "Trash Armor" || ability2 == "Hard Candy" || ability2 == "Safety Pot") multi *= 1.5;
     if (secondItem == "Drop of Youth" && secondLoom.finalEvo == false) multi *= 1.4;
+    if (secondItem == "Scrap Metal" && (secondLoom.name == "Scorb" || secondLoom.name == "Veylens")) multi *= 1.4;
     if (secondItem == "Heavy Armor") multi *= 1.2;
     statDef2.innerHTML = Math.floor(def2 * multi);
     multi = 1;
@@ -1500,6 +1503,7 @@ function loadStats() {
     if (ability2 == "Safety Pot") multi *= 1.5;
     if (secondLoom.name == "Shawchi" && secondItem == "Mystic Wand") multi *= 1.5;
     if (secondItem == "Drop of Youth" && secondLoom.finalEvo == false) multi *= 1.4;
+    if (secondItem == "Scrap Metal" && (secondLoom.name == "Scorb" || secondLoom.name == "Veylens")) multi *= 1.4;
     if (secondItem == "Heavy Shield") multi *= 1.2;
     statDefR2.innerHTML = Math.floor(defR2 * multi);
     multi = 1;
@@ -1884,6 +1888,10 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
 }
 
 function checkEnergy(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTwo2, moveThree2, moveFour2, moveBreakpoint, moveBreakpoint2, moveBreakpoint3, moveBreakpoint4) {
+    let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
+    let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
+    let gardrone1 = ((firstLoom.name == "Scorb" || firstLoom.name == "Veylens" || firstLoom.name == "Gardrone") ? true : false);
+    let gardrone2 = ((secondLoom.name == "Scorb" || secondLoom.name == "Veylens" || secondLoom.name == "Gardrone") ? true : false);
     let ability1 = abilities.find((x) => x == abilityDropdown1.value);
     let ability2 = abilities.find((x) => x == abilityDropdown2.value);
     let abilityBP = abilities.find((x) => x == abilityBPDropdown.value);
@@ -2004,12 +2012,12 @@ function checkEnergy(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTw
            movesEnergy1[i] = movesEnergy1[i] * 1.1;
        }
     }
-    if (itemA == "Energy Orb") {
+    if (itemA == "Energy Orb" || (itemA == "Quantum Core" && gardrone1)) {
         for (let i = 0; i < 4; i++) {
            movesEnergy1[i] = movesEnergy1[i] * 0.75;
        }
     }
-    else if (itemA == "Power Cuffs") {
+    else if (itemA == "Power Cuffs" || (itemA == "Power Core" && gardrone1)) {
         for (let i = 0; i < 4; i++) {
             if (moves1[i].mr != "Support") {
                 movesEnergy1[i] = movesEnergy1[i] * 1.25;
@@ -2142,12 +2150,12 @@ function checkEnergy(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTw
            movesEnergy2[i] = movesEnergy2[i] * 1.1;
        }
     }
-    if (itemB == "Energy Orb") {
+    if (itemB == "Energy Orb" || (itemB == "Quantum Core" && gardrone2)) {
         for (let i = 0; i < 4; i++) {
            movesEnergy2[i] = movesEnergy2[i] * 0.75;
        }
     }
-    else if (itemB == "Power Cuffs") {
+    else if (itemB == "Power Cuffs" || (itemB == "Power Core" && gardrone2)) {
         for (let i = 0; i < 4; i++) {
             if (moves2[i].mr != "Support") {
                 movesEnergy2[i] = movesEnergy2[i] * 1.25;
@@ -2281,12 +2289,12 @@ function checkEnergy(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTw
             }
         }
     }
-    if (itemC == "Energy Orb") {
+    if (itemC == "Energy Orb" || (itemC == "Quantum Core" && (gardrone1 || gardrone2))) {
         for (let i = 0; i < 4; i++) {
            movesBPEnergy[i] = movesBPEnergy[i] * 0.75;
        }
     }
-    else if (itemC == "Power Cuffs") {
+    else if (itemC == "Power Cuffs" || (itemC == "Power Core" && (gardrone1 || gardrone2))) {
         for (let i = 0; i < 4; i++) {
             if (moves3[i].mr != "Support") {
                 movesBPEnergy[i] = movesBPEnergy[i] * 1.25;
@@ -3279,6 +3287,36 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
 
+    if ((loom1.name == "Scorb" || loom1.name == "Veylens" || loom1.name == "Gardrone") && itemA.includes("Core")) {
+        if (itemA == "Freezer Core") {
+            types1.secondary = "Ice";
+            stuffUsed.item1 = itemA;
+        }    
+        else if (itemA == "Voltaic Core") {
+            types1.secondary = "Electric";
+            stuffUsed.item1 = itemA;
+        }    
+        else if (itemA == "Flame Core") {
+            types1.secondary = "Fire";
+            stuffUsed.item1 = itemA;
+        }    
+    }
+
+    if ((loom2.name == "Scorb" || loom2.name == "Veylens" || loom2.name == "Gardrone") && itemB.includes("Core")) {
+        if (itemB == "Freezer Core") {
+            types2.secondary = "Ice";
+            stuffUsed.item2 = itemB;
+        }    
+        else if (itemB == "Voltaic Core") {
+            types2.secondary = "Electric";
+            stuffUsed.item2 = itemB;
+        }    
+        else if (itemB == "Flame Core") {
+            types2.secondary = "Fire";
+            stuffUsed.item2 = itemB;
+        }    
+    }
+
     if (move.name == "Spit Out" && itemA == "None") {
         if (detailed) return [0];
         else return 0;
@@ -3537,7 +3575,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
 
     if (((move.name == "Gloominous Roar" || move.name == "Gloominous Fangs") && loom1.name == "Tiklipse" && ability1 != "Circadian" && itemA.includes("Light")) ||
        (itemA.includes(tempType) && itemA.includes("Essence")) ||
-       (itemA == "Power Cuffs")) {
+       (itemA == "Power Cuffs") ||
+       (itemA == "Power Core" && (loom1.name == "Scorb" || loom1.name == "Veylens" || loom1.name == "Gardrone"))) {
         multi *= 1.2;
         stuffUsed.item1 = itemA;
     }
@@ -3683,7 +3722,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         multi *= 1.5;
         stuffUsed.item1 = itemA;
     }
-    if (itemA == "Drop of Youth" && loom1.finalEvo == false && (move.mr1 == "Melee Defense" || move.mr1 == "Ranged Defense")) {
+    if (((itemA == "Drop of Youth" && loom1.finalEvo == false) || (itemA == "Scrap Metal" && (loom1.name == "Scorb" || loom1.name == "Veylens"))) && (move.mr1 == "Melee Defense" || move.mr1 == "Ranged Defense")) {
         multi *= 1.4;
         stuffUsed.item1 = itemA;
     }
@@ -3714,7 +3753,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         multi *= 1.2;
         stuffUsed.item2 = itemB;
     }
-    if (itemB == "Drop of Youth" && loom2.finalEvo == false && !(ability1 == "Puncture" & move.bite)) {
+    if (((itemB == "Drop of Youth" && loom2.finalEvo == false) || (itemB == "Scrap Metal" && (loom2.name == "Scorb" || loom2.name == "Veylens"))) && !(ability1 == "Puncture" & move.bite)) {
         multi *= 1.4;
         stuffUsed.item2 = itemB;
     }

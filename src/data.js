@@ -6583,7 +6583,8 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         typeModifier: { type: "Dark", modifier: 2 },
-        contact: true
+        contact: true,
+        slash: true
     },
 
     muckBuck: {
@@ -7282,6 +7283,7 @@ var moves = {
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
+        slash: true
     },
 
     boulderBlast: {
@@ -7959,7 +7961,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true
+        contact: true,
+        slash: true
     },
 
     bash: {
@@ -8104,6 +8107,18 @@ var moves = {
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense"
+    },
+
+    shardStorm: {
+        name: "Shard Storm",
+        power: 100,
+        energy: 55,
+        accuracy: 90,
+        type: "Metal",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        aoe: true
     },
 
     batteringRam: {
@@ -8382,7 +8397,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        bite: true
+        bite: true,
+        slash: true
     },
 
     tsunami: {
@@ -8681,7 +8697,8 @@ var moves = {
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        secondaryEffect: true
+        secondaryEffect: true,
+        sound: true
     },
 
     twirlyWhirl: {
@@ -9149,7 +9166,7 @@ var moves = {
     counterStance: {
         name: "Counter Stance",
         power: 70,
-        energy: 40,
+        energy: 45,
         accuracy: 100,
         type: "Brawler",
         mr: "Melee",
@@ -9168,7 +9185,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        recoil: 1/3
+        recoil: 1/3,
+        slash: true
     },
 
     bludgeon: {
@@ -10872,7 +10890,7 @@ var typeModAbilities = {
 
 var items = ["Heavy Shield", "Heavy Armor", "Power Cuffs", "Health Amulet", "Drain Orb", "Mystic Wand", "Drop of Youth", "Energy Orb", "Chocolate Bar", "Mysterious Dust", "Heavy Shackles", "Thunder Orb",
              "Volcanic Ash", "Rageful Plushie", "Clutch Plushie", "Specialty Boots", "Milkshake", "Kabunga Coffee", "Specialty Goggles", "Specialty Gloves", "Restrictive Armor", "Restrictive Shield",
-             "Dry Ice", "Virulent Fang"];
+             "Dry Ice", "Virulent Fang", "Clear Lens", "Scrap Metal", "Spare Cable", "Quantum Core", "Power Core", "Freezer Core", "Voltaic Core", "Flame Core"];
 
 for (let ty in types) {
     if (types[ty].otherName != "heavybag") {
@@ -10888,4 +10906,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Season 3 changes added.";
+var changelog = "Gardrone changes added.";
