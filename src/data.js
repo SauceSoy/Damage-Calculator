@@ -5870,6 +5870,18 @@ var moves = {
         mr2: "Ranged Defense"
     },
 
+    gulp: {
+        name: "Gulp",
+        power: 65,
+        energy: 45,
+        accuracy: 100,
+        type: "Water",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        knockOff: true
+    },
+
     strike: {
         name: "Strike",
         power: 40,
@@ -7149,7 +7161,7 @@ var moves = {
 
     flamingKick: {
         name: "Flaming Kick",
-        power: 80,
+        power: 90,
         energy: 40,
         accuracy: 90,
         type: "Fire",
@@ -7176,7 +7188,7 @@ var moves = {
     yetisWrath: {
         name: "Yeti's Wrath",
         power: 120,
-        energy: 90,
+        energy: 60,
         accuracy: 100,
         type: "Earth",
         mr: "Melee",
@@ -7614,17 +7626,6 @@ var moves = {
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-    },goopSpout: {
-        name: "Goop Spout",
-        power: 50,
-        energy: 35,
-        accuracy: 100,
-        type: "Ancient",
-        mr: "Ranged",
-        mr1: "Ranged Attack",
-        mr2: "Ranged Defense",
-        secondaryEffect: true,
-        aoe: true
     },
 
     energyBreak: {
@@ -9407,7 +9408,7 @@ var moves = {
 
     megaKick: {
         name: "Mega Kick",
-        power: 90,
+        power: 100,
         energy: 45,
         accuracy: 90,
         type: "Brawler",
@@ -10099,6 +10100,15 @@ var moves = {
         mr: "Support"
     },
 
+    swiften: {
+        name: "Swiften",
+        power: 0,
+        energy: 40,
+        accuracy: "N/A",
+        type: "Light",
+        mr: "Support"
+    },
+
     memorize: {
         name: "Memorize",
         power: 0,
@@ -10578,7 +10588,7 @@ var types = {
 
     ice: {
         weaknesses: ["fire", "metal", "brawler"],
-        resistances: ["ice", "air"],
+        resistances: ["ice", "air", "simple"],
         immunities: [],
         otherName: "frost"
     },
@@ -10686,7 +10696,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Sky-Borne", "Land-Borne", "Depths-Borne", "All Seeing", "Rain Rush", "Triumph", "Royal Decree", "Thunder Summon", "Recurrent", "Charged Arc","Adaptable", "Heat Summon",
                  "Rain Summon", "Fog Summon", "Wind Summon", "Inferno", "Cosmic Pressure", "Conspire", "Metamorphosis", "Sob", "Wail", "Seize", "Assertive", "Berserk", "Disenchant", "Impose", "Gorge",
                  "Carol", "Fortissimo", "Elusive", "Upper Hand", "Effulgent", "Dummy", "Puncture", "Toxic Sac", "Hover", "Eager", "Reign", "Overclock", "Prowler", "Hotfoot", "Mycotic", "Remorseless",
-                 "Night Light", "Intensify", "Power Claw"];
+                 "Night Light", "Intensify", "Power Claw", "Medic", "Boneheaded"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -10906,4 +10916,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Gardrone changes added.";
+var changelog = "Season 4 changes added.";

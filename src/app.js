@@ -468,11 +468,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -534,8 +534,8 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -667,7 +667,7 @@ function update(updatePower = false, updateBaseStats = false) {
 
     if (abilityDropdown1.value == "Combustible" || abilityDropdown1.value == "Noxious Weeds" || abilityDropdown1.value == "Coursing Venom" || abilityDropdown1.value == "Prismatic" || abilityDropdown1.value == "Toxic Filter" || abilityDropdown1.value == "Boast" ||
         abilityDropdown1.value == "Dauntless" || abilityDropdown1.value == "Terrifying" || abilityDropdown1.value == "Petrifying" || abilityDropdown1.value == "Adorable" || abilityDropdown1.value == "Defensive Priority" || abilityDropdown1.value == "Analyze" ||
-        abilityDropdown1.value == "Sob" || abilityDropdown1.value == "Disenchant") {
+        abilityDropdown1.value == "Sob") {
         immuneAbilityBoost1.style.visibility = "visible";
     }
     else {
@@ -677,7 +677,7 @@ function update(updatePower = false, updateBaseStats = false) {
 
     if (abilityDropdown2.value == "Combustible" || abilityDropdown2.value == "Noxious Weeds" || abilityDropdown2.value == "Coursing Venom" || abilityDropdown2.value == "Prismatic" || abilityDropdown2.value == "Toxic Filter" || abilityDropdown2.value == "Boast" ||
         abilityDropdown2.value == "Dauntless" || abilityDropdown2.value == "Terrifying" || abilityDropdown2.value == "Petrifying" || abilityDropdown2.value == "Adorable" || abilityDropdown2.value == "Defensive Priority" || abilityDropdown2.value == "Analyze" ||
-        abilityDropdown2.value == "Sob" || abilityDropdown2.value == "Disenchant") {
+        abilityDropdown2.value == "Sob") {
         immuneAbilityBoost2.style.visibility = "visible";
     }
     else {
@@ -721,6 +721,8 @@ function addStats() {
 function updateItem(item) {
     let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
     let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
+    let ability1 = abilities.find((x) => x == abilityDropdown1.value);
+    let ability2 = abilities.find((x) => x == abilityDropdown2.value);
     if (item == "item1") {
         if (item1.value == "Thunder Orb" && !firstLoom.types.includes("Electric")) status1.value = "paralasis";
         else if (item1.value == "Volcanic Ash" && !firstLoom.types.includes("Fire")) status1.value = "burned";
@@ -1791,7 +1793,7 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
     //Checking for attack decreasing abilities that are manually checked and adjusts subsequent hits' offensive stat
     if ((ability2 == "Terrifying" || ability2 == "Petrifying" || ability2 == "Adorable") && abilityCheck2) {
         moveMod = 0;
-        if ((ability2 == "Terrifying" && move.mr1 == "Melee Attack" && atk.name == "AttackM") || (ability2 == "Petrifying" && move.mr1 == "Ranged Attack" && atk.name == "AttackR") || (ability2 == "Adorable" && move.mr1 == "Melee Defense" && atk.name == "DefenseM")) moveMod -= 1;
+        if (((ability2 == "Terrifying" && move.mr1 == "Melee Attack" && atk.name == "AttackM") && ability1 != "Confidence") || ((ability2 == "Petrifying" && move.mr1 == "Ranged Attack" && atk.name == "AttackR") && ability1 != "Confidence") || (ability2 == "Adorable" && move.mr1 == "Melee Defense" && atk.name == "DefenseM")) moveMod -= 1;
         if (ability1 == "Staunch" || ability1 == "Anomaly") {
             moveMod = (ability1 == "Anomaly" ? 1 : 0);
             stuffUsed.ability1 = ability1;
@@ -1844,10 +1846,10 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
     }
 
     //Checks for certain defense increasing abilities and adjusts subsequent hits' defensive stat
-    if ((((ability2 == "Resilience" && move.contact) || (ability2 == "Oxidize" && (tempType == "Air" || tempType == "Water"))) && move.mr2 == "Melee Defense" && def.name == "DefenseM") || (ability2 == "Defensive Priority" && abilityCheck2)) {
+    if ((ability2 == "Resilience" && move.mr2 == "Melee Defense" && def.name == "DefenseM") || (ability2 == "Defensive Priority" && abilityCheck2)) {
         defStage = (ability2 == "Defensive Priority" ? Math.min(defStage + 1, 6) : Math.min(defStage + adjustmentCount, 6));
         def.def = (defStage < 0 ? Math.floor(baseDefense * (2 / (2 - defStage))) : Math.floor(baseDefense * ((2 + defStage) / 2)));
-        if (crit && defStage > 0) def.def = baseDefense;
+        if ((crit || move.name == "Vice Jaws") && defStage > 0) def.def = baseDefense;
         if (ability1 == "Designated Chompers" && move.bite && ability2 == "Resilience") {
             def.def = baseDefense;
             if (firstHit) stuffUsed.ability1 = ability1;
@@ -3201,7 +3203,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     let btl1 = (second == false ? enteredBtl2.checked : enteredBtl1.checked);
     let btl2 = (second == false ? enteredBtl1.checked : enteredBtl2.checked);
     let wall = (second == false ? wall2.checked : wall1.checked);
-    let shield = (second == false? shield2.checked : shield1.checked);
+    let shield = (second == false ? shield2.checked : shield1.checked);
     let stat1 = (second == false ? status1.value : status2.value);
     let stat2 = (second == false ? status2.value : status1.value);
     let itemA = (second == false ? item1.value : item2.value);
@@ -3322,6 +3324,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         else return 0;
     }
 
+    if (move.knockOff && !withoutSlapDown && ability2 != "Clingy") itemB = "None"
+
     if (move.name == "Spit Out" && ((itemA.includes("Shell")) || (itemA.includes("Essence")) || (itemA.includes("Pearl")))) {
         if (itemA.includes("Essence")) {
             tempType = itemA.split(" ")[0];
@@ -3378,8 +3382,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     }*/
 
     if (fog.checked) {
-        if (((!loom1.types.includes("Spirit") || !loom1.types.includes("Light")) && loom2.types.includes("Spirit")) && ability1 != "Gloomy" && ability1 != "Adaptable") ability1 = "None";
-        if (((!loom2.types.includes("Spirit") || !loom2.types.includes("Light")) && loom1.types.includes("Spirit")) && ability2 != "Gloomy" && ability2 != "Adaptable") ability2 = "None";
+        if ((!(loom1.types.includes("Spirit") || loom1.types.includes("Light")) && loom2.types.includes("Spirit")) && ability1 != "Gloomy" && ability1 != "Adaptable") ability1 = "None";
+        if ((!(loom2.types.includes("Spirit") || loom2.types.includes("Light")) && loom1.types.includes("Spirit")) && ability2 != "Gloomy" && ability2 != "Adaptable") ability2 = "None";
     }
 
     if (ability1 == "Royal Decree" && tempType == "Electric" && loom2.types.includes("Earth")) stuffUsed.ability1 = ability1;
@@ -3528,7 +3532,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
        (ability1 == "Watcher" && (stats1.spd < stats2.spd || (btl1 && withoutSlapDown))) ||
        (ability1 == "Gloomy" && fog.checked) ||
        (ability1 == "Tumultuous" && winds.checked) ||
-       (ability1 == "Upper Hand" && stats1.spd > stats2.spd)) {
+       (ability1 == "Upper Hand" && Number(stats1.spd) > Number(stats2.spd))) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
@@ -3576,7 +3580,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     if (((move.name == "Gloominous Roar" || move.name == "Gloominous Fangs") && loom1.name == "Tiklipse" && ability1 != "Circadian" && itemA.includes("Light")) ||
        (itemA.includes(tempType) && itemA.includes("Essence")) ||
        (itemA == "Power Cuffs") ||
-       (itemA == "Power Core" && (loom1.name == "Scorb" || loom1.name == "Veylens" || loom1.name == "Gardrone"))) {
+       (itemA == "Power Core" && (loom1.name == "Scorb" || loom1.name == "Veylens" || loom1.name == "Gardrone")) ||
+       ((loom1.name == "Scorb" || loom1.name == "Veylens" || loom1.name == "Gardrone") && itemA == "Flame Core" && tempType == "Fire") ||
+       ((loom1.name == "Scorb" || loom1.name == "Veylens" || loom1.name == "Gardrone") && itemA == "Freezer Core" && tempType == "Ice") ||
+       ((loom1.name == "Scorb" || loom1.name == "Veylens" || loom1.name == "Gardrone") && itemA == "Voltaic Core" && tempType == "Electric")) {
         multi *= 1.2;
         stuffUsed.item1 = itemA;
     }
@@ -3905,7 +3912,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
 
     if (stat1 == "burned" && move.mr == "Melee" && move.name != "Ill Will" && ability1 != "Vigorous" && ability1 != "Aqua Body" && !loom1.types.includes("Fire") && !(adaptive.mr && adaptive.mr == "Ranged") ||
         (stat1 == "freezing" && move.mr == "Ranged" && move.name != "Splitting Headache" && !loom1.types.includes("Ice") && !(adaptive.mr && adaptive.mr == "Melee"))) {
-        multi *= 0.5;
+        multi *= 2/3;
     }
 
     dmg = Math.floor(dmg * multi);
@@ -3913,11 +3920,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
 
     //Other --------------------------------
 
-    if (wall && move.mr == "Melee" && ability1 != "Finesse" && ability1 != "All Seeing" && !(ability1 == "Disenchant" && immuneBoostCheck1) && move.name != "Piercing Drive") {
+    if (wall && move.mr == "Melee" && ability1 != "Finesse" && ability1 != "All Seeing" && ability1 != "Disenchant" && move.name != "Piercing Drive") {
         if (isDouble == false ? multi *= 0.5 : multi *= 2/3);
         stuffUsed.weather += " through Near Enchantment";
     }
-    if (shield && move.mr == "Ranged" && ability1 != "Finesse" && ability1 != "All Seeing" && !(ability1 == "Disenchant" && immuneBoostCheck1)) {
+    if (shield && move.mr == "Ranged" && ability1 != "Finesse" && ability1 != "All Seeing" && ability1 != "Disenchant") {
         if (isDouble == false ? multi *= 0.5 : multi *= 2/3);
         stuffUsed.weather += " through Far Enchantment";
     }
@@ -3927,13 +3934,16 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         stuffUsed.ability1 = ability1;
     }
 
-    if ((ability2 == "Tank" && btl1 && withoutSlapDown && !(icicle && !loom2.types.includes("Ice")) && !(icicleH && !loom2.types.includes("Ice")) && (barbH == 0 || loom2.types.includes("Air")) && !foulHit && !(ability1 == "Puncture" & move.bite)) ||
-        (ability2 == "Elusive" && stat2 != "healthy")) {
+    if ((ability2 == "Tank" && btl1 && withoutSlapDown && !(icicle && !loom2.types.includes("Ice")) && !(icicleH && !loom2.types.includes("Ice")) && (barbH == 0 || loom2.types.includes("Air")) && !foulHit && !(ability1 == "Puncture" & move.bite))) {
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
+    if (ability2 == "Elusive" && stat2 != "healthy") {
+        multi *= 2/3;
+        stuffUsed.ability2 = ability2;
+    }
     if ((ability2 == "Seize" && move.pivot) ||
-        (ability2 == "Mesmerizing" && (move.priority || (ability1 == "Foresight" && tempType == "Mind" && stats1.hpPercent > 49) || (ability1 == "Wildfire" && tempType == "Fire" && stats1.hpPercent > 49) || (move.name == "Adaptive Assault" && tempType == "Simple"))) ||
+        (ability2 == "Mesmerizing" && (move.priority || (ability1 == "Foresight" && tempType == "Mind" && stats1.hpPercent == 100) || (ability1 == "Wildfire" && tempType == "Fire" && stats1.hpPercent == 100) || (move.name == "Adaptive Assault" && tempType == "Simple"))) ||
         ((ability2 == "Fortissimo" || ability2 == "Reverberate") && move.sound)) {
         multi *= 0;
         stuffUsed.ability2 = ability2;
@@ -4468,7 +4478,7 @@ function checkIceTrap(move, l, u, hp, energy, item, ability, ability2) {
         return " (" + (drainL / hp * 100).toFixed(1) + " - " + (drainU / hp * 100).toFixed(1) + "% recovered)";
     }
     if (move.recoil) {
-        if (ability == "Mysterious Cloak") return "";
+        if (ability == "Mysterious Cloak" || ability == "Boneheaded") return "";
         let recoilL = Math.max(Math.floor(l * move.recoil), 1);
         let recoilU = Math.max(Math.floor(u * move.recoil), 1);
         if (l == 0 && u == 0) return "";
