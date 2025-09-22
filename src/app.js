@@ -468,11 +468,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -534,8 +534,8 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -724,12 +724,28 @@ function updateItem(item) {
     let ability1 = abilities.find((x) => x == abilityDropdown1.value);
     let ability2 = abilities.find((x) => x == abilityDropdown2.value);
     if (item == "item1") {
+        if (item1.value == "Rain Globe") rain.checked = true;
+        else if (item1.value == "Gust Globe") winds.checked = true;
+        else if (item1.value == "Fog Globe") fog.checked = true;
+        else if (item1.value == "Heat Globe") heat.checked = true;
+        else if (item1.value == "Storm Globe") storm.checked = true;
+        else noWeather.checked = true;
+        if (ability1 == "Cosmic Pressure" || ability2 == "Cosmic Pressure") noWeather.checked = true;
+
         if (item1.value == "Thunder Orb" && !firstLoom.types.includes("Electric")) status1.value = "paralasis";
         else if (item1.value == "Volcanic Ash" && !firstLoom.types.includes("Fire")) status1.value = "burned";
         else if (item1.value == "Dry Ice" && !firstLoom.types.includes("Ice")) status1.value = "freezing";
         else if (item1.value == "Virulent Fang" && !firstLoom.types.includes("Toxic")) status1.value = "diseased";
         else status1.value = "healthy";
     } else if (item == "item2") {
+        if (item2.value == "Rain Globe") rain.checked = true;
+        else if (item2.value == "Gust Globe") winds.checked = true;
+        else if (item2.value == "Fog Globe") fog.checked = true;
+        else if (item2.value == "Heat Globe") heat.checked = true;
+        else if (item2.value == "Storm Globe") storm.checked = true;
+        else noWeather.checked = true;
+        if (ability1 == "Cosmic Pressure" || ability2 == "Cosmic Pressure") noWeather.checked = true;
+
         if (item2.value == "Thunder Orb" && !secondLoom.types.includes("Electric")) status2.value = "paralasis";
         else if (item2.value == "Volcanic Ash" && !secondLoom.types.includes("Fire")) status2.value = "burned";
         else if (item2.value == "Dry Ice" && !secondLoom.types.includes("Ice")) status2.value = "freezing";
