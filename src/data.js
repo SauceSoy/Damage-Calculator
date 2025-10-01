@@ -10900,8 +10900,8 @@ var typeModAbilities = {
 
 var items = ["Heavy Shield", "Heavy Armor", "Power Cuffs", "Health Amulet", "Drain Orb", "Mystic Wand", "Drop of Youth", "Energy Orb", "Chocolate Bar", "Mysterious Dust", "Heavy Shackles", "Thunder Orb",
              "Volcanic Ash", "Rageful Plushie", "Clutch Plushie", "Specialty Boots", "Milkshake", "Kabunga Coffee", "Specialty Goggles", "Specialty Gloves", "Restrictive Armor", "Restrictive Shield",
-             "Dry Ice", "Virulent Fang", "Clear Lens", "Scrap Metal", "Spare Cable", "Quantum Core", "Power Core", "Freezer Core", "Voltaic Core", "Flame Core", "Rain Globe", "Gust Globe", "Fog Globe",
-             "Heat Globe", "Storm Globe", "Rain Scale", "Gust Scale", "Fog Scale", "Heat Scale", "Storm Scale"];
+             "Dry Ice", "Virulent Fang", "Clear Lens", "Scrap Metal", "Spare Cable", "Quantum Core", "Power Core", "Freezer Core", "Voltaic Core", "Flame Core", "Rain Globe", "Wind Globe", "Fog Globe",
+             "Heat Globe", "Storm Globe", "Rain Scale", "Wind Scale", "Fog Scale", "Heat Scale", "Storm Scale"];
 
 for (let ty in types) {
     if (types[ty].otherName != "heavybag") {

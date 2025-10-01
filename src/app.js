@@ -729,7 +729,6 @@ function updateItem(item) {
         else if (item1.value == "Fog Globe") fog.checked = true;
         else if (item1.value == "Heat Globe") heat.checked = true;
         else if (item1.value == "Storm Globe") storm.checked = true;
-        else noWeather.checked = true;
         if (ability1 == "Cosmic Pressure" || ability2 == "Cosmic Pressure") noWeather.checked = true;
 
         if (item1.value == "Thunder Orb" && !firstLoom.types.includes("Electric")) status1.value = "paralasis";
@@ -743,7 +742,6 @@ function updateItem(item) {
         else if (item2.value == "Fog Globe") fog.checked = true;
         else if (item2.value == "Heat Globe") heat.checked = true;
         else if (item2.value == "Storm Globe") storm.checked = true;
-        else noWeather.checked = true;
         if (ability1 == "Cosmic Pressure" || ability2 == "Cosmic Pressure") noWeather.checked = true;
 
         if (item2.value == "Thunder Orb" && !secondLoom.types.includes("Electric")) status2.value = "paralasis";
