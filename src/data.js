@@ -1433,7 +1433,6 @@ var loomians = {
 
     'krakaloa-lavafiend': {
         name: "Krakaloa-Lavafiend",
-        number: 64,
         types: ["Fire", "Spirit"],
         soulMove: "Eruption",
         ability: "Heat Summon",
@@ -3807,10 +3806,7 @@ var loomians = {
 
     impkin: {
         name: "Impkin",
-        number: 140,
         types: ["Dark"],
-        abilities: ["Resentful", "Devious"],
-        sAbility: ["Handy"],
         weight: 15,
         height: 28,
         finalEvo: false,
@@ -3827,10 +3823,7 @@ var loomians = {
 
     grimmick: {
         name: "Grimmick",
-        number: 140,
         types: ["Dark"],
-        abilities: ["Resentful", "Devious"],
-        sAbility: ["Handy"],
         weight: 31,
         height: 52,
         finalEvo: false,
@@ -3847,10 +3840,7 @@ var loomians = {
 
     imperior: {
         name: "Imperior",
-        number: 140,
         types: ["Dark"],
-        abilities: ["Resentful", "Devious"],
-        sAbility: ["Handy"],
         weight: 66,
         height: 77,
         baseStats: {
@@ -3861,6 +3851,25 @@ var loomians = {
             attackR: 115,
             defenseR: 57,
             speed: 100
+        }
+    },
+
+    'imperior-archfiend': {
+        name: "Imperior-Archfiend",
+        types: ["Dark"],
+        soulMove: "Last Laugh",
+        ability: "Ace",
+        item: "Imperiburst",
+        weight: 66,
+        height: 77,
+        baseStats: {
+            hp: 97,
+            energy: 91,
+            attack: 133,
+            defense: 52,
+            attackR: 140,
+            defenseR: 47,
+            speed: 110
         }
     },
 
@@ -6636,6 +6645,18 @@ var moves = {
         sound: true
     },
 
+    lastLaugh: {
+        name: "Last Laugh",
+        power: 100,
+        energy: 0,
+        accuracy: "N/A",
+        type: "Dark",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true,
+    },
+
     aggravate: {
         name: "Aggravate",
         power: 30,
@@ -6909,6 +6930,18 @@ var moves = {
         contact: true,
         bite: true,
         drain: 1/2
+    },
+
+    savageHorn: {
+        name: "Savage Horn",
+        power: 120,
+        energy: 60,
+        accuracy: 85,
+        type: "Bug",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
     },
 
     counterPoise: {
@@ -8928,6 +8961,18 @@ var moves = {
         secondaryEffect: true
     },
 
+    vitalSurge: {
+        name: "Vital Surge",
+        power: 110,
+        energy: 55,
+        accuracy: 80,
+        type: "Brawler",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
+    },
+
     banefulBash: {
         name: "Baneful Bash",
         power: 85,
@@ -10917,4 +10962,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Season 4 changes added (weather items included this time).";
+var changelog = "Archfiend Imperior added.";

@@ -468,11 +468,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -534,8 +534,8 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -725,7 +725,7 @@ function updateItem(item) {
     let ability2 = abilities.find((x) => x == abilityDropdown2.value);
     if (item == "item1") {
         if (item1.value == "Rain Globe") rain.checked = true;
-        else if (item1.value == "Gust Globe") winds.checked = true;
+        else if (item1.value == "Wind Globe") winds.checked = true;
         else if (item1.value == "Fog Globe") fog.checked = true;
         else if (item1.value == "Heat Globe") heat.checked = true;
         else if (item1.value == "Storm Globe") storm.checked = true;
@@ -738,7 +738,7 @@ function updateItem(item) {
         else status1.value = "healthy";
     } else if (item == "item2") {
         if (item2.value == "Rain Globe") rain.checked = true;
-        else if (item2.value == "Gust Globe") winds.checked = true;
+        else if (item2.value == "Wind Globe") winds.checked = true;
         else if (item2.value == "Fog Globe") fog.checked = true;
         else if (item2.value == "Heat Globe") heat.checked = true;
         else if (item2.value == "Storm Globe") storm.checked = true;
@@ -2648,13 +2648,13 @@ function detailedReport() {
     let adaptiveResult;
     let atkDef;
     if ((move.name == "Adaptive Assault") && (firstLoom.baseStats.attackR > firstLoom.baseStats.attack) || (firstLoom.name == "Hydrolen" && atks.ranged > atks.melee) ||
-       (move.name == "Expert Onslaught" && atks.ranged > atks.melee) ) {
+       ((move.name == "Expert Onslaught" || move.name == "Last Laugh") && atks.ranged >= atks.melee) ) {
         adaptive.mr = "Ranged";
         adaptive.mr1 = "Ranged Attack";
         adaptive.mr2 = "Ranged Defense";
         adaptiveResult = "ranged";
         atkDef = getTempAtkDef(second, adaptive);
-    } else if (move.name == "Expert Onslaught" && atks.melee >= atks.ranged){
+    } else if ((move.name == "Expert Onslaught" || move.name == "Last Laugh") && atks.melee > atks.ranged){
         adaptive.mr = "Melee";
         adaptive.mr1 = "Melee Attack";
         adaptive.mr2 = "Melee Defense";
@@ -2679,7 +2679,7 @@ function detailedReport() {
     }
 
     //tempAtk
-    if ((move.mr1 == "Ranged Attack" && move.name != "Expert Onslaught") || (adaptiveResult == "ranged")) {
+    if ((move.mr1 == "Ranged Attack" && move.name != "Expert Onslaught" && move.name != "Last Laugh") || (adaptiveResult == "ranged")) {
         if ((playerAbility == "Festive Spirit" && atkDef.attack.posNat == "hyper") || (playerAbility == "Festive Spirit" && atkDef.attack.negNat == "hyper")) {
             atkPlus = "+";
         }
@@ -2850,7 +2850,7 @@ function detailedReport() {
             tempDef = tempDef + atkEV2.value + " " + defPlus + "AtkM";           
         } 
     }
-    else if ((move.mr2 == "Ranged Defense" && move.name != "Expert Onslaught") || (adaptiveResult == "ranged")) {
+    else if ((move.mr2 == "Ranged Defense" && move.name != "Expert Onslaught" && move.name != "Last Laugh") || (adaptiveResult == "ranged")) {
         if (atkDef.defense.posNat == "clever" || atkDef.defense.negNat == "clever") {
             defPlus = "+";
         }
@@ -3277,6 +3277,17 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         }
         tempStats = getTempAtkDef(second, adaptive);
         stuffUsed.extra1 += " (" + tempType + " " + tempPower + " BP)";
+    } else if (move.name == "Last Laugh") {
+        if (stats1.atkR > stats1.atk) {
+            adaptive.mr = "Ranged";
+            adaptive.mr1 = "Ranged Attack";
+            adaptive.mr2 = "Ranged Defense";
+        } else {
+            adaptive.mr = "Melee";
+            adaptive.mr1 = "Melee Attack";
+            adaptive.mr2 = "Melee Defense";
+        }
+        tempStats = getTempAtkDef(second, adaptive);
     } else tempStats = getTempAtkDef(second, move);
     tempAtk = tempStats.attack;
     tempDef = tempStats.defense;
@@ -3518,7 +3529,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         let chanting = Math.min((1 + 0.1 * (repeat)), 1.4);
         multi *= chanting;
         stuffUsed.ability1 = ability1;
-        stuffUsed.extra1 += " (" + Math.round(tempPower * chanting) + " BP)";
+        stuffUsed.extra1 += " (" + Math.min(repeat, 4) + " fainted)";
     }
 
     if ((ability1 == "Combustible" || ability1 == "Coursing Venom" || ability1 == "Noxious Weeds" || ability1 == "Prismatic") && immuneBoostCheck1) {
@@ -3667,7 +3678,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         stuffUsed.extra1 += " (Enemy Night Light)";
     }
 
-    if ((rain.checked && tempType == "Water") || (heat.checked && tempType == "Fire")) {
+    if ((rain.checked && tempType == "Water") || (heat.checked && (tempType == "Fire"/* || move.name == "Geyser"*/))) {
         multi *= 1.3;
     }
 
@@ -3675,7 +3686,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         multi *= 1.25;
     }
 
-    if ((rain.checked && tempType == "Fire") || (heat.checked && tempType == "Water")) {
+    if ((rain.checked && tempType == "Fire") || (heat.checked && tempType == "Water"/* && move.name != "Geyser"*/)) {
         multi *= 0.7;
     }
 
