@@ -3278,7 +3278,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         tempStats = getTempAtkDef(second, adaptive);
         stuffUsed.extra1 += " (" + tempType + " " + tempPower + " BP)";
     } else if (move.name == "Last Laugh") {
-        if (stats1.atkR > stats1.atk) {
+        if (stats1.atkR >= stats1.atk) {
             adaptive.mr = "Ranged";
             adaptive.mr1 = "Ranged Attack";
             adaptive.mr2 = "Ranged Defense";
