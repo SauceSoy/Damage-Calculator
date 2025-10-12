@@ -6642,7 +6642,8 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         secondaryEffect: true,
-        sound: true
+        sound: true,
+        aoe: true
     },
 
     lastLaugh: {

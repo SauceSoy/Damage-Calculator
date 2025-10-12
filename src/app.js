@@ -3946,11 +3946,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     //Other --------------------------------
 
     if (wall && move.mr == "Melee" && ability1 != "Finesse" && ability1 != "All Seeing" && ability1 != "Disenchant" && move.name != "Piercing Drive") {
-        if (isDouble == false ? multi *= 0.5 : multi *= 2/3);
+        /*if (isDouble == false ? multi *= 0.5 : multi *= 2/3)*/ multi *= 0.5;
         stuffUsed.weather += " through Near Enchantment";
     }
     if (shield && move.mr == "Ranged" && ability1 != "Finesse" && ability1 != "All Seeing" && ability1 != "Disenchant") {
-        if (isDouble == false ? multi *= 0.5 : multi *= 2/3);
+        /*if (isDouble == false ? multi *= 0.5 : multi *= 2/3)*/ multi *= 0.5;
         stuffUsed.weather += " through Far Enchantment";
     }
 
