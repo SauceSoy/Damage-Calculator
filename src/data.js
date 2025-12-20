@@ -4519,6 +4519,25 @@ var loomians = {
         }
     },
 
+    'kramboss-frostshackled': {
+        name: "Kramboss-Frostshackled",
+        types: ["Ice", "Dark"],
+        soulMove: "Ruthless Feast",
+        ability: "Metallic",
+        item: "Kramburst",
+        weight: 130,
+        height: 81,
+        baseStats: {
+            hp: 99,
+            energy: 88,
+            attack: 130,
+            defense: 101,
+            attackR: 66,
+            defenseR: 96,
+            speed: 100
+        }
+    },
+
     leopaw: {
         name: "Leopaw",
         types: ["Light", "Ice"],
@@ -7320,6 +7339,18 @@ var moves = {
         priority: true
     },
 
+    /*hahaFog: {
+        name: "Haha Fog",
+        power: 125,
+        energy: 60,
+        accuracy: 100,
+        type: "Spirit",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+    },*/
+
     airBlade: {
         name: "Air Blade",
         power: 70,
@@ -8024,6 +8055,19 @@ var moves = {
         contact: true,
         slash: true,
         hits: 2
+    },
+
+    ruthlessFeast: {
+        name: "Ruthless Feast",
+        power: 35,
+        energy: 0,
+        accuracy: "N/A",
+        type: "Metal",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        hits: 3
     },
 
     clamp: {
@@ -10742,7 +10786,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Sky-Borne", "Land-Borne", "Depths-Borne", "All Seeing", "Rain Rush", "Triumph", "Royal Decree", "Thunder Summon", "Recurrent", "Charged Arc","Adaptable", "Heat Summon",
                  "Rain Summon", "Fog Summon", "Wind Summon", "Inferno", "Cosmic Pressure", "Conspire", "Metamorphosis", "Sob", "Wail", "Seize", "Assertive", "Berserk", "Disenchant", "Impose", "Gorge",
                  "Carol", "Fortissimo", "Elusive", "Upper Hand", "Effulgent", "Dummy", "Puncture", "Toxic Sac", "Hover", "Eager", "Reign", "Overclock", "Prowler", "Hotfoot", "Mycotic", "Remorseless",
-                 "Night Light", "Intensify", "Power Claw", "Medic", "Boneheaded"];
+                 "Night Light", "Intensify", "Power Claw", "Medic", "Boneheaded", "Metallic"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -10963,4 +11007,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Archfiend Imperior added.";
+var changelog = "Frostshackled Kramboss added.";
