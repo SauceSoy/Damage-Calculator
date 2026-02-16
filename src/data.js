@@ -1,10 +1,7 @@
 var loomians = {
     embit: {
         name: "Embit",
-        number: 01,
         types: ["Fire"],
-        abilities: ["Awakening"],
-        sAbility: ["Terrifying"],
         finalEvo: false,
         weight: 20,
         height: 33,
@@ -21,10 +18,7 @@ var loomians = {
  
     rabburn: {
         name: "Rabburn",
-        number: 02,
         types: ["Fire"],
-        abilities: ["Awakening"],
-        sAbility: ["Terrifying"],
         finalEvo: false,
         weight: 39,
         height: 59,
@@ -41,10 +35,7 @@ var loomians = {
  
     searknight: {
         name: "Searknight",
-        number: 03,
         types: ["Fire", "Metal"],
-        abilities: ["Awakening"],
-        sAbility: ["Terrifying"],
         weight: 98,
         height: 82,
         baseStats: {
@@ -60,10 +51,7 @@ var loomians = {
  
     dripple: {
         name: "Dripple",
-        number: 04,
         types: ["Water"],
-        abilities: ["Awakening"],
-        sAbility: ["Power Napper"],
         finalEvo: false,
         weight: 17,
         height: 30,
@@ -80,10 +68,7 @@ var loomians = {
  
     reptide: {
         name: "Reptide",
-        number: 05,
         types: ["Water"],
-        abilities: ["Awakening"],
-        sAbility: ["Power Napper"],
         finalEvo: false,
         weight: 35,
         height: 42,
@@ -100,10 +85,7 @@ var loomians = {
  
     luminami: {
         name: "Luminami",
-        number: 06,
         types: ["Water", "Light"],
-        abilities: ["Awakening"],
-        sAbility: ["Power Napper"],
         weight: 91,
         height: 63,
         baseStats: {
@@ -119,10 +101,7 @@ var loomians = {
  
     fevine: {
         name: "Fevine",
-        number: 07,
         types: ["Plant"],
-        abilities: ["Awakening"],
-        sAbility: ["Thriving Pace"],
         finalEvo: false,
         weight: 15,
         height: 28,
@@ -132,17 +111,14 @@ var loomians = {
             attack: 71,
             defense: 44,
             attackR: 50,
-            defenseR: 35,
+            defenseR: 36,
             speed: 64
         }
     },
  
     felver: {
         name: "Felver",
-        number: 08,
         types: ["Plant"],
-        abilities: ["Awakening"],
-        sAbility: ["Thriving Pace"],
         finalEvo: false,
         weight: 37,
         height: 46,
@@ -159,10 +135,7 @@ var loomians = {
  
     tahtab: {
         name: "Tahtab",
-        number: 09,
         types: ["Plant", "Brawler"],
-        abilities: ["Awakening"],
-        sAbility: ["Thriving Pace"],
         weight: 74,
         height: 64,
         baseStats: {
@@ -178,10 +151,7 @@ var loomians = {
  
     eaglit: {
         name: "Eaglit",
-        number: 10,
         types: ["Light"],
-        abilities: ["Awakening"],
-        sAbility: ["Applied Frustration"],
         finalEvo: false,
         weight: 17,
         heigth: 29,
@@ -198,10 +168,7 @@ var loomians = {
  
     torprey: {
         name: "Torprey",
-        number: 11,
         types: ["Light"],
-        abilities: ["Awakening"],
-        sAbility: ["Applied Frustration"],
         finalEvo: false,
         weight: 25,
         height: 52,
@@ -218,10 +185,7 @@ var loomians = {
  
     falkyrie: {
         name: "Falkyrie",
-        number: 12,
         types: ["Light", "Metal"],
-        abilities: ["Awakening"],
-        sAbility: ["Applied Frustration"],
         weight: 80,
         height: 77,
         baseStats: {
@@ -237,10 +201,7 @@ var loomians = {
  
     vambat: {
         name: "Vambat",
-        number: 13,
         types: ["Dark"],
-        abilities: ["Awakening"],
-        sAbility: ["Sharp Claws"],
         finalEvo: false,
         weight: 8,
         height: 26,
@@ -257,10 +218,7 @@ var loomians = {
  
     dimpire: {
         name: "Dimpire",
-        number: 14,
         types: ["Dark"],
-        abilities: ["Awakening"],
-        sAbility: ["Sharp Claws"],
         finalEvo: false,
         weight: 30,
         height: 61,
@@ -277,10 +235,7 @@ var loomians = {
  
     vesperatu: {
         name: "Vesperatu",
-        number: 15,
         types: ["Dark", "Spirit"],
-        abilities: ["Awakening"],
-        sAbility: ["Sharp Claws"],
         weight: 65,
         height: 80,
         baseStats: {
@@ -296,10 +251,7 @@ var loomians = {
  
     snocub: {
         name: "Snocub",
-        number: 16,
         types: ["Ice"],
-        abilities: ["Awakening"],
-        sAbility: ["Staunch"],
         finalEvo: false,
         weight: 6,
         height: 19,
@@ -316,10 +268,7 @@ var loomians = {
  
     snowki: {
         name: "Snowki",
-        number: 17,
         types: ["Ice"],
-        abilities: ["Awakening"],
-        sAbility: ["Staunch"],
         finalEvo: false,
         weight: 35,
         height: 57,
@@ -336,10 +285,7 @@ var loomians = {
  
     himbrr: {
         name: "Himbrr",
-        number: 18,
         types: ["Ice", "Earth"],
-        abilities: ["Awakening"],
-        sAbility: ["Staunch"],
         weight: 108,
         height: 92,
         baseStats: {
@@ -355,10 +301,7 @@ var loomians = {
  
      weevolt: {
         name: "Weevolt",
-        number: 19,
         types: ["Electric"],
-        abilities: ["Awakening"],
-        sAbility: ["Brute Force"],
         finalEvo: false,
         weight: 14,
         height: 27,
@@ -375,10 +318,7 @@ var loomians = {
  
     stozap: {
         name: "Stozap",
-        number: 20,
         types: ["Electric"],
-        abilities: ["Awakening"],
-        sAbility: ["Brute Force"],
         finalEvo: false,
         weight: 33,
         height: 49,
@@ -395,10 +335,7 @@ var loomians = {
  
     zuelong: {
         name: "Zuelong",
-        number: 21,
         types: ["Electric", "Ancient"],
-        abilities: ["Awakening"],
-        sAbility: ["Brute Force"],
         weight: 59,
         height: 87,
         baseStats: {
@@ -5199,6 +5136,38 @@ var loomians = {
         }
     },
 
+    terracolt: {
+        name: "Terracolt",
+        types: ["Fire", "Earth"],
+        weight: 40,
+        height: 42,
+        finalEvo: false,
+        baseStats: {
+            hp: 57,
+            energy: 71,
+            attack: 73,
+            defense: 68,
+            attackR: 46,
+            defenseR: 42,
+            speed: 68
+        }
+    },
+
+    broncotta: {
+        name: "Broncotta",
+        types: ["Fire", "Earth"],
+        weight: 158,
+        height: 80,
+        baseStats: {
+            hp: 98,
+            energy: 82,
+            attack: 107,
+            defense: 87,
+            attackR: 58,
+            defenseR: 61,
+            speed: 102
+        }
+    },
  
     duskit: {
         name: "Duskit",
@@ -6575,6 +6544,7 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
+        kick: true
     },
 
     airWhip: {
@@ -7222,7 +7192,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        secondaryEffect: true
+        secondaryEffect: true,
+        kick: true
     },
 
     boilingPress: {
@@ -7584,6 +7555,19 @@ var moves = {
         mr2: "Melee Defense",
         aoe: true,
         grounded: true,
+    },
+
+    capriole: {
+        name: "Capriole",
+        power: 105,
+        energy: 52,
+        accuracy: 90,
+        type: "Earth",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        kick: true
     },
 
     fireBreath: {
@@ -8249,7 +8233,8 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true,
-        slap: true
+        slap: true,
+        kick: true
     },
 
     undermine: {
@@ -9003,7 +8988,8 @@ var moves = {
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        secondaryEffect: true
+        secondaryEffect: true,
+        kick: true
     },
 
     vitalSurge: {
@@ -9505,7 +9491,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true
+        contact: true,
+        kick: true
     },
 
     highPitchScreech: {
@@ -10786,7 +10773,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Sky-Borne", "Land-Borne", "Depths-Borne", "All Seeing", "Rain Rush", "Triumph", "Royal Decree", "Thunder Summon", "Recurrent", "Charged Arc","Adaptable", "Heat Summon",
                  "Rain Summon", "Fog Summon", "Wind Summon", "Inferno", "Cosmic Pressure", "Conspire", "Metamorphosis", "Sob", "Wail", "Seize", "Assertive", "Berserk", "Disenchant", "Impose", "Gorge",
                  "Carol", "Fortissimo", "Elusive", "Upper Hand", "Effulgent", "Dummy", "Puncture", "Toxic Sac", "Hover", "Eager", "Reign", "Overclock", "Prowler", "Hotfoot", "Mycotic", "Remorseless",
-                 "Night Light", "Intensify", "Power Claw", "Medic", "Boneheaded", "Metallic"];
+                 "Night Light", "Intensify", "Power Claw", "Medic", "Boneheaded", "Metallic", "Power Legs"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -11007,4 +10994,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Frostshackled Kramboss added.";
+var changelog = "Terracolt line added.";

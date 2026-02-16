@@ -468,11 +468,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -534,14 +534,14 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
-        document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
+        document.cookie = "darkMode=true; expires=Mon, 1 Jan 2027 12:00:00 UTC"
     }
     else {
-        document.cookie = "darkMode=false; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+        document.cookie = "darkMode=false; expires=Mon, 1 Jan 2027 12:00:00 UTC";
     }
 }
 
@@ -2016,6 +2016,11 @@ function checkEnergy(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTw
             if (moves1[i].slash) movesEnergy1[i] = movesEnergy1[i] * 1.1;
         }
     }
+    else if (ability1 == "Power Legs") {
+        for (let i = 0; i < 4; i++) {
+            if (moves1[i].kick) movesEnergy1[i] = movesEnergy1[i] * 1.1;
+        }
+    }
     else if (ability1 == "Sharp Focus") {
         for (let i = 0; i < 4; i++) {
             if (moves1[i].accuracy != 100 && moves1[i].accuracy != "N/A") {
@@ -2152,6 +2157,11 @@ function checkEnergy(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTw
     else if (ability2 == "Power Claw") {
         for (let i = 0; i < 4; i++) {
             if (moves2[i].slash) movesEnergy2[i] = movesEnergy2[i] * 1.1;
+        }
+    }
+    else if (ability2 == "Power Legs") {
+        for (let i = 0; i < 4; i++) {
+            if (moves2[i].kick) movesEnergy2[i] = movesEnergy2[i] * 1.1;
         }
     }
     else if (ability2 == "Sharp Focus") {
@@ -2296,6 +2306,11 @@ function checkEnergy(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTw
     else if (abilityBP == "Power Claw") {
         for (let i = 0; i < 4; i++) {
             if (moves3[i].slash) movesBPEnergy[i] = movesBPEnergy[i] * 1.1;
+        }
+    }
+    else if (abilityBP == "Power Legs") {
+        for (let i = 0; i < 4; i++) {
+            if (moves3[i].kick) movesBPEnergy[i] = movesBPEnergy[i] * 1.1;
         }
     }
     else if (abilityBP == "Sharp Focus") {
@@ -3557,10 +3572,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         stuffUsed.ability1 = ability1;
     }
 
+    console.log(stats1.spd,stats2.spd);
+
     if ((ability1 == "Sharp Claws" && move.contact == true) || 
        (ability1 == "Brute Force" && move.secondaryEffect == true) ||
        (ability1 == "Overcharged" && tempType == "Electric") ||
-       (ability1 == "Watcher" && (stats1.spd < stats2.spd || (btl1 && withoutSlapDown))) ||
+       (ability1 == "Watcher" && ((Number(stats1.spd) < Number(stats2.spd)) || (btl1 && withoutSlapDown))) ||
        (ability1 == "Gloomy" && fog.checked) ||
        (ability1 == "Tumultuous" && winds.checked) ||
        (ability1 == "Upper Hand" && Number(stats1.spd) > Number(stats2.spd))) {
@@ -3570,6 +3587,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
 
     if ((ability1 == "Power Jaw" && move.bite == true) ||
        (ability1 == "Power Claw" && move.slash) ||
+       (ability1 == "Power Legs" && move.kick) ||
        (ability1 == "Heavy Fists" && (move.punch == true || move.slap == true)) ||
        (ability1 == "Guru" && tempPower <= 70 && powerCheck <= 70) ||
        (ability1 == "High Explosive" && move.bomb == true)) {
