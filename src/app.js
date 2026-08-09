@@ -377,6 +377,7 @@ let spd2;
 let tempAbility2;
 
 let adjustmentCount = 0;
+let energyCount = 0;
 let getTempStats1;
 let getTempStats2;
 
@@ -2434,65 +2435,65 @@ function calculateDamage(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, mo
     let snowballThree2 = moveThreeSnowball2.value;
     let snowballFour2 = moveFourSnowball2.value;
 
-    let dmgMoveOneU1 = getMultiplier(firstLoom, secondLoom, moveOne1, moveOnePower1.value, critOne1, repeat1, hitsOne1, swarmOne1, snowballOne1, false, level1.value);
-    let dmgMoveOneL1 = getMultiplier(firstLoom, secondLoom, moveOne1, moveOnePower1.value, critOne1, repeat1, hitsOne1, swarmOne1, snowballOne1, false, level1.value, true);
+    let dmgMoveOneU1 = getMultiplier(firstLoom, secondLoom, moveOne1, moveOnePower1.value, moveOneEnergy1.value, critOne1, repeat1, hitsOne1, swarmOne1, snowballOne1, false, level1.value);
+    let dmgMoveOneL1 = getMultiplier(firstLoom, secondLoom, moveOne1, moveOnePower1.value, moveOneEnergy1.value, critOne1, repeat1, hitsOne1, swarmOne1, snowballOne1, false, level1.value, true);
     let dmgMoveOnePercent1 = (dmgMoveOneL1 / hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveOneU1 / hp2 * 100).toFixed(1).toString() + "%";
 
     moveOneDmg1.innerHTML = dmgMoveOnePercent1 + checkIceTrap(moveOne1, Math.min(dmgMoveOneL1, hp2), Math.min(dmgMoveOneU1, hp2), hp1, energy1, itemA, ability1, ability2);
 
-    let dmgMoveTwoU1 = getMultiplier(firstLoom, secondLoom, moveTwo1, moveTwoPower1.value, critTwo1, repeat1, hitsTwo1, swarmTwo1, snowballTwo1, false, level1.value);
-    let dmgMoveTwoL1 = getMultiplier(firstLoom, secondLoom, moveTwo1, moveTwoPower1.value, critTwo1, repeat1, hitsTwo1, swarmTwo1, snowballTwo1, false, level1.value, true);
+    let dmgMoveTwoU1 = getMultiplier(firstLoom, secondLoom, moveTwo1, moveTwoPower1.value, moveTwoEnergy1.value, critTwo1, repeat1, hitsTwo1, swarmTwo1, snowballTwo1, false, level1.value);
+    let dmgMoveTwoL1 = getMultiplier(firstLoom, secondLoom, moveTwo1, moveTwoPower1.value, moveTwoEnergy1.value, critTwo1, repeat1, hitsTwo1, swarmTwo1, snowballTwo1, false, level1.value, true);
     let dmgMoveTwoPercent1 = (dmgMoveTwoL1 / hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveTwoU1 / hp2 * 100).toFixed(1).toString() + "%";
 
     moveTwoDmg1.innerHTML = dmgMoveTwoPercent1 + checkIceTrap(moveTwo1, Math.min(dmgMoveTwoL1, hp2), Math.min(dmgMoveTwoU1, hp2), hp1, energy1, itemA, ability1, ability2, ability2);
 
-    let dmgMoveThreeU1 = getMultiplier(firstLoom, secondLoom, moveThree1, moveThreePower1.value, critThree1, repeat1, hitsThree1, swarmThree1, snowballThree1, false, level1.value);
-    let dmgMoveThreeL1 = getMultiplier(firstLoom, secondLoom, moveThree1, moveThreePower1.value, critThree1, repeat1, hitsThree1, swarmThree1, snowballThree1, false, level1.value, true);
+    let dmgMoveThreeU1 = getMultiplier(firstLoom, secondLoom, moveThree1, moveThreePower1.value, moveThreeEnergy1.value, critThree1, repeat1, hitsThree1, swarmThree1, snowballThree1, false, level1.value);
+    let dmgMoveThreeL1 = getMultiplier(firstLoom, secondLoom, moveThree1, moveThreePower1.value, moveThreeEnergy1.value, critThree1, repeat1, hitsThree1, swarmThree1, snowballThree1, false, level1.value, true);
     let dmgMoveThreePercent1 = (dmgMoveThreeL1 / hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveThreeU1 / hp2 * 100).toFixed(1).toString() + "%";
 
     moveThreeDmg1.innerHTML = dmgMoveThreePercent1 + checkIceTrap(moveThree1, Math.min(dmgMoveThreeL1, hp2), Math.min(dmgMoveThreeU1, hp2), hp1, energy1, itemA, ability1, ability2);
 
-    let dmgMoveFourU1 = getMultiplier(firstLoom, secondLoom, moveFour1, moveFourPower1.value, critFour1, repeat1, hitsFour1, swarmFour1, snowballFour1, false, level1.value);
-    let dmgMoveFourL1 = getMultiplier(firstLoom, secondLoom, moveFour1, moveFourPower1.value, critFour1, repeat1, hitsFour1, swarmFour1, snowballFour1, false, level1.value, true);
+    let dmgMoveFourU1 = getMultiplier(firstLoom, secondLoom, moveFour1, moveFourPower1.value, moveFourEnergy1.value, critFour1, repeat1, hitsFour1, swarmFour1, snowballFour1, false, level1.value);
+    let dmgMoveFourL1 = getMultiplier(firstLoom, secondLoom, moveFour1, moveFourPower1.value, moveFourEnergy1.value, critFour1, repeat1, hitsFour1, swarmFour1, snowballFour1, false, level1.value, true);
     let dmgMoveFourPercent1 = (dmgMoveFourL1 / hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveFourU1 / hp2 * 100).toFixed(1).toString() + "%";
 
     moveFourDmg1.innerHTML = dmgMoveFourPercent1 + checkIceTrap(moveFour1, Math.min(dmgMoveFourL1, hp2), Math.min(dmgMoveFourU1, hp2), hp1, energy1, itemA, ability1, ability2);
 
-    let dmgSoulMoveOneU1 = getMultiplier(firstLoom, secondLoom, soulMove1, soulMovePower1, critOne1, undefined, undefined, undefined, undefined, false, level1.value);
-    let dmgSoulMoveOneL1 = getMultiplier(firstLoom, secondLoom, soulMove1, soulMovePower1, critOne1, undefined, undefined, undefined, undefined, false, level1.value, true);
+    let dmgSoulMoveOneU1 = getMultiplier(firstLoom, secondLoom, soulMove1, soulMovePower1, 0, critOne1, undefined, undefined, undefined, undefined, false, level1.value);
+    let dmgSoulMoveOneL1 = getMultiplier(firstLoom, secondLoom, soulMove1, soulMovePower1, 0, critOne1, undefined, undefined, undefined, undefined, false, level1.value, true);
     let dmgSoulMoveOnePercent1 = (dmgSoulMoveOneL1 / hp2 * 100).toFixed(1).toString() + " - " + (dmgSoulMoveOneU1 / hp2 * 100).toFixed(1).toString() + "%";
 
     soulMoveDmg1.innerHTML = dmgSoulMoveOnePercent1 + checkIceTrap(soulMove1, Math.min(dmgSoulMoveOneL1, hp2), Math.min(dmgSoulMoveOneU1, hp2), hp1, energy1, itemA, ability1, ability2);
 
     //----------------------------------------------------------
 
-    let dmgMoveOneU2 = getMultiplier(secondLoom, firstLoom, moveOne2, moveOnePower2.value, critOne2, repeat2, hitsOne2, swarmOne2, snowballOne2, false, level2.value, undefined, true);
-    let dmgMoveOneL2 = getMultiplier(secondLoom, firstLoom, moveOne2, moveOnePower2.value, critOne2, repeat2, hitsOne2, swarmOne2, snowballOne2, false, level2.value, true, true);
+    let dmgMoveOneU2 = getMultiplier(secondLoom, firstLoom, moveOne2, moveOnePower2.value, moveOneEnergy2.value, critOne2, repeat2, hitsOne2, swarmOne2, snowballOne2, false, level2.value, undefined, true);
+    let dmgMoveOneL2 = getMultiplier(secondLoom, firstLoom, moveOne2, moveOnePower2.value, moveOneEnergy2.value, critOne2, repeat2, hitsOne2, swarmOne2, snowballOne2, false, level2.value, true, true);
     let dmgMoveOnePercent2 = (dmgMoveOneL2 / hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveOneU2 / hp1 * 100).toFixed(1).toString() + "%";
 
     moveOneDmg2.innerHTML = dmgMoveOnePercent2 + checkIceTrap(moveOne2, Math.min(dmgMoveOneL2, hp1), Math.min(dmgMoveOneU2, hp1), hp2, energy2, itemB, ability2, ability1);
 
-    let dmgMoveTwoU2 = getMultiplier(secondLoom, firstLoom, moveTwo2, moveTwoPower2.value, critTwo2, repeat2, hitsTwo2, swarmTwo2, snowballTwo2, false, level2.value, undefined, true);
-    let dmgMoveTwoL2 = getMultiplier(secondLoom, firstLoom, moveTwo2, moveTwoPower2.value, critTwo2, repeat2, hitsTwo2, swarmTwo2, snowballTwo2, false, level2.value, true, true);
+    let dmgMoveTwoU2 = getMultiplier(secondLoom, firstLoom, moveTwo2, moveTwoPower2.value, moveTwoEnergy2.value, critTwo2, repeat2, hitsTwo2, swarmTwo2, snowballTwo2, false, level2.value, undefined, true);
+    let dmgMoveTwoL2 = getMultiplier(secondLoom, firstLoom, moveTwo2, moveTwoPower2.value, moveTwoEnergy2.value, critTwo2, repeat2, hitsTwo2, swarmTwo2, snowballTwo2, false, level2.value, true, true);
     let dmgMoveTwoPercent2 = (dmgMoveTwoL2 / hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveTwoU2 / hp1 * 100).toFixed(1).toString() + "%";
 
     moveTwoDmg2.innerHTML = dmgMoveTwoPercent2 + checkIceTrap(moveTwo2, Math.min(dmgMoveTwoL2, hp1), Math.min(dmgMoveTwoU2, hp1), hp2, energy2, itemB, ability2, ability1);
 
-    let dmgMoveThreeU2 = getMultiplier(secondLoom, firstLoom, moveThree2, moveThreePower2.value, critThree2, repeat2, hitsThree2, swarmThree2, snowballThree2, false, level2.value, undefined, true);
-    let dmgMoveThreeL2 = getMultiplier(secondLoom, firstLoom, moveThree2, moveThreePower2.value, critThree2, repeat2, hitsThree2, swarmThree2, snowballThree2, false, level2.value, true, true);
+    let dmgMoveThreeU2 = getMultiplier(secondLoom, firstLoom, moveThree2, moveThreePower2.value, moveThreeEnergy2.value, critThree2, repeat2, hitsThree2, swarmThree2, snowballThree2, false, level2.value, undefined, true);
+    let dmgMoveThreeL2 = getMultiplier(secondLoom, firstLoom, moveThree2, moveThreePower2.value, moveThreeEnergy2.value, critThree2, repeat2, hitsThree2, swarmThree2, snowballThree2, false, level2.value, true, true);
     let dmgMoveThreePercent2 = (dmgMoveThreeL2 / hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveThreeU2 / hp1 * 100).toFixed(1).toString() + "%";
 
     moveThreeDmg2.innerHTML = dmgMoveThreePercent2 + checkIceTrap(moveThree2, Math.min(dmgMoveThreeL2, hp1), Math.min(dmgMoveThreeU2, hp1), hp2, energy2, itemB, ability2, ability1);
 
-    let dmgMoveFourU2 = getMultiplier(secondLoom, firstLoom, moveFour2, moveFourPower2.value, critFour2, repeat2, hitsFour2, swarmFour2, snowballFour2, false, level2.value, undefined, true);
-    let dmgMoveFourL2 = getMultiplier(secondLoom, firstLoom, moveFour2, moveFourPower2.value, critFour2, repeat2, hitsFour2, swarmFour2, snowballFour2, false, level2.value, true, true);
+    let dmgMoveFourU2 = getMultiplier(secondLoom, firstLoom, moveFour2, moveFourPower2.value, moveFourEnergy2.value, critFour2, repeat2, hitsFour2, swarmFour2, snowballFour2, false, level2.value, undefined, true);
+    let dmgMoveFourL2 = getMultiplier(secondLoom, firstLoom, moveFour2, moveFourPower2.value, moveFourEnergy2.value, critFour2, repeat2, hitsFour2, swarmFour2, snowballFour2, false, level2.value, true, true);
 
     let dmgMoveFourPercent2 = (dmgMoveFourL2 / hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveFourU2 / hp1 * 100).toFixed(1).toString() + "%";
 
     moveFourDmg2.innerHTML = dmgMoveFourPercent2 + checkIceTrap(moveFour2, Math.min(dmgMoveFourL2, hp1), Math.min(dmgMoveFourU2, hp1), hp2, energy2, itemB, ability2, ability1);
 
-    let dmgSoulMoveTwoU2 = getMultiplier(secondLoom, firstLoom, soulMove2, soulMovePower2, critOne2, undefined, undefined, undefined, undefined, false, level2.value, undefined, true);
-    let dmgSoulMoveTwoL2 = getMultiplier(secondLoom, firstLoom, soulMove2, soulMovePower2, critOne2, undefined, undefined, undefined, undefined, false, level2.value, true, true);
+    let dmgSoulMoveTwoU2 = getMultiplier(secondLoom, firstLoom, soulMove2, soulMovePower2, 0, critOne2, undefined, undefined, undefined, undefined, false, level2.value, undefined, true);
+    let dmgSoulMoveTwoL2 = getMultiplier(secondLoom, firstLoom, soulMove2, soulMovePower2, 0, critOne2, undefined, undefined, undefined, undefined, false, level2.value, true, true);
 
     let dmgSoulMoveTwoPercent2 = (dmgSoulMoveTwoL2 / hp1 * 100).toFixed(1).toString() + " - " + (dmgSoulMoveTwoU2 / hp1 * 100).toFixed(1).toString() + "%";
 
@@ -2504,6 +2505,7 @@ function detailedReport() {
     let moveName;
     let move;
     let movePower;
+    let moveEnergy;
     let crit;
     let repeat;
     let hits;
@@ -2525,6 +2527,7 @@ function detailedReport() {
     if (document.getElementById("moveOneLbl1").htmlFor == selected.id) {
         moveName = document.getElementById("moveOneLbl1").innerHTML;
         movePower = moveOnePower1.value;
+        moveEnergy = moveOneEnergy1.value;
         crit = moveOneCrit1.checked;
         repeat = repeating1.value;
         hits = moveOneHits1.value;
@@ -2534,6 +2537,7 @@ function detailedReport() {
     else if (document.getElementById("moveTwoLbl1").htmlFor == selected.id) {
         moveName = document.getElementById("moveTwoLbl1").innerHTML;
         movePower = moveTwoPower1.value;
+        moveEnergy = moveTwoEnergy1.value;
         crit = moveTwoCrit1.checked;
         repeat = repeating1.value;
         hits = moveTwoHits1.value;
@@ -2543,6 +2547,7 @@ function detailedReport() {
     else if (document.getElementById("moveThreeLbl1").htmlFor == selected.id) {
         moveName = document.getElementById("moveThreeLbl1").innerHTML;
         movePower = moveThreePower1.value;
+        moveEnergy = moveThreeEnergy1.value;
         crit = moveThreeCrit1.checked;
         repeat = repeating1.value;
         hits = moveThreeHits1.value;
@@ -2552,6 +2557,7 @@ function detailedReport() {
     else if (document.getElementById("moveFourLbl1").htmlFor == selected.id) {
         moveName = document.getElementById("moveFourLbl1").innerHTML;
         movePower = moveFourPower1.value;
+        moveEnergy = moveFourEnergy1.value;
         crit = moveFourCrit1.checked;
         repeat = repeating1.value;
         hits = moveFourHits1.value;
@@ -2561,11 +2567,13 @@ function detailedReport() {
     else if (document.getElementById("soulMoveLbl1").htmlFor == selected.id) {
         moveName = document.getElementById("soulMoveLbl1").innerHTML;
         movePower = soulMovePower1;
+        moveEnergy = 0;
         crit = moveOneCrit1.checked;
     }
     else if (document.getElementById("moveOneLbl2").htmlFor == selected.id) {
         moveName = document.getElementById("moveOneLbl2").innerHTML;
         movePower = moveOnePower2.value;
+        moveEnergy = moveOneEnergy2.value;
         crit = moveOneCrit2.checked;
         repeat = repeating2.value;
         hits = moveOneHits2.value;
@@ -2583,6 +2591,7 @@ function detailedReport() {
     else if (document.getElementById("moveTwoLbl2").htmlFor == selected.id) {
         moveName = document.getElementById("moveTwoLbl2").innerHTML;
         movePower = moveTwoPower2.value;
+        moveEnergy = moveTwoEnergy2.value;
         crit = moveTwoCrit2.checked;
         repeat = repeating2.value;
         hits = moveTwoHits2.value;
@@ -2600,6 +2609,7 @@ function detailedReport() {
     else if (document.getElementById("moveThreeLbl2").htmlFor == selected.id) {
         moveName = document.getElementById("moveThreeLbl2").innerHTML;
         movePower = moveThreePower2.value;
+        moveEnergy = moveThreeEnergy2.value;
         crit = moveThreeCrit2.checked;
         repeat = repeating2.value;
         hits = moveThreeHits2.value;
@@ -2617,6 +2627,7 @@ function detailedReport() {
     else if (document.getElementById("moveFourLbl2").htmlFor == selected.id) {
         moveName = document.getElementById("moveFourLbl2").innerHTML;
         movePower = moveFourPower2.value;
+        moveEnergy = moveFourEnergy2.value;
         crit = moveFourCrit2.checked;
         repeat = repeating2.value;
         hits = moveFourHits2.value;
@@ -2634,6 +2645,7 @@ function detailedReport() {
     else if (document.getElementById("soulMoveLbl2").htmlFor == selected.id) {
         moveName = document.getElementById("soulMoveLbl2").innerHTML;
         movePower = soulMovePower2;
+        moveEnergy = 0;
         crit = moveOneCrit2.checked;
         second = true;
         firstLoom = loomians[pokeDropdown2.value.toLowerCase()];
@@ -2678,7 +2690,7 @@ function detailedReport() {
     } else atkDef = getTempAtkDef(second, move);
     if (move.mr == "Melee" && myStatus == "burned" && !firstLoom.types.includes("Fire") && !(adaptiveResult && adaptiveResult == "ranged")) statStr = " " + myStatus.charAt(0).toUpperCase() + myStatus.slice(1);
     else if (move.mr == "Ranged" && myStatus == "freezing" && !firstLoom.types.includes("Ice") && !(adaptiveResult && adaptiveResult == "melee")) statStr = " Frostbitten";
-    else if (move.mr1 == "Speed" && myStatus == "paralasis" && !firstLoom.types.includes("Electric")) statStr = " Paralyzed";
+    else if ((move.mr1 == "Speed" || move.name == "Tempest" || move.name == "Outburst") && myStatus == "paralasis" && !firstLoom.types.includes("Electric")) statStr = " Paralyzed";
     if (statStr2 == " Healthy" || (statStr2 == " Burned" && secondLoom.types.includes("Fire")) || (statStr2 == " Paralasis" && secondLoom.types.includes("Electric")) || ((statStr2 == " Poisoned" || statStr2 == " Diseased") && secondLoom.types.includes("Toxic")) || (statStr2 == " Freezing" && secondLoom.types.includes("Ice"))) statStr2 = "";
     else if (statStr2 == " Paralasis") statStr2 = " Paralyzed";
     else if (statStr2 == " Diseased") statStr2 = " Badly Poisoned";
@@ -2939,7 +2951,7 @@ function detailedReport() {
         return;
     }
 
-    let possibleArray = getMultiplier(firstLoom, secondLoom, move, movePower, crit, repeat, hits, swarm, snowball, false, level, undefined, second, true);
+    let possibleArray = getMultiplier(firstLoom, secondLoom, move, movePower, moveEnergy, crit, repeat, hits, swarm, snowball, false, level, undefined, second, true);
     let possibleDmg = possibleArray[0];
     let foulDamage = possibleArray[1];
     let possibleDmg2 = possibleDmg[0];
@@ -3060,7 +3072,7 @@ function detailedReport() {
         item = "";
     }
 
-    possibleArray = getMultiplier(firstLoom, secondLoom, move, movePower, crit, repeat, hits, swarm, snowball, false, level, undefined, second, true, false, counter);
+    possibleArray = getMultiplier(firstLoom, secondLoom, move, movePower, moveEnergy, crit, repeat, hits, swarm, snowball, false, level, undefined, second, true, false, counter);
     possibleDmg2 = possibleArray[0];
     foulDamage = possibleArray[1];
     if (foulDamage && foulDamage.length == possibleDmg2.length - 1) {
@@ -3071,7 +3083,7 @@ function detailedReport() {
     
     counter = 0;
     
-    possibleArray = getMultiplier(firstLoom, secondLoom, move, movePower, crit, repeat, hits, swarm, snowball, false, level, undefined, second, true, false, counter);
+    possibleArray = getMultiplier(firstLoom, secondLoom, move, movePower, moveEnergy, crit, repeat, hits, swarm, snowball, false, level, undefined, second, true, false, counter);
     possibleDmg3 = possibleArray[0];
     foulDamage = possibleArray[1];
     if (foulDamage && foulDamage.length == possibleDmg3.length - 1) {
@@ -3082,7 +3094,7 @@ function detailedReport() {
 
     counter = 1;
     
-    possibleArray = getMultiplier(firstLoom, secondLoom, move, movePower, crit, repeat, hits, swarm, snowball, false, level, undefined, second, true, false, counter);
+    possibleArray = getMultiplier(firstLoom, secondLoom, move, movePower, moveEnergy, crit, repeat, hits, swarm, snowball, false, level, undefined, second, true, false, counter);
     let possibleDmg4 = possibleArray[0];
     foulDamage = possibleArray[1];
     if (foulDamage && foulDamage.length == possibleDmg4.length - 1) {
@@ -3093,7 +3105,7 @@ function detailedReport() {
 
     counter = 0;
     
-    possibleArray = getMultiplier(firstLoom, secondLoom, move, movePower, crit, repeat, hits, swarm, snowball, false, level, undefined, second, true, false, counter);
+    possibleArray = getMultiplier(firstLoom, secondLoom, move, movePower, moveEnergy, crit, repeat, hits, swarm, snowball, false, level, undefined, second, true, false, counter);
     let possibleDmg5 = possibleArray[0];
     foulDamage = possibleArray[1];
     if (foulDamage && foulDamage.length == possibleDmg5.length - 1) {
@@ -3196,7 +3208,7 @@ function isStab(userTypes, move) {
     return false;
 }
 
-function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm, snowball, hitConfirmer = false, level, ul = false, second = false, detailed = false, withoutSlapDown = true, takeSecondaryType = false, foulHit = false) {
+function getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, hits, swarm, snowball, hitConfirmer = false, level, ul = false, second = false, detailed = false, withoutSlapDown = true, takeSecondaryType = false, foulHit = false) {
     if (move.power == 0 && detailed) return [0];
     if (move.power == 0) return 0;
 
@@ -3227,6 +3239,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     }
     let currentEnergy1 = (second == false ? currentNRG1.value : currentNRG2.value);
     let currentEnergy2 = (second == false ? currentNRG2.value : currentNRG1.value);
+    let maxEnergy = (second == false ? Number(statEnergy1.innerHTML) : Number(statEnergy2.innerHTML));
     let ability1 = (second == false ? abilities.find((x) => x == abilityDropdown1.value) : abilities.find((x) => x == abilityDropdown2.value));
     let ability2 = (second == false ? abilities.find((x) => x == abilityDropdown2.value) : abilities.find((x) => x == abilityDropdown1.value));
     let btl1 = (second == false ? enteredBtl2.checked : enteredBtl1.checked);
@@ -3328,7 +3341,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
     }
 
     if (move.name == "Outburst") {
-        tempPower = Math.max(1, Math.floor(125 * energyValue / 100));
+        tempPower = getEnergyPower(ability1, withoutSlapDown, Number(currentEnergy1), maxEnergy, moveEnergy, 125, stat1, loom1.types)
         powerCheck = tempPower;
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
@@ -3571,8 +3584,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         multi *= 2;
         stuffUsed.ability1 = ability1;
     }
-
-    console.log(stats1.spd,stats2.spd);
 
     if ((ability1 == "Sharp Claws" && move.contact == true) || 
        (ability1 == "Brute Force" && move.secondaryEffect == true) ||
@@ -4024,11 +4035,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
 
     if (ability1 == "Double Strike" && !foulHit && !(isDouble && move.aoe == true) && !move.hits) {
         if (detailed) {
-            let foulArray = getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm, snowball, false, level, ul, second, detailed, false, takeSecondaryType, true);
+            let foulArray = getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, hits, swarm, snowball, false, level, ul, second, detailed, false, takeSecondaryType, true);
             foulDmg = foulArray[0];
             possibleFoulDmg = foulArray[1];
         } else {
-            foulDmg = getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm, snowball, false, level, ul, second, detailed, false, takeSecondaryType, true);
+            foulDmg = getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, hits, swarm, snowball, false, level, ul, second, detailed, false, takeSecondaryType, true);
         }
         stuffUsed.ability1 = ability1;
     }
@@ -4051,7 +4062,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm,
         if (move.name == "Pepper Burst" || move.name == "Double Beat" || move.name == "Double Whack" || move.name == "Double Sting" || move.name == "Metal Swipes") hits = 2;
         if (move.name == "Rapid Fire" || move.name == "Ruthless Feast") hits = 3;
         for (let i = 0; i < hits - 1; i++) {
-            multiHits.push(getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, swarm, snowball, true, level, ul, second, detailed, false));
+            multiHits.push(getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, hits, swarm, snowball, true, level, ul, second, detailed, false));
         }
         if (hits > 1) stuffUsed.extra1 += " (" + hits + " hits)";
         else stuffUsed.extra1 += " (" + hits + " hit)";
@@ -4233,6 +4244,17 @@ function getSpeedPower(spd1, spd2) {
     if (spd1 / spd2 < 1.5 && spd1 / spd2 >= 1) return 80;
     if (spd1 / spd2 < 2 && spd1 / spd2 >= 1.5) return 100;
     return 120;
+}
+
+function getEnergyPower(ability, firstHit, currentEnergy, maxEnergy, moveEnergy, movePower, status, types) {
+	energyCount += 1;
+	if (firstHit) energyCount = 0;
+	let moveEnergyCount = energyCount
+	let regenEnergy = (((status == "paralasis" && !(types.includes("Electric"))) || ability == "Festive Spirit") ? 0 : Math.floor(maxEnergy / 40));
+	regenEnergy *= moveEnergyCount;
+	moveEnergy *= moveEnergyCount;
+
+	return Math.max(1, Math.floor(movePower * (Math.max(currentEnergy + (regenEnergy - moveEnergy), 1) / maxEnergy)));
 }
 
 function specializationCount(second) {

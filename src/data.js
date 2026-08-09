@@ -6159,7 +6159,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true
+        contact: true,
+        bite: true
     },
 
     diveBomb: {
@@ -6805,7 +6806,8 @@ var moves = {
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        typeModifier: { type: "Dark", modifier: 4 }
+        typeModifier: { type: "Dark", modifier: 4 },
+        bomb: true
     },
 
     bushWhack: {
@@ -7456,6 +7458,20 @@ var moves = {
         priority: true
     },
 
+    punch: {
+        name: "Punch",
+        power: 45,
+        energy: 20,
+        accuracy: 100,
+        type: "Brawler",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        punch: true,
+        secondaryEffect: true
+    },
+
     bananaSlam: {
         name: "Banana Slam",
         power: 95,
@@ -7561,7 +7577,7 @@ var moves = {
         name: "Capriole",
         power: 105,
         energy: 52,
-        accuracy: 90,
+        accuracy: 85,
         type: "Earth",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -8051,6 +8067,7 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
+        bite: true,
         hits: 3
     },
 
@@ -8146,7 +8163,8 @@ var moves = {
         type: "Metal",
         mr: "Ranged",
         mr1: "Ranged Attack",
-        mr2: "Ranged Defense"
+        mr2: "Ranged Defense",
+        bomb: true
     },
 
     cosmicChime: {
@@ -8600,7 +8618,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         secondaryEffect: true,
-        contact: true
+        contact: true,
+        slap: true
     },
 
     fulgurFangs: {
@@ -8989,6 +9008,7 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         secondaryEffect: true,
+        punch: true,
         kick: true
     },
 
