@@ -916,7 +916,6 @@ function changeButton(button) {
 function updateHazards(hazard, side) {
     if (side == 1) tankHazard1 = hazard;
     if (side == 2) tankHazard2 = hazard;
-    console.log(tankHazard1, tankHazard2);
     update();
 }
 
@@ -3320,6 +3319,11 @@ function getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, 
     tempAtk = tempStats.attack;
     tempDef = tempStats.defense;
 
+    if (ability1 == "Festive Spirit" && move.mr1 == "Ranged Attack") {
+    	tempAtk.atk = getEnergyPower("attack", ability1, withoutSlapDown, Number(currentEnergy1), maxEnergy, moveEnergy, undefined, stat1, loom1.types)
+    	stuffUsed.ability1 = ability1;
+    }
+
     tempPower = (move.name == "Trip Root" ? getTripRootPower(loom2.weight) : tempPower);
 
     if (move.name == "Trip Root") {
@@ -3341,7 +3345,7 @@ function getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, 
     }
 
     if (move.name == "Outburst") {
-        tempPower = getEnergyPower(ability1, withoutSlapDown, Number(currentEnergy1), maxEnergy, moveEnergy, 125, stat1, loom1.types)
+        tempPower = getEnergyPower("power", ability1, withoutSlapDown, Number(currentEnergy1), maxEnergy, moveEnergy, 125, stat1, loom1.types)
         powerCheck = tempPower;
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
@@ -4246,7 +4250,7 @@ function getSpeedPower(spd1, spd2) {
     return 120;
 }
 
-function getEnergyPower(ability, firstHit, currentEnergy, maxEnergy, moveEnergy, movePower, status, types) {
+function getEnergyPower(mode, ability, firstHit, currentEnergy, maxEnergy, moveEnergy, movePower, status, types) {
 	energyCount += 1;
 	if (firstHit) energyCount = 0;
 	let moveEnergyCount = energyCount
@@ -4254,7 +4258,8 @@ function getEnergyPower(ability, firstHit, currentEnergy, maxEnergy, moveEnergy,
 	regenEnergy *= moveEnergyCount;
 	moveEnergy *= moveEnergyCount;
 
-	return Math.max(1, Math.floor(movePower * (Math.max(currentEnergy + (regenEnergy - moveEnergy), 1) / maxEnergy)));
+	if (mode == "power") return Math.max(1, Math.floor(movePower * (Math.max(currentEnergy + (regenEnergy - moveEnergy), 1) / maxEnergy)));
+	if (mode == "attack") return Math.max(1, currentEnergy + (regenEnergy - moveEnergy));
 }
 
 function specializationCount(second) {
