@@ -969,13 +969,9 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         level1.value = levelCheck.value.split(' ')[1];
 
         $("#moveOne1").val(set1.moves.move1);
-        $("#moveOne1").select2().trigger('change');
         $("#moveTwo1").val(set1.moves.move2);
-        $("#moveTwo1").select2().trigger('change');
         $("#moveThree1").val(set1.moves.move3);
-        $("#moveThree1").select2().trigger('change');
         $("#moveFour1").val(set1.moves.move4);
-        $("#moveFour1").select2().trigger('change');
 
         posNat1.value = (set1.posNature == undefined ? "none" : set1.posNature);
         negNat1.value = (set1.negNature == undefined ? "none" : set1.negNature);
@@ -988,6 +984,11 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         if (firstLoom.item) item1.value = firstLoom.item;
         updateAbility(abilityDropdown1.value);
         updateItem('item1');
+
+        $("#moveOne1").select2().trigger('change');
+        $("#moveTwo1").select2().trigger('change');
+        $("#moveThree1").select2().trigger('change');
+        $("#moveFour1").select2().trigger('change');
 
         primaryTypeDropdown1.value = loomians[pokeDropdown1.value.toLowerCase()].types[0];
         secondaryTypeDropdown1.value = (loomians[pokeDropdown1.value.toLowerCase()].types[1] != undefined ? loomians[pokeDropdown1.value.toLowerCase()].types[1] : "None");
@@ -1044,13 +1045,9 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         level2.value = levelCheck.value.split(' ')[1];
 
         $("#moveOne2").val(set2.moves.move1);
-        $("#moveOne2").select2().trigger('change');
         $("#moveTwo2").val(set2.moves.move2);
-        $("#moveTwo2").select2().trigger('change');
         $("#moveThree2").val(set2.moves.move3);
-        $("#moveThree2").select2().trigger('change');
         $("#moveFour2").val(set2.moves.move4);
-        $("#moveFour2").select2().trigger('change');
 
         posNat2.value = (set2.posNature == undefined ? "none" : set2.posNature);
         negNat2.value = (set2.negNature == undefined ? "none" : set2.negNature);
@@ -1063,6 +1060,11 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         if (secondLoom.item) item2.value = secondLoom.item;
         updateAbility(abilityDropdown2.value);
         updateItem('item2');
+
+        $("#moveOne2").select2().trigger('change');
+        $("#moveTwo2").select2().trigger('change');
+        $("#moveThree2").select2().trigger('change');
+        $("#moveFour2").select2().trigger('change');
 
         primaryTypeDropdown2.value = loomians[pokeDropdown2.value.toLowerCase()].types[0];
         secondaryTypeDropdown2.value = (loomians[pokeDropdown2.value.toLowerCase()].types[1] != undefined ? loomians[pokeDropdown2.value.toLowerCase()].types[1] : "None");
@@ -1757,12 +1759,17 @@ function checkStages() {
 function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastAttack, analyzeDefs, tempType, abilityCheck1, abilityCheck2, crit, firstHit, hitConfirm, foulHit, energyCurrent) {
     //Grabbing unboosted stats and what boosts are currently in the calc.
     let baseAttack;
-    if (ability1 == "Festive Spirit" && atk.name == "AttackR" && move.mr1 == "Ranged Attack") baseAttack = energyCurrent;
+    if (ability1 == "Festive Spirit" && atk.name == "AttackR" && move.mr1 == "Ranged Attack") baseAttack = atk.atk;
     else baseAttack = calculateStat(atk.base, atk.iv.value, atk.ev.value, atk.level, undefined, atk.posNat, atk.negNat, atk.veryNat, atk.name);
     let baseDefense = calculateStat(def.base, def.iv.value, def.ev.value, def.level, undefined, def.posNat, def.negNat, def.veryNat, def.name);
     let atkStage = (!atk.stage ? 0 : atk.stage);
     let defStage = (!def.stage ? 0 : def.stage);
     let moveMod;
+
+    //Honestly just need a place for Festive Spirit stat stages
+    if (ability1 == "Festive Spirit" && atk.name == "AttackR" && move.mr1 == "Ranged Attack") {
+    	atk.atk = (atkStage < 0 ? Math.floor(baseAttack * (2 / (2 - atkStage))) : Math.floor(baseAttack * ((2 + atkStage) / 2)));
+    }
 
     //Counting what hit this is during the calc process; 0 being the first hit.
     adjustmentCount += 1;
@@ -3750,6 +3757,7 @@ function getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, 
     multi = 1;
 
     battleAdjustments(move, ability1, ability2, stuffUsed, tempAtk, tempDef, boastAttack, analyzeDefs, tempType, immuneBoostCheck1, immuneBoostCheck2, crit, withoutSlapDown, hitConfirmer, foulHit, currentEnergy1);
+    console.log(tempAtk.atk);
 
     //Attack -------------------------------------------
 
@@ -4065,13 +4073,15 @@ function getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, 
     if (move.hits && !hitConfirmer) {
         if (move.name == "Pepper Burst" || move.name == "Double Beat" || move.name == "Double Whack" || move.name == "Double Sting" || move.name == "Metal Swipes") hits = 2;
         if (move.name == "Rapid Fire" || move.name == "Ruthless Feast") hits = 3;
-        for (let i = 0; i < hits - 1; i++) {
+        for (let i = 0; i <= hits - 1; i++) {
             multiHits.push(getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, hits, swarm, snowball, true, level, ul, second, detailed, false));
         }
         if (hits > 1) stuffUsed.extra1 += " (" + hits + " hits)";
         else stuffUsed.extra1 += " (" + hits + " hit)";
-        multiHits.forEach(num => multiDmg += num);
+        multiHits.forEach(num => multiDmg += Math.max(num, 1));
     }
+
+    dmg = (multiDmg > 0 ? 0 : dmg);
 
     if (detailed && !hitConfirmer) {
         let numb;
@@ -4082,7 +4092,7 @@ function getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, 
         for (let i = 0.85; i <= 1; i += 0.01) {
             let sum = 0;
             numb = i.toFixed(3);
-            multiHits.forEach(num => sum += Math.floor(num * numb));
+            multiHits.forEach(num => sum += Math.max(num * numb, 1));
             possibleDmg.push(Math.floor(dmg * multi * numb + sum));
         }
         if (foulHit) {
@@ -4092,7 +4102,7 @@ function getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, 
         return [possibleDmg, possibleFoulDmg];
     }
 
-    dmg = Math.floor(dmg * multi + multiDmg);
+    dmg = Math.max(Math.floor(dmg * multi + multiDmg), 1);
 
     return dmg + foulDmg;
 }
