@@ -8164,6 +8164,7 @@ var moves = {
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
+        aoe: true,
         bomb: true
     },
 
