@@ -5168,6 +5168,1444 @@ var loomians = {
             speed: 102
         }
     },
+
+    minink: {
+        name: "Minink",
+        types: ["Simple"],
+        weight: 6,
+        height: 21,
+        finalEvo: false,
+        baseStats: {
+            hp: 59,
+            energy: 59,
+            attack: 53,
+            defense: 61,
+            attackR: 41,
+            defenseR: 52,
+            speed: 68
+        }
+    },
+
+    erspring: {
+        name: "Erspring",
+        types: ["Simple"],
+        weight: 26,
+        height: 67,
+        baseStats: {
+            hp: 85,
+            energy: 89,
+            attack: 96,
+            defense: 86,
+            attackR: 54,
+            defenseR: 72,
+            speed: 94
+        }
+    },
+
+    'wolkin-metal': {
+        name: "Wolkin-Metal",
+        types: ["Simple", "Metal"],
+        weight: 10,
+        height: 25,
+        finalEvo: false,
+        baseStats: {
+            hp: 33,
+            energy: 61,
+            attack: 60,
+            defense: 64,
+            attackR: 36,
+            defenseR: 41,
+            speed: 69
+        }
+    },
+
+    'wolkin-ice': {
+        name: "Wolkin-Ice",
+        types: ["Simple", "Ice"],
+        weight: 10,
+        height: 25,
+        finalEvo: false,
+        baseStats: {
+            hp: 33,
+            energy: 61,
+            attack: 60,
+            defense: 64,
+            attackR: 36,
+            defenseR: 41,
+            speed: 69
+        }
+    },
+
+    'fenreign-metal': {
+        name: "Fenreign-Metal",
+        types: ["Metal", "Simple"],
+        weight: 24,
+        height: 51,
+        baseStats: {
+            hp: 67,
+            energy: 78,
+            attack: 120,
+            defense: 94,
+            attackR: 54,
+            defenseR: 64,
+            speed: 102
+        }
+    },
+
+    'fenreign-ice': {
+        name: "Fenreign-Ice",
+        types: ["Ice", "Simple"],
+        weight: 24,
+        height: 51,
+        baseStats: {
+            hp: 67,
+            energy: 78,
+            attack: 120,
+            defense: 94,
+            attackR: 54,
+            defenseR: 64,
+            speed: 102
+        }
+    },
+
+    vermador: {
+        name: "Vermador",
+        types: ["Brawler", "Earth"],
+        weight: 44,
+        height: 50,
+        baseStats: {
+            hp: 60,
+            energy: 73,
+            attack: 108,
+            defense: 98,
+            attackR: 34,
+            defenseR: 81,
+            speed: 71
+        }
+    },
+
+    puppear: {
+        name: "Puppear",
+        types: ["Plant", "Earth"],
+        weight: 5,
+        height: 14,
+        finalEvo: false,
+        baseStats: {
+            hp: 56,
+            energy: 49,
+            attack: 43,
+            defense: 46,
+            attackR: 36,
+            defenseR: 40,
+            speed: 42
+        }
+    },
+
+    pubble: {
+        name: "Pubble",
+        types: ["Plant", "Earth"],
+        weight: 34,
+        height: 53,
+        finalEvo: false,
+        baseStats: {
+            hp: 93,
+            energy: 68,
+            attack: 91,
+            defense: 76,
+            attackR: 48,
+            defenseR: 61,
+            speed: 51
+        }
+    },
+
+    pompamol: {
+        name: "Pompamol",
+        types: ["Plant", "Earth"],
+        weight: 55,
+        height: 63,
+        baseStats: {
+            hp: 124,
+            energy: 82,
+            attack: 101,
+            defense: 98,
+            attackR: 62,
+            defenseR: 76,
+            speed: 60
+        }
+    },
+
+    cubscoot: {
+        name: "Cubscoot",
+        types: ["Simple"],
+        weight: 10,
+        height: 26,
+        finalEvo: false,
+        baseStats: {
+            hp: 52,
+            energy: 68,
+            attack: 67,
+            defense: 47,
+            attackR: 30,
+            defenseR: 47,
+            speed: 44
+        }
+    },
+
+    grizzol: {
+        name: "Grizzol",
+        types: ["Simple"],
+        weight: 44,
+        height: 42,
+        finalEvo: false,
+        baseStats: {
+            hp: 93,
+            energy: 76,
+            attack: 92,
+            defense: 81,
+            attackR: 38,
+            defenseR: 53,
+            speed: 57
+        }
+    },
+
+    grizurus: {
+        name: "Grizurus",
+        types: ["Simple", "Brawler"],
+        weight: 181,
+        height: 73,
+        baseStats: {
+            hp: 126,
+            energy: 86,
+            attack: 135,
+            defense: 103,
+            attackR: 43,
+            defenseR: 67,
+            speed: 65
+        }
+    },
+
+    larvoll: {
+        name: "Larvoll",
+        types: ["Bug"],
+        weight: 4,
+        height: 14,
+        finalEvo: false,
+        baseStats: {
+            hp: 10,
+            energy: 55,
+            attack: 5,
+            defense: 10,
+            attackR: 5,
+            defenseR: 10,
+            speed: 5
+        }
+    },
+
+    helmant: {
+        name: "Helmant",
+        types: ["Bug", "Metal"],
+        weight: 34,
+        height: 42,
+        baseStats: {
+            hp: 73,
+            energy: 76,
+            attack: 116,
+            defense: 114,
+            attackR: 39,
+            defenseR: 81,
+            speed: 91
+        }
+    },
+
+    regaliant: {
+        name: "Regaliant",
+        types: ["Bug", "Metal"],
+        weight: 30,
+        height: 51,
+        baseStats: {
+            hp: 73,
+            energy: 76,
+            attack: 116,
+            defense: 144,
+            attackR: 44,
+            defenseR: 111,
+            speed: 51
+        }
+    },
+
+    spinette: {
+        name: "Spinette",
+        types: ["Bug"],
+        weight: 4,
+        height: 15,
+        finalEvo: false,
+        baseStats: {
+            hp: 44,
+            energy: 76,
+            attack: 40,
+            defense: 56,
+            attackR: 33,
+            defenseR: 40,
+            speed: 57
+        }
+    },
+
+    spinder: {
+        name: "Spinder",
+        types: ["Bug"],
+        weight: 17,
+        height: 47,
+        finalEvo: false,
+        baseStats: {
+            hp: 66,
+            energy: 81,
+            attack: 79,
+            defense: 91,
+            attackR: 54,
+            defenseR: 53,
+            speed: 68
+        }
+    },
+
+    silegant: {
+        name: "Silegant",
+        types: ["Bug", "Dark"],
+        weight: 22,
+        height: 51,
+        baseStats: {
+            hp: 88,
+            energy: 86,
+            attack: 101,
+            defense: 111,
+            attackR: 66,
+            defenseR: 78,
+            speed: 79
+        }
+    },
+
+    trilobit: {
+        name: "Trilobit",
+        types: ["Bug"],
+        weight: 8,
+        height: 26,
+        finalEvo: false,
+        baseStats: {
+            hp: 53,
+            energy: 56,
+            attack: 70,
+            defense: 93,
+            attackR: 26,
+            defenseR: 46,
+            speed: 57
+        }
+    },
+
+    skirmapod: {
+        name: "Skirmapod",
+        types: ["Bug", "Brawler"],
+        weight: 38,
+        height: 58,
+        baseStats: {
+            hp: 87,
+            energy: 70,
+            attack: 118,
+            defense: 114,
+            attackR: 53,
+            defenseR: 72,
+            speed: 87
+        }
+    },
+
+    curccul: {
+        name: "Curccul",
+        types: ["Bug"],
+        weight: 3,
+        height: 15,
+        finalEvo: false,
+        baseStats: {
+            hp: 48,
+            energy: 99,
+            attack: 48,
+            defense: 51,
+            attackR: 26,
+            defenseR: 43,
+            speed: 57
+        }
+    },
+
+    culstrum: {
+        name: "Culstrum",
+        types: ["Bug"],
+        weight: 8,
+        height: 41,
+        finalEvo: false,
+        baseStats: {
+            hp: 77,
+            energy: 88,
+            attack: 91,
+            defense: 88,
+            attackR: 41,
+            defenseR: 61,
+            speed: 73
+        }
+    },
+
+    culiosaur: {
+        name: "Culiosaur",
+        types: ["Bug", "Ancient"],
+        weight: 222,
+        height: 161,
+        baseStats: {
+            hp: 110,
+            energy: 77,
+            attack: 114,
+            defense: 109,
+            attackR: 54,
+            defenseR: 82,
+            speed: 73
+        }
+    },
+
+    esperae: {
+        name: "Esperae",
+        types: ["Mind"],
+        weight: 10,
+        height: 27,
+        finalEvo: false,
+        baseStats: {
+            hp: 103,
+            energy: 83,
+            attack: 20,
+            defense: 20,
+            attackR: 41,
+            defenseR: 82,
+            speed: 47
+        }
+    },
+
+    infaella: {
+        name: "Infaella",
+        types: ["Mind", "Light"],
+        weight: 20,
+        height: 49,
+        baseStats: {
+            hp: 145,
+            energy: 110,
+            attack: 35,
+            defense: 35,
+            attackR: 79,
+            defenseR: 118,
+            speed: 57
+        }
+    },
+
+    ponite: {
+        name: "Ponite",
+        types: ["Light"],
+        weight: 25,
+        height: 33,
+        finalEvo: false,
+        baseStats: {
+            hp: 48,
+            energy: 66,
+            attack: 67,
+            defense: 54,
+            attackR: 44,
+            defenseR: 42,
+            speed: 71
+        }
+    },
+
+    krystallion: {
+        name: "Krystallion",
+        types: ["Light", "Metal"],
+        weight: 135,
+        height: 88,
+        baseStats: {
+            hp: 73,
+            energy: 81,
+            attack: 101,
+            defense: 98,
+            attackR: 62,
+            defenseR: 66,
+            speed: 99
+        }
+    },
+
+    sylphairi: {
+        name: "Sylphairi",
+        types: ["Air"],
+        weight: 3,
+        height: 30,
+        finalEvo: false,
+        baseStats: {
+            hp: 33,
+            energy: 50,
+            attack: 35,
+            defense: 33,
+            attackR: 37,
+            defenseR: 63,
+            speed: 52
+        }
+    },
+
+    sylphae: {
+        name: "Sylphae",
+        types: ["Air"],
+        weight: 7,
+        height: 37,
+        finalEvo: false,
+        baseStats: {
+            hp: 51,
+            energy: 62,
+            attack: 70,
+            defense: 45,
+            attackR: 72,
+            defenseR: 79,
+            speed: 81
+        }
+    },
+
+    sylphyr: {
+        name: "Sylphyr",
+        types: ["Air", "Brawler"],
+        weight: 19,
+        height: 74,
+        baseStats: {
+            hp: 72,
+            energy: 83,
+            attack: 96,
+            defense: 54,
+            attackR: 99,
+            defenseR: 100,
+            speed: 105
+        }
+    },
+
+    humby: {
+        name: "Humby",
+        types: ["Air"],
+        weight: 1,
+        height: 8,
+        finalEvo: false,
+        baseStats: {
+            hp: 61,
+            energy: 66,
+            attack: 60,
+            defense: 52,
+            attackR: 26,
+            defenseR: 59,
+            speed: 70
+        }
+    },
+
+    kolipeep: {
+        name: "Kolipeep",
+        types: ["Air"],
+        weight: 7,
+        height: 29,
+        baseStats: {
+            hp: 90,
+            energy: 93,
+            attack: 95,
+            defense: 72,
+            attackR: 52,
+            defenseR: 88,
+            speed: 100
+        }
+    },
+
+    cubali: {
+        name: "Cubali",
+        types: ["Mind", "Earth"],
+        weight: 16,
+        height: 28,
+        finalEvo: false,
+        baseStats: {
+            hp: 59,
+            energy: 73,
+            attack: 62,
+            defense: 53,
+            attackR: 62,
+            defenseR: 53,
+            speed: 52
+        }
+    },
+
+    psygris: {
+        name: "Psygris",
+        types: ["Mind", "Earth"],
+        weight: 115,
+        height: 89,
+        baseStats: {
+            hp: 91,
+            energy: 73,
+            attack: 109,
+            defense: 84,
+            attackR: 109,
+            defenseR: 84,
+            speed: 65
+        }
+    },
+
+    arketta: {
+        name: "Arketta",
+        types: ["Water", "Brawler"],
+        weight: 3,
+        height: 13,
+        finalEvo: false,
+        baseStats: {
+            hp: 43,
+            energy: 56,
+            attack: 48,
+            defense: 37,
+            attackR: 82,
+            defenseR: 61,
+            speed: 65
+        }
+    },
+
+    brawfin: {
+        name: "Brawfin",
+        types: ["Water", "Brawler"],
+        weight: 26,
+        height: 51,
+        finalEvo: false,
+        baseStats: {
+            hp: 56,
+            energy: 69,
+            attack: 62,
+            defense: 50,
+            attackR: 101,
+            defenseR: 78,
+            speed: 85
+        }
+    },
+
+    gajahra: {
+        name: "Gajahra",
+        types: ["Light", "Brawler"],
+        weight: 61,
+        height: 98,
+        baseStats: {
+            hp: 67,
+            energy: 82,
+            attack: 77,
+            defense: 64,
+            attackR: 126,
+            defenseR: 91,
+            speed: 97
+        }
+    },
+
+    'glintera-fire': {
+        name: "Glintera-Fire",
+        types: ["Earth", "Fire"],
+        weight: 68,
+        height: 30,
+        baseStats: {
+            hp: 50,
+            energy: 75,
+            attack: 111,
+            defense: 96,
+            attackR: 60,
+            defenseR: 93,
+            speed: 40
+        }
+    },
+
+    'glintera-water': {
+        name: "Glintera-Water",
+        types: ["Earth", "Water"],
+        weight: 68,
+        height: 30,
+        baseStats: {
+            hp: 111,
+            energy: 75,
+            attack: 50,
+            defense: 60,
+            attackR: 93,
+            defenseR: 96,
+            speed: 40
+        }
+    },
+
+    'glintera-electric': {
+        name: "Glintera-Electric",
+        types: ["Earth", "Electric"],
+        weight: 68,
+        height: 30,
+        baseStats: {
+            hp: 60,
+            energy: 75,
+            attack: 96,
+            defense: 93,
+            attackR: 111,
+            defenseR: 50,
+            speed: 40
+        }
+    },
+
+    'glintera-light': {
+        name: "Glintera-Light",
+        types: ["Earth", "Light"],
+        weight: 68,
+        height: 30,
+        baseStats: {
+            hp: 93,
+            energy: 75,
+            attack: 60,
+            defense: 50,
+            attackR: 96,
+            defenseR: 111,
+            speed: 40
+        }
+    },
+
+    'glintera-dark': {
+        name: "Glintera-Dark",
+        types: ["Earth", "Dark"],
+        weight: 68,
+        height: 30,
+        baseStats: {
+            hp: 96,
+            energy: 75,
+            attack: 93,
+            defense: 111,
+            attackR: 50,
+            defenseR: 60,
+            speed: 40
+        }
+    },
+
+    'glintera-fire-geoknight': {
+        name: "Glintera-Fire-Geoknight",
+        types: ["Earth", "Fire"],
+        soulMove: "Fusion Barrage",
+        ability: "Merge",
+        item: "Glintburst",
+        weight: 340,
+        height: 121,
+        baseStats: {
+            hp: 111,
+            energy: 0,
+            attack: 111,
+            defense: 111,
+            attackR: 111,
+            defenseR: 111,
+            speed: 70
+        }
+    },
+
+    'glintera-water-geoknight': {
+        name: "Glintera-Water-Geoknight",
+        types: ["Earth", "Water"],
+        soulMove: "Fusion Barrage",
+        ability: "Merge",
+        item: "Glintburst",
+        weight: 340,
+        height: 121,
+        baseStats: {
+            hp: 111,
+            energy: 0,
+            attack: 111,
+            defense: 111,
+            attackR: 111,
+            defenseR: 111,
+            speed: 70
+        }
+    },
+
+    'glintera-electric-geoknight': {
+        name: "Glintera-Electric-Geoknight",
+        types: ["Earth", "Electric"],
+        soulMove: "Fusion Barrage",
+        ability: "Merge",
+        item: "Glintburst",
+        weight: 340,
+        height: 121,
+        baseStats: {
+            hp: 111,
+            energy: 0,
+            attack: 111,
+            defense: 111,
+            attackR: 111,
+            defenseR: 111,
+            speed: 70
+        }
+    },
+
+    'glintera-light-geoknight': {
+        name: "Glintera-Light-Geoknight",
+        types: ["Earth", "Light"],
+        soulMove: "Fusion Barrage",
+        ability: "Merge",
+        item: "Glintburst",
+        weight: 340,
+        height: 121,
+        baseStats: {
+            hp: 111,
+            energy: 0,
+            attack: 111,
+            defense: 111,
+            attackR: 111,
+            defenseR: 111,
+            speed: 70
+        }
+    },
+
+    'glintera-dark-geoknight': {
+        name: "Glintera-Dark-Geoknight",
+        types: ["Earth", "Dark"],
+        soulMove: "Fusion Barrage",
+        ability: "Merge",
+        item: "Glintburst",
+        weight: 340,
+        height: 121,
+        baseStats: {
+            hp: 111,
+            energy: 0,
+            attack: 111,
+            defense: 111,
+            attackR: 111,
+            defenseR: 111,
+            speed: 70
+        }
+    },
+
+    noctulite: {
+        name: "Noctulite",
+        types: ["Metal", "Ancient"],
+        weight: 25,
+        height: 21,
+        finalEvo: false,
+        baseStats: {
+            hp: 43,
+            energy: 68,
+            attack: 81,
+            defense: 37,
+            attackR: 69,
+            defenseR: 34,
+            speed: 91
+        }
+    },
+
+    bismyotis: {
+        name: "Bismyotis",
+        types: ["Metal", "Ancient"],
+        weight: 70,
+        height: 56,
+        baseStats: {
+            hp: 73,
+            energy: 86,
+            attack: 114,
+            defense: 57,
+            attackR: 101,
+            defenseR: 49,
+            speed: 112
+        }
+    },
+
+    pikbug: {
+        name: "Pikbug",
+        types: ["Bug", "Metal"],
+        weight: 6,
+        height: 18,
+        finalEvo: false,
+        baseStats: {
+            hp: 30,
+            energy: 63,
+            attack: 37,
+            defense: 68,
+            attackR: 21,
+            defenseR: 38,
+            speed: 31
+        }
+    },
+
+    crawlley: {
+        name: "Crawlley",
+        types: ["Bug", "Metal"],
+        weight: 86,
+        height: 38,
+        finalEvo: false,
+        baseStats: {
+            hp: 53,
+            energy: 83,
+            attack: 51,
+            defense: 99,
+            attackR: 30,
+            defenseR: 53,
+            speed: 56
+        }
+    },
+
+    carapede: {
+        name: "Carapede",
+        types: ["Bug", "Metal"],
+        weight: 308,
+        height: 160,
+        baseStats: {
+            hp: 74,
+            energy: 96,
+            attack: 83,
+            defense: 140,
+            attackR: 49,
+            defenseR: 76,
+            speed: 91
+        }
+    },
+
+    kumiro: {
+        name: "Kumiro",
+        types: ["Ice", "Spirit"],
+        weight: 11,
+        height: 28,
+        finalEvo: false,
+        baseStats: {
+            hp: 53,
+            energy: 66,
+            attack: 37,
+            defense: 51,
+            attackR: 65,
+            defenseR: 59,
+            speed: 67
+        }
+    },
+
+    vixumi: {
+        name: "Vixumi",
+        types: ["Ice", "Spirit"],
+        weight: 81,
+        height: 75,
+        baseStats: {
+            hp: 88,
+            energy: 83,
+            attack: 54,
+            defense: 82,
+            attackR: 96,
+            defenseR: 103,
+            speed: 106
+        }
+    },
+
+    vollops: {
+        name: "Vollops",
+        types: ["Spirit", "Electric"],
+        weight: 2,
+        height: 28,
+        baseStats: {
+            hp: 69,
+            energy: 75,
+            attack: 20,
+            defense: 59,
+            attackR: 96,
+            defenseR: 86,
+            speed: 120
+        }
+    },
+
+    snifflin: {
+        name: "Snifflin",
+        types: ["Ice", "Simple"],
+        weight: 40,
+        height: 37,
+        finalEvo: false,
+        baseStats: {
+            hp: 90,
+            energy: 96,
+            attack: 48,
+            defense: 43,
+            attackR: 36,
+            defenseR: 38,
+            speed: 52
+        }
+    },
+
+    nostroll: {
+        name: "Nostroll",
+        types: ["Ice", "Simple"],
+        weight: 233,
+        height: 102,
+        baseStats: {
+            hp: 132,
+            energy: 96,
+            attack: 81,
+            defense: 76,
+            attackR: 53,
+            defenseR: 70,
+            speed: 72
+        }
+    },
+
+    svelpup: {
+        name: "Svelpup",
+        types: ["Water", "Ice"],
+        weight: 8,
+        height: 21,
+        finalEvo: false,
+        baseStats: {
+            hp: 55,
+            energy: 49,
+            attack: 34,
+            defense: 25,
+            attackR: 34,
+            defenseR: 26,
+            speed: 36
+        }
+    },
+
+    sigleo: {
+        name: "Sigleo",
+        types: ["Water", "Ice"],
+        weight: 61,
+        height: 56,
+        finalEvo: false,
+        baseStats: {
+            hp: 83,
+            energy: 68,
+            attack: 70,
+            defense: 57,
+            attackR: 53,
+            defenseR: 61,
+            speed: 78
+        }
+    },
+
+    berserus: {
+        name: "Berserus",
+        types: ["Water", "Ice"],
+        weight: 187,
+        height: 92,
+        baseStats: {
+            hp: 101,
+            energy: 78,
+            attack: 98,
+            defense: 108,
+            attackR: 59,
+            defenseR: 113,
+            speed: 42
+        }
+    },
+
+    tadplode: {
+        name: "Tadplode",
+        types: ["Ice"],
+        weight: 6,
+        height: 8,
+        finalEvo: false,
+        baseStats: {
+            hp: 50,
+            energy: 60,
+            attack: 37,
+            defense: 42,
+            attackR: 88,
+            defenseR: 45,
+            speed: 34
+        }
+    },
+
+    nitroad: {
+        name: "Nitroad",
+        types: ["Ice", "Fire"],
+        weight: 105,
+        height: 62,
+        baseStats: {
+            hp: 100,
+            energy: 86,
+            attack: 86,
+            defense: 81,
+            attackR: 119,
+            defenseR: 87,
+            speed: 41
+        }
+    },
+
+    snugguin: {
+        name: "Snugguin",
+        types: ["Ice"],
+        weight: 5,
+        height: 13,
+        finalEvo: false,
+        baseStats: {
+            hp: 32,
+            energy: 26,
+            attack: 40,
+            defense: 19,
+            attackR: 21,
+            defenseR: 18,
+            speed: 44
+        }
+    },
+
+    penguard: {
+        name: "Penguard",
+        types: ["Ice"],
+        weight: 39,
+        height: 45,
+        finalEvo: false,
+        baseStats: {
+            hp: 63,
+            energy: 63,
+            attack: 70,
+            defense: 91,
+            attackR: 48,
+            defenseR: 66,
+            speed: 59
+        }
+    },
+
+    frigicrest: {
+        name: "Frigicrest",
+        types: ["Ice"],
+        weight: 115,
+        height: 73,
+        baseStats: {
+            hp: 88,
+            energy: 81,
+            attack: 101,
+            defense: 110,
+            attackR: 62,
+            defenseR: 87,
+            speed: 69
+        }
+    },
+
+    plasmite: {
+        name: "Plasmite",
+        types: ["Bug", "Fire"],
+        weight: 11,
+        height: 31,
+        finalEvo: false,
+        baseStats: {
+            hp: 84,
+            energy: 75,
+            attack: 53,
+            defense: 56,
+            attackR: 48,
+            defenseR: 56,
+            speed: 57
+        }
+    },
+
+    coagulex: {
+        name: "Coagulex",
+        types: ["Bug", "Fire"],
+        weight: 44,
+        height: 109,
+        baseStats: {
+            hp: 84,
+            energy: 75,
+            attack: 96,
+            defense: 56,
+            attackR: 82,
+            defenseR: 56,
+            speed: 130
+        }
+    },
+
+    embryx: {
+        name: "Embryx",
+        types: ["Dark"],
+        ability: "Conditioned",
+        weight: 16,
+        height: 29,
+        finalEvo: false,
+        baseStats: {
+            hp: 33,
+            energy: 75,
+            attack: 53,
+            defense: 53,
+            attackR: 89,
+            defenseR: 57,
+            speed: 91
+        }
+    },
+
+    cocoonyx: {
+        name: "Cocoonyx",
+        types: ["Dark"],
+        ability: "Conditioned",
+        weight: 18,
+        height: 30,
+        finalEvo: false,
+        baseStats: {
+            hp: 49,
+            energy: 75,
+            attack: 53,
+            defense: 93,
+            attackR: 89,
+            defenseR: 97,
+            speed: 53
+        }
+    },
+
+    archanox: {
+        name: "Archanox",
+        types: ["Dark", "Ancient"],
+        ability: "Black Heart",
+        weight: 120,
+        height: 135,
+        baseStats: {
+            hp: 78,
+            energy: 75,
+            attack: 67,
+            defense: 83,
+            attackR: 129,
+            defenseR: 87,
+            speed: 106
+        }
+    },
+
+    'koz-moh': {
+        name: "Koz-Moh",
+        types: ["Metal", "Simple"],
+        weight: 16,
+        height: 29,
+        finalEvo: false,
+        baseStats: {
+            hp: 73,
+            energy: 61,
+            attack: 46,
+            defense: 54,
+            attackR: 27,
+            defenseR: 27,
+            speed: 58
+        }
+    },
+
+    'ohni-on': {
+        name: "Ohni-On",
+        types: ["Metal", "Simple"],
+        weight: 55,
+        height: 52,
+        finalEvo: false,
+        baseStats: {
+            hp: 98,
+            energy: 78,
+            attack: 62,
+            defense: 68,
+            attackR: 38,
+            defenseR: 38,
+            speed: 67
+        }
+    },
+
+    'koz-mech': {
+        name: "Koz-Mech",
+        types: ["Metal", "Simple"],
+        weight: 81,
+        height: 57,
+        baseStats: {
+            hp: 130,
+            energy: 99,
+            attack: 90,
+            defense: 83,
+            attackR: 49,
+            defenseR: 49,
+            speed: 83
+        }
+    },
+
+    navilite: {
+        name: "Navilite",
+        types: ["Metal"],
+        weight: 106,
+        height: 55,
+        finalEvo: false,
+        baseStats: {
+            hp: 60,
+            energy: 60,
+            attack: 60,
+            defense: 60,
+            attackR: 60,
+            defenseR: 60,
+            speed: 60
+        }
+    },
+
+    xenark: {
+        name: "Xenark",
+        types: ["Metal", "Dark"],
+        weight: 86,
+        height: 92,
+        baseStats: {
+            hp: 60,
+            energy: 90,
+            attack: 120,
+            defense: 75,
+            attackR: 90,
+            defenseR: 90,
+            speed: 90
+        }
+    },
+
+    radiarc: {
+        name: "Radiarc",
+        types: ["Metal", "Electric"],
+        weight: 161,
+        height: 74,
+        baseStats: {
+            hp: 90,
+            energy: 90,
+            attack: 60,
+            defense: 90,
+            attackR: 90,
+            defenseR: 120,
+            speed: 75
+        }
+    },
+
+    eagrin: {
+        name: "Eagrin",
+        types: ["Electric", "Air"],
+        weight: 16,
+        height: 27,
+        finalEvo: false,
+        baseStats: {
+            hp: 60,
+            energy: 55,
+            attack: 85,
+            defense: 55,
+            attackR: 50,
+            defenseR: 40,
+            speed: 55
+        }
+    },
+
+    fowlgur: {
+        name: "Fowlgur",
+        types: ["Electric", "Air"],
+        weight: 44,
+        height: 53,
+        finalEvo: false,
+        baseStats: {
+            hp: 75,
+            energy: 65,
+            attack: 105,
+            defense: 65,
+            attackR: 60,
+            defenseR: 55,
+            speed: 80
+        }
+    },
+
+    fulgurath: {
+        name: "Fulgurath",
+        types: ["Electric", "Air"],
+        weight: 153,
+        height: 101,
+        baseStats: {
+            hp: 95,
+            energy: 75,
+            attack: 125,
+            defense: 85,
+            attackR: 70,
+            defenseR: 75,
+            speed: 100
+        }
+    },
+
+    sprigna: {
+        name: "Sprigna",
+        types: ["Ice", "Plant"],
+        weight: 5,
+        height: 19,
+        finalEvo: false,
+        baseStats: {
+            hp: 53,
+            energy: 72,
+            attack: 40,
+            defense: 39,
+            attackR: 72,
+            defenseR: 63,
+            speed: 65
+        }
+    },
+
+    kelpos: {
+        name: "Kelpos",
+        types: ["Ice", "Plant"],
+        weight: 5,
+        height: 19,
+        finalEvo: false,
+        baseStats: {
+            hp: 70,
+            energy: 83,
+            attack: 51,
+            defense: 46,
+            attackR: 96,
+            defenseR: 74,
+            speed: 86
+        }
+    },
+
+    slugoona: {
+        name: "Slugoona",
+        types: ["Ice", "Plant"],
+        weight: 5,
+        height: 19,
+        baseStats: {
+            hp: 87,
+            energy: 91,
+            attack: 64,
+            defense: 59,
+            attackR: 126,
+            defenseR: 90,
+            speed: 108
+        }
+    },
+
+    ignigrub: {
+        name: "Ignigrub",
+        types: ["Bug", "Fire"],
+        weight: 5,
+        height: 13,
+        finalEvo: false,
+        baseStats: {
+            hp: 38,
+            energy: 52,
+            attack: 62,
+            defense: 61,
+            attackR: 38,
+            defenseR: 44,
+            speed: 48
+        }
+    },
+
+    caranade: {
+        name: "Caranade",
+        types: ["Bug", "Fire"],
+        weight: 17,
+        height: 37,
+        finalEvo: false,
+        baseStats: {
+            hp: 52,
+            energy: 68,
+            attack: 77,
+            defense: 80,
+            attackR: 48,
+            defenseR: 61,
+            speed: 67
+        }
+    },
+
+    stagnite: {
+        name: "Stagnite",
+        types: ["Bug", "Fire"],
+        weight: 76,
+        height: 78,
+        finalEvo: false,
+        baseStats: {
+            hp: 75,
+            energy: 81,
+            attack: 115,
+            defense: 101,
+            attackR: 58,
+            defenseR: 82,
+            speed: 113
+        }
+    },
  
     duskit: {
         name: "Duskit",
@@ -5249,6 +6687,22 @@ var loomians = {
             attackR: 157,
             defenseR: 87,
             speed: 77
+        }
+    },
+
+    yamashkigal: {
+        name: "Yamashkigal",
+        types: ["Metal", "Toxic"],
+        weight: 423,
+        height: 337,
+        baseStats: {
+            hp: 115,
+            energy: 90,
+            attack: 140,
+            defense: 100,
+            attackR: 55,
+            defenseR: 85,
+            speed: 115
         }
     },
 
@@ -5808,6 +7262,18 @@ var moves = {
         contact: true
     },
 
+    stalk: {
+        name: "Stalk",
+        power: 80,
+        energy: 40,
+        accuracy: "N/A",
+        type: "Simple",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
+    },
+
     singe: {
         name: "Singe",
         power: 40,
@@ -6113,6 +7579,20 @@ var moves = {
         mr2: "Melee Defense",
         secondaryEffect: true,
         contact: true
+    },
+
+    banefulGnash: {
+        name: "Baneful Gnash",
+        power: 95,
+        energy: 50,
+        accuracy: 100,
+        type: "Toxic",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        secondaryEffect: true,
+        contact: true,
+        bite: true
     },
 
     pestilence: {
@@ -6797,6 +8277,18 @@ var moves = {
         secondaryEffect: true
     },
 
+    skulk: {
+        name: "Skulk",
+        power: -1,
+        energy: 30,
+        accuracy: 100,
+        type: "Spirit",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        weightBased: true
+    },
+
     apparition: {
         name: "Apparition",
         power: 90,
@@ -6924,6 +8416,20 @@ var moves = {
         drain: 1/2
     },
 
+    bloodmeal: {
+        name: "Bloodmeal",
+        power: 80,
+        energy: 50,
+        accuracy: 100,
+        type: "Bug",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        bite: true,
+        regen: 1/5
+    },
+
     savageHorn: {
         name: "Savage Horn",
         power: 120,
@@ -6960,6 +8466,19 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true,
+    },
+
+    stealthAssault: {
+        name: "Stealth Assault",
+        power: 90,
+        energy: 60,
+        accuracy: 100,
+        type: "Bug",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        priority: true,
     },
 
     headbutt: {
@@ -7057,6 +8576,34 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true
+    },
+
+    frigidFrenzy: {
+        name: "Frigid Frenzy",
+        power: 25,
+        energy: 25,
+        accuracy: 100,
+        type: "Ice",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        slash: true,
+        hits: 5
+    },
+
+    dualFrostblade: {
+        name: "Dual Frostblade",
+        power: 50,
+        energy: 50,
+        accuracy: 90,
+        type: "Ice",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        slash: true,
+        hits: 2
     },
 
     searingSteel: {
@@ -7171,6 +8718,19 @@ var moves = {
         slash: true
     },
 
+    grappleGrip: {
+        name: "Grapple Grip",
+        power: 60,
+        energy: 35,
+        accuracy: 100,
+        type: "Simple",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        slash: true
+    },
+
     nosedive: {
         name: "Nosedive",
         power: 95,
@@ -7182,6 +8742,31 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         recoil: 1/4
+    },
+
+    cycloneVortex: {
+        name: "Cyclone Vortex",
+        power: 100,
+        energy: 52,
+        accuracy: 80,
+        type: "Air",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        aoe: true,
+        secondaryEffect: true
+    },
+
+    blusterBurst: {
+        name: "Bluster Burst",
+        power: 90,
+        energy: 50,
+        accuracy: 100,
+        type: "Air",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        aoe: true
     },
 
     flamingKick: {
@@ -7235,6 +8820,43 @@ var moves = {
         contact: true
     },
 
+    allOrNothing: {
+        name: "All or Nothing",
+        power: 150,
+        energy: 60,
+        accuracy: 100,
+        type: "Brawler",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
+    },
+
+    doubleSwipe: {
+        name: "Double Swipe",
+        power: 50,
+        energy: 45,
+        accuracy: 90,
+        type: "Brawler",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        slash: true
+    },
+
+    counterAssault: {
+        name: "Counter Assault",
+        power: 0,
+        energy: 25,
+        accuracy: 100,
+        type: "Brawler",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
+    },
+
     ragingTackle: {
         name: "Raging Tackle",
         power: 120,
@@ -7266,6 +8888,31 @@ var moves = {
         name: "Revolution",
         power: 70,
         energy: 45,
+        accuracy: 100,
+        type: "Dark",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+    },
+
+    calamitousCrash: {
+        name: "Calamitous Crash",
+        power: 70,
+        energy: 50,
+        accuracy: 100,
+        type: "Dark",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        crit: true
+    },
+
+    rancorousRollout: {
+        name: "Rancorous Rollout",
+        power: 85,
+        energy: 44,
         accuracy: 100,
         type: "Dark",
         mr: "Melee",
@@ -7312,18 +8959,6 @@ var moves = {
         priority: true
     },
 
-    /*hahaFog: {
-        name: "Haha Fog",
-        power: 125,
-        energy: 60,
-        accuracy: 100,
-        type: "Spirit",
-        mr: "Melee",
-        mr1: "Melee Attack",
-        mr2: "Melee Defense",
-        contact: true,
-    },*/
-
     airBlade: {
         name: "Air Blade",
         power: 70,
@@ -7358,6 +8993,17 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         secondaryEffect: true
+    },
+
+    lashOut: {
+        name: "Lash Out",
+        power: 140,
+        energy: 50,
+        accuracy: 100,
+        type: "Dark",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
     },
 
     shadowLurk: {
@@ -7773,6 +9419,18 @@ var moves = {
         aoe: true
     },
 
+    strategicSurge: {
+        name: "Strategic Surge",
+        power: 70,
+        energy: 45,
+        accuracy: 100,
+        type: "Electric",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        priority: true
+    },
+
     thunderBlast: {
         name: "Thunder Blast",
         power: 110,
@@ -7846,6 +9504,19 @@ var moves = {
         mr2: "Ranged Defense",
         sound: true,
         secondaryEffect: true
+    },
+
+    explosion: {
+        name: "Explosion",
+        power: 200,
+        energy: 75,
+        accuracy: 100,
+        type: "Simple",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        bomb: true,
+        aoe: true
     },
 
     climateCannon: {
@@ -7981,6 +9652,29 @@ var moves = {
         mr2: "Ranged Defense"
     },
 
+    focusBeam: {
+        name: "Focus Beam",
+        power: 120,
+        energy: 60,
+        accuracy: 100,
+        type: "Light",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
+    },
+
+    glowBeam: {
+        name: "Glow Beam",
+        power: 130,
+        energy: 60,
+        accuracy: 90,
+        type: "Light",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        stat: {amount: -2, battle: "Offense", stat: "AttackR"}
+    },
+
     fadeAway: {
         name: "Fade Away",
         power: 70,
@@ -8041,6 +9735,84 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true
+    },
+
+    steelGrit: {
+        name: "Steel Grit",
+        power: -1,
+        energy: 40,
+        accuracy: 100,
+        type: "Metal",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        healthBased: true
+    },
+
+    rocketJab: {
+        name: "Rocket Jab",
+        power: 40,
+        energy: 25,
+        accuracy: 100,
+        type: "Metal",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        punch: true,
+        priority: true
+    },
+
+    massImpact: {
+        name: "Mass Impact",
+        power: -1,
+        energy: 45,
+        accuracy: 100,
+        type: "Metal",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        heavyBased: true
+    },
+
+    forgedClaws: {
+        name: "Forged Claws",
+        power: 100,
+        energy: 52,
+        accuracy: 80,
+        type: "Metal",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        slash: true
+    },
+
+    mandibleCrusher: {
+        name: "Mandible Crusher",
+        power: 100,
+        energy: 54,
+        accuracy: 80,
+        type: "Metal",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        bite: true
+    },
+
+    skilledSwipe: {
+        name: "Skilled Swipe",
+        power: 20,
+        energy: 40,
+        accuracy: 100,
+        type: "Metal",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        statBuff: true
     },
 
     metalSwipes: {
@@ -8737,6 +10509,18 @@ var moves = {
         recoil: 1/3
     },
 
+    timberSweep: {
+        name: "Timber Sweep",
+        power: 80,
+        energy: 40,
+        accuracy: 100,
+        type: "Plant",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        aoe: true,
+    },
+
     vineLash: {
         name: "Vine Lash",
         power: 90,
@@ -8754,6 +10538,28 @@ var moves = {
         name: "Douse",
         power: 90,
         energy: 50,
+        accuracy: 100,
+        type: "Water",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+    },
+
+    reservoirDeluge: {
+        name: "Reservoir Deluge",
+        power: 110,
+        energy: 55,
+        accuracy: 100,
+        type: "Water",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+    },
+
+    fountainBeam: {
+        name: "Fountain Beam",
+        power: 100,
+        energy: 55,
         accuracy: 100,
         type: "Water",
         mr: "Ranged",
@@ -8862,6 +10668,18 @@ var moves = {
         mr2: "Melee Defense",
     },
 
+    fusionBarrage: {
+        name: "Fusion Barrage",
+        power: 25,
+        energy: 0,
+        accuracy: "N/A",
+        type: "Null",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        hits: 5
+    },
+
     heartBreak: {
         name: "Heart Break",
         power: 50,
@@ -8960,6 +10778,18 @@ var moves = {
         contact: true,
     },
 
+    dragonHorn: {
+        name: "Dragon Horn",
+        power: 100,
+        energy: 50,
+        accuracy: 80,
+        type: "Ancient",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+    },
+
     blazePunch: {
         name: "Blaze Punch",
         power: 70,
@@ -8999,6 +10829,30 @@ var moves = {
         contact: true,
     },
 
+    burnTrue: {
+        name: "Burn True",
+        power: 85,
+        energy: 48,
+        accuracy: 100,
+        type: "Fire",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+    },
+
+    pileBunker: {
+        name: "Pile Bunker",
+        power: 20,
+        energy: 42,
+        accuracy: 90,
+        type: "Fire",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        punch: true,
+    },
+
     boomBash: {
         name: "Boom Bash",
         power: 80,
@@ -9011,6 +10865,29 @@ var moves = {
         secondaryEffect: true,
         punch: true,
         kick: true
+    },
+
+    hookWave: {
+        name: "Hook Wave",
+        power: 50,
+        energy: 20,
+        accuracy: 100,
+        type: "Brawler",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+    },
+
+    auraBurst: {
+        name: "Aura Burst",
+        power: 90,
+        energy: 50,
+        accuracy: 100,
+        type: "Brawler",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true,
     },
 
     vitalSurge: {
@@ -10225,6 +12102,15 @@ var moves = {
         mr: "Support"
     },
 
+    baneOfWielding: {
+        name: "Bane of Wielding",
+        power: 0,
+        energy: 50,
+        accuracy: "N/A",
+        type: "Ancient",
+        mr: "Support"
+    },
+
     hypnotize: {
         name: "Hypnotize",
         power: 0,
@@ -10389,6 +12275,15 @@ var moves = {
         mr: "Support"
     },
 
+    discipline: {
+        name: "Discipline",
+        power: 0,
+        energy: 50,
+        accuracy: "N/A",
+        type: "Brawler",
+        mr: "Support"
+    },
+
 
     talentTrade: {
         name: "Talent Trade",
@@ -10439,6 +12334,16 @@ var moves = {
         name: "Dissipate",
         power: 0,
         energy: 45,
+        accuracy: "N/A",
+        type: "Mind",
+        mr: "Support",
+        pivot: true
+    },
+
+    sereneGift: {
+        name: "Serene Gift",
+        power: 0,
+        energy: 72,
         accuracy: "N/A",
         type: "Mind",
         mr: "Support",
@@ -10593,6 +12498,24 @@ var moves = {
         name: "Hoodwink",
         power: 0,
         energy: 35,
+        accuracy: "N/A",
+        type: "Simple",
+        mr: "Support"
+    },
+
+    bindingOath: {
+        name: "Binding Oath",
+        power: 0,
+        energy: 40,
+        accuracy: "N/A",
+        type: "Simple",
+        mr: "Support"
+    },
+
+    parasomnia: {
+        name: "Parasomnia",
+        power: 0,
+        energy: 0,
         accuracy: "N/A",
         type: "Simple",
         mr: "Support"
@@ -10794,7 +12717,10 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Sky-Borne", "Land-Borne", "Depths-Borne", "All Seeing", "Rain Rush", "Triumph", "Royal Decree", "Thunder Summon", "Recurrent", "Charged Arc","Adaptable", "Heat Summon",
                  "Rain Summon", "Fog Summon", "Wind Summon", "Inferno", "Cosmic Pressure", "Conspire", "Metamorphosis", "Sob", "Wail", "Seize", "Assertive", "Berserk", "Disenchant", "Impose", "Gorge",
                  "Carol", "Fortissimo", "Elusive", "Upper Hand", "Effulgent", "Dummy", "Puncture", "Toxic Sac", "Hover", "Eager", "Reign", "Overclock", "Prowler", "Hotfoot", "Mycotic", "Remorseless",
-                 "Night Light", "Intensify", "Power Claw", "Medic", "Boneheaded", "Metallic", "Power Legs"];
+                 "Night Light", "Intensify", "Power Claw", "Medic", "Boneheaded", "Metallic", "Power Legs", "Merge", "Greed", "Energy-Feeding", "Gain-Feeding", "Self-Destruct", "Snowball",
+                 "Snow Glider", "Recruit", "Veteran", "Spoils of War", "Sticky", "Stoked", "Electrify", "Cavernous", "Conditioned", "Black Heart", "Extended Reach", "High-Strung", "Dirt Dash",
+                 "Earthmover", "Dust Devil", "Arctic", "Dead of Winter", "Soul Hoarder", "Brave Cub", "Elder Mane", "Shifty", "Solar Powered", "Extraterrestrial", "Noxious Razorback", "Virulent Hypnosis",
+                 "High Pressure", "Slick Scales", "Pugilist"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -10994,6 +12920,48 @@ var typeModAbilities = {
         typeModifier: { type: "Water", modifier: 1.25},
         powerMod: true
     },
+
+    blackHeart: {
+        name: "Black Heart",
+        typeModifier: { type: "Dark", type2: "Light", modifier: 0.5},
+        powerMod: false
+    },
+
+    earthmover: {
+        name: "Earthmover",
+        typeModifier: { type: "Earth", modifier: 0},
+        powerMod: false
+    },
+
+    solarPowered: {
+        name: "Solar Powered",
+        typeModifier: { type: "Light", modifier: 0},
+        powerMod: false
+    },
+
+    deadOfWinter: {
+        name: "Dead of Winter",
+        typeModifier: { type: "Brawler", modifier: 0},
+        powerMod: false
+    },
+
+    braveCub: {
+        name: "Brave Cub",
+        typeModifier: { type: "Dark", type2: "Spirit", type3: "Bug", modifier: 0.75},
+        powerMod: false
+    },
+
+    elderMane: {
+        name: "Elder Mane",
+        typeModifier: { type: "Dark", type2: "Spirit", type3: "Bug", modifier: 0.5},
+        powerMod: false
+    },
+
+    highPressure: {
+        name: "High Pressure",
+        typeModifier: { type: "Water", modifier: 1.25},
+        powerMod: true
+    },
 }
 
 var items = ["Heavy Shield", "Heavy Armor", "Power Cuffs", "Health Amulet", "Drain Orb", "Mystic Wand", "Drop of Youth", "Energy Orb", "Chocolate Bar", "Mysterious Dust", "Heavy Shackles", "Thunder Orb",
@@ -11015,4 +12983,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Terracolt line added.";
+var changelog = "Route 9 Loomians added.";
