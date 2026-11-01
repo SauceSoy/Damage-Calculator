@@ -578,7 +578,7 @@
                             <option>4 looms</option>
                             <option class="stampede">5 looms</option>
                         </select>   
-                        <input class="snowball" id="moveOneSnowball1" style="display:  none;" value=1 type=number min=1 max=5
+                        <input class="snowball" id="moveOneSnowball1" style="display:  none;" value=1 type=number min=1 max=999
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
                         onchange="update()"> 
                     </div>
@@ -614,7 +614,7 @@
                             <option>4 looms</option>
                             <option class="stampede">5 looms</option>
                         </select>   
-                        <input class="snowball" id="moveTwoSnowball1" style="display:  none;" value=1 type=number min=1 max=5
+                        <input class="snowball" id="moveTwoSnowball1" style="display:  none;" value=1 type=number min=1 max=999
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
                         onchange="update()"> 
                     </div>
@@ -650,7 +650,7 @@
                             <option>4 looms</option>
                             <option class="stampede">5 looms</option>
                         </select>   
-                        <input class="snowball" id="moveThreeSnowball1" style="display:  none;" value=1 type=number min=1 max=5
+                        <input class="snowball" id="moveThreeSnowball1" style="display:  none;" value=1 type=number min=1 max=999
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
                         onchange="update()"> 
                     </div>
@@ -686,7 +686,7 @@
                             <option>4 looms</option>
                             <option class="stampede">5 looms</option>
                         </select>   
-                        <input class="snowball" id="moveFourSnowball1" style="display: none;" value=1 type=number min=1 max=5
+                        <input class="snowball" id="moveFourSnowball1" style="display: none;" value=1 type=number min=1 max=999
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
                         onchange="update()"> 
                     </div>  
@@ -735,6 +735,10 @@
                     <label class="radiolbl fieldlbl btn-mid" for="heat" title="Select the current weather condition">Heat Wave</label>
                     <input type="radio" class="hiddenToUser" name="weather" value="4" id="storm" onchange="update()">
                     <label class="radiolbl fieldlbl btn-right" for="storm" title="Select the current weather condition">Thunderstorm</label>
+                </div>
+                <div align="center">
+                    <input type="radio" class="hiddenToUser" name="weather" value="5" id="snow" onchange="update()">
+                    <label class="radiolbl fieldlbl" for="snow" title="Select the current weather condition">Snowstorm</label>
                 </div>
                 <hr>
                 <div align="center">
@@ -1461,7 +1465,7 @@
                             <option>4 looms</option>
                             <option class="stampede">5 looms</option>
                         </select>   
-                        <input class="snowball" id="moveOneSnowball2" style="display:  none;" value=1 type=number min=1 max=5
+                        <input class="snowball" id="moveOneSnowball2" style="display:  none;" value=1 type=number min=1 max=999
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
                         onchange="update()"> 
                     </div>
@@ -1497,7 +1501,7 @@
                             <option>4 looms</option>
                             <option class="stampede">5 looms</option>
                         </select>   
-                        <input class="snowball" id="moveTwoSnowball2" style="display:  none;" value=1 type=number min=1 max=5
+                        <input class="snowball" id="moveTwoSnowball2" style="display:  none;" value=1 type=number min=1 max=999
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
                         onchange="update()"> 
                     </div>
@@ -1533,7 +1537,7 @@
                             <option>4 looms</option>
                             <option class="stampede">5 looms</option>
                         </select>   
-                        <input class="snowball" id="moveThreeSnowball2" style="display:  none;" value=1 type=number min=1 max=5
+                        <input class="snowball" id="moveThreeSnowball2" style="display:  none;" value=1 type=number min=1 max=999
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
                         onchange="update()"> 
                     </div>
@@ -1569,7 +1573,7 @@
                             <option>4 looms</option>
                             <option class="stampede">5 looms</option>
                         </select>   
-                        <input class="snowball" id="moveFourSnowball2" style="display:  none;" value=1 type=number min=1 max=5
+                        <input class="snowball" id="moveFourSnowball2" style="display:  none;" value=1 type=number min=1 max=999
                         onkeyup="this.value = restrict(this.value, this.min, this.max)"
                         onchange="update()"> 
                     </div> 
