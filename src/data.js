@@ -7754,6 +7754,17 @@ var moves = {
         aoe: true
     },
 
+    pebbleToss: {
+        name: "Pebble Toss",
+        power: 30,
+        energy: 15,
+        accuracy: 100,
+        type: "Earth",
+        mr: "Ranged",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+    },
+
     doubleSting: {
         name: "Double Sting",
         power: 25,
