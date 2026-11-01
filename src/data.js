@@ -8853,7 +8853,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        slash: true
+        slash: true,
+        hits: 2
     },
 
     counterAssault: {
