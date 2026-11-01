@@ -6456,8 +6456,8 @@ var loomians = {
         }
     },
 
-    eagrin: {
-        name: "Eagrin",
+    eagrim: {
+        name: "Eagrim",
         types: ["Electric", "Air"],
         weight: 16,
         height: 27,
