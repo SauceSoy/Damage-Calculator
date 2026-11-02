@@ -9215,7 +9215,8 @@ var moves = {
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        secondaryEffect: true
+        secondaryEffect: true,
+        sound: true
     },
 
     earthquake: {
@@ -11639,6 +11640,15 @@ var moves = {
         name: "Thunderstorm",
         power: 0,
         energy: 25,
+        accuracy: "N/A",
+        type: "Electric",
+        mr: "Support"
+    },
+
+    recharge: {
+        name: "Recharge",
+        power: 0,
+        energy: 50,
         accuracy: "N/A",
         type: "Electric",
         mr: "Support"
