@@ -3219,7 +3219,6 @@ var loomians = {
         types: ["Water", "Plant"],
         weight: 83,
         height: 87,
-        finalEvo: false,
         baseStats: {
             hp: 72,
             energy: 79,
@@ -3690,7 +3689,6 @@ var loomians = {
         sAbility: ["Anomaly"],
         weight: 171,
         height: 119,
-        finalEvo: false,
         baseStats: {
             hp: 81,
             energy: 89,
@@ -6526,8 +6524,8 @@ var loomians = {
     kelpos: {
         name: "Kelpos",
         types: ["Ice", "Plant"],
-        weight: 5,
-        height: 19,
+        weight: 16,
+        height: 45,
         finalEvo: false,
         baseStats: {
             hp: 70,
@@ -6543,8 +6541,8 @@ var loomians = {
     slugoona: {
         name: "Slugoona",
         types: ["Ice", "Plant"],
-        weight: 5,
-        height: 19,
+        weight: 75,
+        height: 88,
         baseStats: {
             hp: 87,
             energy: 91,
@@ -6595,7 +6593,6 @@ var loomians = {
         types: ["Bug", "Fire"],
         weight: 76,
         height: 78,
-        finalEvo: false,
         baseStats: {
             hp: 75,
             energy: 81,
@@ -11088,6 +11085,7 @@ var moves = {
         mr: "Ranged",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
+        aoe: true,
         stat: {amount: -1, battle: "Offense", stat: "AttackR"}
     },
 
