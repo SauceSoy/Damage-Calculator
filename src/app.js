@@ -1872,7 +1872,7 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
         defStage = (ability2 == "Defensive Priority" ? Math.min(defStage + 1, 6) : Math.min(defStage + adjustmentCount, 6));
         def.def = (defStage < 0 ? Math.floor(baseDefense * (2 / (2 - defStage))) : Math.floor(baseDefense * ((2 + defStage) / 2)));
         if ((crit || move.name == "Vice Jaws" || move.name == "Ruthless Feast") && defStage > 0) def.def = baseDefense;
-        if (ability1 == "Designated Chompers" && move.bite && ability2 == "Resilience") {
+        if ((ability1 == "Designated Chompers" || ability1 == "Puncture") && move.bite && (ability2 == "Resilience" || (ability2 == "Defensive Priority" && a))) {
             def.def = baseDefense;
             if (firstHit) stuffUsed.ability1 = ability1;
         }
@@ -3625,7 +3625,7 @@ function getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, 
         stuffUsed.ability1 = ability1;
     }
     else if (ability1 == "Electrify" && tempType == "Simple") {
-    	tempType == "Electric";
+    	tempType = "Electric";
     	multi *= 1.2;
     	stuffUsed.ability1 = ability1;
     }
