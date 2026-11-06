@@ -3494,7 +3494,7 @@ function getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, 
     }
 
     if (move.name == "Climate Cannon" && !noWeather.checked) {
-        tempType = (rain.checked ? "Water" : winds.checked ? "Air" : fog.checked ? "Spirit" : heat.checked ? "Fire" : storm.checked ? "Electric" : "Simple");
+        tempType = (rain.checked ? "Water" : winds.checked ? "Air" : fog.checked ? "Spirit" : heat.checked ? "Fire" : storm.checked ? "Electric" : snow.checked ? "Ice" : "Simple");
         stuffUsed.extra1 += " (" + tempType + ")";
     }
 
@@ -3551,13 +3551,13 @@ function getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, 
     }
 
     if (ability1 == "Adaptable" && !noWeather.checked) {
-        types1.primary = (rain.checked ? "Water" : winds.checked ? "Air" : heat.checked ? "Fire" : fog.checked ? "Spirit" : storm.checked ? "Electric" : types1.primary);
+        types1.primary = (rain.checked ? "Water" : winds.checked ? "Air" : heat.checked ? "Fire" : fog.checked ? "Spirit" : storm.checked ? "Electric" : snow.checked ? "Ice" : types1.primary);
         types1.secondary = "None";
         stuffUsed.ability1 = ability1;
     }
 
     if (ability2 == "Adaptable" && !noWeather.checked) {
-        types2.primary = (rain.checked ? "Water" : winds.checked ? "Air" : heat.checked ? "Fire" : fog.checked ? "Spirit" : storm.checked ? "Electric" : types2.primary);
+        types2.primary = (rain.checked ? "Water" : winds.checked ? "Air" : heat.checked ? "Fire" : fog.checked ? "Spirit" : storm.checked ? "Electric" : snow.checked ? "Ice" : types2.primary);
         types2.secondary = "None";
         stuffUsed.ability2 = ability2;
     }
@@ -3855,7 +3855,7 @@ function getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, 
         stuffUsed.weather += " in Dense Fog";
     } else if (storm.checked && (tempType == "Electric" || (tempType == "Earth" && loom2.types.includes("Air")) || ability1 == "Overclock")) {
         stuffUsed.weather += " in Severe Thunderstorms";
-    } else if (snow.checked && (((move.mr2 == "Ranged Defense" && adaptive.mr2 != "Melee Defense") || adaptive.mr2 == "Ranged Defense") && loom2.types.includes("Ice") || ability1 == "Arctic" || ability1 == "Snow Glider")) {
+    } else if (snow.checked && (((move.mr2 == "Ranged Defense" && adaptive.mr2 != "Melee Defense") || adaptive.mr2 == "Ranged Defense") && (loom2.types.includes("Ice") || ability2 == "Adaptable") || ability1 == "Arctic" || ability1 == "Snow Glider")) {
     	stuffUsed.weather += " in Heavy Snowfall"
     }
     if (fungus.checked && (tempType == "Light" || tempType == "Dark") && loom2.types.includes("Plant")) {
@@ -3963,7 +3963,7 @@ function getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, 
         multi *= 2;
         stuffUsed.ability2 = ability2;
     }
-    if (snow.checked && loom2.types.includes("Ice") && ((move.mr2 == "Ranged Defense" && adaptive.mr2 != "Melee Defense") || adaptive.mr2 == "Ranged Defense")) {
+    if (snow.checked && (loom2.types.includes("Ice") || ability2 == "Adaptable") && ((move.mr2 == "Ranged Defense" && adaptive.mr2 != "Melee Defense") || adaptive.mr2 == "Ranged Defense")) {
     	multi *= 1.5;
     }
 
@@ -4744,7 +4744,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
 	        newHP += Math.floor(hp1 * 1 / 8);
 	        hazardString += "inferno damage and ";
 	    }
-	    if (snow.checked && !loom2.types.includes("Ice") && !loom2.types.includes("Brawler") && !loom2.types.includes("Fire") && ability != "Snow Glider" && ability != "Arctic") {
+	    if (snow.checked && !loom2.types.includes("Ice") && !loom2.types.includes("Brawler") && !loom2.types.includes("Fire") && ability != "Snow Glider" && ability != "Arctic" && ability != "Adaptable") {
 	        newHP += Math.floor(hp1 * 1 / 16);
 	        hazardString += "snowstorm damage and ";
 	    }
