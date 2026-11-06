@@ -4207,12 +4207,12 @@ function getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, 
         if (move.name == "Rapid Fire" || move.name == "Ruthless Feast") hits = 3;
         if (move.name == "Fusion Barrage") hits = 5;
         if (move.name != "Fusion Barrage") {
-        	for (let i = 0; i <= hits - 1; i++) {
+        	for (let i = 0; i <= hits - 2; i++) {
             	multiHits.push(getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, hits, swarm, snowball, true, level, ul, second, detailed, false));
             }	
         } else if (move.name == "Fusion Barrage") {
-        	for (let i = 0; i <= hits - 1; i++) {
-        		let fodder = i;
+        	for (let i = 0; i <= hits - 2; i++) {
+        		let fodder = i + 1;
             	multiHits.push(getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, hits, swarm, snowball, true, level, ul, second, detailed, false, false, false, fodder));
             }
         }    	
@@ -4221,7 +4221,7 @@ function getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, 
         multiHits.forEach(num => multiDmg += Math.max(num, 1));
     }
 
-    dmg = (multiDmg > 0 ? 0 : dmg);
+    //dmg = (multiDmg > 0 ? 0 : dmg);
 
     if (detailed && !hitConfirmer) {
         let numb;
@@ -4233,7 +4233,7 @@ function getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, 
         for (let i = 0.85; i <= 1; i += 0.01) {
             let sum = 0;
             numb = i.toFixed(3);
-            multiHits.forEach(num => sum += Math.max(num * numb, 1));
+            multiHits.forEach(num => sum += Math.floor(Math.max(num * numb, 1)));
             possibleDmg.push((immuneClause == true ? Math.floor(dmg * multi * numb + sum) : Math.max(Math.floor(dmg * multi * numb + sum), 1)));
         }
         if (foulHit) {
