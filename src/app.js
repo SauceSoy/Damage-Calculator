@@ -896,15 +896,15 @@ function updateFormat() {
         for (let i = 0; i < collection.length; i++) {
             collection[i].style.display = 'none';
         }
-        //field.style.height = "600px"; // +25 per button
-        fieldTraps.style.height = "26%"; // ~+2% per button
+        field.style.height = "850px"; // +25 per button
+        fieldTraps.style.height = "41%"; // ~+2% per button
     }    
     else {
         for (let i = 0; i < collection.length; i++) {
             collection[i].style.display = 'inline-block';
         }
-        //field.style.height = "755px";
-        fieldTraps.style.height = "39%";
+        field.style.height = "1020px";
+        fieldTraps.style.height = "51%";
     }
 
     update();

@@ -13065,7 +13065,10 @@ for (let ty in types) {
 }
 
 for (let loo in loomians) {
-    if (loomians[loo].item) items.push(loomians[loo].item);
+    if (loomians[loo].item) {
+        if (items.includes(loomians[loo].item)) break;
+        items.push(loomians[loo].item);
+    }    
 }
 
 var sets = [];

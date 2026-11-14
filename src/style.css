@@ -126,6 +126,7 @@ hr {
 }
 
 .field {
+  height: 850px;
 }
 
 .bott {
@@ -135,7 +136,7 @@ hr {
 }
 
 .fieldTraps {
-  height: 27%;
+  height: 41%;
 }
 
 #title {
