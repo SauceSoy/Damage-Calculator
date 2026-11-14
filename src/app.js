@@ -402,6 +402,13 @@ function toggleDarkMode() {
             allInputs[j].style.border = "1px solid #AAAAAA";
         }
 
+        let allTextAreas = document.querySelectorAll("textarea");
+        for (let r = 0; r < allTextAreas.length; r++) {
+        	allTextAreas[r].style.backgroundColor = "#757575";
+        	allTextAreas[r].style.color = "white";
+        	allTextAreas[r].style.border = "1px solid #AAAAAA";
+        }
+
         let allSelects = document.querySelectorAll("select");
         for (let k = 0; k < allSelects.length; k++) {
             allSelects[k].style.backgroundColor = "#545454";
@@ -415,6 +422,7 @@ function toggleDarkMode() {
 
         let radioLabels = document.getElementsByClassName("radioLbl");
         let resultLabels = document.getElementsByClassName("resultLbl");
+        let exportLabels = document.getElementsByClassName("exportLbl");
         for (let p = 0; p < radioLabels.length; p++) {
             radioLabels[p].style.backgroundColor = "#545454";
             radioLabels[p].style.color = "white";
@@ -423,6 +431,10 @@ function toggleDarkMode() {
             resultLabels[q].style.backgroundColor = "#545454";
             resultLabels[q].style.color = "white";
             resultLabels[q].style.border = "1px solid #AAAAAA";
+        }
+        for (let o = 0; o < exportLabels.length; o++) {
+        	exportLabels[o].style.backgroundColor = "#545454";
+        	exportLabels[o].style.color = "white";
         }
     }
     else {
@@ -442,6 +454,15 @@ function toggleDarkMode() {
             allInputs[j].style.borderWidth = "2px";
         }
 
+        let allTextAreas = document.querySelectorAll("textarea");
+        for (let r = 0; r < allTextAreas.length; r++) {
+        	allTextAreas[r].style.backgroundColor = "white";
+        	allTextAreas[r].style.color = "black";
+        	allTextAreas[r].style.borderStyle = "inset";
+        	allTextAreas[r].style.borderColor = "initial";
+        	allTextAreas[r].style.borderWidth = "2px";
+        }
+
         let allSelects = document.querySelectorAll("select");
         for (let k = 0; k < allSelects.length; k++) {
             allSelects[k].style.backgroundColor = "white";
@@ -455,6 +476,7 @@ function toggleDarkMode() {
 
         let radioLabels = document.getElementsByClassName("radioLbl");
         let resultLabels = document.getElementsByClassName("resultLbl");
+        let exportLabels = document.getElementsByClassName("exportLbl");
         for (let p = 0; p < radioLabels.length; p++) {
             radioLabels[p].style.backgroundColor = "#e9e9e9";
             radioLabels[p].style.color = "#555555";
@@ -464,17 +486,21 @@ function toggleDarkMode() {
             resultLabels[q].style.color = "#555555";
             resultLabels[q].style.border = "1px solid aaa";
         }
+        for (let o = 0; o < exportLabels.length; o++) {
+        	exportLabels[o].style.backgroundColor = "#e9e9e9";
+        	exportLabels[o].style.color = "555555";
+        }
     }
 }
 
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -536,14 +562,14 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2028 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
-        document.cookie = "darkMode=true; expires=Mon, 1 Jan 2027 12:00:00 UTC"
+        document.cookie = "darkMode=true; expires=Mon, 1 Jan 2028 12:00:00 UTC"
     }
     else {
-        document.cookie = "darkMode=false; expires=Mon, 1 Jan 2027 12:00:00 UTC";
+        document.cookie = "darkMode=false; expires=Mon, 1 Jan 2028 12:00:00 UTC";
     }
 }
 
@@ -870,15 +896,15 @@ function updateFormat() {
         for (let i = 0; i < collection.length; i++) {
             collection[i].style.display = 'none';
         }
-        field.style.height = "600px"; // +25 per button
-        fieldTraps.style.height = "53%"; // +1% per button
+        //field.style.height = "600px"; // +25 per button
+        fieldTraps.style.height = "26%"; // ~+2% per button
     }    
     else {
         for (let i = 0; i < collection.length; i++) {
             collection[i].style.display = 'inline-block';
         }
-        field.style.height = "755px";
-        fieldTraps.style.height = "65%";
+        //field.style.height = "755px";
+        fieldTraps.style.height = "39%";
     }
 
     update();
@@ -920,7 +946,7 @@ function updateHazards(hazard, side) {
     update();
 }
 
-function importSets() {
+/*function importSets() {
     let importedSets;
     let newSets = [];
 
@@ -941,7 +967,7 @@ function importSets() {
     document.getElementById("err").innerHTML = "Sets Successfully Loaded!";
     update();
 
-}
+}*/
 
 function loadSets(onlyFirst = false, onlySecond = false) {
     if (onlyFirst || (!onlyFirst && !onlySecond)) {
@@ -1017,6 +1043,10 @@ function loadSets(onlyFirst = false, onlySecond = false) {
             baseDefR1.value = firstLoom.gsbStats.defenseR;
             baseSpd1.value = firstLoom.gsbStats.speed;
             addStats();
+        }
+
+        if (set1.gender) {
+            gender1.value = set1.gender;
         }
     }
 
@@ -1094,9 +1124,275 @@ function loadSets(onlyFirst = false, onlySecond = false) {
             baseSpd2.value = secondLoom.gsbStats.speed;
             addStats();
         }
+
+        if (set2.gender) {
+            gender2.value = set2.gender;
+        }
     }
     
     update(undefined, false);
+}
+
+function serialize(array, separator) {
+	let text = "";
+	for (let i = 0; i < array.length; i++) {
+		if (i < array.length - 1) {
+			text += array[i] + separator;
+		} else text += array[i];
+	}
+	return text;
+}
+
+function exportSets(loomian) {
+	let loom = createLoomian(loomian);
+	let finalText = loom.name/* + " (" + loom.gender + ")"*/;
+	if (loom.item != "None") finalText += " @ " + loom.item;
+	finalText += "\n";
+	if (loom.ability != "None") finalText += "Ability: " + loom.ability + "\n";
+	let tpsArray = [];
+	for (let stat in loom.evs) {
+		let tp = loom.evs[stat] ? loom.evs[stat] : 0;
+		if (tp > 0) {
+			stat = calcToSet(stat.toLowerCase());
+			tpsArray.push(tp + " " + stat);
+		}
+	}
+	if (tpsArray.length > 0) {
+		finalText += "TPs: ";
+		finalText += serialize(tpsArray, " / ");
+		finalText += "\n";
+	}
+	if (loom.posNat != "none" || loom.negNat != "none" || loom.veryNat != "none") {
+		finalText += "Personality: ";
+		if (loom.posNat != "none") finalText += loom.posNat.charAt(0).toUpperCase() + loom.posNat.slice(1) + ", ";
+		if (loom.negNat != "none") finalText += loom.negNat.charAt(0).toUpperCase() + loom.negNat.slice(1) + ", ";
+		if (loom.veryNat != "none") finalText += loom.veryNat.charAt(0).toUpperCase() + "ery " + loom.veryNat.charAt(1).toUpperCase() + loom.veryNat.slice(2);
+		if (loom.veryNat == "none") finalText = finalText.slice(0, finalText.length - 2);
+		finalText += "\n";
+	}	
+	let upsArray = [];
+	for (let stat in loom.ivs) {
+		let up = loom.ivs[stat] ? loom.ivs[stat] : 0;
+		if (up < 40) {
+			stat = calcToSet(stat.toLowerCase());
+			upsArray.push(up + " " + stat);
+		}
+	}
+	if (upsArray.length > 0) {
+		finalText += "UPs: ";
+		finalText += serialize(upsArray, " / ");
+		finalText += "\n";
+	}
+	for (let i = 0; i < 4; i++) {
+		let moveName = loom.moves[i].name;
+		if (moveName !== "(No Move)") finalText += "- " + moveName + "\n";
+	}
+	finalText = finalText.trim();
+	$("textarea.import-team-text").val(finalText);
+}
+
+function createLoomian(loomian) {
+	let loom = document.getElementById(loomian);
+	let loomInfo = loom.querySelector('[id*="pokes"]');
+	let name = loomInfo.options[loomInfo.selectedIndex].set.name;
+	let stats = ["HP", "energy", "atk", "def", "atkR", "defR", "spd"];
+	let ivs = {};
+	let evs = {};
+
+	for (let i = 0; i < stats.length; i++) {
+		let stat = stats[i];
+		ivs[stat] = loom.querySelector("[id*=" + stat + "IV]").value;
+		evs[stat] = loom.querySelector("[id*=" + stat + "EV]").value;
+	}
+
+	let ability = loom.querySelector('[id*="ability"]').value;
+	let item = loom.querySelector('[id*="item"]').value;
+	let gender = loom.querySelector('[id*="gender"]').value;
+	let posNat = loom.querySelector('[id*="posNat"]').value;
+	let negNat = loom.querySelector('[id*="negNat"]').value;
+	let veryNat = loom.querySelector('[id*="veryNat"]').value;
+
+	return {
+		name: name,
+		ivs: ivs,
+		evs: evs,
+		ability: ability,
+		item: item,
+		gender: gender,
+		posNat: posNat,
+		negNat: negNat,
+		veryNat: veryNat,
+		moves: [
+			findMove(loom.querySelector('[id*="moveOne"]').value),
+			findMove(loom.querySelector('[id*="moveTwo"]').value),
+			findMove(loom.querySelector('[id*="moveThree"]').value),
+			findMove(loom.querySelector('[id*="moveFour"]').value),
+		],
+	}
+}
+
+$("#exportL").click(function () {
+	exportSets("loomian1");
+});
+
+$("#exportR").click(function () {
+	exportSets("loomian2");
+});
+
+$("#imports").click(function () {
+	let looms = document.getElementsByClassName("import-team-text")[0].value;
+	let name = document.getElementsByClassName("import-name-text")[0].value.trim() === "" ? "Custom Set" : document.getElementsByClassName("import-name-text")[0].value;
+
+	let rows = looms.split("\n");
+	let currentRow;
+	let species;
+	let currentLoom;
+	let addedLooms = 0;
+	for (let i = 0; i < rows.length; i++) {
+		species = findSpecies(rows[i]);
+		if (species.offset !== undefined) {
+			let set = makeBlankSet(species.name);
+			set.setName = name;
+			currentRow = rows[i].split(/[()@]/);
+			set.item = getItem(currentRow, species.offset + 1);
+			set = getStats(set, rows, i + 1);
+			set = getMoves(set, rows, i + 1);
+			addSet(set);
+			addedLooms++;
+		}
+	}
+	if (addedLooms > 0) alert("Added " + addedLooms + (addedLooms === 1 ? " set" : " sets"));
+	else alert("No sets imported. Check your formating and try again.");
+});
+
+function getMoves(set, rows, x) {
+	let movesFound = false;
+	let move;
+	let moves = [];
+	for (; x < rows.length && findSpecies(rows[x]).offset === undefined; x++) {
+		if (rows[x]) {
+			if (rows[x][0] === "-") {
+				movesFound = true;
+				move = rows[x].slice(2).replace("[", "").replace("]", "").trim().replace(/\s+/g, " ");
+				moves.push(move);
+			} else if (movesFound === true) break;
+		}
+	}
+	for (t = 0; t < moves.length; t++) {
+		Object.defineProperty(set.moves, "move" + (t + 1), {value: moves[t]});
+	}
+	return set;
+}
+
+function getStats(set, rows, x) {
+	let currentTP;
+	let currentUP;
+	for (; x < rows.length && findSpecies(rows[x]).offset === undefined; x++) {
+		let currentRow = rows[x] ? rows[x].split(/[/:]/) : "";
+		let evs = set.evs;
+		let ivs = set.ivs;
+		let ability;
+		let personality;
+		let posNat;
+		let negNat;
+		let veryNat;
+		let j;
+
+		switch (currentRow[0]) {
+		case 'TPs':
+			for (j = 1; j < currentRow.length; j++) {
+				currentTP = currentRow[j].trim().split(" ");
+				currentTP[1] = setToCalc(currentTP[1].toLowerCase());
+				evs[currentTP[1]] = parseInt(currentTP[0]);
+			}
+			set.evs = evs;
+			break;
+		case 'UPs':
+			for (j = 1; j < currentRow.length; j++) {
+				currentUP = currentRow[j].trim().split(" ");
+				currentUP[1] = setToCalc(currentUP[1].toLowerCase());
+				ivs[currentUP[1]] = parseInt(currentUP[0]);
+			}
+			set.ivs = ivs;
+			break;
+		case 'Ability':
+			ability = currentRow[1] ? currentRow[1].trim() : "";
+			if (abilities.indexOf(ability) !== -1) set.ability = ability;
+			break;
+		case 'Personality':
+			personality = currentRow[1] ? currentRow[1].trim().split(", ") : "";
+			if (personality[0].charAt(0) == "V") veryNat = personality[0].charAt(0).toLowerCase() + personality[0].charAt(5) + personality[0].slice(6);
+			else posNat = personality[0].toLowerCase();
+			if (personality[1]) {
+				if (personality[1].charAt(0) == "V") veryNat = personality[1].charAt(0).toLowerCase() + personality[1].charAt(5) + personality[1].slice(6);
+				else negNat = personality[1].toLowerCase();
+			}
+			if (personality[2]) veryNat = personality[2].charAt(0).toLowerCase() + personality[2].charAt(5) + personality[2].slice(6);
+			set.posNature = (posNat ? posNat : "none");
+			set.negNature = (negNat ? negNat : "none");
+			set.veryNature = (veryNat ? veryNat : "none");
+			break;
+		}
+	}
+	return set;
+}
+
+function calcToSet(stat) {
+	switch (stat) {
+	case 'hp':
+		return "HP";
+	case 'energy':
+		return "Energy";
+	case 'atk':
+		return "Attack";
+	case 'def':
+		return "Defense";
+	case 'atkr':
+		return "AttackR";
+	case 'defr':
+		return "DefenseR";
+	case 'spd':
+		return "Speed";	
+	}
+}
+
+function setToCalc(stat) {
+	switch (stat) {
+	case 'hp':
+		return "hp";
+	case 'energy':
+		return "energy";
+	case 'attack':
+		return "attack";
+	case 'defense':
+		return "defense";
+	case 'attackr':
+		return "attackR";
+	case 'defenser':
+		return "defenseR";
+	case 'speed':
+		return "speed";	
+	}
+}
+
+function getItem(currentRow, j) {
+	let item;
+	for (; j < currentRow.length; j++) {
+		item = currentRow[j].trim();
+		if (items.indexOf(item) !== -1) return item;
+	}
+	return "None";
+}
+
+function findSpecies(row) {
+	row = row.split(/[()@]/);
+	let name;
+	let offset;
+	for (let j = 0; j < row.length && offset === undefined; j++) {
+		name = row[j].trim();
+		if (loomians[name.toLowerCase()] !== undefined) offset = j;
+	}
+	return{name: name, offset: offset};
 }
 
 function addSet(set, builtIn = false) {
@@ -1165,6 +1461,7 @@ function makeBlankSet(loomian) {
             move3: "(No Move)",
             move4: "(No Move)"
         },
+        gender: (loomians[loomian.toLowerCase()].gender ? loomians[loomian.toLowerCase()].gender : "Male"),
         posNature: "none",
         negNature: "none",
         veryNature: "none",
@@ -3950,6 +4247,10 @@ function getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, 
         multi *= 1.5;
         stuffUsed.item2 = itemB;
     }
+    if (ability2 == "Recruit" || ability2 == "Veteran") {
+    	multi *= 1.1;
+    	stuffUsed.ability2 = ability2;
+    }
     if ((ability2 == "Trash Armor" || ability2 == "Hard Candy" || ability2 == "Safety Pot") && ((move.mr2 == "Melee Defense" && adaptive.mr2 != "Ranged Defense") || adaptive.mr2 == "Melee Defense") && !(ability1 == "Puncture" & move.bite)) {
         multi *= 1.5;
         stuffUsed.ability2 = ability2;
@@ -4127,10 +4428,6 @@ function getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, 
         stuffUsed.ability1 = ability1;
     }
 
-    if (ability2 == "Recruit" || ability2 == "Veteran") {
-    	multi *= 0.9;
-    	stuffUsed.ability2 = ability2;
-    }
     if ((ability2 == "Tank" && btl1 && withoutSlapDown && !(icicle && !loom2.types.includes("Ice")) && !(icicleH && !loom2.types.includes("Ice")) && (barbH == 0 || loom2.types.includes("Air")) && !foulHit && !(ability1 == "Puncture" & move.bite)) ||
     	(ability2 == "Cavernous" && move.sound)) {
         multi *= 0.5;
@@ -4234,7 +4531,7 @@ function getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, 
             let sum = 0;
             numb = i.toFixed(3);
             multiHits.forEach(num => sum += Math.floor(Math.max(num * numb, 1)));
-            possibleDmg.push((immuneClause == true ? Math.floor(dmg * multi * numb + sum) : Math.max(Math.floor(dmg * multi * numb + sum), 1)));
+            possibleDmg.push((immuneClause == true ? 0 : Math.max(Math.floor(dmg * multi * numb + sum), 1)));
         }
         if (foulHit) {
             return [dmg, possibleDmg];
@@ -4243,7 +4540,7 @@ function getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, 
         return [possibleDmg, possibleFoulDmg];
     }
 
-    dmg = (immuneClause == true ? Math.floor(dmg * multi + multiDmg) : Math.max(Math.floor(dmg * multi + multiDmg), 1));
+    dmg = (immuneClause == true ? 0 : Math.max(Math.floor(dmg * multi + multiDmg), 1));
 
     return dmg + foulDmg;
 }
