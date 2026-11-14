@@ -122,7 +122,7 @@
         </div>
 
         <div class="panel loomian-info">
-            <fieldset>
+            <fieldset id="loomian1">
 
                 <legend align="center">
                     Loomian 1
@@ -995,23 +995,43 @@
                             <label class="radiolbl fieldlbl entered" for="motivational2">Ally Has Motivational</label>
                         </div>
                     </div>
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="exportL" onchange="update()">
+                            <label class="exportlbl rest" for="exportL">Export</label>
+                        </div>
+        
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="exportR" onchange="update()">
+                            <label class="exportlbl rest" for="exportR">Export</label>
+                        </div>
+                    </div> 
                 </div>
 
                 <hr>
+                <legend align="center">Import / Export</legend>
                 <div class="bott">
                     <a href="https://saucesoy.github.io/Set-Maker">You can make sets here</a>
                 </div>
-                <div class="bott">
-                    <textarea id="import" placeholder="Enter set data here" onchange="importSets()"></textarea>
+                <div id="import-1_wrapper">
+                    <form class="import-team">
+                        <input class="import-name-text" value="Custom Set"></input>
+                        <textarea class="import-team-text" id="import" placeholder="Enter set data here"></textarea>
+                    </form>
                 </div>
                 <span class="bott" id="err"></span>
+                <div align="center">
+                    <input type="checkbox" class="hiddenToUser" id="imports" onchange="update()">
+                    <label class="exportlbl rest" for="imports">Import</label>
+                </div>
+
 
 
             </fieldset>
 
         </div>
         <div class="panel loomian-info">
-            <fieldset>
+            <fieldset id="loomian2">
                 <legend align="center">
                     Loomian 2
                 </legend>
@@ -1691,7 +1711,7 @@
 <script src="src/builtInSets.js"></script>
 <script>
     $(document).ready(function () {
-        $('.pokeSelect').select2();
+        $('.pokeselect').select2();
     });
     $(document).ready(function () {
         $('.moveSelect').select2();
