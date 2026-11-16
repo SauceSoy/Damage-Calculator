@@ -141,7 +141,9 @@
                         </select>
                         <button id="deleteSet1" style="visibility: hidden;" onclick="deleteSet()">Delete This Set</button>
                     </div>
-
+                    <div>
+                        <label id="formsLabel1" class="divAlign" style="display: none;">Forms:</label>
+                        <select id="forms1" style="display: none;" onchange="loadSets(true, undefined, true)"></select>
                     <div>
                         <label class="divAlign">Gender: </label>
 
@@ -1048,6 +1050,10 @@
                         </select>
                         <button id="deleteSet2" style="visibility: hidden;" onclick="deleteSet(true)">Delete This Set</button>
                     </div>
+                    <div>
+                        <label id="formsLabel2" class="divAlign" style="display: none;">Forms:</label>
+                        <select id="forms2" style="display: none;" onchange="loadSets(undefined, true, true)"></select>
+                    <div>
 
                     <div>
                         <label class="divAlign">Gender: </label>
