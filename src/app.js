@@ -1176,7 +1176,7 @@ function loadSets(onlyFirst = false, onlySecond = false, formChange = false) {
         	baseHP2.value = loomians[forms2.value.toLowerCase()].baseStats.hp;
 	        baseEnergy2.value = loomians[forms2.value.toLowerCase()].baseStats.energy;
 	        baseAtk2.value = loomians[forms2.value.toLowerCase()].baseStats.attack;
-	        baseDef12value = loomians[forms2.value.toLowerCase()].baseStats.defense;
+	        baseDef2.value = loomians[forms2.value.toLowerCase()].baseStats.defense;
 	        baseAtkR2.value = loomians[forms2.value.toLowerCase()].baseStats.attackR;
 	        baseDefR2.value = loomians[forms2.value.toLowerCase()].baseStats.defenseR;
 	        baseSpd2.value = loomians[forms2.value.toLowerCase()].baseStats.speed;
