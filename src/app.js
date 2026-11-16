@@ -496,11 +496,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -562,8 +562,8 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2028 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2028 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2028 12:00:00 UTC"
@@ -969,13 +969,15 @@ function updateHazards(hazard, side) {
 
 }*/
 
-function loadSets(onlyFirst = false, onlySecond = false) {
+function loadSets(onlyFirst = false, onlySecond = false, formChange = false) {
     if (onlyFirst || (!onlyFirst && !onlySecond)) {
         let set1 = pokeDropdown1.options[pokeDropdown1.selectedIndex].set;
         let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
         let posNat1 = document.getElementById("posNat1");
         let negNat1 = document.getElementById("negNat1");
         let veryNat1 = document.getElementById("veryNat1");
+        let label1 = document.getElementById("formsLabel1");
+        let forms1 = document.getElementById("forms1");
 
         hpEV1.value = set1.evs.hp;
         energyEV1.value = set1.evs.energy;
@@ -995,10 +997,12 @@ function loadSets(onlyFirst = false, onlySecond = false) {
 
         level1.value = levelCheck.value.split(' ')[1];
 
-        $("#moveOne1").val(set1.moves.move1);
-        $("#moveTwo1").val(set1.moves.move2);
-        $("#moveThree1").val(set1.moves.move3);
-        $("#moveFour1").val(set1.moves.move4);
+        if (!formChange) {
+	        $("#moveOne1").val(set1.moves.move1);
+	        $("#moveTwo1").val(set1.moves.move2);
+	        $("#moveThree1").val(set1.moves.move3);
+	        $("#moveFour1").val(set1.moves.move4);
+	    }    
 
         posNat1.value = (set1.posNature == undefined ? "none" : set1.posNature);
         negNat1.value = (set1.negNature == undefined ? "none" : set1.negNature);
@@ -1027,23 +1031,54 @@ function loadSets(onlyFirst = false, onlySecond = false) {
             document.getElementById("deleteSet1").style.visibility = "hidden";
         }
 
-        baseHP1.value = firstLoom.baseStats.hp;
-        baseEnergy1.value = firstLoom.baseStats.energy;
-        baseAtk1.value = firstLoom.baseStats.attack;
-        baseDef1.value = firstLoom.baseStats.defense;
-        baseAtkR1.value = firstLoom.baseStats.attackR;
-        baseDefR1.value = firstLoom.baseStats.defenseR;
-        baseSpd1.value = firstLoom.baseStats.speed;
-        if (gsbCheck.checked && firstLoom.gsbStats) {
-            baseHP1.value = firstLoom.gsbStats.hp;
-            baseEnergy1.value = firstLoom.gsbStats.energy;
-            baseAtk1.value = firstLoom.gsbStats.attack;
-            baseDef1.value = firstLoom.gsbStats.defense;
-            baseAtkR1.value = firstLoom.gsbStats.attackR;
-            baseDefR1.value = firstLoom.gsbStats.defenseR;
-            baseSpd1.value = firstLoom.gsbStats.speed;
-            addStats();
+        if (firstLoom.otherForms || firstLoom.baseSpecies) {
+        	if (!(findFormList(forms1, firstLoom.name))) {
+        		forms1.options.length = 0;
+	        	if (firstLoom.otherForms) {
+	        		forms1.appendChild(new Option(firstLoom.name));
+	        		for (i = 0; i < firstLoom.otherForms.length; i++) {
+	        			forms1.appendChild(new Option(firstLoom.otherForms[i]));
+	        		}
+	        	} else if (firstLoom.baseSpecies) {
+	        		let baseLoom = loomians[firstLoom.baseSpecies.toLowerCase()];
+	        		forms1.appendChild(new Option(baseLoom.name));
+	        		for (i = 0; i < baseLoom.otherForms.length; i++) {
+	        			forms1.appendChild(new Option(baseLoom.otherForms[i]));
+	        		}
+	        	}
+	        	forms1.value = firstLoom.name;
+	        	label1.style.display = "inline-block";
+	        	forms1.style.display = "inline-block";
+        	}
+        	if (!formChange) forms1.value = firstLoom.name;
+        } else {
+        	label1.style.display = "none";
+        	forms1.style.display = "none";
+        	forms1.options.length = 0;
         }
+
+
+        if (firstLoom.otherForms || firstLoom.baseSpecies) {
+        	baseHP1.value = loomians[forms1.value.toLowerCase()].baseStats.hp;
+	        baseEnergy1.value = loomians[forms1.value.toLowerCase()].baseStats.energy;
+	        baseAtk1.value = loomians[forms1.value.toLowerCase()].baseStats.attack;
+	        baseDef1.value = loomians[forms1.value.toLowerCase()].baseStats.defense;
+	        baseAtkR1.value = loomians[forms1.value.toLowerCase()].baseStats.attackR;
+	        baseDefR1.value = loomians[forms1.value.toLowerCase()].baseStats.defenseR;
+	        baseSpd1.value = loomians[forms1.value.toLowerCase()].baseStats.speed;
+	        primaryTypeDropdown1.value = loomians[forms1.value.toLowerCase()].types[0];
+	        secondaryTypeDropdown1.value = (loomians[forms1.value.toLowerCase()].types[1] != undefined ? loomians[forms1.value.toLowerCase()].types[1] : "None");
+	        abilityDropdown1.value = (loomians[forms1.value.toLowerCase()].ability != undefined ? loomians[forms1.value.toLowerCase()].ability : abilityDropdown1.value);
+	        item1.value = (loomians[forms1.value.toLowerCase()].item != undefined ? loomians[forms1.value.toLowerCase()].item : item1.value);
+        } else {
+	        baseHP1.value = firstLoom.baseStats.hp;
+	        baseEnergy1.value = firstLoom.baseStats.energy;
+	        baseAtk1.value = firstLoom.baseStats.attack;
+	        baseDef1.value = firstLoom.baseStats.defense;
+	        baseAtkR1.value = firstLoom.baseStats.attackR;
+	        baseDefR1.value = firstLoom.baseStats.defenseR;
+	        baseSpd1.value = firstLoom.baseStats.speed;
+	    }
 
         if (set1.gender) {
             gender1.value = set1.gender;
@@ -1056,6 +1091,8 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         let posNat2 = document.getElementById("posNat2");
         let negNat2 = document.getElementById("negNat2");
         let veryNat2 = document.getElementById("veryNat2");
+        let label2 = document.getElementById("formsLabel2");
+        let forms2 = document.getElementById("forms2");
 
         hpEV2.value = set2.evs.hp;
         energyEV2.value = set2.evs.energy;
@@ -1075,10 +1112,12 @@ function loadSets(onlyFirst = false, onlySecond = false) {
 
         level2.value = levelCheck.value.split(' ')[1];
 
-        $("#moveOne2").val(set2.moves.move1);
-        $("#moveTwo2").val(set2.moves.move2);
-        $("#moveThree2").val(set2.moves.move3);
-        $("#moveFour2").val(set2.moves.move4);
+        if (!formChange) {
+	        $("#moveOne2").val(set2.moves.move1);
+	        $("#moveTwo2").val(set2.moves.move2);
+	        $("#moveThree2").val(set2.moves.move3);
+	        $("#moveFour2").val(set2.moves.move4);
+	    }
 
         posNat2.value = (set2.posNature == undefined ? "none" : set2.posNature);
         negNat2.value = (set2.negNature == undefined ? "none" : set2.negNature);
@@ -1107,23 +1146,53 @@ function loadSets(onlyFirst = false, onlySecond = false) {
             document.getElementById("deleteSet2").style.visibility = "hidden";
         }
 
-        baseHP2.value = secondLoom.baseStats.hp;
-        baseEnergy2.value = secondLoom.baseStats.energy;
-        baseAtk2.value = secondLoom.baseStats.attack;
-        baseDef2.value = secondLoom.baseStats.defense;
-        baseAtkR2.value = secondLoom.baseStats.attackR;
-        baseDefR2.value = secondLoom.baseStats.defenseR;
-        baseSpd2.value = secondLoom.baseStats.speed;
-        if (gsbCheck.checked && secondLoom.gsbStats) {
-            baseHP2.value = secondLoom.gsbStats.hp;
-            baseEnergy2.value = secondLoom.gsbStats.energy;
-            baseAtk2.value = secondLoom.gsbStats.attack;
-            baseDef2.value = secondLoom.gsbStats.defense;
-            baseAtkR2.value = secondLoom.gsbStats.attackR;
-            baseDefR2.value = secondLoom.gsbStats.defenseR;
-            baseSpd2.value = secondLoom.gsbStats.speed;
-            addStats();
+        if (secondLoom.otherForms || secondLoom.baseSpecies) {
+        	if (!(findFormList(forms2, secondLoom.name))) {
+        		forms2.options.length = 0;
+	        	if (secondLoom.otherForms) {
+	        		forms2.appendChild(new Option(secondLoom.name));
+	        		for (i = 0; i < secondLoom.otherForms.length; i++) {
+	        			forms2.appendChild(new Option(secondLoom.otherForms[i]));
+	        		}
+	        	} else if (secondLoom.baseSpecies) {
+	        		let baseLoom = loomians[secondLoom.baseSpecies.toLowerCase()];
+	        		forms2.appendChild(new Option(baseLoom.name));
+	        		for (i = 0; i < baseLoom.otherForms.length; i++) {
+	        			forms2.appendChild(new Option(baseLoom.otherForms[i]));
+	        		}
+	        	}
+	        	forms2.value = secondLoom.name;
+	        	label2.style.display = "inline-block";
+	        	forms2.style.display = "inline-block";
+        	}
+        	if (!formChange) forms2.value = secondLoom.name;
+        } else {
+        	label2.style.display = "none";
+        	forms2.style.display = "none";
+        	forms2.options.length = 0;
         }
+
+        if (secondLoom.otherForms || secondLoom.baseSpecies) {
+        	baseHP2.value = loomians[forms2.value.toLowerCase()].baseStats.hp;
+	        baseEnergy2.value = loomians[forms2.value.toLowerCase()].baseStats.energy;
+	        baseAtk2.value = loomians[forms2.value.toLowerCase()].baseStats.attack;
+	        baseDef12value = loomians[forms2.value.toLowerCase()].baseStats.defense;
+	        baseAtkR2.value = loomians[forms2.value.toLowerCase()].baseStats.attackR;
+	        baseDefR2.value = loomians[forms2.value.toLowerCase()].baseStats.defenseR;
+	        baseSpd2.value = loomians[forms2.value.toLowerCase()].baseStats.speed;
+	        primaryTypeDropdown2.value = loomians[forms2.value.toLowerCase()].types[0];
+	        secondaryTypeDropdown2.value = (loomians[forms2.value.toLowerCase()].types[1] != undefined ? loomians[forms2.value.toLowerCase()].types[1] : "None");
+	        abilityDropdown2.value = (loomians[forms2.value.toLowerCase()].ability != undefined ? loomians[forms2.value.toLowerCase()].ability : abilityDropdown2.value);
+	        item2.value = (loomians[forms2.value.toLowerCase()].item != undefined ? loomians[forms2.value.toLowerCase()].item : item2.value);
+        } else {
+	        baseHP2.value = secondLoom.baseStats.hp;
+	        baseEnergy2.value = secondLoom.baseStats.energy;
+	        baseAtk2.value = secondLoom.baseStats.attack;
+	        baseDef2.value = secondLoom.baseStats.defense;
+	        baseAtkR2.value = secondLoom.baseStats.attackR;
+	        baseDefR2.value = secondLoom.baseStats.defenseR;
+	        baseSpd2.value = secondLoom.baseStats.speed;
+	    }    
 
         if (set2.gender) {
             gender2.value = set2.gender;
@@ -1131,6 +1200,13 @@ function loadSets(onlyFirst = false, onlySecond = false) {
     }
     
     update(undefined, false);
+}
+
+function findFormList(list, loomian) {
+	for (let opt of list.options) {
+		if (opt.value === loomian) return true;
+	}
+	return false;
 }
 
 function serialize(array, separator) {
@@ -1613,8 +1689,10 @@ function loadBaseStats(side) {
 function loadMoves(updatePower = false) {
     let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
     let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
-    let firstSoul = firstLoom.soulMove;
-    let secondSoul = secondLoom.soulMove;
+    let forms1 = (document.getElementById("forms1").value !== "" ? loomians[document.getElementById("forms1").value.toLowerCase()].soulMove : "");
+    let forms2 = (document.getElementById("forms2").value !== "" ? loomians[document.getElementById("forms2").value.toLowerCase()].soulMove : "");
+    let firstSoul = (forms1 ? forms1 : firstLoom.soulMove);
+    let secondSoul = (forms2 ? forms2 : secondLoom.soulMove);
 
     let moveOne1 = findMove(moveOneDropdown1.value);
     let moveTwo1 = findMove(moveTwoDropdown1.value);
