@@ -6738,6 +6738,7 @@ var loomians = {
     'cosmiore-encased': {
         name: "Cosmiore-Encased",
         types: ["Ancient", "Mind"],
+        otherForms: ["Cosmiore-Cracked", "Cosmiore-Unleashed"],
         weight: 123,
         height: 37,
         baseStats: {
@@ -6754,6 +6755,7 @@ var loomians = {
     'cosmiore-cracked': {
         name: "Cosmiore-Cracked",
         types: ["Ancient", "Mind"],
+        baseSpecies: "Cosmiore-Encased",
         weight: 123,
         height: 37,
         baseStats: {
@@ -6770,6 +6772,7 @@ var loomians = {
     'cosmiore-unleashed': {
         name: "Cosmiore-Unleashed",
         types: ["Ancient", "Mind"],
+        baseSpecies: "Cosmiore-Encased",
         weight: 123,
         height: 37,
         baseStats: {
