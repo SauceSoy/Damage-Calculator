@@ -6887,8 +6887,8 @@ var loomians = {
         }
     },
 
-    gargolem: {
-        name: "Gargolem",
+    'gargolem-base': {
+        name: "Gargolem-Base",
         types: ["Earth", "Air"],
         otherForms: ["Gargolem-Attack", "Gargolem-Defense", "Gargolem-Speed"],
         weight: 155,
@@ -6907,7 +6907,7 @@ var loomians = {
     'gargolem-attack': {
         name: "Gargolem-Attack",
         types: ["Earth", "Air"],
-        baseSpecies: "Gargolem",
+        baseSpecies: "Gargolem-Base",
         weight: 171,
         height: 77,
         baseStats: {
@@ -6924,7 +6924,7 @@ var loomians = {
     'gargolem-defense': {
         name: "Gargolem-Defense",
         types: ["Earth", "Air"],
-        baseSpecies: "Gargolem",
+        baseSpecies: "Gargolem-Base",
         weight: 181,
         height: 78,
         baseStats: {
@@ -6941,7 +6941,7 @@ var loomians = {
     'gargolem-speed': {
         name: "Gargolem-Speed",
         types: ["Earth", "Air"],
-        baseSpecies: "Gargolem",
+        baseSpecies: "Gargolem-Base",
         weight: 64,
         height: 61,
         baseStats: {
