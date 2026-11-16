@@ -12886,4 +12886,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Added a forms selection to those applicable.";
+var changelog = "Added a forms selection to those applicable. The set builder linked was replaced by one created by community member Fuzzy.";
