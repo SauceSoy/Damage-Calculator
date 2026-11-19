@@ -12620,7 +12620,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Night Light", "Intensify", "Power Claw", "Medic", "Boneheaded", "Metallic", "Power Legs", "Merge", "Greed", "Energy-Feeding", "Gain-Feeding", "Self-Destruct", "Snowball",
                  "Snow Glider", "Recruit", "Veteran", "Spoils of War", "Sticky", "Stoked", "Electrify", "Cavernous", "Conditioned", "Black Heart", "Extended Reach", "High-Strung", "Dirt Dash",
                  "Earthmover", "Dust Devil", "Arctic", "Dead of Winter", "Soul Hoarder", "Brave Cub", "Elder Mane", "Shifty", "Solar Powered", "Extraterrestrial", "Noxious Razorback", "Virulent Hypnosis",
-                 "High Pressure", "Slick Scales", "Pugilist"];
+                 "High Pressure", "Slick Scales", "Pugilist", "Detonate"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -12879,8 +12879,8 @@ for (let ty in types) {
 
 for (let loo in loomians) {
     if (loomians[loo].item) {
-        if (items.includes(loomians[loo].item)) break;
-        items.push(loomians[loo].item);
+        if (items.includes(loomians[loo].item));
+        else items.push(loomians[loo].item);
     }    
 }
 

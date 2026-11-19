@@ -3111,9 +3111,19 @@ function detailedReport() {
         adaptiveResult = "melee";
         atkDef = getTempAtkDef(second, adaptive);
     } else atkDef = getTempAtkDef(second, move);
-    if (move.mr == "Melee" && myStatus == "burned" && !firstLoom.types.includes("Fire") && !(adaptiveResult && adaptiveResult == "ranged")) statStr = " " + myStatus.charAt(0).toUpperCase() + myStatus.slice(1);
-    else if (move.mr == "Ranged" && myStatus == "freezing" && !firstLoom.types.includes("Ice") && !(adaptiveResult && adaptiveResult == "melee")) statStr = " Frostbitten";
-    else if ((move.mr1 == "Speed" || move.name == "Tempest" || move.name == "Outburst") && myStatus == "paralasis" && !firstLoom.types.includes("Electric")) statStr = " Paralyzed";
+    if ((move.mr == "Melee" && myStatus == "burned" && !(adaptiveResult && adaptiveResult == "ranged")) ||
+    	(move.mr == "Ranged" && myStatus == "freezing" && !(adaptiveResult && adaptiveResult == "melee")) ||
+    	((move.mr1 == "Speed" || move.name == "Tempest" || move.name == "Outburst") && !firstLoom.types.includes("Electric")) ||
+    	(move.name == "Ill Will" && myStatus != "healthy")) {
+    	statStr = " " + myStatus.charAt(0).toUpperCase() + myStatus.slice(1);
+    	if ((statStr == " Burned" && firstLoom.types.includes("Fire")) || ((statStr == " Poisoned" || statStr == " Diseased") && firstLoom.types.includes("Toxic")) || (statStr == " Paralasis" && firstLoom.types.includes("Electric")) || (statStr == " Freezing" && firstLoom.types.includes("Ice"))) statStr = "";
+    	else if (statStr == " Paralasis") statStr = " Paralyzed";
+    	else if (statStr == " Diseased") statStr = " Badly Poisoned";
+    	else if (statStr == " Freezing") statStr = " Frostbitten";
+    }
+    //else if (move.mr == "Ranged" && myStatus == "freezing" && !firstLoom.types.includes("Ice") && !(adaptiveResult && adaptiveResult == "melee")) statStr = " Frostbitten";
+    //else if ((move.mr1 == "Speed" || move.name == "Tempest" || move.name == "Outburst") && myStatus == "paralasis" && !firstLoom.types.includes("Electric")) statStr = " Paralyzed";
+    //else if (move.name == "Ill Will" && myStatus != "none") statStr = 
     if (statStr2 == " Healthy" || (statStr2 == " Burned" && secondLoom.types.includes("Fire")) || (statStr2 == " Paralasis" && secondLoom.types.includes("Electric")) || ((statStr2 == " Poisoned" || statStr2 == " Diseased") && secondLoom.types.includes("Toxic")) || (statStr2 == " Freezing" && secondLoom.types.includes("Ice"))) statStr2 = "";
     else if (statStr2 == " Paralasis") statStr2 = " Paralyzed";
     else if (statStr2 == " Diseased") statStr2 = " Badly Poisoned";
@@ -3855,7 +3865,7 @@ function getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, 
     }
 
     if ((move.name == "Oppress" && stat2 != "healthy") ||
-       ((move.name == "Ill Will" || move.name == "Splitting Headache") && stat1 != "healthy") ||
+       ((move.name == "Ill Will" || move.name == "Splitting Headache") && stat1 != "healthy" && !((stat1 == "burned" && loom1.types.includes("Fire")) || (stat1 == "freezing" && loom1.types.includes("Ice")) || (stat1 == "paralasis" && loom1.types.includes("Electric")) || ((stat1 == "poisoned" || stat1 == "diseased") && loom1.types.includes("Toxic")))) ||
        (move.name == "Gobble Goop" && stat2 == "poisoned")) {
         powerCheck *= 2;
         multi *= 2;
