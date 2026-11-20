@@ -4980,6 +4980,7 @@ var loomians = {
     erspring: {
         name: "Erspring",
         types: ["Simple"],
+        otherForms: ["Erspring-Springpop"],
         weight: 26,
         height: 67,
         baseStats: {
@@ -4990,6 +4991,26 @@ var loomians = {
             attackR: 54,
             defenseR: 72,
             speed: 94
+        }
+    },
+
+    'erspring-springpop': {
+        name: "Erspring-Springpop",
+        types: ["Simple"],
+        baseSpecies: "Erspring",
+        soulMove: "Spring-Loaded Smash",
+        ability: "Packed Punch",
+        item: "Springburst",
+        weight: 26,
+        height: 67,
+        baseStats: {
+            hp: 115,
+            energy: 99,
+            attack: 106,
+            defense: 106,
+            attackR: 54,
+            defenseR: 92,
+            speed: 74
         }
     },
 
@@ -7125,6 +7146,19 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true
+    },
+
+    'spring-loaded smash': {
+        name: "Spring-Loaded Smash",
+        power: 100,
+        energy: 0,
+        accuracy: "N/A",
+        type: "Simple",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        crit: true
     },
 
     singe: {
@@ -12620,7 +12654,7 @@ var abilities = ["Ability Thief", "Ace", "Adorable", "Aggressive", "Ambush", "An
                  "Night Light", "Intensify", "Power Claw", "Medic", "Boneheaded", "Metallic", "Power Legs", "Merge", "Greed", "Energy-Feeding", "Gain-Feeding", "Self-Destruct", "Snowball",
                  "Snow Glider", "Recruit", "Veteran", "Spoils of War", "Sticky", "Stoked", "Electrify", "Cavernous", "Conditioned", "Black Heart", "Extended Reach", "High-Strung", "Dirt Dash",
                  "Earthmover", "Dust Devil", "Arctic", "Dead of Winter", "Soul Hoarder", "Brave Cub", "Elder Mane", "Shifty", "Solar Powered", "Extraterrestrial", "Noxious Razorback", "Virulent Hypnosis",
-                 "High Pressure", "Slick Scales", "Pugilist", "Detonate"];
+                 "High Pressure", "Slick Scales", "Pugilist", "Detonate", "Packed Punch"];
 
 var typeModAbilities = {
     coursingVenom: {
@@ -12886,4 +12920,4 @@ for (let loo in loomians) {
 
 var sets = [];
 
-var changelog = "Added a forms selection to those applicable. The set builder linked was replaced by one created by community member Fuzzy.";
+var changelog = "Springpop Erspring added.";

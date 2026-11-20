@@ -496,11 +496,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -562,8 +562,8 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2028 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2028 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2028 12:00:00 UTC"
@@ -1851,6 +1851,7 @@ function loadStats() {
     statHP1.innerHTML = hp1;
     statEnergy1.innerHTML = energy1;
     energyRegen1.innerHTML = "(+" + Math.round(energy1 / 20) + ")";
+    if (ability1 == "Packed Punch") multi *= 2;
     statAtk1.innerHTML = Math.floor(atk1 * multi);
     multi = 1;
     if (ability1 == "Trash Armor" || ability1 == "Hard Candy" || ability1 == "Safety Pot") multi *= 1.5;
@@ -1882,6 +1883,7 @@ function loadStats() {
     statHP2.innerHTML = hp2;
     statEnergy2.innerHTML = energy2;
     energyRegen2.innerHTML = "(+" + Math.round(energy2 / 20) + ")";
+    if (ability2 == "Packed Punch") multi *= 2;
     statAtk2.innerHTML = Math.floor(atk2 * multi);
     multi = 1;
     if (ability2 == "Trash Armor" || ability2 == "Hard Candy" || ability2 == "Safety Pot") multi *= 1.5;
@@ -4283,7 +4285,8 @@ function getMultiplier(loom1, loom2, move, movePower, moveEnergy, crit, repeat, 
             multi *= 1.2;
             stuffUsed.item1 = itemA;
     }
-    if (move.mr1 == "Ranged Defense" && (ability1 == "Slick Shell" || ability1 == "Slick Scales")) {
+    if ((move.mr1 == "Ranged Defense" && (ability1 == "Slick Shell" || ability1 == "Slick Scales")) ||
+    	(move.mr1 == "Melee Attack" && ability1 == "Packed Punch")) {
         multi *= 2;
         stuffUsed.ability1 = ability1
     }
