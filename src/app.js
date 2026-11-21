@@ -1006,23 +1006,23 @@ function loadSets(onlyFirst = false, onlySecond = false, formChange = false) {
 	        posNat1.value = (set1.posNature == undefined ? "none" : set1.posNature);
 	        negNat1.value = (set1.negNature == undefined ? "none" : set1.negNature);
 	        veryNat1.value = (set1.veryNature == undefined ? "none" : set1.veryNature);
-	        abilityDropdown1.value = (set1.ability == undefined ? "none" : set1.ability);
-	        if (firstLoom.ability) {
-	            abilityDropdown1.value = firstLoom.ability;
-	        }
-	        item1.value = (set1.item == undefined ? "none" : set1.item);
-	        if (firstLoom.item) item1.value = firstLoom.item;
-	        updateAbility(abilityDropdown1.value);
-	        updateItem('item1');
+	    }
+	    abilityDropdown1.value = (set1.ability == undefined ? "none" : set1.ability);
+	    if (firstLoom.ability) {
+	        abilityDropdown1.value = firstLoom.ability;
+	    }
+	    item1.value = (set1.item == undefined ? "none" : set1.item);
+	    if (firstLoom.item) item1.value = firstLoom.item;
+	    updateAbility(abilityDropdown1.value);
+	    updateItem('item1');
 
-	        $("#moveOne1").select2().trigger('change');
-	        $("#moveTwo1").select2().trigger('change');
-	        $("#moveThree1").select2().trigger('change');
-	        $("#moveFour1").select2().trigger('change');
+	    $("#moveOne1").select2().trigger('change');
+	    $("#moveTwo1").select2().trigger('change');
+	    $("#moveThree1").select2().trigger('change');
+	    $("#moveFour1").select2().trigger('change');
 
-	        primaryTypeDropdown1.value = loomians[pokeDropdown1.value.toLowerCase()].types[0];
-	        secondaryTypeDropdown1.value = (loomians[pokeDropdown1.value.toLowerCase()].types[1] != undefined ? loomians[pokeDropdown1.value.toLowerCase()].types[1] : "None");
-    	}
+	    primaryTypeDropdown1.value = loomians[pokeDropdown1.value.toLowerCase()].types[0];
+	    secondaryTypeDropdown1.value = (loomians[pokeDropdown1.value.toLowerCase()].types[1] != undefined ? loomians[pokeDropdown1.value.toLowerCase()].types[1] : "None");
 
         if (set1.setName != "Blank Set" && set1.builtIn == undefined) {
             document.getElementById("deleteSet1").style.visibility = "visible";
@@ -1121,23 +1121,23 @@ function loadSets(onlyFirst = false, onlySecond = false, formChange = false) {
 	        posNat2.value = (set2.posNature == undefined ? "none" : set2.posNature);
 	        negNat2.value = (set2.negNature == undefined ? "none" : set2.negNature);
 	        veryNat2.value = (set2.veryNature == undefined ? "none" : set2.veryNature);
-	        abilityDropdown2.value = (set2.ability == undefined ? "none" : set2.ability);
-	        if (secondLoom.ability) {
-	            abilityDropdown2.value = secondLoom.ability;
-	        }    
-	        item2.value = (set2.item == undefined ? "none" : set2.item);
-	        if (secondLoom.item) item2.value = secondLoom.item;
-	        updateAbility(abilityDropdown2.value);
-	        updateItem('item2');
+	    }    
+	    abilityDropdown2.value = (set2.ability == undefined ? "none" : set2.ability);
+	    if (secondLoom.ability) {
+	        abilityDropdown2.value = secondLoom.ability;
+	    }    
+	    item2.value = (set2.item == undefined ? "none" : set2.item);
+	    if (secondLoom.item) item2.value = secondLoom.item;
+	    updateAbility(abilityDropdown2.value);
+	    updateItem('item2');
 
-	        $("#moveOne2").select2().trigger('change');
-	        $("#moveTwo2").select2().trigger('change');
-	        $("#moveThree2").select2().trigger('change');
-	        $("#moveFour2").select2().trigger('change');
+	    $("#moveOne2").select2().trigger('change');
+	    $("#moveTwo2").select2().trigger('change');
+	    $("#moveThree2").select2().trigger('change');
+	    $("#moveFour2").select2().trigger('change');
 
-	        primaryTypeDropdown2.value = loomians[pokeDropdown2.value.toLowerCase()].types[0];
-	        secondaryTypeDropdown2.value = (loomians[pokeDropdown2.value.toLowerCase()].types[1] != undefined ? loomians[pokeDropdown2.value.toLowerCase()].types[1] : "None");
-    	}
+	    primaryTypeDropdown2.value = loomians[pokeDropdown2.value.toLowerCase()].types[0];
+	    secondaryTypeDropdown2.value = (loomians[pokeDropdown2.value.toLowerCase()].types[1] != undefined ? loomians[pokeDropdown2.value.toLowerCase()].types[1] : "None");
 
         if (set2.setName != "Blank Set" && set2.builtIn == undefined) {
             document.getElementById("deleteSet2").style.visibility = "visible";
