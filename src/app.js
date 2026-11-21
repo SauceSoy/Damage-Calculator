@@ -979,50 +979,50 @@ function loadSets(onlyFirst = false, onlySecond = false, formChange = false) {
         let label1 = document.getElementById("formsLabel1");
         let forms1 = document.getElementById("forms1");
 
-        hpEV1.value = set1.evs.hp;
-        energyEV1.value = set1.evs.energy;
-        atkEV1.value = set1.evs.attack;
-        defEV1.value = set1.evs.defense;
-        atkREV1.value = set1.evs.attackR;
-        defREV1.value = set1.evs.defenseR;
-        spdEV1.value = set1.evs.speed;
-
-        hpIV1.value = set1.ivs.hp;
-        energyIV1.value = set1.ivs.energy;
-        atkIV1.value = set1.ivs.attack;
-        defIV1.value = set1.ivs.defense;
-        atkRIV1.value = set1.ivs.attackR;
-        defRIV1.value = set1.ivs.defenseR;
-        spdIV1.value = set1.ivs.speed;
-
-        level1.value = levelCheck.value.split(' ')[1];
-
         if (!formChange) {
-	        $("#moveOne1").val(set1.moves.move1);
-	        $("#moveTwo1").val(set1.moves.move2);
-	        $("#moveThree1").val(set1.moves.move3);
-	        $("#moveFour1").val(set1.moves.move4);
-	    }    
+	        hpEV1.value = set1.evs.hp;
+	        energyEV1.value = set1.evs.energy;
+	        atkEV1.value = set1.evs.attack;
+	        defEV1.value = set1.evs.defense;
+	        atkREV1.value = set1.evs.attackR;
+	        defREV1.value = set1.evs.defenseR;
+	        spdEV1.value = set1.evs.speed;
 
-        posNat1.value = (set1.posNature == undefined ? "none" : set1.posNature);
-        negNat1.value = (set1.negNature == undefined ? "none" : set1.negNature);
-        veryNat1.value = (set1.veryNature == undefined ? "none" : set1.veryNature);
-        abilityDropdown1.value = (set1.ability == undefined ? "none" : set1.ability);
-        if (firstLoom.ability) {
-            abilityDropdown1.value = firstLoom.ability;
-        }
-        item1.value = (set1.item == undefined ? "none" : set1.item);
-        if (firstLoom.item) item1.value = firstLoom.item;
-        updateAbility(abilityDropdown1.value);
-        updateItem('item1');
+	        hpIV1.value = set1.ivs.hp;
+	        energyIV1.value = set1.ivs.energy;
+	        atkIV1.value = set1.ivs.attack;
+	        defIV1.value = set1.ivs.defense;
+	        atkRIV1.value = set1.ivs.attackR;
+	        defRIV1.value = set1.ivs.defenseR;
+	        spdIV1.value = set1.ivs.speed;
 
-        $("#moveOne1").select2().trigger('change');
-        $("#moveTwo1").select2().trigger('change');
-        $("#moveThree1").select2().trigger('change');
-        $("#moveFour1").select2().trigger('change');
+	        level1.value = levelCheck.value.split(' ')[1];
 
-        primaryTypeDropdown1.value = loomians[pokeDropdown1.value.toLowerCase()].types[0];
-        secondaryTypeDropdown1.value = (loomians[pokeDropdown1.value.toLowerCase()].types[1] != undefined ? loomians[pokeDropdown1.value.toLowerCase()].types[1] : "None");
+		    $("#moveOne1").val(set1.moves.move1);
+		    $("#moveTwo1").val(set1.moves.move2);
+		    $("#moveThree1").val(set1.moves.move3);
+		    $("#moveFour1").val(set1.moves.move4);
+
+	        posNat1.value = (set1.posNature == undefined ? "none" : set1.posNature);
+	        negNat1.value = (set1.negNature == undefined ? "none" : set1.negNature);
+	        veryNat1.value = (set1.veryNature == undefined ? "none" : set1.veryNature);
+	        abilityDropdown1.value = (set1.ability == undefined ? "none" : set1.ability);
+	        if (firstLoom.ability) {
+	            abilityDropdown1.value = firstLoom.ability;
+	        }
+	        item1.value = (set1.item == undefined ? "none" : set1.item);
+	        if (firstLoom.item) item1.value = firstLoom.item;
+	        updateAbility(abilityDropdown1.value);
+	        updateItem('item1');
+
+	        $("#moveOne1").select2().trigger('change');
+	        $("#moveTwo1").select2().trigger('change');
+	        $("#moveThree1").select2().trigger('change');
+	        $("#moveFour1").select2().trigger('change');
+
+	        primaryTypeDropdown1.value = loomians[pokeDropdown1.value.toLowerCase()].types[0];
+	        secondaryTypeDropdown1.value = (loomians[pokeDropdown1.value.toLowerCase()].types[1] != undefined ? loomians[pokeDropdown1.value.toLowerCase()].types[1] : "None");
+    	}
 
         if (set1.setName != "Blank Set" && set1.builtIn == undefined) {
             document.getElementById("deleteSet1").style.visibility = "visible";
@@ -1094,50 +1094,50 @@ function loadSets(onlyFirst = false, onlySecond = false, formChange = false) {
         let label2 = document.getElementById("formsLabel2");
         let forms2 = document.getElementById("forms2");
 
-        hpEV2.value = set2.evs.hp;
-        energyEV2.value = set2.evs.energy;
-        atkEV2.value = set2.evs.attack;
-        defEV2.value = set2.evs.defense;
-        atkREV2.value = set2.evs.attackR;
-        defREV2.value = set2.evs.defenseR;
-        spdEV2.value = set2.evs.speed;
-
-        hpIV2.value = set2.ivs.hp;
-        energyIV2.value = set2.ivs.energy;
-        atkIV2.value = set2.ivs.attack;
-        defIV2.value = set2.ivs.defense;
-        atkRIV2.value = set2.ivs.attackR;
-        defRIV2.value = set2.ivs.defenseR;
-        spdIV2.value = set2.ivs.speed;
-
-        level2.value = levelCheck.value.split(' ')[1];
-
         if (!formChange) {
-	        $("#moveOne2").val(set2.moves.move1);
-	        $("#moveTwo2").val(set2.moves.move2);
-	        $("#moveThree2").val(set2.moves.move3);
-	        $("#moveFour2").val(set2.moves.move4);
-	    }
+	        hpEV2.value = set2.evs.hp;
+	        energyEV2.value = set2.evs.energy;
+	        atkEV2.value = set2.evs.attack;
+	        defEV2.value = set2.evs.defense;
+	        atkREV2.value = set2.evs.attackR;
+	        defREV2.value = set2.evs.defenseR;
+	        spdEV2.value = set2.evs.speed;
 
-        posNat2.value = (set2.posNature == undefined ? "none" : set2.posNature);
-        negNat2.value = (set2.negNature == undefined ? "none" : set2.negNature);
-        veryNat2.value = (set2.veryNature == undefined ? "none" : set2.veryNature);
-        abilityDropdown2.value = (set2.ability == undefined ? "none" : set2.ability);
-        if (secondLoom.ability) {
-            abilityDropdown2.value = secondLoom.ability;
-        }    
-        item2.value = (set2.item == undefined ? "none" : set2.item);
-        if (secondLoom.item) item2.value = secondLoom.item;
-        updateAbility(abilityDropdown2.value);
-        updateItem('item2');
+	        hpIV2.value = set2.ivs.hp;
+	        energyIV2.value = set2.ivs.energy;
+	        atkIV2.value = set2.ivs.attack;
+	        defIV2.value = set2.ivs.defense;
+	        atkRIV2.value = set2.ivs.attackR;
+	        defRIV2.value = set2.ivs.defenseR;
+	        spdIV2.value = set2.ivs.speed;
 
-        $("#moveOne2").select2().trigger('change');
-        $("#moveTwo2").select2().trigger('change');
-        $("#moveThree2").select2().trigger('change');
-        $("#moveFour2").select2().trigger('change');
+	        level2.value = levelCheck.value.split(' ')[1];
 
-        primaryTypeDropdown2.value = loomians[pokeDropdown2.value.toLowerCase()].types[0];
-        secondaryTypeDropdown2.value = (loomians[pokeDropdown2.value.toLowerCase()].types[1] != undefined ? loomians[pokeDropdown2.value.toLowerCase()].types[1] : "None");
+		    $("#moveOne2").val(set2.moves.move1);
+		    $("#moveTwo2").val(set2.moves.move2);
+		    $("#moveThree2").val(set2.moves.move3);
+		    $("#moveFour2").val(set2.moves.move4);
+
+	        posNat2.value = (set2.posNature == undefined ? "none" : set2.posNature);
+	        negNat2.value = (set2.negNature == undefined ? "none" : set2.negNature);
+	        veryNat2.value = (set2.veryNature == undefined ? "none" : set2.veryNature);
+	        abilityDropdown2.value = (set2.ability == undefined ? "none" : set2.ability);
+	        if (secondLoom.ability) {
+	            abilityDropdown2.value = secondLoom.ability;
+	        }    
+	        item2.value = (set2.item == undefined ? "none" : set2.item);
+	        if (secondLoom.item) item2.value = secondLoom.item;
+	        updateAbility(abilityDropdown2.value);
+	        updateItem('item2');
+
+	        $("#moveOne2").select2().trigger('change');
+	        $("#moveTwo2").select2().trigger('change');
+	        $("#moveThree2").select2().trigger('change');
+	        $("#moveFour2").select2().trigger('change');
+
+	        primaryTypeDropdown2.value = loomians[pokeDropdown2.value.toLowerCase()].types[0];
+	        secondaryTypeDropdown2.value = (loomians[pokeDropdown2.value.toLowerCase()].types[1] != undefined ? loomians[pokeDropdown2.value.toLowerCase()].types[1] : "None");
+    	}
 
         if (set2.setName != "Blank Set" && set2.builtIn == undefined) {
             document.getElementById("deleteSet2").style.visibility = "visible";
